@@ -1,0 +1,1175 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1801AB912385036300F46223 /* GoogleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1801AB902385036300F46223 /* GoogleManager.swift */; };
+		1801AB932385036A00F46223 /* FacebookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1801AB922385036A00F46223 /* FacebookManager.swift */; };
+		1801ABAB23851DCB00F46223 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801AB9723851DCB00F46223 /* iCarousel.m */; };
+		1801ABAC23851DCB00F46223 /* KVNProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801AB9823851DCB00F46223 /* KVNProgress.m */; };
+		1801ABAD23851DCB00F46223 /* KVNProgressConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801AB9923851DCB00F46223 /* KVNProgressConfiguration.m */; };
+		1801ABAE23851DCB00F46223 /* KVNRotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801AB9A23851DCB00F46223 /* KVNRotationViewController.m */; };
+		1801ABAF23851DCB00F46223 /* KVNProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1801ABA023851DCB00F46223 /* KVNProgressView.xib */; };
+		1801ABB023851DCB00F46223 /* ProgressManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801ABA323851DCB00F46223 /* ProgressManager.m */; };
+		1801ABB123851DCB00F46223 /* UIImage+KVNImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801ABA523851DCB00F46223 /* UIImage+KVNImageEffects.m */; };
+		1801ABB223851DCB00F46223 /* UIImage+KVNEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801ABA823851DCB00F46223 /* UIImage+KVNEmpty.m */; };
+		1801ABB323851DCB00F46223 /* UIColor+KVNContrast.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801ABAA23851DCB00F46223 /* UIColor+KVNContrast.m */; };
+		1821AF0B237A741B0010B307 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF0A237A741B0010B307 /* HomeViewController.swift */; };
+		1821AF0D237A74320010B307 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF0C237A74320010B307 /* UploadViewController.swift */; };
+		1821AF0F237A74450010B307 /* PurchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF0E237A74450010B307 /* PurchesViewController.swift */; };
+		1821AF12237A7BB50010B307 /* CustomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF11237A7BB50010B307 /* CustomNavBar.swift */; };
+		1821AF14237A7BC60010B307 /* CustomNavBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1821AF13237A7BC60010B307 /* CustomNavBar.xib */; };
+		1821AF17237A7E070010B307 /* CustomConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF16237A7E070010B307 /* CustomConstraint.swift */; };
+		1821AF1D237A7E670010B307 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF18237A7E650010B307 /* CustomButton.swift */; };
+		1821AF1E237A7E670010B307 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF19237A7E660010B307 /* CustomTextView.swift */; };
+		1821AF1F237A7E670010B307 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF1A237A7E660010B307 /* CustomLabel.swift */; };
+		1821AF20237A7E670010B307 /* ExpandableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF1B237A7E660010B307 /* ExpandableLabel.swift */; };
+		1821AF21237A7E670010B307 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF1C237A7E670010B307 /* CustomTextField.swift */; };
+		1821AF23237A860F0010B307 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF22237A860F0010B307 /* Extensions.swift */; };
+		1821AF25237A86C50010B307 /* CustomBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF24237A86C50010B307 /* CustomBase.swift */; };
+		1821AF27237A8EF20010B307 /* CustomBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF26237A8EF10010B307 /* CustomBarButtonItem.swift */; };
+		18DDC78A23797AA6003FCCE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDC78923797AA6003FCCE8 /* AppDelegate.swift */; };
+		18DDC78E23797AA6003FCCE8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDC78D23797AA6003FCCE8 /* SearchViewController.swift */; };
+		18DDC79123797AA6003FCCE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18DDC78F23797AA6003FCCE8 /* Main.storyboard */; };
+		18DDC79323797AAA003FCCE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18DDC79223797AAA003FCCE8 /* Assets.xcassets */; };
+		18DDC79623797AAA003FCCE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18DDC79423797AAA003FCCE8 /* LaunchScreen.storyboard */; };
+		18DDC7A123797AAB003FCCE8 /* YupEasyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDC7A023797AAB003FCCE8 /* YupEasyTests.swift */; };
+		18DDC7AC23797AAB003FCCE8 /* YupEasyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDC7AB23797AAB003FCCE8 /* YupEasyUITests.swift */; };
+		18DDC7C5237982BC003FCCE8 /* NeoSans-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18DDC7BF237982BB003FCCE8 /* NeoSans-BoldItalic.otf */; };
+		18DDC7C6237982BC003FCCE8 /* NeoSans-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18DDC7C0237982BB003FCCE8 /* NeoSans-Italic.otf */; };
+		18DDC7C7237982BC003FCCE8 /* NeoSans-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18DDC7C1237982BB003FCCE8 /* NeoSans-Medium.otf */; };
+		18DDC7C8237982BC003FCCE8 /* NeoSans.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18DDC7C2237982BB003FCCE8 /* NeoSans.otf */; };
+		18DDC7C9237982BC003FCCE8 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18DDC7C3237982BC003FCCE8 /* OpenSans-Regular.ttf */; };
+		18DDC7CA237982BC003FCCE8 /* NeoSans-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18DDC7C4237982BC003FCCE8 /* NeoSans-Bold.otf */; };
+		18DDC7CD23798B9B003FCCE8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDC7CC23798B9B003FCCE8 /* BaseViewController.swift */; };
+		18DDC7D023798C34003FCCE8 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDC7CF23798C34003FCCE8 /* Common.swift */; };
+		18DDC7D223798CD4003FCCE8 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDC7D123798CD4003FCCE8 /* Constant.swift */; };
+		18E71D6B237C15690090FC90 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E71D6A237C15690090FC90 /* LoginViewController.swift */; };
+		18E71D6D237C1EE30090FC90 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E71D6C237C1EE30090FC90 /* LeftMenuViewController.swift */; };
+		18E71D72237C1F670090FC90 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E71D71237C1F670090FC90 /* SWRevealViewController.m */; };
+		2EBFF58603242F8F6BC9E019 /* Pods_Kethan_KethanUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C2C5B99F865ED493CCA4D1 /* Pods_Kethan_KethanUITests.framework */; };
+		8C2D4DA856A726658DE99E83 /* Pods_KethanTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 779D5CC27DDBD6444B2417E9 /* Pods_KethanTests.framework */; };
+		A662AD3830527FE57E613C63 /* Pods_Kethan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890B82F08AB34E77A2A7FFA0 /* Pods_Kethan.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		18DDC79D23797AAB003FCCE8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18DDC77E23797AA6003FCCE8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 18DDC78523797AA6003FCCE8;
+			remoteInfo = YupEasy;
+		};
+		18DDC7A823797AAB003FCCE8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18DDC77E23797AA6003FCCE8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 18DDC78523797AA6003FCCE8;
+			remoteInfo = YupEasy;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1801AB902385036300F46223 /* GoogleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleManager.swift; sourceTree = "<group>"; };
+		1801AB922385036A00F46223 /* FacebookManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookManager.swift; sourceTree = "<group>"; };
+		1801AB9723851DCB00F46223 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		1801AB9823851DCB00F46223 /* KVNProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVNProgress.m; sourceTree = "<group>"; };
+		1801AB9923851DCB00F46223 /* KVNProgressConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVNProgressConfiguration.m; sourceTree = "<group>"; };
+		1801AB9A23851DCB00F46223 /* KVNRotationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVNRotationViewController.m; sourceTree = "<group>"; };
+		1801AB9B23851DCB00F46223 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		1801AB9C23851DCB00F46223 /* KVNProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVNProgress.h; sourceTree = "<group>"; };
+		1801AB9D23851DCB00F46223 /* KVNProgressConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVNProgressConfiguration.h; sourceTree = "<group>"; };
+		1801AB9E23851DCB00F46223 /* KVNRotationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVNRotationViewController.h; sourceTree = "<group>"; };
+		1801ABA023851DCB00F46223 /* KVNProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KVNProgressView.xib; sourceTree = "<group>"; };
+		1801ABA223851DCB00F46223 /* ProgressManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressManager.h; sourceTree = "<group>"; };
+		1801ABA323851DCB00F46223 /* ProgressManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressManager.m; sourceTree = "<group>"; };
+		1801ABA523851DCB00F46223 /* UIImage+KVNImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+KVNImageEffects.m"; sourceTree = "<group>"; };
+		1801ABA623851DCB00F46223 /* UIImage+KVNEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+KVNEmpty.h"; sourceTree = "<group>"; };
+		1801ABA723851DCB00F46223 /* UIColor+KVNContrast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+KVNContrast.h"; sourceTree = "<group>"; };
+		1801ABA823851DCB00F46223 /* UIImage+KVNEmpty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+KVNEmpty.m"; sourceTree = "<group>"; };
+		1801ABA923851DCB00F46223 /* UIImage+KVNImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+KVNImageEffects.h"; sourceTree = "<group>"; };
+		1801ABAA23851DCB00F46223 /* UIColor+KVNContrast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+KVNContrast.m"; sourceTree = "<group>"; };
+		1821AF0A237A741B0010B307 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		1821AF0C237A74320010B307 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
+		1821AF0E237A74450010B307 /* PurchesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchesViewController.swift; sourceTree = "<group>"; };
+		1821AF11237A7BB50010B307 /* CustomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBar.swift; sourceTree = "<group>"; };
+		1821AF13237A7BC60010B307 /* CustomNavBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomNavBar.xib; sourceTree = "<group>"; };
+		1821AF16237A7E070010B307 /* CustomConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomConstraint.swift; sourceTree = "<group>"; };
+		1821AF18237A7E650010B307 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		1821AF19237A7E660010B307 /* CustomTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
+		1821AF1A237A7E660010B307 /* CustomLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		1821AF1B237A7E660010B307 /* ExpandableLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableLabel.swift; sourceTree = "<group>"; };
+		1821AF1C237A7E670010B307 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		1821AF22237A860F0010B307 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		1821AF24237A86C50010B307 /* CustomBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBase.swift; sourceTree = "<group>"; };
+		1821AF26237A8EF10010B307 /* CustomBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBarButtonItem.swift; sourceTree = "<group>"; };
+		18DDC78623797AA6003FCCE8 /* Kethan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kethan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		18DDC78923797AA6003FCCE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		18DDC78D23797AA6003FCCE8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		18DDC79023797AA6003FCCE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		18DDC79223797AAA003FCCE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		18DDC79523797AAA003FCCE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		18DDC79723797AAA003FCCE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18DDC79C23797AAB003FCCE8 /* KethanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KethanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		18DDC7A023797AAB003FCCE8 /* YupEasyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YupEasyTests.swift; sourceTree = "<group>"; };
+		18DDC7A223797AAB003FCCE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18DDC7A723797AAB003FCCE8 /* KethanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KethanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		18DDC7AB23797AAB003FCCE8 /* YupEasyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YupEasyUITests.swift; sourceTree = "<group>"; };
+		18DDC7AD23797AAB003FCCE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18DDC7BF237982BB003FCCE8 /* NeoSans-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeoSans-BoldItalic.otf"; sourceTree = "<group>"; };
+		18DDC7C0237982BB003FCCE8 /* NeoSans-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeoSans-Italic.otf"; sourceTree = "<group>"; };
+		18DDC7C1237982BB003FCCE8 /* NeoSans-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeoSans-Medium.otf"; sourceTree = "<group>"; };
+		18DDC7C2237982BB003FCCE8 /* NeoSans.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NeoSans.otf; sourceTree = "<group>"; };
+		18DDC7C3237982BC003FCCE8 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		18DDC7C4237982BC003FCCE8 /* NeoSans-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeoSans-Bold.otf"; sourceTree = "<group>"; };
+		18DDC7CC23798B9B003FCCE8 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		18DDC7CF23798C34003FCCE8 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		18DDC7D123798CD4003FCCE8 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		18E71D6A237C15690090FC90 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		18E71D6C237C1EE30090FC90 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
+		18E71D70237C1F670090FC90 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		18E71D71237C1F670090FC90 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		18E71D73237C208C0090FC90 /* Kethan-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Kethan-Bridging-Header.h"; sourceTree = "<group>"; };
+		1C2A909D3432CFA01B3F2ECA /* Pods-KethanTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KethanTests.debug.xcconfig"; path = "Target Support Files/Pods-KethanTests/Pods-KethanTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1E6D05133FE616DFDF19D8AC /* Pods-Kethan-KethanUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kethan-KethanUITests.release.xcconfig"; path = "Target Support Files/Pods-Kethan-KethanUITests/Pods-Kethan-KethanUITests.release.xcconfig"; sourceTree = "<group>"; };
+		27A8C0DB6866B862CEA2B8FF /* Pods-Kethan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kethan.debug.xcconfig"; path = "Target Support Files/Pods-Kethan/Pods-Kethan.debug.xcconfig"; sourceTree = "<group>"; };
+		51C2C5B99F865ED493CCA4D1 /* Pods_Kethan_KethanUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kethan_KethanUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		779D5CC27DDBD6444B2417E9 /* Pods_KethanTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KethanTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		890B82F08AB34E77A2A7FFA0 /* Pods_Kethan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kethan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A22EC3192B9EC75A06BD3C0 /* Pods-Kethan-KethanUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kethan-KethanUITests.debug.xcconfig"; path = "Target Support Files/Pods-Kethan-KethanUITests/Pods-Kethan-KethanUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		BD8C7CA38920926D906E2761 /* Pods-KethanTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KethanTests.release.xcconfig"; path = "Target Support Files/Pods-KethanTests/Pods-KethanTests.release.xcconfig"; sourceTree = "<group>"; };
+		F8A5FC233E7C3676A619CEE5 /* Pods-Kethan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kethan.release.xcconfig"; path = "Target Support Files/Pods-Kethan/Pods-Kethan.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		18DDC78323797AA6003FCCE8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A662AD3830527FE57E613C63 /* Pods_Kethan.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18DDC79923797AAB003FCCE8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C2D4DA856A726658DE99E83 /* Pods_KethanTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18DDC7A423797AAB003FCCE8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EBFF58603242F8F6BC9E019 /* Pods_Kethan_KethanUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1801AB9523851DCB00F46223 /* KVNProgress */ = {
+			isa = PBXGroup;
+			children = (
+				1801AB9623851DCB00F46223 /* Classes */,
+				1801AB9F23851DCB00F46223 /* Resources */,
+				1801ABA123851DCB00F46223 /* Manager */,
+				1801ABA423851DCB00F46223 /* Categories */,
+			);
+			path = KVNProgress;
+			sourceTree = "<group>";
+		};
+		1801AB9623851DCB00F46223 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1801AB9723851DCB00F46223 /* iCarousel.m */,
+				1801AB9823851DCB00F46223 /* KVNProgress.m */,
+				1801AB9923851DCB00F46223 /* KVNProgressConfiguration.m */,
+				1801AB9A23851DCB00F46223 /* KVNRotationViewController.m */,
+				1801AB9B23851DCB00F46223 /* iCarousel.h */,
+				1801AB9C23851DCB00F46223 /* KVNProgress.h */,
+				1801AB9D23851DCB00F46223 /* KVNProgressConfiguration.h */,
+				1801AB9E23851DCB00F46223 /* KVNRotationViewController.h */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		1801AB9F23851DCB00F46223 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1801ABA023851DCB00F46223 /* KVNProgressView.xib */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1801ABA123851DCB00F46223 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				1801ABA223851DCB00F46223 /* ProgressManager.h */,
+				1801ABA323851DCB00F46223 /* ProgressManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		1801ABA423851DCB00F46223 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				1801ABA523851DCB00F46223 /* UIImage+KVNImageEffects.m */,
+				1801ABA623851DCB00F46223 /* UIImage+KVNEmpty.h */,
+				1801ABA723851DCB00F46223 /* UIColor+KVNContrast.h */,
+				1801ABA823851DCB00F46223 /* UIImage+KVNEmpty.m */,
+				1801ABA923851DCB00F46223 /* UIImage+KVNImageEffects.h */,
+				1801ABAA23851DCB00F46223 /* UIColor+KVNContrast.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		1821AF10237A7B830010B307 /* CustomNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				1821AF11237A7BB50010B307 /* CustomNavBar.swift */,
+				1821AF13237A7BC60010B307 /* CustomNavBar.xib */,
+			);
+			path = CustomNavigation;
+			sourceTree = "<group>";
+		};
+		1821AF15237A7DE20010B307 /* CustomClasses */ = {
+			isa = PBXGroup;
+			children = (
+				1801AB922385036A00F46223 /* FacebookManager.swift */,
+				1801AB902385036300F46223 /* GoogleManager.swift */,
+				1821AF26237A8EF10010B307 /* CustomBarButtonItem.swift */,
+				1821AF24237A86C50010B307 /* CustomBase.swift */,
+				1821AF18237A7E650010B307 /* CustomButton.swift */,
+				1821AF1A237A7E660010B307 /* CustomLabel.swift */,
+				1821AF1C237A7E670010B307 /* CustomTextField.swift */,
+				1821AF19237A7E660010B307 /* CustomTextView.swift */,
+				1821AF1B237A7E660010B307 /* ExpandableLabel.swift */,
+				1821AF16237A7E070010B307 /* CustomConstraint.swift */,
+			);
+			path = CustomClasses;
+			sourceTree = "<group>";
+		};
+		18DDC77D23797AA6003FCCE8 = {
+			isa = PBXGroup;
+			children = (
+				18DDC78823797AA6003FCCE8 /* Kethan */,
+				18DDC79F23797AAB003FCCE8 /* KethanTests */,
+				18DDC7AA23797AAB003FCCE8 /* KethanUITests */,
+				18DDC78723797AA6003FCCE8 /* Products */,
+				1A92D1A4F4A12A3CF71B2213 /* Pods */,
+				CB700E3233A1DCD356040D3D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		18DDC78723797AA6003FCCE8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				18DDC78623797AA6003FCCE8 /* Kethan.app */,
+				18DDC79C23797AAB003FCCE8 /* KethanTests.xctest */,
+				18DDC7A723797AAB003FCCE8 /* KethanUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		18DDC78823797AA6003FCCE8 /* Kethan */ = {
+			isa = PBXGroup;
+			children = (
+				18DDC7B923797B42003FCCE8 /* Model */,
+				18DDC7BA23797B4F003FCCE8 /* View */,
+				18DDC7BB23797B57003FCCE8 /* Controller */,
+				18DDC7BC23797B61003FCCE8 /* Resources */,
+			);
+			path = Kethan;
+			sourceTree = "<group>";
+		};
+		18DDC79F23797AAB003FCCE8 /* KethanTests */ = {
+			isa = PBXGroup;
+			children = (
+				18DDC7A023797AAB003FCCE8 /* YupEasyTests.swift */,
+				18DDC7A223797AAB003FCCE8 /* Info.plist */,
+			);
+			path = KethanTests;
+			sourceTree = "<group>";
+		};
+		18DDC7AA23797AAB003FCCE8 /* KethanUITests */ = {
+			isa = PBXGroup;
+			children = (
+				18DDC7AB23797AAB003FCCE8 /* YupEasyUITests.swift */,
+				18DDC7AD23797AAB003FCCE8 /* Info.plist */,
+			);
+			path = KethanUITests;
+			sourceTree = "<group>";
+		};
+		18DDC7B923797B42003FCCE8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18E71D6E237C1F5A0090FC90 /* OtherClasses */,
+				1821AF15237A7DE20010B307 /* CustomClasses */,
+				18DDC7CE23798C0F003FCCE8 /* CommonClasses */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18DDC7BA23797B4F003FCCE8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1821AF10237A7B830010B307 /* CustomNavigation */,
+				18DDC7BE23797BF2003FCCE8 /* Storyboards */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		18DDC7BB23797B57003FCCE8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				18DDC7CB23798B78003FCCE8 /* BaseViewController */,
+				18E71D69237C14060090FC90 /* TabBarControllers */,
+				18E71D6A237C15690090FC90 /* LoginViewController.swift */,
+				18E71D6C237C1EE30090FC90 /* LeftMenuViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		18DDC7BC23797B61003FCCE8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				18DDC7BD23797BC9003FCCE8 /* Fonts */,
+				18DDC78923797AA6003FCCE8 /* AppDelegate.swift */,
+				18DDC79723797AAA003FCCE8 /* Info.plist */,
+				18DDC79423797AAA003FCCE8 /* LaunchScreen.storyboard */,
+				18DDC79223797AAA003FCCE8 /* Assets.xcassets */,
+				18E71D73237C208C0090FC90 /* Kethan-Bridging-Header.h */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		18DDC7BD23797BC9003FCCE8 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				18DDC7C4237982BC003FCCE8 /* NeoSans-Bold.otf */,
+				18DDC7BF237982BB003FCCE8 /* NeoSans-BoldItalic.otf */,
+				18DDC7C0237982BB003FCCE8 /* NeoSans-Italic.otf */,
+				18DDC7C1237982BB003FCCE8 /* NeoSans-Medium.otf */,
+				18DDC7C2237982BB003FCCE8 /* NeoSans.otf */,
+				18DDC7C3237982BC003FCCE8 /* OpenSans-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		18DDC7BE23797BF2003FCCE8 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				18DDC78F23797AA6003FCCE8 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		18DDC7CB23798B78003FCCE8 /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				18DDC7CC23798B9B003FCCE8 /* BaseViewController.swift */,
+			);
+			path = BaseViewController;
+			sourceTree = "<group>";
+		};
+		18DDC7CE23798C0F003FCCE8 /* CommonClasses */ = {
+			isa = PBXGroup;
+			children = (
+				18DDC7CF23798C34003FCCE8 /* Common.swift */,
+				18DDC7D123798CD4003FCCE8 /* Constant.swift */,
+				1821AF22237A860F0010B307 /* Extensions.swift */,
+			);
+			path = CommonClasses;
+			sourceTree = "<group>";
+		};
+		18E71D69237C14060090FC90 /* TabBarControllers */ = {
+			isa = PBXGroup;
+			children = (
+				18DDC78D23797AA6003FCCE8 /* SearchViewController.swift */,
+				1821AF0A237A741B0010B307 /* HomeViewController.swift */,
+				1821AF0C237A74320010B307 /* UploadViewController.swift */,
+				1821AF0E237A74450010B307 /* PurchesViewController.swift */,
+			);
+			path = TabBarControllers;
+			sourceTree = "<group>";
+		};
+		18E71D6E237C1F5A0090FC90 /* OtherClasses */ = {
+			isa = PBXGroup;
+			children = (
+				1801AB9523851DCB00F46223 /* KVNProgress */,
+				18E71D6F237C1F670090FC90 /* SWRevealViewController */,
+			);
+			path = OtherClasses;
+			sourceTree = "<group>";
+		};
+		18E71D6F237C1F670090FC90 /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				18E71D70237C1F670090FC90 /* SWRevealViewController.h */,
+				18E71D71237C1F670090FC90 /* SWRevealViewController.m */,
+			);
+			path = SWRevealViewController;
+			sourceTree = "<group>";
+		};
+		1A92D1A4F4A12A3CF71B2213 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				27A8C0DB6866B862CEA2B8FF /* Pods-Kethan.debug.xcconfig */,
+				F8A5FC233E7C3676A619CEE5 /* Pods-Kethan.release.xcconfig */,
+				8A22EC3192B9EC75A06BD3C0 /* Pods-Kethan-KethanUITests.debug.xcconfig */,
+				1E6D05133FE616DFDF19D8AC /* Pods-Kethan-KethanUITests.release.xcconfig */,
+				1C2A909D3432CFA01B3F2ECA /* Pods-KethanTests.debug.xcconfig */,
+				BD8C7CA38920926D906E2761 /* Pods-KethanTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CB700E3233A1DCD356040D3D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				890B82F08AB34E77A2A7FFA0 /* Pods_Kethan.framework */,
+				51C2C5B99F865ED493CCA4D1 /* Pods_Kethan_KethanUITests.framework */,
+				779D5CC27DDBD6444B2417E9 /* Pods_KethanTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		18DDC78523797AA6003FCCE8 /* Kethan */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18DDC7B023797AAB003FCCE8 /* Build configuration list for PBXNativeTarget "Kethan" */;
+			buildPhases = (
+				72CCF60651E819DE6B525644 /* [CP] Check Pods Manifest.lock */,
+				18DDC78223797AA6003FCCE8 /* Sources */,
+				18DDC78323797AA6003FCCE8 /* Frameworks */,
+				18DDC78423797AA6003FCCE8 /* Resources */,
+				BC001D4BC88009FB98061D3C /* [CP] Embed Pods Frameworks */,
+				9B2FD355B38E8E3D86F3E768 /* [CP] Copy Pods Resources */,
+				1801AB9423851BC500F46223 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Kethan;
+			productName = YupEasy;
+			productReference = 18DDC78623797AA6003FCCE8 /* Kethan.app */;
+			productType = "com.apple.product-type.application";
+		};
+		18DDC79B23797AAB003FCCE8 /* KethanTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18DDC7B323797AAB003FCCE8 /* Build configuration list for PBXNativeTarget "KethanTests" */;
+			buildPhases = (
+				127407B29C1BB4827730F393 /* [CP] Check Pods Manifest.lock */,
+				18DDC79823797AAB003FCCE8 /* Sources */,
+				18DDC79923797AAB003FCCE8 /* Frameworks */,
+				18DDC79A23797AAB003FCCE8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				18DDC79E23797AAB003FCCE8 /* PBXTargetDependency */,
+			);
+			name = KethanTests;
+			productName = YupEasyTests;
+			productReference = 18DDC79C23797AAB003FCCE8 /* KethanTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		18DDC7A623797AAB003FCCE8 /* KethanUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18DDC7B623797AAB003FCCE8 /* Build configuration list for PBXNativeTarget "KethanUITests" */;
+			buildPhases = (
+				1C3268AD81A082E65A8D8676 /* [CP] Check Pods Manifest.lock */,
+				18DDC7A323797AAB003FCCE8 /* Sources */,
+				18DDC7A423797AAB003FCCE8 /* Frameworks */,
+				18DDC7A523797AAB003FCCE8 /* Resources */,
+				DF10BD6FCD3BDC6D0B8C5EFD /* [CP] Embed Pods Frameworks */,
+				9E064A5F99738223D3CEC0CC /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				18DDC7A923797AAB003FCCE8 /* PBXTargetDependency */,
+			);
+			name = KethanUITests;
+			productName = YupEasyUITests;
+			productReference = 18DDC7A723797AAB003FCCE8 /* KethanUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		18DDC77E23797AA6003FCCE8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1110;
+				LastUpgradeCheck = 1110;
+				ORGANIZATIONNAME = Arkenea;
+				TargetAttributes = {
+					18DDC78523797AA6003FCCE8 = {
+						CreatedOnToolsVersion = 11.1;
+					};
+					18DDC79B23797AAB003FCCE8 = {
+						CreatedOnToolsVersion = 11.1;
+						TestTargetID = 18DDC78523797AA6003FCCE8;
+					};
+					18DDC7A623797AAB003FCCE8 = {
+						CreatedOnToolsVersion = 11.1;
+						TestTargetID = 18DDC78523797AA6003FCCE8;
+					};
+				};
+			};
+			buildConfigurationList = 18DDC78123797AA6003FCCE8 /* Build configuration list for PBXProject "Kethan" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 18DDC77D23797AA6003FCCE8;
+			productRefGroup = 18DDC78723797AA6003FCCE8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				18DDC78523797AA6003FCCE8 /* Kethan */,
+				18DDC79B23797AAB003FCCE8 /* KethanTests */,
+				18DDC7A623797AAB003FCCE8 /* KethanUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		18DDC78423797AA6003FCCE8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18DDC7C7237982BC003FCCE8 /* NeoSans-Medium.otf in Resources */,
+				18DDC7C8237982BC003FCCE8 /* NeoSans.otf in Resources */,
+				18DDC7C5237982BC003FCCE8 /* NeoSans-BoldItalic.otf in Resources */,
+				1801ABAF23851DCB00F46223 /* KVNProgressView.xib in Resources */,
+				18DDC79623797AAA003FCCE8 /* LaunchScreen.storyboard in Resources */,
+				1821AF14237A7BC60010B307 /* CustomNavBar.xib in Resources */,
+				18DDC7CA237982BC003FCCE8 /* NeoSans-Bold.otf in Resources */,
+				18DDC79323797AAA003FCCE8 /* Assets.xcassets in Resources */,
+				18DDC79123797AA6003FCCE8 /* Main.storyboard in Resources */,
+				18DDC7C9237982BC003FCCE8 /* OpenSans-Regular.ttf in Resources */,
+				18DDC7C6237982BC003FCCE8 /* NeoSans-Italic.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18DDC79A23797AAB003FCCE8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18DDC7A523797AAB003FCCE8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		127407B29C1BB4827730F393 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KethanTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1801AB9423851BC500F46223 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		1C3268AD81A082E65A8D8676 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Kethan-KethanUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		72CCF60651E819DE6B525644 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Kethan-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B2FD355B38E8E3D86F3E768 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kethan/Pods-Kethan-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kethan/Pods-Kethan-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Kethan/Pods-Kethan-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E064A5F99738223D3CEC0CC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kethan-KethanUITests/Pods-Kethan-KethanUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kethan-KethanUITests/Pods-Kethan-KethanUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Kethan-KethanUITests/Pods-Kethan-KethanUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BC001D4BC88009FB98061D3C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kethan/Pods-Kethan-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kethan/Pods-Kethan-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Kethan/Pods-Kethan-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF10BD6FCD3BDC6D0B8C5EFD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kethan-KethanUITests/Pods-Kethan-KethanUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kethan-KethanUITests/Pods-Kethan-KethanUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Kethan-KethanUITests/Pods-Kethan-KethanUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		18DDC78223797AA6003FCCE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1821AF20237A7E670010B307 /* ExpandableLabel.swift in Sources */,
+				18DDC7D023798C34003FCCE8 /* Common.swift in Sources */,
+				1801ABB323851DCB00F46223 /* UIColor+KVNContrast.m in Sources */,
+				18DDC78E23797AA6003FCCE8 /* SearchViewController.swift in Sources */,
+				1821AF1E237A7E670010B307 /* CustomTextView.swift in Sources */,
+				18E71D6B237C15690090FC90 /* LoginViewController.swift in Sources */,
+				1821AF0D237A74320010B307 /* UploadViewController.swift in Sources */,
+				1821AF12237A7BB50010B307 /* CustomNavBar.swift in Sources */,
+				1801ABAC23851DCB00F46223 /* KVNProgress.m in Sources */,
+				1801ABB023851DCB00F46223 /* ProgressManager.m in Sources */,
+				18DDC7D223798CD4003FCCE8 /* Constant.swift in Sources */,
+				1821AF17237A7E070010B307 /* CustomConstraint.swift in Sources */,
+				1801AB932385036A00F46223 /* FacebookManager.swift in Sources */,
+				18DDC78A23797AA6003FCCE8 /* AppDelegate.swift in Sources */,
+				1821AF25237A86C50010B307 /* CustomBase.swift in Sources */,
+				1821AF1D237A7E670010B307 /* CustomButton.swift in Sources */,
+				1821AF1F237A7E670010B307 /* CustomLabel.swift in Sources */,
+				1821AF23237A860F0010B307 /* Extensions.swift in Sources */,
+				18E71D72237C1F670090FC90 /* SWRevealViewController.m in Sources */,
+				18E71D6D237C1EE30090FC90 /* LeftMenuViewController.swift in Sources */,
+				1821AF0B237A741B0010B307 /* HomeViewController.swift in Sources */,
+				1801ABAE23851DCB00F46223 /* KVNRotationViewController.m in Sources */,
+				18DDC7CD23798B9B003FCCE8 /* BaseViewController.swift in Sources */,
+				1801ABB123851DCB00F46223 /* UIImage+KVNImageEffects.m in Sources */,
+				1821AF0F237A74450010B307 /* PurchesViewController.swift in Sources */,
+				1801ABAD23851DCB00F46223 /* KVNProgressConfiguration.m in Sources */,
+				1821AF21237A7E670010B307 /* CustomTextField.swift in Sources */,
+				1801ABAB23851DCB00F46223 /* iCarousel.m in Sources */,
+				1801ABB223851DCB00F46223 /* UIImage+KVNEmpty.m in Sources */,
+				1801AB912385036300F46223 /* GoogleManager.swift in Sources */,
+				1821AF27237A8EF20010B307 /* CustomBarButtonItem.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18DDC79823797AAB003FCCE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18DDC7A123797AAB003FCCE8 /* YupEasyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18DDC7A323797AAB003FCCE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18DDC7AC23797AAB003FCCE8 /* YupEasyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		18DDC79E23797AAB003FCCE8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 18DDC78523797AA6003FCCE8 /* Kethan */;
+			targetProxy = 18DDC79D23797AAB003FCCE8 /* PBXContainerItemProxy */;
+		};
+		18DDC7A923797AAB003FCCE8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 18DDC78523797AA6003FCCE8 /* Kethan */;
+			targetProxy = 18DDC7A823797AAB003FCCE8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		18DDC78F23797AA6003FCCE8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18DDC79023797AA6003FCCE8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		18DDC79423797AAA003FCCE8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18DDC79523797AAA003FCCE8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		18DDC7AE23797AAB003FCCE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		18DDC7AF23797AAB003FCCE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		18DDC7B123797AAB003FCCE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27A8C0DB6866B862CEA2B8FF /* Pods-Kethan.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "$(SRCROOT)/Kethan/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"z\"",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-framework",
+					"\"FBSDKLoginKit\"",
+					"-framework",
+					"\"LNSideMenu\"",
+					"-weak_framework",
+					"\"Accelerate\"",
+					"-weak_framework",
+					"\"Accounts\"",
+					"-weak_framework",
+					"\"AudioToolbox\"",
+					"-weak_framework",
+					"\"CoreGraphics\"",
+					"-weak_framework",
+					"\"CoreLocation\"",
+					"-weak_framework",
+					"\"Foundation\"",
+					"-weak_framework",
+					"\"QuartzCore\"",
+					"-weak_framework",
+					"\"Security\"",
+					"-weak_framework",
+					"\"Social\"",
+					"-weak_framework",
+					"\"UIKit\"",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.YupEasy1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Kethan/Resources/Kethan-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		18DDC7B223797AAB003FCCE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8A5FC233E7C3676A619CEE5 /* Pods-Kethan.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "$(SRCROOT)/Kethan/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"z\"",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-framework",
+					"\"FBSDKLoginKit\"",
+					"-framework",
+					"\"LNSideMenu\"",
+					"-weak_framework",
+					"\"Accelerate\"",
+					"-weak_framework",
+					"\"Accounts\"",
+					"-weak_framework",
+					"\"AudioToolbox\"",
+					"-weak_framework",
+					"\"CoreGraphics\"",
+					"-weak_framework",
+					"\"CoreLocation\"",
+					"-weak_framework",
+					"\"Foundation\"",
+					"-weak_framework",
+					"\"QuartzCore\"",
+					"-weak_framework",
+					"\"Security\"",
+					"-weak_framework",
+					"\"Social\"",
+					"-weak_framework",
+					"\"UIKit\"",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.YupEasy1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Kethan/Resources/Kethan-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		18DDC7B423797AAB003FCCE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C2A909D3432CFA01B3F2ECA /* Pods-KethanTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = YupEasyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com..YupEasyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YupEasy.app/YupEasy";
+			};
+			name = Debug;
+		};
+		18DDC7B523797AAB003FCCE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD8C7CA38920926D906E2761 /* Pods-KethanTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = YupEasyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com..YupEasyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YupEasy.app/YupEasy";
+			};
+			name = Release;
+		};
+		18DDC7B723797AAB003FCCE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A22EC3192B9EC75A06BD3C0 /* Pods-Kethan-KethanUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = YupEasyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com..YupEasyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = YupEasy;
+			};
+			name = Debug;
+		};
+		18DDC7B823797AAB003FCCE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E6D05133FE616DFDF19D8AC /* Pods-Kethan-KethanUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = YupEasyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com..YupEasyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = YupEasy;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		18DDC78123797AA6003FCCE8 /* Build configuration list for PBXProject "Kethan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18DDC7AE23797AAB003FCCE8 /* Debug */,
+				18DDC7AF23797AAB003FCCE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18DDC7B023797AAB003FCCE8 /* Build configuration list for PBXNativeTarget "Kethan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18DDC7B123797AAB003FCCE8 /* Debug */,
+				18DDC7B223797AAB003FCCE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18DDC7B323797AAB003FCCE8 /* Build configuration list for PBXNativeTarget "KethanTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18DDC7B423797AAB003FCCE8 /* Debug */,
+				18DDC7B523797AAB003FCCE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18DDC7B623797AAB003FCCE8 /* Build configuration list for PBXNativeTarget "KethanUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18DDC7B723797AAB003FCCE8 /* Debug */,
+				18DDC7B823797AAB003FCCE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 18DDC77E23797AA6003FCCE8 /* Project object */;
+}

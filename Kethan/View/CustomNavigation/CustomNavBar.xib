@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NeoSans-Medium.otf">
+            <string>NeoSans-Medium</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="CustomNavBar" preservesSuperviewLayoutMargins="YES" id="D66-a3-Tga" customClass="CustomNavBar" customModule="Kethan" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WW1-1p-As0" userLabel="Container">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c33-Yb-qxn" userLabel="Status">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
+                            <color key="backgroundColor" red="0.0" green="0.78823529411764703" blue="0.66274509803921566" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OFt-a2-mnB" userLabel="Content">
+                            <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDa-7A-aZu">
+                                    <rect key="frame" x="5" y="0.0" width="44" height="44"/>
+                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="Hoq-Db-eQh"/>
+                                        <constraint firstAttribute="width" constant="44" id="RKf-BD-DLc"/>
+                                    </constraints>
+                                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5D-E3-a2M" customClass="CustomLabel" customModule="Kethan" customModuleProvider="target">
+                                    <rect key="frame" x="49" y="0.0" width="222" height="44"/>
+                                    <fontDescription key="fontDescription" name="NeoSans-Medium" family="NeoSans" pointSize="20"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                            <real key="value" value="20"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azN-u4-Mvk">
+                                    <rect key="frame" x="271" y="0.0" width="44" height="44"/>
+                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="9Kn-yS-Evp"/>
+                                        <constraint firstAttribute="width" constant="44" id="k6O-r2-vu2" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </constraint>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                            <real key="value" value="15"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="3"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0" green="0.78823529411764703" blue="0.66274509803921566" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="w5D-E3-a2M" firstAttribute="top" secondItem="OFt-a2-mnB" secondAttribute="top" id="GUd-au-iRe"/>
+                                <constraint firstItem="azN-u4-Mvk" firstAttribute="leading" secondItem="w5D-E3-a2M" secondAttribute="trailing" id="Jc0-X7-9uL"/>
+                                <constraint firstItem="w5D-E3-a2M" firstAttribute="leading" secondItem="DDa-7A-aZu" secondAttribute="trailing" id="QTn-aP-lP9"/>
+                                <constraint firstAttribute="trailing" secondItem="azN-u4-Mvk" secondAttribute="trailing" constant="5" id="bid-kL-QKO" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
+                                <constraint firstAttribute="bottom" secondItem="w5D-E3-a2M" secondAttribute="bottom" id="ine-sR-13x"/>
+                                <constraint firstAttribute="height" constant="44" id="iuj-84-Xme"/>
+                                <constraint firstItem="azN-u4-Mvk" firstAttribute="centerY" secondItem="OFt-a2-mnB" secondAttribute="centerY" id="kJp-6d-v0P"/>
+                                <constraint firstItem="DDa-7A-aZu" firstAttribute="centerY" secondItem="OFt-a2-mnB" secondAttribute="centerY" id="v9G-u2-fUK"/>
+                                <constraint firstItem="DDa-7A-aZu" firstAttribute="leading" secondItem="OFt-a2-mnB" secondAttribute="leading" constant="5" id="xf6-bT-Haz" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </constraint>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="OFt-a2-mnB" firstAttribute="leading" secondItem="WW1-1p-As0" secondAttribute="leading" identifier="12" id="1BD-gZ-lHF"/>
+                        <constraint firstItem="OFt-a2-mnB" firstAttribute="top" secondItem="c33-Yb-qxn" secondAttribute="bottom" id="1us-k7-c16"/>
+                        <constraint firstItem="c33-Yb-qxn" firstAttribute="leading" secondItem="WW1-1p-As0" secondAttribute="leading" id="5go-uE-fGS"/>
+                        <constraint firstAttribute="bottom" secondItem="OFt-a2-mnB" secondAttribute="bottom" id="Dcp-N0-T6a"/>
+                        <constraint firstAttribute="trailing" secondItem="c33-Yb-qxn" secondAttribute="trailing" id="PVT-91-zFI"/>
+                        <constraint firstItem="c33-Yb-qxn" firstAttribute="top" secondItem="WW1-1p-As0" secondAttribute="top" id="YLJ-R5-ibD"/>
+                        <constraint firstAttribute="trailing" secondItem="OFt-a2-mnB" secondAttribute="trailing" identifier="11" id="vz5-6q-rRS"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.78823529411764703" blue="0.66274509803921566" alpha="0.0" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="WW1-1p-As0" firstAttribute="top" secondItem="D66-a3-Tga" secondAttribute="top" identifier="1" id="5qj-H3-dfy"/>
+                <constraint firstAttribute="trailing" secondItem="WW1-1p-As0" secondAttribute="trailing" identifier="2" id="coq-qA-CaU"/>
+                <constraint firstItem="WW1-1p-As0" firstAttribute="leading" secondItem="D66-a3-Tga" secondAttribute="leading" identifier="4" id="qT7-lS-3ue"/>
+                <constraint firstAttribute="bottom" secondItem="WW1-1p-As0" secondAttribute="bottom" identifier="3" id="wMI-m8-t9z"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="Vje-Wd-jm3"/>
+            <connections>
+                <outlet property="btnLeft" destination="DDa-7A-aZu" id="pdd-J2-Thx"/>
+                <outlet property="btnRight" destination="azN-u4-Mvk" id="TR0-Rk-e7J"/>
+                <outlet property="lblTitle" destination="w5D-E3-a2M" id="LQP-dM-4SA"/>
+                <outlet property="viewNavigationBar" destination="OFt-a2-mnB" id="ctm-8l-Jt7"/>
+            </connections>
+            <point key="canvasLocation" x="219.375" y="-244.01408450704227"/>
+        </view>
+    </objects>
+</document>
