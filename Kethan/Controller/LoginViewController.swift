@@ -13,12 +13,13 @@ import FacebookCore
 import GoogleSignIn
 
 class LoginViewController: BaseViewController {
-    
+
     @IBOutlet weak var imgAppName: UIImageView!
     @IBOutlet weak var constImageTop: CustomConstraint!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         UIView.animate(withDuration: 3.0, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: {
             self.imgAppName.alpha = 1.0
         }, completion: {(finish) in
@@ -29,7 +30,7 @@ class LoginViewController: BaseViewController {
                         self.imgAppName.transform = CGAffineTransform.identity // undo in 1 seconds
                     }) { (finish) in
                         UIView.animate(withDuration: 1.0, animations: {
-                            self.constImageTop.constant = getCalculated(50.0)
+                            self.constImageTop.constant = getCalculated(60.0)
                             self.view.layoutIfNeeded()
                         }) { (finish) in
                             
@@ -38,7 +39,7 @@ class LoginViewController: BaseViewController {
                     }
             }
         })
-        
+      
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: NOTIFICATIONS.googleUserUpdate), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.googleUserDataUpdate(notification:)), name: NSNotification.Name(rawValue: NOTIFICATIONS.googleUserUpdate), object: nil)
         /*self.imgAppName.transform = CGAffineTransform(translationX: 0, y: -150).concatenating(CGAffineTransform(scaleX: 0, y: 0))

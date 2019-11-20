@@ -16,16 +16,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spalsh" translatesAutoresizingMaskIntoConstraints="NO" id="TEe-Hj-vLc">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landing_bg" translatesAutoresizingMaskIntoConstraints="NO" id="TEe-Hj-vLc">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TEe-Hj-vLc" secondAttribute="bottom" id="9YN-as-VHR"/>
-                            <constraint firstItem="TEe-Hj-vLc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9xl-gI-ewy"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TEe-Hj-vLc" secondAttribute="trailing" id="Jl4-av-zSh"/>
-                            <constraint firstItem="TEe-Hj-vLc" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="ebf-zl-0pa"/>
+                            <constraint firstItem="TEe-Hj-vLc" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="MVx-Ar-yVb"/>
+                            <constraint firstAttribute="bottom" secondItem="TEe-Hj-vLc" secondAttribute="bottom" id="Qej-Ya-gYs"/>
+                            <constraint firstItem="TEe-Hj-vLc" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="ggm-xu-Vfm"/>
+                            <constraint firstAttribute="trailing" secondItem="TEe-Hj-vLc" secondAttribute="trailing" id="hd2-Ou-fuy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -36,6 +36,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="spalsh" width="320" height="568"/>
+        <image name="landing_bg" width="320" height="568"/>
     </resources>
 </document>

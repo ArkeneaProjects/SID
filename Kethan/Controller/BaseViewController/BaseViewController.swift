@@ -198,16 +198,16 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate, SWRevea
                 tabBarAppearence.itemSpacing = 0
                 
                 let search = self.instantiateNav("SearchViewController", storyboard: "Main" )
-                search.tabBarItem = self.getTabBarButtonWithTitle(title: "", imageName: "inbox_inactive_dot", selectedImageName: "inbox_active_dot")
+                search.tabBarItem = self.getTabBarButtonWithTitle(title: "", imageName: "tab1_deactive", selectedImageName: "tab1_active")
                 
                 let home = self.instantiateNav("HomeViewController", storyboard: "Main")
-                home.tabBarItem = self.getTabBarButtonWithTitle(title: "", imageName: "inbox_inactive_dot", selectedImageName: "inbox_active_dot")
+                home.tabBarItem = self.getTabBarButtonWithTitle(title: "", imageName: "tab2_deactive", selectedImageName: "tab2_active")
                 
                 let upload = self.instantiateNav("UploadViewController", storyboard: "Main")
-                upload.tabBarItem = self.getTabBarButtonWithTitle(title: "", imageName: "inbox_inactive_dot", selectedImageName: "inbox_active_dot")
+                upload.tabBarItem = self.getTabBarButtonWithTitle(title: "", imageName: "tab3_deactive", selectedImageName: "tab3_active")
                 
                 let purchase = self.instantiateNav("PurchesViewController", storyboard: "Main")
-                purchase.tabBarItem = self.getTabBarButtonWithTitle(title: "", imageName: "inbox_inactive_dot", selectedImageName: "inbox_active_dot")
+                purchase.tabBarItem = self.getTabBarButtonWithTitle(title: "", imageName: "tab4_deactive", selectedImageName: "tab4_active")
                 
                 tabBarViewController.viewControllers = [search, home, upload, purchase]
                 tabBarViewController.delegate = AppDelegate.delegate()?.tabBarDelegate

@@ -12,11 +12,8 @@ class HomeViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addNavBarWithTitle("Home", withLeftButtonType: .buttonTypeMenu, withRightButtonType: .buttonTypeSearch)
-        
-        //init left and right menu controller
+        self.addNavBarWithTitle("Home", withLeftButtonType: .buttonTypeMenu, withRightButtonType: .buttonTypeCredit)
        
-        // Do any additional setup after loading the view.
     }
     
     override func leftButtonAction() {

@@ -8,9 +8,9 @@
 
 import UIKit
 enum ButtonType: NSInteger {
-    case buttonTypeNil = 0, buttonTypeBack, buttonTypeSearch, buttonTypeMenu, buttonTypeSave
+    case buttonTypeNil = 0, buttonTypeBack, buttonTypeCredit, buttonTypeMenu, buttonTypeSave
 }
- 
+
 class CustomNavBar: UIView {
     @IBOutlet weak var viewNavigationBar: UIView!
     @IBOutlet weak var btnLeft: CustomButton!
@@ -19,17 +19,17 @@ class CustomNavBar: UIView {
     var leftBarButtonType: ButtonType = .buttonTypeNil
     var rightBarButtonType: ButtonType = .buttonTypeNil
     /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+     // Only override draw() if you perform custom drawing.
+     // An empty implementation adversely affects performance during animation.
+     override func draw(_ rect: CGRect) {
+     // Drawing code
+     }
+     */
     func setupWithSuperView(_ superView: UIView, title: String, leftButtonType: ButtonType, rightButtonType: ButtonType, target: AnyObject, leftAction: Selector, rightAction: Selector) {
         superView.addSubview(self)
         
-       self.leftBarButtonType = leftButtonType
-       self.rightBarButtonType = rightButtonType
+        self.leftBarButtonType = leftButtonType
+        self.rightBarButtonType = rightButtonType
         
         //self.btnDropDown.contentVerticalAlignment = .bottom
         
@@ -42,21 +42,19 @@ class CustomNavBar: UIView {
         
         self.btnLeft.alpha = 0
         self.btnRight.alpha = 0
-      
+        
         //self.const_progressHeight.constant = 0
         //self.const_statusBarHeight.constant = (isDevice() == DEVICES.iPhoneX || isDevice() == DEVICES.iPhoneXR) ?44.0:20
-
+        
         self.backgroundColor = UIColor.white
-            self.lblTitle.text = title
-            
+        self.lblTitle.text = title
+        
         if leftButtonType != ButtonType.buttonTypeNil {
             var leftImageName: String = ""
             if leftButtonType == .buttonTypeBack {
                 leftImageName = "back"
             } else if leftButtonType == .buttonTypeMenu {
                 leftImageName = "menu"
-            } else if leftButtonType == .buttonTypeSearch {
-                leftImageName = "search"
             } else if leftButtonType == .buttonTypeSave {
                 leftImageName = "tik"
             }
@@ -69,20 +67,24 @@ class CustomNavBar: UIView {
         
         if rightButtonType != ButtonType.buttonTypeNil {
             var rightImageName: String = ""
-             if rightButtonType == .buttonTypeBack {
-                           rightImageName = "back"
-                       } else if rightButtonType == .buttonTypeMenu {
-                           rightImageName = "list"
-                       } else if rightButtonType == .buttonTypeSearch {
-                           rightImageName = "search"
-                       } else if rightButtonType == .buttonTypeSave {
-                           rightImageName = "tik"
-                       }
+            if rightButtonType == .buttonTypeBack {
+                rightImageName = "back"
+            } else if rightButtonType == .buttonTypeMenu {
+                rightImageName = "list"
+            } else if rightButtonType == .buttonTypeSave {
+                rightImageName = "tik"
+            } else if rightButtonType == .buttonTypeCredit {
+                self.btnRight.alpha = 1.0
+                self.btnRight.layer.cornerRadius = getCalculated(9.0)
+                self.btnRight.backgroundColor = .white
+                self.btnRight.setTitle("$ 50", for: .normal)
+            }
             
             if rightImageName.count > 0 {
                 self.btnRight.alpha = 1.0
                 self.btnRight.setImage(UIImage(named: rightImageName), for: .normal)
             }
+            
             self.btnRight.addTarget(target, action: rightAction, for: UIControl.Event.touchUpInside)
             self.layoutIfNeeded()
         }
