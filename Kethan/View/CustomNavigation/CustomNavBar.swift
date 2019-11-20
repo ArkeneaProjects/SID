@@ -47,10 +47,7 @@ class CustomNavBar: UIView {
         //self.const_statusBarHeight.constant = (isDevice() == DEVICES.iPhoneX || isDevice() == DEVICES.iPhoneXR) ?44.0:20
 
         self.backgroundColor = UIColor.white
-        
-     
             self.lblTitle.text = title
-
             
         if leftButtonType != ButtonType.buttonTypeNil {
             var leftImageName: String = ""

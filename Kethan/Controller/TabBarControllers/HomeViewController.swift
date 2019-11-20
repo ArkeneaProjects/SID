@@ -8,13 +8,11 @@
 
 import UIKit
 
-
 class HomeViewController: BaseViewController {
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addNavBarWithTitle("Featured", withLeftButtonType: .buttonTypeMenu, withRightButtonType: .buttonTypeSearch)
+        self.addNavBarWithTitle("Home", withLeftButtonType: .buttonTypeMenu, withRightButtonType: .buttonTypeSearch)
         
         //init left and right menu controller
        
@@ -26,19 +24,12 @@ class HomeViewController: BaseViewController {
     }
 
     @IBAction func buttonAction(_ sender: Any) {
-        
-        
-        
-
-    
+     
         /*let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let frontViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController
         self.navigationController?.pushViewController(frontViewController!, animated: true)*/
-        
       
     }
-    
-   
     /*
     // MARK: - Navigation
 

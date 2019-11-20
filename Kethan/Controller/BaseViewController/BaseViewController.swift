@@ -142,6 +142,10 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate, SWRevea
         }
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     // MARK: - Add Custom Nav Bar
     func addNavBarWithTitle(_ title: String, withLeftButtonType leftButtonType: ButtonType, withRightButtonType rightButtonType: ButtonType) {
         self.navBar = CustomNavBar.mk_loadInstanceFromNib() as? CustomNavBar ?? CustomNavBar()
@@ -182,7 +186,7 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate, SWRevea
                     self.setAsRootScreen(yourVc)
                 }
             } else {
-                let tabBarViewController: UITabBarController = UITabBarController()
+                let tabBarViewController: BaseTabBarViewController = BaseTabBarViewController()
                 let tabBarAppearence = UITabBar.appearance()
                 tabBarAppearence.isTranslucent = true
                 tabBarAppearence.barStyle = UIBarStyle.black
@@ -193,19 +197,19 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate, SWRevea
                 tabBarAppearence.itemPositioning = UITabBar.ItemPositioning.fill
                 tabBarAppearence.itemSpacing = 0
                 
-                let deals = self.instantiateNav("SearchViewController", storyboard:"Main" )
-                deals.tabBarItem = self.getTabBarButtonWithTitle(title: "", imageName: "deal_n", selectedImageName: "deal_h")
+                let search = self.instantiateNav("SearchViewController", storyboard: "Main" )
+                search.tabBarItem = self.getTabBarButtonWithTitle(title: "", imageName: "inbox_inactive_dot", selectedImageName: "inbox_active_dot")
                 
-                let featured = self.instantiateNav("HomeViewController", storyboard: "Main")
-                featured.tabBarItem = self.getTabBarButtonWithTitle(title: "", imageName: "featured_n", selectedImageName: "featured_h")
+                let home = self.instantiateNav("HomeViewController", storyboard: "Main")
+                home.tabBarItem = self.getTabBarButtonWithTitle(title: "", imageName: "inbox_inactive_dot", selectedImageName: "inbox_active_dot")
                 
-                let favorites = self.instantiateNav("UploadViewController", storyboard: "Main")
-                favorites.tabBarItem = self.getTabBarButtonWithTitle(title: "", imageName: "fevorites_n", selectedImageName: "fevorites_h")
+                let upload = self.instantiateNav("UploadViewController", storyboard: "Main")
+                upload.tabBarItem = self.getTabBarButtonWithTitle(title: "", imageName: "inbox_inactive_dot", selectedImageName: "inbox_active_dot")
                 
-                let settings = self.instantiateNav("PurchesViewController", storyboard: "Main")
-                settings.tabBarItem = self.getTabBarButtonWithTitle(title: "", imageName: "settings_n", selectedImageName: "settings_h")
+                let purchase = self.instantiateNav("PurchesViewController", storyboard: "Main")
+                purchase.tabBarItem = self.getTabBarButtonWithTitle(title: "", imageName: "inbox_inactive_dot", selectedImageName: "inbox_active_dot")
                 
-                tabBarViewController.viewControllers = [deals, featured, favorites, settings]
+                tabBarViewController.viewControllers = [search, home, upload, purchase]
                 tabBarViewController.delegate = AppDelegate.delegate()?.tabBarDelegate
                 
                 self.setAsRootScreen(tabBarViewController)
@@ -224,8 +228,8 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate, SWRevea
     // MARK: - Instantiate Navigation Controller
     func instantiateNav(_ identifier: String, storyboard: String) -> UINavigationController {
         let storyboard: UIStoryboard = UIStoryboard(name: storyboard, bundle: Bundle.main)
-        let controller = (storyboard.instantiateViewController(withIdentifier: identifier)) as! BaseViewController
-        if(identifier == "FeaturedViewController") {
+        let controller = (storyboard.instantiateViewController(withIdentifier: identifier)) as? BaseViewController ?? BaseViewController()
+        if identifier == "HomeViewController" {
             let sideMenuController: LeftMenuViewController = storyboard.instantiateViewController(withIdentifier: "LeftMenuViewController") as? LeftMenuViewController ?? LeftMenuViewController()
             
             let rearNavigationController: UINavigationController = UINavigationController(rootViewController: sideMenuController)
@@ -238,7 +242,7 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate, SWRevea
             
             controller.revealViewController = SWRevealViewController(rearViewController: rearNavigationController, frontViewController: frontNavigationController)
         }
-        let navigation = UINavigationController(rootViewController: (identifier == "FeaturedViewController") ?controller.revealViewController():controller)
+        let navigation = UINavigationController(rootViewController: (identifier == "HomeViewController") ?controller.revealViewController():controller)
         navigation.restorationIdentifier = String(format: "Nav_%@", identifier)
         navigation.isNavigationBarHidden = true
         return navigation

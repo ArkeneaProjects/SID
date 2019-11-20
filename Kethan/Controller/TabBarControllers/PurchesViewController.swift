@@ -12,7 +12,7 @@ class PurchesViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addNavBarWithTitle("Settings", withLeftButtonType: .buttonTypeMenu, withRightButtonType: .buttonTypeSearch)
+        self.addNavBarWithTitle("Settings", withLeftButtonType: .buttonTypeNil, withRightButtonType: .buttonTypeNil)
         // Do any additional setup after loading the view.
     }
     

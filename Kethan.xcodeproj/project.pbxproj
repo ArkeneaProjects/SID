@@ -18,6 +18,8 @@
 		1801ABB123851DCB00F46223 /* UIImage+KVNImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801ABA523851DCB00F46223 /* UIImage+KVNImageEffects.m */; };
 		1801ABB223851DCB00F46223 /* UIImage+KVNEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801ABA823851DCB00F46223 /* UIImage+KVNEmpty.m */; };
 		1801ABB323851DCB00F46223 /* UIColor+KVNContrast.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801ABAA23851DCB00F46223 /* UIColor+KVNContrast.m */; };
+		1801ABB6238547CB00F46223 /* BaseTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1801ABB4238547CB00F46223 /* BaseTabBarViewController.swift */; };
+		1801ABB7238547CB00F46223 /* BaseTabBarControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1801ABB5238547CB00F46223 /* BaseTabBarControllerDelegate.swift */; };
 		1821AF0B237A741B0010B307 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF0A237A741B0010B307 /* HomeViewController.swift */; };
 		1821AF0D237A74320010B307 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF0C237A74320010B307 /* UploadViewController.swift */; };
 		1821AF0F237A74450010B307 /* PurchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF0E237A74450010B307 /* PurchesViewController.swift */; };
@@ -93,6 +95,8 @@
 		1801ABA823851DCB00F46223 /* UIImage+KVNEmpty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+KVNEmpty.m"; sourceTree = "<group>"; };
 		1801ABA923851DCB00F46223 /* UIImage+KVNImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+KVNImageEffects.h"; sourceTree = "<group>"; };
 		1801ABAA23851DCB00F46223 /* UIColor+KVNContrast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+KVNContrast.m"; sourceTree = "<group>"; };
+		1801ABB4238547CB00F46223 /* BaseTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabBarViewController.swift; sourceTree = "<group>"; };
+		1801ABB5238547CB00F46223 /* BaseTabBarControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabBarControllerDelegate.swift; sourceTree = "<group>"; };
 		1821AF0A237A741B0010B307 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1821AF0C237A74320010B307 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		1821AF0E237A74450010B307 /* PurchesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchesViewController.swift; sourceTree = "<group>"; };
@@ -373,6 +377,8 @@
 		18DDC7CB23798B78003FCCE8 /* BaseViewController */ = {
 			isa = PBXGroup;
 			children = (
+				1801ABB5238547CB00F46223 /* BaseTabBarControllerDelegate.swift */,
+				1801ABB4238547CB00F46223 /* BaseTabBarViewController.swift */,
 				18DDC7CC23798B9B003FCCE8 /* BaseViewController.swift */,
 			);
 			path = BaseViewController;
@@ -747,6 +753,7 @@
 				18DDC78E23797AA6003FCCE8 /* SearchViewController.swift in Sources */,
 				1821AF1E237A7E670010B307 /* CustomTextView.swift in Sources */,
 				18E71D6B237C15690090FC90 /* LoginViewController.swift in Sources */,
+				1801ABB7238547CB00F46223 /* BaseTabBarControllerDelegate.swift in Sources */,
 				1821AF0D237A74320010B307 /* UploadViewController.swift in Sources */,
 				1821AF12237A7BB50010B307 /* CustomNavBar.swift in Sources */,
 				1801ABAC23851DCB00F46223 /* KVNProgress.m in Sources */,
@@ -772,6 +779,7 @@
 				1801ABB223851DCB00F46223 /* UIImage+KVNEmpty.m in Sources */,
 				1801AB912385036300F46223 /* GoogleManager.swift in Sources */,
 				1821AF27237A8EF20010B307 /* CustomBarButtonItem.swift in Sources */,
+				1801ABB6238547CB00F46223 /* BaseTabBarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,7 +12,7 @@ class UploadViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addNavBarWithTitle("Favorites", withLeftButtonType: .buttonTypeMenu, withRightButtonType: .buttonTypeSearch)
+        self.addNavBarWithTitle("Add Image", withLeftButtonType: .buttonTypeNil, withRightButtonType: .buttonTypeNil)
         // Do any additional setup after loading the view.
     }
     

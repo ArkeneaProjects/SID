@@ -13,11 +13,10 @@ import GoogleSignIn
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate, GIDSignInDelegate {
    
-    
+    var tabBarController: BaseTabBarViewController!
+    var tabBarDelegate: BaseTabBarControllerDelegate = BaseTabBarControllerDelegate()
     
     var window: UIWindow?
-    var tabBarController: UITabBarController!
-    var tabBarDelegate: UITabBarControllerDelegate?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -34,7 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         GIDSignIn.sharedInstance().clientID = KEYS.googleKey
         GIDSignIn.sharedInstance()?.delegate = self
 
-        
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         let base = BaseViewController()
         base.navigateToHome(false)
@@ -53,13 +51,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         }
     }
     
-    
-   
     class func delegate() -> AppDelegate? {
         return UIApplication.shared.delegate as? AppDelegate
     }
-    // MARK: UISceneSession Lifecycle
     
+    // MARK: Google Sign-In Delegate
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
             print(error.localizedDescription)
@@ -78,4 +74,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     }
     
 }
-

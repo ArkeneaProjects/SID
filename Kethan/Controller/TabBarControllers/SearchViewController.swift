@@ -12,8 +12,7 @@ class SearchViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addNavBarWithTitle("Deals", withLeftButtonType: .buttonTypeMenu, withRightButtonType: .buttonTypeSearch)
+        self.addNavBarWithTitle("Search by text", withLeftButtonType: .buttonTypeNil, withRightButtonType: .buttonTypeNil)
         // Do any additional setup after loading the view.
     }
 }
-
