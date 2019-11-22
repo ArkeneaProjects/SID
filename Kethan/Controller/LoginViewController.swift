@@ -15,8 +15,17 @@ import GoogleSignIn
 class LoginViewController: BaseViewController {
 
     @IBOutlet weak var imgAppName: UIImageView!
+    @IBOutlet weak var imgTop: UIImageView!
+    @IBOutlet weak var imgBg: UIImageView!
+    
     @IBOutlet weak var constImageTop: CustomConstraint!
-
+    @IBOutlet weak var constBGImageBottom: NSLayoutConstraint!
+    
+    @IBOutlet weak var viewLogin: UIView!
+    
+    @IBOutlet weak var txtEmail: CustomTextField!
+    @IBOutlet weak var txtPassword: CustomTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,12 +39,14 @@ class LoginViewController: BaseViewController {
                         self.imgAppName.transform = CGAffineTransform.identity // undo in 1 seconds
                     }) { (finish) in
                         UIView.animate(withDuration: 1.0, animations: {
-                            self.constImageTop.constant = getCalculated(60.0)
+                            self.constImageTop.constant = getCalculated(54.0)
                             self.view.layoutIfNeeded()
                         }) { (finish) in
-                            
+                            UIView.animate(withDuration: 1.0) {
+                                self.imgTop.alpha = 1.0
+                                self.viewLogin.alpha = 1.0
+                            }
                         }
-                        
                     }
             }
         })
@@ -72,17 +83,21 @@ class LoginViewController: BaseViewController {
        // GIDSignIn.sharedInstance()?.signOut()
     }
     
+    @IBAction func signUpClickAction(_ sender: Any) {
+    }
+    
+    @IBAction func signInClickAction(_ sender: Any) {
+        self.navigateToHome(false)
+    }
+    
+    @IBAction func forgotPassWordClickAction(_ sender: Any) {
+    }
+    
+    @IBAction func hidePassWordClickAction(_ sender: Any) {
+    }
+    
     @objc func googleUserDataUpdate(notification: Notification) {
         
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+   
 }

@@ -33,6 +33,7 @@ PODS:
   - GTMSessionFetcher/Core (1.3.0)
   - GTMSessionFetcher/Full (1.3.0):
     - GTMSessionFetcher/Core (= 1.3.0)
+  - iOSDropDown (0.3.4)
   - IQKeyboardManagerSwift (6.5.4)
   - LNSideMenu (3.4.4)
   - SkeletonView (1.8.2)
@@ -42,6 +43,7 @@ DEPENDENCIES:
   - FacebookLogin
   - FBSDKLoginKit
   - GoogleSignIn
+  - iOSDropDown
   - IQKeyboardManagerSwift
   - LNSideMenu
   - SkeletonView
@@ -57,6 +59,7 @@ SPEC REPOS:
     - GoogleSignIn
     - GTMAppAuth
     - GTMSessionFetcher
+    - iOSDropDown
     - IQKeyboardManagerSwift
     - LNSideMenu
     - SkeletonView
@@ -71,10 +74,11 @@ SPEC CHECKSUMS:
   GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
   GTMAppAuth: 4deac854479704f348309e7b66189e604cf5e01e
   GTMSessionFetcher: 43b8b64263023d4f32caa0b40f4c8bfa3c5f36d8
+  iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
   IQKeyboardManagerSwift: 2dde0fc70110e8eac7ccce2a46fdbec6a850b414
   LNSideMenu: 43aaa1f9b5f406f04b3c9980b7a6f6569686176d
   SkeletonView: bb27c39857e5492136f02ee8a3aa78de55d12ecd
 
-PODFILE CHECKSUM: ba922e790c08637af7c14ec58708a152b42af4b9
+PODFILE CHECKSUM: 31e73f63c0557a9cb5808458ff7837644990aadb
 
 COCOAPODS: 1.8.4

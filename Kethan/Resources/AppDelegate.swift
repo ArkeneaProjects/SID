@@ -9,7 +9,7 @@
 import UIKit
 import FBSDKCoreKit
 import GoogleSignIn
-
+import IQKeyboardManagerSwift
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate, GIDSignInDelegate {
    
@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        /* let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        /* let storyBoard = UIStoryboard(name: STORYBOARD.main, bundle: Bundle.main)
          self.window = UIWindow(frame: UIScreen.main.bounds)
          let yourVc = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController
          if let window = window {
@@ -29,6 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
          }
          self.window?.makeKeyAndVisible()*/
         
+        //IQKeyboardManager.shared.enable = true
+        //IQKeyboardManager.shared.enableAutoToolbar = false
         // Initialize sign-in
         GIDSignIn.sharedInstance().clientID = KEYS.googleKey
         GIDSignIn.sharedInstance()?.delegate = self

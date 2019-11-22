@@ -7,8 +7,10 @@
 //
 
 import UIKit
-let screenHeight = UIScreen.main.bounds.height
 
+typealias VoidCompletion = () -> Void
+
+let screenHeight = UIScreen.main.bounds.height
 let screenWidth = UIScreen.main.bounds.width
 
 func isDevice() -> String {
@@ -34,4 +36,58 @@ func getCalculated(_ value: CGFloat) -> CGFloat {
 
 func safeAreaHeight() -> CGFloat {
     return (isDevice() == DEVICES.iPhoneX) ?667:751
+}
+
+func getValueFromDictionary(dictionary: NSDictionary, forKey key: String) -> String {
+    var boolCheck: [String: Bool]?
+    let object: AnyObject? = dictionary.object(forKey: key) as AnyObject
+    
+    if object == nil {
+        return ""
+    } else if object?.isKind(of: NSNull.classForCoder()) == true {
+        return ""
+    } else  if object?.isKind(of: NSArray.classForCoder()) == true {
+        return ""
+    } else if object?.isKind(of: NSNumber.classForCoder()) == true {
+        let value: NSNumber = object as? NSNumber ?? 0
+        return value.stringValue
+    } else if object?.isKind(of: NSString.classForCoder()) == true {
+        return object as? String ?? String()
+    } else if boolCheck?[key] == true {
+        return "true"
+    } else if boolCheck?[key] == false {
+        return "false"
+    } else {
+        return ""
+    }
+}
+
+func getObjectFromDictionary(dictionary: NSDictionary, forKey key: String, isArray array: Bool) -> AnyObject {
+    let object: AnyObject? = dictionary.object(forKey: key) as AnyObject
+    
+    if object == nil {
+        return (array) ?NSArray(): NSDictionary()
+    } else if object?.isKind(of: NSNull.classForCoder()) == true {
+        return (array) ?NSArray(): NSDictionary()
+    } else if object?.isKind(of: NSString.classForCoder()) == true {
+        if (object as? String ?? String()).count > 0 {
+            return (object as? String ?? String()).jsonObject()
+        } else {
+            return (array) ?NSArray(): NSDictionary()
+        }
+    } else {
+        if array {
+            if object?.isKind(of: NSArray.classForCoder()) == true {
+                return object!
+            } else {
+                return NSArray()
+            }
+        } else {
+            if object?.isKind(of: NSDictionary.classForCoder()) == true {
+                return object!
+            } else {
+                return NSDictionary()
+            }
+        }
+    }
 }

@@ -26,8 +26,8 @@ extension UIView {
         }
         set {
             self.layoutIfNeeded()
-            self.layer.cornerRadius = newValue
-            self.layer.masksToBounds = (newValue > 0)
+            self.layer.cornerRadius = getCalculated(newValue)
+            self.layer.masksToBounds = (getCalculated(newValue) > 0)
         }
     }
     
@@ -36,7 +36,7 @@ extension UIView {
             return self.layer.borderWidth
         }
         set {
-            self.layer.borderWidth = newValue
+            self.layer.borderWidth = getCalculated(newValue)
         }
     }
     
@@ -356,7 +356,6 @@ extension CALayer {
     }
 }
 
-
 extension UITableView {
     func registerNibWithIdentifier(_ identifiers: NSArray) {
         for identifier in identifiers {
@@ -364,4 +363,3 @@ extension UITableView {
         }
     }
 }
-

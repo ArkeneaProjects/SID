@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import GoogleSignIn
 
-class BaseViewController: UIViewController, UIGestureRecognizerDelegate, SWRevealViewControllerDelegate, UINavigationControllerDelegate {
+class BaseViewController: UIViewController, UITextFieldDelegate, UIGestureRecognizerDelegate, SWRevealViewControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var viewContainer: UIView!
     @IBOutlet var viewNavBar: UIView!
     
@@ -181,7 +182,7 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate, SWRevea
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             //Display screen accroding to user login
             if withLoggedIn == true {
-                let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                let storyBoard = UIStoryboard(name: STORYBOARD.main, bundle: Bundle.main)
                 if let yourVc = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
                     self.setAsRootScreen(yourVc)
                 }
@@ -197,16 +198,16 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate, SWRevea
                 tabBarAppearence.itemPositioning = UITabBar.ItemPositioning.fill
                 tabBarAppearence.itemSpacing = 0
                 
-                let search = self.instantiateNav("SearchViewController", storyboard: "Main" )
+                let search = self.instantiateNav("SearchViewController", storyboard: STORYBOARD.main )
                 search.tabBarItem = self.getTabBarButtonWithTitle(title: "", imageName: "tab1_deactive", selectedImageName: "tab1_active")
                 
-                let home = self.instantiateNav("HomeViewController", storyboard: "Main")
+                let home = self.instantiateNav("HomeViewController", storyboard: STORYBOARD.main)
                 home.tabBarItem = self.getTabBarButtonWithTitle(title: "", imageName: "tab2_deactive", selectedImageName: "tab2_active")
                 
-                let upload = self.instantiateNav("UploadViewController", storyboard: "Main")
+                let upload = self.instantiateNav("UploadViewController", storyboard: STORYBOARD.main)
                 upload.tabBarItem = self.getTabBarButtonWithTitle(title: "", imageName: "tab3_deactive", selectedImageName: "tab3_active")
                 
-                let purchase = self.instantiateNav("PurchesViewController", storyboard: "Main")
+                let purchase = self.instantiateNav("PurchesViewController", storyboard: STORYBOARD.main)
                 purchase.tabBarItem = self.getTabBarButtonWithTitle(title: "", imageName: "tab4_deactive", selectedImageName: "tab4_active")
                 
                 tabBarViewController.viewControllers = [search, home, upload, purchase]
@@ -218,6 +219,11 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate, SWRevea
             }
         }
         
+    }
+    
+    func instantiate(_ value: AnyClass, storyboard: String) -> UIViewController {
+          let storyboard: UIStoryboard = UIStoryboard(name: storyboard, bundle: Bundle.main)
+          return (storyboard.instantiateViewController(withIdentifier: String(describing: value))) as UIViewController
     }
     
     func getTabBarButtonWithTitle(title: String?, imageName: String, selectedImageName: String?) -> UITabBarItem {
@@ -253,5 +259,44 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate, SWRevea
         AppDelegate.delegate()?.window?.rootViewController = controller
         AppDelegate.delegate()?.window?.makeKeyAndVisible()
         
+    }
+    
+    // MARK: - UITextFieldDelegate -
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // MARK: - Show alert -
+    func showAlert(title: String, message: String, yesTitle: String?, noTitle: String?, yesCompletion: (() -> Void)?, noCompletion: (() -> Void)?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        
+        if yesTitle != nil {
+            if (yesTitle?.count)! > 0 {
+                alert.addAction(UIAlertAction(title: yesTitle, style: UIAlertAction.Style.default, handler: { (_) -> Void in
+                    if yesCompletion != nil {
+                        yesCompletion!()
+                    }
+                }))
+            }
+        }
+        if noTitle != nil {
+            if (noTitle?.count)! > 0 {
+                alert.addAction(UIAlertAction(title: noTitle, style: UIAlertAction.Style.cancel, handler: { (_) -> Void in
+                    if noCompletion != nil {
+                        noCompletion!()
+                    }
+                }))
+            }
+        }
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    // MARK: - LogOut
+    func logoutFromApp() {
+        FacebookManager.logoutUser()
+        GIDSignIn.sharedInstance()?.signOut()
+        self.navigateToHome(true)
     }
 }

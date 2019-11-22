@@ -22,7 +22,7 @@ class HomeViewController: BaseViewController {
 
     @IBAction func buttonAction(_ sender: Any) {
      
-        /*let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        /*let storyBoard = UIStoryboard(name: STORYBOARD.main, bundle: Bundle.main)
         let frontViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController
         self.navigationController?.pushViewController(frontViewController!, animated: true)*/
       
