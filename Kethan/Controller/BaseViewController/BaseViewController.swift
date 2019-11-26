@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleSignIn
+import SKPhotoBrowser
 
 class BaseViewController: UIViewController, UITextFieldDelegate, UIGestureRecognizerDelegate, SWRevealViewControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var viewContainer: UIView!
@@ -299,4 +300,39 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UIGestureRecogn
         GIDSignIn.sharedInstance()?.signOut()
         self.navigateToHome(true)
     }
+    
+    func openGalleryList(indexpath: IndexPath, imgNameArr: NSMutableArray, sourceView: UIImageView, isProfile: Bool = false, isdelete: Bool = false) {
+        
+      /*  var items: [KSPhotoItem] = []
+        for item in imgNameArr {
+            //let item = KSPhotoItem(sourceView: sourceView, imageUrl: URL(string: item as? String ?? ""))
+            let item = KSPhotoItem(sourceView: sourceView, image: UIImage(named: item as! String))
+            items.append(item)
+        }
+        
+        let browser = KSPhotoBrowser(photoItems: items, selectedIndex: UInt(indexpath.row))
+        //browser.delegate = self
+        browser.dismissalStyle = .rotation
+        browser.backgroundStyle = .black //isProfile ? .black:.blur
+        browser.loadingStyle = .indeterminate
+        browser.deletebuttonEnable = isdelete ? .yes:.none
+        browser.pageindicatorStyle = isProfile ? .none:.text
+        browser.delegate = self
+        browser.bounces = false
+        browser.show(from: self) */
+        
+        var items = [SKPhoto]()
+        for item in imgNameArr {
+            //let item = KSPhotoItem(sourceView: sourceView, imageUrl: URL(string: item as? String ?? ""))
+            let item = SKPhoto.photoWithImage(UIImage(named: item as? String ?? "")!)
+            items.append(item)
+        }
+        
+        // 2. create PhotoBrowser Instance, and present.
+        let browser = SKPhotoBrowser(photos: items)
+        browser.initializePageIndex(indexpath.row)
+        present(browser, animated: true, completion: {})
+        
+    }
+    
 }

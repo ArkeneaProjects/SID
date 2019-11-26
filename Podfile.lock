@@ -36,7 +36,11 @@ PODS:
   - iOSDropDown (0.3.4)
   - IQKeyboardManagerSwift (6.5.4)
   - LNSideMenu (3.4.4)
+  - SDWebImage (5.3.1):
+    - SDWebImage/Core (= 5.3.1)
+  - SDWebImage/Core (5.3.1)
   - SkeletonView (1.8.2)
+  - SKPhotoBrowser (6.1.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -46,7 +50,9 @@ DEPENDENCIES:
   - iOSDropDown
   - IQKeyboardManagerSwift
   - LNSideMenu
+  - SDWebImage
   - SkeletonView
+  - SKPhotoBrowser
 
 SPEC REPOS:
   trunk:
@@ -62,7 +68,9 @@ SPEC REPOS:
     - iOSDropDown
     - IQKeyboardManagerSwift
     - LNSideMenu
+    - SDWebImage
     - SkeletonView
+    - SKPhotoBrowser
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
@@ -77,8 +85,10 @@ SPEC CHECKSUMS:
   iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
   IQKeyboardManagerSwift: 2dde0fc70110e8eac7ccce2a46fdbec6a850b414
   LNSideMenu: 43aaa1f9b5f406f04b3c9980b7a6f6569686176d
+  SDWebImage: 7137d57385fb632129838c1e6ab9528a22c666cc
   SkeletonView: bb27c39857e5492136f02ee8a3aa78de55d12ecd
+  SKPhotoBrowser: 343de95d89dc7913763c5dda243cc6e606e4a168
 
-PODFILE CHECKSUM: 31e73f63c0557a9cb5808458ff7837644990aadb
+PODFILE CHECKSUM: fa530a682d13916ecad98250ea6a8893e11a166a
 
 COCOAPODS: 1.8.4

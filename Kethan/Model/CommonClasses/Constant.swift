@@ -31,11 +31,23 @@ struct STATICDATA {
     static let implantDropDown = ["Skyline lateran", "Skyline x-ray", "Skyline lateran x-ray", "Skyline a:p lateran", "Skyline a:p lateran x-ray"]
     static let manufacturerDropDown = ["Depuy Skyline", "Depuy ab sky", "Depuy a: lateran ", "Depuy a: lateran x-ray "]
     static let arrSearch = [["image": "image1", "percent": "90 % match", "title": "Skyline a:p lateran ", "subTitle": "Depuy Skyline "], ["image": "image2", "percent": "70 % match", "title": "Spine clips Implant...", "subTitle": "Ruby Healthcare, Pune"], ["image": "image3", "percent": "50 % match", "title": "Lumbar Spine X-ra...", "subTitle": "SGS Healthcare Center."], ["image": "image4", "percent": "65 % match", "title": "Spine x-ray", "subTitle": "GE Healthcare, Pune"], ["image": "image1", "percent": "90 % match", "title": "Skyline a:p lateran", "subTitle": "Depuy Skyline "], ["image": "image2", "percent": "70 % match", "title": "Spine clips Implant...", "subTitle": "Ruby Healthcare, Pune"]]
+    static let arrImages = ["image1", "image2", "image3", "image4", "image1"]
+    static let arrImagesSmall = ["image1Small", "image2Small", "image3Small", "image4Small", "lineImage"]
+    static let arrProcess = ["Locate presence of 1 or 2 rod implant by palpation. Refer for further examination if ", "Anesthetise at the incision site and under the end of the capsule with upto 1ml of 1% "]
+    static let arrResponse = ["Locate presence of 1 or 2 rod implant by palpation. Refer for further examination if not located.", "Clean the sit with antiseptic solution", "Anesthetise at the incision site and under the end of the capsule with upto 1ml of 1% lignocaine (without epinephrine)", "Locate presence of 1 or 2 rod implant by palpation. Refer for further examination if not located.", "Anesthetise at the incision site and under the end of the capsule with upto 1ml of 1% lignocaine (without epinephrine)"]
 }
 
 struct IDENTIFIERS {
     static let LeftMenuTableViewCell = "LeftMenuTableViewCell"
     static let SearchListCollectionViewCell = "SearchListCollectionViewCell"
+    static let CustomCollectionViewCell = "CustomCollectionViewCell"
+    static let DetailRow1TableViewCell = "DetailRow1TableViewCell"
+    static let DetailRow2TableViewCell = "DetailRow2TableViewCell"
+    static let AddDetail1CollectionViewCell = "AddDetail1CollectionViewCell"
+    static let AddDetailHeader1Cell = "AddDetailHeader1Cell"
+    static let AddDetailHeader2Cell = "AddDetailHeader2Cell"
+    static let AddDetailHeader3Cell = "AddDetailHeader3Cell"
+
 }
 
 struct YESNO {

@@ -9,18 +9,34 @@
 import UIKit
 
 class SearchListViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBarWithTitle("Search Results", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeNil)
         
         self.collectionView.register(UINib(nibName: IDENTIFIERS.SearchListCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: IDENTIFIERS.SearchListCollectionViewCell)
+        
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: collectionView.frame.size.width/2, height: getCalculated(225.0))
+        layout.minimumLineSpacing = getCalculated(10.0)
+        layout.minimumInteritemSpacing = 0
+        layout.sectionInset = UIEdgeInsets.zero
+        layout.scrollDirection = .vertical
+        self.collectionView.collectionViewLayout = layout
+        
         // Do any additional setup after loading the view.
     }
     
-    //MARK:- CollectionView Dalegate and DataSource
+    // MARK: - Button Action
+    @objc func viewClickAction(_ sender: CustomButton) {
+        if let controller = self.instantiate(SearchDetailViewController.self, storyboard: STORYBOARD.main) as? SearchDetailViewController {
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
+    }
+    
+    // MARK: - CollectionView Dalegate and DataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return STATICDATA.arrSearch.count
     }
@@ -32,6 +48,8 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
             cell.lblMatch.text = arr["percent"]
             cell.lblTitle.text = arr["title"]
             cell.lblSubTitle.text = arr["subTitle"]
+            cell.btnView.indexPath = indexPath
+            cell.btnView.addTarget(self, action: #selector(self.viewClickAction(_:)), for: .touchUpInside)
             return cell
         }
         return UICollectionViewCell()
@@ -42,16 +60,16 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: getCalculated(155.0), height: getCalculated(225.0))
+        return CGSize(width: collectionView.frame.size.width/2, height: getCalculated(225.0))
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

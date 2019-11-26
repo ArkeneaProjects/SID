@@ -18,6 +18,9 @@ class UploadViewController: BaseViewController {
         super.viewDidLoad()
         self.addNavBarWithTitle("Add Image", withLeftButtonType: .buttonTypeNil, withRightButtonType: .buttonTypeNil)
         
+        self.txtImplant.font = UIFont(name: self.txtImplant.font!.fontName, size: getCalculated(13.5))
+        self.txtManufacturer.font = UIFont(name: self.txtImplant.font!.fontName, size: getCalculated(13.5))
+        
         self.txtImplant.optionArray = STATICDATA.implantDropDown
         self.txtImplant.didSelect { (selected: String, index: Int, id: Int) in
             self.txtImplant.text = selected
@@ -28,6 +31,13 @@ class UploadViewController: BaseViewController {
             self.txtManufacturer.text = selected
         }
         // Do any additional setup after loading the view.
+    }
+    
+    // MARK: - Button Action
+    @IBAction func addClickAction(_ sender: Any) {
+        if let controller = self.instantiate(AddDetailsViewController.self, storyboard: STORYBOARD.main) as? AddDetailsViewController {
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
     
  // MARK: - TextField Delegate
@@ -41,6 +51,7 @@ class UploadViewController: BaseViewController {
         }
         return true
     }
+    
    /* func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField.text!.count >= 3 {
            // self.txtImplant.showList()

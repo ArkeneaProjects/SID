@@ -12,6 +12,8 @@ target 'Kethan' do
   pod 'IQKeyboardManagerSwift'
   pod 'Alamofire'
   pod 'iOSDropDown'
+  pod 'SDWebImage'
+  pod 'SKPhotoBrowser'
 # Pods for Kethan
 
   target 'KethanTests' do

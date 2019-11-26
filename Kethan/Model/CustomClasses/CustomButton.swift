@@ -11,7 +11,6 @@ import UIKit
 open class CustomButton: UIButton {
 
     var indexPath: IndexPath = IndexPath()
-   
     
     @IBInspectable var autoFont: Bool = false
     @IBInspectable var fontSize: CGFloat = 0

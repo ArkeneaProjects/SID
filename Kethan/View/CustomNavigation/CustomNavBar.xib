@@ -24,7 +24,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OFt-a2-mnB" userLabel="Content">
                             <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDa-7A-aZu">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDa-7A-aZu" customClass="CustomButton" customModule="Kethan" customModuleProvider="target">
                                     <rect key="frame" x="5" y="0.0" width="44" height="44"/>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
@@ -46,6 +46,17 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TkF-pv-xAF" customClass="CustomButton" customModule="Kethan" customModuleProvider="target">
+                                    <rect key="frame" x="271" y="0.0" width="44" height="44"/>
+                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="44" id="FE6-cr-NnE"/>
+                                        <constraint firstAttribute="height" constant="44" id="d2y-aC-S2x"/>
+                                    </constraints>
+                                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                    <state key="normal" image="pencil"/>
+                                </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azN-u4-Mvk" customClass="CustomButton" customModule="Kethan" customModuleProvider="target">
                                     <rect key="frame" x="272" y="12" width="43" height="20"/>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -79,8 +90,10 @@
                             </subviews>
                             <color key="backgroundColor" red="0.035294117647058823" green="0.52156862745098043" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
+                                <constraint firstItem="TkF-pv-xAF" firstAttribute="centerY" secondItem="OFt-a2-mnB" secondAttribute="centerY" id="DE8-kQ-p7g"/>
                                 <constraint firstItem="w5D-E3-a2M" firstAttribute="top" secondItem="OFt-a2-mnB" secondAttribute="top" id="GUd-au-iRe"/>
                                 <constraint firstItem="azN-u4-Mvk" firstAttribute="leading" secondItem="w5D-E3-a2M" secondAttribute="trailing" id="Jc0-X7-9uL"/>
+                                <constraint firstAttribute="trailing" secondItem="TkF-pv-xAF" secondAttribute="trailing" constant="5" id="Jli-j0-uFw"/>
                                 <constraint firstItem="w5D-E3-a2M" firstAttribute="leading" secondItem="DDa-7A-aZu" secondAttribute="trailing" id="QTn-aP-lP9"/>
                                 <constraint firstAttribute="trailing" secondItem="azN-u4-Mvk" secondAttribute="trailing" constant="5" id="bid-kL-QKO" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
                                     <userDefinedRuntimeAttributes>
@@ -126,10 +139,14 @@
             <connections>
                 <outlet property="btnLeft" destination="DDa-7A-aZu" id="pdd-J2-Thx"/>
                 <outlet property="btnRight" destination="azN-u4-Mvk" id="TR0-Rk-e7J"/>
+                <outlet property="btnRightEdit" destination="TkF-pv-xAF" id="8dh-DA-Vnx"/>
                 <outlet property="lblTitle" destination="w5D-E3-a2M" id="LQP-dM-4SA"/>
                 <outlet property="viewNavigationBar" destination="OFt-a2-mnB" id="ctm-8l-Jt7"/>
             </connections>
             <point key="canvasLocation" x="219.375" y="-244.01408450704227"/>
         </view>
     </objects>
+    <resources>
+        <image name="pencil" width="18" height="17.5"/>
+    </resources>
 </document>

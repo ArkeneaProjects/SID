@@ -8,3 +8,8 @@
 
 #import "SWRevealViewController.h"
 #import "ProgressManager.h"
+#import "BEMCheckBox.h"
+#import "BEMCheckBoxGroup.h"
+#import "BEMAnimationManager.h"
+#import "BEMPathManager.h"
+

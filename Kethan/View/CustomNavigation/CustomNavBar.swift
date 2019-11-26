@@ -8,14 +8,18 @@
 
 import UIKit
 enum ButtonType: NSInteger {
-    case buttonTypeNil = 0, buttonTypeBack, buttonTypeCredit, buttonTypeMenu, buttonTypeSave
+    case buttonTypeNil = 0, buttonTypeBack, buttonTypeCredit, buttonTypeMenu, buttonTypeSave, buttonTypeEdit
 }
 
 class CustomNavBar: UIView {
     @IBOutlet weak var viewNavigationBar: UIView!
+    
     @IBOutlet weak var btnLeft: CustomButton!
     @IBOutlet weak var btnRight: CustomButton!
+    @IBOutlet weak var btnRightEdit: CustomButton!
+    
     @IBOutlet weak var lblTitle: CustomLabel!
+    
     var leftBarButtonType: ButtonType = .buttonTypeNil
     var rightBarButtonType: ButtonType = .buttonTypeNil
     /*
@@ -42,7 +46,7 @@ class CustomNavBar: UIView {
         
         self.btnLeft.alpha = 0
         self.btnRight.alpha = 0
-        
+        self.btnRightEdit.alpha = 0
         //self.const_progressHeight.constant = 0
         //self.const_statusBarHeight.constant = (isDevice() == DEVICES.iPhoneX || isDevice() == DEVICES.iPhoneXR) ?44.0:20
         
@@ -78,6 +82,11 @@ class CustomNavBar: UIView {
                 self.btnRight.layer.cornerRadius = getCalculated(9.0)
                 self.btnRight.backgroundColor = .white
                 self.btnRight.setTitle("$ 50", for: .normal)
+            } else if rightButtonType == .buttonTypeEdit {
+                 self.btnRightEdit.alpha = 1.0
+                 self.btnRightEdit.setImage(UIImage(named: "pencil"), for: .normal)
+                 self.btnRightEdit.addTarget(target, action: rightAction, for: UIControl.Event.touchUpInside)
+
             }
             
             if rightImageName.count > 0 {
@@ -88,7 +97,6 @@ class CustomNavBar: UIView {
             self.btnRight.addTarget(target, action: rightAction, for: UIControl.Event.touchUpInside)
             self.layoutIfNeeded()
         }
-        
         
         //        if AppConstant.shared.totalImageCount > 0 {
         //            self.addProgress()
