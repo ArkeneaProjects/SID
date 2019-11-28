@@ -51,7 +51,9 @@ open class CustomTextView: UITextView {
                 }
             }
         }
-        //self.setValue(placeholderColor, forKeyPath: "_placeholderLabel.textColor")
+        
+        self.setValue(placeholderColor, forKeyPath: "_placeholderLabel.textColor")
+        
         if self.placeholder.last == "*"{
             let attribute = NSMutableAttributedString.init(string: self.placeholder)
             attribute.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(hexCode: 0xF04A65), range: NSMakeRange((self.placeholder.count) - 1, 1))

@@ -16,16 +16,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landing_bg" translatesAutoresizingMaskIntoConstraints="NO" id="TEe-Hj-vLc">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="TEe-Hj-vLc">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="TEe-Hj-vLc" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="MVx-Ar-yVb"/>
-                            <constraint firstAttribute="bottom" secondItem="TEe-Hj-vLc" secondAttribute="bottom" id="Qej-Ya-gYs"/>
-                            <constraint firstItem="TEe-Hj-vLc" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="ggm-xu-Vfm"/>
-                            <constraint firstAttribute="trailing" secondItem="TEe-Hj-vLc" secondAttribute="trailing" id="hd2-Ou-fuy"/>
+                            <constraint firstAttribute="trailing" secondItem="TEe-Hj-vLc" secondAttribute="trailing" id="8zh-05-8CE"/>
+                            <constraint firstAttribute="bottom" secondItem="TEe-Hj-vLc" secondAttribute="bottom" id="YKv-5v-7R1"/>
+                            <constraint firstItem="TEe-Hj-vLc" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="rz1-Ri-v99"/>
+                            <constraint firstItem="TEe-Hj-vLc" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="zru-vV-8hz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -36,6 +36,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="landing_bg" width="320" height="568"/>
+        <image name="background.png" width="320" height="568"/>
     </resources>
 </document>

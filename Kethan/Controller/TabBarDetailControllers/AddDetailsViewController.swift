@@ -11,7 +11,7 @@ import UIKit
 class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tblView: UITableView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBarWithTitle("Add Details", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeNil)
@@ -29,6 +29,23 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         if let controller = self.instantiate(ThankYouViewController.self, storyboard: STORYBOARD.main) as? ThankYouViewController {
             self.navigationController?.pushViewController(controller, animated: true)
         }
+    }
+    
+    @objc func addProcess(_ sender: CustomButton) {
+        let controller: ResponsePopUpViewController = self.instantiate(ResponsePopUpViewController.self, storyboard: STORYBOARD.main) as? ResponsePopUpViewController ?? ResponsePopUpViewController()
+        controller.preparePopup(controller: self)
+        controller.showPopup()
+        controller.addCompletion = { str in
+            
+            print(str)
+        }
+    }
+    @objc func dateBtnClickAction(_ sender: CustomButton) {
+        
+    }
+    
+    @objc func placeBtnClickAction(_ sender: CustomButton) {
+        
     }
     
     // MARK: - UITabelVieeDelegate, UITableViewDataSource
@@ -51,6 +68,8 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
             }
         } else if indexPath.row == 1 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: IDENTIFIERS.AddDetailHeader2Cell, for: indexPath) as? AddDetailHeader2Cell {
+                cell.btnSurgeryDate.addTarget(self, action: #selector(dateBtnClickAction(_:)), for: .touchUpInside)
+                cell.btnLocation.addTarget(self, action: #selector(placeBtnClickAction(_:)), for: .touchUpInside)
                 return cell
             }
         } else {
@@ -60,6 +79,8 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                 cell.viewListing.layoutIfNeeded()
                 cell.layoutIfNeeded()
                 cell.selectionStyle = .none
+                cell.btnAddResponse.indexPath = indexPath
+                cell.btnAddResponse.addTarget(self, action: #selector(addProcess(_:)), for: .touchUpInside)
                 return cell
             }
         }

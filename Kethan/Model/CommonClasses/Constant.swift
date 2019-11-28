@@ -8,6 +8,10 @@
 
 import UIKit
 
+struct APP_COLOR {
+    static let color1 = UIColor(hexString: "#0985E9")
+}
+
 struct DEVICES {
     static let iPhoneSE: String = "iPhoneSE"
     static let iPhone6: String = "iPhone6"

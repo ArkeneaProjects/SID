@@ -7,28 +7,39 @@
 //
 
 import UIKit
-import iOSDropDown
 
 class SearchViewController: BaseViewController {
 
-    @IBOutlet weak var txtImplant: DropDown!
-    @IBOutlet weak var txtManufacturer: DropDown!
+    @IBOutlet weak var txtImplant: CustomDropDown!
+    
+    @IBOutlet weak var txtManufacture: CustomDropDown!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBarWithTitle("Search by text", withLeftButtonType: .buttonTypeNil, withRightButtonType: .buttonTypeNil)
-        // Do any additional setup after loading the view.
+       
         self.txtImplant.font = UIFont(name: self.txtImplant.font!.fontName, size: getCalculated(14.0))
-        self.txtManufacturer.font = UIFont(name: self.txtImplant.font!.fontName, size: getCalculated(14.0))
+        self.txtManufacture.font = UIFont(name: self.txtManufacture.font!.fontName, size: getCalculated(14.0))
         
         self.txtImplant.optionArray = STATICDATA.implantDropDown
         self.txtImplant.didSelect { (selected: String, index: Int, id: Int) in
             self.txtImplant.text = selected
         }
+        self.txtImplant.keyboardCompletion = {
+            if self.txtImplant.shadow != nil && self.txtImplant.shadow.alpha != 0 {
+                self.txtImplant.hideList()
+            }
+        }
+                
+        self.txtManufacture.optionArray = STATICDATA.manufacturerDropDown
+        self.txtManufacture.didSelect { (selected: String, index: Int, id: Int) in
+            self.txtManufacture.text = selected
+        }
         
-        self.txtManufacturer.optionArray = STATICDATA.manufacturerDropDown
-        self.txtManufacturer.didSelect { (selected: String, index: Int, id: Int) in
-            self.txtManufacturer.text = selected
+        self.txtManufacture.keyboardCompletion = {
+            if self.txtManufacture.shadow != nil && self.txtManufacture.shadow.alpha != 0 {
+                self.txtManufacture.hideList()
+            }
         }
     }
     
@@ -45,8 +56,8 @@ class SearchViewController: BaseViewController {
         if self.txtImplant.shadow != nil && self.txtImplant.shadow.alpha != 0 {
             self.txtImplant.hideList()
         }
-        if self.txtManufacturer.shadow != nil && self.txtManufacturer.shadow.alpha != 0 {
-            self.txtManufacturer.hideList()
+        if self.txtManufacture.shadow != nil && self.txtManufacture.shadow.alpha != 0 {
+            self.txtManufacture.hideList()
         }
         return true
     }

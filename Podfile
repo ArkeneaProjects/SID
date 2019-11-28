@@ -11,7 +11,6 @@ target 'Kethan' do
   pod 'SkeletonView'
   pod 'IQKeyboardManagerSwift'
   pod 'Alamofire'
-  pod 'iOSDropDown'
   pod 'SDWebImage'
   pod 'SKPhotoBrowser'
 # Pods for Kethan

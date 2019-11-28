@@ -113,6 +113,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="Y32-dC-g79"/>
             <connections>
+                <outlet property="btnAddResponse" destination="pgA-jJ-JmT" id="Uw3-ud-J6I"/>
                 <outlet property="constViewXpos" destination="Ngm-eY-yzb" id="fcz-1I-9dK"/>
                 <outlet property="viewListing" destination="mgG-vi-ktr" id="iRo-Im-rr9"/>
             </connections>

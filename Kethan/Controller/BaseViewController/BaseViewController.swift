@@ -178,13 +178,14 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UIGestureRecogn
     }
     
     // MARK: - Navigation to Home, false for login, true for login
-    func navigateToHome(_ withLoggedIn: Bool) {
+    func navigateToHome(_ withLoggedIn: Bool, _ loginAnimated: Bool) {
         
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
+      //  DispatchQueue.main.asyncAfter(deadline: .now()) {
             //Display screen accroding to user login
             if withLoggedIn == true {
                 let storyBoard = UIStoryboard(name: STORYBOARD.main, bundle: Bundle.main)
                 if let yourVc = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+                    yourVc.isViewAnimated = (loginAnimated == true) ? true:false
                     self.setAsRootScreen(yourVc)
                 }
             } else {
@@ -218,7 +219,7 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UIGestureRecogn
                 tabBarViewController.selectedIndex = 1
                 AppDelegate.delegate()?.tabBarController = tabBarViewController
             }
-        }
+        //}
         
     }
     
@@ -229,6 +230,8 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UIGestureRecogn
     
     func getTabBarButtonWithTitle(title: String?, imageName: String, selectedImageName: String?) -> UITabBarItem {
         let tabBarItem = UITabBarItem(title: title, image: UIImage(named: imageName)?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), selectedImage: ((selectedImageName != nil) ?UIImage(named: selectedImageName!)?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal):nil))
+        //self.tabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
+        //self.title = nil
         return tabBarItem
     }
     
@@ -298,29 +301,11 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UIGestureRecogn
     func logoutFromApp() {
         FacebookManager.logoutUser()
         GIDSignIn.sharedInstance()?.signOut()
-        self.navigateToHome(true)
+        self.navigateToHome(true, false)
     }
     
     func openGalleryList(indexpath: IndexPath, imgNameArr: NSMutableArray, sourceView: UIImageView, isProfile: Bool = false, isdelete: Bool = false) {
-        
-      /*  var items: [KSPhotoItem] = []
-        for item in imgNameArr {
-            //let item = KSPhotoItem(sourceView: sourceView, imageUrl: URL(string: item as? String ?? ""))
-            let item = KSPhotoItem(sourceView: sourceView, image: UIImage(named: item as! String))
-            items.append(item)
-        }
-        
-        let browser = KSPhotoBrowser(photoItems: items, selectedIndex: UInt(indexpath.row))
-        //browser.delegate = self
-        browser.dismissalStyle = .rotation
-        browser.backgroundStyle = .black //isProfile ? .black:.blur
-        browser.loadingStyle = .indeterminate
-        browser.deletebuttonEnable = isdelete ? .yes:.none
-        browser.pageindicatorStyle = isProfile ? .none:.text
-        browser.delegate = self
-        browser.bounces = false
-        browser.show(from: self) */
-        
+    
         var items = [SKPhoto]()
         for item in imgNameArr {
             //let item = KSPhotoItem(sourceView: sourceView, imageUrl: URL(string: item as? String ?? ""))
@@ -335,4 +320,226 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UIGestureRecogn
         
     }
     
+    // MARK: - Popup Functions -
+    func showPopupWithView(viewPopup: UIView, viewContainer: UIView, viewBlur: UIView, btnClose: CustomButton?) {
+        if self.navigationController != nil {
+            self.navigationController!.interactivePopGestureRecognizer!.isEnabled = false
+        }
+        
+        self.view.endEditing(true)
+        self.isPopupEnabled = true
+        
+        if viewContainer.superview != nil {
+            viewContainer.superview?.bringSubviewToFront(viewContainer)
+        }
+        
+        if self.parent != nil {
+            self.parent?.view.bringSubviewToFront(self.view)
+        }
+        
+        if self.parent?.parent != nil {
+            self.parent?.parent?.view.bringSubviewToFront((self.parent?.view)!)
+        }
+        
+        viewContainer.alpha = 1.0
+        
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {() -> Void in
+            viewBlur.alpha = 1.0
+            viewPopup.alpha = 1.0
+            viewPopup.transform = CGAffineTransform.identity
+            
+            if btnClose != nil {
+                btnClose!.alpha = 1.0
+            }
+            
+        }, completion: {(_ finished: Bool) -> Void in
+            
+        })
+    }
+    
+    func preparePopupWithView(viewPopup: UIView, viewContainer: UIView, viewBlur: UIView, btnClose: CustomButton?) {
+        self.isPopupEnabled = false
+        
+        if viewContainer.superview != nil {
+            viewContainer.superview?.sendSubviewToBack(viewContainer)
+        }
+        
+        viewPopup.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        
+        viewBlur.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        viewContainer.backgroundColor = UIColor.clear
+        
+        viewBlur.alpha = 0
+        viewPopup.alpha = 0
+        viewContainer.alpha = 0
+        
+        if btnClose != nil {
+            btnClose!.alpha = 0
+        }
+    }
+    
+    func dismissPopupWithView(remove: Bool, viewPopup: UIView, viewContainer: UIView, viewBlur: UIView, btnClose: CustomButton?) {
+        dismissPopupWithView(remove: remove, viewPopup: viewPopup, viewContainer: viewContainer, viewBlur: viewBlur, btnClose: btnClose, withCompletion: nil)
+    }
+    
+    func dismissPopupWithView(remove: Bool, viewPopup: UIView, viewContainer: UIView, viewBlur: UIView, btnClose: CustomButton?, withCompletion completion: VoidCompletion?) {
+        self.view.endEditing(true)
+        self.isPopupEnabled = false
+        
+        viewPopup.alpha = 1.0
+        viewPopup.transform = CGAffineTransform.identity
+        
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
+            viewBlur.alpha = 0
+            viewPopup.alpha = 0
+            viewPopup.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            
+            if btnClose != nil {
+                btnClose!.alpha = 0
+            }
+        }) { (_ finished: Bool) in
+            if finished == true {
+                viewContainer.superview!.sendSubviewToBack(viewContainer)
+                viewContainer.alpha = 0
+                
+                if let parent = self.findParentBaseViewController() {
+                    parent.checkForGesture(parent)
+                }
+                
+                if remove == true {
+                    if let superView = viewContainer.superview {
+                        superView.alpha = 0
+                        superView.removeFromSuperview()
+                        if let controller = superView.next as? UIViewController {
+                            controller.removeFromParent()
+                        }
+                    }
+                }
+                
+                if completion != nil {
+                    completion!()
+                }
+            }
+        }
+    }
+    
+    func findParentBaseViewController() -> BaseViewController? {
+        if let parent = self.parent as? BaseViewController {
+            return parent
+        } else if let parent = self.parent as? UINavigationController {
+            if parent.viewControllers.count > 1 {
+                if let controller = parent.viewControllers.last as? BaseViewController {
+                    if controller.isPopupScreenType == false {
+                        return controller
+                    } else if let previous = parent.viewControllers[parent.viewControllers.count-2] as? BaseViewController {
+                        return previous
+                    } else {
+                        return nil
+                    }
+                } else {
+                    return nil
+                }
+            } else {
+                if let controller = parent.viewControllers.last as? BaseViewController {
+                    return controller
+                } else {
+                    return nil
+                }
+            }
+        } else if let parent = self.parent as? UITabBarController {
+            if let navigation = parent.selectedViewController as? UINavigationController {
+                if navigation.viewControllers.count > 1 {
+                    if let controller = navigation.viewControllers.last as? BaseViewController {
+                        if controller.isPopupScreenType == false {
+                            return controller
+                        } else if let previous = navigation.viewControllers[navigation.viewControllers.count-2] as? BaseViewController {
+                            return previous
+                        } else {
+                            return nil
+                        }
+                    } else {
+                        return nil
+                    }
+                } else {
+                    if let controller = navigation.viewControllers.last as? BaseViewController {
+                        return controller
+                    } else {
+                        return nil
+                    }
+                }
+            } else {
+                if let controller = parent.selectedViewController as? BaseViewController {
+                    return controller
+                } else {
+                    return nil
+                }
+            }
+        } else {
+            return nil
+        }
+    }
+    
+    func removeFromViewControllers(_ type: UIViewController) {
+        var exists = false
+        var index = 0
+        for controller in (self.navigationController?.viewControllers)! {
+            if controller.isKind(of: type.classForCoder) {
+                exists = true
+                index = (self.navigationController?.viewControllers.index(of: controller))!
+            }
+        }
+        if exists {
+            let modified = NSMutableArray(array: (self.navigationController?.viewControllers)!)
+            modified.removeObject(at: index)
+            self.navigationController?.viewControllers = NSArray(array: modified) as? [UIViewController] ?? []
+        }
+    }
+    
+    func addViewController(controller: UIViewController, view: UIView, parent: UIViewController) {
+        parent.addChild(controller)
+        view.addSubview(controller.view)
+        
+        controller.view.translatesAutoresizingMaskIntoConstraints = false
+        controller.view.addFullResizeConstraints(parent: view)
+        // controller.view.backgroundColor = UIColor.clear
+        
+        controller.didMove(toParent: parent)
+        parent.view.layoutIfNeeded()
+    }
+    
+    func hideShowViewWith(viewToShow: UIView, viewShowing: UIView) {
+        viewToShow.layer.transform = CATransform3DMakeScale(0.95, 0.95, 0.95)
+        viewToShow.alpha = 0
+        
+        UIView.animate(withDuration: 0.15, delay: 0, options: .curveEaseIn, animations: {
+            viewShowing.alpha = 0
+        }) { (_) in
+            
+        }
+        
+        UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut, animations: {
+            viewShowing.layer.transform = CATransform3DMakeScale(0.92, 0.92, 0.92)
+        }) { (_) in
+            
+        }
+        
+        UIView.animate(withDuration: 0.25, delay: 0.2, options: .curveEaseIn, animations: {
+            viewToShow.layer.transform = CATransform3DMakeScale(1.0, 1.0, 1.0)
+            viewToShow.alpha = 1.0
+        }) { (_) in
+            
+        }
+    }
+    
+    func checkForGesture(_ controller: BaseViewController) {
+           if controller.navBar != nil {
+               if controller.navigationController != nil {
+                   if controller.navBar.leftBarButtonType == ButtonType.buttonTypeBack {
+                       controller.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+                   } else {
+                       controller.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+                   }
+               }
+           }
+       }
 }

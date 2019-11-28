@@ -1,81 +1,59 @@
+//
+//  CustomDropDown.swift
+//  Kethan
+//
+//  Created by Apple on 27/11/19.
+//  Copyright © 2019 Arkenea. All rights reserved.
+//
 
-//
-//  iOSDropDown.swift
-//
-//
-//  Created by Jishnu Raj T on 26/04/18.
-//  Copyright © 2018 JRiOSdev. All rights reserved.
-//
 import UIKit
 
-open class DropDown : UITextField{
+open class CustomDropDown: UITextField {
 
-    var arrow : Arrow!
-    var table : UITableView!
-    public var shadow : UIView!
+    var arrow: Arrow!
+    var table: UITableView!
+    public var shadow: UIView!
     public  var selectedIndex: Int?
 
-
-    //MARK: IBInspectable
-
+    var keyboardCompletion: VoidCompletion?
+    
+    // MARK: - IBInspectable
+    
     @IBInspectable public var rowHeight: CGFloat = 30
     @IBInspectable public var rowBackgroundColor: UIColor = .white
     @IBInspectable public var selectedRowColor: UIColor = .cyan
     @IBInspectable public var hideOptionsWhenSelect = true
     @IBInspectable  public var isSearchEnable: Bool = true {
-        didSet{
+        didSet {
             addGesture()
-        }
-    }
-
-
-    @IBInspectable public var borderColor: UIColor =  UIColor.lightGray {
-        didSet {
-            layer.borderColor = borderColor.cgColor
-        }
-    }
-    @IBInspectable public var listHeight: CGFloat = 150{
-        didSet {
-
-        }
-    }
-    @IBInspectable public var borderWidth: CGFloat = 0.0 {
-        didSet {
-            layer.borderWidth = borderWidth
-        }
-    }
-
-    @IBInspectable public var cornerRadius: CGFloat = 5.0 {
-        didSet {
-            layer.cornerRadius = cornerRadius
         }
     }
 
     //Variables
     public var tableheightX: CGFloat = 100
-    fileprivate  var dataArray = [String]()
-    fileprivate  var imageArray = [String]()
-    fileprivate  var parentController:UIViewController?
-    fileprivate  var pointToParent = CGPoint(x: 0, y: 0)
+    fileprivate var dataArray = [String]()
+    fileprivate var imageArray = [String]()
+    fileprivate var parentController: UIViewController?
+    fileprivate var pointToParent = CGPoint(x: 0, y: 0)
     fileprivate var backgroundView = UIView()
-    fileprivate var keyboardHeight:CGFloat = 0
+    fileprivate var keyboardHeight: CGFloat = 0
 
     public var optionArray = [String]() {
-        didSet{
+        didSet {
             self.dataArray = self.optionArray
         }
     }
     public var optionImageArray = [String]() {
-        didSet{
+        didSet {
             self.imageArray = self.optionImageArray
         }
     }
-    public var optionIds : [Int]?
+    public var optionIds: [Int]?
     var searchText = String() {
-        didSet{
+        didSet {
             if searchText == "" {
                 self.dataArray = self.optionArray
-            }else{
+            } else {
                 self.dataArray = optionArray.filter {
                     return $0.range(of: searchText, options: .caseInsensitive) != nil
                 }
@@ -86,26 +64,33 @@ open class DropDown : UITextField{
         }
     }
     @IBInspectable public var arrowSize: CGFloat = 15 {
-        didSet{
+        didSet {
             let center =  arrow.superview!.center
             arrow.frame = CGRect(x: center.x - arrowSize/2, y: center.y - arrowSize/2, width: arrowSize, height: arrowSize)
         }
     }
     @IBInspectable public var arrowColor: UIColor = .black {
-        didSet{
+        didSet {
             arrow.arrowColor = arrowColor
         }
     }
     @IBInspectable public var checkMarkEnabled: Bool = true {
-        didSet{
+        didSet {
             
         }
     }
     @IBInspectable public var handleKeyboard: Bool = true {
-        didSet{
+        didSet {
             
         }
     }
+    
+    @IBInspectable public var listHeight: CGFloat = 150 {
+        didSet {
+
+        }
+    }
+    @IBInspectable var placeColor: UIColor = UIColor.gray
 
     // Init
     public override init(frame: CGRect) {
@@ -120,13 +105,12 @@ open class DropDown : UITextField{
         self.delegate = self
     }
 
-
-    //MARK: Closures
-    fileprivate var didSelectCompletion: (String, Int ,Int) -> () = {selectedText, index , id  in }
-    fileprivate var TableWillAppearCompletion: () -> () = { }
-    fileprivate var TableDidAppearCompletion: () -> () = { }
-    fileprivate var TableWillDisappearCompletion: () -> () = { }
-    fileprivate var TableDidDisappearCompletion: () -> () = { }
+    // MARK: - Closures
+    fileprivate var didSelectCompletion: (String, Int, Int) -> Void = {selectedText, index, id  in }
+    fileprivate var TableWillAppearCompletion: () -> Void = { }
+    fileprivate var TableDidAppearCompletion: () -> Void = { }
+    fileprivate var TableWillDisappearCompletion: () -> Void = { }
+    fileprivate var TableDidDisappearCompletion: () -> Void = { }
 
     func setupUI () {
         let size = self.frame.height
@@ -136,66 +120,66 @@ open class DropDown : UITextField{
         let arrowContainerView = UIView(frame: rightView.frame)
         self.rightView?.addSubview(arrowContainerView)
         let center = arrowContainerView.center
-        arrow = Arrow(origin: CGPoint(x: center.x - arrowSize/2,y: center.y - arrowSize/2),size: arrowSize  )
+        arrow = Arrow(origin: CGPoint(x: center.x - arrowSize/2, y: center.y - arrowSize/2), size: arrowSize)
         arrowContainerView.addSubview(arrow)
 
         self.backgroundView = UIView(frame: .zero)
         self.backgroundView.backgroundColor = .clear
         addGesture()
-        if isSearchEnable && handleKeyboard{
-            NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillShow, object: nil, queue: nil) { (notification) in
-                if self.isFirstResponder{
-                let userInfo:NSDictionary = notification.userInfo! as NSDictionary
-                let keyboardFrame:NSValue = userInfo.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue
+        if isSearchEnable && handleKeyboard {
+            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: nil) { (notification) in
+                if self.isFirstResponder {
+                let userInfo: NSDictionary = notification.userInfo! as NSDictionary
+                    let keyboardFrame: NSValue = userInfo.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue
                 let keyboardRectangle = keyboardFrame.cgRectValue
                 self.keyboardHeight = keyboardRectangle.height
-                    if !self.isSelected{
+                    if !self.isSelected {
                         self.showList()
                     }
                 }
-              
             }
-            NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillHide, object: nil, queue: nil) { (notification) in
-                if self.isFirstResponder{
+            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: nil) { (notification) in
+                if self.isFirstResponder {
                 self.keyboardHeight = 0
                 }
             }
         }
+        
+        //self.setValue(placeColor, forKeyPath: "_placeholderLabel.textColor")
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-
     
-    fileprivate func addGesture (){
-        let gesture =  UITapGestureRecognizer(target: self, action:  #selector(touchAction))
-        if isSearchEnable{
+    fileprivate func addGesture () {
+        let gesture =  UITapGestureRecognizer(target: self, action: #selector(touchAction))
+        if isSearchEnable {
             self.rightView?.addGestureRecognizer(gesture)
-        }else{
+        } else {
             self.addGestureRecognizer(gesture)
         }
-        let gesture2 =  UITapGestureRecognizer(target: self, action:  #selector(touchAction))
+        let gesture2 =  UITapGestureRecognizer(target: self, action: #selector(touchAction))
         self.backgroundView.addGestureRecognizer(gesture2)
     }
-    func getConvertedPoint(_ targetView: UIView, baseView: UIView?)->CGPoint{
+    func getConvertedPoint(_ targetView: UIView, baseView: UIView?) -> CGPoint {
         var pnt = targetView.frame.origin
-        if nil == targetView.superview{
+        if nil == targetView.superview {
             return pnt
         }
         var superView = targetView.superview
-        while superView != baseView{
+        while superView != baseView {
             pnt = superView!.convert(pnt, to: superView!.superview)
-            if nil == superView!.superview{
+            if nil == superView!.superview {
                 break
-            }else{
+            } else {
                 superView = superView!.superview
             }
         }
         return superView!.convert(pnt, to: baseView)
     }
     public func showList() {
-        if parentController == nil{
+        if parentController == nil {
             parentController = self.parentViewController
         }
         backgroundView.frame = parentController?.view.frame ?? backgroundView.frame
@@ -204,11 +188,11 @@ open class DropDown : UITextField{
         TableWillAppearCompletion()
         if listHeight > rowHeight * CGFloat( dataArray.count) {
             self.tableheightX = rowHeight * CGFloat(dataArray.count)
-        }else{
+        } else {
             self.tableheightX = listHeight
         }
-        table = UITableView(frame: CGRect(x: pointToParent.x ,
-                                          y: pointToParent.y + self.frame.height ,
+        table = UITableView(frame: CGRect(x: pointToParent.x,
+                                          y: pointToParent.y + self.frame.height,
                                           width: self.frame.width,
                                           height: self.frame.height))
         shadow = UIView(frame: table.frame)
@@ -226,7 +210,7 @@ open class DropDown : UITextField{
         self.isSelected = true
         let height = (self.parentController?.view.frame.height ?? 0) - (self.pointToParent.y + self.frame.height + 5)
         var y = self.pointToParent.y+self.frame.height+5
-        if height < (keyboardHeight+tableheightX){
+        if height < (keyboardHeight+tableheightX) {
             y = self.pointToParent.y - tableheightX
         }
         UIView.animate(withDuration: 0.9,
@@ -245,7 +229,6 @@ open class DropDown : UITextField{
                         self.shadow.dropShadow()
                         self.arrow.position = .up
                        
-
         },
                        completion: { (finish) -> Void in
                         self.layoutIfNeeded()
@@ -253,7 +236,6 @@ open class DropDown : UITextField{
         })
 
     }
-
 
     public func hideList() {
         TableWillDisappearCompletion()
@@ -283,17 +265,17 @@ open class DropDown : UITextField{
 
     @objc public func touchAction() {
 
-        isSelected ?  hideList() : showList()
+        isSelected ?  hideList(): showList()
     }
     func reSizeTable() {
         if listHeight > rowHeight * CGFloat( dataArray.count) {
             self.tableheightX = rowHeight * CGFloat(dataArray.count)
-        }else{
+        } else {
             self.tableheightX = listHeight
         }
         let height = (self.parentController?.view.frame.height ?? 0) - (self.pointToParent.y + self.frame.height + 5)
         var y = self.pointToParent.y+self.frame.height+5
-        if height < (keyboardHeight+tableheightX){
+        if height < (keyboardHeight+tableheightX) {
             y = self.pointToParent.y - tableheightX
         }
         UIView.animate(withDuration: 0.2,
@@ -317,40 +299,40 @@ open class DropDown : UITextField{
         })
     }
 
-    //MARK: Actions Methods
-    public func didSelect(completion: @escaping (_ selectedText: String, _ index: Int , _ id:Int ) -> ()) {
+    // MARK: - Actions Methods
+    public func didSelect(completion: @escaping (_ selectedText: String, _ index: Int, _ id: Int ) -> Void) {
         didSelectCompletion = completion
     }
 
-    public func listWillAppear(completion: @escaping () -> ()) {
+    public func listWillAppear(completion: @escaping () -> Void) {
         TableWillAppearCompletion = completion
     }
 
-    public func listDidAppear(completion: @escaping () -> ()) {
+    public func listDidAppear(completion: @escaping () -> Void) {
         TableDidAppearCompletion = completion
     }
 
-    public func listWillDisappear(completion: @escaping () -> ()) {
+    public func listWillDisappear(completion: @escaping () -> Void) {
         TableWillDisappearCompletion = completion
     }
 
-    public func listDidDisappear(completion: @escaping () -> ()) {
+    public func listDidDisappear(completion: @escaping () -> Void) {
         TableDidDisappearCompletion = completion
     }
-
 }
 
-//MARK: UITextFieldDelegate
-extension DropDown : UITextFieldDelegate {
+// MARK: - UITextFieldDelegate
+extension CustomDropDown: UITextFieldDelegate {
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.keyboardCompletion!()
         superview?.endEditing(true)
-        return false
+        return true
     }
     public func  textFieldDidBeginEditing(_ textField: UITextField) {
         textField.text = ""
         //self.selectedIndex = nil
         self.dataArray = self.optionArray
-        touchAction()
+        
     }
     public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return isSearchEnable
@@ -359,19 +341,20 @@ extension DropDown : UITextFieldDelegate {
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if string != "" {
             self.searchText = self.text! + string
-        }else{
+        } else {
             let subText = self.text?.dropLast()
             self.searchText = String(subText!)
         }
         if !isSelected {
             showList()
         }
-        return true;
+        return true
     }
 
 }
-///MARK: UITableViewDataSource
-extension DropDown: UITableViewDataSource {
+
+// MARK: - UITableViewDataSource
+extension CustomDropDown: UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataArray.count
@@ -387,9 +370,9 @@ extension DropDown: UITableViewDataSource {
             cell = UITableViewCell(style: .default, reuseIdentifier: cellIdentifier)
         }
 
-        if indexPath.row != selectedIndex{
+        if indexPath.row != selectedIndex {
             cell!.backgroundColor = rowBackgroundColor
-        }else {
+        } else {
             cell?.backgroundColor = selectedRowColor
         }
 
@@ -397,15 +380,16 @@ extension DropDown: UITableViewDataSource {
             cell!.imageView!.image = UIImage(named: imageArray[indexPath.row])
         }
         cell!.textLabel!.text = "\(dataArray[indexPath.row])"
-        cell!.accessoryType = (indexPath.row == selectedIndex) && checkMarkEnabled  ? .checkmark : .none
+        cell!.accessoryType = (indexPath.row == selectedIndex) && checkMarkEnabled  ? .checkmark: .none
         cell!.selectionStyle = .none
         cell?.textLabel?.font = self.font
         cell?.textLabel?.textAlignment = self.textAlignment
         return cell!
     }
 }
-//MARK: UITableViewDelegate
-extension DropDown: UITableViewDelegate {
+
+// MARK: - UITableViewDelegate
+extension CustomDropDown: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndex = (indexPath as NSIndexPath).row
         let selectedText = self.dataArray[self.selectedIndex!]
@@ -414,7 +398,7 @@ extension DropDown: UITableViewDelegate {
                        animations: { () -> Void in
                         tableView.cellForRow(at: indexPath)?.alpha = 1.0
                         tableView.cellForRow(at: indexPath)?.backgroundColor = self.selectedRowColor
-        } ,
+        },
                        completion: { (didFinish) -> Void in
                         self.text = "\(selectedText)"
 
@@ -426,9 +410,9 @@ extension DropDown: UITableViewDelegate {
         }
         if let selected = optionArray.index(where: {$0 == selectedText}) {
             if let id = optionIds?[selected] {
-                didSelectCompletion(selectedText, selected , id )
-            }else{
-                didSelectCompletion(selectedText, selected , 0)
+                didSelectCompletion(selectedText, selected, id )
+            } else {
+                didSelectCompletion(selectedText, selected, 0)
             }
 
         }
@@ -436,12 +420,7 @@ extension DropDown: UITableViewDelegate {
     }
 }
 
-
-
-
-
-
-//MARK: Arrow
+// MARK: - Arrow
 enum Position {
     case left
     case down
@@ -451,30 +430,23 @@ enum Position {
 
 class Arrow: UIView {
     let shapeLayer = CAShapeLayer()
-    var arrowColor:UIColor = .black {
-        didSet{
+    var arrowColor: UIColor = .black {
+        didSet {
             shapeLayer.fillColor = arrowColor.cgColor
         }
     }
     
     var position: Position = .down {
-        didSet{
+        didSet {
             switch position {
             case .left:
                 self.transform = CGAffineTransform(rotationAngle: -CGFloat.pi/2)
-                break
-
             case .down:
                 self.transform = CGAffineTransform(rotationAngle: CGFloat.pi*2)
-                break
-
             case .right:
                 self.transform = CGAffineTransform(rotationAngle: CGFloat.pi/2)
-                break
-
             case .up:
                 self.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
-                break
             }
         }
     }
@@ -526,7 +498,7 @@ extension UIView {
         layer.shadowRadius = 2
         layer.shadowPath = UIBezierPath(rect: bounds).cgPath
         layer.shouldRasterize = true
-        layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+        layer.rasterizationScale = scale ? UIScreen.main.scale: 1
     }
 
     var parentViewController: UIViewController? {
@@ -540,4 +512,3 @@ extension UIView {
         return nil
     }
 }
-

@@ -18,14 +18,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3SO-vC-Ox1">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="329"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="294"/>
                         <color key="backgroundColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="329" id="ovy-Hd-Vap"/>
+                            <constraint firstAttribute="height" constant="294" id="ovy-Hd-Vap"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skyline a:p lateran" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyA-o5-C6Q" customClass="CustomLabel" customModule="Kethan" customModuleProvider="target">
-                        <rect key="frame" x="13" y="329" width="294" height="25"/>
+                        <rect key="frame" x="13" y="294" width="294" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="gUQ-ns-Ou4" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
                                 <userDefinedRuntimeAttributes>
@@ -44,7 +44,7 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Depuy Skyline " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahr-kc-yIZ" customClass="CustomLabel" customModule="Kethan" customModuleProvider="target">
-                        <rect key="frame" x="13" y="361" width="294" height="17.5"/>
+                        <rect key="frame" x="13" y="326" width="294" height="52.5"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13.5"/>
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -62,7 +62,7 @@
                             <constraint firstAttribute="height" constant="1" id="1EB-WX-n5D"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.79607843140000001" green="0.79607843140000001" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Removal Process" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSA-Yb-Kxy" customClass="CustomLabel" customModule="Kethan" customModuleProvider="target">

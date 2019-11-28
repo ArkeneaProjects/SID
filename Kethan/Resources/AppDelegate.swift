@@ -4,7 +4,7 @@
 //
 //  Created by Pankaj on 11/11/19.
 //  Copyright © 2019 Kethan. All rights reserved.
-//
+// com.YupEasy1
 
 import UIKit
 import FBSDKCoreKit
@@ -37,12 +37,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
 
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         let base = BaseViewController()
-        base.navigateToHome(false)
+        base.navigateToHome(true, true)
         
         return true
     }
     
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         // return ApplicationDelegate.shared.application(app, open: url, options: options)
         let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String
         let annotation = options[UIApplication.OpenURLOptionsKey.annotation]

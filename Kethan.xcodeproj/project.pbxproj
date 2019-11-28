@@ -34,6 +34,14 @@
 		1821AF23237A860F0010B307 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF22237A860F0010B307 /* Extensions.swift */; };
 		1821AF25237A86C50010B307 /* CustomBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF24237A86C50010B307 /* CustomBase.swift */; };
 		1821AF27237A8EF20010B307 /* CustomBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF26237A8EF10010B307 /* CustomBarButtonItem.swift */; };
+		18705307238F9048006ACA3D /* background@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18705304238F9045006ACA3D /* background@3x.png */; };
+		18705308238F9048006ACA3D /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 18705305238F9046006ACA3D /* background.png */; };
+		18705309238F9048006ACA3D /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18705306238F9047006ACA3D /* background@2x.png */; };
+		18705385238FA2CD006ACA3D /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18705384238FA2CC006ACA3D /* CameraManager.swift */; };
+		18705387238FB000006ACA3D /* GalleryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18705386238FB000006ACA3D /* GalleryManager.swift */; };
+		1870538B238FD8C7006ACA3D /* fullBackgrundWithLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 18705388238FD8BD006ACA3D /* fullBackgrundWithLogo.png */; };
+		1870538C238FD8C7006ACA3D /* fullBackgrundWithLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18705389238FD8C1006ACA3D /* fullBackgrundWithLogo@2x.png */; };
+		1870538D238FD8C7006ACA3D /* fullBackgrundWithLogo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1870538A238FD8C4006ACA3D /* fullBackgrundWithLogo@3x.png */; };
 		1879F573238BB2DA00ABBBC0 /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879F572238BB2DA00ABBBC0 /* SearchDetailViewController.swift */; };
 		1879F576238BB98A00ABBBC0 /* SearchViewCollecction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879F575238BB98A00ABBBC0 /* SearchViewCollecction.swift */; };
 		1879F578238BB99C00ABBBC0 /* SearchViewCollecction.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1879F577238BB99C00ABBBC0 /* SearchViewCollecction.xib */; };
@@ -46,6 +54,10 @@
 		1879F588238BF3C600ABBBC0 /* CustomImagePageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879F587238BF3C600ABBBC0 /* CustomImagePageControl.swift */; };
 		187C6B94238671350044A880 /* LeftMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C6B92238671350044A880 /* LeftMenuTableViewCell.swift */; };
 		187C6B95238671350044A880 /* LeftMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187C6B93238671350044A880 /* LeftMenuTableViewCell.xib */; };
+		188131A9238E5D34005334BF /* CustomDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188131A8238E5D34005334BF /* CustomDropDown.swift */; };
+		188131AC238E64EE005334BF /* ResponsePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188131AB238E64EE005334BF /* ResponsePopUpViewController.swift */; };
+		188131B2238E8B66005334BF /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 188131AF238E8B65005334BF /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		188131B3238E8B66005334BF /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 188131B0238E8B65005334BF /* TPKeyboardAvoidingScrollView.m */; };
 		18956D1D2387C7BB00BD8F63 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18956D1C2387C7BB00BD8F63 /* Categories.swift */; };
 		18956D202387FC8100BD8F63 /* SearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18956D1F2387FC8100BD8F63 /* SearchListViewController.swift */; };
 		18956D2423880AA500BD8F63 /* SearchListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18956D2223880AA500BD8F63 /* SearchListCollectionViewCell.swift */; };
@@ -143,6 +155,14 @@
 		1821AF22237A860F0010B307 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1821AF24237A86C50010B307 /* CustomBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBase.swift; sourceTree = "<group>"; };
 		1821AF26237A8EF10010B307 /* CustomBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBarButtonItem.swift; sourceTree = "<group>"; };
+		18705304238F9045006ACA3D /* background@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@3x.png"; sourceTree = "<group>"; };
+		18705305238F9046006ACA3D /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		18705306238F9047006ACA3D /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
+		18705384238FA2CC006ACA3D /* CameraManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
+		18705386238FB000006ACA3D /* GalleryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryManager.swift; sourceTree = "<group>"; };
+		18705388238FD8BD006ACA3D /* fullBackgrundWithLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fullBackgrundWithLogo.png; sourceTree = "<group>"; };
+		18705389238FD8C1006ACA3D /* fullBackgrundWithLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fullBackgrundWithLogo@2x.png"; sourceTree = "<group>"; };
+		1870538A238FD8C4006ACA3D /* fullBackgrundWithLogo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fullBackgrundWithLogo@3x.png"; sourceTree = "<group>"; };
 		1879F572238BB2DA00ABBBC0 /* SearchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
 		1879F575238BB98A00ABBBC0 /* SearchViewCollecction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCollecction.swift; sourceTree = "<group>"; };
 		1879F577238BB99C00ABBBC0 /* SearchViewCollecction.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewCollecction.xib; sourceTree = "<group>"; };
@@ -155,6 +175,13 @@
 		1879F587238BF3C600ABBBC0 /* CustomImagePageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImagePageControl.swift; sourceTree = "<group>"; };
 		187C6B92238671350044A880 /* LeftMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuTableViewCell.swift; sourceTree = "<group>"; };
 		187C6B93238671350044A880 /* LeftMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftMenuTableViewCell.xib; sourceTree = "<group>"; };
+		188131A8238E5D34005334BF /* CustomDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropDown.swift; sourceTree = "<group>"; };
+		188131AB238E64EE005334BF /* ResponsePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsePopUpViewController.swift; sourceTree = "<group>"; };
+		188131AE238E8B65005334BF /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		188131AF238E8B65005334BF /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		188131B0238E8B65005334BF /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		188131B1238E8B65005334BF /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		188131B4238EB11D005334BF /* Kethan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Kethan.entitlements; sourceTree = "<group>"; };
 		18956D1C2387C7BB00BD8F63 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		18956D1F2387FC8100BD8F63 /* SearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewController.swift; sourceTree = "<group>"; };
 		18956D2223880AA500BD8F63 /* SearchListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -313,6 +340,7 @@
 		1821AF15237A7DE20010B307 /* CustomClasses */ = {
 			isa = PBXGroup;
 			children = (
+				18705384238FA2CC006ACA3D /* CameraManager.swift */,
 				1801AB922385036A00F46223 /* FacebookManager.swift */,
 				1801AB902385036300F46223 /* GoogleManager.swift */,
 				1821AF26237A8EF10010B307 /* CustomBarButtonItem.swift */,
@@ -324,6 +352,8 @@
 				1821AF1B237A7E660010B307 /* ExpandableLabel.swift */,
 				1821AF16237A7E070010B307 /* CustomConstraint.swift */,
 				1879F587238BF3C600ABBBC0 /* CustomImagePageControl.swift */,
+				188131A8238E5D34005334BF /* CustomDropDown.swift */,
+				18705386238FB000006ACA3D /* GalleryManager.swift */,
 			);
 			path = CustomClasses;
 			sourceTree = "<group>";
@@ -357,6 +387,25 @@
 				18974545238D38920000FCC4 /* AddDetailHeader3Cell.xib */,
 			);
 			path = CustomTableViewCell;
+			sourceTree = "<group>";
+		};
+		188131AA238E64AD005334BF /* PopUpController */ = {
+			isa = PBXGroup;
+			children = (
+				188131AB238E64EE005334BF /* ResponsePopUpViewController.swift */,
+			);
+			path = PopUpController;
+			sourceTree = "<group>";
+		};
+		188131AD238E8B65005334BF /* TPKeyboardAvoiding */ = {
+			isa = PBXGroup;
+			children = (
+				188131AE238E8B65005334BF /* TPKeyboardAvoidingScrollView.h */,
+				188131AF238E8B65005334BF /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+				188131B0238E8B65005334BF /* TPKeyboardAvoidingScrollView.m */,
+				188131B1238E8B65005334BF /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+			);
+			path = TPKeyboardAvoiding;
 			sourceTree = "<group>";
 		};
 		18956D1E2387FC5400BD8F63 /* TabBarDetailControllers */ = {
@@ -423,6 +472,7 @@
 		18DDC78823797AA6003FCCE8 /* Kethan */ = {
 			isa = PBXGroup;
 			children = (
+				188131B4238EB11D005334BF /* Kethan.entitlements */,
 				18DDC7B923797B42003FCCE8 /* Model */,
 				18DDC7BA23797B4F003FCCE8 /* View */,
 				18DDC7BB23797B57003FCCE8 /* Controller */,
@@ -477,6 +527,7 @@
 				18DDC7CB23798B78003FCCE8 /* BaseViewController */,
 				18E71D69237C14060090FC90 /* TabBarControllers */,
 				18956D1E2387FC5400BD8F63 /* TabBarDetailControllers */,
+				188131AA238E64AD005334BF /* PopUpController */,
 				18E71D6A237C15690090FC90 /* LoginViewController.swift */,
 				18E71D6C237C1EE30090FC90 /* LeftMenuViewController.swift */,
 			);
@@ -486,6 +537,12 @@
 		18DDC7BC23797B61003FCCE8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				18705388238FD8BD006ACA3D /* fullBackgrundWithLogo.png */,
+				18705389238FD8C1006ACA3D /* fullBackgrundWithLogo@2x.png */,
+				1870538A238FD8C4006ACA3D /* fullBackgrundWithLogo@3x.png */,
+				18705305238F9046006ACA3D /* background.png */,
+				18705306238F9047006ACA3D /* background@2x.png */,
+				18705304238F9045006ACA3D /* background@3x.png */,
 				18DDC7BD23797BC9003FCCE8 /* Fonts */,
 				18DDC78923797AA6003FCCE8 /* AppDelegate.swift */,
 				18DDC79723797AAA003FCCE8 /* Info.plist */,
@@ -552,6 +609,7 @@
 		18E71D6E237C1F5A0090FC90 /* OtherClasses */ = {
 			isa = PBXGroup;
 			children = (
+				188131AD238E8B65005334BF /* TPKeyboardAvoiding */,
 				1801AB9523851DCB00F46223 /* KVNProgress */,
 				18E71D6F237C1F670090FC90 /* SWRevealViewController */,
 			);
@@ -703,13 +761,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				1897453F238D2AA80000FCC4 /* AddDetailHeader2Cell.xib in Resources */,
+				18705308238F9048006ACA3D /* background.png in Resources */,
 				1879F578238BB99C00ABBBC0 /* SearchViewCollecction.xib in Resources */,
+				18705309238F9048006ACA3D /* background@2x.png in Resources */,
 				18DDC7C7237982BC003FCCE8 /* NeoSans-Medium.otf in Resources */,
+				18705307238F9048006ACA3D /* background@3x.png in Resources */,
 				187C6B95238671350044A880 /* LeftMenuTableViewCell.xib in Resources */,
 				18DDC7C8237982BC003FCCE8 /* NeoSans.otf in Resources */,
 				18DDC7C5237982BC003FCCE8 /* NeoSans-BoldItalic.otf in Resources */,
 				1897453B238D0F0F0000FCC4 /* AddDetail1CollectionViewCell.xib in Resources */,
 				1801ABAF23851DCB00F46223 /* KVNProgressView.xib in Resources */,
+				1870538B238FD8C7006ACA3D /* fullBackgrundWithLogo.png in Resources */,
 				18DDC79623797AAA003FCCE8 /* LaunchScreen.storyboard in Resources */,
 				18974537238D0DA90000FCC4 /* AddDetailHeader1Cell.xib in Resources */,
 				1879F586238BDA7800ABBBC0 /* DetailRow2TableViewCell.xib in Resources */,
@@ -720,6 +782,8 @@
 				1879F580238BD71B00ABBBC0 /* DetailRow1TableViewCell.xib in Resources */,
 				18974547238D38920000FCC4 /* AddDetailHeader3Cell.xib in Resources */,
 				18DDC79123797AA6003FCCE8 /* Main.storyboard in Resources */,
+				1870538C238FD8C7006ACA3D /* fullBackgrundWithLogo@2x.png in Resources */,
+				1870538D238FD8C7006ACA3D /* fullBackgrundWithLogo@3x.png in Resources */,
 				18DDC7C9237982BC003FCCE8 /* OpenSans-Regular.ttf in Resources */,
 				1879F57C238BBDC300ABBBC0 /* CustomCollectionViewCell.xib in Resources */,
 				18DDC7C6237982BC003FCCE8 /* NeoSans-Italic.otf in Resources */,
@@ -904,12 +968,14 @@
 			files = (
 				1821AF20237A7E670010B307 /* ExpandableLabel.swift in Sources */,
 				18DDC7D023798C34003FCCE8 /* Common.swift in Sources */,
+				188131AC238E64EE005334BF /* ResponsePopUpViewController.swift in Sources */,
 				18974557238D5B9E0000FCC4 /* BEMAnimationManager.m in Sources */,
 				1897455A238D5B9E0000FCC4 /* BEMCheckBox.m in Sources */,
 				18956D202387FC8100BD8F63 /* SearchListViewController.swift in Sources */,
 				1879F576238BB98A00ABBBC0 /* SearchViewCollecction.swift in Sources */,
 				1801ABB323851DCB00F46223 /* UIColor+KVNContrast.m in Sources */,
 				18DDC78E23797AA6003FCCE8 /* SearchViewController.swift in Sources */,
+				188131B3238E8B66005334BF /* TPKeyboardAvoidingScrollView.m in Sources */,
 				1821AF1E237A7E670010B307 /* CustomTextView.swift in Sources */,
 				18E71D6B237C15690090FC90 /* LoginViewController.swift in Sources */,
 				1801ABB7238547CB00F46223 /* BaseTabBarControllerDelegate.swift in Sources */,
@@ -924,6 +990,7 @@
 				1801ABAC23851DCB00F46223 /* KVNProgress.m in Sources */,
 				1801ABB023851DCB00F46223 /* ProgressManager.m in Sources */,
 				18DDC7D223798CD4003FCCE8 /* Constant.swift in Sources */,
+				188131A9238E5D34005334BF /* CustomDropDown.swift in Sources */,
 				1821AF17237A7E070010B307 /* CustomConstraint.swift in Sources */,
 				1897453A238D0F0F0000FCC4 /* AddDetail1CollectionViewCell.swift in Sources */,
 				1801AB932385036A00F46223 /* FacebookManager.swift in Sources */,
@@ -946,11 +1013,14 @@
 				1801ABB123851DCB00F46223 /* UIImage+KVNImageEffects.m in Sources */,
 				18974546238D38920000FCC4 /* AddDetailHeader3Cell.swift in Sources */,
 				1821AF0F237A74450010B307 /* PurchesViewController.swift in Sources */,
+				188131B2238E8B66005334BF /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				1801ABAD23851DCB00F46223 /* KVNProgressConfiguration.m in Sources */,
+				18705385238FA2CD006ACA3D /* CameraManager.swift in Sources */,
 				1821AF21237A7E670010B307 /* CustomTextField.swift in Sources */,
 				1801ABAB23851DCB00F46223 /* iCarousel.m in Sources */,
 				18974536238D0DA80000FCC4 /* AddDetailHeader1Cell.swift in Sources */,
 				1801ABB223851DCB00F46223 /* UIImage+KVNEmpty.m in Sources */,
+				18705387238FB000006ACA3D /* GalleryManager.swift in Sources */,
 				18974533238D08070000FCC4 /* AddDetailsViewController.swift in Sources */,
 				1801AB912385036300F46223 /* GoogleManager.swift in Sources */,
 				187C6B94238671350044A880 /* LeftMenuTableViewCell.swift in Sources */,
@@ -1129,10 +1199,12 @@
 			baseConfigurationReference = 27A8C0DB6866B862CEA2B8FF /* Pods-Kethan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Kethan/Kethan.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = VKP9REQFNG;
 				INFOPLIST_FILE = "$(SRCROOT)/Kethan/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1168,9 +1240,9 @@
 					"\"UIKit\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.YupEasy1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ZipGrid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = Dev_ZipGrid;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Kethan/Resources/Kethan-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1182,10 +1254,12 @@
 			baseConfigurationReference = F8A5FC233E7C3676A619CEE5 /* Pods-Kethan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Kethan/Kethan.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = VKP9REQFNG;
 				INFOPLIST_FILE = "$(SRCROOT)/Kethan/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1221,9 +1295,9 @@
 					"\"UIKit\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.YupEasy1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ZipGrid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = Dev_ZipGrid;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Kethan/Resources/Kethan-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

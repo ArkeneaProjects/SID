@@ -23,6 +23,8 @@ class AddDetailHeader3Cell: UITableViewCell {
 
     var heightForListingView = 0.0
     
+    @IBOutlet weak var btnAddResponse: CustomButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

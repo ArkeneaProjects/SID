@@ -12,4 +12,3 @@ ${BUILT_PRODUCTS_DIR}/LNSideMenu/LNSideMenu.framework
 ${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
 ${BUILT_PRODUCTS_DIR}/SKPhotoBrowser/SKPhotoBrowser.framework
 ${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework
-${BUILT_PRODUCTS_DIR}/iOSDropDown/iOSDropDown.framework

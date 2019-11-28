@@ -15,8 +15,7 @@ class SearchViewCollecction: UIView, UICollectionViewDelegate, UICollectionViewD
     @IBOutlet weak var collectionView: UICollectionView!
     
     var viewController: BaseViewController?
-    
-    
+
     var arrAllItems: NSMutableArray = NSMutableArray() {
         didSet {
             self.collectionView.reloadData()
@@ -60,6 +59,7 @@ class SearchViewCollecction: UIView, UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCollectionViewCell", for: indexPath) as? CustomCollectionViewCell {
+            print(cell.frame.size.height)
             cell.imgPhoto.image = UIImage(named: STATICDATA.arrImages[indexPath.item])
             return cell
         }
@@ -74,7 +74,7 @@ class SearchViewCollecction: UIView, UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width, height: getCalculated(315.0))
+        return CGSize(width: collectionView.frame.size.width, height: getCalculated(295.0))
     }
     
     // MARK: - ScrollDelegate

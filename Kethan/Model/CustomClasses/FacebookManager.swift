@@ -27,7 +27,7 @@ class FacebookManager: NSObject {
                 
                 let graphRequest = GraphRequest.init(graphPath: "/me", parameters: ["fields": "email, first_name, middle_name, last_name, gender, picture.type(large)"], tokenString: token.tokenString, version: nil, httpMethod: .get)
                 graphRequest.start { (connection: GraphRequestConnection?, result: Any?, error: Error?) in
-                    if(error == nil) {
+                    if error == nil {
                         if let dictResponse = result as? NSDictionary {
                             completion(dictResponse, nil)
                         }

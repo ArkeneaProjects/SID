@@ -24,7 +24,7 @@ open class CustomTextField: UITextField {
     @IBInspectable var optionalRadius: CGFloat = 0
     @IBInspectable var optionalCorner: CGFloat = 0
     
-    @IBInspectable var placeColor: UIColor = UIColor.clear
+    @IBInspectable var placeColor: UIColor = UIColor.gray
     
     override open func awakeFromNib() {
         super.awakeFromNib()
@@ -58,7 +58,7 @@ open class CustomTextField: UITextField {
             self.layer.mask = maskLayer
         }
         
-        //self.setValue(placeColor, forKeyPath: "_placeholderLabel.textColor")
+       // self.setValue(placeColor, forKeyPath: "_placeholderLabel.textColor")
         self.reloadPlaceholder()
         
         let oldText = self.text
