@@ -10,12 +10,18 @@ import UIKit
 
 class ThankYouViewController: BaseViewController {
 
+    @IBOutlet weak var lblMsg: CustomLabel!
+    
     @IBOutlet weak var checkbox: BEMCheckBox!
+    
+    var isComeFromSupport: Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         self.checkbox.onAnimationType = .stroke
         self.checkbox.offAnimationType = .stroke
         self.checkbox.animationDuration = 0.9
+        
+        self.lblMsg.text = (self.isComeFromSupport == true) ?"Your support query has been submitted" :"Your details have been sent     for verification. We'll let you know once it's verified. "
         // Do any additional setup after loading the view.
     }
     

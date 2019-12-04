@@ -27,6 +27,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     // MARK: - Button Click Action
     @IBAction func uploadClickAction(_ sender: CustomButton) {
         if let controller = self.instantiate(ThankYouViewController.self, storyboard: STORYBOARD.main) as? ThankYouViewController {
+            controller.isComeFromSupport = false
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }

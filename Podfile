@@ -13,6 +13,8 @@ target 'Kethan' do
   pod 'Alamofire'
   pod 'SDWebImage'
   pod 'SKPhotoBrowser'
+  pod 'SVPinView'
+
 # Pods for Kethan
 
   target 'KethanTests' do

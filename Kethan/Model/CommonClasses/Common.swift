@@ -12,6 +12,7 @@ typealias VoidCompletion = () -> Void
 
 let screenHeight = UIScreen.main.bounds.height
 let screenWidth = UIScreen.main.bounds.width
+var isLoginViewAnimated: Bool = true
 
 func isDevice() -> String {
     if screenHeight == 896 {

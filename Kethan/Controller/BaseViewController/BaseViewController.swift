@@ -10,7 +10,7 @@ import UIKit
 import GoogleSignIn
 import SKPhotoBrowser
 
-class BaseViewController: UIViewController, UITextFieldDelegate, UIGestureRecognizerDelegate, SWRevealViewControllerDelegate, UINavigationControllerDelegate {
+class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIGestureRecognizerDelegate, SWRevealViewControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var viewContainer: UIView!
     @IBOutlet var viewNavBar: UIView!
     
@@ -183,11 +183,8 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UIGestureRecogn
       //  DispatchQueue.main.asyncAfter(deadline: .now()) {
             //Display screen accroding to user login
             if withLoggedIn == true {
-                let storyBoard = UIStoryboard(name: STORYBOARD.main, bundle: Bundle.main)
-                if let yourVc = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
-                    yourVc.isViewAnimated = (loginAnimated == true) ? true:false
-                    self.setAsRootScreen(yourVc)
-                }
+                let login = self.instantiateNav("LoginViewController", storyboard: STORYBOARD.signup )
+                self.setAsRootScreen(login)
             } else {
                 let tabBarViewController: BaseTabBarViewController = BaseTabBarViewController()
                 let tabBarAppearence = UITabBar.appearance()
@@ -271,6 +268,31 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UIGestureRecogn
         return true
     }
     
+    // MARK: - TextViewDelegate -
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        if self.isScrollEditEnabled == true {
+            self.scrollTextField = nil
+            self.scrollTextView = textView
+        } else if self.isNormalEditEnabled == true {
+            self.currentTextField = nil
+            self.currentTextView = textView
+        }
+        
+        if textView.isKind(of: CustomTextView.classForCoder()) == true {
+                        if textView.keyboardType == UIKeyboardType.default {
+                            (textView as? CustomTextView ?? CustomTextView()).addDoneButtonInTextView(target: self, selector: #selector(self.resignKeyboard))
+                        }
+        }
+        return true
+    }
+    
+    @objc func resignKeyboard(_ sender: AnyObject) {
+        self.view.endEditing(true)
+        
+        if let parent = self.parent {
+            parent.view.endEditing(true)
+        }
+    }
     // MARK: - Show alert -
     func showAlert(title: String, message: String, yesTitle: String?, noTitle: String?, yesCompletion: (() -> Void)?, noCompletion: (() -> Void)?) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
@@ -301,6 +323,7 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UIGestureRecogn
     func logoutFromApp() {
         FacebookManager.logoutUser()
         GIDSignIn.sharedInstance()?.signOut()
+        isLoginViewAnimated = false
         self.navigateToHome(true, false)
     }
     

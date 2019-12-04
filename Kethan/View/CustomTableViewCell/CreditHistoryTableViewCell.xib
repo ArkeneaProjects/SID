@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="99" id="KGk-i7-Jjw" customClass="CreditHistoryTableViewCell" customModule="Kethan" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TmZ-jF-KLl">
+                        <rect key="frame" x="12" y="15" width="36" height="36"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="referral" translatesAutoresizingMaskIntoConstraints="NO" id="rk9-0v-jib">
+                                <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.79607843140000001" green="0.79607843140000001" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="rk9-0v-jib" secondAttribute="trailing" id="86n-1q-NHv"/>
+                            <constraint firstItem="rk9-0v-jib" firstAttribute="leading" secondItem="TmZ-jF-KLl" secondAttribute="leading" id="Gzs-Xr-YHW"/>
+                            <constraint firstAttribute="bottom" secondItem="rk9-0v-jib" secondAttribute="bottom" id="TdT-uS-Ve7"/>
+                            <constraint firstItem="rk9-0v-jib" firstAttribute="top" secondItem="TmZ-jF-KLl" secondAttribute="top" id="UKo-po-dew"/>
+                            <constraint firstAttribute="width" constant="36" id="W7F-CI-b0c" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstAttribute="height" constant="36" id="a38-s3-Jgo" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Referral Rewards" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ai-0I-tHK" customClass="CustomLabel" customModule="Kethan" customModuleProvider="target">
+                        <rect key="frame" x="62" y="15" width="213" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="213" id="6CY-ga-AeO"/>
+                            <constraint firstAttribute="height" constant="16" id="A2Z-Mp-yfL" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14.5"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                <real key="value" value="14"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ $ 20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fv5-Ww-mTx" customClass="CustomLabel" customModule="Kethan" customModuleProvider="target">
+                        <rect key="frame" x="238" y="15" width="70" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="1tq-a9-YZ4"/>
+                            <constraint firstAttribute="height" constant="16" id="eo9-W0-9cT" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13.5"/>
+                        <color key="textColor" red="0.0" green="0.68627450980000004" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                <real key="value" value="13.5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="November 20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wWg-sd-ais" customClass="CustomLabel" customModule="Kethan" customModuleProvider="target">
+                        <rect key="frame" x="62" y="34" width="213" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="jUM-WK-DVk" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13.199999809265137"/>
+                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                <real key="value" value="13"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transfered to your bank account" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nUw-Kn-fpy" customClass="CustomLabel" customModule="Kethan" customModuleProvider="target">
+                        <rect key="frame" x="62" y="60" width="243" height="27"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                <real key="value" value="14"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="1ai-0I-tHK" firstAttribute="top" secondItem="TmZ-jF-KLl" secondAttribute="top" id="2dn-Lb-oIc"/>
+                    <constraint firstItem="fv5-Ww-mTx" firstAttribute="top" secondItem="TmZ-jF-KLl" secondAttribute="top" id="2yT-Oj-f1o"/>
+                    <constraint firstAttribute="trailing" secondItem="nUw-Kn-fpy" secondAttribute="trailing" constant="15" id="52s-rI-xRz" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </constraint>
+                    <constraint firstItem="nUw-Kn-fpy" firstAttribute="leading" secondItem="1ai-0I-tHK" secondAttribute="leading" id="5Fx-v7-UpN"/>
+                    <constraint firstItem="wWg-sd-ais" firstAttribute="top" secondItem="1ai-0I-tHK" secondAttribute="bottom" constant="3" id="5eW-De-rCw" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </constraint>
+                    <constraint firstItem="wWg-sd-ais" firstAttribute="leading" secondItem="1ai-0I-tHK" secondAttribute="leading" id="89s-RE-ufs"/>
+                    <constraint firstAttribute="trailing" secondItem="wWg-sd-ais" secondAttribute="trailing" constant="45" id="F6S-c0-oab"/>
+                    <constraint firstAttribute="trailing" secondItem="fv5-Ww-mTx" secondAttribute="trailing" constant="12" id="H7a-Uj-Dg6"/>
+                    <constraint firstAttribute="bottom" secondItem="nUw-Kn-fpy" secondAttribute="bottom" constant="12" id="HQg-ZM-w6K" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </constraint>
+                    <constraint firstItem="nUw-Kn-fpy" firstAttribute="top" secondItem="wWg-sd-ais" secondAttribute="bottom" constant="10" id="IW1-r4-aIY" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </constraint>
+                    <constraint firstItem="TmZ-jF-KLl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="JKx-tu-hbq" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </constraint>
+                    <constraint firstItem="1ai-0I-tHK" firstAttribute="leading" secondItem="TmZ-jF-KLl" secondAttribute="trailing" constant="14" id="TfH-Yv-jDg"/>
+                    <constraint firstItem="TmZ-jF-KLl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="VLp-l3-6iA" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </constraint>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imgReferral" destination="rk9-0v-jib" id="WgI-6q-fAt"/>
+                <outlet property="lblAmount" destination="fv5-Ww-mTx" id="eCa-wh-FP3"/>
+                <outlet property="lblDate" destination="wWg-sd-ais" id="bql-AY-szf"/>
+                <outlet property="lblDiscription" destination="nUw-Kn-fpy" id="1Sv-hQ-lva"/>
+                <outlet property="lblTitle" destination="1ai-0I-tHK" id="mZW-gk-DN2"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="110.82589285714285"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="referral" width="36.5" height="36"/>
+    </resources>
+</document>

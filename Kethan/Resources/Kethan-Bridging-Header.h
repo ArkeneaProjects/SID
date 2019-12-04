@@ -12,4 +12,5 @@
 #import "BEMCheckBoxGroup.h"
 #import "BEMAnimationManager.h"
 #import "BEMPathManager.h"
+#import "TPKeyboardAvoidingScrollView.h"
 

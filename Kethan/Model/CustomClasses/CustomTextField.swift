@@ -70,7 +70,7 @@ open class CustomTextField: UITextField {
         if self.placeholder?.last == "*"{
             let attribute = NSMutableAttributedString.init(string: self.placeholder!)
             attribute.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSMakeRange((self.placeholder?.count)! - 1, 1))
-            self.attributedPlaceholder = attribute
+            //self.attributedPlaceholder = attribute
         }
     }
     

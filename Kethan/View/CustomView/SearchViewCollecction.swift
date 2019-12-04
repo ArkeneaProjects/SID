@@ -28,6 +28,7 @@ class SearchViewCollecction: UIView, UICollectionViewDelegate, UICollectionViewD
         
         superView.addSubview(self)
         
+        //ColeationView
         self.collectionView.register(UINib(nibName: IDENTIFIERS.CustomCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: IDENTIFIERS.CustomCollectionViewCell)
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -39,6 +40,7 @@ class SearchViewCollecction: UIView, UICollectionViewDelegate, UICollectionViewD
         self.collectionView.collectionViewLayout = layout
         self.collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
+        //SetUp SubView
         self.translatesAutoresizingMaskIntoConstraints = false
         superView.addConstraint(NSLayoutConstraint(item: self, attribute: .centerX, relatedBy: .equal, toItem: superView, attribute: .centerX, multiplier: 1.0, constant: 0))
         superView.addConstraint(NSLayoutConstraint(item: self, attribute: .centerY, relatedBy: .equal, toItem: superView, attribute: .centerY, multiplier: 1.0, constant: 0))
@@ -46,7 +48,9 @@ class SearchViewCollecction: UIView, UICollectionViewDelegate, UICollectionViewD
         superView.addConstraint(NSLayoutConstraint(item: self, attribute: .height, relatedBy: .equal, toItem: superView, attribute: .height, multiplier: 1.0, constant: 0))
         superView.layoutIfNeeded()
         
+        //PageControl
         let image = UIImage.outlinedEllipse(size: CGSize(width: 7.0, height: 7.0), color: .darkGray)
+        self.pageControl.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
         self.pageControl.pageIndicatorTintColor = UIColor.init(patternImage: image!)
         self.pageControl.currentPageIndicatorTintColor = UIColor(hexString: "#0985E9")
         

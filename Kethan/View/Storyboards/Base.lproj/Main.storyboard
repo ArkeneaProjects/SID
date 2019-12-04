@@ -375,7 +375,240 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MBL-fT-f4H">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VO2-BR-z50">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="creditsGraphic" translatesAutoresizingMaskIntoConstraints="NO" id="eit-g4-YPa">
+                                                <rect key="frame" x="73" y="10" width="174" height="124"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="174" id="YKO-Rf-Hd8" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </constraint>
+                                                    <constraint firstAttribute="height" constant="124" id="xVg-Gw-2mK" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </constraint>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Credits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zbc-RE-bdd" customClass="CustomLabel" customModule="Kethan" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="158" width="320" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="Z1o-cV-4Qu" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </constraint>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="23"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                        <real key="value" value="23"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C51-hm-4OF" customClass="CustomLabel" customModule="Kethan" customModuleProvider="target">
+                                                <rect key="frame" x="15" y="207" width="290" height="73"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="29" id="fUv-my-NtS"/>
+                                                </constraints>
+                                                <string key="text">It looks like you've no credits. Refer your friends, 
+so when they sign-up you are rewarded with 
+'X' credits. Or upload complete imformation 
+about an implant, upon verifiication  we'll add 
+'X' credits to your account.  </string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12.5"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                        <real key="value" value="13"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQ2-LK-sra" customClass="CustomButton" customModule="Kethan" customModuleProvider="target">
+                                                <rect key="frame" x="15" y="304" width="290" height="40"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="ER7-HZ-6jy" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </constraint>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                                <state key="normal" title="Add">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                        <real key="value" value="17"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="referralClickAction:" destination="PGE-9N-NpN" eventType="touchUpInside" id="2Fv-S1-Cqn"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CMo-5h-ufr" customClass="CustomButton" customModule="Kethan" customModuleProvider="target">
+                                                <rect key="frame" x="15" y="357" width="290" height="40"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="1b5-tc-ZRU" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </constraint>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                                <state key="normal" title="Upload Images">
+                                                    <color key="titleColor" red="0.035294117649999998" green="0.52156862749999999" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                        <real key="value" value="17"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="uploadImageClickAction:" destination="PGE-9N-NpN" eventType="touchUpInside" id="96n-ZE-Kst"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.023529411760000001" green="0.2901960784" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="C51-hm-4OF" firstAttribute="top" secondItem="Zbc-RE-bdd" secondAttribute="bottom" constant="24" id="3q3-ij-IzC"/>
+                                            <constraint firstAttribute="trailing" secondItem="C51-hm-4OF" secondAttribute="trailing" constant="15" id="5fl-Zy-hcZ"/>
+                                            <constraint firstItem="C51-hm-4OF" firstAttribute="leading" secondItem="VO2-BR-z50" secondAttribute="leading" constant="15" id="9i4-0I-Ld1"/>
+                                            <constraint firstItem="MQ2-LK-sra" firstAttribute="top" secondItem="C51-hm-4OF" secondAttribute="bottom" constant="24" id="Cb3-vm-wmS" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </constraint>
+                                            <constraint firstAttribute="trailing" secondItem="Zbc-RE-bdd" secondAttribute="trailing" id="CnK-MB-VQe"/>
+                                            <constraint firstItem="CMo-5h-ufr" firstAttribute="leading" secondItem="VO2-BR-z50" secondAttribute="leading" constant="15" id="P2f-Cs-Ydm"/>
+                                            <constraint firstItem="Zbc-RE-bdd" firstAttribute="leading" secondItem="VO2-BR-z50" secondAttribute="leading" id="TBL-W7-I5c"/>
+                                            <constraint firstItem="eit-g4-YPa" firstAttribute="top" secondItem="VO2-BR-z50" secondAttribute="top" constant="10" id="WBD-XD-HTr" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </constraint>
+                                            <constraint firstItem="eit-g4-YPa" firstAttribute="centerX" secondItem="VO2-BR-z50" secondAttribute="centerX" id="aeY-4W-Sfk"/>
+                                            <constraint firstItem="CMo-5h-ufr" firstAttribute="top" secondItem="MQ2-LK-sra" secondAttribute="bottom" constant="13" id="cpO-A0-Nn8" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </constraint>
+                                            <constraint firstAttribute="trailing" secondItem="MQ2-LK-sra" secondAttribute="trailing" constant="15" id="gfq-5B-IPr"/>
+                                            <constraint firstItem="Zbc-RE-bdd" firstAttribute="top" secondItem="eit-g4-YPa" secondAttribute="bottom" constant="24" id="lvb-VG-IpW" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </constraint>
+                                            <constraint firstAttribute="trailing" secondItem="CMo-5h-ufr" secondAttribute="trailing" constant="15" id="oUS-0e-0NN"/>
+                                            <constraint firstItem="MQ2-LK-sra" firstAttribute="leading" secondItem="VO2-BR-z50" secondAttribute="leading" constant="15" id="tCx-Oz-RdU"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iWB-5A-H2l">
+                                        <rect key="frame" x="0.0" y="461" width="320" height="43"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hOu-NI-v7P">
+                                                <rect key="frame" x="15" y="0.0" width="305" height="43"/>
+                                                <state key="normal" title="Credit History (0)">
+                                                    <color key="titleColor" red="0.035294117647058823" green="0.52156862745098043" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="creditActionClick:" destination="PGE-9N-NpN" eventType="touchUpInside" id="rZ9-fd-5ne"/>
+                                                </connections>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upArrow" translatesAutoresizingMaskIntoConstraints="NO" id="6Ft-gV-3BX">
+                                                <rect key="frame" x="295" y="10" width="13" height="23"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="13" id="Iyi-KY-jw3" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </constraint>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.87058823529411766" green="0.94117647058823528" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="hOu-NI-v7P" secondAttribute="trailing" id="8EI-R0-YEj"/>
+                                            <constraint firstAttribute="height" constant="43" id="D2b-rf-rh5" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </constraint>
+                                            <constraint firstAttribute="bottom" secondItem="hOu-NI-v7P" secondAttribute="bottom" id="N49-6e-nw0"/>
+                                            <constraint firstItem="6Ft-gV-3BX" firstAttribute="top" secondItem="iWB-5A-H2l" secondAttribute="top" constant="10" id="YKE-K2-zDs" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </constraint>
+                                            <constraint firstAttribute="trailing" secondItem="6Ft-gV-3BX" secondAttribute="trailing" constant="12" id="e4U-4T-zsr" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </constraint>
+                                            <constraint firstItem="hOu-NI-v7P" firstAttribute="leading" secondItem="iWB-5A-H2l" secondAttribute="leading" constant="15" id="gBb-tt-ywB"/>
+                                            <constraint firstItem="hOu-NI-v7P" firstAttribute="top" secondItem="iWB-5A-H2l" secondAttribute="top" id="uQW-bK-2Xr"/>
+                                            <constraint firstAttribute="bottom" secondItem="6Ft-gV-3BX" secondAttribute="bottom" constant="10" id="zfW-ph-sAt" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </constraint>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5mi-oF-d9g">
+                                        <rect key="frame" x="0.0" y="504" width="320" height="0.0"/>
+                                        <subviews>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="m8N-pQ-7bl">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="0.0"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="PGE-9N-NpN" id="1ti-jM-jV7"/>
+                                                    <outlet property="delegate" destination="PGE-9N-NpN" id="eog-Sg-zfx"/>
+                                                </connections>
+                                            </tableView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="m8N-pQ-7bl" secondAttribute="trailing" id="Ewp-BJ-cgz"/>
+                                            <constraint firstItem="m8N-pQ-7bl" firstAttribute="top" secondItem="5mi-oF-d9g" secondAttribute="top" id="SbR-jW-FhC"/>
+                                            <constraint firstItem="m8N-pQ-7bl" firstAttribute="leading" secondItem="5mi-oF-d9g" secondAttribute="leading" id="WaP-0y-5U7"/>
+                                            <constraint firstAttribute="height" id="rKH-pE-dyQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="m8N-pQ-7bl" secondAttribute="bottom" id="yDg-x7-I9W"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="iWB-5A-H2l" secondAttribute="trailing" id="4bo-bK-EKX"/>
+                                    <constraint firstAttribute="trailing" secondItem="5mi-oF-d9g" secondAttribute="trailing" id="5RT-Km-EyV"/>
+                                    <constraint firstAttribute="trailing" secondItem="VO2-BR-z50" secondAttribute="trailing" id="7st-Ao-dOl"/>
+                                    <constraint firstItem="iWB-5A-H2l" firstAttribute="leading" secondItem="MBL-fT-f4H" secondAttribute="leading" id="YR1-pn-8VJ"/>
+                                    <constraint firstItem="VO2-BR-z50" firstAttribute="leading" secondItem="MBL-fT-f4H" secondAttribute="leading" id="Zsl-YG-Yar"/>
+                                    <constraint firstAttribute="bottom" secondItem="5mi-oF-d9g" secondAttribute="bottom" id="d4f-Ux-Bwk"/>
+                                    <constraint firstItem="5mi-oF-d9g" firstAttribute="leading" secondItem="MBL-fT-f4H" secondAttribute="leading" id="iAY-Hd-jiy"/>
+                                    <constraint firstItem="VO2-BR-z50" firstAttribute="top" secondItem="MBL-fT-f4H" secondAttribute="top" id="lmm-me-mSp"/>
+                                    <constraint firstAttribute="bottom" secondItem="VO2-BR-z50" secondAttribute="bottom" id="paj-kx-XdV"/>
+                                    <constraint firstItem="5mi-oF-d9g" firstAttribute="top" secondItem="iWB-5A-H2l" secondAttribute="bottom" id="zYN-RJ-t33"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -383,22 +616,28 @@
                             <constraint firstItem="dxW-JU-QR0" firstAttribute="top" secondItem="YCz-dd-1AE" secondAttribute="top" id="0lV-Kw-oBo"/>
                             <constraint firstItem="f8l-gk-E4R" firstAttribute="trailing" secondItem="MBL-fT-f4H" secondAttribute="trailing" id="1AO-rc-vqW"/>
                             <constraint firstItem="f8l-gk-E4R" firstAttribute="trailing" secondItem="dxW-JU-QR0" secondAttribute="trailing" id="F9i-c8-WZT"/>
+                            <constraint firstItem="MBL-fT-f4H" firstAttribute="bottom" secondItem="f8l-gk-E4R" secondAttribute="bottom" id="VHC-aB-IH3"/>
                             <constraint firstItem="dxW-JU-QR0" firstAttribute="leading" secondItem="f8l-gk-E4R" secondAttribute="leading" id="b3t-lZ-rxh"/>
                             <constraint firstItem="MBL-fT-f4H" firstAttribute="leading" secondItem="f8l-gk-E4R" secondAttribute="leading" id="dXF-OI-6tU"/>
-                            <constraint firstAttribute="bottom" secondItem="MBL-fT-f4H" secondAttribute="bottom" id="uWV-YA-cXl"/>
                             <constraint firstItem="MBL-fT-f4H" firstAttribute="top" secondItem="dxW-JU-QR0" secondAttribute="bottom" id="wYm-my-OXe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="f8l-gk-E4R"/>
                     </view>
                     <connections>
+                        <outlet property="btnCredit" destination="hOu-NI-v7P" id="TRh-Ue-cAW"/>
+                        <outlet property="btnReferral" destination="MQ2-LK-sra" id="kIf-ra-mne"/>
+                        <outlet property="constViewTableHeight" destination="rKH-pE-dyQ" id="kAm-zb-XhB"/>
                         <outlet property="const_NavbarHeight" destination="xat-ob-mD0" id="ZwT-qw-ayW"/>
+                        <outlet property="imgUpArrow" destination="6Ft-gV-3BX" id="keQ-06-Ctt"/>
+                        <outlet property="tblView" destination="m8N-pQ-7bl" id="NsS-hD-zEL"/>
                         <outlet property="viewContainer" destination="MBL-fT-f4H" id="tsQ-U6-jo2"/>
+                        <outlet property="viewCredits" destination="VO2-BR-z50" id="5GY-Bi-qeU"/>
                         <outlet property="viewNavBar" destination="dxW-JU-QR0" id="NAm-tw-CGx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YEF-v9-dku" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1967" y="-380"/>
+            <point key="canvasLocation" x="1966.875" y="-380.28169014084506"/>
         </scene>
         <!--Left Menu View Controller-->
         <scene sceneID="Lt5-Eq-aKY">
@@ -1150,6 +1389,7 @@ once it's verified. </string>
                     </view>
                     <connections>
                         <outlet property="checkbox" destination="iMY-aB-607" id="tqC-pu-iaV"/>
+                        <outlet property="lblMsg" destination="aQd-xq-pwy" id="8KO-uH-ft9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WaS-kX-Jhg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1354,601 +1594,6 @@ once it's verified. </string>
             </objects>
             <point key="canvasLocation" x="2145" y="-1389.0845070422536"/>
         </scene>
-        <!--Login View Controller-->
-        <scene sceneID="8GQ-qp-n1E">
-            <objects>
-                <viewController storyboardIdentifier="LoginViewController" id="TD7-Zu-6dS" customClass="LoginViewController" customModule="Kethan" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="aVE-I6-rvZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OhI-Gv-NPL">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landing_bg" translatesAutoresizingMaskIntoConstraints="NO" id="KYd-5P-Az8">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBg" translatesAutoresizingMaskIntoConstraints="NO" id="DT4-Aw-0Sd">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="155"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="155" id="j4g-m1-rPU" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landing_text" translatesAutoresizingMaskIntoConstraints="NO" id="fuV-oq-1Rr">
-                                        <rect key="frame" x="60" y="258" width="200" height="51"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="51" id="8hf-dA-U8L" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                        </constraints>
-                                    </imageView>
-                                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iBw-Yy-Dqr">
-                                        <rect key="frame" x="0.0" y="155" width="320" height="413"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="goT-Nv-HGu" userLabel="View Email">
-                                                <rect key="frame" x="28" y="25" width="264" height="66"/>
-                                                <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="ifM-pG-UVF">
-                                                        <rect key="frame" x="13" y="17" width="14" height="17"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="14" id="69G-8F-gaI" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </constraint>
-                                                            <constraint firstAttribute="height" constant="17" id="Lu7-oo-iDd" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </constraint>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i2h-o9-dIJ" customClass="CustomLabel" customModule="Kethan" customModuleProvider="target">
-                                                        <rect key="frame" x="40" y="12" width="211" height="17"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="17" id="OTD-rw-D2I" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </constraint>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                                <real key="value" value="13"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Email" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="rUk-sI-11i" customClass="CustomTextField" customModule="Kethan" customModuleProvider="target">
-                                                        <rect key="frame" x="40" y="29" width="224" height="32"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                                <real key="value" value="13"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeColor">
-                                                                <color key="value" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="TD7-Zu-6dS" id="Tfh-MB-cX4"/>
-                                                        </connections>
-                                                    </textField>
-                                                </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstItem="i2h-o9-dIJ" firstAttribute="leading" secondItem="ifM-pG-UVF" secondAttribute="trailing" constant="13" id="EcW-19-oGe" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="NO"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </constraint>
-                                                    <constraint firstAttribute="trailing" secondItem="rUk-sI-11i" secondAttribute="trailing" id="T8W-QX-qtL"/>
-                                                    <constraint firstAttribute="bottom" secondItem="rUk-sI-11i" secondAttribute="bottom" constant="5" id="TlK-cw-I1Y"/>
-                                                    <constraint firstItem="rUk-sI-11i" firstAttribute="leading" secondItem="i2h-o9-dIJ" secondAttribute="leading" id="Wbu-gu-i1E"/>
-                                                    <constraint firstAttribute="trailing" secondItem="i2h-o9-dIJ" secondAttribute="trailing" constant="13" id="XaF-Up-7zz"/>
-                                                    <constraint firstItem="ifM-pG-UVF" firstAttribute="top" secondItem="goT-Nv-HGu" secondAttribute="top" constant="17" id="gD5-xa-Fah" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </constraint>
-                                                    <constraint firstItem="i2h-o9-dIJ" firstAttribute="top" secondItem="goT-Nv-HGu" secondAttribute="top" constant="12" id="hQa-63-S0w" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </constraint>
-                                                    <constraint firstItem="rUk-sI-11i" firstAttribute="top" secondItem="i2h-o9-dIJ" secondAttribute="bottom" id="nIL-GY-xYw"/>
-                                                    <constraint firstAttribute="height" constant="66" id="qgX-zE-o5L" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </constraint>
-                                                    <constraint firstItem="ifM-pG-UVF" firstAttribute="leading" secondItem="goT-Nv-HGu" secondAttribute="leading" constant="13" id="w2i-6k-s1o" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </constraint>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="2"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Zp-Lb-SOr" userLabel="View Password">
-                                                <rect key="frame" x="28" y="104" width="264" height="66"/>
-                                                <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password" translatesAutoresizingMaskIntoConstraints="NO" id="hPf-oM-QIK">
-                                                        <rect key="frame" x="13" y="16" width="14" height="17"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="14" id="4gk-Kl-YzR" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </constraint>
-                                                            <constraint firstAttribute="height" constant="17" id="eqW-Kb-tXm" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </constraint>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GfN-1V-Ee1" customClass="CustomLabel" customModule="Kethan" customModuleProvider="target">
-                                                        <rect key="frame" x="40" y="12" width="211" height="17"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="17" id="Udx-t7-jqT" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </constraint>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                                <real key="value" value="13"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Password" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="pBd-mf-KMa" customClass="CustomTextField" customModule="Kethan" customModuleProvider="target">
-                                                        <rect key="frame" x="40" y="29" width="190" height="32"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                                <real key="value" value="13"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeColor">
-                                                                <color key="value" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="TD7-Zu-6dS" id="0lI-dr-Trx"/>
-                                                        </connections>
-                                                    </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yMl-Ba-l9e">
-                                                        <rect key="frame" x="235" y="31" width="16" height="22"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="22" id="AHl-B7-omO" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </constraint>
-                                                            <constraint firstAttribute="width" constant="16" id="BqG-CX-2cz" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </constraint>
-                                                        </constraints>
-                                                        <state key="normal" image="hideEye"/>
-                                                        <connections>
-                                                            <action selector="hidePassWordClickAction:" destination="TD7-Zu-6dS" eventType="touchUpInside" id="Won-s6-VVe"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="yMl-Ba-l9e" secondAttribute="bottom" constant="13" id="1bX-JX-V46" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </constraint>
-                                                    <constraint firstItem="GfN-1V-Ee1" firstAttribute="leading" secondItem="hPf-oM-QIK" secondAttribute="trailing" constant="13" id="40c-92-cFf" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="NO"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </constraint>
-                                                    <constraint firstItem="yMl-Ba-l9e" firstAttribute="leading" secondItem="pBd-mf-KMa" secondAttribute="trailing" constant="5" id="4Nc-rl-64f"/>
-                                                    <constraint firstItem="hPf-oM-QIK" firstAttribute="leading" secondItem="3Zp-Lb-SOr" secondAttribute="leading" constant="13" id="5ap-C3-CUl" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </constraint>
-                                                    <constraint firstAttribute="trailing" secondItem="GfN-1V-Ee1" secondAttribute="trailing" constant="13" id="Non-70-WfL"/>
-                                                    <constraint firstItem="hPf-oM-QIK" firstAttribute="top" secondItem="3Zp-Lb-SOr" secondAttribute="top" constant="16" id="Uab-cy-Jma" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </constraint>
-                                                    <constraint firstAttribute="trailing" secondItem="yMl-Ba-l9e" secondAttribute="trailing" constant="13" id="aXm-0g-PMr" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </constraint>
-                                                    <constraint firstItem="GfN-1V-Ee1" firstAttribute="top" secondItem="3Zp-Lb-SOr" secondAttribute="top" constant="12" id="ech-VG-Qct" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </constraint>
-                                                    <constraint firstItem="pBd-mf-KMa" firstAttribute="top" secondItem="GfN-1V-Ee1" secondAttribute="bottom" id="fjG-wV-Cvm"/>
-                                                    <constraint firstAttribute="height" constant="66" id="imO-iS-zn0" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </constraint>
-                                                    <constraint firstAttribute="bottom" secondItem="pBd-mf-KMa" secondAttribute="bottom" constant="5" id="kdJ-pO-2zr"/>
-                                                    <constraint firstItem="pBd-mf-KMa" firstAttribute="leading" secondItem="GfN-1V-Ee1" secondAttribute="leading" id="s0Q-BV-clN"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="2"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hhu-fV-vW2" customClass="CustomButton" customModule="Kethan" customModuleProvider="target">
-                                                <rect key="frame" x="193" y="185" width="99" height="21"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="21" id="JSW-8r-Uzz" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </constraint>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                                <state key="normal" title="Forgot Password?"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                        <real key="value" value="12"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="forgotPassWordClickAction:" destination="TD7-Zu-6dS" eventType="touchUpInside" id="TRg-LJ-oxQ"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vAI-bg-97Y" customClass="CustomButton" customModule="Kethan" customModuleProvider="target">
-                                                <rect key="frame" x="28" y="217" width="264" height="40"/>
-                                                <color key="backgroundColor" red="0.035294117649999998" green="0.52156862749999999" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="17z-Bp-6gc" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </constraint>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
-                                                <state key="normal" title="Sign In">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                        <real key="value" value="17"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="signInClickAction:" destination="TD7-Zu-6dS" eventType="touchUpInside" id="639-Y2-FYi"/>
-                                                </connections>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAd-3g-TD2">
-                                                <rect key="frame" x="28" y="291" width="264" height="2"/>
-                                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="2" id="32L-ha-zvO"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onb-w6-x2b" customClass="CustomLabel" customModule="Kethan" customModuleProvider="target">
-                                                <rect key="frame" x="148" y="280" width="24" height="24"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="24" id="To8-6Y-DTi" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </constraint>
-                                                    <constraint firstAttribute="width" constant="24" id="kvj-My-ZJz" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </constraint>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="9"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                        <real key="value" value="9"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="12"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXM-gq-kZw">
-                                                <rect key="frame" x="159.5" y="314" width="1" height="50"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="1qd-0o-w9u"/>
-                                                    <constraint firstAttribute="width" constant="1" id="ORc-rS-xUb"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fL6-NH-r1a" customClass="CustomButton" customModule="Kethan" customModuleProvider="target">
-                                                <rect key="frame" x="119.5" y="316" width="35" height="35"/>
-                                                <state key="normal" image="fb"/>
-                                                <connections>
-                                                    <action selector="fbClickAction:" destination="TD7-Zu-6dS" eventType="touchUpInside" id="dPT-m6-lRN"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iBc-e1-MHp">
-                                                <rect key="frame" x="165.5" y="316" width="35" height="35"/>
-                                                <accessibility key="accessibilityConfiguration">
-                                                    <accessibilityTraits key="traits" none="YES"/>
-                                                </accessibility>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="35" id="lVO-Ii-lRt" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </constraint>
-                                                    <constraint firstAttribute="width" constant="35" id="syP-GU-vMm" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </constraint>
-                                                </constraints>
-                                                <state key="normal" image="google1"/>
-                                                <connections>
-                                                    <action selector="googleClickAction:" destination="TD7-Zu-6dS" eventType="touchUpInside" id="qJ8-VR-cSL"/>
-                                                </connections>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don’t have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCV-uT-IFx" customClass="CustomLabel" customModule="Kethan" customModuleProvider="target">
-                                                <rect key="frame" x="74" y="371" width="128" height="21"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="21" id="D70-xm-FMS" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </constraint>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                        <real key="value" value="12"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CTn-aC-C3q" customClass="CustomButton" customModule="Kethan" customModuleProvider="target">
-                                                <rect key="frame" x="203" y="371" width="50" height="21"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="Tkn-DD-Mfa" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </constraint>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                                <state key="normal" title="Sign Up">
-                                                    <color key="titleColor" red="0.035294117649999998" green="0.52156862749999999" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                        <real key="value" value="12"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="signUpClickAction:" destination="TD7-Zu-6dS" eventType="touchUpInside" id="QPV-di-AHj"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <constraints>
-                                            <constraint firstItem="goT-Nv-HGu" firstAttribute="leading" secondItem="iBw-Yy-Dqr" secondAttribute="leading" constant="28" id="0Hs-M9-dmG" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstItem="QCV-uT-IFx" firstAttribute="top" secondItem="fL6-NH-r1a" secondAttribute="bottom" constant="20" id="3Vw-E9-d4N" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstItem="fL6-NH-r1a" firstAttribute="height" secondItem="iBc-e1-MHp" secondAttribute="height" id="5ai-hs-QRn"/>
-                                            <constraint firstItem="CTn-aC-C3q" firstAttribute="top" secondItem="QCV-uT-IFx" secondAttribute="top" id="8kh-y6-Unl"/>
-                                            <constraint firstItem="QCV-uT-IFx" firstAttribute="leading" secondItem="iBw-Yy-Dqr" secondAttribute="leading" constant="74" id="9A6-X6-nd5" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstItem="hhu-fV-vW2" firstAttribute="top" secondItem="3Zp-Lb-SOr" secondAttribute="bottom" constant="15" id="9AH-U1-Q7F" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstAttribute="trailing" secondItem="3Zp-Lb-SOr" secondAttribute="trailing" constant="28" id="Ag6-0u-Zn4" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstItem="pAd-3g-TD2" firstAttribute="leading" secondItem="iBw-Yy-Dqr" secondAttribute="leading" constant="28" id="Ate-Kl-5Yb"/>
-                                            <constraint firstItem="goT-Nv-HGu" firstAttribute="top" secondItem="iBw-Yy-Dqr" secondAttribute="top" constant="25" id="C0o-Ib-MWl" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstItem="iBc-e1-MHp" firstAttribute="leading" secondItem="fXM-gq-kZw" secondAttribute="trailing" constant="5" id="Dbk-wb-S5m"/>
-                                            <constraint firstAttribute="trailing" secondItem="pAd-3g-TD2" secondAttribute="trailing" constant="28" id="Eda-5I-pBD"/>
-                                            <constraint firstItem="CTn-aC-C3q" firstAttribute="bottom" secondItem="QCV-uT-IFx" secondAttribute="bottom" id="Gdl-pd-mZY"/>
-                                            <constraint firstItem="onb-w6-x2b" firstAttribute="centerX" secondItem="iBw-Yy-Dqr" secondAttribute="centerX" id="Gva-vW-fTc"/>
-                                            <constraint firstAttribute="trailing" secondItem="hhu-fV-vW2" secondAttribute="trailing" constant="28" id="H6D-hC-OY9" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstAttribute="trailing" secondItem="vAI-bg-97Y" secondAttribute="trailing" constant="28" id="Ich-cj-da0" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstItem="fL6-NH-r1a" firstAttribute="bottom" secondItem="iBc-e1-MHp" secondAttribute="bottom" id="TJN-zA-HVx"/>
-                                            <constraint firstItem="fXM-gq-kZw" firstAttribute="leading" secondItem="fL6-NH-r1a" secondAttribute="trailing" constant="5" id="XFK-uv-Dbb"/>
-                                            <constraint firstItem="iBc-e1-MHp" firstAttribute="top" secondItem="pAd-3g-TD2" secondAttribute="bottom" constant="23" id="Z1k-L7-WkY" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstAttribute="bottom" secondItem="fXM-gq-kZw" secondAttribute="bottom" constant="49" id="aaY-Cg-faq"/>
-                                            <constraint firstItem="onb-w6-x2b" firstAttribute="top" secondItem="vAI-bg-97Y" secondAttribute="bottom" constant="23" id="d8d-tt-aGm" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstItem="vAI-bg-97Y" firstAttribute="leading" secondItem="iBw-Yy-Dqr" secondAttribute="leading" constant="28" id="diK-4w-D0f" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstItem="vAI-bg-97Y" firstAttribute="top" secondItem="hhu-fV-vW2" secondAttribute="bottom" constant="11" id="hQG-ed-bLE" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstItem="fL6-NH-r1a" firstAttribute="width" secondItem="iBc-e1-MHp" secondAttribute="width" id="iog-KR-TO6"/>
-                                            <constraint firstAttribute="trailing" secondItem="goT-Nv-HGu" secondAttribute="trailing" constant="28" id="m6e-3N-a1Z" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstItem="CTn-aC-C3q" firstAttribute="leading" secondItem="QCV-uT-IFx" secondAttribute="trailing" constant="1" id="mwT-V1-oye"/>
-                                            <constraint firstItem="3Zp-Lb-SOr" firstAttribute="leading" secondItem="iBw-Yy-Dqr" secondAttribute="leading" constant="28" id="pgd-X4-cSM" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstItem="3Zp-Lb-SOr" firstAttribute="top" secondItem="goT-Nv-HGu" secondAttribute="bottom" constant="13" id="qZ3-xG-d2x" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstItem="pAd-3g-TD2" firstAttribute="top" secondItem="vAI-bg-97Y" secondAttribute="bottom" constant="34" id="sEw-WG-cyd" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstItem="fXM-gq-kZw" firstAttribute="centerX" secondItem="iBw-Yy-Dqr" secondAttribute="centerX" id="zHL-f1-hNJ"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="iBw-Yy-Dqr" secondAttribute="trailing" id="6HB-vK-lg0"/>
-                                    <constraint firstAttribute="trailing" secondItem="KYd-5P-Az8" secondAttribute="trailing" id="6er-cX-M2i"/>
-                                    <constraint firstAttribute="trailing" secondItem="fuV-oq-1Rr" secondAttribute="trailing" constant="60" id="8XB-Zp-nVo" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </constraint>
-                                    <constraint firstAttribute="trailing" secondItem="DT4-Aw-0Sd" secondAttribute="trailing" id="9NU-3m-6fj"/>
-                                    <constraint firstItem="fuV-oq-1Rr" firstAttribute="leading" secondItem="OhI-Gv-NPL" secondAttribute="leading" constant="60" id="FRF-iD-9oU" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </constraint>
-                                    <constraint firstItem="DT4-Aw-0Sd" firstAttribute="top" secondItem="OhI-Gv-NPL" secondAttribute="top" id="HZT-sY-xVi"/>
-                                    <constraint firstAttribute="bottom" secondItem="KYd-5P-Az8" secondAttribute="bottom" id="K94-9M-Rti"/>
-                                    <constraint firstItem="iBw-Yy-Dqr" firstAttribute="top" secondItem="DT4-Aw-0Sd" secondAttribute="bottom" id="QKf-s1-BDU"/>
-                                    <constraint firstItem="DT4-Aw-0Sd" firstAttribute="leading" secondItem="OhI-Gv-NPL" secondAttribute="leading" id="X1H-TI-KC5"/>
-                                    <constraint firstItem="iBw-Yy-Dqr" firstAttribute="leading" secondItem="OhI-Gv-NPL" secondAttribute="leading" id="fms-3s-m1I"/>
-                                    <constraint firstItem="KYd-5P-Az8" firstAttribute="leading" secondItem="OhI-Gv-NPL" secondAttribute="leading" id="fph-UC-A5n"/>
-                                    <constraint firstItem="fuV-oq-1Rr" firstAttribute="top" secondItem="OhI-Gv-NPL" secondAttribute="top" constant="258" id="qV5-Vj-VcL" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </constraint>
-                                    <constraint firstItem="KYd-5P-Az8" firstAttribute="top" secondItem="OhI-Gv-NPL" secondAttribute="top" id="tOW-Js-vt8"/>
-                                    <constraint firstAttribute="bottom" secondItem="iBw-Yy-Dqr" secondAttribute="bottom" id="xaG-a6-bYN"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="OhI-Gv-NPL" secondAttribute="trailing" id="PLq-Ey-KP4"/>
-                            <constraint firstAttribute="bottom" secondItem="OhI-Gv-NPL" secondAttribute="bottom" id="SO2-Ey-tW6"/>
-                            <constraint firstItem="OhI-Gv-NPL" firstAttribute="top" secondItem="aVE-I6-rvZ" secondAttribute="top" id="agd-jO-b1N"/>
-                            <constraint firstItem="OhI-Gv-NPL" firstAttribute="leading" secondItem="aVE-I6-rvZ" secondAttribute="leading" id="t53-HW-gpZ"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="9dI-es-Fcn"/>
-                    </view>
-                    <connections>
-                        <outlet property="constBGImageBottom" destination="K94-9M-Rti" id="M8o-iK-HGr"/>
-                        <outlet property="constImageTop" destination="qV5-Vj-VcL" id="Olj-uJ-Doe"/>
-                        <outlet property="imgAppName" destination="fuV-oq-1Rr" id="Hew-b5-iwv"/>
-                        <outlet property="imgBg" destination="KYd-5P-Az8" id="54u-wm-SNd"/>
-                        <outlet property="imgTop" destination="DT4-Aw-0Sd" id="u8Q-0i-9ai"/>
-                        <outlet property="txtEmail" destination="rUk-sI-11i" id="0JF-Hr-34X"/>
-                        <outlet property="txtPassword" destination="pBd-mf-KMa" id="AtH-Wc-MZb"/>
-                        <outlet property="viewContainer" destination="OhI-Gv-NPL" id="lfC-Ka-XEg"/>
-                        <outlet property="viewLogin" destination="iBw-Yy-Dqr" id="Mbs-ss-ykn"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NFR-WV-gGG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1633.125" y="-388.73239436619718"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Dte-RD-FYm">
             <objects>
@@ -2045,7 +1690,7 @@ once it's verified. </string>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Implant Name/Brand" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mlE-7f-Uzu" customClass="CustomDropDown" customModule="Kethan" customModuleProvider="target">
                                                 <rect key="frame" x="40" y="29" width="254" height="32"/>
                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="rowHeight">
@@ -2154,7 +1799,7 @@ once it's verified. </string>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Manufacturer Name" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="cBJ-ic-2YZ" customClass="CustomDropDown" customModule="Kethan" customModuleProvider="target">
                                                 <rect key="frame" x="40" y="29" width="252" height="32"/>
                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="rowBackgroundColor">
@@ -2528,21 +2173,16 @@ to search in our Database</string>
     <resources>
         <image name="bgImage" width="276.5" height="171"/>
         <image name="callWhite" width="13" height="13"/>
+        <image name="creditsGraphic" width="174.5" height="124"/>
         <image name="editWithCircle" width="21" height="21"/>
-        <image name="email" width="13.5" height="10.5"/>
         <image name="emailWhite" width="13.5" height="10"/>
-        <image name="fb" width="34" height="34"/>
         <image name="flash" width="35" height="35.5"/>
         <image name="gallery" width="35.5" height="35.5"/>
-        <image name="google1" width="34" height="34"/>
-        <image name="hideEye" width="15.5" height="13.5"/>
         <image name="implantIcon" width="13.5" height="17"/>
         <image name="landing_bg" width="320" height="568"/>
-        <image name="landing_text" width="202.5" height="51.5"/>
-        <image name="loginBg" width="320" height="155"/>
         <image name="logout" width="14.5" height="14.5"/>
         <image name="manufacturer" width="13" height="19"/>
-        <image name="password" width="11" height="13"/>
         <image name="profilePic" width="64.5" height="64.5"/>
+        <image name="upArrow" width="13.5" height="7.5"/>
     </resources>
 </document>

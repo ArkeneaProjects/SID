@@ -17,8 +17,8 @@ class UploadViewController: BaseViewController {
         super.viewDidLoad()
         self.addNavBarWithTitle("Add Image", withLeftButtonType: .buttonTypeNil, withRightButtonType: .buttonTypeNil)
         
-        self.txtImplant.font = UIFont(name: self.txtImplant.font!.fontName, size: getCalculated(13.5))
-        self.txtManu.font = UIFont(name: self.txtManu.font!.fontName, size: getCalculated(13.5))
+        self.txtImplant.font = UIFont(name: self.txtImplant.font!.fontName, size: getCalculated(14.0))
+        self.txtManu.font = UIFont(name: self.txtManu.font!.fontName, size: getCalculated(14.0))
         
         self.txtImplant.optionArray = STATICDATA.implantDropDown
         self.txtImplant.didSelect { (selected: String, index: Int, id: Int) in
