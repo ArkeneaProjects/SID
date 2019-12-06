@@ -19,6 +19,9 @@ class LoginViewController: BaseViewController {
     @IBOutlet weak var imgBg: UIImageView!
     
     @IBOutlet weak var constImageTop: CustomConstraint!
+    @IBOutlet weak var constImageWidth: CustomConstraint!
+    @IBOutlet weak var constImageHeight: CustomConstraint!
+
     @IBOutlet weak var constBGImageBottom: NSLayoutConstraint!
     
     @IBOutlet weak var viewLogin: UIView!
@@ -28,9 +31,9 @@ class LoginViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         
         //Animate the View
-        self.imgAppName.alpha = 1.0
         self.imgTop.alpha = 0
         self.viewLogin.alpha = 0
         var height: Double = 0.0
@@ -42,34 +45,45 @@ class LoginViewController: BaseViewController {
         print(height)
         if isLoginViewAnimated == false {
             self.constImageTop.constant = CGFloat(-height)
+            self.constImageWidth.constant = getCalculated(203.0)
+            self.constImageHeight.constant = getCalculated(51.5)
+            self.imgAppName.alpha = 1.0
             self.imgTop.alpha = 1.0
             self.viewLogin.alpha = 1.0
             self.view.layoutIfNeeded()
         } else {
             DispatchQueue.main.asyncAfter(deadline: .now()) {
-                UIView.animate(withDuration: 1.5, animations: {
-                    self.constImageTop.constant = CGFloat(-height)
-                    self.view.layoutIfNeeded()
-                }) { (finish) in
-                    UIView.animate(withDuration: 1.0) {
-                        self.imgTop.alpha = 1.0
-                        self.viewLogin.alpha = 1.0
+                UIView.animate(withDuration: 1.0, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: {
+                     self.constImageWidth.constant = getCalculated(203.0)
+                               self.constImageHeight.constant = getCalculated(51.5)
+                               self.view.layoutIfNeeded()
+                }, completion: {(finish) in
+                    UIView.animate(withDuration: 1.0, delay: 0.2, options: UIView.AnimationOptions.allowAnimatedContent, animations: {
+                        self.constImageTop.constant = CGFloat(-height)
+                        self.view.layoutIfNeeded()
+                    }) { (finish) in
+                        UIView.animate(withDuration: 1.0) {
+                            self.imgTop.alpha = 1.0
+                            self.viewLogin.alpha = 1.0
+                        }
                     }
-                }
+                })
+                
             }
         }
         
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: NOTIFICATIONS.googleUserUpdate), object: nil)
+      /*  NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: NOTIFICATIONS.googleUserUpdate), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.googleUserDataUpdate(notification:)), name: NSNotification.Name(rawValue: NOTIFICATIONS.googleUserUpdate), object: nil)
         
         GIDSignIn.sharedInstance()?.presentingViewController = self
-        GIDSignIn.sharedInstance()?.restorePreviousSignIn()
+        GIDSignIn.sharedInstance()?.restorePreviousSignIn() */
+        
         // Do any additional setup after loading the view.
+ 
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
     }
     
     //    override func viewWillAppear(_ animated: Bool) {
@@ -108,6 +122,7 @@ class LoginViewController: BaseViewController {
     //
     //    }
     //
+    
     // MARK: - Button Action
     @IBAction func fbClickAction(_ sender: Any) {
         FacebookManager.loginToFacebookWith(controller: self) { (result: Any?, error: String?) in

@@ -10,11 +10,8 @@ import UIKit
 
 class SearchListCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var btnView: CustomButton!
-    
     @IBOutlet weak var lblSubTitle: CustomLabel!
     @IBOutlet weak var lblTitle: CustomLabel!
-    @IBOutlet weak var lblMatch: CustomLabel!
     
     @IBOutlet weak var imgPhoto: UIImageView!
     

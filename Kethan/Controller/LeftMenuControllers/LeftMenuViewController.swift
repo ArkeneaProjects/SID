@@ -24,6 +24,11 @@ class LeftMenuViewController: BaseViewController, UITableViewDelegate, UITableVi
         DispatchQueue.main.async {
             self.tblView.registerNibWithIdentifier([IDENTIFIERS.LeftMenuTableViewCell])
             self.tblView.reloadData()
+            
+            // Profile Image
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.profileClickAction(_:)))
+            self.imgProfile.addGestureRecognizer(tapGesture)
+            self.imgProfile.isUserInteractionEnabled = true
         }
     }
     
@@ -40,19 +45,23 @@ class LeftMenuViewController: BaseViewController, UITableViewDelegate, UITableVi
     
     // MARK: - Button Action
     @IBAction func editProfileAction(_ sender: Any) {
-        if let tabbarController = AppDelegate.delegate()!.window!.rootViewController as? UITabBarController {
+       /* if let tabbarController = AppDelegate.delegate()!.window!.rootViewController as? UITabBarController {
             if let frontNavigationController = tabbarController.viewControllers![1] as? UINavigationController {
-                let storyBoard = UIStoryboard(name: STORYBOARD.main, bundle: Bundle.main)
+                let storyBoard = UIStoryboard(name: STORYBOARD.signup, bundle: Bundle.main)
                 let loginVC = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController
                 let frontViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController
                 self.revealViewController()?.setFront(frontViewController!, animated: false)
                 self.revealViewController()?.setFrontViewPosition(.left, animated: false)
                 frontNavigationController.pushViewController(loginVC!, animated: true)
             }
-        }
+        } */
     }
     
-    func cellClickAction(_ identifier: String) {
+    @objc func profileClickAction(_ sender: Any) {
+        self.openGalleryList(indexpath: IndexPath(row: 0, section: 0), imgNameArr: NSMutableArray(array: ["profilePic"]), sourceView: self.imgProfile)
+    }
+    
+    func cellClickAction(_ identifier: String, _ screen: String) {
         
         if let tabbarController = AppDelegate.delegate()!.window!.rootViewController as? UITabBarController {
             if let frontNavigationController = tabbarController.viewControllers![1] as? UINavigationController {
@@ -60,7 +69,11 @@ class LeftMenuViewController: BaseViewController, UITableViewDelegate, UITableVi
                 let storyBoard = UIStoryboard(name: STORYBOARD.main, bundle: Bundle.main)
                 var baseController: BaseViewController?
                 
-                if identifier == "SignUpUserGuideViewController" {
+                if identifier == "ProfileViewController" {
+                    if let controller = self.instantiate(ProfileViewController.self, storyboard: STORYBOARD.leftMenu) as? ProfileViewController {
+                        baseController = controller
+                    }
+                } else if identifier == "SignUpUserGuideViewController" {
                     if let controller = self.instantiate(SignUpUserGuideViewController.self, storyboard: STORYBOARD.signup) as? SignUpUserGuideViewController {
                         controller.isShowNavBar = true
                         baseController = controller
@@ -84,16 +97,32 @@ class LeftMenuViewController: BaseViewController, UITableViewDelegate, UITableVi
                     if let controller = self.instantiate(SupportViewController.self, storyboard: STORYBOARD.leftMenu) as? SupportViewController {
                         baseController = controller
                     }
+                } else if identifier == "AboutViewController" {
+                    if let controller = self.instantiate(AboutViewController.self, storyboard: STORYBOARD.leftMenu) as? AboutViewController {
+                        baseController = controller
+                    }
+                } else if identifier == "TermsConditionViewController" {
+                    if let controller = self.instantiate(TermsConditionViewController.self, storyboard: STORYBOARD.leftMenu) as? TermsConditionViewController {
+                        controller.isPage = (screen == "Terms") ?0:(screen == "Privacy") ?1:2
+                        controller.urlString = "https://www.google.com/"
+                        baseController = controller
+                    }
                 } else {
                     baseController = storyBoard.instantiateViewController(withIdentifier: "\(identifier)") as? BaseViewController ?? BaseViewController()
                 }
+                
+//                let navController = self.revealViewController().frontViewController as? UINavigationController
+//                if let topController = navController!.topViewController as? HomeViewController {
+//                    print("sucess")
+//                    self.revealViewController()?.setFrontViewPosition(.left, animated: false)
+//                    frontNavigationController.pushViewController(baseController!, animated: true)
+//                }
                 
                 if let frontViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
                     self.revealViewController()?.setFront(frontViewController, animated: false)
                     self.revealViewController()?.setFrontViewPosition(.left, animated: false)
                     frontNavigationController.pushViewController(baseController!, animated: true)
                 }
-                
             }
         }
     }
@@ -127,17 +156,25 @@ class LeftMenuViewController: BaseViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.item == 0 {
-            
+            self.cellClickAction("ProfileViewController", "Profile")
         } else if indexPath.item == 1 {
-            self.cellClickAction("ForgotPwdViewController")
+            self.cellClickAction("ForgotPwdViewController", "Email")
         } else if indexPath.item == 2 {
-            self.cellClickAction("ChangePwdViewController")
+            self.cellClickAction("ChangePwdViewController", "Password")
         } else if indexPath.item == 3 {
-            self.cellClickAction("SubScriptionViewController")
+            self.cellClickAction("SubScriptionViewController", "SubScription")
         } else if indexPath.item == 4 {
-            self.cellClickAction("SignUpUserGuideViewController")
+            self.cellClickAction("SignUpUserGuideViewController", "Guide")
+        } else if indexPath.item == 5 {
+            self.cellClickAction("TermsConditionViewController", "FAQ")
+        } else if indexPath.item == 6 {
+            self.cellClickAction("TermsConditionViewController", "Terms")
+        } else if indexPath.item == 7 {
+            self.cellClickAction("TermsConditionViewController", "Privacy")
+        } else if indexPath.item == 8 {
+            self.cellClickAction("AboutViewController", "About")
         } else if indexPath.item == 9 {
-            self.cellClickAction("SupportViewController")
+            self.cellClickAction("SupportViewController", "Support")
         }
     }
     /*

@@ -9,18 +9,25 @@
 import UIKit
 
 class ProcessDocumentView: UIView {
+    
+    @IBOutlet weak var btnRemove: CustomButton!
     @IBOutlet weak var lblProcess: CustomLabel!
-    var tapCompletion: VoidCompletion? = nil
+    
+    var tapCompletion:((_ IndexPath: IndexPath) -> Void)?
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         
-        if self.tapCompletion != nil {
-            self.tapCompletion!()
-        }
     }
+    
+    @IBAction func btnRemoveClickAction(_ sender: CustomButton) {
+        if self.tapCompletion != nil {
+            self.tapCompletion!(sender.indexPath)
+            }
+    }
+    
     /*
-    // Only override draw() if you perform custom drawing.
+     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
         // Drawing code

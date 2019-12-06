@@ -21,7 +21,7 @@ class ThankYouViewController: BaseViewController {
         self.checkbox.offAnimationType = .stroke
         self.checkbox.animationDuration = 0.9
         
-        self.lblMsg.text = (self.isComeFromSupport == true) ?"Your support query has been submitted" :"Your details have been sent     for verification. We'll let you know once it's verified. "
+        self.lblMsg.text = (self.isComeFromSupport == true) ?"Your support query has been submitted" :"Your details have been sent for verification. We'll let you know once it's verified. "
         // Do any additional setup after loading the view.
     }
     

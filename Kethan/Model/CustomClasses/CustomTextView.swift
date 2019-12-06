@@ -52,13 +52,12 @@ open class CustomTextView: UITextView {
             }
         }
         
-        self.setValue(placeholderColor, forKeyPath: "_placeholderLabel.textColor")
+       // self.setValue(placeholderColor, forKeyPath: "_placeholderLabel.textColor")
+//        var placeholderAttributedString = NSMutableAttributedString(attributedString: self.placeholderLabel.attributedPlaceholder)
+//       placeholderAttributedString.addAttribute(.foregroundColor, value: UIColor.red, range: NSRange(location: 0, length: self.placeholderLabel.length))
+//       self.placeholderLabel.attributedPlaceholder = placeholderAttributedString
         
-        if self.placeholder.last == "*"{
-            let attribute = NSMutableAttributedString.init(string: self.placeholder)
-            attribute.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(hexCode: 0xF04A65), range: NSMakeRange((self.placeholder.count) - 1, 1))
-            self.placeholderLabel.attributedText = attribute
-        }
+        
     }
     private struct Constants {
         static let defaultiOSPlaceholderColor = UIColor(red: 0.0, green: 0.0, blue: 0.0980392, alpha: 0.22)

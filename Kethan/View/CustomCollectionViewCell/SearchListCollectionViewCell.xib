@@ -11,43 +11,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchListCollectionViewCell" id="gTV-IL-0wX" customClass="SearchListCollectionViewCell" customModule="Kethan" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="160" height="228"/>
+            <rect key="frame" x="0.0" y="0.0" width="160" height="213"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="160" height="228"/>
+                <rect key="frame" x="0.0" y="0.0" width="160" height="213"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="mgu-jZ-tfB">
-                        <rect key="frame" x="13" y="12" width="144" height="145"/>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="90% match" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yga-4w-Ftz" customClass="CustomLabel" customModule="Kethan" customModuleProvider="target">
-                        <rect key="frame" x="91.5" y="134" width="58.5" height="14"/>
-                        <constraints>
-                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="LP1-8s-k8b"/>
-                            <constraint firstAttribute="height" constant="14" id="ju6-9W-C5W" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="11"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
-                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                <real key="value" value="10.5"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="galleryIcon" translatesAutoresizingMaskIntoConstraints="NO" id="jp5-s4-gVc">
-                        <rect key="frame" x="75.5" y="134" width="11" height="14"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="11" id="nHP-Qa-AUO"/>
-                        </constraints>
+                        <rect key="frame" x="13" y="12" width="144" height="146.5"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skyline a:p lateran" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLT-hP-hPC" customClass="CustomLabel" customModule="Kethan" customModuleProvider="target">
-                        <rect key="frame" x="13" y="164" width="144" height="18"/>
+                        <rect key="frame" x="13" y="165.5" width="144" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="fWC-bb-CPJ" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
                                 <userDefinedRuntimeAttributes>
@@ -66,13 +40,9 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Depuy Skyline " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00c-p8-V9T" customClass="CustomLabel" customModule="Kethan" customModuleProvider="target">
-                        <rect key="frame" x="13" y="186" width="144" height="18"/>
+                        <rect key="frame" x="13" y="187.5" width="144" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="18" id="s3u-cK-6IC" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
+                            <constraint firstAttribute="height" constant="18" id="wXm-jt-4ov"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="11"/>
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -84,30 +54,10 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W6F-PR-0x0" customClass="CustomButton" customModule="Kethan" customModuleProvider="target">
-                        <rect key="frame" x="13" y="207" width="122" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="bJB-hx-NDv"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
-                        <state key="normal" title="View Details">
-                            <color key="titleColor" red="0.035294117649999998" green="0.52156862749999999" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
-                        </state>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
-                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                <real key="value" value="13"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </button>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="W6F-PR-0x0" firstAttribute="leading" secondItem="mgu-jZ-tfB" secondAttribute="leading" id="1cu-zJ-uoo"/>
-                <constraint firstAttribute="bottom" secondItem="W6F-PR-0x0" secondAttribute="bottom" id="490-PZ-g4X"/>
-                <constraint firstItem="jp5-s4-gVc" firstAttribute="bottom" secondItem="yga-4w-Ftz" secondAttribute="bottom" id="5Go-a1-2ao"/>
-                <constraint firstItem="yga-4w-Ftz" firstAttribute="bottom" secondItem="mgu-jZ-tfB" secondAttribute="bottom" constant="-9" id="EOa-UA-dFo"/>
                 <constraint firstItem="00c-p8-V9T" firstAttribute="top" secondItem="cLT-hP-hPC" secondAttribute="bottom" constant="4" id="HvH-98-6yW"/>
                 <constraint firstItem="mgu-jZ-tfB" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="12" id="JU7-ZE-x6J" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
@@ -115,10 +65,7 @@
                     </userDefinedRuntimeAttributes>
                 </constraint>
                 <constraint firstItem="00c-p8-V9T" firstAttribute="leading" secondItem="mgu-jZ-tfB" secondAttribute="leading" id="Jsr-fa-exj"/>
-                <constraint firstAttribute="trailing" secondItem="W6F-PR-0x0" secondAttribute="trailing" constant="25" id="MHk-jf-ivj"/>
-                <constraint firstItem="yga-4w-Ftz" firstAttribute="leading" secondItem="jp5-s4-gVc" secondAttribute="trailing" constant="5" id="OoF-nK-xT4"/>
                 <constraint firstItem="cLT-hP-hPC" firstAttribute="trailing" secondItem="mgu-jZ-tfB" secondAttribute="trailing" id="RPv-Cg-TIf"/>
-                <constraint firstItem="jp5-s4-gVc" firstAttribute="top" secondItem="yga-4w-Ftz" secondAttribute="top" id="Zem-aa-KRX"/>
                 <constraint firstItem="mgu-jZ-tfB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="13" id="fXB-sZ-PjV" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
@@ -126,29 +73,25 @@
                 </constraint>
                 <constraint firstItem="00c-p8-V9T" firstAttribute="trailing" secondItem="mgu-jZ-tfB" secondAttribute="trailing" id="ftq-m7-UnX"/>
                 <constraint firstItem="cLT-hP-hPC" firstAttribute="leading" secondItem="mgu-jZ-tfB" secondAttribute="leading" id="jfT-Gg-ZtP"/>
+                <constraint firstAttribute="bottom" secondItem="00c-p8-V9T" secondAttribute="bottom" constant="7.5" id="lVp-9b-Qg9"/>
                 <constraint firstAttribute="trailing" secondItem="mgu-jZ-tfB" secondAttribute="trailing" constant="3" id="m7I-4q-8Rw" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </constraint>
-                <constraint firstItem="yga-4w-Ftz" firstAttribute="trailing" secondItem="mgu-jZ-tfB" secondAttribute="trailing" constant="-7" id="tNg-w5-wQe"/>
-                <constraint firstItem="W6F-PR-0x0" firstAttribute="top" secondItem="00c-p8-V9T" secondAttribute="bottom" constant="3" id="zYe-S4-2Kp"/>
                 <constraint firstItem="cLT-hP-hPC" firstAttribute="top" secondItem="mgu-jZ-tfB" secondAttribute="bottom" constant="7" id="zq2-Hr-rfH"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="160" height="224"/>
+            <size key="customSize" width="160" height="209"/>
             <connections>
-                <outlet property="btnView" destination="W6F-PR-0x0" id="prh-Qw-cKG"/>
                 <outlet property="imgPhoto" destination="mgu-jZ-tfB" id="8qb-IH-HGs"/>
-                <outlet property="lblMatch" destination="yga-4w-Ftz" id="gpS-qz-cpZ"/>
                 <outlet property="lblSubTitle" destination="00c-p8-V9T" id="XZ8-go-iC3"/>
                 <outlet property="lblTitle" destination="cLT-hP-hPC" id="0cJ-wT-pfN"/>
             </connections>
-            <point key="canvasLocation" x="131.8840579710145" y="101.11607142857143"/>
+            <point key="canvasLocation" x="131.8840579710145" y="96.09375"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="galleryIcon" width="11" height="10.5"/>
         <image name="image1" width="141.5" height="146.5"/>
     </resources>
 </document>

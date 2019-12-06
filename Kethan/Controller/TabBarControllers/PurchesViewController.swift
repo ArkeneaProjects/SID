@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PurchesViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+class PurchesViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, GalleryManagerDelegate {
 
     @IBOutlet weak var btnCredit: CustomButton!
     @IBOutlet weak var btnReferral: CustomButton!
@@ -20,6 +20,8 @@ class PurchesViewController: BaseViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var constViewTableHeight: NSLayoutConstraint!
     
     @IBOutlet weak var tblView: UITableView!
+    
+    var imagePicker: GalleryManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,14 +35,7 @@ class PurchesViewController: BaseViewController, UITableViewDelegate, UITableVie
         attributedString.addAttribute(.font, value: UIFont(name: "HelveticaNeue-Medium", size: getCalculated(13.5))!, range: NSRange(location: 14, length: referralNumber.count))
         self.btnReferral.setAttributedTitle(attributedString, for: .normal)
         
-        //Credit
-        let creditPoints = "(0)"
-        let credit_attributedString = NSMutableAttributedString(string: "Credit History \(creditPoints)", attributes: [
-          .font: UIFont(name: "HelveticaNeue-Bold", size: getCalculated(13.5))!,
-          .foregroundColor: UIColor(red: 9.0 / 255.0, green: 133.0 / 255.0, blue: 233.0 / 255.0, alpha: 1.0)
-        ])
-        credit_attributedString.addAttribute(.font, value: UIFont(name: "HelveticaNeue", size: getCalculated(13.5))!, range: NSRange(location: 15, length: creditPoints.count))
-        self.btnCredit.setAttributedTitle(credit_attributedString, for: .normal)
+        self.creditPoints("(0)")
         
         //TableView
         self.tblView.registerNibWithIdentifier([IDENTIFIERS.CreditHistoryTableViewCell])
@@ -48,12 +43,26 @@ class PurchesViewController: BaseViewController, UITableViewDelegate, UITableVie
         self.tblView.estimatedRowHeight = getCalculated(80.0)
         self.tblView.tableFooterView = UIView()
         
+        //Gallery
+        self.imagePicker = GalleryManager(presentationController: self, delegate: self)
+        
     }
     
     @IBAction func referralClickAction(_ sender: Any) {
+        
+        // text to share
+        let text = "Use my Referral Code hd09w7r to sign up. Use code first to get free first 5 photos to upload"
+
+        // set up activity view controller
+        let textToShare = [ text ]
+        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true, completion: nil)
+        
     }
     
     @IBAction func uploadImageClickAction(_ sender: Any) {
+        self.imagePicker.present()
     }
     
     @IBAction func creditActionClick(_ sender: Any) {
@@ -62,7 +71,8 @@ class PurchesViewController: BaseViewController, UITableViewDelegate, UITableVie
                 self.viewCredits.alpha = 0
                 self.constViewTableHeight.constant = (self.viewCredits.frame.size.height - getCalculated(43.0))
                 self.imgUpArrow.image = UIImage(named: "droparrow")
-                self.btnCredit.setTitle("Credit History ($190)", for: .normal)
+                //self.btnCredit.setTitle("Credit History ($190)", for: .normal)
+                self.creditPoints("($190)")
                 self.view.layoutIfNeeded()
             }
         } else {
@@ -70,10 +80,26 @@ class PurchesViewController: BaseViewController, UITableViewDelegate, UITableVie
                 self.viewCredits.alpha = 1.0
                 self.constViewTableHeight.constant = getCalculated(0.0)
                 self.imgUpArrow.image = UIImage(named: "upArrow")
-                self.btnCredit.setTitle("Credit History (0)", for: .normal)
+                //self.btnCredit.setTitle("Credit History (0)", for: .normal)
+                self.creditPoints("(0)")
                 self.view.layoutIfNeeded()
             }
         }
+    }
+    
+    func creditPoints(_ points: String) {
+        //Credit
+        let credit_attributedString = NSMutableAttributedString(string: "Credit History \(points)", attributes: [
+          .font: UIFont(name: "HelveticaNeue-Bold", size: getCalculated(13.5))!,
+          .foregroundColor: UIColor(red: 9.0 / 255.0, green: 133.0 / 255.0, blue: 233.0 / 255.0, alpha: 1.0)
+        ])
+        credit_attributedString.addAttribute(.font, value: UIFont(name: "HelveticaNeue", size: getCalculated(13.5))!, range: NSRange(location: 15, length: points.count))
+        self.btnCredit.setAttributedTitle(credit_attributedString, for: .normal)
+    }
+    
+    // MARK: - Gallery Delegate
+    func didSelect(image: UIImage?) {
+        print(image)
     }
     
     // MARK: - UITabelVieeDelegate, UITableViewDataSource

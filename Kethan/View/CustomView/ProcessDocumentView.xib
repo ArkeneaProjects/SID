@@ -50,7 +50,8 @@
                                     <constraints>
                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18.5" id="Key-KG-euV"/>
                                     </constraints>
-                                    <string key="text">Locate presence of 1 or 2 rod implant by palpation. Refer for further examination if</string>
+                                    <string key="text">Locate presence of 1 or 2 rod implant by 
+palpation. Refer for further examination if</string>
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -99,19 +100,23 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5S-Zd-9lJ">
-                            <rect key="frame" x="307" y="-9" width="17" height="22"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5S-Zd-9lJ" customClass="CustomButton" customModule="Kethan" customModuleProvider="target">
+                            <rect key="frame" x="295" y="0.0" width="25" height="25"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="17" id="2RF-Ss-4xQ"/>
-                                <constraint firstAttribute="height" constant="22" id="MMR-om-7BN"/>
+                                <constraint firstAttribute="width" constant="25" id="2RF-Ss-4xQ"/>
+                                <constraint firstAttribute="height" constant="25" id="MMR-om-7BN"/>
                             </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="-5" maxX="-3" maxY="0.0"/>
                             <state key="normal" image="close"/>
+                            <connections>
+                                <action selector="btnRemoveClickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="kMQ-Wu-mqU"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="K5S-Zd-9lJ" secondAttribute="trailing" constant="-4" id="6iC-Nc-dr8"/>
-                        <constraint firstItem="K5S-Zd-9lJ" firstAttribute="top" secondItem="KNi-OX-cjV" secondAttribute="top" constant="-9" id="Qkd-Q0-h01"/>
+                        <constraint firstAttribute="trailing" secondItem="K5S-Zd-9lJ" secondAttribute="trailing" id="6iC-Nc-dr8"/>
+                        <constraint firstItem="K5S-Zd-9lJ" firstAttribute="top" secondItem="KNi-OX-cjV" secondAttribute="top" id="Qkd-Q0-h01"/>
                         <constraint firstItem="xTm-ff-qvw" firstAttribute="leading" secondItem="KNi-OX-cjV" secondAttribute="leading" id="Yd0-4N-Ooc"/>
                         <constraint firstAttribute="trailing" secondItem="xTm-ff-qvw" secondAttribute="trailing" id="bVt-aF-hDK"/>
                         <constraint firstAttribute="bottom" secondItem="xTm-ff-qvw" secondAttribute="bottom" id="bzg-Be-nvk"/>
@@ -140,6 +145,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="btnRemove" destination="K5S-Zd-9lJ" id="eld-fW-kqH"/>
                 <outlet property="lblProcess" destination="qsk-l9-dxJ" id="KPX-4y-FyF"/>
             </connections>
             <point key="canvasLocation" x="-6.4000000000000004" y="-313.04347826086956"/>

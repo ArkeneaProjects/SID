@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
 
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         let base = BaseViewController()
-        base.navigateToHome(false, true)
+        base.navigateToHome(true, true)
         return true
     }
     

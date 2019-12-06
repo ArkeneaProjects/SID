@@ -92,3 +92,37 @@ func getObjectFromDictionary(dictionary: NSDictionary, forKey key: String, isArr
         }
     }
 }
+
+// to check for the visible controller
+func getTopViewController() -> BaseViewController? {
+    if let rootViewController = AppDelegate.delegate()?.window?.rootViewController {
+        if let tabBarViewController = rootViewController as? UITabBarController {
+            if let navbarViewController = tabBarViewController.selectedViewController as? UINavigationController {
+                if let topViewController = navbarViewController.topViewController {
+                    if let presentedViewController = topViewController.presentedViewController {
+                        return presentedViewController as? BaseViewController
+                    } else {
+                        return topViewController as? BaseViewController
+                    }
+                } else {
+                    return nil
+                }
+            } else {
+                return tabBarViewController.selectedViewController as? BaseViewController
+            }
+        } else if let navbarViewController = rootViewController as? UINavigationController {
+            if let topViewController = navbarViewController.topViewController {
+                if let presentedViewController = topViewController.presentedViewController {
+                    return presentedViewController as? BaseViewController
+                } else {
+                    return topViewController as? BaseViewController
+                }
+            } else {
+                return nil
+            }
+        } else {
+            return rootViewController as? BaseViewController
+        }
+    }
+    return nil
+}

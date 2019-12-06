@@ -19,7 +19,7 @@ class ResponsePopUpViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.isNormalEditEnabled = true
+        self.isNormalEditEnabled = false
         // Do any additional setup after loading the view.
     }
     

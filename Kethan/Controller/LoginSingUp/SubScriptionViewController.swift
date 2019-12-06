@@ -46,7 +46,7 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
     }
     
     @objc func planSelection(_ sender: UIButton) {
-        if self.isComeFromLogin == false {
+        if self.isComeFromLogin == true {
             self.navigateToHome(false, false)
         } else {
             self.navigationController?.popToRootViewController(animated: true)
@@ -73,7 +73,7 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
             attributedString.addAttributes([.baselineOffset: 15], range: NSRange(location: 0, length: 1))
             
             cell.lblPrice.attributedText = attributedString
-            cell.lblPlan.text = arr["plan"]
+            cell.lblPlan.text = arr["plan"]?.uppercased()
             cell.lblValid.text = arr["valid"]
             
             cell.btnSubscribe.titleLabel?.font = UIFont(name: "HelveticaNeue-Medium", size: getCalculated(17.0))

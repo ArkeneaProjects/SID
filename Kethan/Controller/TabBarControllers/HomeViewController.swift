@@ -18,9 +18,13 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate {
     let cameraManager = CameraManager()
     
     @IBOutlet weak var cameraButton: UIButton!
-   
+    
     var imagePicker: GalleryManager!
-
+    
+    @IBOutlet weak var btnCamera: CustomButton!
+    @IBOutlet weak var btnFlash: CustomButton!
+    @IBOutlet weak var btnGallery: CustomButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBarWithTitle("Home", withLeftButtonType: .buttonTypeMenu, withRightButtonType: .buttonTypeCredit)
@@ -45,7 +49,7 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate {
         
         //Gallery
         self.imagePicker = GalleryManager(presentationController: self, delegate: self)
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,13 +64,29 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate {
         } else {
             self.isPermissionGranted(isTrue: false)
         }
+        
         //Camera Session
         cameraManager.resumeCaptureSession()
+        
+        //Flash Mode
+        if cameraManager.flashMode == .off {
+            self.btnFlash.setImage(UIImage(named: "flashOff"), for: .normal)
+        } else if cameraManager.flashMode == .on {
+            self.btnFlash.setImage(UIImage(named: "flashOn"), for: .normal)
+        } else {
+            self.btnFlash.setImage(UIImage(named: "flashAuto"), for: .normal)
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        #if TARGET_OS_SIMULATOR
+        // Simulator-specific code
         cameraManager.stopCaptureSession()
+        #else
+        // Device-specific code
+        #endif
+        
     }
     
     // MARK: - Button Click Action
@@ -76,9 +96,18 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate {
     @IBAction func galleryClickAction(_ sender: CustomButton) {
         self.imagePicker.present()
     }
+    
     @IBAction func flashClickAction(_ sender: CustomButton) {
-        
+        switch cameraManager.changeFlashMode() {
+        case .off:
+            self.btnFlash.setImage(UIImage(named: "flashOff"), for: .normal)
+        case .on:
+            self.btnFlash.setImage(UIImage(named: "flashOn"), for: .normal)
+        case .auto:
+            self.btnFlash.setImage(UIImage(named: "flashAuto"), for: .normal)
+        }
     }
+    
     @IBAction func askForCameraPermissions() {
         
         self.cameraManager.askUserForCameraPermission({ permissionGranted in
@@ -119,6 +148,10 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate {
                 case .success(let content):
                     if let capturedImage = content.asImage {
                         print("Sucess")
+                        if let controller = self.instantiate(PreviewViewController.self, storyboard: STORYBOARD.main) as? PreviewViewController {
+                            controller.selectedImage = capturedImage
+                            self.navigationController?.pushViewController(controller, animated: true)
+                        }
                     }
                 }
             })
@@ -146,8 +179,13 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate {
         self.lblPermissions.textColor = (isTrue == true) ?UIColor.white:UIColor.black
     }
     
+    // MARK: - Gallery Delegate
     func didSelect(image: UIImage?) {
         print(image)
+        if let controller = self.instantiate(PreviewViewController.self, storyboard: STORYBOARD.main) as? PreviewViewController {
+            controller.selectedImage = image
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
     /*
      // MARK: - Navigation

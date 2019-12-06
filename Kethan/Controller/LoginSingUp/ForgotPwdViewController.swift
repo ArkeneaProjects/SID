@@ -59,7 +59,7 @@ class ForgotPwdViewController: BaseViewController {
     }
     
     @IBAction func changeEmailActionClick(_ sender: Any) {
-        if self.isShowForgotScreen == true {
+        if self.isShowForgotScreen == false {
             self.navigationController?.popToRootViewController(animated: true)
         } else {
             if let controller = self.instantiate(ChangePwdViewController.self, storyboard: STORYBOARD.signup) as? ChangePwdViewController {

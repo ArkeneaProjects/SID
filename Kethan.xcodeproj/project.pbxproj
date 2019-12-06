@@ -24,6 +24,9 @@
 		1804E16C2394F61800210C0F /* SignUpUserGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804E16B2394F61800210C0F /* SignUpUserGuideViewController.swift */; };
 		1804E1712394FABA00210C0F /* GuideCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804E16F2394FABA00210C0F /* GuideCollectionViewCell.swift */; };
 		1804E1722394FABA00210C0F /* GuideCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1804E1702394FABA00210C0F /* GuideCollectionViewCell.xib */; };
+		181FFA9E239A26D50078E64D /* DatePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181FFA9D239A26D50078E64D /* DatePopUpViewController.swift */; };
+		181FFAA0239A3A8B0078E64D /* SearchFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181FFA9F239A3A8B0078E64D /* SearchFolderViewController.swift */; };
+		181FFAA2239A71170078E64D /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181FFAA1239A71160078E64D /* PreviewViewController.swift */; };
 		1821AF0B237A741B0010B307 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF0A237A741B0010B307 /* HomeViewController.swift */; };
 		1821AF0D237A74320010B307 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF0C237A74320010B307 /* UploadViewController.swift */; };
 		1821AF0F237A74450010B307 /* PurchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF0E237A74450010B307 /* PurchesViewController.swift */; };
@@ -43,6 +46,10 @@
 		1870538B238FD8C7006ACA3D /* fullBackgrundWithLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 18705388238FD8BD006ACA3D /* fullBackgrundWithLogo.png */; };
 		1870538C238FD8C7006ACA3D /* fullBackgrundWithLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18705389238FD8C1006ACA3D /* fullBackgrundWithLogo@2x.png */; };
 		1870538D238FD8C7006ACA3D /* fullBackgrundWithLogo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1870538A238FD8C4006ACA3D /* fullBackgrundWithLogo@3x.png */; };
+		18794DAD2398CBCF00E80457 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18794DAC2398CBCF00E80457 /* AboutViewController.swift */; };
+		18794DAF2398D02000E80457 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18794DAE2398D02000E80457 /* EditProfileViewController.swift */; };
+		18794DB12398DF2900E80457 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18794DB02398DF2900E80457 /* ProfileViewController.swift */; };
+		18794DB3239915F300E80457 /* TermsConditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18794DB2239915F300E80457 /* TermsConditionViewController.swift */; };
 		1879F573238BB2DA00ABBBC0 /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879F572238BB2DA00ABBBC0 /* SearchDetailViewController.swift */; };
 		1879F576238BB98A00ABBBC0 /* SearchViewCollecction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879F575238BB98A00ABBBC0 /* SearchViewCollecction.swift */; };
 		1879F578238BB99C00ABBBC0 /* SearchViewCollecction.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1879F577238BB99C00ABBBC0 /* SearchViewCollecction.xib */; };
@@ -83,9 +90,9 @@
 		18974558238D5B9E0000FCC4 /* BEMPathManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18974551238D5B9E0000FCC4 /* BEMPathManager.m */; };
 		18974559238D5B9E0000FCC4 /* BEMCheckBoxGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 18974552238D5B9E0000FCC4 /* BEMCheckBoxGroup.m */; };
 		1897455A238D5B9E0000FCC4 /* BEMCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 18974554238D5B9E0000FCC4 /* BEMCheckBox.m */; };
-		189C06442397927C00C292ED /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C06412397927800C292ED /* background.png */; };
-		189C06452397927C00C292ED /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C06422397927900C292ED /* background@2x.png */; };
-		189C06462397927C00C292ED /* background@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C06432397927B00C292ED /* background@3x.png */; };
+		189C06442397927C00C292ED /* background1.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C06412397927800C292ED /* background1.png */; };
+		189C06452397927C00C292ED /* background1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C06422397927900C292ED /* background1@2x.png */; };
+		189C06462397927C00C292ED /* background1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C06432397927B00C292ED /* background1@3x.png */; };
 		189C06482397B29F00C292ED /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 189C06472397B29F00C292ED /* SignUp.storyboard */; };
 		189C064A2397B4B800C292ED /* ForgotPwdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C06492397B4B800C292ED /* ForgotPwdViewController.swift */; };
 		189C064C2397C45200C292ED /* ChangePwdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C064B2397C45200C292ED /* ChangePwdViewController.swift */; };
@@ -160,6 +167,9 @@
 		1804E16B2394F61800210C0F /* SignUpUserGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUserGuideViewController.swift; sourceTree = "<group>"; };
 		1804E16F2394FABA00210C0F /* GuideCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideCollectionViewCell.swift; sourceTree = "<group>"; };
 		1804E1702394FABA00210C0F /* GuideCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GuideCollectionViewCell.xib; sourceTree = "<group>"; };
+		181FFA9D239A26D50078E64D /* DatePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePopUpViewController.swift; sourceTree = "<group>"; };
+		181FFA9F239A3A8B0078E64D /* SearchFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFolderViewController.swift; sourceTree = "<group>"; };
+		181FFAA1239A71160078E64D /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		1821AF0A237A741B0010B307 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1821AF0C237A74320010B307 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		1821AF0E237A74450010B307 /* PurchesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchesViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +189,10 @@
 		18705388238FD8BD006ACA3D /* fullBackgrundWithLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fullBackgrundWithLogo.png; sourceTree = "<group>"; };
 		18705389238FD8C1006ACA3D /* fullBackgrundWithLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fullBackgrundWithLogo@2x.png"; sourceTree = "<group>"; };
 		1870538A238FD8C4006ACA3D /* fullBackgrundWithLogo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fullBackgrundWithLogo@3x.png"; sourceTree = "<group>"; };
+		18794DAC2398CBCF00E80457 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		18794DAE2398D02000E80457 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		18794DB02398DF2900E80457 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		18794DB2239915F300E80457 /* TermsConditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsConditionViewController.swift; sourceTree = "<group>"; };
 		1879F572238BB2DA00ABBBC0 /* SearchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
 		1879F575238BB98A00ABBBC0 /* SearchViewCollecction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCollecction.swift; sourceTree = "<group>"; };
 		1879F577238BB99C00ABBBC0 /* SearchViewCollecction.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewCollecction.xib; sourceTree = "<group>"; };
@@ -226,9 +240,9 @@
 		18974554238D5B9E0000FCC4 /* BEMCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMCheckBox.m; sourceTree = "<group>"; };
 		18974555238D5B9E0000FCC4 /* BEMPathManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMPathManager.h; sourceTree = "<group>"; };
 		18974556238D5B9E0000FCC4 /* BEMCheckBoxGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMCheckBoxGroup.h; sourceTree = "<group>"; };
-		189C06412397927800C292ED /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
-		189C06422397927900C292ED /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
-		189C06432397927B00C292ED /* background@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@3x.png"; sourceTree = "<group>"; };
+		189C06412397927800C292ED /* background1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background1.png; sourceTree = "<group>"; };
+		189C06422397927900C292ED /* background1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background1@2x.png"; sourceTree = "<group>"; };
+		189C06432397927B00C292ED /* background1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background1@3x.png"; sourceTree = "<group>"; };
 		189C06472397B29F00C292ED /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		189C06492397B4B800C292ED /* ForgotPwdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPwdViewController.swift; sourceTree = "<group>"; };
 		189C064B2397C45200C292ED /* ChangePwdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePwdViewController.swift; sourceTree = "<group>"; };
@@ -439,6 +453,7 @@
 			isa = PBXGroup;
 			children = (
 				188131AB238E64EE005334BF /* ResponsePopUpViewController.swift */,
+				181FFA9D239A26D50078E64D /* DatePopUpViewController.swift */,
 			);
 			path = PopUpController;
 			sourceTree = "<group>";
@@ -457,10 +472,12 @@
 		18956D1E2387FC5400BD8F63 /* TabBarDetailControllers */ = {
 			isa = PBXGroup;
 			children = (
+				18DDC78D23797AA6003FCCE8 /* SearchViewController.swift */,
 				18956D1F2387FC8100BD8F63 /* SearchListViewController.swift */,
 				1879F572238BB2DA00ABBBC0 /* SearchDetailViewController.swift */,
 				18974532238D08070000FCC4 /* AddDetailsViewController.swift */,
 				1897454C238D52B50000FCC4 /* ThankYouViewController.swift */,
+				181FFAA1239A71160078E64D /* PreviewViewController.swift */,
 			);
 			path = TabBarDetailControllers;
 			sourceTree = "<group>";
@@ -502,6 +519,10 @@
 			children = (
 				18E71D6C237C1EE30090FC90 /* LeftMenuViewController.swift */,
 				189C06502397DF0D00C292ED /* SupportViewController.swift */,
+				18794DAC2398CBCF00E80457 /* AboutViewController.swift */,
+				18794DAE2398D02000E80457 /* EditProfileViewController.swift */,
+				18794DB02398DF2900E80457 /* ProfileViewController.swift */,
+				18794DB2239915F300E80457 /* TermsConditionViewController.swift */,
 			);
 			path = LeftMenuControllers;
 			sourceTree = "<group>";
@@ -596,9 +617,9 @@
 		18DDC7BC23797B61003FCCE8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				189C06412397927800C292ED /* background.png */,
-				189C06422397927900C292ED /* background@2x.png */,
-				189C06432397927B00C292ED /* background@3x.png */,
+				189C06412397927800C292ED /* background1.png */,
+				189C06422397927900C292ED /* background1@2x.png */,
+				189C06432397927B00C292ED /* background1@3x.png */,
 				18705388238FD8BD006ACA3D /* fullBackgrundWithLogo.png */,
 				18705389238FD8C1006ACA3D /* fullBackgrundWithLogo@2x.png */,
 				1870538A238FD8C4006ACA3D /* fullBackgrundWithLogo@3x.png */,
@@ -659,7 +680,7 @@
 		18E71D69237C14060090FC90 /* TabBarControllers */ = {
 			isa = PBXGroup;
 			children = (
-				18DDC78D23797AA6003FCCE8 /* SearchViewController.swift */,
+				181FFA9F239A3A8B0078E64D /* SearchFolderViewController.swift */,
 				1821AF0A237A741B0010B307 /* HomeViewController.swift */,
 				1821AF0C237A74320010B307 /* UploadViewController.swift */,
 				1821AF0E237A74450010B307 /* PurchesViewController.swift */,
@@ -834,10 +855,10 @@
 				1870538B238FD8C7006ACA3D /* fullBackgrundWithLogo.png in Resources */,
 				18DDC79623797AAA003FCCE8 /* LaunchScreen.storyboard in Resources */,
 				18974537238D0DA90000FCC4 /* AddDetailHeader1Cell.xib in Resources */,
-				189C06442397927C00C292ED /* background.png in Resources */,
+				189C06442397927C00C292ED /* background1.png in Resources */,
 				1879F586238BDA7800ABBBC0 /* DetailRow2TableViewCell.xib in Resources */,
 				1821AF14237A7BC60010B307 /* CustomNavBar.xib in Resources */,
-				189C06462397927C00C292ED /* background@3x.png in Resources */,
+				189C06462397927C00C292ED /* background1@3x.png in Resources */,
 				1804E1722394FABA00210C0F /* GuideCollectionViewCell.xib in Resources */,
 				18DDC7CA237982BC003FCCE8 /* NeoSans-Bold.otf in Resources */,
 				18956D2523880AA600BD8F63 /* SearchListCollectionViewCell.xib in Resources */,
@@ -851,7 +872,7 @@
 				1879F57C238BBDC300ABBBC0 /* CustomCollectionViewCell.xib in Resources */,
 				189C064E2397DE7300C292ED /* LeftMenu.storyboard in Resources */,
 				18DDC7C6237982BC003FCCE8 /* NeoSans-Italic.otf in Resources */,
-				189C06452397927C00C292ED /* background@2x.png in Resources */,
+				189C06452397927C00C292ED /* background1@2x.png in Resources */,
 				189C06482397B29F00C292ED /* SignUp.storyboard in Resources */,
 				1897454B238D38A80000FCC4 /* ProcessDocumentView.xib in Resources */,
 			);
@@ -1032,6 +1053,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18794DB3239915F300E80457 /* TermsConditionViewController.swift in Sources */,
 				1821AF20237A7E670010B307 /* ExpandableLabel.swift in Sources */,
 				18DDC7D023798C34003FCCE8 /* Common.swift in Sources */,
 				188131AC238E64EE005334BF /* ResponsePopUpViewController.swift in Sources */,
@@ -1040,8 +1062,10 @@
 				18956D202387FC8100BD8F63 /* SearchListViewController.swift in Sources */,
 				1879F576238BB98A00ABBBC0 /* SearchViewCollecction.swift in Sources */,
 				1801ABB323851DCB00F46223 /* UIColor+KVNContrast.m in Sources */,
+				18794DAF2398D02000E80457 /* EditProfileViewController.swift in Sources */,
 				18DDC78E23797AA6003FCCE8 /* SearchViewController.swift in Sources */,
 				1892E9DE23968E0800AE6ECC /* SignUpViewController.swift in Sources */,
+				181FFAA0239A3A8B0078E64D /* SearchFolderViewController.swift in Sources */,
 				188131B3238E8B66005334BF /* TPKeyboardAvoidingScrollView.m in Sources */,
 				1821AF1E237A7E670010B307 /* CustomTextView.swift in Sources */,
 				18E71D6B237C15690090FC90 /* LoginViewController.swift in Sources */,
@@ -1057,6 +1081,7 @@
 				1801ABAC23851DCB00F46223 /* KVNProgress.m in Sources */,
 				189C064A2397B4B800C292ED /* ForgotPwdViewController.swift in Sources */,
 				189E882723953BDB009C8ECF /* CreditHistoryTableViewCell.swift in Sources */,
+				18794DAD2398CBCF00E80457 /* AboutViewController.swift in Sources */,
 				1801ABB023851DCB00F46223 /* ProgressManager.m in Sources */,
 				18DDC7D223798CD4003FCCE8 /* Constant.swift in Sources */,
 				188131A9238E5D34005334BF /* CustomDropDown.swift in Sources */,
@@ -1065,6 +1090,7 @@
 				1801AB932385036A00F46223 /* FacebookManager.swift in Sources */,
 				1804E16C2394F61800210C0F /* SignUpUserGuideViewController.swift in Sources */,
 				18DDC78A23797AA6003FCCE8 /* AppDelegate.swift in Sources */,
+				181FFAA2239A71170078E64D /* PreviewViewController.swift in Sources */,
 				1821AF25237A86C50010B307 /* CustomBase.swift in Sources */,
 				1821AF1D237A7E670010B307 /* CustomButton.swift in Sources */,
 				1821AF1F237A7E670010B307 /* CustomLabel.swift in Sources */,
@@ -1082,6 +1108,7 @@
 				1801ABAE23851DCB00F46223 /* KVNRotationViewController.m in Sources */,
 				189C06512397DF0D00C292ED /* SupportViewController.swift in Sources */,
 				18DDC7CD23798B9B003FCCE8 /* BaseViewController.swift in Sources */,
+				181FFA9E239A26D50078E64D /* DatePopUpViewController.swift in Sources */,
 				1804E15F2394D7B900210C0F /* VerifyOTPViewController.swift in Sources */,
 				1801ABB123851DCB00F46223 /* UIImage+KVNImageEffects.m in Sources */,
 				1892E9D82396427800AE6ECC /* SubScriptionViewController.swift in Sources */,
@@ -1094,6 +1121,7 @@
 				1801ABAB23851DCB00F46223 /* iCarousel.m in Sources */,
 				18974536238D0DA80000FCC4 /* AddDetailHeader1Cell.swift in Sources */,
 				1804E1712394FABA00210C0F /* GuideCollectionViewCell.swift in Sources */,
+				18794DB12398DF2900E80457 /* ProfileViewController.swift in Sources */,
 				1801ABB223851DCB00F46223 /* UIImage+KVNEmpty.m in Sources */,
 				18705387238FB000006ACA3D /* GalleryManager.swift in Sources */,
 				18974533238D08070000FCC4 /* AddDetailsViewController.swift in Sources */,

@@ -52,9 +52,10 @@ class AddDetailHeader3Cell: UITableViewCell {
                     
                     processListingView.lblProcess.text = String(format: arrTableView[index] as? String ?? "")
                     processListingView.backgroundColor = UIColor.gray
-                    processListingView.tapCompletion = {
+                    processListingView.btnRemove.indexPath = IndexPath(row: index, section: 0)
+                    processListingView.tapCompletion = { indexPath in
                         if self.cellSelectionCompletion != nil {
-                            self.cellSelectionCompletion!(index)
+                            self.cellSelectionCompletion!(indexPath.row)
                         }
                     }
                     

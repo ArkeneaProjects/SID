@@ -14,10 +14,23 @@ open class CustomDropDown: UITextField {
     var table: UITableView!
     public var shadow: UIView!
     public  var selectedIndex: Int?
-
+    
+    var tableViewXPosition: CGFloat = 0.0
+    var tableViewWidth: CGFloat = 0.0
+    
     var keyboardCompletion: VoidCompletion?
     
     // MARK: - IBInspectable
+    @IBInspectable public var tableViewX: CGFloat = 0 {
+        didSet {
+            self.tableViewXPosition = getCalculated(tableViewX)
+        }
+    }
+    @IBInspectable public var width: CGFloat = 0 {
+        didSet {
+            self.tableViewWidth = getCalculated(width)
+        }
+    }
     
     @IBInspectable public var rowHeight: CGFloat = 30
     @IBInspectable public var rowBackgroundColor: UIColor = .white
@@ -60,7 +73,9 @@ open class CustomDropDown: UITextField {
             }
             reSizeTable()
             selectedIndex = nil
+            if self.table != nil {
             self.table.reloadData()
+            }
         }
     }
     @IBInspectable public var arrowSize: CGFloat = 15 {
@@ -191,9 +206,9 @@ open class CustomDropDown: UITextField {
         } else {
             self.tableheightX = listHeight
         }
-        table = UITableView(frame: CGRect(x: pointToParent.x,
+        table = UITableView(frame: CGRect(x: self.tableViewXPosition,
                                           y: pointToParent.y + self.frame.height,
-                                          width: self.frame.width,
+                                          width: self.tableViewWidth,
                                           height: self.frame.height))
         shadow = UIView(frame: table.frame)
         shadow.backgroundColor = .clear
@@ -204,7 +219,10 @@ open class CustomDropDown: UITextField {
         table.separatorStyle = .none
         table.layer.cornerRadius = 3
         table.backgroundColor = rowBackgroundColor
-        table.rowHeight = rowHeight
+        table.rowHeight = UITableView.automaticDimension
+        table.estimatedRowHeight = getCalculated(80.0)
+        table.tableFooterView = UIView()
+       // table.rowHeight = rowHeight
         parentController?.view.addSubview(shadow)
         parentController?.view.addSubview(table)
         self.isSelected = true
@@ -220,9 +238,9 @@ open class CustomDropDown: UITextField {
                        options: .curveEaseInOut,
                        animations: { () -> Void in
 
-                        self.table.frame = CGRect(x: self.pointToParent.x,
+                        self.table.frame = CGRect(x: self.tableViewXPosition,
                                                   y: y,
-                                                  width: self.frame.width,
+                                                  width: self.tableViewWidth,
                                                   height: self.tableheightX)
                         self.table.alpha = 1
                         self.shadow.frame = self.table.frame
@@ -245,9 +263,9 @@ open class CustomDropDown: UITextField {
                        initialSpringVelocity: 0.1,
                        options: .curveEaseInOut,
                        animations: { () -> Void in
-                        self.table.frame = CGRect(x: self.pointToParent.x,
+                        self.table.frame = CGRect(x: self.tableViewXPosition,
                                                   y: self.pointToParent.y+self.frame.height,
-                                                  width: self.frame.width,
+                                                  width: self.tableViewWidth,
                                                   height: 0)
                         self.shadow.alpha = 0
                         self.shadow.frame = self.table.frame
@@ -284,12 +302,14 @@ open class CustomDropDown: UITextField {
                        initialSpringVelocity: 0.1,
                        options: .curveEaseInOut,
                        animations: { () -> Void in
-                        self.table.frame = CGRect(x: self.pointToParent.x,
+                        if self.table != nil {
+                            self.table.frame = CGRect(x: self.tableViewXPosition,
                                                   y: y,
-                                                  width: self.frame.width,
+                                                  width: self.tableViewWidth,
                                                   height: self.tableheightX)
                         self.shadow.frame = self.table.frame
                         self.shadow.dropShadow()
+                        }
 
         },
                        completion: { (didFinish) -> Void in
@@ -386,6 +406,7 @@ extension CustomDropDown: UITableViewDataSource {
         cell?.textLabel?.textAlignment = self.textAlignment
         return cell!
     }
+    
 }
 
 // MARK: - UITableViewDelegate
@@ -417,6 +438,10 @@ extension CustomDropDown: UITableViewDelegate {
 
         }
 
+    }
+    
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }
 

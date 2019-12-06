@@ -9,16 +9,18 @@
 import UIKit
 
 class AddDetailHeader1Cell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
+    
     @IBOutlet weak var constCollectionHeight: CustomConstraint!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     var arrAllItems: NSMutableArray = NSMutableArray() {
-           didSet {
-               self.collectionView.reloadData()
-           }
+        didSet {
+            self.collectionView.reloadData()
+        }
     }
+    
+    var cellSelectionCompletion:((_ index_Path: IndexPath) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,7 +37,7 @@ class AddDetailHeader1Cell: UITableViewCell, UICollectionViewDelegate, UICollect
         self.collectionView.collectionViewLayout = layout
         
     }
-
+    
     // MARK: - CollectionView Dalegate and DataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return arrAllItems.count
@@ -49,7 +51,7 @@ class AddDetailHeader1Cell: UITableViewCell, UICollectionViewDelegate, UICollect
                 cell.lblAdd.alpha = 1.0
                 cell.imgPlus.alpha = 1.0
                 cell.imgSelected.image = UIImage(named: self.arrAllItems[indexPath.item] as? String ?? "")
-
+                
             } else {
                 cell.imgSelected.image = UIImage(named: self.arrAllItems[indexPath.item] as? String ?? "")
             }
@@ -60,9 +62,17 @@ class AddDetailHeader1Cell: UITableViewCell, UICollectionViewDelegate, UICollect
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Collection view at row \(collectionView.tag) selected index path \(indexPath)")
-//        if let collectionCell = self.collectionView.cellForItem(at: indexPath) as? CustomCollectionViewCell {
-//            self.viewController?.openGalleryList(indexpath: indexPath, imgNameArr: NSMutableArray(array: STATICDATA.arrImages), sourceView: collectionCell.imgPhoto)
-//        }
+        if self.arrAllItems[indexPath.item] as? String ?? "" == "lineImage" {
+            if self.cellSelectionCompletion != nil {
+                self.cellSelectionCompletion!(indexPath)
+            }
+        } else {
+            if let collectionCell = self.collectionView.cellForItem(at: indexPath) as? AddDetail1CollectionViewCell {
+                let controller = getTopViewController()
+                controller!.openGalleryList(indexpath: indexPath, imgNameArr: NSMutableArray(array: STATICDATA.arrImages), sourceView: collectionCell.imgSelected)
+            }
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -71,7 +81,7 @@ class AddDetailHeader1Cell: UITableViewCell, UICollectionViewDelegate, UICollect
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     

@@ -25,6 +25,7 @@ class SearchViewCollecction: UIView, UICollectionViewDelegate, UICollectionViewD
     func setupWith(superView: UIView, controller: BaseViewController, isview: Bool) {
         
         viewController = controller
+        pageControl.isUserInteractionEnabled = false
         
         superView.addSubview(self)
         

@@ -25,15 +25,6 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
         layout.sectionInset = UIEdgeInsets.zero
         layout.scrollDirection = .vertical
         self.collectionView.collectionViewLayout = layout
-        
-        // Do any additional setup after loading the view.
-    }
-    
-    // MARK: - Button Action
-    @objc func viewClickAction(_ sender: CustomButton) {
-        if let controller = self.instantiate(SearchDetailViewController.self, storyboard: STORYBOARD.main) as? SearchDetailViewController {
-            self.navigationController?.pushViewController(controller, animated: true)
-        }
     }
     
     // MARK: - CollectionView Dalegate and DataSource
@@ -45,11 +36,8 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: IDENTIFIERS.SearchListCollectionViewCell, for: indexPath) as? SearchListCollectionViewCell {
             let arr = STATICDATA.arrSearch[indexPath.item]
             cell.imgPhoto.image = UIImage(named: arr["image"]!)
-            cell.lblMatch.text = arr["percent"]
             cell.lblTitle.text = arr["title"]
             cell.lblSubTitle.text = arr["subTitle"]
-            cell.btnView.indexPath = indexPath
-            cell.btnView.addTarget(self, action: #selector(self.viewClickAction(_:)), for: .touchUpInside)
             return cell
         }
         return UICollectionViewCell()
@@ -57,6 +45,9 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Collection view at row \(collectionView.tag) selected index path \(indexPath)")
+        if let controller = self.instantiate(SearchDetailViewController.self, storyboard: STORYBOARD.main) as? SearchDetailViewController {
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

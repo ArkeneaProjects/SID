@@ -197,7 +197,7 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
                 tabBarAppearence.itemPositioning = UITabBar.ItemPositioning.fill
                 tabBarAppearence.itemSpacing = 0
                 
-                let search = self.instantiateNav("SearchViewController", storyboard: STORYBOARD.main )
+                let search = self.instantiateNav("SearchFolderViewController", storyboard: STORYBOARD.main )
                 search.tabBarItem = self.getTabBarButtonWithTitle(title: "", imageName: "tab1_deactive", selectedImageName: "tab1_active")
                 
                 let home = self.instantiateNav("HomeViewController", storyboard: STORYBOARD.main)
@@ -276,13 +276,14 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
         } else if self.isNormalEditEnabled == true {
             self.currentTextField = nil
             self.currentTextView = textView
+            if textView.isKind(of: CustomTextView.classForCoder()) == true {
+                            if textView.keyboardType == UIKeyboardType.default {
+                                (textView as? CustomTextView ?? CustomTextView()).addDoneButtonInTextView(target: self, selector: #selector(self.resignKeyboard))
+                            }
+            }
         }
         
-        if textView.isKind(of: CustomTextView.classForCoder()) == true {
-                        if textView.keyboardType == UIKeyboardType.default {
-                            (textView as? CustomTextView ?? CustomTextView()).addDoneButtonInTextView(target: self, selector: #selector(self.resignKeyboard))
-                        }
-        }
+        
         return true
     }
     

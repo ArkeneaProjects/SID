@@ -41,7 +41,8 @@
                                 </userDefinedRuntimeAttributes>
                             </constraint>
                         </constraints>
-                        <string key="text">Leverage Artificial Intelligence</string>
+                        <string key="text">Leverage Artificial 
+Intelligence</string>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="23"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -53,11 +54,14 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opa-I4-e5a" customClass="CustomLabel" customModule="Kethan" customModuleProvider="target">
-                        <rect key="frame" x="5" y="278" width="310" height="63"/>
+                        <rect key="frame" x="19" y="278" width="282" height="63"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="L76-MX-c6b"/>
                         </constraints>
-                        <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</string>
+                        <string key="text">Lorem Ipsum is simply dummy text of the 
+printing and typesetting industry. Lorem Ipsum 
+has been the industry's standard dummy 
+text ever since the 1500s</string>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13.5"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -81,8 +85,16 @@
                     </userDefinedRuntimeAttributes>
                 </constraint>
                 <constraint firstAttribute="trailing" secondItem="gg6-FD-BaU" secondAttribute="trailing" id="s3R-Xl-zSM"/>
-                <constraint firstItem="Opa-I4-e5a" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="sr1-t7-EUf"/>
-                <constraint firstAttribute="trailing" secondItem="Opa-I4-e5a" secondAttribute="trailing" constant="5" id="vcn-L9-TUr"/>
+                <constraint firstItem="Opa-I4-e5a" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="19" id="sr1-t7-EUf" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </constraint>
+                <constraint firstAttribute="trailing" secondItem="Opa-I4-e5a" secondAttribute="trailing" constant="19" id="vcn-L9-TUr" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </constraint>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>

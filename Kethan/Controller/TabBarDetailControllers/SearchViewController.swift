@@ -16,7 +16,8 @@ class SearchViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addNavBarWithTitle("Search by text", withLeftButtonType: .buttonTypeNil, withRightButtonType: .buttonTypeNil)
+        
+        self.addNavBarWithTitle("Search by text", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeNil)
        
         self.txtImplant.font = UIFont(name: self.txtImplant.font!.fontName, size: getCalculated(14.0))
         self.txtManufacture.font = UIFont(name: self.txtManufacture.font!.fontName, size: getCalculated(14.0))

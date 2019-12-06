@@ -23,6 +23,13 @@ class SearchDetailViewController: BaseViewController, UITableViewDelegate, UITab
         // Do any additional setup after loading the view.
     }
     
+    // MARK: - Button Action
+    override func rightButtonAction() {
+        if let controller = self.instantiate(AddDetailsViewController.self, storyboard: STORYBOARD.main) as? AddDetailsViewController {
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
+    }
+    
     // MARK: - UITabelVieeDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
