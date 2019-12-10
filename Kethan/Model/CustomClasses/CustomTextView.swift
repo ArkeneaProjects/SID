@@ -170,7 +170,7 @@ open class CustomTextView: UITextView {
     }
     
     private func updateConstraintsForPlaceholderLabel() {
-        var newConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-(\(textContainerInset.left + 10.0))-[placeholder]",
+        var newConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-(\(textContainerInset.left + 5.0))-[placeholder]",
             options: [],
             metrics: nil,
             views: ["placeholder": placeholderLabel])

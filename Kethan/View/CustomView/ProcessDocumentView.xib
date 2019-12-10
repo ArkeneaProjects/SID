@@ -107,7 +107,7 @@ palpation. Refer for further examination if</string>
                                 <constraint firstAttribute="height" constant="25" id="MMR-om-7BN"/>
                             </constraints>
                             <inset key="imageEdgeInsets" minX="0.0" minY="-5" maxX="-3" maxY="0.0"/>
-                            <state key="normal" image="close"/>
+                            <state key="normal" image="close_small"/>
                             <connections>
                                 <action selector="btnRemoveClickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="kMQ-Wu-mqU"/>
                             </connections>
@@ -152,7 +152,7 @@ palpation. Refer for further examination if</string>
         </view>
     </objects>
     <resources>
-        <image name="close" width="17" height="17"/>
+        <image name="close_small" width="17" height="17"/>
         <image name="removal" width="13.5" height="13.5"/>
     </resources>
 </document>

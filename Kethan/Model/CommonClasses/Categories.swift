@@ -121,3 +121,41 @@ extension String {
         self = self.capitalizingFirstLetter()
     }
 }
+
+extension UIImage {
+    func compressProfileImage(maxWidth: CGFloat, maxHeight: CGFloat) -> UIImage {
+        var actualHeight: CGFloat = self.size.height
+        var actualWidth: CGFloat = self.size.width
+        
+        var imgRatio: CGFloat = actualWidth/actualHeight
+        let maxRatio: CGFloat = maxWidth/maxHeight
+        let compressionQuality: CGFloat = 0.5;//50 percent compression
+        
+        if actualHeight > maxHeight || actualWidth > maxWidth {
+            if imgRatio < maxRatio {
+                //adjust width according to maxHeight
+                imgRatio = maxHeight / actualHeight
+                actualWidth = imgRatio * actualWidth
+                actualHeight = maxHeight
+            } else if imgRatio > maxRatio {
+                //adjust height according to maxWidth
+                imgRatio = maxWidth / actualWidth
+                actualHeight = imgRatio * actualHeight
+                actualWidth = maxWidth
+            } else {
+                actualHeight = maxHeight
+                actualWidth = maxWidth
+            }
+        }
+        
+        let rect: CGRect = CGRect(x: 0, y: 0, width: actualWidth, height: actualHeight)
+        UIGraphicsBeginImageContext(rect.size)
+        self.draw(in: rect)
+        let img: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        //let imageData: Data = UIImageJPEGRepresentation(img, compressionQuality)!
+        let imageData = img.jpegData(compressionQuality: compressionQuality)
+        UIGraphicsEndImageContext()
+        return UIImage(data: imageData!)!
+        
+    }
+}

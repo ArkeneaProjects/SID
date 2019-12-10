@@ -100,6 +100,7 @@
 		189C06512397DF0D00C292ED /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C06502397DF0D00C292ED /* SupportViewController.swift */; };
 		189E882723953BDB009C8ECF /* CreditHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E882523953BDB009C8ECF /* CreditHistoryTableViewCell.swift */; };
 		189E882823953BDB009C8ECF /* CreditHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189E882623953BDB009C8ECF /* CreditHistoryTableViewCell.xib */; };
+		18A728E3239E687800537092 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A728E2239E687700537092 /* LoginViewModel.swift */; };
 		18DDC78A23797AA6003FCCE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDC78923797AA6003FCCE8 /* AppDelegate.swift */; };
 		18DDC78E23797AA6003FCCE8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDC78D23797AA6003FCCE8 /* SearchViewController.swift */; };
 		18DDC79123797AA6003FCCE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18DDC78F23797AA6003FCCE8 /* Main.storyboard */; };
@@ -119,6 +120,8 @@
 		18E71D6B237C15690090FC90 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E71D6A237C15690090FC90 /* LoginViewController.swift */; };
 		18E71D6D237C1EE30090FC90 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E71D6C237C1EE30090FC90 /* LeftMenuViewController.swift */; };
 		18E71D72237C1F670090FC90 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E71D71237C1F670090FC90 /* SWRevealViewController.m */; };
+		18F812E8239E0FCE00E96B47 /* DropDownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F812E6239E0FCE00E96B47 /* DropDownTableViewCell.swift */; };
+		18F812E9239E0FCE00E96B47 /* DropDownTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F812E7239E0FCE00E96B47 /* DropDownTableViewCell.xib */; };
 		2EBFF58603242F8F6BC9E019 /* Pods_Kethan_KethanUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C2C5B99F865ED493CCA4D1 /* Pods_Kethan_KethanUITests.framework */; };
 		8C2D4DA856A726658DE99E83 /* Pods_KethanTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 779D5CC27DDBD6444B2417E9 /* Pods_KethanTests.framework */; };
 		A662AD3830527FE57E613C63 /* Pods_Kethan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890B82F08AB34E77A2A7FFA0 /* Pods_Kethan.framework */; };
@@ -250,6 +253,7 @@
 		189C06502397DF0D00C292ED /* SupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportViewController.swift; sourceTree = "<group>"; };
 		189E882523953BDB009C8ECF /* CreditHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		189E882623953BDB009C8ECF /* CreditHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreditHistoryTableViewCell.xib; sourceTree = "<group>"; };
+		18A728E2239E687700537092 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		18DDC78623797AA6003FCCE8 /* Kethan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kethan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DDC78923797AA6003FCCE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18DDC78D23797AA6003FCCE8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -277,6 +281,8 @@
 		18E71D70237C1F670090FC90 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		18E71D71237C1F670090FC90 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		18E71D73237C208C0090FC90 /* Kethan-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Kethan-Bridging-Header.h"; sourceTree = "<group>"; };
+		18F812E6239E0FCE00E96B47 /* DropDownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownTableViewCell.swift; sourceTree = "<group>"; };
+		18F812E7239E0FCE00E96B47 /* DropDownTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropDownTableViewCell.xib; sourceTree = "<group>"; };
 		1C2A909D3432CFA01B3F2ECA /* Pods-KethanTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KethanTests.debug.xcconfig"; path = "Target Support Files/Pods-KethanTests/Pods-KethanTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1E6D05133FE616DFDF19D8AC /* Pods-Kethan-KethanUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kethan-KethanUITests.release.xcconfig"; path = "Target Support Files/Pods-Kethan-KethanUITests/Pods-Kethan-KethanUITests.release.xcconfig"; sourceTree = "<group>"; };
 		27A8C0DB6866B862CEA2B8FF /* Pods-Kethan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kethan.debug.xcconfig"; path = "Target Support Files/Pods-Kethan/Pods-Kethan.debug.xcconfig"; sourceTree = "<group>"; };
@@ -376,10 +382,10 @@
 			isa = PBXGroup;
 			children = (
 				18E71D6A237C15690090FC90 /* LoginViewController.swift */,
+				1892E9DD23968E0800AE6ECC /* SignUpViewController.swift */,
 				1804E15E2394D7B900210C0F /* VerifyOTPViewController.swift */,
 				1804E16B2394F61800210C0F /* SignUpUserGuideViewController.swift */,
 				1892E9D72396427800AE6ECC /* SubScriptionViewController.swift */,
-				1892E9DD23968E0800AE6ECC /* SignUpViewController.swift */,
 				189C06492397B4B800C292ED /* ForgotPwdViewController.swift */,
 				189C064B2397C45200C292ED /* ChangePwdViewController.swift */,
 			);
@@ -445,6 +451,8 @@
 				18974545238D38920000FCC4 /* AddDetailHeader3Cell.xib */,
 				189E882523953BDB009C8ECF /* CreditHistoryTableViewCell.swift */,
 				189E882623953BDB009C8ECF /* CreditHistoryTableViewCell.xib */,
+				18F812E6239E0FCE00E96B47 /* DropDownTableViewCell.swift */,
+				18F812E7239E0FCE00E96B47 /* DropDownTableViewCell.xib */,
 			);
 			path = CustomTableViewCell;
 			sourceTree = "<group>";
@@ -527,6 +535,14 @@
 			path = LeftMenuControllers;
 			sourceTree = "<group>";
 		};
+		18A728E1239E681700537092 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				18A728E2239E687700537092 /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		18DDC77D23797AA6003FCCE8 = {
 			isa = PBXGroup;
 			children = (
@@ -555,7 +571,7 @@
 				188131B4238EB11D005334BF /* Kethan.entitlements */,
 				18DDC7B923797B42003FCCE8 /* Model */,
 				18DDC7BA23797B4F003FCCE8 /* View */,
-				18DDC7BB23797B57003FCCE8 /* Controller */,
+				18A728E1239E681700537092 /* ViewModel */,
 				18DDC7BC23797B61003FCCE8 /* Resources */,
 			);
 			path = Kethan;
@@ -592,6 +608,7 @@
 		18DDC7BA23797B4F003FCCE8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				18DDC7BB23797B57003FCCE8 /* Controller */,
 				1879F574238BB4D000ABBBC0 /* CustomView */,
 				18956D2123880A5400BD8F63 /* CustomCollectionViewCell */,
 				187C6B91238671080044A880 /* CustomTableViewCell */,
@@ -848,6 +865,7 @@
 				18DDC7C7237982BC003FCCE8 /* NeoSans-Medium.otf in Resources */,
 				187C6B95238671350044A880 /* LeftMenuTableViewCell.xib in Resources */,
 				18DDC7C8237982BC003FCCE8 /* NeoSans.otf in Resources */,
+				18F812E9239E0FCE00E96B47 /* DropDownTableViewCell.xib in Resources */,
 				18DDC7C5237982BC003FCCE8 /* NeoSans-BoldItalic.otf in Resources */,
 				1892E9DC23964B3700AE6ECC /* SubScriptionCollectionViewCell.xib in Resources */,
 				1897453B238D0F0F0000FCC4 /* AddDetail1CollectionViewCell.xib in Resources */,
@@ -1099,6 +1117,7 @@
 				18956D2423880AA500BD8F63 /* SearchListCollectionViewCell.swift in Sources */,
 				1897453E238D2AA80000FCC4 /* AddDetailHeader2Cell.swift in Sources */,
 				189C064C2397C45200C292ED /* ChangePwdViewController.swift in Sources */,
+				18F812E8239E0FCE00E96B47 /* DropDownTableViewCell.swift in Sources */,
 				18E71D6D237C1EE30090FC90 /* LeftMenuViewController.swift in Sources */,
 				1879F585238BDA7800ABBBC0 /* DetailRow2TableViewCell.swift in Sources */,
 				1821AF0B237A741B0010B307 /* HomeViewController.swift in Sources */,
@@ -1119,6 +1138,7 @@
 				18705385238FA2CD006ACA3D /* CameraManager.swift in Sources */,
 				1821AF21237A7E670010B307 /* CustomTextField.swift in Sources */,
 				1801ABAB23851DCB00F46223 /* iCarousel.m in Sources */,
+				18A728E3239E687800537092 /* LoginViewModel.swift in Sources */,
 				18974536238D0DA80000FCC4 /* AddDetailHeader1Cell.swift in Sources */,
 				1804E1712394FABA00210C0F /* GuideCollectionViewCell.swift in Sources */,
 				18794DB12398DF2900E80457 /* ProfileViewController.swift in Sources */,

@@ -66,13 +66,14 @@ open class CustomDropDown: UITextField {
         didSet {
             if searchText == "" {
                 self.dataArray = self.optionArray
+                selectedIndex = nil
             } else {
                 self.dataArray = optionArray.filter {
                     return $0.range(of: searchText, options: .caseInsensitive) != nil
                 }
             }
             reSizeTable()
-            selectedIndex = nil
+            //selectedIndex = nil
             if self.table != nil {
             self.table.reloadData()
             }
@@ -142,6 +143,7 @@ open class CustomDropDown: UITextField {
         self.backgroundView.backgroundColor = .clear
         addGesture()
         if isSearchEnable && handleKeyboard {
+            
             NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: nil) { (notification) in
                 if self.isFirstResponder {
                 let userInfo: NSDictionary = notification.userInfo! as NSDictionary
@@ -219,6 +221,7 @@ open class CustomDropDown: UITextField {
         table.separatorStyle = .none
         table.layer.cornerRadius = 3
         table.backgroundColor = rowBackgroundColor
+        table.registerNibWithIdentifier(["DropDownTableViewCell"])
         table.rowHeight = UITableView.automaticDimension
         table.estimatedRowHeight = getCalculated(80.0)
         table.tableFooterView = UIView()
@@ -241,7 +244,7 @@ open class CustomDropDown: UITextField {
                         self.table.frame = CGRect(x: self.tableViewXPosition,
                                                   y: y,
                                                   width: self.tableViewWidth,
-                                                  height: self.tableheightX)
+                                                  height: getCalculated(self.tableheightX))
                         self.table.alpha = 1
                         self.shadow.frame = self.table.frame
                         self.shadow.dropShadow()
@@ -306,7 +309,7 @@ open class CustomDropDown: UITextField {
                             self.table.frame = CGRect(x: self.tableViewXPosition,
                                                   y: y,
                                                   width: self.tableViewWidth,
-                                                  height: self.tableheightX)
+                                                  height: getCalculated(self.tableheightX))
                         self.shadow.frame = self.table.frame
                         self.shadow.dropShadow()
                         }
@@ -382,29 +385,26 @@ extension CustomDropDown: UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cellIdentifier = "DropDownCell"
+        let cellIdentifier = "DropDownTableViewCell"
 
-        var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
+        if let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? DropDownTableViewCell {
+            if indexPath.row != selectedIndex {
+                cell.backgroundColor = rowBackgroundColor
+            } else {
+                cell.backgroundColor = selectedRowColor
+            }
 
-        if cell == nil {
-            cell = UITableViewCell(style: .default, reuseIdentifier: cellIdentifier)
+            if self.imageArray.count > indexPath.row {
+                cell.imageView!.image = UIImage(named: imageArray[indexPath.row])
+            }
+            cell.lblText.text = "\(dataArray[indexPath.row])"
+            cell.accessoryType = (indexPath.row == selectedIndex) && checkMarkEnabled  ? .checkmark : .none
+            //cell.imgCheck.alpha = (indexPath.row == selectedIndex) && checkMarkEnabled  ? 1.0: 0
+            cell.selectionStyle = .none
+            return cell
         }
-
-        if indexPath.row != selectedIndex {
-            cell!.backgroundColor = rowBackgroundColor
-        } else {
-            cell?.backgroundColor = selectedRowColor
-        }
-
-        if self.imageArray.count > indexPath.row {
-            cell!.imageView!.image = UIImage(named: imageArray[indexPath.row])
-        }
-        cell!.textLabel!.text = "\(dataArray[indexPath.row])"
-        cell!.accessoryType = (indexPath.row == selectedIndex) && checkMarkEnabled  ? .checkmark: .none
-        cell!.selectionStyle = .none
-        cell?.textLabel?.font = self.font
-        cell?.textLabel?.textAlignment = self.textAlignment
-        return cell!
+        return UITableViewCell()
+        
     }
     
 }
