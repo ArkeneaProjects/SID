@@ -10,6 +10,7 @@ import UIKit
 
 class AddDetail1CollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var btnDelete: CustomButton!
     @IBOutlet weak var lblAdd: CustomLabel!
     
     @IBOutlet weak var imgPlus: UIImageView!

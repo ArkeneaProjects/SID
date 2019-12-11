@@ -9,12 +9,13 @@
 import UIKit
 
 class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, GalleryManagerDelegate {
-
+    
     @IBOutlet weak var tblView: UITableView!
     
     var imagePicker: GalleryManager!
     
     var arrItem = NSMutableArray()
+    var arrImages = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,8 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         // Do any additional setup after loading the view.
         
         self.arrItem = NSMutableArray(array: STATICDATA.arrProcess)
+        self.arrImages = NSMutableArray(array: STATICDATA.arrImagesSmall)
+        
         self.tblView.registerNibWithIdentifier([IDENTIFIERS.AddDetailHeader1Cell, IDENTIFIERS.AddDetailHeader2Cell, IDENTIFIERS.AddDetailHeader3Cell])
         
         self.tblView.rowHeight = UITableView.automaticDimension
@@ -70,12 +73,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
             if date.count > 0 {
                 if let cell = self.tblView.cellForRow(at: sender.indexPath) as? AddDetailHeader2Cell {
                     cell.btnSurgeryDate.setTitle(date, for: .normal)
-                    let indexpath = IndexPath(row: 2, section: 0)
-                    UIView.performWithoutAnimation {
-                        let loc = self.tblView.contentOffset
-                        self.tblView.reloadRows(at: [indexpath], with: .none)
-                        self.tblView.contentOffset = loc
-                    }
+                    self.reloadTableView(IndexPath(row: 2, section: 0))
                 }
             }
             print(date)
@@ -85,11 +83,17 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     @objc func placeBtnClickAction(_ sender: CustomButton) {
         
     }
-    
+    func reloadTableView(_ indexPath: IndexPath) {
+        UIView.performWithoutAnimation {
+            let loc = self.tblView.contentOffset
+            self.tblView.reloadRows(at: [indexPath], with: .none)
+            self.tblView.contentOffset = loc
+        }
+    }
     // MARK: - UITabelVieeDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return (STATICDATA.arrImagesSmall.count >= 3) ?getCalculated(240.0):getCalculated(130.0)
+            return (self.arrImages.count >= 3) ?getCalculated(240.0):getCalculated(130.0)
         }
         return UITableView.automaticDimension
     }
@@ -101,7 +105,20 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: IDENTIFIERS.AddDetailHeader1Cell, for: indexPath) as? AddDetailHeader1Cell {
-                cell.arrAllItems = NSMutableArray(array: STATICDATA.arrImagesSmall)
+                cell.arrAllItems = self.arrImages
+                //Delete Image
+                cell.deleteImageCompletion = { index_Path in
+                    self.showAlert(title: "", message: "Delete Image?", yesTitle: "Yes", noTitle: "NO", yesCompletion: {
+                        self.arrImages.removeObject(at: index_Path.item)
+                        cell.arrAllItems = self.arrImages
+                        if cell.arrAllItems.count == 3 {
+                            self.reloadTableView(indexPath)
+
+                        }
+                    }, noCompletion: nil)
+                }
+                
+                // Image Selection
                 cell.cellSelectionCompletion = { index_Path in
                     self.showActionSheet(headerTitle: "Choose Image From", cameraTitle: "Camera", galleryTitle: "Gallery", galleryCompletion: {
                         self.imagePicker.present(croppingStyle: .circular, isCrop: false, isCamera: false)
@@ -130,12 +147,11 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                 cell.btnAddResponse.indexPath = indexPath
                 cell.btnAddResponse.addTarget(self, action: #selector(addProcess(_:)), for: .touchUpInside)
                 cell.cellSelectionCompletion = { tableCell in
-                    self.arrItem.removeObject(at: tableCell)
-                    UIView.performWithoutAnimation {
-                        let loc = self.tblView.contentOffset
-                        self.tblView.reloadRows(at: [indexPath], with: .none)
-                        self.tblView.contentOffset = loc
-                    }
+                    self.showAlert(title: "Delete Process?", message: "", yesTitle: "Delete", noTitle: "Cancel", yesCompletion: {
+                        self.arrItem.removeObject(at: tableCell)
+                        self.reloadTableView(indexPath)
+
+                    }, noCompletion: nil)
                 }
                 return cell
             }
@@ -146,20 +162,20 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
-
+    
     // MARK: - Gallery Delegate
     func didSelect(image: UIImage?) {
         print(image)
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

@@ -53,13 +53,6 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
             }
         }
         
-        //Navigation Controller initialize
-        if self.navigationController != nil {
-            self.navigationController?.delegate = self
-            self.navigationController?.interactivePopGestureRecognizer?.delegate = self
-            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        }
-        
         self.navigationController?.navigationBar.isHidden = true
         
         //TabBar button Hide/Show
@@ -76,6 +69,15 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
         
         // Do any additional setup after loading the view.
     }
+ 
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        if self.navigationController != nil {
+            if self.navigationController!.viewControllers.count > 1 {
+                return true
+            }
+        }
+        return false
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -84,6 +86,13 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
             if self.navigationController?.viewControllers.first?.isKind(of: self.classForCoder) == false {
                 self.revealViewController().panGestureRecognizer().isEnabled = false
             }
+        }
+        
+        //Navigation Controller initialize
+        if self.navigationController != nil {
+            self.navigationController?.delegate = self
+            self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         }
         
         //TabBar button Hide/Show

@@ -18,7 +18,7 @@ class LoginViewModel: NSObject {
     var email: String = ""
     var password: String = ""
     
-    func validate()-> ValidationState {
+    func validate() -> ValidationState {
         if email.trimmedString().count == 0 {
             return .InValid("Email can't be empty")
         } else if email.isValidEmail() == false {

@@ -22,7 +22,7 @@ class PreviewViewController: BaseViewController {
     }
     
     @IBAction func uploadClickAction(_ sender: Any) {
-        ProgressManager.show(withStatus: "Uploading...", on: self.view)
+        ProgressManager.show(withStatus: "Searching...", on: self.view)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 7.0) {
             ProgressManager.dismiss()

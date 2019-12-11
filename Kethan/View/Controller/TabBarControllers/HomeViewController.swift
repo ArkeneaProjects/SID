@@ -94,11 +94,7 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate {
         self.revealViewController()?.revealToggle(self.navBar.btnLeft)
     }
     @IBAction func galleryClickAction(_ sender: CustomButton) {
-        self.showActionSheet(headerTitle: "Choose Image From", cameraTitle: "Camera", galleryTitle: "Gallery", galleryCompletion: {
-            self.imagePicker.present(croppingStyle: .circular, isCrop: false, isCamera: false)
-        }) {
-            self.imagePicker.present(croppingStyle: .circular, isCrop: false, isCamera: true)
-        }
+        self.imagePicker.present(croppingStyle: .circular, isCrop: false, isCamera: false)
     }
     
     @IBAction func flashClickAction(_ sender: CustomButton) {

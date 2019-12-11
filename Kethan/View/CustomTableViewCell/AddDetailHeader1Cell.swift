@@ -21,6 +21,7 @@ class AddDetailHeader1Cell: UITableViewCell, UICollectionViewDelegate, UICollect
     }
     
     var cellSelectionCompletion:((_ index_Path: IndexPath) -> Void)?
+    var deleteImageCompletion:((_ index_Path: IndexPath) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,12 +31,18 @@ class AddDetailHeader1Cell: UITableViewCell, UICollectionViewDelegate, UICollect
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: getCalculated(92.0), height: getCalculated(92.0))
-        layout.minimumLineSpacing = getCalculated(10.0)
+        layout.minimumLineSpacing = getCalculated(8.0)
         layout.minimumInteritemSpacing = 0
         layout.sectionInset = UIEdgeInsets.zero
         layout.scrollDirection = .vertical
         self.collectionView.collectionViewLayout = layout
         
+    }
+    
+    @objc func deleteImage(_ sender: CustomButton) {
+        if self.deleteImageCompletion != nil {
+            self.deleteImageCompletion!(sender.indexPath)
+        }
     }
     
     // MARK: - CollectionView Dalegate and DataSource
@@ -47,13 +54,18 @@ class AddDetailHeader1Cell: UITableViewCell, UICollectionViewDelegate, UICollect
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddDetail1CollectionViewCell", for: indexPath) as? AddDetail1CollectionViewCell {
             cell.lblAdd.alpha = 0
             cell.imgPlus.alpha = 0
+            cell.btnDelete.alpha = 1.0
+            
             if self.arrAllItems[indexPath.item] as? String ?? "" == "lineImage" {
                 cell.lblAdd.alpha = 1.0
                 cell.imgPlus.alpha = 1.0
+                cell.btnDelete.alpha = 0
                 cell.imgSelected.image = UIImage(named: self.arrAllItems[indexPath.item] as? String ?? "")
                 
             } else {
                 cell.imgSelected.image = UIImage(named: self.arrAllItems[indexPath.item] as? String ?? "")
+                cell.btnDelete.indexPath = indexPath
+                cell.btnDelete.addTarget(self, action: #selector(deleteImage(_:)), for: .touchUpInside)
             }
             return cell
         }

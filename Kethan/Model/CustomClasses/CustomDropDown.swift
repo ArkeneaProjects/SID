@@ -218,7 +218,7 @@ open class CustomDropDown: UITextField {
         table.dataSource = self
         table.delegate = self
         table.alpha = 0
-        table.separatorStyle = .none
+        table.separatorStyle = .singleLine
         table.layer.cornerRadius = 3
         table.backgroundColor = rowBackgroundColor
         table.registerNibWithIdentifier(["DropDownTableViewCell"])
@@ -415,29 +415,30 @@ extension CustomDropDown: UITableViewDelegate {
         selectedIndex = (indexPath as NSIndexPath).row
         let selectedText = self.dataArray[self.selectedIndex!]
         tableView.cellForRow(at: indexPath)?.alpha = 0
-        UIView.animate(withDuration: 0.5,
-                       animations: { () -> Void in
+      //  UIView.animate(withDuration: 0.5,
+        //               animations: { () -> Void in
                         tableView.cellForRow(at: indexPath)?.alpha = 1.0
                         tableView.cellForRow(at: indexPath)?.backgroundColor = self.selectedRowColor
-        },
-                       completion: { (didFinish) -> Void in
+       // },
+       //                completion: { (didFinish) -> Void in
                         self.text = "\(selectedText)"
 
                         tableView.reloadData()
-        })
-        if hideOptionsWhenSelect {
-            touchAction()
-            self.endEditing(true)
-        }
-        if let selected = optionArray.index(where: {$0 == selectedText}) {
-            if let id = optionIds?[selected] {
-                didSelectCompletion(selectedText, selected, id )
-            } else {
-                didSelectCompletion(selectedText, selected, 0)
+       //})
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            if self.hideOptionsWhenSelect {
+                self.touchAction()
+                self.endEditing(true)
             }
-
+            if let selected = self.optionArray.index(where: {$0 == selectedText}) {
+                if let id = self.optionIds?[selected] {
+                    self.didSelectCompletion(selectedText, selected, id )
+                } else {
+                    self.didSelectCompletion(selectedText, selected, 0)
+                }
+            }
         }
-
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -21,7 +21,7 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
         super.viewDidLoad()
         
         //Nav Bar
-        self.addNavBarWithTitle("SubScription Plans", withLeftButtonType: (self.isComeFromLogin == false) ?.buttonTypeBack:.buttonTypeNil, withRightButtonType: .buttonTypeNil)
+        self.addNavBarWithTitle("Subscription Plans", withLeftButtonType: (self.isComeFromLogin == false) ?.buttonTypeBack:.buttonTypeNil, withRightButtonType: .buttonTypeNil)
         
         //CollectionView
         self.collectionView.register(UINib(nibName: IDENTIFIERS.SubScriptionCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: IDENTIFIERS.SubScriptionCollectionViewCell)

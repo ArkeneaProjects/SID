@@ -101,10 +101,10 @@ palpation. Refer for further examination if</string>
                             </userDefinedRuntimeAttributes>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5S-Zd-9lJ" customClass="CustomButton" customModule="Kethan" customModuleProvider="target">
-                            <rect key="frame" x="295" y="0.0" width="25" height="25"/>
+                            <rect key="frame" x="285" y="0.0" width="35" height="35"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="25" id="2RF-Ss-4xQ"/>
-                                <constraint firstAttribute="height" constant="25" id="MMR-om-7BN"/>
+                                <constraint firstAttribute="width" constant="35" id="2RF-Ss-4xQ"/>
+                                <constraint firstAttribute="height" constant="35" id="MMR-om-7BN"/>
                             </constraints>
                             <inset key="imageEdgeInsets" minX="0.0" minY="-5" maxX="-3" maxY="0.0"/>
                             <state key="normal" image="close_small"/>

@@ -53,6 +53,7 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.size.width/2, height: getCalculated(225.0))
     }
+    
     /*
      // MARK: - Navigation
      

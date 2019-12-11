@@ -43,27 +43,57 @@ class GalleryManager: NSObject {
         self.crop = isCrop
         self.croppingStyle = croppingStyle
         if isCamera == true {
-            if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                self.pickerController.sourceType = .camera
-            } else {
-               let cameraUnavailableAlertController = UIAlertController (title: "Photo Library access is denied", message: "To enable access, go to Settings > Privacy > turn on Photo Library access for this app.", preferredStyle: .alert)
-                
-                let settingsAction = UIAlertAction(title: "Settings", style: .destructive) { (_) -> Void in
-                    let settingsUrl = NSURL(string: UIApplication.openSettingsURLString)
-                    if let url = settingsUrl {
-                        UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
-                    }
-                }
-                let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
-                cameraUnavailableAlertController .addAction(cancelAction)
-                cameraUnavailableAlertController .addAction(settingsAction)
-                self.presentationController!.present(cameraUnavailableAlertController, animated: true, completion: nil)
-            }
+            self.checkPermission()
         } else {
             self.pickerController.sourceType = .photoLibrary
+            self.presentationController!.present(self.pickerController, animated: true)
         }
         
-        self.presentationController!.present(self.pickerController, animated: true)
+    }
+    
+    // MARK: - Permission
+    func checkPermission() {
+        let deviceHasCamera = UIImagePickerController.isCameraDeviceAvailable(UIImagePickerController.CameraDevice.rear) || UIImagePickerController.isCameraDeviceAvailable(UIImagePickerController.CameraDevice.front)
+               if deviceHasCamera {
+                   let authorizationStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
+                   let userAgreedToUseIt = authorizationStatus == .authorized
+                   if userAgreedToUseIt {
+                       self.pickerController.sourceType = .camera
+                       self.presentationController!.present(self.pickerController, animated: true)
+                   } else if authorizationStatus == AVAuthorizationStatus.notDetermined {
+                       self.determinePermission()
+                       self.pickerController.sourceType = .camera
+                       self.presentationController!.present(self.pickerController, animated: true)
+                   } else {
+                      let cameraUnavailableAlertController = UIAlertController (title: "Photo Library access is denied", message: "To enable access, go to Settings > Privacy > turn on Photo Library access for this app.", preferredStyle: .alert)
+                       
+                       let settingsAction = UIAlertAction(title: "Settings", style: .destructive) { (_) -> Void in
+                           let settingsUrl = NSURL(string: UIApplication.openSettingsURLString)
+                           if let url = settingsUrl {
+                               UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+                           }
+                       }
+                       let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+                       cameraUnavailableAlertController .addAction(cancelAction)
+                       cameraUnavailableAlertController .addAction(settingsAction)
+                       self.presentationController!.present(cameraUnavailableAlertController, animated: true, completion: nil)
+                   }
+               } else {
+                  
+               }
+    }
+    
+    func determinePermission() {
+        PHPhotoLibrary.requestAuthorization { status in
+            switch status {
+            case .authorized: break
+            // as above
+            case .denied, .restricted: break
+            // as above
+            case .notDetermined: break
+                // won't happen but still
+            }
+        }
     }
     
     private func pickerController(_ controller: UIImagePickerController, didSelect image: UIImage?) {
