@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "18DDC78523797AA6003FCCE8"
-               BuildableName = "Kethan.app"
+               BuildableName = "SID.app"
                BlueprintName = "Kethan"
                ReferencedContainer = "container:Kethan.xcodeproj">
             </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "18DDC78523797AA6003FCCE8"
-            BuildableName = "Kethan.app"
+            BuildableName = "SID.app"
             BlueprintName = "Kethan"
             ReferencedContainer = "container:Kethan.xcodeproj">
          </BuildableReference>
@@ -82,7 +82,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "18DDC78523797AA6003FCCE8"
-            BuildableName = "Kethan.app"
+            BuildableName = "SID.app"
             BlueprintName = "Kethan"
             ReferencedContainer = "container:Kethan.xcodeproj">
          </BuildableReference>

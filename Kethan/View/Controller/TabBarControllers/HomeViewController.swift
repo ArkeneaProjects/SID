@@ -29,15 +29,15 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate {
         super.viewDidLoad()
         self.addNavBarWithTitle("Home", withLeftButtonType: .buttonTypeMenu, withRightButtonType: .buttonTypeCredit)
         
+        
+        let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(askForCameraPermissions))
+        lblPermissions.addGestureRecognizer(tapGesture)
         // Camera
         cameraManager.shouldEnableExposure = true
         cameraManager.shouldFlipFrontCameraImage = false
         cameraManager.showAccessPermissionPopupAutomatically = false
         cameraManager.cameraOutputMode = CameraOutputMode.stillImage
         cameraManager.cameraOutputQuality = CameraOutputQuality.high
-        
-        let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(askForCameraPermissions))
-        lblPermissions.addGestureRecognizer(tapGesture)
         
         //Display User name
         let userName = "Bruce"
@@ -54,6 +54,7 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         //Checking Camera Staus
         let currentCameraState = cameraManager.currentCameraStatus()
         if currentCameraState == .notDetermined {
@@ -82,9 +83,10 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate {
         super.viewWillDisappear(animated)
         #if TARGET_OS_SIMULATOR
         // Simulator-specific code
-        cameraManager.stopCaptureSession()
+            cameraManager.stopCaptureSession()
         #else
         // Device-specific code
+            cameraManager.stopCaptureSession()
         #endif
         
     }
@@ -92,6 +94,7 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate {
     // MARK: - Button Click Action
     override func leftButtonAction() {
         self.revealViewController()?.revealToggle(self.navBar.btnLeft)
+
     }
     @IBAction func galleryClickAction(_ sender: CustomButton) {
         self.imagePicker.present(croppingStyle: .circular, isCrop: false, isCamera: false)

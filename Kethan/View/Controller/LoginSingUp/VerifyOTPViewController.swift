@@ -62,7 +62,8 @@ class VerifyOTPViewController: BaseViewController {
     }
     
     @IBAction func signUpClickAction(_ sender: Any) {
-        if let controller = self.instantiate(SignUpUserGuideViewController.self, storyboard: STORYBOARD.signup) as? SignUpUserGuideViewController {
+        if let controller = self.instantiate(ChangePwdViewController.self, storyboard: STORYBOARD.signup) as? ChangePwdViewController {
+            controller.isComeFromLogin = true
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }

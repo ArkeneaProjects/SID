@@ -10,28 +10,38 @@ import UIKit
 
 class PreviewViewController: BaseViewController {
 
-    @IBOutlet weak var imgPreview: UIImageView!
-    
+    @IBOutlet weak var cropView: CropPickerView!
+
     var selectedImage: UIImage?
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.addNavBarWithTitle("Preview", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeNil)
-        self.imgPreview.image = selectedImage
+        self.addNavBarWithTitle("Preview", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonCrop)
+        self.cropView.image = self.selectedImage
+        self.cropView.isCrop = false
+
         // Do any additional setup after loading the view.
     }
     
+    // MARK: - Button Action
+    override func rightButtonAction() {
+        self.cropView.isCrop = true
+    }
+    
     @IBAction func uploadClickAction(_ sender: Any) {
-        ProgressManager.show(withStatus: "Searching...", on: self.view)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 7.0) {
+        print("Dimention==\(cropView.getCropViewDimention().frame)")
+        
+        ProgressManager.show(withStatus: "Searching our database...", on: self.view)
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
             ProgressManager.dismiss()
             if let controller = self.instantiate(SearchListViewController.self, storyboard: STORYBOARD.main) as? SearchListViewController {
                        self.navigationController?.pushViewController(controller, animated: true)
                    }
         }
+        
     }
-
     /*
     // MARK: - Navigation
 

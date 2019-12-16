@@ -78,7 +78,7 @@ open class CustomTextField: UITextField {
         let toolbar = UIToolbar.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 44))
         toolbar.isTranslucent = false
         toolbar.tintColor = UIColor.white
-        toolbar.tintColor = UIColor(red: 218.0/255.0, green: 33.0/255.0, blue: 40.0/255.0, alpha: 1.0)
+        toolbar.tintColor = UIColor(red: 9.0/255.0, green: 133.0/255.0, blue: 233.0/255.0, alpha: 1.0)
        // toolbar.barTintColor = UIColor(218, green: 33, blue: 40)
         
         let doneButton = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: target, action: selector)
@@ -87,6 +87,7 @@ open class CustomTextField: UITextField {
         toolbar.items = [flexibleButton, doneButton]
         self.inputAccessoryView = toolbar
     }
+    
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
         if self.textAlignment == .center {
             return super.textRect(forBounds: bounds)

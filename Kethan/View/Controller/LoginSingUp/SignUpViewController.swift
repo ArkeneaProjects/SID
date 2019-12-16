@@ -15,14 +15,18 @@ class SignUpViewController: BaseViewController {
     @IBOutlet weak var lblSignIn: CustomLabel!
     @IBOutlet weak var lblTerms: CustomLabel!
     
-    @IBOutlet weak var lblReferral: CustomTextField!
-    @IBOutlet weak var lblContact: CustomTextField!
-    @IBOutlet weak var lblVerifyEmail: CustomTextField!
-    @IBOutlet weak var lblEmail: CustomTextField!
-    @IBOutlet weak var lblName: CustomTextField!
+    @IBOutlet weak var txtReferral: CustomTextField!
+    @IBOutlet weak var txtContact: CustomTextField!
+    @IBOutlet weak var txtEmail: CustomTextField!
+    @IBOutlet weak var txtName: CustomTextField!
+    
+    @IBOutlet weak var txtProfession: CustomTextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.isNormalEditEnabled = true
+        
         scrollView.contentInsetAdjustmentBehavior = .never
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
@@ -121,15 +125,15 @@ class SignUpViewController: BaseViewController {
         }
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    // MARK: - Text Field Delegate
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let finalText: String = NSString(string: textField.text!).replacingCharacters(in: range, with: string) as String
+        if textField == self.txtName {
+            return finalText.hasOnlyAlphabets()
+        }
+        
+        return true
+    }
     
 }
 extension UITapGestureRecognizer {

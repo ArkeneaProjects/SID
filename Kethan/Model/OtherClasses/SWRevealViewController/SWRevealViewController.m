@@ -27,7 +27,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "SWRevealViewController.h"
-#import "Kethan-Swift.h"
+#import "SID-Swift.h"
 
 #pragma mark - StatusBar Helper Function
 

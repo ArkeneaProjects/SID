@@ -119,7 +119,7 @@ class LeftMenuViewController: BaseViewController, UITableViewDelegate, UITableVi
 //                }
                 
                 if let frontViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
-                    self.revealViewController()?.setFront(frontViewController, animated: false)
+                    //self.revealViewController()?.setFront(frontViewController, animated: false)
                     self.revealViewController()?.setFrontViewPosition(.left, animated: false)
                     frontNavigationController.pushViewController(baseController!, animated: true)
                 }

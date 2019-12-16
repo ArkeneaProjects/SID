@@ -8,7 +8,7 @@
 
 import UIKit
 enum ButtonType: NSInteger {
-    case buttonTypeNil = 0, buttonTypeBack, buttonTypeCredit, buttonTypeMenu, buttonTypeSave, buttonTypeEdit
+    case buttonTypeNil = 0, buttonTypeBack, buttonTypeCredit, buttonTypeMenu, buttonTypeSave, buttonTypeEdit, buttonCrop
 }
 
 class CustomNavBar: UIView {
@@ -75,8 +75,10 @@ class CustomNavBar: UIView {
                 rightImageName = "back"
             } else if rightButtonType == .buttonTypeMenu {
                 rightImageName = "list"
-            } else if rightButtonType == .buttonTypeSave {
-                rightImageName = "tik"
+            } else if rightButtonType == .buttonCrop {
+                self.btnRightEdit.alpha = 1.0
+                self.btnRightEdit.setImage(UIImage(named: "torch"), for: .normal)
+                self.btnRightEdit.addTarget(target, action: rightAction, for: UIControl.Event.touchUpInside)
             } else if rightButtonType == .buttonTypeCredit {
                 self.btnRight.alpha = 1.0
                 self.btnRight.layer.cornerRadius = getCalculated(9.0)
@@ -86,7 +88,6 @@ class CustomNavBar: UIView {
                  self.btnRightEdit.alpha = 1.0
                  self.btnRightEdit.setImage(UIImage(named: "pencil"), for: .normal)
                  self.btnRightEdit.addTarget(target, action: rightAction, for: UIControl.Event.touchUpInside)
-
             }
             
             if rightImageName.count > 0 {

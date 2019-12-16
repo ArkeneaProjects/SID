@@ -93,7 +93,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     // MARK: - UITabelVieeDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return (self.arrImages.count >= 3) ?getCalculated(240.0):getCalculated(130.0)
+            return (self.arrImages.count > 3) ?getCalculated(240.0):getCalculated(130.0)
         }
         return UITableView.automaticDimension
     }
@@ -113,7 +113,6 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                         cell.arrAllItems = self.arrImages
                         if cell.arrAllItems.count == 3 {
                             self.reloadTableView(indexPath)
-
                         }
                     }, noCompletion: nil)
                 }
@@ -146,6 +145,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                 cell.selectionStyle = .none
                 cell.btnAddResponse.indexPath = indexPath
                 cell.btnAddResponse.addTarget(self, action: #selector(addProcess(_:)), for: .touchUpInside)
+                //Delete Process
                 cell.cellSelectionCompletion = { tableCell in
                     self.showAlert(title: "Delete Process?", message: "", yesTitle: "Delete", noTitle: "Cancel", yesCompletion: {
                         self.arrItem.removeObject(at: tableCell)

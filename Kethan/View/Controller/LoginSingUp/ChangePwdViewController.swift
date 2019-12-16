@@ -56,9 +56,18 @@ class ChangePwdViewController: BaseViewController {
     }
     
     @IBAction func DoneClickAction(_ sender: Any) {
-        self.navigationController?.popToRootViewController(animated: true)
+        if self.isComeFromLogin == true {
+            if self.constOldPwdHeight.constant == 0 {
+                self.navigationController?.popToRootViewController(animated: true)
+            } else {
+                if let controller = self.instantiate(SignUpUserGuideViewController.self, storyboard: STORYBOARD.signup) as? SignUpUserGuideViewController {
+                    self.navigationController?.pushViewController(controller, animated: true)
+                }
+            }
+        } else {
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
-    
     /*
     // MARK: - Navigation
 

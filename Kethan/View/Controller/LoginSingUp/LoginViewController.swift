@@ -31,6 +31,8 @@ class LoginViewController: BaseViewController {
     
     @IBOutlet weak var btnHidePwd: CustomButton!
     
+    var loginVM = LoginViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -87,42 +89,6 @@ class LoginViewController: BaseViewController {
         super.viewWillAppear(animated)
     }
     
-    //    override func viewWillAppear(_ animated: Bool) {
-    //        super.viewWillAppear(animated)
-    //
-    //
-    //        if self.isViewAnimated == false {
-    //            self.imgAppName.alpha = 1.0
-    //            self.constImageTop.constant = getCalculated(54.0)
-    //            self.imgTop.alpha = 1.0
-    //            self.viewLogin.alpha = 1.0
-    //            self.view.layoutIfNeeded()
-    //        } else {
-    //            UIView.animate(withDuration: 2.0, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: {
-    //                self.imgAppName.alpha = 1.0
-    //            }, completion: {(finish) in
-    //                UIView.animate(withDuration: 0.3, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: {
-    //                    self.imgAppName.transform = CGAffineTransform.identity.scaledBy(x: 2, y: 2) // Scale your image
-    //                }) { (finished) in
-    //                    UIView.animate(withDuration: 1.0, animations: {
-    //                        self.imgAppName.transform = CGAffineTransform.identity // undo in 1 seconds
-    //                    }) { (finish) in
-    //                        UIView.animate(withDuration: 1.0, animations: {
-    //                            self.constImageTop.constant = getCalculated(54.0)
-    //                            self.view.layoutIfNeeded()
-    //                        }) { (finish) in
-    //                            UIView.animate(withDuration: 1.0) {
-    //                                self.imgTop.alpha = 1.0
-    //                                self.viewLogin.alpha = 1.0
-    //                            }
-    //                        }
-    //                    }
-    //                }
-    //            })
-    //        }
-    //
-    //    }
-    //
     
     // MARK: - Button Action
     @IBAction func fbClickAction(_ sender: Any) {
@@ -147,9 +113,26 @@ class LoginViewController: BaseViewController {
     }
     
     @IBAction func signInClickAction(_ sender: Any) {
+       /* self.loginVM.email = self.txtEmail.text!
+        self.loginVM.password = self.txtPassword.text!
+        
+        switch self.loginVM.validateLogin() {
+        case .Valid:
+            ProgressManager.show(withStatus: "", on: self.view)
+            self.loginVM.loginAPI {
+                if self.loginVM.error == "" {
+                    ProgressManager.dismiss()
+                    self.navigateToHome(false, false)
+                } else {
+                    ProgressManager.showError(withStatus: self.loginVM.error, on: self.view)
+                }
+            }
+        case .InValid(let error):
+            ProgressManager.showError(withStatus: error, on: self.view)
+        } */
         self.navigateToHome(false, false)
     }
-    
+        
     @IBAction func forgotPassWordClickAction(_ sender: Any) {
         if let controller = self.instantiate(ForgotPwdViewController.self, storyboard: STORYBOARD.signup) as? ForgotPwdViewController {
             controller.isShowForgotScreen = true

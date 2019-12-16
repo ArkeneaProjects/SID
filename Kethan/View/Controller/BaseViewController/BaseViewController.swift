@@ -38,17 +38,20 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
     
     let navHeight: CGFloat = 64.0
     
+    // MARK: - View DidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // check RevelView initialize
         if self.revealViewController() != nil {
             if self.navigationController != nil {
                 if self.navigationController?.viewControllers.count == 1 {
-                    let reveal: SWRevealViewController = self.revealViewController()
-                    reveal.panGestureRecognizer()
-                    reveal.tapGestureRecognizer()
-                    self.revealViewController().delegate = self
+                    //let reveal: SWRevealViewController = self.revealViewController()
+                    //reveal.panGestureRecognizer()
+                    //reveal.tapGestureRecognizer()
+                    //self.revealViewController().delegate = self
                     self.revealViewController()?.rearViewRevealWidth = getCalculated(270.0)
+                    self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
                 }
             }
         }
@@ -236,8 +239,8 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
     
     func getTabBarButtonWithTitle(title: String?, imageName: String, selectedImageName: String?) -> UITabBarItem {
         let tabBarItem = UITabBarItem(title: title, image: UIImage(named: imageName)?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), selectedImage: ((selectedImageName != nil) ?UIImage(named: selectedImageName!)?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal):nil))
-        //self.tabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
-        //self.title = nil
+        tabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
+        tabBarItem.title = nil
         return tabBarItem
     }
     
@@ -258,8 +261,12 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
             frontNavigationController.isNavigationBarHidden = true
             
             controller.revealViewController = SWRevealViewController(rearViewController: rearNavigationController, frontViewController: frontNavigationController)
+            controller.revealViewController()?.setFront(controller, animated: false)
+            controller.revealViewController()?.setFrontViewPosition(.left, animated: false)
+            
         }
-        let navigation = UINavigationController(rootViewController: (identifier == "HomeViewController") ?controller.revealViewController():controller)
+        let navigation = UINavigationController(rootViewController: (identifier == "HomeViewController") ?controller.revealViewController:controller)
+       // let navigation = UINavigationController(rootViewController: controller)
         navigation.restorationIdentifier = String(format: "Nav_%@", identifier)
         navigation.isNavigationBarHidden = true
         return navigation
@@ -278,6 +285,27 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
         return true
     }
     
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+                
+        if textField.isKind(of: CustomTextField.classForCoder()) == true {
+            if textField.keyboardType == UIKeyboardType.numberPad || textField.keyboardType == UIKeyboardType.decimalPad || textField.keyboardType == UIKeyboardType.phonePad {
+                  (textField as? CustomTextField ?? CustomTextField()).addDoneButton(target: self, selector: #selector(self.resignKeyboard))
+            } else {
+                textField.keyboardType = .asciiCapable
+            }
+        } else if textField.isKind(of: SkyFloatingLabelTextField.classForCoder()) == true {
+            //            if textField.keyboardType == UIKeyboardType.numberPad || textField.keyboardType == UIKeyboardType.decimalPad || textField.keyboardType == UIKeyboardType.phonePad || textField.keyboardType == UIKeyboardType.numbersAndPunctuation {
+            //                (textField as? SkyFloatingLabelTextField ?? SkyFloatingLabelTextField()).addDoneButton(target: self, selector: #selector(self.resignKeyboard))
+            //            }
+            if textField.keyboardType == UIKeyboardType.numberPad || textField.keyboardType == UIKeyboardType.decimalPad || textField.keyboardType == UIKeyboardType.phonePad || textField.keyboardType == UIKeyboardType.emailAddress {
+                //  (textField as? CustomTextField ?? CustomTextField()).addDoneButton(target: self, selector: #selector(self.resignKeyboard))
+            } else {
+                textField.keyboardType = .asciiCapable
+            }
+        }
+        
+        return true
+    }
     // MARK: - TextViewDelegate -
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         if self.isScrollEditEnabled == true {
@@ -292,8 +320,6 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
                             }
             }
         }
-        
-        
         return true
     }
     

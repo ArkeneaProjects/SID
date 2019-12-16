@@ -29,6 +29,22 @@ struct DEVICES {
     //    static let iPhone_XS_Max: String = "iPhone XS Max"
 }
 
+struct APP_URLS {
+    static let Live = "http://3.135.146.133:3000/api/"
+    static let Development = "http://3.135.146.133:3000/api/"
+    static var Domain: String {
+        get {
+            return Development
+        }
+    }
+}
+
+struct SUFFIX_URL {
+    static let SignIn = "auth/signin"
+    static let SignUp = "auth/signup"
+    static let SignUPOTP = "auth/verifyOPT"
+}
+    
 struct KEYS {
     static let googleKey = "23307698272-psgd5pqvanqohndhmpu3en11t6o50ja9.apps.googleusercontent.com"
 }
@@ -82,3 +98,65 @@ struct STORYBOARD {
     static let signup = "SignUp"
     static let leftMenu = "LeftMenu"
 }
+
+struct MESSAGES {
+    static let uploadFailed = "Uploading is failed. Please try again."
+    static let errorOccured = "Oh no, seems like that wasn't expected..!!"
+    static let invalidFormat = "Response format is invalid. Please try later."
+    static let internetOffline = "The Internet connection appears to be offline."
+    static let noPayment = "No payment account available for this user."
+    static let errorInLocation = "We got an error while detecting your location. Please try again."
+}
+
+struct ERRORS {
+    static let CameraError = "Your device dose not support this feature!"
+    static let emilId = "Enter Email Id"
+    static let invalidEmail: String = "Enter valid email id"
+    static let validMobileNumber: String = "Please enter valid mobile number"
+    static let MobileNumberError: String = "Entered mobile number is invalid with selected country code"
+    
+    //SignUp
+    static let firstName: String = "Please enter first name"
+    static let middleName: String = "Please enter middle name"
+    static let lastName: String = "Please enter last name"
+    static let onlyDigit: String = "Please enter only numaric values"
+    static let fullName: String = "Enter Full Name"
+    static let profession: String = "Enter Profession"
+
+    static let EmptyCountryCode = "Please select county"
+    static let EmptyMobileNumber = "Please enter mobile number"
+    static let WrongMobileNumber = "Please enter valid mobile number"
+    
+    static let EmptyOTP = "Please enter OTP"
+    static let WrongOTP = "Please enter valid OTP"
+
+}
+
+struct CONSTANT {
+    static let Empty = ""
+    static let device = "iPhone"
+    static let server = "server"
+    static let ResponseStatus = "response_status"
+    static let success = "success"
+    static let status = "status"
+    static let ErrorCode = "error_code"
+    static let Message = "message"
+    static let WebServiceName = "service_name"
+    static let AccessToken = "access_token"
+    static let DeviceToken = "device_token"
+    static let DeviceType = "device_type"
+    static let Ture = "success"
+    static let data = "data"
+}
+
+struct ENTITIES {
+    static let email = "email"
+    static let password = "password"
+    static let name = "name"
+    static let phoneNumber = "phoneNumber"
+    static let profession = "profession"
+    static let referralCode = "referralCode"
+    static let otp = "otp"
+
+}
+

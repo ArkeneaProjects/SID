@@ -14,6 +14,11 @@ let screenHeight = UIScreen.main.bounds.height
 let screenWidth = UIScreen.main.bounds.width
 var isLoginViewAnimated: Bool = true
 
+enum ValidationState {
+    case Valid
+    case InValid(String)
+}
+
 func isDevice() -> String {
     if screenHeight == 896 {
         return DEVICES.iPhoneXR
