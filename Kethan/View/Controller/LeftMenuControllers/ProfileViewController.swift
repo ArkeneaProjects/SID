@@ -17,7 +17,7 @@ class ProfileViewController: BaseViewController {
         
         self.addNavBarWithTitle("Profile", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeEdit)
         // Do any additional setup after loading the view.
-        
+        self.navBar.btnRightEdit.contentHorizontalAlignment = .right
         // Profile Image
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.profileClickAction(_:)))
         self.imgProfile.addGestureRecognizer(tapGesture)

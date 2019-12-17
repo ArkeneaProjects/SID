@@ -85,7 +85,7 @@ class LeftMenuViewController: BaseViewController, UITableViewDelegate, UITableVi
                     }
                 } else if identifier == "ChangePwdViewController" {
                     if let controller = self.instantiate(ChangePwdViewController.self, storyboard: STORYBOARD.signup) as? ChangePwdViewController {
-                        controller.isComeFromLogin = false
+                        controller.isComeFrom = 0
                         baseController = controller
                     }
                 } else if identifier == "SubScriptionViewController" {

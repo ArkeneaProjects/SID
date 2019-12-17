@@ -92,13 +92,13 @@ class LoginViewController: BaseViewController {
     
     // MARK: - Button Action
     @IBAction func fbClickAction(_ sender: Any) {
-        FacebookManager.loginToFacebookWith(controller: self) { (result: Any?, error: String?) in
-            if error == nil {
-                print("result==\(result)")
-            } else {
-                print("error==\(error)")
-            }
-        }
+//        FacebookManager.loginToFacebookWith(controller: self) { (result: Any?, error: String?) in
+//            if error == nil {
+//                print("result==\(result)")
+//            } else {
+//                print("error==\(error)")
+//            }
+//        }
     }
     
     @IBAction func googleClickAction(_ sender: Any) {
@@ -129,7 +129,7 @@ class LoginViewController: BaseViewController {
             }
         case .InValid(let error):
             ProgressManager.showError(withStatus: error, on: self.view)
-        } */
+        }*/
         self.navigateToHome(false, false)
     }
         

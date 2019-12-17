@@ -12,16 +12,20 @@ class ThankYouViewController: BaseViewController {
 
     @IBOutlet weak var lblMsg: CustomLabel!
     
+    @IBOutlet weak var lblThankYou: CustomLabel!
+
     @IBOutlet weak var checkbox: BEMCheckBox!
     
-    var isComeFromSupport: Bool = false
+    var isComeFrom = 0 // 0 for support, 1 for add details, 2 for edit profile
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.checkbox.onAnimationType = .stroke
         self.checkbox.offAnimationType = .stroke
         self.checkbox.animationDuration = 0.9
         
-        self.lblMsg.text = (self.isComeFromSupport == true) ?"Your support query has been submitted" :"Your details have been sent for verification. We'll let you know once it's verified. "
+        self.lblThankYou.text = (self.isComeFrom == 2) ?"Done":"Thank you!"
+        self.lblMsg.text = (self.isComeFrom == 0) ?"Your support query has been submitted" :(self.isComeFrom == 1) ?"Your details have been sent for verification. We'll let you know once it's verified.":"The changes made have been saved against your profile."
         // Do any additional setup after loading the view.
     }
     

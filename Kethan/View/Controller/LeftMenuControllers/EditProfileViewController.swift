@@ -27,6 +27,14 @@ class EditProfileViewController: BaseViewController, GalleryManagerDelegate {
         self.imgProfile.isUserInteractionEnabled = true
     }
     
+    // MARK: - Button Action
+    @IBAction func saveClickAction(_ sender: Any) {
+        if let controller = self.instantiate(ThankYouViewController.self, storyboard: STORYBOARD.main) as? ThankYouViewController {
+            controller.isComeFrom = 2
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
+    }
+    
     @IBAction func editImageClickAction(_ sender: Any) {
         self.showActionSheet(headerTitle: "Choose Image From", cameraTitle: "Camera", galleryTitle: "Gallery", galleryCompletion: {
             self.imagePicker.present(croppingStyle: .circular, isCrop: true, isCamera: false)

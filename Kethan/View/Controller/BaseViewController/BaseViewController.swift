@@ -209,7 +209,7 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
                 tabBarAppearence.itemPositioning = UITabBar.ItemPositioning.fill
                 tabBarAppearence.itemSpacing = 0
                 
-                let search = self.instantiateNav("SearchFolderViewController", storyboard: STORYBOARD.main )
+                let search = self.instantiateNav("SearchViewController", storyboard: STORYBOARD.main )
                 search.tabBarItem = self.getTabBarButtonWithTitle(title: "", imageName: "tab1_deactive", selectedImageName: "tab1_active")
                 
                 let home = self.instantiateNav("HomeViewController", storyboard: STORYBOARD.main)

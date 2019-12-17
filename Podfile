@@ -15,6 +15,7 @@ target 'Kethan' do
   pod 'SKPhotoBrowser'
   pod 'SVPinView'
   pod 'CropViewController'
+  pod 'Atributika'
 
 # Pods for Kethan
 

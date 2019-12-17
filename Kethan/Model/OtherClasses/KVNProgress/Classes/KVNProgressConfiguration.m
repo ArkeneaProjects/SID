@@ -15,21 +15,21 @@
 - (id)init
 {
 	if (self = [super init]) {
-		_backgroundFillColor = [UIColor colorWithRed:9.0/255.0 green:133.0/255.0 blue:233.0/255.0 alpha:0.8];
+		_backgroundFillColor = [UIColor colorWithWhite:1.0f alpha:0.85f];
 		_backgroundTintColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6f];
 		_backgroundType = KVNProgressBackgroundTypeBlurred;
 		_fullScreen = NO;
 		_showStop = NO;
 		
-		_circleStrokeForegroundColor = [UIColor whiteColor];
+		_circleStrokeForegroundColor = [UIColor darkGrayColor];
 		_circleStrokeBackgroundColor = [_circleStrokeForegroundColor colorWithAlphaComponent:0.3f];
 		_circleFillBackgroundColor = [UIColor clearColor];
 		_circleSize = (_fullScreen) ? 90.0f: 75.0f;
 		_stopRelativeHeight = 0.3;
 		_lineWidth = 2.0f;
 		
-		_statusColor = [UIColor whiteColor];
-		_statusFont = [UIFont fontWithName:@"HelveticaNeue-Medium" size:17.0f];
+		_statusColor = [UIColor darkGrayColor];
+		_statusFont = [UIFont fontWithName:@"HelveticaNeue" size:17.0f];
 		
 		_successColor = [_statusColor copy];
 		_errorColor = [_statusColor copy];

@@ -21,7 +21,7 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
         super.viewDidLoad()
         
         //Nav Bar
-        self.addNavBarWithTitle("Subscription Plans", withLeftButtonType: (self.isComeFromLogin == false) ?.buttonTypeBack:.buttonTypeNil, withRightButtonType: .buttonTypeNil)
+        self.addNavBarWithTitle("Subscription Plans", withLeftButtonType: (self.isComeFromLogin == false) ?.buttonTypeBack:.buttonTypeNil, withRightButtonType: (self.isComeFromLogin == true) ?.buttonTypeSkip:.buttonTypeNil)
         
         //CollectionView
         self.collectionView.register(UINib(nibName: IDENTIFIERS.SubScriptionCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: IDENTIFIERS.SubScriptionCollectionViewCell)
@@ -39,6 +39,10 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
     }
     
     // MARK: - Button Action
+    override func rightButtonAction() {
+        self.navigateToHome(false, false)
+    }
+    
     @IBAction func annualActionClick(_ sender: Any) {
     }
     
@@ -66,17 +70,17 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
             cell.imgBG.image = UIImage(named: arr["image"] ?? "")
             
             let attributedString = NSMutableAttributedString(string: arr["price"]!, attributes: [
-                .font: UIFont(name: "HelveticaNeue-Bold", size: getCalculated(65.0))!,
+                .font: APP_FONT.boldFont(withSize: 65.0),
                 .foregroundColor: UIColor(white: 1.0, alpha: 1.0)
             ])
-            attributedString.addAttribute(.font, value: UIFont(name: "HelveticaNeue", size: getCalculated(45.0))!, range: NSRange(location: 0, length: 1))
+            attributedString.addAttribute(.font, value: APP_FONT.regularFont(withSize: 45.0), range: NSRange(location: 0, length: 1))
             attributedString.addAttributes([.baselineOffset: 15], range: NSRange(location: 0, length: 1))
             
             cell.lblPrice.attributedText = attributedString
             cell.lblPlan.text = arr["plan"]?.uppercased()
             cell.lblValid.text = arr["valid"]
             
-            cell.btnSubscribe.titleLabel?.font = UIFont(name: "HelveticaNeue-Medium", size: getCalculated(17.0))
+            cell.btnSubscribe.titleLabel?.font = APP_FONT.mediumFont(withSize: 17.0)
             cell.btnSubscribe.setTitleColor((arr["type"] == "year") ?APP_COLOR.color3:APP_COLOR.color2, for: .normal)
             cell.btnSubscribe.tag = indexPath.item
             cell.btnSubscribe.addTarget(self, action: #selector(planSelection(_:)), for: .touchUpInside)

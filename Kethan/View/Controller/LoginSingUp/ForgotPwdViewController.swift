@@ -43,7 +43,7 @@ class ForgotPwdViewController: BaseViewController {
         pinView.shouldSecureText = false
         pinView.style = .box
         
-        pinView.font = UIFont(name: "HelveticaNeue", size: getCalculated(23.5))!
+        pinView.font = APP_FONT.regularFont(withSize: 23.5)
         pinView.keyboardType = .phonePad
         pinView.activeBorderLineThickness = getCalculated(1.5)
         pinView.pinInputAccessoryView = UIView()
@@ -65,7 +65,7 @@ class ForgotPwdViewController: BaseViewController {
             self.navigationController?.popToRootViewController(animated: true)
         } else {
             if let controller = self.instantiate(ChangePwdViewController.self, storyboard: STORYBOARD.signup) as? ChangePwdViewController {
-                controller.isComeFromLogin = true
+                controller.isComeFrom = 1
                 self.navigationController?.pushViewController(controller, animated: true)
             }
         }

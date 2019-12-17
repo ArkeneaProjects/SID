@@ -29,7 +29,6 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate {
         super.viewDidLoad()
         self.addNavBarWithTitle("Home", withLeftButtonType: .buttonTypeMenu, withRightButtonType: .buttonTypeCredit)
         
-        
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(askForCameraPermissions))
         lblPermissions.addGestureRecognizer(tapGesture)
         // Camera
@@ -42,9 +41,9 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate {
         //Display User name
         let userName = "Bruce"
         let attributedString = NSMutableAttributedString(string: "Hello \(userName),\rLet\'s get you started! ", attributes: [
-            .font: UIFont(name: "HelveticaNeue", size: getCalculated(13.5))!, .foregroundColor: UIColor(white: 1.0, alpha: 1.0)])
-        attributedString.addAttribute(.font, value: UIFont(name: "HelveticaNeue", size: getCalculated(15.5))!, range: NSRange(location: 0, length: 5))
-        attributedString.addAttribute(.font, value: UIFont(name: "HelveticaNeue-Bold", size: getCalculated(15.5))!, range: NSRange(location: 6, length: userName.count))
+            .font: APP_FONT.regularFont(withSize: 13.5), .foregroundColor: UIColor(white: 1.0, alpha: 1.0)])
+        attributedString.addAttribute(.font, value: APP_FONT.regularFont(withSize: 15.5), range: NSRange(location: 0, length: 5))
+        attributedString.addAttribute(.font, value: APP_FONT.boldFont(withSize: 15.5), range: NSRange(location: 6, length: userName.count))
         self.lblUserName.attributedText = attributedString
         
         //Gallery

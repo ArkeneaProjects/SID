@@ -7,43 +7,89 @@
 //
 
 import UIKit
+import Atributika
 
-class SignUpViewController: BaseViewController {
+class SignUpViewController: BaseViewController, CountryListDelegate {
+    
+    @IBOutlet weak var lblTerms: AttributedLabel!
     
     @IBOutlet weak var scrollView: TPKeyboardAvoidingScrollView!
     
     @IBOutlet weak var lblSignIn: CustomLabel!
-    @IBOutlet weak var lblTerms: CustomLabel!
+    // @IBOutlet weak var lblTerms: CustomLabel!
     
     @IBOutlet weak var txtReferral: CustomTextField!
     @IBOutlet weak var txtContact: CustomTextField!
+    @IBOutlet weak var txtContryCode: CustomTextField!
     @IBOutlet weak var txtEmail: CustomTextField!
     @IBOutlet weak var txtName: CustomTextField!
     
     @IBOutlet weak var txtProfession: CustomTextView!
     
+    let signUpVM = SignUpViewModel()
+    var countryList = CountryListViewController()
+    
+    var countyCode = ""
+    
+    // MARK: - iVars
+    var arrcountry: [Country] {
+        let countries = Countries()
+        let arrList = countries.countries
+        return arrList
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.isNormalEditEnabled = true
-        
+        countryList.delegate = self
         scrollView.contentInsetAdjustmentBehavior = .never
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
-        let attributedString = NSMutableAttributedString(string: "By signing up you accept the Terms of Service and Privacy Policy", attributes: [
-            .font: UIFont(name: "HelveticaNeue", size: getCalculated(14.0))!,
-            .foregroundColor: UIColor.black
-        ])
-        attributedString.addAttribute(.foregroundColor, value: UIColor(red: 9.0 / 255.0, green: 133.0 / 255.0, blue: 233.0 / 255.0, alpha: 1.0), range: NSRange(location: 29, length: 16))
-        attributedString.addAttribute(.foregroundColor, value: UIColor(red: 9.0 / 255.0, green: 133.0 / 255.0, blue: 233.0 / 255.0, alpha: 1.0), range: NSRange(location: 50, length: 14))
+        self.lblTerms.numberOfLines = 0
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 3.0
+        paragraphStyle.lineHeightMultiple = 0.0
+        paragraphStyle.alignment = .center
         
-        self.lblTerms.attributedText = attributedString
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(termsLabel(gesture:)))
-        self.lblTerms.isUserInteractionEnabled = true
-        self.lblTerms.addGestureRecognizer(gesture)
+        let all = Style.font(APP_FONT.regularFont(withSize: 14)).foregroundColor(UIColor(rgb: 84.0/255.0, alpha: 1.0)).paragraphStyle(paragraphStyle)
+        
+        let link = Style("a")
+            .foregroundColor(UIColor(red: 9.0 / 255.0, green: 133.0 / 255.0, blue: 233.0 / 255.0, alpha: 1.0), .normal).foregroundColor(UIColor(red: 9.0 / 255.0, green: 133.0 / 255.0, blue: 233.0 / 255.0, alpha: 1.0), .highlighted)
+        
+        lblTerms.attributedText = "By signing up you accept the <a href=\"Termofservices\">Terms of Service</a> and <a href=\"Privacy Policy\">Privacy Policy</a>".style(tags: link)
+            .styleAll(all)
+        lblTerms.onClick = { label, detection in
+            switch detection.type {
+                
+            case .tag(let tag):
+                if let href = tag.attributes["href"] {
+                    print(href)
+                    if let controller = self.instantiate(TermsConditionViewController.self, storyboard: STORYBOARD.leftMenu) as? TermsConditionViewController {
+                        controller.isPage = (href == "Termofservices") ?0:1
+                        controller.urlString = "https://www.google.com/"
+                        self.navigationController?.pushViewController(controller, animated: true)
+                    }
+                }
+            default:
+                break
+            }
+        }
+        
+        //        let attributedString = NSMutableAttributedString(string: "By signing up you accept the Terms of Service and Privacy Policy", attributes: [
+        //            .font: APP_FONT.regularFont(withSize: 14.0),
+        //            .foregroundColor: UIColor.black
+        //        ])
+        //        attributedString.addAttribute(.foregroundColor, value: UIColor(red: 9.0 / 255.0, green: 133.0 / 255.0, blue: 233.0 / 255.0, alpha: 1.0), range: NSRange(location: 29, length: 16))
+        //        attributedString.addAttribute(.foregroundColor, value: UIColor(red: 9.0 / 255.0, green: 133.0 / 255.0, blue: 233.0 / 255.0, alpha: 1.0), range: NSRange(location: 50, length: 14))
+        //
+        //        self.lblTerms.attributedText = attributedString
+        //        let gesture = UITapGestureRecognizer(target: self, action: #selector(termsLabel(gesture:)))
+        //        self.lblTerms.isUserInteractionEnabled = true
+        //        self.lblTerms.addGestureRecognizer(gesture)
         
         let signInAttributedString = NSMutableAttributedString(string: "Already have an account? Sign In", attributes: [
-            .font: UIFont(name: "HelveticaNeue", size: getCalculated(14.0))!,
+            .font: APP_FONT.regularFont(withSize: 14.0),
             .foregroundColor: UIColor.black
         ])
         signInAttributedString.addAttribute(.foregroundColor, value: UIColor(red: 9.0 / 255.0, green: 133.0 / 255.0, blue: 233.0 / 255.0, alpha: 1.0), range: NSRange(location: 24, length: 8))
@@ -52,6 +98,14 @@ class SignUpViewController: BaseViewController {
         self.lblSignIn.isUserInteractionEnabled = true
         self.lblSignIn.addGestureRecognizer(signInGesture)
         // Do any additional setup after loading the view.
+        
+        //County Code
+        let countryCode = (Locale.current as NSLocale).object(forKey: .countryCode) as? String
+        for contry in arrcountry where contry.countryCode == countryCode {
+            //self.txtContryCode.text = "+\(contry.phoneExtension)"
+            self.countyCode = "+\(contry.phoneExtension)"
+            self.txtContryCode.text = "\(contry.flag!) +\(contry.phoneExtension)"
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -60,58 +114,97 @@ class SignUpViewController: BaseViewController {
     }
     
     @IBAction func signUpClickAction(_ sender: Any) {
+        self.view.endEditing(true)
+        
+        /*  self.signUpVM.name = self.txtName.text!
+         self.signUpVM.email = self.txtEmail.text!
+         self.signUpVM.contactNumber = self.txtContact.text!
+         self.signUpVM.profession = self.txtProfession.text!
+         self.signUpVM.referral = self.txtReferral.text!
+         self.signUpVM.countryCode = self.countyCode
+         
+         switch self.signUpVM.validateSignUp() {
+         case .Valid:
+         ProgressManager.show(withStatus: "", on: self.view)
+         self.signUpVM.callSignUpAPI {
+         if self.signUpVM.errorSignUp == "" {
+         ProgressManager.dismiss()
+         if let controller = self.instantiate(VerifyOTPViewController.self, storyboard: STORYBOARD.signup) as? VerifyOTPViewController {
+         controller.enterEmail = self.signUpVM.email
+         self.navigationController?.pushViewController(controller, animated: true)
+         }
+         } else {
+         ProgressManager.showError(withStatus: self.signUpVM.errorSignUp, on: self.view) {
+         if self.signUpVM.errorSignUp == "Your email is not verify. We have sent OTP in your email. please verify OPT" {
+         if let controller = self.instantiate(VerifyOTPViewController.self, storyboard: STORYBOARD.signup) as? VerifyOTPViewController {
+         controller.enterEmail = self.signUpVM.email
+         self.navigationController?.pushViewController(controller, animated: true)
+         }
+         }
+         }
+         }
+         }
+         case .InValid(let error):
+         ProgressManager.showError(withStatus: error, on: self.view)
+         } */
+        
         if let controller = self.instantiate(VerifyOTPViewController.self, storyboard: STORYBOARD.signup) as? VerifyOTPViewController {
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }
     
-    @objc func termsLabel(gesture: UITapGestureRecognizer) {
-        let text = self.lblTerms.text!
-        let termsofServiceRange = (text as NSString).range(of: "Terms of Service")
-        let termsRange = (text as NSString).range(of: "Terms")
-        let ofRange = (text as NSString).range(of: "of")
-        let serviceRange = (text as NSString).range(of: "Service")
-        
-        let privacyRange = (text as NSString).range(of: "Privacy")
-        let policyRange = (text as NSString).range(of: "Policy")
-        
-        var isOpenTermsScreen: Bool  = false
-        var isTerms: Bool  = false
-        
-        if gesture.didTapAttributedTextInLabel(label: self.lblTerms, inRange: termsRange) {
-            print("Tapped terms")
-            isOpenTermsScreen = true
-            isTerms = true
-        } else if gesture.didTapAttributedTextInLabel(label: self.lblTerms, inRange: ofRange) {
-            print("Tapped terms")
-            isOpenTermsScreen = true
-            isTerms = true
-        } else if gesture.didTapAttributedTextInLabel(label: self.lblTerms, inRange: serviceRange) {
-            print("Tapped terms")
-            isOpenTermsScreen = true
-            isTerms = true
-        } else if gesture.didTapAttributedTextInLabel(label: self.lblTerms, inRange: termsofServiceRange) {
-            print("Tapped terms")
-            isOpenTermsScreen = true
-            isTerms = true
-        } else if gesture.didTapAttributedTextInLabel(label: self.lblTerms, inRange: privacyRange) {
-            print("Tapped privacy")
-            isOpenTermsScreen = true
-        } else if gesture.didTapAttributedTextInLabel(label: self.lblTerms, inRange: policyRange) {
-            print("Tapped privacy")
-            isOpenTermsScreen = true
-        } else {
-            print("Tapped none")
-        }
-        
-        if isOpenTermsScreen == true {
-            if let controller = self.instantiate(TermsConditionViewController.self, storyboard: STORYBOARD.leftMenu) as? TermsConditionViewController {
-                controller.isPage = (isTerms == true) ?0:1
-                controller.urlString = "https://www.google.com/"
-                self.navigationController?.pushViewController(controller, animated: true)
-            }
-        }
+    func selectedCountry(country: Country) {
+        self.countyCode = "+\(country.phoneExtension)"
+        self.txtContryCode.text = "\(country.flag!) +\(country.phoneExtension)"
     }
+    
+    /* @objc func termsLabel(gesture: UITapGestureRecognizer) {
+     let text = self.lblTerms.text!
+     let termsofServiceRange = (text as NSString).range(of: "Terms of Service")
+     let termsRange = (text as NSString).range(of: "Terms")
+     let ofRange = (text as NSString).range(of: "of")
+     let serviceRange = (text as NSString).range(of: "Service")
+     
+     let privacyRange = (text as NSString).range(of: "Privacy")
+     let policyRange = (text as NSString).range(of: "Policy")
+     
+     var isOpenTermsScreen: Bool  = false
+     var isTerms: Bool  = false
+     
+     if gesture.didTapAttributedTextInLabel(label: self.lblTerms, inRange: termsRange) {
+     print("Tapped terms")
+     isOpenTermsScreen = true
+     isTerms = true
+     } else if gesture.didTapAttributedTextInLabel(label: self.lblTerms, inRange: ofRange) {
+     print("Tapped terms")
+     isOpenTermsScreen = true
+     isTerms = true
+     } else if gesture.didTapAttributedTextInLabel(label: self.lblTerms, inRange: serviceRange) {
+     print("Tapped terms")
+     isOpenTermsScreen = true
+     isTerms = true
+     } else if gesture.didTapAttributedTextInLabel(label: self.lblTerms, inRange: termsofServiceRange) {
+     print("Tapped terms")
+     isOpenTermsScreen = true
+     isTerms = true
+     } else if gesture.didTapAttributedTextInLabel(label: self.lblTerms, inRange: privacyRange) {
+     print("Tapped privacy")
+     isOpenTermsScreen = true
+     } else if gesture.didTapAttributedTextInLabel(label: self.lblTerms, inRange: policyRange) {
+     print("Tapped privacy")
+     isOpenTermsScreen = true
+     } else {
+     print("Tapped none")
+     }
+     
+     if isOpenTermsScreen == true {
+     if let controller = self.instantiate(TermsConditionViewController.self, storyboard: STORYBOARD.leftMenu) as? TermsConditionViewController {
+     controller.isPage = (isTerms == true) ?0:1
+     controller.urlString = "https://www.google.com/"
+     self.navigationController?.pushViewController(controller, animated: true)
+     }
+     }
+     }*/
     
     @objc func signInLabel(gesture: UITapGestureRecognizer) {
         let text = self.lblSignIn.text!
@@ -125,15 +218,35 @@ class SignUpViewController: BaseViewController {
         }
     }
     
-    // MARK: - Text Field Delegate
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let finalText: String = NSString(string: textField.text!).replacingCharacters(in: range, with: string) as String
-        if textField == self.txtName {
-            return finalText.hasOnlyAlphabets()
-        }
+    // MARK: - UITextFieldDelegate
+    override func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         
+        if textField == self.txtContryCode {
+            let navController = UINavigationController(rootViewController: countryList)
+            self.present(navController, animated: true, completion: nil)
+            return false
+        }
         return true
     }
+     
+    /*  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+     let finalText: String = NSString(string: textField.text!).replacingCharacters(in: range, with: string) as String
+     if textField == self.txtName {
+     if textField.text!.count >= 100 {
+     return false
+     }
+     }
+     if textField == self.txtName {
+     return finalText.hasOnlyAlphabets()
+     }
+     if textField == self.txtEmail &&  textField.text!.count >= 20 {
+     return false
+     }
+     if textField == self.txtContact &&  textField.text!.count >= 10 {
+     return false
+     }
+     return true
+     }*/
     
 }
 extension UITapGestureRecognizer {

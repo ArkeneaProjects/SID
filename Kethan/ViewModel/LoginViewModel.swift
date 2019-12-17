@@ -35,10 +35,13 @@ class LoginViewModel: NSObject {
         let encryptedPassword = EncDec.aes128Base64Encrypt(self.password)
         let dict: NSDictionary = [ENTITIES.email: self.email, ENTITIES.password: encryptedPassword!]
         AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.SignIn, parameters: dict, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: NSInteger?) in
-            if let dict = response as? NSDictionary {
-                self.responseDict = dict
+            if error != nil {
+                self.error = error!
+            } else {
+                if let dict = response as? NSDictionary {
+                    self.responseDict = dict
+                }
             }
-            self.error = error!
             completion()
         }
     }

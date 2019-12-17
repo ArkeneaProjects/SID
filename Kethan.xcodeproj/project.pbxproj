@@ -114,6 +114,11 @@
 		189E882723953BDB009C8ECF /* CreditHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E882523953BDB009C8ECF /* CreditHistoryTableViewCell.swift */; };
 		189E882823953BDB009C8ECF /* CreditHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189E882623953BDB009C8ECF /* CreditHistoryTableViewCell.xib */; };
 		18A728E3239E687800537092 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A728E2239E687700537092 /* LoginViewModel.swift */; };
+		18C3E6E923A75FA4000ABA07 /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3E6E823A75FA4000ABA07 /* CountryListViewController.swift */; };
+		18C3E6EE23A76185000ABA07 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3E6EB23A76185000ABA07 /* Countries.swift */; };
+		18C3E6EF23A76185000ABA07 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3E6EC23A76185000ABA07 /* Country.swift */; };
+		18C3E6F023A76186000ABA07 /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3E6ED23A76185000ABA07 /* CountryCell.swift */; };
+		18C3E6F223A79879000ABA07 /* ChanagePasswordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3E6F123A79879000ABA07 /* ChanagePasswordVM.swift */; };
 		18DDC78A23797AA6003FCCE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDC78923797AA6003FCCE8 /* AppDelegate.swift */; };
 		18DDC78E23797AA6003FCCE8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDC78D23797AA6003FCCE8 /* SearchViewController.swift */; };
 		18DDC79123797AA6003FCCE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18DDC78F23797AA6003FCCE8 /* Main.storyboard */; };
@@ -283,6 +288,11 @@
 		189E882523953BDB009C8ECF /* CreditHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		189E882623953BDB009C8ECF /* CreditHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreditHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		18A728E2239E687700537092 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		18C3E6E823A75FA4000ABA07 /* CountryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
+		18C3E6EB23A76185000ABA07 /* Countries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
+		18C3E6EC23A76185000ABA07 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		18C3E6ED23A76185000ABA07 /* CountryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
+		18C3E6F123A79879000ABA07 /* ChanagePasswordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChanagePasswordVM.swift; sourceTree = "<group>"; };
 		18DDC78623797AA6003FCCE8 /* SID.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SID.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DDC78923797AA6003FCCE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18DDC78D23797AA6003FCCE8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -411,6 +421,7 @@
 		1804E15D2394D79300210C0F /* LoginSingUp */ = {
 			isa = PBXGroup;
 			children = (
+				18C3E6E823A75FA4000ABA07 /* CountryListViewController.swift */,
 				18E71D6A237C15690090FC90 /* LoginViewController.swift */,
 				1892E9DD23968E0800AE6ECC /* SignUpViewController.swift */,
 				1804E15E2394D7B900210C0F /* VerifyOTPViewController.swift */,
@@ -639,8 +650,19 @@
 			children = (
 				18A728E2239E687700537092 /* LoginViewModel.swift */,
 				1809E9EE23A39379001A8A77 /* SignUpViewModel.swift */,
+				18C3E6F123A79879000ABA07 /* ChanagePasswordVM.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		18C3E6EA23A76185000ABA07 /* CountryList */ = {
+			isa = PBXGroup;
+			children = (
+				18C3E6EB23A76185000ABA07 /* Countries.swift */,
+				18C3E6EC23A76185000ABA07 /* Country.swift */,
+				18C3E6ED23A76185000ABA07 /* CountryCell.swift */,
+			);
+			path = CountryList;
 			sourceTree = "<group>";
 		};
 		18DDC77D23797AA6003FCCE8 = {
@@ -804,6 +826,7 @@
 		18E71D6E237C1F5A0090FC90 /* OtherClasses */ = {
 			isa = PBXGroup;
 			children = (
+				18C3E6EA23A76185000ABA07 /* CountryList */,
 				1809E9E723A37D1E001A8A77 /* AES128 */,
 				1822E32323A228DD006042E3 /* CustomLogger */,
 				1822E31F23A2278C006042E3 /* Reachability */,
@@ -1172,9 +1195,11 @@
 				1821AF20237A7E670010B307 /* ExpandableLabel.swift in Sources */,
 				1822E31823A1FEF7006042E3 /* UITextField+fixCaretPosition.swift in Sources */,
 				18DDC7D023798C34003FCCE8 /* Common.swift in Sources */,
+				18C3E6F223A79879000ABA07 /* ChanagePasswordVM.swift in Sources */,
 				188131AC238E64EE005334BF /* ResponsePopUpViewController.swift in Sources */,
 				18974557238D5B9E0000FCC4 /* BEMAnimationManager.m in Sources */,
 				1897455A238D5B9E0000FCC4 /* BEMCheckBox.m in Sources */,
+				18C3E6EF23A76185000ABA07 /* Country.swift in Sources */,
 				18956D202387FC8100BD8F63 /* SearchListViewController.swift in Sources */,
 				1879F576238BB98A00ABBBC0 /* SearchViewCollecction.swift in Sources */,
 				1801ABB323851DCB00F46223 /* UIColor+KVNContrast.m in Sources */,
@@ -1189,6 +1214,7 @@
 				1897454D238D52B50000FCC4 /* ThankYouViewController.swift in Sources */,
 				1821AF0D237A74320010B307 /* UploadViewController.swift in Sources */,
 				1821AF12237A7BB50010B307 /* CustomNavBar.swift in Sources */,
+				18C3E6EE23A76185000ABA07 /* Countries.swift in Sources */,
 				1879F57B238BBDC300ABBBC0 /* CustomCollectionViewCell.swift in Sources */,
 				1897454A238D38A80000FCC4 /* ProcessDocumentView.swift in Sources */,
 				1822E31E23A2242D006042E3 /* AFManager.swift in Sources */,
@@ -1204,6 +1230,7 @@
 				1801ABB023851DCB00F46223 /* ProgressManager.m in Sources */,
 				18DDC7D223798CD4003FCCE8 /* Constant.swift in Sources */,
 				188131A9238E5D34005334BF /* CustomDropDown.swift in Sources */,
+				18C3E6E923A75FA4000ABA07 /* CountryListViewController.swift in Sources */,
 				1821AF17237A7E070010B307 /* CustomConstraint.swift in Sources */,
 				1822E32523A228DD006042E3 /* CustomLogger.swift in Sources */,
 				1875FC0F23A0ED7C00B1EA1F /* CropPickerView.swift in Sources */,
@@ -1250,6 +1277,7 @@
 				18A728E3239E687800537092 /* LoginViewModel.swift in Sources */,
 				18974536238D0DA80000FCC4 /* AddDetailHeader1Cell.swift in Sources */,
 				1804E1712394FABA00210C0F /* GuideCollectionViewCell.swift in Sources */,
+				18C3E6F023A76186000ABA07 /* CountryCell.swift in Sources */,
 				1809E9EF23A39379001A8A77 /* SignUpViewModel.swift in Sources */,
 				18794DB12398DF2900E80457 /* ProfileViewController.swift in Sources */,
 				1822E31723A1FEF7006042E3 /* SkyFloatingLabelTextField.swift in Sources */,

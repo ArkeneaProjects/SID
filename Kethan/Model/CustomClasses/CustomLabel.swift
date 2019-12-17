@@ -35,6 +35,12 @@ open class CustomLabel: UILabel {
                 }
             }
         }
+        
+        if self.text!.last == "*"{
+            let attribute = NSMutableAttributedString.init(string: self.text!)
+            attribute.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSMakeRange((self.text!.count) - 1, 1))
+            self.attributedText = attribute
+        }
     }
     
     override open func draw(_ rect: CGRect) {

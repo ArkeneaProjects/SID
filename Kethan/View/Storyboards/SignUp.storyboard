@@ -772,10 +772,10 @@ change your email address </string>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="pinLength">
-                                                        <integer key="value" value="4"/>
+                                                        <integer key="value" value="6"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="interSpace">
-                                                        <real key="value" value="12"/>
+                                                        <real key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                                         <color key="value" red="0.035294117649999998" green="0.52156862749999999" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -1585,7 +1585,7 @@ change your email address </string>
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pup-Wq-58h">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="849"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="859"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBg" translatesAutoresizingMaskIntoConstraints="NO" id="5rf-Qj-ELe">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="155"/>
@@ -1613,7 +1613,7 @@ change your email address </string>
                                                         </constraints>
                                                     </imageView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WYm-hb-awp">
-                                                        <rect key="frame" x="21" y="155" width="266" height="694"/>
+                                                        <rect key="frame" x="21" y="155" width="266" height="704"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Identifying implans is only a few clicks away Enter the details below to Sign-up" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VkP-qE-fek" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="25" width="266" height="33"/>
@@ -1648,7 +1648,7 @@ change your email address </string>
                                                                             </constraint>
                                                                         </constraints>
                                                                     </imageView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KRU-Ke-c2P" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name*" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KRU-Ke-c2P" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
                                                                         <rect key="frame" x="41" y="12" width="212" height="17"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="17" id="XOF-7B-dqF" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
@@ -1667,12 +1667,12 @@ change your email address </string>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Name" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Pon-B7-CTE" customClass="CustomTextField" customModule="SID" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Full Name" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Pon-B7-CTE" customClass="CustomTextField" customModule="SID" customModuleProvider="target">
                                                                         <rect key="frame" x="41" y="29" width="225" height="32"/>
                                                                         <color key="tintColor" red="0.56470588239999997" green="0.56470588239999997" blue="0.56470588239999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <color key="textColor" red="0.56470588235294117" green="0.56470588235294117" blue="0.56470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
+                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" returnKeyType="next"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
@@ -1682,6 +1682,9 @@ change your email address </string>
                                                                                 <color key="value" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <outlet property="delegate" destination="Zqf-Dk-nef" id="ORX-QA-KbC"/>
+                                                                        </connections>
                                                                     </textField>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -1747,7 +1750,7 @@ change your email address </string>
                                                                             </constraint>
                                                                         </constraints>
                                                                     </imageView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oef-Pw-P4J" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email*" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oef-Pw-P4J" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
                                                                         <rect key="frame" x="41" y="12" width="212" height="17"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="17" id="tYL-LO-9cC" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
@@ -1781,6 +1784,9 @@ change your email address </string>
                                                                                 <color key="value" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <outlet property="delegate" destination="Zqf-Dk-nef" id="F38-H7-hLZ"/>
+                                                                        </connections>
                                                                     </textField>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -1866,7 +1872,7 @@ change your email address </string>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Contact Number" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="HYu-H0-7yx" customClass="CustomTextField" customModule="SID" customModuleProvider="target">
-                                                                        <rect key="frame" x="41" y="29" width="225" height="32"/>
+                                                                        <rect key="frame" x="106" y="29" width="160" height="32"/>
                                                                         <color key="tintColor" red="0.56470588239999997" green="0.56470588239999997" blue="0.56470588239999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <color key="textColor" red="0.56470588235294117" green="0.56470588235294117" blue="0.56470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
@@ -1884,11 +1890,49 @@ change your email address </string>
                                                                             <outlet property="delegate" destination="Zqf-Dk-nef" id="NlW-pb-hXP"/>
                                                                         </connections>
                                                                     </textField>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BZm-DY-OF9">
+                                                                        <rect key="frame" x="41" y="29" width="60" height="32"/>
+                                                                        <subviews>
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gLt-Yg-0mv" customClass="CustomTextField" customModule="SID" customModuleProvider="target">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="32"/>
+                                                                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                                <textInputTraits key="textInputTraits"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                                                        <real key="value" value="14"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                                <connections>
+                                                                                    <outlet property="delegate" destination="Zqf-Dk-nef" id="zTw-re-fK9"/>
+                                                                                </connections>
+                                                                            </textField>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                        <constraints>
+                                                                            <constraint firstItem="gLt-Yg-0mv" firstAttribute="top" secondItem="BZm-DY-OF9" secondAttribute="top" id="Bww-7Y-lh9"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="gLt-Yg-0mv" secondAttribute="bottom" id="K6O-Dx-8bb"/>
+                                                                            <constraint firstAttribute="width" constant="60" id="Uv0-Ss-QeX" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                            </constraint>
+                                                                            <constraint firstAttribute="trailing" secondItem="gLt-Yg-0mv" secondAttribute="trailing" id="cx8-Qf-4zE"/>
+                                                                            <constraint firstItem="gLt-Yg-0mv" firstAttribute="leading" secondItem="BZm-DY-OF9" secondAttribute="leading" id="jnM-pc-Ld8"/>
+                                                                        </constraints>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </view>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="bottom" secondItem="HYu-H0-7yx" secondAttribute="bottom" constant="5" id="6Vk-nO-kDk"/>
                                                                     <constraint firstAttribute="trailing" secondItem="2eI-qX-tJu" secondAttribute="trailing" constant="13" id="73G-Lu-FCz"/>
+                                                                    <constraint firstItem="BZm-DY-OF9" firstAttribute="top" secondItem="2eI-qX-tJu" secondAttribute="bottom" id="7CS-z9-hyK"/>
                                                                     <constraint firstItem="2eI-qX-tJu" firstAttribute="leading" secondItem="cI2-ld-fo8" secondAttribute="trailing" constant="13" id="AZU-gs-Fbl" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="NO"/>
@@ -1905,13 +1949,15 @@ change your email address </string>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </constraint>
                                                                     <constraint firstAttribute="trailing" secondItem="HYu-H0-7yx" secondAttribute="trailing" id="U2F-BN-s0H"/>
-                                                                    <constraint firstItem="HYu-H0-7yx" firstAttribute="leading" secondItem="2eI-qX-tJu" secondAttribute="leading" id="Xp0-S2-x9r"/>
+                                                                    <constraint firstItem="HYu-H0-7yx" firstAttribute="leading" secondItem="BZm-DY-OF9" secondAttribute="trailing" constant="5" id="aNF-VB-dB9"/>
                                                                     <constraint firstItem="cI2-ld-fo8" firstAttribute="top" secondItem="a3s-PQ-nei" secondAttribute="top" constant="17" id="ge9-DQ-Ihl" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </constraint>
+                                                                    <constraint firstItem="BZm-DY-OF9" firstAttribute="leading" secondItem="2eI-qX-tJu" secondAttribute="leading" id="idl-wb-gjV"/>
                                                                     <constraint firstItem="HYu-H0-7yx" firstAttribute="top" secondItem="2eI-qX-tJu" secondAttribute="bottom" id="nRy-pZ-RSY"/>
+                                                                    <constraint firstItem="BZm-DY-OF9" firstAttribute="height" secondItem="HYu-H0-7yx" secondAttribute="height" id="tYG-og-GtC"/>
                                                                     <constraint firstItem="cI2-ld-fo8" firstAttribute="leading" secondItem="a3s-PQ-nei" secondAttribute="leading" constant="13" id="v5x-s3-NZ6" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
@@ -2147,7 +2193,7 @@ change your email address </string>
                                                                     </constraint>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
-                                                                <state key="normal" title="Sign Up">
+                                                                <state key="normal" title="Verify Email">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
@@ -2164,7 +2210,7 @@ change your email address </string>
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By signing up you accept the Terms of Service and Privacy Policy" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ozk-ir-xgb" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="593" width="266" height="33"/>
+                                                                <rect key="frame" x="0.0" y="593" width="266" height="43"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="mHB-rg-lNG" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                                         <userDefinedRuntimeAttributes>
@@ -2182,8 +2228,19 @@ change your email address </string>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hei-0p-sYQ" customClass="AttributedLabel" customModule="Atributika">
+                                                                <rect key="frame" x="0.0" y="593" width="266" height="40"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="9Mz-zy-hxb" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </constraint>
+                                                                </constraints>
+                                                            </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNm-jp-KKO" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="641" width="266" height="25"/>
+                                                                <rect key="frame" x="0.0" y="651" width="266" height="25"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="25" id="DHQ-dh-orl" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                                         <userDefinedRuntimeAttributes>
@@ -2215,6 +2272,7 @@ change your email address </string>
                                                                 </userDefinedRuntimeAttributes>
                                                             </constraint>
                                                             <constraint firstItem="Eup-EO-1ps" firstAttribute="leading" secondItem="WYm-hb-awp" secondAttribute="leading" id="5SK-eM-e0F"/>
+                                                            <constraint firstItem="hei-0p-sYQ" firstAttribute="leading" secondItem="Oer-mC-xCG" secondAttribute="leading" id="7Yj-cl-Oo6"/>
                                                             <constraint firstItem="cXo-w7-ZWq" firstAttribute="leading" secondItem="WYm-hb-awp" secondAttribute="leading" id="7qC-LC-B0F"/>
                                                             <constraint firstItem="a3s-PQ-nei" firstAttribute="leading" secondItem="WYm-hb-awp" secondAttribute="leading" id="A3X-nU-y7J"/>
                                                             <constraint firstAttribute="trailing" secondItem="Xd5-sD-ivX" secondAttribute="trailing" id="Aw8-te-GR9"/>
@@ -2244,6 +2302,7 @@ change your email address </string>
                                                             <constraint firstItem="Pcl-Wf-zQk" firstAttribute="leading" secondItem="WYm-hb-awp" secondAttribute="leading" id="VbE-1O-dIc"/>
                                                             <constraint firstAttribute="trailing" secondItem="Ozk-ir-xgb" secondAttribute="trailing" id="X9a-dC-9qb"/>
                                                             <constraint firstAttribute="trailing" secondItem="a3s-PQ-nei" secondAttribute="trailing" id="XDJ-hZ-g7b"/>
+                                                            <constraint firstItem="hei-0p-sYQ" firstAttribute="trailing" secondItem="Oer-mC-xCG" secondAttribute="trailing" id="XFR-cz-UTe"/>
                                                             <constraint firstAttribute="trailing" secondItem="zNm-jp-KKO" secondAttribute="trailing" id="Y0L-Db-ebX"/>
                                                             <constraint firstItem="Ozk-ir-xgb" firstAttribute="leading" secondItem="WYm-hb-awp" secondAttribute="leading" id="a5q-fV-cVU"/>
                                                             <constraint firstAttribute="trailing" secondItem="Eup-EO-1ps" secondAttribute="trailing" id="cl6-xO-Nbk"/>
@@ -2255,8 +2314,10 @@ change your email address </string>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </constraint>
+                                                            <constraint firstItem="zNm-jp-KKO" firstAttribute="top" secondItem="hei-0p-sYQ" secondAttribute="bottom" constant="18" id="nVi-9m-Rah"/>
                                                             <constraint firstAttribute="trailing" secondItem="VkP-qE-fek" secondAttribute="trailing" id="naX-U0-835"/>
                                                             <constraint firstAttribute="trailing" secondItem="Oer-mC-xCG" secondAttribute="trailing" id="ntI-75-8Da"/>
+                                                            <constraint firstItem="hei-0p-sYQ" firstAttribute="top" secondItem="Oer-mC-xCG" secondAttribute="bottom" constant="25" id="r7M-oJ-vOO"/>
                                                             <constraint firstItem="Pcl-Wf-zQk" firstAttribute="top" secondItem="cXo-w7-ZWq" secondAttribute="bottom" constant="13" id="s8J-iB-l7r" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
@@ -2317,9 +2378,10 @@ change your email address </string>
                     </view>
                     <connections>
                         <outlet property="lblSignIn" destination="zNm-jp-KKO" id="sB7-P8-EEg"/>
-                        <outlet property="lblTerms" destination="Ozk-ir-xgb" id="zzZ-UE-sdc"/>
+                        <outlet property="lblTerms" destination="hei-0p-sYQ" id="wfY-u9-fXZ"/>
                         <outlet property="scrollView" destination="mQr-M5-KAK" id="Tb9-Cq-MVE"/>
                         <outlet property="txtContact" destination="HYu-H0-7yx" id="XPg-f7-8tT"/>
+                        <outlet property="txtContryCode" destination="gLt-Yg-0mv" id="0C8-Pf-B3J"/>
                         <outlet property="txtEmail" destination="YLm-L7-c4Z" id="gNo-Bc-Ceh"/>
                         <outlet property="txtName" destination="Pon-B7-CTE" id="Hcc-ug-w86"/>
                         <outlet property="txtProfession" destination="XDL-UK-SIv" id="FSW-kQ-pR5"/>
@@ -2328,7 +2390,7 @@ change your email address </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IRw-7K-bdU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2486" y="313"/>
+            <point key="canvasLocation" x="-2486.25" y="312.67605633802816"/>
         </scene>
         <!--VerifyOTP View Controller-->
         <scene sceneID="1c5-ky-Tol">
@@ -2400,10 +2462,10 @@ email address</string>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="pinLength">
-                                                <integer key="value" value="4"/>
+                                                <integer key="value" value="6"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="interSpace">
-                                                <real key="value" value="12"/>
+                                                <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                                 <color key="value" red="0.035294117649999998" green="0.52156862749999999" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>

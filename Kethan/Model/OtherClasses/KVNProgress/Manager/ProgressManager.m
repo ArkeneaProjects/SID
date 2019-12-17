@@ -15,13 +15,13 @@
     KVNProgressConfiguration *configuration = [[KVNProgressConfiguration alloc] init];
     
     configuration.statusColor = [UIColor whiteColor];
-    configuration.statusFont = [UIFont fontWithName:@"HelveticaNeue-Medium" size:19.0];
+    configuration.statusFont = [UIFont fontWithName:@"NeoSans" size:19.0];
     
     configuration.circleStrokeForegroundColor = [UIColor whiteColor];
     configuration.circleStrokeBackgroundColor = [UIColor clearColor];
     configuration.circleFillBackgroundColor = [UIColor clearColor];
     //configuration.backgroundFillColor = [UIColor redColor];
-    configuration.backgroundFillColor = [UIColor colorWithRed:9.0/255.0 green:133.0/255.0 blue:233.0/255.0 alpha:0.8];
+    configuration.backgroundFillColor = [UIColor colorWithRed:80.0/255.0 green:99.0/255.0 blue:140.0/255.0 alpha:0.8];
     configuration.backgroundTintColor = [UIColor colorWithWhite:1.0 alpha:0.6];
     
     configuration.successColor = [UIColor whiteColor];

@@ -1043,7 +1043,7 @@ about an implant, upon verifiication  we'll add
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQd-xq-pwy" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="272" width="320" height="56"/>
+                                <rect key="frame" x="5" y="272" width="310" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="33" id="zmY-yf-6HF"/>
                                 </constraints>
@@ -1096,7 +1096,7 @@ once it's verified. </string>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
                             <constraint firstItem="wKB-hx-HXb" firstAttribute="leading" secondItem="xSK-hy-FhW" secondAttribute="leading" id="3jD-x1-C8h"/>
-                            <constraint firstItem="aQd-xq-pwy" firstAttribute="leading" secondItem="xSK-hy-FhW" secondAttribute="leading" id="GiJ-hr-Kl3"/>
+                            <constraint firstItem="aQd-xq-pwy" firstAttribute="leading" secondItem="xSK-hy-FhW" secondAttribute="leading" constant="5" id="GiJ-hr-Kl3"/>
                             <constraint firstItem="xSK-hy-FhW" firstAttribute="trailing" secondItem="gNv-JD-4Im" secondAttribute="trailing" constant="28" id="Iql-7n-udk" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
@@ -1115,7 +1115,7 @@ once it's verified. </string>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
                             <constraint firstItem="wKB-hx-HXb" firstAttribute="top" secondItem="R3Y-vD-9c5" secondAttribute="top" id="RXH-Sh-EWD"/>
-                            <constraint firstItem="aQd-xq-pwy" firstAttribute="trailing" secondItem="xSK-hy-FhW" secondAttribute="trailing" id="WhI-Zo-JS6"/>
+                            <constraint firstItem="aQd-xq-pwy" firstAttribute="trailing" secondItem="xSK-hy-FhW" secondAttribute="trailing" constant="-5" id="WhI-Zo-JS6"/>
                             <constraint firstItem="iMY-aB-607" firstAttribute="centerX" secondItem="R3Y-vD-9c5" secondAttribute="centerX" id="esc-MA-hpJ"/>
                             <constraint firstAttribute="bottom" secondItem="wKB-hx-HXb" secondAttribute="bottom" id="gnX-r2-tz1"/>
                             <constraint firstItem="aQd-xq-pwy" firstAttribute="top" secondItem="RQq-bi-hdf" secondAttribute="bottom" constant="23" id="iDw-6b-wuP" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
@@ -1135,6 +1135,7 @@ once it's verified. </string>
                     <connections>
                         <outlet property="checkbox" destination="iMY-aB-607" id="tqC-pu-iaV"/>
                         <outlet property="lblMsg" destination="aQd-xq-pwy" id="8KO-uH-ft9"/>
+                        <outlet property="lblThankYou" destination="RQq-bi-hdf" id="OEb-Ip-BUv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WaS-kX-Jhg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -19,6 +19,21 @@ struct APP_COLOR {
 
 }
 
+struct APP_FONT {
+    
+    static func regularFont(withSize: CGFloat) -> UIFont {
+        return UIFont(name: "HelveticaNeue", size: getCalculated(withSize))!
+    }
+    
+    static func mediumFont(withSize: CGFloat) -> UIFont {
+        return UIFont(name: "HelveticaNeue-Medium", size: getCalculated(withSize))!
+    }
+    
+    static func boldFont(withSize: CGFloat) -> UIFont {
+        return UIFont(name: "HelveticaNeue-Bold", size: getCalculated(withSize))!
+    }
+}
+
 struct DEVICES {
     static let iPhoneSE: String = "iPhoneSE"
     static let iPhone6: String = "iPhone6"
@@ -43,6 +58,9 @@ struct SUFFIX_URL {
     static let SignIn = "auth/signin"
     static let SignUp = "auth/signup"
     static let SignUPOTP = "auth/verifyOPT"
+    static let SetPassword = "auth/setpassword"
+    static let ForgotPassword = "auth/forgotPassword"
+
 }
     
 struct KEYS {
@@ -110,9 +128,9 @@ struct MESSAGES {
 
 struct ERRORS {
     static let CameraError = "Your device dose not support this feature!"
-    static let emilId = "Enter Email Id"
+    static let emilId = "The Email ID must not be left blank"
     static let invalidEmail: String = "Enter valid email id"
-    static let validMobileNumber: String = "Please enter valid mobile number"
+    static let validMobileNumber: String = "It seems you have entered an incorrcect phone number"
     static let MobileNumberError: String = "Entered mobile number is invalid with selected country code"
     
     //SignUp
@@ -120,8 +138,20 @@ struct ERRORS {
     static let middleName: String = "Please enter middle name"
     static let lastName: String = "Please enter last name"
     static let onlyDigit: String = "Please enter only numaric values"
-    static let fullName: String = "Enter Full Name"
+    static let fullName: String = "Your name must not be left blank "
     static let profession: String = "Enter Profession"
+    
+    //OTP
+    static let otp: String = "Enter valid OTP"
+    
+    //change password
+    static let oldPwdEmpty: String = "Your current password cannot be blank "
+    static let newPwdEmpty: String = "You have to enter a new password"
+    static let confirmPwdEmpty: String = "You have to confirm your new password "
+    static let matchPwd: String = "The passwords do not match. Please try again"
+    static let invalidPwd: String = "The password must have atleast one character and one numeric"
+    static let invalidLenghtPwd: String = "Password should be atleast 6-15 charactor"
+
 
     static let EmptyCountryCode = "Please select county"
     static let EmptyMobileNumber = "Please enter mobile number"
@@ -157,6 +187,9 @@ struct ENTITIES {
     static let profession = "profession"
     static let referralCode = "referralCode"
     static let otp = "otp"
-
+    
+    //User
+    static let accesstoken = "accesstoken"
+    static let userId = "userId"
 }
 

@@ -15,7 +15,8 @@ class SearchDetailViewController: BaseViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBarWithTitle("Details", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeEdit)
-        
+        self.navBar.btnRightEdit.contentHorizontalAlignment = .right
+
         self.tblView.registerNibWithIdentifier([IDENTIFIERS.DetailRow1TableViewCell, IDENTIFIERS.DetailRow2TableViewCell])
         self.tblView.rowHeight = UITableView.automaticDimension
         self.tblView.estimatedRowHeight = getCalculated(20.0)

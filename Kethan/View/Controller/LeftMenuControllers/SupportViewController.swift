@@ -20,7 +20,7 @@ class SupportViewController: BaseViewController {
     
     @IBAction func submitClickAction(_ sender: Any) {
         if let controller = self.instantiate(ThankYouViewController.self, storyboard: STORYBOARD.main) as? ThankYouViewController {
-            controller.isComeFromSupport = true
+            controller.isComeFrom = 0
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }

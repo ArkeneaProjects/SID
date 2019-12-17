@@ -63,7 +63,7 @@ class SignUpUserGuideViewController: BaseViewController, UICollectionViewDelegat
         self.btnSkip.backgroundColor = (isChange == false) ?.clear:APP_COLOR.color2
         self.btnSkip.setTitle((isChange == false) ?"Skip":"Continue", for: .normal)
         self.btnSkip.setTitleColor((isChange == false) ?APP_COLOR.color2:.white, for: .normal)
-        self.btnSkip.titleLabel?.font = UIFont(name: (isChange == false) ?"HelveticaNeue":"HelveticaNeue-Bold", size: (isChange == false) ?getCalculated(14.0):getCalculated(16.0))
+        self.btnSkip.titleLabel?.font = (isChange == false) ?APP_FONT.regularFont(withSize: 14.0):APP_FONT.boldFont(withSize: 16.0)
     }
     
     // MARK: - CollectionView Dalegate and DataSource

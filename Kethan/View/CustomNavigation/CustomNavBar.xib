@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" restorationIdentifier="CustomNavBar" preservesSuperviewLayoutMargins="YES" id="D66-a3-Tga" customClass="CustomNavBar" customModule="Kethan" customModuleProvider="target">
+        <view contentMode="scaleToFill" restorationIdentifier="CustomNavBar" preservesSuperviewLayoutMargins="YES" id="D66-a3-Tga" customClass="CustomNavBar" customModule="SID" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -24,7 +24,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OFt-a2-mnB" userLabel="Content">
                             <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDa-7A-aZu" customClass="CustomButton" customModule="Kethan" customModuleProvider="target">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDa-7A-aZu" customClass="CustomButton" customModule="SID" customModuleProvider="target">
                                     <rect key="frame" x="5" y="0.0" width="44" height="44"/>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
@@ -34,7 +34,7 @@
                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5D-E3-a2M" customClass="CustomLabel" customModule="Kethan" customModuleProvider="target">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5D-E3-a2M" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
                                     <rect key="frame" x="49" y="0.0" width="223" height="44"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -46,27 +46,33 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TkF-pv-xAF" customClass="CustomButton" customModule="Kethan" customModuleProvider="target">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TkF-pv-xAF" customClass="CustomButton" customModule="SID" customModuleProvider="target">
                                     <rect key="frame" x="271" y="0.0" width="44" height="44"/>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="44" id="FE6-cr-NnE"/>
                                         <constraint firstAttribute="height" constant="44" id="d2y-aC-S2x"/>
                                     </constraints>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                    <state key="normal" image="pencil"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                            <real key="value" value="12"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azN-u4-Mvk" customClass="CustomButton" customModule="Kethan" customModuleProvider="target">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azN-u4-Mvk" customClass="CustomButton" customModule="SID" customModuleProvider="target">
                                     <rect key="frame" x="272" y="12" width="43" height="20"/>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="20" id="9Kn-yS-Evp" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                                        <constraint firstAttribute="height" constant="20" id="9Kn-yS-Evp" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                         </constraint>
-                                        <constraint firstAttribute="width" constant="43" id="k6O-r2-vu2" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                                        <constraint firstAttribute="width" constant="43" id="k6O-r2-vu2" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                             </userDefinedRuntimeAttributes>
@@ -95,7 +101,7 @@
                                 <constraint firstItem="azN-u4-Mvk" firstAttribute="leading" secondItem="w5D-E3-a2M" secondAttribute="trailing" id="Jc0-X7-9uL"/>
                                 <constraint firstAttribute="trailing" secondItem="TkF-pv-xAF" secondAttribute="trailing" constant="5" id="Jli-j0-uFw"/>
                                 <constraint firstItem="w5D-E3-a2M" firstAttribute="leading" secondItem="DDa-7A-aZu" secondAttribute="trailing" id="QTn-aP-lP9"/>
-                                <constraint firstAttribute="trailing" secondItem="azN-u4-Mvk" secondAttribute="trailing" constant="5" id="bid-kL-QKO" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                                <constraint firstAttribute="trailing" secondItem="azN-u4-Mvk" secondAttribute="trailing" constant="5" id="bid-kL-QKO" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                     </userDefinedRuntimeAttributes>
@@ -104,7 +110,7 @@
                                 <constraint firstAttribute="height" constant="44" id="iuj-84-Xme"/>
                                 <constraint firstItem="azN-u4-Mvk" firstAttribute="centerY" secondItem="OFt-a2-mnB" secondAttribute="centerY" id="kJp-6d-v0P"/>
                                 <constraint firstItem="DDa-7A-aZu" firstAttribute="centerY" secondItem="OFt-a2-mnB" secondAttribute="centerY" id="v9G-u2-fUK"/>
-                                <constraint firstItem="DDa-7A-aZu" firstAttribute="leading" secondItem="OFt-a2-mnB" secondAttribute="leading" constant="5" id="xf6-bT-Haz" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                                <constraint firstItem="DDa-7A-aZu" firstAttribute="leading" secondItem="OFt-a2-mnB" secondAttribute="leading" constant="5" id="xf6-bT-Haz" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                     </userDefinedRuntimeAttributes>
@@ -146,7 +152,4 @@
             <point key="canvasLocation" x="219.375" y="-244.01408450704227"/>
         </view>
     </objects>
-    <resources>
-        <image name="pencil" width="18" height="17.5"/>
-    </resources>
 </document>

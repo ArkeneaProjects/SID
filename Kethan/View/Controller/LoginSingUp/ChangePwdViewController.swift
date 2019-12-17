@@ -9,12 +9,12 @@
 import UIKit
 
 class ChangePwdViewController: BaseViewController {
-
+    
     @IBOutlet weak var txtConfirmPwd: CustomTextField!
     @IBOutlet weak var txtPwd: CustomTextField!
     @IBOutlet weak var txtOldPwd: CustomTextField!
     
-    var isComeFromLogin: Bool = false
+    var isComeFrom =  0  // 0 for ChangePassword, 1 for forgot, 2 for signup
     
     @IBOutlet weak var lblOldPwd: CustomLabel!
     @IBOutlet weak var lblNewPwd: CustomLabel!
@@ -23,20 +23,23 @@ class ChangePwdViewController: BaseViewController {
     @IBOutlet weak var btnHideOldPwd: CustomButton!
     @IBOutlet weak var btnHideNewPwd: CustomButton!
     @IBOutlet weak var btnHideConfirmPwd: CustomButton!
-
+    
     @IBOutlet weak var constOldPwdHeight: CustomConstraint!
     @IBOutlet weak var constNewPwdTop: CustomConstraint!
-
+    
+    let changePwdVM = ChanagePasswordVM()
+    var email: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addNavBarWithTitle("Change Password", withLeftButtonType: (isComeFromLogin == true) ?.buttonTypeNil:.buttonTypeBack, withRightButtonType: .buttonTypeNil)
+        self.addNavBarWithTitle("Change Password", withLeftButtonType: (isComeFrom == 0) ?.buttonTypeNil:.buttonTypeBack, withRightButtonType: .buttonTypeNil)
         
-        self.constOldPwdHeight.constant = (isComeFromLogin == true) ?0:getCalculated(66.0)
-        self.constNewPwdTop.constant = (isComeFromLogin == true) ?0:getCalculated(24.0)
-
-        self.lblNewPwd.text = (isComeFromLogin == true) ?"Enter Old Password":""
-        self.lblNewPwd.text = (isComeFromLogin == true) ?"Password":"Enter New Password"
-        self.lblConfirmPwd.text = (isComeFromLogin == true) ?"Confirm Password":"Confirm New Password"
+        self.constOldPwdHeight.constant = (isComeFrom != 0) ?0:getCalculated(66.0)
+        self.constNewPwdTop.constant = (isComeFrom != 0) ?0:getCalculated(24.0)
+        
+        self.lblNewPwd.text = (isComeFrom == 0) ?"Enter Old Password":""
+        self.lblNewPwd.text = (isComeFrom == 0) ?"Enter New Password":"Enter New Password"
+        self.lblConfirmPwd.text = (isComeFrom == 0) ?"Confirm New Password":"Confirm New Password"
         // Do any additional setup after loading the view.
     }
     
@@ -47,35 +50,61 @@ class ChangePwdViewController: BaseViewController {
     }
     
     @IBAction func hidePwdClickAction(_ sender: Any) {
-           self.txtPwd.isSecureTextEntry = (self.txtPwd.isSecureTextEntry == true) ?false:true
+        self.txtPwd.isSecureTextEntry = (self.txtPwd.isSecureTextEntry == true) ?false:true
         self.btnHideNewPwd.setImage((self.txtPwd.isSecureTextEntry == true) ?UIImage(named: "hideEye"):UIImage(named: "unhideEye"), for: .normal)
-       }
+    }
+    
     @IBAction func hideConfirmPwdClickAction(_ sender: Any) {
         self.txtConfirmPwd.isSecureTextEntry = (self.txtConfirmPwd.isSecureTextEntry == true) ?false:true
         self.btnHideConfirmPwd.setImage((self.txtConfirmPwd.isSecureTextEntry == true) ?UIImage(named: "hideEye"):UIImage(named: "unhideEye"), for: .normal)
     }
     
     @IBAction func DoneClickAction(_ sender: Any) {
-        if self.isComeFromLogin == true {
-            if self.constOldPwdHeight.constant == 0 {
-                self.navigationController?.popToRootViewController(animated: true)
-            } else {
-                if let controller = self.instantiate(SignUpUserGuideViewController.self, storyboard: STORYBOARD.signup) as? SignUpUserGuideViewController {
-                    self.navigationController?.pushViewController(controller, animated: true)
-                }
+        /* if self.isComeFromLogin == true {
+         if self.constOldPwdHeight.constant == 0 {
+         self.navigationController?.popToRootViewController(animated: true)
+         } else {
+         self.changePwdVM.newPwd = self.txtPwd.text!
+         self.changePwdVM.email = email
+         
+         switch self.changePwdVM.validateChangePwd() {
+         case .Valid:
+         ProgressManager.show(withStatus: "", on: self.view)
+         self.changePwdVM.changePwdAPI {
+         if self.changePwdVM.error == "" {
+         ProgressManager.dismiss()
+         if let controller = self.instantiate(SignUpUserGuideViewController.self, storyboard: STORYBOARD.signup) as? SignUpUserGuideViewController {
+         self.navigationController?.pushViewController(controller, animated: true)
+         }
+         } else {
+         ProgressManager.showError(withStatus: self.changePwdVM.error, on: self.view)
+         }
+         }
+         case .InValid(let error):
+         ProgressManager.showError(withStatus: error, on: self.view)
+         }
+         }
+         } else {
+         self.navigationController?.popToRootViewController(animated: true)
+         }*/
+        
+        if self.isComeFrom == 2 {
+            if let controller = self.instantiate(SignUpUserGuideViewController.self, storyboard: STORYBOARD.signup) as? SignUpUserGuideViewController {
+                self.navigationController?.pushViewController(controller, animated: true)
             }
         } else {
             self.navigationController?.popToRootViewController(animated: true)
         }
+        
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
