@@ -26,7 +26,7 @@
 		1804E1722394FABA00210C0F /* GuideCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1804E1702394FABA00210C0F /* GuideCollectionViewCell.xib */; };
 		1809E9EA23A37D37001A8A77 /* EncDec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1809E9E823A37D37001A8A77 /* EncDec.m */; };
 		1809E9ED23A37DF0001A8A77 /* NSData+AESCrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 1809E9EC23A37DF0001A8A77 /* NSData+AESCrypt.m */; };
-		1809E9EF23A39379001A8A77 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1809E9EE23A39379001A8A77 /* SignUpViewModel.swift */; };
+		1809E9EF23A39379001A8A77 /* SignUpVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1809E9EE23A39379001A8A77 /* SignUpVM.swift */; };
 		1809E9F223A3A7D3001A8A77 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1809E9F123A3A7D3001A8A77 /* User.swift */; };
 		181FFA9E239A26D50078E64D /* DatePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181FFA9D239A26D50078E64D /* DatePopUpViewController.swift */; };
 		181FFAA0239A3A8B0078E64D /* SearchFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181FFA9F239A3A8B0078E64D /* SearchFolderViewController.swift */; };
@@ -51,6 +51,7 @@
 		1822E31E23A2242D006042E3 /* AFManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822E31C23A2242C006042E3 /* AFManager.swift */; };
 		1822E32223A2278C006042E3 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1822E32023A2278C006042E3 /* Reachability.m */; };
 		1822E32523A228DD006042E3 /* CustomLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822E32423A228DD006042E3 /* CustomLogger.swift */; };
+		1847363D23AB8B5100C565A4 /* ForgotVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1847363C23AB8B5100C565A4 /* ForgotVM.swift */; };
 		18705385238FA2CD006ACA3D /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18705384238FA2CC006ACA3D /* CameraManager.swift */; };
 		18705387238FB000006ACA3D /* GalleryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18705386238FB000006ACA3D /* GalleryManager.swift */; };
 		1875FBED23A0D55E00B1EA1F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1875FBEC23A0D55E00B1EA1F /* QuartzCore.framework */; };
@@ -113,12 +114,13 @@
 		189C06512397DF0D00C292ED /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C06502397DF0D00C292ED /* SupportViewController.swift */; };
 		189E882723953BDB009C8ECF /* CreditHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E882523953BDB009C8ECF /* CreditHistoryTableViewCell.swift */; };
 		189E882823953BDB009C8ECF /* CreditHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189E882623953BDB009C8ECF /* CreditHistoryTableViewCell.xib */; };
-		18A728E3239E687800537092 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A728E2239E687700537092 /* LoginViewModel.swift */; };
+		18A728E3239E687800537092 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A728E2239E687700537092 /* LoginVM.swift */; };
 		18C3E6E923A75FA4000ABA07 /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3E6E823A75FA4000ABA07 /* CountryListViewController.swift */; };
 		18C3E6EE23A76185000ABA07 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3E6EB23A76185000ABA07 /* Countries.swift */; };
 		18C3E6EF23A76185000ABA07 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3E6EC23A76185000ABA07 /* Country.swift */; };
 		18C3E6F023A76186000ABA07 /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3E6ED23A76185000ABA07 /* CountryCell.swift */; };
 		18C3E6F223A79879000ABA07 /* ChanagePasswordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3E6F123A79879000ABA07 /* ChanagePasswordVM.swift */; };
+		18CEAE5523AB7F0D00115C12 /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CEAE5423AB7F0D00115C12 /* AppConstant.swift */; };
 		18DDC78A23797AA6003FCCE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDC78923797AA6003FCCE8 /* AppDelegate.swift */; };
 		18DDC78E23797AA6003FCCE8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDC78D23797AA6003FCCE8 /* SearchViewController.swift */; };
 		18DDC79123797AA6003FCCE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18DDC78F23797AA6003FCCE8 /* Main.storyboard */; };
@@ -192,7 +194,7 @@
 		1809E9E923A37D37001A8A77 /* EncDec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncDec.h; sourceTree = "<group>"; };
 		1809E9EB23A37DF0001A8A77 /* NSData+AESCrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AESCrypt.h"; sourceTree = "<group>"; };
 		1809E9EC23A37DF0001A8A77 /* NSData+AESCrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AESCrypt.m"; sourceTree = "<group>"; };
-		1809E9EE23A39379001A8A77 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		1809E9EE23A39379001A8A77 /* SignUpVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVM.swift; sourceTree = "<group>"; };
 		1809E9F123A3A7D3001A8A77 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		181FFA9D239A26D50078E64D /* DatePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePopUpViewController.swift; sourceTree = "<group>"; };
 		181FFA9F239A3A8B0078E64D /* SearchFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFolderViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 		1822E32023A2278C006042E3 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		1822E32123A2278C006042E3 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		1822E32423A228DD006042E3 /* CustomLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLogger.swift; sourceTree = "<group>"; };
+		1847363C23AB8B5100C565A4 /* ForgotVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotVM.swift; sourceTree = "<group>"; };
 		18705384238FA2CC006ACA3D /* CameraManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		18705386238FB000006ACA3D /* GalleryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryManager.swift; sourceTree = "<group>"; };
 		1875FBEC23A0D55E00B1EA1F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -287,12 +290,13 @@
 		189C06502397DF0D00C292ED /* SupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportViewController.swift; sourceTree = "<group>"; };
 		189E882523953BDB009C8ECF /* CreditHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		189E882623953BDB009C8ECF /* CreditHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreditHistoryTableViewCell.xib; sourceTree = "<group>"; };
-		18A728E2239E687700537092 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		18A728E2239E687700537092 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		18C3E6E823A75FA4000ABA07 /* CountryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
 		18C3E6EB23A76185000ABA07 /* Countries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
 		18C3E6EC23A76185000ABA07 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		18C3E6ED23A76185000ABA07 /* CountryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
 		18C3E6F123A79879000ABA07 /* ChanagePasswordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChanagePasswordVM.swift; sourceTree = "<group>"; };
+		18CEAE5423AB7F0D00115C12 /* AppConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
 		18DDC78623797AA6003FCCE8 /* SID.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SID.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DDC78923797AA6003FCCE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18DDC78D23797AA6003FCCE8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -648,9 +652,10 @@
 		18A728E1239E681700537092 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				18A728E2239E687700537092 /* LoginViewModel.swift */,
-				1809E9EE23A39379001A8A77 /* SignUpViewModel.swift */,
+				18A728E2239E687700537092 /* LoginVM.swift */,
+				1809E9EE23A39379001A8A77 /* SignUpVM.swift */,
 				18C3E6F123A79879000ABA07 /* ChanagePasswordVM.swift */,
+				1847363C23AB8B5100C565A4 /* ForgotVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -808,6 +813,7 @@
 				18DDC7D123798CD4003FCCE8 /* Constant.swift */,
 				1821AF22237A860F0010B307 /* Extensions.swift */,
 				18956D1C2387C7BB00BD8F63 /* Categories.swift */,
+				18CEAE5423AB7F0D00115C12 /* AppConstant.swift */,
 			);
 			path = CommonClasses;
 			sourceTree = "<group>";
@@ -1219,12 +1225,14 @@
 				1897454A238D38A80000FCC4 /* ProcessDocumentView.swift in Sources */,
 				1822E31E23A2242D006042E3 /* AFManager.swift in Sources */,
 				18974558238D5B9E0000FCC4 /* BEMPathManager.m in Sources */,
+				1847363D23AB8B5100C565A4 /* ForgotVM.swift in Sources */,
 				18974559238D5B9E0000FCC4 /* BEMCheckBoxGroup.m in Sources */,
 				1879F57F238BD71B00ABBBC0 /* DetailRow1TableViewCell.swift in Sources */,
 				1801ABAC23851DCB00F46223 /* KVNProgress.m in Sources */,
 				189C064A2397B4B800C292ED /* ForgotPwdViewController.swift in Sources */,
 				1875FC0D23A0ED7C00B1EA1F /* NSLayoutConstraint+.swift in Sources */,
 				189E882723953BDB009C8ECF /* CreditHistoryTableViewCell.swift in Sources */,
+				18CEAE5523AB7F0D00115C12 /* AppConstant.swift in Sources */,
 				1875FC1323A0ED7C00B1EA1F /* LineButton.swift in Sources */,
 				18794DAD2398CBCF00E80457 /* AboutViewController.swift in Sources */,
 				1801ABB023851DCB00F46223 /* ProgressManager.m in Sources */,
@@ -1274,11 +1282,11 @@
 				1821AF21237A7E670010B307 /* CustomTextField.swift in Sources */,
 				1801ABAB23851DCB00F46223 /* iCarousel.m in Sources */,
 				1875FC1223A0ED7C00B1EA1F /* UIImageView+.swift in Sources */,
-				18A728E3239E687800537092 /* LoginViewModel.swift in Sources */,
+				18A728E3239E687800537092 /* LoginVM.swift in Sources */,
 				18974536238D0DA80000FCC4 /* AddDetailHeader1Cell.swift in Sources */,
 				1804E1712394FABA00210C0F /* GuideCollectionViewCell.swift in Sources */,
 				18C3E6F023A76186000ABA07 /* CountryCell.swift in Sources */,
-				1809E9EF23A39379001A8A77 /* SignUpViewModel.swift in Sources */,
+				1809E9EF23A39379001A8A77 /* SignUpVM.swift in Sources */,
 				18794DB12398DF2900E80457 /* ProfileViewController.swift in Sources */,
 				1822E31723A1FEF7006042E3 /* SkyFloatingLabelTextField.swift in Sources */,
 				1801ABB223851DCB00F46223 /* UIImage+KVNEmpty.m in Sources */,

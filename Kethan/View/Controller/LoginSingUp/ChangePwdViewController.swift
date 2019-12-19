@@ -60,41 +60,16 @@ class ChangePwdViewController: BaseViewController {
     }
     
     @IBAction func DoneClickAction(_ sender: Any) {
-        /* if self.isComeFromLogin == true {
-         if self.constOldPwdHeight.constant == 0 {
-         self.navigationController?.popToRootViewController(animated: true)
-         } else {
-         self.changePwdVM.newPwd = self.txtPwd.text!
-         self.changePwdVM.email = email
-         
-         switch self.changePwdVM.validateChangePwd() {
-         case .Valid:
-         ProgressManager.show(withStatus: "", on: self.view)
-         self.changePwdVM.changePwdAPI {
-         if self.changePwdVM.error == "" {
-         ProgressManager.dismiss()
-         if let controller = self.instantiate(SignUpUserGuideViewController.self, storyboard: STORYBOARD.signup) as? SignUpUserGuideViewController {
-         self.navigationController?.pushViewController(controller, animated: true)
-         }
-         } else {
-         ProgressManager.showError(withStatus: self.changePwdVM.error, on: self.view)
-         }
-         }
-         case .InValid(let error):
-         ProgressManager.showError(withStatus: error, on: self.view)
-         }
-         }
-         } else {
-         self.navigationController?.popToRootViewController(animated: true)
-         }*/
+        self.changePwdVM.clearAll()
+        self.changePwdVM.newPwd = self.txtPwd.text!
+        self.changePwdVM.confirmPwd = self.txtConfirmPwd.text!
+        self.changePwdVM.email = email
+        self.changePwdVM.iscommingFrom = self.isComeFrom
+        self.changePwdVM.validateChangePwd(controller: self)
         
-        if self.isComeFrom == 2 {
-            if let controller = self.instantiate(SignUpUserGuideViewController.self, storyboard: STORYBOARD.signup) as? SignUpUserGuideViewController {
-                self.navigationController?.pushViewController(controller, animated: true)
-            }
-        } else {
-            self.navigationController?.popToRootViewController(animated: true)
-        }
+        //        if let controller = self.instantiate(SignUpUserGuideViewController.self, storyboard: STORYBOARD.signup) as? SignUpUserGuideViewController {
+        //            self.navigationController?.pushViewController(controller, animated: true)
+        //        }
         
     }
     /*

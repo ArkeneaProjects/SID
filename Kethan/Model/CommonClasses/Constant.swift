@@ -8,6 +8,12 @@
 
 import UIKit
 
+
+struct UserDefaultsKeys {
+    
+    static let LoggedUser = "LoggedUser"
+}
+
 struct APP_COLOR {
     static let color1 = UIColor(hexString: "#0985E9")
     static let color2 = UIColor(hexString: "#0985E9") //Blue
@@ -60,7 +66,8 @@ struct SUFFIX_URL {
     static let SignUPOTP = "auth/verifyOPT"
     static let SetPassword = "auth/setpassword"
     static let ForgotPassword = "auth/forgotPassword"
-
+    static let SignupResendOTP = "auth/resendOTP"
+    static let ForgotVerifyOTP = "auth/forgotPasswordVerifyOTP"
 }
     
 struct KEYS {
@@ -119,7 +126,7 @@ struct STORYBOARD {
 
 struct MESSAGES {
     static let uploadFailed = "Uploading is failed. Please try again."
-    static let errorOccured = "Oh no, seems like that wasn't expected..!!"
+    static let errorOccured = "Something went to wrong try after some time"
     static let invalidFormat = "Response format is invalid. Please try later."
     static let internetOffline = "The Internet connection appears to be offline."
     static let noPayment = "No payment account available for this user."
@@ -132,7 +139,8 @@ struct ERRORS {
     static let invalidEmail: String = "Enter valid email id"
     static let validMobileNumber: String = "It seems you have entered an incorrcect phone number"
     static let MobileNumberError: String = "Entered mobile number is invalid with selected country code"
-    
+    static let socialMediaError: String = "Something went to wrong try after some time"
+
     //SignUp
     static let firstName: String = "Please enter first name"
     static let middleName: String = "Please enter middle name"
@@ -149,9 +157,8 @@ struct ERRORS {
     static let newPwdEmpty: String = "You have to enter a new password"
     static let confirmPwdEmpty: String = "You have to confirm your new password "
     static let matchPwd: String = "The passwords do not match. Please try again"
-    static let invalidPwd: String = "The password must have atleast one character and one numeric"
+    static let invalidPwd: String = "Password must be alpha numeric with 6-15 characters"
     static let invalidLenghtPwd: String = "Password should be atleast 6-15 charactor"
-
 
     static let EmptyCountryCode = "Please select county"
     static let EmptyMobileNumber = "Please enter mobile number"
@@ -169,7 +176,7 @@ struct CONSTANT {
     static let ResponseStatus = "response_status"
     static let success = "success"
     static let status = "status"
-    static let ErrorCode = "error_code"
+    static let ErrorCode = "statusCode"
     static let Message = "message"
     static let WebServiceName = "service_name"
     static let AccessToken = "access_token"
@@ -177,9 +184,13 @@ struct CONSTANT {
     static let DeviceType = "device_type"
     static let Ture = "success"
     static let data = "data"
+    static let StatusCodeOne = "1"
+    static let StatusCodeTwo = "2"
 }
 
 struct ENTITIES {
+    //signup
+    static let countryCode = "country_code"
     static let email = "email"
     static let password = "password"
     static let name = "name"
@@ -187,9 +198,12 @@ struct ENTITIES {
     static let profession = "profession"
     static let referralCode = "referralCode"
     static let otp = "otp"
-    
+    static let resetOtp = "resetOtp"
+
     //User
     static let accesstoken = "accesstoken"
     static let userId = "userId"
+    static let isSocialMediaUser = "isSocialMediaUser"
+    static let socialMediaToken = "socialMediaToken"
+    static let socialPlatform = "socialPlatform"
 }
-

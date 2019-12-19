@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import Photos
 
-typealias APICompletion = (_ response: AnyObject?, _ error: String?, _ errorCode: NSInteger?) -> Void
+typealias APICompletion = (_ response: AnyObject?, _ error: String?, _ errorCode: String?) -> Void
 typealias FileDownloadCompletion = (_ isDownloaded: Bool, _ isSaved: Bool, _ fileURL: String, _ error: String) -> Void
 
 let ErrorCodeOffline = -1009, ErrorCodeTimeout = -1001, ErrorCodeConnectionFailed = -1005, ErrorCodeUnexpected = 901, ErrorCodeWrongFormat = 902, ErrorCodeUploadFailed = 903
@@ -59,34 +59,34 @@ class AFManager: NSObject {
                         
                         if let responseObject = diction.object(forKey: CONSTANT.success) as? String {
                             if responseObject == CONSTANT.Ture {
-                                completion(diction, nil, 0)
+                                completion(diction, nil, "")
                             } else {
                                 let message = diction.object(forKey: CONSTANT.Message) as? String ?? ""
                                 completion(nil, message, nil)
                             }
                         } else if let responseObject = diction.object(forKey: CONSTANT.status) as? String {
                             if responseObject == CONSTANT.Ture {
-                                completion(diction, nil, 0)
+                                completion(diction, nil, "")
                             } else {
                                 let message = diction.object(forKey: CONSTANT.Message) as? String ?? ""
                                 completion(nil, message, nil)
                             }
                         } else if diction.object(forKey: CONSTANT.status) as? String ==
                             "OK" {
-                            completion(diction, nil, 0)
+                            completion(diction, nil, "")
                         } else {
-                            completion(nil, MESSAGES.errorOccured, ErrorCodeWrongFormat)
+                            completion(nil, MESSAGES.errorOccured, "")
                         }
                         
                     } else {
                         // print("URL -> \(url)")
                         //  print("\n\nresponse -> \n\(String(data: response.data!, encoding: String.Encoding.utf8) ?? "")\n")
-                        completion(nil, MESSAGES.errorOccured, ErrorCodeUnexpected)
+                        completion(nil, MESSAGES.errorOccured, "")
                     }
                 }
             } else {
                 DispatchQueue.main.async(execute: {
-                    completion(nil, MESSAGES.internetOffline, ErrorCodeOffline)
+                    completion(nil, MESSAGES.internetOffline, "")
                 })
             }
         }
@@ -114,7 +114,7 @@ class AFManager: NSObject {
                 
             } else {
                 DispatchQueue.main.async(execute: {
-                    completion(nil, MESSAGES.internetOffline, ErrorCodeOffline)
+                    completion(nil, MESSAGES.internetOffline, "")
                 })
             }
         }
@@ -153,7 +153,7 @@ class AFManager: NSObject {
                 }
             } else {
                 DispatchQueue.main.async(execute: {
-                    completion(nil, MESSAGES.internetOffline, ErrorCodeOffline)
+                    completion(nil, MESSAGES.internetOffline, "")
                 })
             }
         }
@@ -182,20 +182,23 @@ class AFManager: NSObject {
                     if let responseObject = jsonObject!.object(forKey: CONSTANT.status) as? String {
                         if responseObject == CONSTANT.Ture {
                             if let responseDict = jsonObject!.object(forKey: CONSTANT.data) as? NSDictionary {
-                                completion(responseDict, nil, 0)
+                                completion(responseDict, nil, "")
                             }
                         } else {
                             if let responseDict = jsonObject!.object(forKey: CONSTANT.data) as? NSDictionary {
                                 let message = responseDict.object(forKey: CONSTANT.Message) as? String ?? ""
-                                completion(nil, message, nil)
+                                let errorCode = responseDict.object(forKey: CONSTANT.ErrorCode) as? String ?? ""
+                                completion(nil, message, errorCode)
+                            } else {
+                                completion(nil, MESSAGES.errorOccured, "")
                             }
                         }
                     } else {
-                        completion(nil, MESSAGES.errorOccured, ErrorCodeWrongFormat)
+                        completion(nil, MESSAGES.errorOccured, "")
                     }
                     
                 } else {
-                    completion(nil, MESSAGES.invalidFormat, ErrorCodeWrongFormat)
+                    completion(nil, MESSAGES.invalidFormat, "")
                 }
             } else if error != nil {
                 // completion(nil, error!.localizedDescription, error!.code)
@@ -209,13 +212,13 @@ class AFManager: NSObject {
                         }
                         sendPostRequestWithParameters(method: method, urlSuffix: urlSuffix, parameters: parameters, serviceCount: reqCount, completion: completion)
                     } else {
-                        completion(nil, error?.localizedDescription, nil)
+                        completion(nil, error?.localizedDescription, "")
                     }
                 } else {
-                    completion(nil, error?.localizedDescription, nil)
+                    completion(nil, error?.localizedDescription, "")
                 }
             } else {
-                completion(nil, MESSAGES.errorOccured, ErrorCodeUnexpected)
+                completion(nil, MESSAGES.errorOccured, "")
             }
         })
     }

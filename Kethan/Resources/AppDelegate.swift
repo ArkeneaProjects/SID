@@ -60,13 +60,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
             print(error.localizedDescription)
+            let controller = getTopViewController()
+            ProgressManager.showError(withStatus: error.localizedDescription, on: controller?.view)
         } else {
             let userData: NSDictionary = NSDictionary(dictionary: [
              "id": user.userID!,
              "first_name": user.profile.givenName!,
              "last_name": user.profile.familyName!,
              "email": user.profile.email!])
-             print(userData)
+            GIDSignIn.sharedInstance()?.signOut()
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: NOTIFICATIONS.googleUserUpdate), object: nil, userInfo: ["user": userData])
         }
     }
     

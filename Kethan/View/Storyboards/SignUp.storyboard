@@ -824,7 +824,7 @@ change your email address </string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="reSendOTPClickAction:" destination="jXH-gQ-w5f" eventType="touchUpInside" id="DpV-iJ-6uz"/>
+                                                    <action selector="reSendOTPClickAction:" destination="2lz-OG-klz" eventType="touchUpInside" id="3hL-1A-aa1"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPl-8o-udd" customClass="CustomButton" customModule="SID" customModuleProvider="target">
@@ -851,7 +851,7 @@ change your email address </string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="changeEmailActionClick:" destination="2lz-OG-klz" eventType="touchUpInside" id="eG6-pY-BzW"/>
+                                                    <action selector="verifyActionClick:" destination="2lz-OG-klz" eventType="touchUpInside" id="yUB-c0-3jF"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -2654,9 +2654,9 @@ email address</string>
                     </view>
                     <connections>
                         <outlet property="const_NavbarHeight" destination="wi4-IK-rOw" id="l5S-hy-9bP"/>
+                        <outlet property="pinView" destination="hH6-uZ-zyH" id="uU1-vB-5Aa"/>
                         <outlet property="viewContainer" destination="vHe-i8-cVm" id="ykL-PV-gmd"/>
                         <outlet property="viewNavBar" destination="c7q-gw-9Xp" id="DvP-dO-ixB"/>
-                        <outlet property="viewPin" destination="hH6-uZ-zyH" id="vKx-Ki-cz9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="33d-el-X1f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

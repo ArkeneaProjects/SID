@@ -75,11 +75,11 @@ class LoginViewController: BaseViewController {
             }
         }
         
-      /*  NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: NOTIFICATIONS.googleUserUpdate), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: NOTIFICATIONS.googleUserUpdate), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.googleUserDataUpdate(notification:)), name: NSNotification.Name(rawValue: NOTIFICATIONS.googleUserUpdate), object: nil)
         
         GIDSignIn.sharedInstance()?.presentingViewController = self
-        GIDSignIn.sharedInstance()?.restorePreviousSignIn() */
+        GIDSignIn.sharedInstance()?.restorePreviousSignIn()
         
         // Do any additional setup after loading the view.
  
@@ -88,7 +88,6 @@ class LoginViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
-    
     
     // MARK: - Button Action
     @IBAction func fbClickAction(_ sender: Any) {
@@ -102,8 +101,9 @@ class LoginViewController: BaseViewController {
     }
     
     @IBAction func googleClickAction(_ sender: Any) {
-        //GIDSignIn.sharedInstance()?.signIn()
-        // GIDSignIn.sharedInstance()?.signOut()
+        ProgressManager.show(withStatus: "", on: self.view)
+        GIDSignIn.sharedInstance()?.signIn()
+        GIDSignIn.sharedInstance()?.signOut()
     }
     
     @IBAction func signUpClickAction(_ sender: Any) {
@@ -113,27 +113,16 @@ class LoginViewController: BaseViewController {
     }
     
     @IBAction func signInClickAction(_ sender: Any) {
-       /* self.loginVM.email = self.txtEmail.text!
-        self.loginVM.password = self.txtPassword.text!
+        self.view.endEditing(true)
         
-        switch self.loginVM.validateLogin() {
-        case .Valid:
-            ProgressManager.show(withStatus: "", on: self.view)
-            self.loginVM.loginAPI {
-                if self.loginVM.error == "" {
-                    ProgressManager.dismiss()
-                    self.navigateToHome(false, false)
-                } else {
-                    ProgressManager.showError(withStatus: self.loginVM.error, on: self.view)
-                }
-            }
-        case .InValid(let error):
-            ProgressManager.showError(withStatus: error, on: self.view)
-        }*/
-        self.navigateToHome(false, false)
+        self.loginVM.clearAllData()
+        self.loginVM.email = self.txtEmail.text!
+        self.loginVM.password = self.txtPassword.text!
+        self.loginVM.validateLogin(self)
     }
         
     @IBAction func forgotPassWordClickAction(_ sender: Any) {
+        
         if let controller = self.instantiate(ForgotPwdViewController.self, storyboard: STORYBOARD.signup) as? ForgotPwdViewController {
             controller.isShowForgotScreen = true
             self.navigationController?.pushViewController(controller, animated: true)
@@ -146,7 +135,17 @@ class LoginViewController: BaseViewController {
     }
     
     @objc func googleUserDataUpdate(notification: Notification) {
-        
+        if let dict = notification.userInfo!["user"] as? NSDictionary {
+            print(dict)
+            if AppConstant.shared.loggedUser.accesstoken.trimmedString().count == 0 {
+                self.loginVM.clearAllData()
+                self.loginVM.email = dict["email"] as? String ?? ""
+                self.loginVM.socialMediaID = dict["id"] as? String ?? ""
+                self.loginVM.fullName = "\(dict["first_name"] as? String ?? "") \(dict["last_name"] as? String ?? "")"
+                self.loginVM.loginType = "google"
+                self.loginVM.validateSocialLogin(controller: self)
+            }
+        }
     }
     
     // MARK: - TextField Delegate

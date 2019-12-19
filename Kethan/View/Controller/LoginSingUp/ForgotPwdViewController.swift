@@ -22,7 +22,11 @@ class ForgotPwdViewController: BaseViewController {
     @IBOutlet weak var txtEmail: CustomTextField!
     @IBOutlet weak var lblOTPMsg: CustomLabel!
     
+    var otp: String = ""
+    
     var isShowForgotScreen: Bool = false
+    
+    var forgotVM = ForgotVM()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +44,25 @@ class ForgotPwdViewController: BaseViewController {
     @IBAction func sendActionClick(_ sender: Any) {
         self.view.endEditing(true)
         
+        self.forgotVM.clearAllData()
+        self.forgotVM.email = self.txtEmail.text!
+        self.forgotVM.validateEmail(controller: self)
+    }
+    
+    @IBAction func verifyActionClick(_ sender: Any) {
+        
+        self.forgotVM.clearAllData()
+        self.forgotVM.otp = self.otp
+        self.forgotVM.email = self.txtEmail.text!
+        self.forgotVM.validateOTP(controller: self)
+        
+    }
+    
+    @IBAction func reSendOTPClickAction(_ sender: Any) {
+        self.sendActionClick(sender)
+    }
+    
+    func showOTPView() {
         pinView.shouldSecureText = false
         pinView.style = .box
         
@@ -51,6 +74,7 @@ class ForgotPwdViewController: BaseViewController {
         pinView.didFinishCallback = didFinishEnteringPin(pin:)
         pinView.didChangeCallback = { pin in
             print("The entered pin is \(pin)")
+            self.otp = pin
         }
         
         UIView.animate(withDuration: 0.3) {
@@ -60,28 +84,14 @@ class ForgotPwdViewController: BaseViewController {
         }
     }
     
-    @IBAction func changeEmailActionClick(_ sender: Any) {
-        if self.isShowForgotScreen == false {
-            self.navigationController?.popToRootViewController(animated: true)
-        } else {
-            if let controller = self.instantiate(ChangePwdViewController.self, storyboard: STORYBOARD.signup) as? ChangePwdViewController {
-                controller.isComeFrom = 1
-                self.navigationController?.pushViewController(controller, animated: true)
-            }
-        }
-    }
-    
-    // MARK: - Button Action
-    @objc func dismissKeyboard() {
-        self.view.endEditing(false)
-    }
-    
     func didFinishEnteringPin(pin: String) {
         print("Sucess ==\(pin)")
     }
     
-    @IBAction func reSendOTPClickAction(_ sender: Any) {
+    @objc func dismissKeyboard() {
+        self.view.endEditing(false)
     }
+    
     /*
      // MARK: - Navigation
      

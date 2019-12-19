@@ -85,13 +85,13 @@ extension String {
     }
     
     func isAlphaNeumeric() -> Bool {
-        let characterset = NSCharacterSet(charactersIn: " ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz/1234567890")
+        let characterset = NSCharacterSet(charactersIn: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz/1234567890")
         if self.rangeOfCharacter(from: characterset.inverted) != nil {return false}
         return true
     }
     
     func hasOnlyAlphabets() -> Bool {
-        let characterset = NSCharacterSet(charactersIn: " ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'")
+        let characterset = NSCharacterSet(charactersIn: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz' ")
         if self.rangeOfCharacter(from: characterset.inverted) != nil {return false}
         return true
     }

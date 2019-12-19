@@ -26,6 +26,7 @@ class SignUpViewController: BaseViewController, CountryListDelegate {
     
     @IBOutlet weak var txtProfession: CustomTextView!
     
+    var loginVM: LoginViewModel?
     let signUpVM = SignUpViewModel()
     var countryList = CountryListViewController()
     
@@ -76,18 +77,6 @@ class SignUpViewController: BaseViewController, CountryListDelegate {
             }
         }
         
-        //        let attributedString = NSMutableAttributedString(string: "By signing up you accept the Terms of Service and Privacy Policy", attributes: [
-        //            .font: APP_FONT.regularFont(withSize: 14.0),
-        //            .foregroundColor: UIColor.black
-        //        ])
-        //        attributedString.addAttribute(.foregroundColor, value: UIColor(red: 9.0 / 255.0, green: 133.0 / 255.0, blue: 233.0 / 255.0, alpha: 1.0), range: NSRange(location: 29, length: 16))
-        //        attributedString.addAttribute(.foregroundColor, value: UIColor(red: 9.0 / 255.0, green: 133.0 / 255.0, blue: 233.0 / 255.0, alpha: 1.0), range: NSRange(location: 50, length: 14))
-        //
-        //        self.lblTerms.attributedText = attributedString
-        //        let gesture = UITapGestureRecognizer(target: self, action: #selector(termsLabel(gesture:)))
-        //        self.lblTerms.isUserInteractionEnabled = true
-        //        self.lblTerms.addGestureRecognizer(gesture)
-        
         let signInAttributedString = NSMutableAttributedString(string: "Already have an account? Sign In", attributes: [
             .font: APP_FONT.regularFont(withSize: 14.0),
             .foregroundColor: UIColor.black
@@ -106,6 +95,12 @@ class SignUpViewController: BaseViewController, CountryListDelegate {
             self.countyCode = "+\(contry.phoneExtension)"
             self.txtContryCode.text = "\(contry.flag!) +\(contry.phoneExtension)"
         }
+        
+        if self.loginVM != nil {
+            self.txtEmail.isUserInteractionEnabled = false
+            self.txtEmail.text = self.loginVM?.email
+            self.txtName.text = self.loginVM?.fullName
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -116,95 +111,25 @@ class SignUpViewController: BaseViewController, CountryListDelegate {
     @IBAction func signUpClickAction(_ sender: Any) {
         self.view.endEditing(true)
         
-        /*  self.signUpVM.name = self.txtName.text!
-         self.signUpVM.email = self.txtEmail.text!
-         self.signUpVM.contactNumber = self.txtContact.text!
-         self.signUpVM.profession = self.txtProfession.text!
-         self.signUpVM.referral = self.txtReferral.text!
-         self.signUpVM.countryCode = self.countyCode
-         
-         switch self.signUpVM.validateSignUp() {
-         case .Valid:
-         ProgressManager.show(withStatus: "", on: self.view)
-         self.signUpVM.callSignUpAPI {
-         if self.signUpVM.errorSignUp == "" {
-         ProgressManager.dismiss()
-         if let controller = self.instantiate(VerifyOTPViewController.self, storyboard: STORYBOARD.signup) as? VerifyOTPViewController {
-         controller.enterEmail = self.signUpVM.email
-         self.navigationController?.pushViewController(controller, animated: true)
-         }
-         } else {
-         ProgressManager.showError(withStatus: self.signUpVM.errorSignUp, on: self.view) {
-         if self.signUpVM.errorSignUp == "Your email is not verify. We have sent OTP in your email. please verify OPT" {
-         if let controller = self.instantiate(VerifyOTPViewController.self, storyboard: STORYBOARD.signup) as? VerifyOTPViewController {
-         controller.enterEmail = self.signUpVM.email
-         self.navigationController?.pushViewController(controller, animated: true)
-         }
-         }
-         }
-         }
-         }
-         case .InValid(let error):
-         ProgressManager.showError(withStatus: error, on: self.view)
-         } */
+        self.signUpVM.clearAllData()
+        self.signUpVM.name = self.txtName.text!
+        self.signUpVM.email = self.txtEmail.text!
+        self.signUpVM.contactNumber = self.txtContact.text!
+        self.signUpVM.profession = self.txtProfession.text!
+        self.signUpVM.referral = self.txtReferral.text!
+        self.signUpVM.countryCode = self.countyCode
         
-        if let controller = self.instantiate(VerifyOTPViewController.self, storyboard: STORYBOARD.signup) as? VerifyOTPViewController {
-            self.navigationController?.pushViewController(controller, animated: true)
-        }
+        self.signUpVM.validateSignUp(controller: self)
+        
+        //        if let controller = self.instantiate(VerifyOTPViewController.self, storyboard: STORYBOARD.signup) as? VerifyOTPViewController {
+        //            self.navigationController?.pushViewController(controller, animated: true)
+        //        }
     }
     
     func selectedCountry(country: Country) {
         self.countyCode = "+\(country.phoneExtension)"
         self.txtContryCode.text = "\(country.flag!) +\(country.phoneExtension)"
     }
-    
-    /* @objc func termsLabel(gesture: UITapGestureRecognizer) {
-     let text = self.lblTerms.text!
-     let termsofServiceRange = (text as NSString).range(of: "Terms of Service")
-     let termsRange = (text as NSString).range(of: "Terms")
-     let ofRange = (text as NSString).range(of: "of")
-     let serviceRange = (text as NSString).range(of: "Service")
-     
-     let privacyRange = (text as NSString).range(of: "Privacy")
-     let policyRange = (text as NSString).range(of: "Policy")
-     
-     var isOpenTermsScreen: Bool  = false
-     var isTerms: Bool  = false
-     
-     if gesture.didTapAttributedTextInLabel(label: self.lblTerms, inRange: termsRange) {
-     print("Tapped terms")
-     isOpenTermsScreen = true
-     isTerms = true
-     } else if gesture.didTapAttributedTextInLabel(label: self.lblTerms, inRange: ofRange) {
-     print("Tapped terms")
-     isOpenTermsScreen = true
-     isTerms = true
-     } else if gesture.didTapAttributedTextInLabel(label: self.lblTerms, inRange: serviceRange) {
-     print("Tapped terms")
-     isOpenTermsScreen = true
-     isTerms = true
-     } else if gesture.didTapAttributedTextInLabel(label: self.lblTerms, inRange: termsofServiceRange) {
-     print("Tapped terms")
-     isOpenTermsScreen = true
-     isTerms = true
-     } else if gesture.didTapAttributedTextInLabel(label: self.lblTerms, inRange: privacyRange) {
-     print("Tapped privacy")
-     isOpenTermsScreen = true
-     } else if gesture.didTapAttributedTextInLabel(label: self.lblTerms, inRange: policyRange) {
-     print("Tapped privacy")
-     isOpenTermsScreen = true
-     } else {
-     print("Tapped none")
-     }
-     
-     if isOpenTermsScreen == true {
-     if let controller = self.instantiate(TermsConditionViewController.self, storyboard: STORYBOARD.leftMenu) as? TermsConditionViewController {
-     controller.isPage = (isTerms == true) ?0:1
-     controller.urlString = "https://www.google.com/"
-     self.navigationController?.pushViewController(controller, animated: true)
-     }
-     }
-     }*/
     
     @objc func signInLabel(gesture: UITapGestureRecognizer) {
         let text = self.lblSignIn.text!
@@ -228,27 +153,27 @@ class SignUpViewController: BaseViewController, CountryListDelegate {
         }
         return true
     }
-     
-    /*  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-     let finalText: String = NSString(string: textField.text!).replacingCharacters(in: range, with: string) as String
-     if textField == self.txtName {
-     if textField.text!.count >= 100 {
-     return false
-     }
-     }
-     if textField == self.txtName {
-     return finalText.hasOnlyAlphabets()
-     }
-     if textField == self.txtEmail &&  textField.text!.count >= 20 {
-     return false
-     }
-     if textField == self.txtContact &&  textField.text!.count >= 10 {
-     return false
-     }
-     return true
-     }*/
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let finalText: String = NSString(string: textField.text!).replacingCharacters(in: range, with: string) as String
+        if textField == self.txtName {
+            if textField.text!.count >= 100 {
+                return false
+            }
+        }
+        if textField == self.txtName {
+            return finalText.hasOnlyAlphabets()
+        }
+        if textField == self.txtEmail &&  textField.text!.count >= 20 {
+            return false
+        }
+        if textField == self.txtContact &&  textField.text!.count >= 10 {
+            return false
+        }
+        return true
+    }
 }
+
 extension UITapGestureRecognizer {
     
     func didTapAttributedTextInLabel(label: UILabel, inRange targetRange: NSRange) -> Bool {
@@ -280,3 +205,4 @@ extension UITapGestureRecognizer {
     }
     
 }
+

@@ -19,6 +19,20 @@ enum ValidationState {
     case InValid(String)
 }
 
+func getUserDefaultsForKey(key: String) -> Any? {
+    return UserDefaults.standard.object(forKey: key)
+}
+
+func setUserDefaults(value: AnyObject, forKey key: String) {
+    UserDefaults.standard.set(value, forKey: key)
+    UserDefaults.standard.synchronize()
+}
+
+func deleteUserDefaultsForKey(key: String) {
+    UserDefaults.standard.removeObject(forKey: key)
+    UserDefaults.standard.synchronize()
+}
+
 func isDevice() -> String {
     if screenHeight == 896 {
         return DEVICES.iPhoneXR
