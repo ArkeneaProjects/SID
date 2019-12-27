@@ -11,7 +11,7 @@ import FBSDKCoreKit
 import GoogleSignIn
 import IQKeyboardManagerSwift
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate {
    
     var tabBarController: BaseTabBarViewController!
     var tabBarDelegate: BaseTabBarControllerDelegate = BaseTabBarControllerDelegate()
@@ -33,11 +33,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         //IQKeyboardManager.shared.enableAutoToolbar = false
         // Initialize sign-in
         GIDSignIn.sharedInstance().clientID = KEYS.googleKey
-        GIDSignIn.sharedInstance()?.delegate = self
 
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         let base = BaseViewController()
-        base.navigateToHome(true, true)
+        if let dictionary = getUserDefaultsForKey(key: UserDefaultsKeys.LoggedUser) as? NSDictionary {
+            updateUserDetail(userDetail: dictionary)
+            base.navigateToHome((AppConstant.shared.loggedUser.accesstoken.trimmedString().count > 0) ?false:true, true)
+        } else {
+            base.navigateToHome(true, true)
+
+        }
         return true
     }
     
@@ -55,26 +60,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     class func delegate() -> AppDelegate? {
         return UIApplication.shared.delegate as? AppDelegate
     }
-    
-    // MARK: Google Sign-In Delegate
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        if let error = error {
-            print(error.localizedDescription)
-            let controller = getTopViewController()
-            ProgressManager.showError(withStatus: error.localizedDescription, on: controller?.view)
-        } else {
-            let userData: NSDictionary = NSDictionary(dictionary: [
-             "id": user.userID!,
-             "first_name": user.profile.givenName!,
-             "last_name": user.profile.familyName!,
-             "email": user.profile.email!])
-            GIDSignIn.sharedInstance()?.signOut()
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: NOTIFICATIONS.googleUserUpdate), object: nil, userInfo: ["user": userData])
-        }
-    }
-    
-    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        print(error.localizedDescription)
-    }
-    
+
 }

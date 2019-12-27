@@ -290,8 +290,6 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
         if textField.isKind(of: CustomTextField.classForCoder()) == true {
             if textField.keyboardType == UIKeyboardType.numberPad || textField.keyboardType == UIKeyboardType.decimalPad || textField.keyboardType == UIKeyboardType.phonePad {
                   (textField as? CustomTextField ?? CustomTextField()).addDoneButton(target: self, selector: #selector(self.resignKeyboard))
-            } else {
-                textField.keyboardType = .asciiCapable
             }
         } else if textField.isKind(of: SkyFloatingLabelTextField.classForCoder()) == true {
             //            if textField.keyboardType == UIKeyboardType.numberPad || textField.keyboardType == UIKeyboardType.decimalPad || textField.keyboardType == UIKeyboardType.phonePad || textField.keyboardType == UIKeyboardType.numbersAndPunctuation {
@@ -299,8 +297,6 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
             //            }
             if textField.keyboardType == UIKeyboardType.numberPad || textField.keyboardType == UIKeyboardType.decimalPad || textField.keyboardType == UIKeyboardType.phonePad || textField.keyboardType == UIKeyboardType.emailAddress {
                 //  (textField as? CustomTextField ?? CustomTextField()).addDoneButton(target: self, selector: #selector(self.resignKeyboard))
-            } else {
-                textField.keyboardType = .asciiCapable
             }
         }
         
@@ -381,6 +377,7 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
     func logoutFromApp() {
         FacebookManager.logoutUser()
         GIDSignIn.sharedInstance()?.signOut()
+        deleteUserDefaultsForKey(key: UserDefaultsKeys.LoggedUser)
         isLoginViewAnimated = false
         self.navigateToHome(true, false)
     }

@@ -60,6 +60,7 @@ class ChangePwdViewController: BaseViewController {
     }
     
     @IBAction func DoneClickAction(_ sender: Any) {
+        self.view.endEditing(true)
         self.changePwdVM.clearAll()
         self.changePwdVM.newPwd = self.txtPwd.text!
         self.changePwdVM.confirmPwd = self.txtConfirmPwd.text!

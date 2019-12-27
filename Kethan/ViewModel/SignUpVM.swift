@@ -25,6 +25,8 @@ class SignUpViewModel: NSObject {
     var errorOTP: String = ""
     var statusCodeOTP: String = ""
     
+    var loginVM: LoginViewModel?
+    
     var rootViewController: BaseViewController?
     
     override init() {
@@ -83,17 +85,22 @@ class SignUpViewModel: NSObject {
     func callSignUpAPI() {
         
         ProgressManager.show(withStatus: "", on: self.rootViewController!.view)
-        
-        let dict: NSDictionary = [ENTITIES.name: self.name, ENTITIES.email: self.email, ENTITIES.phoneNumber: self.contactNumber, ENTITIES.profession: self.profession, ENTITIES.referralCode: self.referral, ENTITIES.countryCode: (self.contactNumber.count == 0) ?"":countryCode]
+        var dict: NSDictionary = [:]
+        if self.loginVM == nil { //Without Social media login
+            dict = [ENTITIES.name: self.name, ENTITIES.email: self.email, ENTITIES.phoneNumber: self.contactNumber, ENTITIES.profession: self.profession, ENTITIES.referralCode: self.referral, ENTITIES.countryCode: (self.contactNumber.count == 0) ?"":countryCode]
+        } else {
+            dict = [ENTITIES.name: self.name, ENTITIES.email: self.email, ENTITIES.phoneNumber: self.contactNumber, ENTITIES.profession: self.profession, ENTITIES.referralCode: self.referral, ENTITIES.countryCode: (self.contactNumber.count == 0) ?"":countryCode, ENTITIES.socialMediaToken: self.loginVM!.socialMediaID, ENTITIES.socialPlatform: (self.loginVM!.loginType == "facebook") ?"facebook":"google", ENTITIES.userImage: self.loginVM!.profileURL]
+        }
         
         AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.SignUp, parameters: dict, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
             if error != nil {
                 self.errorSignUp = error ?? ""
                 self.statusCodeSignUp = errorCode ?? ""
                 ProgressManager.showError(withStatus: self.errorSignUp, on: self.rootViewController!.view) {
-                    if self.statusCodeSignUp == CONSTANT.StatusCodeOne {
+                    if self.statusCodeSignUp == CONSTANT.StatusCodeOne { //Already register but not confirmed OTP
                         if let controller = self.rootViewController!.instantiate(VerifyOTPViewController.self, storyboard: STORYBOARD.signup) as? VerifyOTPViewController {
                             controller.enterEmail = self.email
+                            controller.signupVM.loginVM = self.loginVM
                             self.rootViewController!.navigationController?.pushViewController(controller, animated: true)
                         }
                     }
@@ -104,6 +111,7 @@ class SignUpViewModel: NSObject {
                     ProgressManager.dismiss()
                     if let controller = self.rootViewController!.instantiate(VerifyOTPViewController.self, storyboard: STORYBOARD.signup) as? VerifyOTPViewController {
                         controller.enterEmail = self.email
+                        controller.signupVM.loginVM = self.loginVM
                         self.rootViewController!.navigationController?.pushViewController(controller, animated: true)
                     }
                 }
@@ -122,7 +130,7 @@ class SignUpViewModel: NSObject {
                 self.errorOTP = error ?? ""
                 self.statusCodeOTP = errorCode ?? ""
                 ProgressManager.showError(withStatus: self.errorOTP, on: self.rootViewController!.view, completion: {
-                    if let controller = self.rootViewController as? VerifyOTPViewController {
+                    if let controller = self.rootViewController as? VerifyOTPViewController { //Clear the Pin
                         controller.pinView.clearPin()
                     }
                 })
@@ -130,10 +138,19 @@ class SignUpViewModel: NSObject {
                 if let dict = response as? NSDictionary {
                     self.responseOTPDict = dict
                     ProgressManager.dismiss()
-                    if let controller = self.rootViewController!.instantiate(ChangePwdViewController.self, storyboard: STORYBOARD.signup) as? ChangePwdViewController {
-                        controller.email = self.email
-                        controller.isComeFrom = 2
-                        self.rootViewController!.navigationController?.pushViewController(controller, animated: true)
+                    if self.loginVM == nil { //without social media login
+                        if let controller = self.rootViewController!.instantiate(ChangePwdViewController.self, storyboard: STORYBOARD.signup) as? ChangePwdViewController {
+                            controller.email = self.email
+                            controller.isComeFrom = 2
+                            self.rootViewController!.navigationController?.pushViewController(controller, animated: true)
+                        }
+                    } else {
+                        if let userDict = self.responseOTPDict["user"] as? NSDictionary {
+                            updateUserDetail(userDetail: userDict)
+                            if let controller = self.rootViewController!.instantiate(SignUpUserGuideViewController.self, storyboard: STORYBOARD.signup) as? SignUpUserGuideViewController {
+                                self.rootViewController!.navigationController?.pushViewController(controller, animated: true)
+                            }
+                        }
                     }
                 }
             }

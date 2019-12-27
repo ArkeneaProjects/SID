@@ -145,3 +145,8 @@ func getTopViewController() -> BaseViewController? {
     }
     return nil
 }
+
+func updateUserDetail(userDetail: NSDictionary) {
+    let user = User.init(dictionary: userDetail)
+    AppConstant.shared.updateProfile(updatedProfile: user)
+}

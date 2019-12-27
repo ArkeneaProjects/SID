@@ -12,7 +12,7 @@ import FacebookLogin
 import FacebookCore
 import GoogleSignIn
 
-class LoginViewController: BaseViewController {
+class LoginViewController: BaseViewController, GIDSignInDelegate {
     
     @IBOutlet weak var imgAppName: UIImageView!
     @IBOutlet weak var imgTop: UIImageView!
@@ -21,7 +21,7 @@ class LoginViewController: BaseViewController {
     @IBOutlet weak var constImageTop: CustomConstraint!
     @IBOutlet weak var constImageWidth: CustomConstraint!
     @IBOutlet weak var constImageHeight: CustomConstraint!
-
+    
     @IBOutlet weak var constBGImageBottom: NSLayoutConstraint!
     
     @IBOutlet weak var viewLogin: UIView!
@@ -35,7 +35,7 @@ class LoginViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         //Animate the View
         self.imgTop.alpha = 0
         self.viewLogin.alpha = 0
@@ -57,9 +57,9 @@ class LoginViewController: BaseViewController {
         } else {
             DispatchQueue.main.asyncAfter(deadline: .now()) {
                 UIView.animate(withDuration: 1.0, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: {
-                     self.constImageWidth.constant = getCalculated(203.0)
-                               self.constImageHeight.constant = getCalculated(51.5)
-                               self.view.layoutIfNeeded()
+                    self.constImageWidth.constant = getCalculated(171.0)
+                    self.constImageHeight.constant = getCalculated(51.5)
+                    self.view.layoutIfNeeded()
                 }, completion: {(finish) in
                     UIView.animate(withDuration: 1.0, delay: 0.2, options: UIView.AnimationOptions.allowAnimatedContent, animations: {
                         self.constImageTop.constant = CGFloat(-height)
@@ -71,18 +71,14 @@ class LoginViewController: BaseViewController {
                         }
                     }
                 })
-                
             }
         }
-        
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: NOTIFICATIONS.googleUserUpdate), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.googleUserDataUpdate(notification:)), name: NSNotification.Name(rawValue: NOTIFICATIONS.googleUserUpdate), object: nil)
         
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance()?.restorePreviousSignIn()
         
         // Do any additional setup after loading the view.
- 
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,19 +87,31 @@ class LoginViewController: BaseViewController {
     
     // MARK: - Button Action
     @IBAction func fbClickAction(_ sender: Any) {
-//        FacebookManager.loginToFacebookWith(controller: self) { (result: Any?, error: String?) in
-//            if error == nil {
-//                print("result==\(result)")
-//            } else {
-//                print("error==\(error)")
-//            }
-//        }
+        /*  ProgressManager.show(withStatus: "", on: self.view)
+         FacebookManager.loginToFacebookWith(controller: self) { (result: Any?, error: String?) in
+         if error == nil {
+         if let dict = result as? NSDictionary, let pictureDict = dict["picture"] as? NSDictionary, let dataDict = pictureDict["data"] as? NSDictionary {
+         if AppConstant.shared.loggedUser.accesstoken.trimmedString().count == 0 {
+         self.loginVM.clearAllData()
+         self.loginVM.email = dict["email"] as? String ?? ""
+         self.loginVM.socialMediaID = dict["id"] as? String ?? ""
+         self.loginVM.fullName = "\(dict["first_name"] as? String ?? "") \(dict["last_name"] as? String ?? "")"
+         self.loginVM.loginType = "facebook"
+         self.loginVM.profileURL = dataDict["url"] as? String ?? ""
+         self.loginVM.validateSocialLogin(controller: self)
+         }
+         }
+         } else {
+         ProgressManager.showError(withStatus: error, on: self.view)
+         }
+         }*/
     }
     
     @IBAction func googleClickAction(_ sender: Any) {
-        ProgressManager.show(withStatus: "", on: self.view)
-        GIDSignIn.sharedInstance()?.signIn()
-        GIDSignIn.sharedInstance()?.signOut()
+        /* ProgressManager.show(withStatus: "", on: self.view)
+         GIDSignIn.sharedInstance()?.delegate = self
+         GIDSignIn.sharedInstance()?.signIn()
+         GIDSignIn.sharedInstance()?.signOut()*/
     }
     
     @IBAction func signUpClickAction(_ sender: Any) {
@@ -120,7 +128,7 @@ class LoginViewController: BaseViewController {
         self.loginVM.password = self.txtPassword.text!
         self.loginVM.validateLogin(self)
     }
-        
+    
     @IBAction func forgotPassWordClickAction(_ sender: Any) {
         
         if let controller = self.instantiate(ForgotPwdViewController.self, storyboard: STORYBOARD.signup) as? ForgotPwdViewController {
@@ -134,18 +142,27 @@ class LoginViewController: BaseViewController {
         self.btnHidePwd.setImage((self.txtPassword.isSecureTextEntry == true) ?UIImage(named: "hideEye"):UIImage(named: "unhideEye"), for: .normal)
     }
     
-    @objc func googleUserDataUpdate(notification: Notification) {
-        if let dict = notification.userInfo!["user"] as? NSDictionary {
-            print(dict)
+    // MARK: - Signin Delegate
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let error = error {
+            print(error.localizedDescription)
+            ProgressManager.showError(withStatus: error.localizedDescription, on: self.view)
+        } else {
             if AppConstant.shared.loggedUser.accesstoken.trimmedString().count == 0 {
                 self.loginVM.clearAllData()
-                self.loginVM.email = dict["email"] as? String ?? ""
-                self.loginVM.socialMediaID = dict["id"] as? String ?? ""
-                self.loginVM.fullName = "\(dict["first_name"] as? String ?? "") \(dict["last_name"] as? String ?? "")"
+                self.loginVM.email = user.profile.email!
+                self.loginVM.socialMediaID = user.userID!
+                self.loginVM.fullName = "\(user.profile.givenName!) \(user.profile.familyName!)"
                 self.loginVM.loginType = "google"
                 self.loginVM.validateSocialLogin(controller: self)
             }
+            GIDSignIn.sharedInstance()?.signOut()
         }
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        print(error.localizedDescription)
+        ProgressManager.showError(withStatus: error.localizedDescription, on: self.view)
     }
     
     // MARK: - TextField Delegate
@@ -158,4 +175,8 @@ class LoginViewController: BaseViewController {
         return true
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        super.touchesBegan(touches, with: event)
+    }
 }

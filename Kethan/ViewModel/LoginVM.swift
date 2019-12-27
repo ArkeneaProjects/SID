@@ -16,9 +16,10 @@ class LoginViewModel: NSObject {
     var error: String = ""
     var stausCode: String = ""
     var loginType: String = ""
-    var socialMediaID:String = ""
-    var fullName:String = ""
-
+    var socialMediaID: String = ""
+    var fullName: String = ""
+    var profileURL: String = ""
+    
     var rootController: BaseViewController?
     
     override init() {
@@ -34,6 +35,7 @@ class LoginViewModel: NSObject {
         self.loginType = ""
         self.socialMediaID = ""
         self.fullName = ""
+        self.profileURL = ""
     }
     
     func validateLogin(_ controller: BaseViewController) {
@@ -74,10 +76,9 @@ class LoginViewModel: NSObject {
             let encryptedPassword = EncDec.aes128Base64Encrypt(self.password)
             dict = [ENTITIES.email: self.email, ENTITIES.password: encryptedPassword!]
         } else {
-            dict = [ENTITIES.email: self.email, ENTITIES.socialMediaToken: self.socialMediaID, ENTITIES.socialPlatform: (self.loginType == "FB") ?"facebook":"google"]
+            dict = [ENTITIES.email: self.email, ENTITIES.socialMediaToken: self.socialMediaID, ENTITIES.socialPlatform: (self.loginType == "facebook") ?"facebook":"google"]
         }
          
-        
         AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.SignIn, parameters: dict, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
             if error != nil {
                 self.error = error ?? ""
@@ -90,7 +91,7 @@ class LoginViewModel: NSObject {
                         }
                     } else if self.stausCode == CONSTANT.StatusCodeTwo {
                         if let controller = self.rootController!.instantiate(SignUpViewController.self, storyboard: STORYBOARD.signup) as? SignUpViewController {
-                            controller.loginVM = self
+                            controller.signUpVM.loginVM = self
                             self.rootController!.navigationController?.pushViewController(controller, animated: true)
                         }
                     }
@@ -100,12 +101,7 @@ class LoginViewModel: NSObject {
                     self.responseDict = dict
                     ProgressManager.dismiss()
                     if let userDict = self.responseDict["user"] as? NSDictionary {
-                        let user = User.init(dictionary: userDict)
-                        let accessToken = getValueFromDictionary(dictionary: userDict, forKey: ENTITIES.accesstoken)
-                        let userid = getValueFromDictionary(dictionary: userDict, forKey: ENTITIES.userId)
-                        user.accesstoken = accessToken
-                        user.userId = userid
-                        AppConstant.shared.updateProfile(updatedProfile: user)
+                        updateUserDetail(userDetail: userDict)
                         self.rootController!.navigateToHome(false, false)
                     }
                 }

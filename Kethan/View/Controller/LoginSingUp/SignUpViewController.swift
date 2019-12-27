@@ -23,10 +23,8 @@ class SignUpViewController: BaseViewController, CountryListDelegate {
     @IBOutlet weak var txtContryCode: CustomTextField!
     @IBOutlet weak var txtEmail: CustomTextField!
     @IBOutlet weak var txtName: CustomTextField!
+    @IBOutlet weak var txtProfession: CustomTextField!
     
-    @IBOutlet weak var txtProfession: CustomTextView!
-    
-    var loginVM: LoginViewModel?
     let signUpVM = SignUpViewModel()
     var countryList = CountryListViewController()
     
@@ -47,6 +45,7 @@ class SignUpViewController: BaseViewController, CountryListDelegate {
         scrollView.contentInsetAdjustmentBehavior = .never
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
+        //Terms and Condition Text
         self.lblTerms.numberOfLines = 0
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 3.0
@@ -77,6 +76,7 @@ class SignUpViewController: BaseViewController, CountryListDelegate {
             }
         }
         
+        //Already SignUp Text
         let signInAttributedString = NSMutableAttributedString(string: "Already have an account? Sign In", attributes: [
             .font: APP_FONT.regularFont(withSize: 14.0),
             .foregroundColor: UIColor.black
@@ -96,10 +96,11 @@ class SignUpViewController: BaseViewController, CountryListDelegate {
             self.txtContryCode.text = "\(contry.flag!) +\(contry.phoneExtension)"
         }
         
-        if self.loginVM != nil {
+        //Check Social Media Signup
+        if self.signUpVM.loginVM != nil {
             self.txtEmail.isUserInteractionEnabled = false
-            self.txtEmail.text = self.loginVM?.email
-            self.txtName.text = self.loginVM?.fullName
+            self.txtEmail.text = self.signUpVM.loginVM?.email
+            self.txtName.text = self.signUpVM.loginVM?.fullName
         }
     }
     
@@ -147,8 +148,18 @@ class SignUpViewController: BaseViewController, CountryListDelegate {
     override func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         
         if textField == self.txtContryCode {
+            self.view.endEditing(true)
             let navController = UINavigationController(rootViewController: countryList)
             self.present(navController, animated: true, completion: nil)
+            return false
+        } else if textField == self.txtProfession {
+            self.view.endEditing(true)
+            let controller: SelectProfessionViewController = self.instantiate(SelectProfessionViewController.self, storyboard: STORYBOARD.main) as? SelectProfessionViewController ?? SelectProfessionViewController()
+            controller.preparePopup(selectedText: self.txtProfession.text!, controller: self)
+            controller.showPopup()
+            controller.addCompletion = { profession in
+                self.txtProfession.text = profession
+            }
             return false
         }
         return true
@@ -156,6 +167,9 @@ class SignUpViewController: BaseViewController, CountryListDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let finalText: String = NSString(string: textField.text!).replacingCharacters(in: range, with: string) as String
+        if string == "" {
+            return true
+        }
         if textField == self.txtName {
             if textField.text!.count >= 100 {
                 return false
@@ -164,11 +178,20 @@ class SignUpViewController: BaseViewController, CountryListDelegate {
         if textField == self.txtName {
             return finalText.hasOnlyAlphabets()
         }
-        if textField == self.txtEmail &&  textField.text!.count >= 20 {
+        if textField == self.txtEmail &&  textField.text!.count >= 50 {
             return false
         }
         if textField == self.txtContact &&  textField.text!.count >= 10 {
             return false
+        }
+        return true
+    }
+    
+    override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == self.txtName {
+            self.txtEmail.becomeFirstResponder()
+        } else if textField == self.txtEmail {
+            self.txtContact.resignFirstResponder()
         }
         return true
     }
@@ -203,6 +226,5 @@ extension UITapGestureRecognizer {
         
         return NSLocationInRange(indexOfCharacter, targetRange)
     }
-    
 }
 

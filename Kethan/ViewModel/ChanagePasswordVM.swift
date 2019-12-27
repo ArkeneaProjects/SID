@@ -71,12 +71,13 @@ class ChanagePasswordVM: NSObject {
                 if let dict = response as? NSDictionary {
                     
                     if self.iscommingFrom == 2 {
-                        self.user = User.init(dictionary: dict)
-                        AppConstant.shared.updateProfile(updatedProfile: self.user)
-                        
                         ProgressManager.showSuccess(withStatus: "Your password has been set successfully", on: self.rootController!.view) {
-                            if let controller = self.rootController!.instantiate(SignUpUserGuideViewController.self, storyboard: STORYBOARD.signup) as? SignUpUserGuideViewController {
-                                self.rootController!.navigationController?.pushViewController(controller, animated: true)
+                            
+                            if let userDict = dict["user"] as? NSDictionary {
+                                updateUserDetail(userDetail: userDict)
+                                if let controller = self.rootController!.instantiate(SignUpUserGuideViewController.self, storyboard: STORYBOARD.signup) as? SignUpUserGuideViewController {
+                                    self.rootController!.navigationController?.pushViewController(controller, animated: true)
+                                }
                             }
                         }
                     } else {

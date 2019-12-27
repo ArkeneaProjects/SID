@@ -148,9 +148,10 @@ struct ERRORS {
     static let onlyDigit: String = "Please enter only numaric values"
     static let fullName: String = "Your name must not be left blank "
     static let profession: String = "Enter Profession"
-    
+    static let professionSelect: String = "Please select profession"
+
     //OTP
-    static let otp: String = "Enter valid OTP"
+    static let otp: String = "You need to input the verification code in order to proceed"
     
     //change password
     static let oldPwdEmpty: String = "Your current password cannot be blank "
@@ -158,7 +159,7 @@ struct ERRORS {
     static let confirmPwdEmpty: String = "You have to confirm your new password "
     static let matchPwd: String = "The passwords do not match. Please try again"
     static let invalidPwd: String = "Password must be alpha numeric with 6-15 characters"
-    static let invalidLenghtPwd: String = "Password should be atleast 6-15 charactor"
+    static let invalidLenghtPwd: String = "Password should be atleast 6-15 characters"
 
     static let EmptyCountryCode = "Please select county"
     static let EmptyMobileNumber = "Please enter mobile number"
@@ -199,9 +200,10 @@ struct ENTITIES {
     static let referralCode = "referralCode"
     static let otp = "otp"
     static let resetOtp = "resetOtp"
-
+    static let userImage = "userImage"
+    
     //User
-    static let accesstoken = "accesstoken"
+    static let accesstoken = "accessToken"
     static let userId = "userId"
     static let isSocialMediaUser = "isSocialMediaUser"
     static let socialMediaToken = "socialMediaToken"

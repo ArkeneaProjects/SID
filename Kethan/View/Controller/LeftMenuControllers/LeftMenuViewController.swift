@@ -128,9 +128,11 @@ class LeftMenuViewController: BaseViewController, UITableViewDelegate, UITableVi
     }
     
     @IBAction func logOutAction(_ sender: Any) {
-        self.showAlert(title: "", message: "Are you sure you want to logout from Kethan", yesTitle: YESNO.yes, noTitle: YESNO.no, yesCompletion: {
-            self.logoutFromApp()
-        }, noCompletion: nil)
+        if let displayName = Bundle.main.infoDictionary!["CFBundleName"] as? String {
+            self.showAlert(title: "", message: "Are you sure you want to logout from \(displayName)", yesTitle: YESNO.yes, noTitle: YESNO.no, yesCompletion: {
+                self.logoutFromApp()
+            }, noCompletion: nil)
+        }
     }
     
     // MARK: - UITabelVieeDelegate, UITableViewDataSource

@@ -17,6 +17,7 @@ class User: NSObject {
     var profession: String = ""
     var name: String = ""
     var country_code: String = ""
+    var userImage: String = ""
     var isSocialMediaUser: String = "" //O for SignUp user, 1 for Facebook, 2 for Google
     
     override init() {
@@ -31,6 +32,7 @@ class User: NSObject {
         self.name = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.name)
         self.profession = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.profession)
         self.country_code = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.countryCode)
+        self.userImage = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.userImage)
 
     }
     
@@ -42,7 +44,8 @@ class User: NSObject {
             ENTITIES.isSocialMediaUser: self.isSocialMediaUser,
             ENTITIES.profession: self.profession,
             ENTITIES.name: self.name,
-            ENTITIES.countryCode: self.country_code
+            ENTITIES.countryCode: self.country_code,
+            ENTITIES.userImage: self.userImage
         ]
         return dictionary
     }
