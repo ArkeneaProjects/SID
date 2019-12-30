@@ -74,6 +74,8 @@ struct SUFFIX_URL {
     
 struct KEYS {
     static let googleKey = "23307698272-psgd5pqvanqohndhmpu3en11t6o50ja9.apps.googleusercontent.com"
+    static let GooglePlacesAPIKey = "AIzaSyD0SJanDGyOB3Azx1lToYnh03ocyU2M4Hs"
+    
 }
 
 struct NOTIFICATIONS {

@@ -9,7 +9,7 @@
 import UIKit
 
 class UploadViewController: BaseViewController {
-
+    
     @IBOutlet weak var txtImplant: CustomDropDown!
     @IBOutlet weak var txtManu: CustomDropDown!
     
@@ -23,14 +23,14 @@ class UploadViewController: BaseViewController {
         //Brand
         if let arrBrand = getUserDefaultsForKey(key: UserDefaultsKeys.BrandName) as? NSMutableArray {
             self.txtImplant.optionArray = arrBrand as! [String]
-                   self.txtImplant.didSelect { (selected: String, index: Int, id: Int) in
-                       self.txtImplant.text = selected
-                   }
-                   self.txtImplant.keyboardCompletion = {
-                       if self.txtImplant.shadow != nil && self.txtImplant.shadow.alpha != 0 {
-                           self.txtImplant.hideList()
-                       }
-                   }
+            self.txtImplant.didSelect { (selected: String, index: Int, id: Int) in
+                self.txtImplant.text = selected
+            }
+            self.txtImplant.keyboardCompletion = {
+                if self.txtImplant.shadow != nil && self.txtImplant.shadow.alpha != 0 {
+                    self.txtImplant.hideList()
+                }
+            }
         }
         
         //Manufacture
@@ -45,8 +45,6 @@ class UploadViewController: BaseViewController {
                 }
             }
         }
-        
-        
     }
     
     // MARK: - Button Action
@@ -56,20 +54,20 @@ class UploadViewController: BaseViewController {
         }
     }
     
-   /* func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField.text!.count >= 3 {
-           // self.txtImplant.showList()
-        }
-        return true
-    }*/
+    /* func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+     if textField.text!.count >= 3 {
+     // self.txtImplant.showList()
+     }
+     return true
+     }*/
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
