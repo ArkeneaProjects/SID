@@ -22,24 +22,29 @@ class SearchViewController: BaseViewController {
         self.txtImplant.font = UIFont(name: self.txtImplant.font!.fontName, size: getCalculated(14.0))
         self.txtManufacture.font = UIFont(name: self.txtManufacture.font!.fontName, size: getCalculated(14.0))
         
-        self.txtImplant.optionArray = STATICDATA.implantDropDown
-        self.txtImplant.didSelect { (selected: String, index: Int, id: Int) in
-            self.txtImplant.text = selected
-        }
-        self.txtImplant.keyboardCompletion = {
-            if self.txtImplant.shadow != nil && self.txtImplant.shadow.alpha != 0 {
-                self.txtImplant.hideList()
-            }
-        }
-                
-        self.txtManufacture.optionArray = STATICDATA.manufacturerDropDown
-        self.txtManufacture.didSelect { (selected: String, index: Int, id: Int) in
-            self.txtManufacture.text = selected
+        //Brand
+        if let arrBrand = getUserDefaultsForKey(key: UserDefaultsKeys.BrandName) as? NSMutableArray {
+            self.txtImplant.optionArray = arrBrand as! [String]
+                   self.txtImplant.didSelect { (selected: String, index: Int, id: Int) in
+                       self.txtImplant.text = selected
+                   }
+                   self.txtImplant.keyboardCompletion = {
+                       if self.txtImplant.shadow != nil && self.txtImplant.shadow.alpha != 0 {
+                           self.txtImplant.hideList()
+                       }
+                   }
         }
         
-        self.txtManufacture.keyboardCompletion = {
-            if self.txtManufacture.shadow != nil && self.txtManufacture.shadow.alpha != 0 {
-                self.txtManufacture.hideList()
+        //Manufacture
+        if let arrManufacture = getUserDefaultsForKey(key: UserDefaultsKeys.Manufecture) as? NSMutableArray {
+            self.txtManufacture.optionArray = arrManufacture as! [String]
+            self.txtManufacture.didSelect { (selected: String, index: Int, id: Int) in
+                self.txtManufacture.text = selected
+            }
+            self.txtManufacture.keyboardCompletion = {
+                if self.txtManufacture.shadow != nil && self.txtManufacture.shadow.alpha != 0 {
+                    self.txtManufacture.hideList()
+                }
             }
         }
     }

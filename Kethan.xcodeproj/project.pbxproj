@@ -45,6 +45,7 @@
 		1821AF23237A860F0010B307 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF22237A860F0010B307 /* Extensions.swift */; };
 		1821AF25237A86C50010B307 /* CustomBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF24237A86C50010B307 /* CustomBase.swift */; };
 		1821AF27237A8EF20010B307 /* CustomBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF26237A8EF10010B307 /* CustomBarButtonItem.swift */; };
+		182239DF23B9FBAD00B3C01F /* SearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182239DE23B9FBAD00B3C01F /* SearchVM.swift */; };
 		1822E31723A1FEF7006042E3 /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822E31423A1FEF7006042E3 /* SkyFloatingLabelTextField.swift */; };
 		1822E31823A1FEF7006042E3 /* UITextField+fixCaretPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822E31523A1FEF7006042E3 /* UITextField+fixCaretPosition.swift */; };
 		1822E31923A1FEF7006042E3 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822E31623A1FEF7006042E3 /* SkyFloatingLabelTextFieldWithIcon.swift */; };
@@ -214,6 +215,7 @@
 		1821AF22237A860F0010B307 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1821AF24237A86C50010B307 /* CustomBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBase.swift; sourceTree = "<group>"; };
 		1821AF26237A8EF10010B307 /* CustomBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBarButtonItem.swift; sourceTree = "<group>"; };
+		182239DE23B9FBAD00B3C01F /* SearchVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVM.swift; sourceTree = "<group>"; };
 		1822E31423A1FEF7006042E3 /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
 		1822E31523A1FEF7006042E3 /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
 		1822E31623A1FEF7006042E3 /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextFieldWithIcon.swift; sourceTree = "<group>"; };
@@ -597,7 +599,6 @@
 		18956D1E2387FC5400BD8F63 /* TabBarDetailControllers */ = {
 			isa = PBXGroup;
 			children = (
-				18DDC78D23797AA6003FCCE8 /* SearchViewController.swift */,
 				18956D1F2387FC8100BD8F63 /* SearchListViewController.swift */,
 				1879F572238BB2DA00ABBBC0 /* SearchDetailViewController.swift */,
 				18974532238D08070000FCC4 /* AddDetailsViewController.swift */,
@@ -659,6 +660,7 @@
 				1809E9EE23A39379001A8A77 /* SignUpVM.swift */,
 				18C3E6F123A79879000ABA07 /* ChanagePasswordVM.swift */,
 				1847363C23AB8B5100C565A4 /* ForgotVM.swift */,
+				182239DE23B9FBAD00B3C01F /* SearchVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -824,6 +826,7 @@
 		18E71D69237C14060090FC90 /* TabBarControllers */ = {
 			isa = PBXGroup;
 			children = (
+				18DDC78D23797AA6003FCCE8 /* SearchViewController.swift */,
 				181FFA9F239A3A8B0078E64D /* SearchFolderViewController.swift */,
 				1821AF0A237A741B0010B307 /* HomeViewController.swift */,
 				1821AF0C237A74320010B307 /* UploadViewController.swift */,
@@ -1285,6 +1288,7 @@
 				18705385238FA2CD006ACA3D /* CameraManager.swift in Sources */,
 				1821AF21237A7E670010B307 /* CustomTextField.swift in Sources */,
 				1801ABAB23851DCB00F46223 /* iCarousel.m in Sources */,
+				182239DF23B9FBAD00B3C01F /* SearchVM.swift in Sources */,
 				1875FC1223A0ED7C00B1EA1F /* UIImageView+.swift in Sources */,
 				18A728E3239E687800537092 /* LoginVM.swift in Sources */,
 				18974536238D0DA80000FCC4 /* AddDetailHeader1Cell.swift in Sources */,
