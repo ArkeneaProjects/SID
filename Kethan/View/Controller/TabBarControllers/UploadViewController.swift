@@ -45,8 +45,6 @@ class UploadViewController: BaseViewController {
                 }
             }
         }
-        
-        
     }
     
     // MARK: - Button Action
