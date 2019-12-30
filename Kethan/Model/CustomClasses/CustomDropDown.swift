@@ -380,6 +380,7 @@ extension CustomDropDown: UITextFieldDelegate {
 extension CustomDropDown: UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("dataArray==\(dataArray)")
         return dataArray.count
     }
 

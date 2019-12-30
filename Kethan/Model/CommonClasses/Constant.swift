@@ -8,10 +8,11 @@
 
 import UIKit
 
-
 struct UserDefaultsKeys {
     
     static let LoggedUser = "LoggedUser"
+    static let BrandName = "BrandName"
+    static let Manufecture = "Manufecture"
 }
 
 struct APP_COLOR {
@@ -68,6 +69,7 @@ struct SUFFIX_URL {
     static let ForgotPassword = "auth/forgotPassword"
     static let SignupResendOTP = "auth/resendOTP"
     static let ForgotVerifyOTP = "auth/forgotPasswordVerifyOTP"
+    static let TotalManufactureName = "implant/getTotalManufactureName"
 }
     
 struct KEYS {

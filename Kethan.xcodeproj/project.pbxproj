@@ -45,7 +45,6 @@
 		1821AF23237A860F0010B307 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF22237A860F0010B307 /* Extensions.swift */; };
 		1821AF25237A86C50010B307 /* CustomBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF24237A86C50010B307 /* CustomBase.swift */; };
 		1821AF27237A8EF20010B307 /* CustomBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF26237A8EF10010B307 /* CustomBarButtonItem.swift */; };
-		182239DD23B9C2A300B3C01F /* NSData+AES256Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 182239DC23B9C2A300B3C01F /* NSData+AES256Encryption.m */; };
 		1822E31723A1FEF7006042E3 /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822E31423A1FEF7006042E3 /* SkyFloatingLabelTextField.swift */; };
 		1822E31823A1FEF7006042E3 /* UITextField+fixCaretPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822E31523A1FEF7006042E3 /* UITextField+fixCaretPosition.swift */; };
 		1822E31923A1FEF7006042E3 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822E31623A1FEF7006042E3 /* SkyFloatingLabelTextFieldWithIcon.swift */; };
@@ -215,8 +214,6 @@
 		1821AF22237A860F0010B307 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1821AF24237A86C50010B307 /* CustomBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBase.swift; sourceTree = "<group>"; };
 		1821AF26237A8EF10010B307 /* CustomBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBarButtonItem.swift; sourceTree = "<group>"; };
-		182239DB23B9C2A300B3C01F /* NSData+AES256Encryption.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+AES256Encryption.h"; sourceTree = "<group>"; };
-		182239DC23B9C2A300B3C01F /* NSData+AES256Encryption.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES256Encryption.m"; sourceTree = "<group>"; };
 		1822E31423A1FEF7006042E3 /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
 		1822E31523A1FEF7006042E3 /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
 		1822E31623A1FEF7006042E3 /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextFieldWithIcon.swift; sourceTree = "<group>"; };
@@ -449,8 +446,6 @@
 				1809E9EC23A37DF0001A8A77 /* NSData+AESCrypt.m */,
 				1809E9E923A37D37001A8A77 /* EncDec.h */,
 				1809E9E823A37D37001A8A77 /* EncDec.m */,
-				182239DB23B9C2A300B3C01F /* NSData+AES256Encryption.h */,
-				182239DC23B9C2A300B3C01F /* NSData+AES256Encryption.m */,
 			);
 			path = AES128;
 			sourceTree = "<group>";
@@ -1231,7 +1226,6 @@
 				18C3E6EE23A76185000ABA07 /* Countries.swift in Sources */,
 				1879F57B238BBDC300ABBBC0 /* CustomCollectionViewCell.swift in Sources */,
 				1897454A238D38A80000FCC4 /* ProcessDocumentView.swift in Sources */,
-				182239DD23B9C2A300B3C01F /* NSData+AES256Encryption.m in Sources */,
 				1822E31E23A2242D006042E3 /* AFManager.swift in Sources */,
 				18974558238D5B9E0000FCC4 /* BEMPathManager.m in Sources */,
 				1847363D23AB8B5100C565A4 /* ForgotVM.swift in Sources */,

@@ -48,40 +48,40 @@ class AFManager: NSObject {
                 if AppConstant.shared.loggedUser.accesstoken.trimmedString().count > 0 {
                     token = AppConstant.shared.loggedUser.accesstoken
                 }
-                let headers = ["Authorization": "Bearer \(token)"]
-                
+                let headers = ["authorization": "\(token)"]
+                     
                 AlamofireManager.request(url, method: method, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
                     print("URL -> \(url) \n Bearer==\(token)")
                     print("Response -> \( response.result.value as? NSDictionary)")
                     
                     if let diction = response.result.value as? NSDictionary {
-                        CustomLogger.sharedInstance.logValues("URL \n \(url) \n\n respones \n\(String(describing: diction))")
-                        
-                        if let responseObject = diction.object(forKey: CONSTANT.success) as? String {
-                            if responseObject == CONSTANT.Ture {
-                                completion(diction, nil, "")
-                            } else {
-                                let message = diction.object(forKey: CONSTANT.Message) as? String ?? ""
-                                completion(nil, message, nil)
-                            }
-                        } else if let responseObject = diction.object(forKey: CONSTANT.status) as? String {
-                            if responseObject == CONSTANT.Ture {
-                                completion(diction, nil, "")
-                            } else {
-                                let message = diction.object(forKey: CONSTANT.Message) as? String ?? ""
-                                completion(nil, message, nil)
-                            }
-                        } else if diction.object(forKey: CONSTANT.status) as? String ==
-                            "OK" {
-                            completion(diction, nil, "")
-                        } else {
-                            completion(nil, MESSAGES.errorOccured, "")
-                        }
-                        
+                    CustomLogger.sharedInstance.logValues("URL \n \(url) \n\n respones \n\(String(describing: diction))")
+                    
+                    if let responseObject = diction.object(forKey: CONSTANT.success) as? String {
+                    if responseObject == CONSTANT.Ture {
+                    completion(diction, nil, "")
                     } else {
-                        // print("URL -> \(url)")
-                        //  print("\n\nresponse -> \n\(String(data: response.data!, encoding: String.Encoding.utf8) ?? "")\n")
-                        completion(nil, MESSAGES.errorOccured, "")
+                    let message = diction.object(forKey: CONSTANT.Message) as? String ?? ""
+                    completion(nil, message, nil)
+                    }
+                    } else if let responseObject = diction.object(forKey: CONSTANT.status) as? String {
+                    if responseObject == CONSTANT.Ture {
+                    completion(diction, nil, "")
+                    } else {
+                    let message = diction.object(forKey: CONSTANT.Message) as? String ?? ""
+                    completion(nil, message, nil)
+                    }
+                    } else if diction.object(forKey: CONSTANT.status) as? String ==
+                    "OK" {
+                    completion(diction, nil, "")
+                    } else {
+                    completion(nil, MESSAGES.errorOccured, "")
+                    }
+                    
+                    } else {
+                    // print("URL -> \(url)")
+                    //  print("\n\nresponse -> \n\(String(data: response.data!, encoding: String.Encoding.utf8) ?? "")\n")
+                    completion(nil, MESSAGES.errorOccured, "")
                     }
                 }
             } else {
@@ -97,7 +97,12 @@ class AFManager: NSObject {
         DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async {
             if Reachability.isOnline() {
                 
-                let headers = ["Content-Type": "application/json"]
+                var token = ""
+                if AppConstant.shared.loggedUser.accesstoken.trimmedString().count > 0 {
+                    token = AppConstant.shared.loggedUser.accesstoken
+                }
+                let headers = ["headers": "\(token)", "Content-Type": "application/json"]
+
                 var strURL = urlSuffix
                 if !strURL.isValidURL {
                     strURL = String(format: "%@%@", APP_URLS.Domain, urlSuffix)
@@ -125,7 +130,12 @@ class AFManager: NSObject {
             if Reachability.isOnline() {
                 let strURL = String(format: "%@%@", APP_URLS.Domain, urlSuffix)
                 
-                let headers = ["Content-Type": "application/json"]
+                var token = ""
+                if AppConstant.shared.loggedUser.accesstoken.trimmedString().count > 0 {
+                    token = AppConstant.shared.loggedUser.accesstoken
+                }
+                let headers = ["headers": "\(token)", "Content-Type": "application/json"]
+
                 AlamofireManager.upload(multipartFormData: { (formData:MultipartFormData) in
                     for key in parameters.allKeys {
                         let value = parameters.object(forKey: key as? String ?? "") as? String ?? ""

@@ -23,7 +23,23 @@ class LoginViewModel: NSObject {
     var rootController: BaseViewController?
     
     override init() {
-        
+        DispatchQueue.main.async {
+            let dict: NSDictionary = [:]
+            AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.TotalManufactureName, parameters: dict, serviceCount: 0, completion: { (response: AnyObject?, error: String?, errorCode: String?) in
+                
+                if error == nil || error == "" {
+                    if let dictionary = response as? NSDictionary {
+                        
+                        if let arrManufacture = dictionary.value(forKey: "manufecture") as? [String] {
+                            setUserDefaults(value: NSMutableArray(array: arrManufacture), forKey: UserDefaultsKeys.Manufecture)
+                        }
+                        if let arrBrandName = dictionary.value(forKey: "brandName") as? [String] {
+                            setUserDefaults(value: NSMutableArray(array: arrBrandName), forKey: UserDefaultsKeys.BrandName)
+                        }
+                    }
+                }
+            })
+        }
     }
     
     func clearAllData() {
@@ -78,7 +94,7 @@ class LoginViewModel: NSObject {
         } else {
             dict = [ENTITIES.email: self.email, ENTITIES.socialMediaToken: self.socialMediaID, ENTITIES.socialPlatform: (self.loginType == "facebook") ?"facebook":"google"]
         }
-         
+        
         AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.SignIn, parameters: dict, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
             if error != nil {
                 self.error = error ?? ""
