@@ -45,8 +45,8 @@ class AFManager: NSObject {
         DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async {
             if Reachability.isOnline() {
                 var token = ""
-                if UserDefaults.standard.value(forKey: "AccessToken") != nil {
-                    token = UserDefaults.standard.value(forKey: "AccessToken") as? String ?? ""
+                if AppConstant.shared.loggedUser.accesstoken.trimmedString().count > 0 {
+                    token = AppConstant.shared.loggedUser.accesstoken
                 }
                 let headers = ["Authorization": "Bearer \(token)"]
                 
