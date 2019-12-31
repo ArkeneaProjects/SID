@@ -152,6 +152,7 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate {
                         print("Sucess")
                         if let controller = self.instantiate(PreviewViewController.self, storyboard: STORYBOARD.main) as? PreviewViewController {
                             controller.selectedImage = capturedImage
+                            controller.isCrop = false
                             self.navigationController?.pushViewController(controller, animated: true)
                         }
                     }
@@ -186,6 +187,7 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate {
         print(image)
         if let controller = self.instantiate(PreviewViewController.self, storyboard: STORYBOARD.main) as? PreviewViewController {
             controller.selectedImage = image
+            controller.isCrop = false
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }

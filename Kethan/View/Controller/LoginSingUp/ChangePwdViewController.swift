@@ -73,6 +73,17 @@ class ChangePwdViewController: BaseViewController {
         //        }
         
     }
+    
+    override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == self.txtOldPwd {
+            self.txtPwd.becomeFirstResponder()
+        } else if textField == self.txtPwd {
+            self.txtConfirmPwd.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        return true
+    }
     /*
      // MARK: - Navigation
      

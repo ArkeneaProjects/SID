@@ -52,6 +52,7 @@
 		1822E31E23A2242D006042E3 /* AFManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822E31C23A2242C006042E3 /* AFManager.swift */; };
 		1822E32223A2278C006042E3 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1822E32023A2278C006042E3 /* Reachability.m */; };
 		1822E32523A228DD006042E3 /* CustomLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822E32423A228DD006042E3 /* CustomLogger.swift */; };
+		1834A3F323BB295C00C02C98 /* ImageSearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1834A3F223BB295C00C02C98 /* ImageSearchVM.swift */; };
 		1847363D23AB8B5100C565A4 /* ForgotVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1847363C23AB8B5100C565A4 /* ForgotVM.swift */; };
 		1848DA2723B489E0004A711A /* SelectProfessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848DA2623B489E0004A711A /* SelectProfessionViewController.swift */; };
 		18705385238FA2CD006ACA3D /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18705384238FA2CC006ACA3D /* CameraManager.swift */; };
@@ -227,6 +228,7 @@
 		1822E32023A2278C006042E3 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		1822E32123A2278C006042E3 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		1822E32423A228DD006042E3 /* CustomLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLogger.swift; sourceTree = "<group>"; };
+		1834A3F223BB295C00C02C98 /* ImageSearchVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchVM.swift; sourceTree = "<group>"; };
 		1847363C23AB8B5100C565A4 /* ForgotVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotVM.swift; sourceTree = "<group>"; };
 		1848DA2623B489E0004A711A /* SelectProfessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectProfessionViewController.swift; sourceTree = "<group>"; };
 		18705384238FA2CC006ACA3D /* CameraManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
@@ -673,6 +675,7 @@
 				18C3E6F123A79879000ABA07 /* ChanagePasswordVM.swift */,
 				1847363C23AB8B5100C565A4 /* ForgotVM.swift */,
 				182239DE23B9FBAD00B3C01F /* SearchVM.swift */,
+				1834A3F223BB295C00C02C98 /* ImageSearchVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1247,6 +1250,7 @@
 				18974559238D5B9E0000FCC4 /* BEMCheckBoxGroup.m in Sources */,
 				1879F57F238BD71B00ABBBC0 /* DetailRow1TableViewCell.swift in Sources */,
 				1801ABAC23851DCB00F46223 /* KVNProgress.m in Sources */,
+				1834A3F323BB295C00C02C98 /* ImageSearchVM.swift in Sources */,
 				189C064A2397B4B800C292ED /* ForgotPwdViewController.swift in Sources */,
 				1875FC0D23A0ED7C00B1EA1F /* NSLayoutConstraint+.swift in Sources */,
 				189E882723953BDB009C8ECF /* CreditHistoryTableViewCell.swift in Sources */,
