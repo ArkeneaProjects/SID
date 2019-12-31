@@ -70,7 +70,7 @@ struct SUFFIX_URL {
     static let SignupResendOTP = "auth/resendOTP"
     static let ForgotVerifyOTP = "auth/forgotPasswordVerifyOTP"
     static let TotalManufactureName = "implant/getTotalManufactureName"
-    static let SearchByText= "implant/searchByText"
+    static let SearchByText = "implant/searchByText"
 }
     
 struct KEYS {
@@ -211,4 +211,32 @@ struct ENTITIES {
     static let isSocialMediaUser = "isSocialMediaUser"
     static let socialMediaToken = "socialMediaToken"
     static let socialPlatform = "socialPlatform"
+    
+    //SearchResult
+       static let isApproved = "isApproved"
+       static let isRejected = "isRejected"
+       static let _id = "_id"
+       static let objectName = "objectName"
+       static let implantManufacture = "implantManufacture"
+       static let removImplant = "removImplant"
+       static let imageData = "imageData"
+       static let watsonImage_id = "watsonImage_id"
+       static let createdOn = "createdOn"
+       static let modifiedOn = "modifiedOn"
+    
+    //Implant
+      static let removalProcess = "removalProcess"
+      static let surgeryDate = "surgeryDate"
+      static let surgeryLocation = "surgeryLocation"
+    
+    //ImageData
+      static let imageName = "imageName"
+      static let objectLocation = "objectLocation"
+    
+    //ObjectLocation
+      static let top = "top"
+      static let left = "left"
+      static let width = "width"
+      static let height = "height"
+    
 }

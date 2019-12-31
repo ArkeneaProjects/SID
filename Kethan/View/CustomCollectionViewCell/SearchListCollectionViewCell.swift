@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SDWebImage
 class SearchListCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var lblSubTitle: CustomLabel!
@@ -19,5 +19,11 @@ class SearchListCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    func configuration(model: SearchResult) {
+        self.lblTitle.text = model.objectName
+        self.lblSubTitle.text = model.implantManufacture
+        if model.imageData.count > 0 {
+            self.imgPhoto.sd_setImage(with: URL(string: model.imageData[0].imageName), placeholderImage: nil, options: .continueInBackground, context: nil)
+        }
+    }
 }

@@ -85,6 +85,10 @@
 		188131AC238E64EE005334BF /* ResponsePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188131AB238E64EE005334BF /* ResponsePopUpViewController.swift */; };
 		188131B2238E8B66005334BF /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 188131AF238E8B65005334BF /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		188131B3238E8B66005334BF /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 188131B0238E8B65005334BF /* TPKeyboardAvoidingScrollView.m */; };
+		1892042523BB102800C732FB /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1892042423BB102800C732FB /* SearchResult.swift */; };
+		1892042723BB128A00C732FB /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1892042623BB128A00C732FB /* ImageData.swift */; };
+		1892042923BB12A000C732FB /* Implant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1892042823BB12A000C732FB /* Implant.swift */; };
+		1892042B23BB13C300C732FB /* ObjectLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1892042A23BB13C300C732FB /* ObjectLocation.swift */; };
 		1892E9D82396427800AE6ECC /* SubScriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1892E9D72396427800AE6ECC /* SubScriptionViewController.swift */; };
 		1892E9DB23964B3700AE6ECC /* SubScriptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1892E9D923964B3700AE6ECC /* SubScriptionCollectionViewCell.swift */; };
 		1892E9DC23964B3700AE6ECC /* SubScriptionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1892E9DA23964B3700AE6ECC /* SubScriptionCollectionViewCell.xib */; };
@@ -259,6 +263,10 @@
 		188131B0238E8B65005334BF /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
 		188131B1238E8B65005334BF /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		188131B4238EB11D005334BF /* Kethan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Kethan.entitlements; sourceTree = "<group>"; };
+		1892042423BB102800C732FB /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		1892042623BB128A00C732FB /* ImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
+		1892042823BB12A000C732FB /* Implant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Implant.swift; sourceTree = "<group>"; };
+		1892042A23BB13C300C732FB /* ObjectLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectLocation.swift; sourceTree = "<group>"; };
 		1892E9D72396427800AE6ECC /* SubScriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubScriptionViewController.swift; sourceTree = "<group>"; };
 		1892E9D923964B3700AE6ECC /* SubScriptionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubScriptionCollectionViewCell.swift; sourceTree = "<group>"; };
 		1892E9DA23964B3700AE6ECC /* SubScriptionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubScriptionCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -456,6 +464,10 @@
 			isa = PBXGroup;
 			children = (
 				1809E9F123A3A7D3001A8A77 /* User.swift */,
+				1892042423BB102800C732FB /* SearchResult.swift */,
+				1892042623BB128A00C732FB /* ImageData.swift */,
+				1892042823BB12A000C732FB /* Implant.swift */,
+				1892042A23BB13C300C732FB /* ObjectLocation.swift */,
 			);
 			path = ModelClasses;
 			sourceTree = "<group>";
@@ -1260,6 +1272,7 @@
 				1821AF23237A860F0010B307 /* Extensions.swift in Sources */,
 				18E71D72237C1F670090FC90 /* SWRevealViewController.m in Sources */,
 				18956D2423880AA500BD8F63 /* SearchListCollectionViewCell.swift in Sources */,
+				1892042923BB12A000C732FB /* Implant.swift in Sources */,
 				1875FC0B23A0ED7C00B1EA1F /* UIView+.swift in Sources */,
 				1897453E238D2AA80000FCC4 /* AddDetailHeader2Cell.swift in Sources */,
 				189C064C2397C45200C292ED /* ChangePwdViewController.swift in Sources */,
@@ -1281,6 +1294,7 @@
 				1804E15F2394D7B900210C0F /* VerifyOTPViewController.swift in Sources */,
 				1801ABB123851DCB00F46223 /* UIImage+KVNImageEffects.m in Sources */,
 				1892E9D82396427800AE6ECC /* SubScriptionViewController.swift in Sources */,
+				1892042523BB102800C732FB /* SearchResult.swift in Sources */,
 				18974546238D38920000FCC4 /* AddDetailHeader3Cell.swift in Sources */,
 				1821AF0F237A74450010B307 /* PurchesViewController.swift in Sources */,
 				188131B2238E8B66005334BF /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
@@ -1296,6 +1310,7 @@
 				18C3E6F023A76186000ABA07 /* CountryCell.swift in Sources */,
 				1809E9EF23A39379001A8A77 /* SignUpVM.swift in Sources */,
 				18794DB12398DF2900E80457 /* ProfileViewController.swift in Sources */,
+				1892042723BB128A00C732FB /* ImageData.swift in Sources */,
 				1822E31723A1FEF7006042E3 /* SkyFloatingLabelTextField.swift in Sources */,
 				1801ABB223851DCB00F46223 /* UIImage+KVNEmpty.m in Sources */,
 				18705387238FB000006ACA3D /* GalleryManager.swift in Sources */,
@@ -1308,6 +1323,7 @@
 				1821AF27237A8EF20010B307 /* CustomBarButtonItem.swift in Sources */,
 				1801ABB6238547CB00F46223 /* BaseTabBarViewController.swift in Sources */,
 				1892E9DB23964B3700AE6ECC /* SubScriptionCollectionViewCell.swift in Sources */,
+				1892042B23BB13C300C732FB /* ObjectLocation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

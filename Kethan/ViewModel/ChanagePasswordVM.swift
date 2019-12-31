@@ -20,7 +20,6 @@ class ChanagePasswordVM: NSObject {
     
     var rootController: BaseViewController?
     
-    
     override init() {
         
     }

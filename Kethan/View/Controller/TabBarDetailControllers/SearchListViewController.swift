@@ -9,9 +9,10 @@
 import UIKit
 
 class SearchListViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
+   // @IBOutlet weak var searchVM: SearchVM!
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    var arrResult = [SearchResult]()
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBarWithTitle("Search Results", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeNil)
@@ -25,19 +26,21 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
         layout.sectionInset = UIEdgeInsets.zero
         layout.scrollDirection = .vertical
         self.collectionView.collectionViewLayout = layout
+    
     }
     
     // MARK: - CollectionView Dalegate and DataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return STATICDATA.arrSearch.count
+        return arrResult.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: IDENTIFIERS.SearchListCollectionViewCell, for: indexPath) as? SearchListCollectionViewCell {
-            let arr = STATICDATA.arrSearch[indexPath.item]
-            cell.imgPhoto.image = UIImage(named: arr["image"]!)
-            cell.lblTitle.text = arr["title"]
-            cell.lblSubTitle.text = arr["subTitle"]
+            cell.configuration(model: self.arrResult[indexPath.row])
+          //  let arr = STATICDATA.arrSearch[indexPath.item]
+//            cell.imgPhoto.image = UIImage(named: arr["image"]!)
+//            cell.lblTitle.text = arr["title"]
+//            cell.lblSubTitle.text = arr["subTitle"]
             return cell
         }
         return UICollectionViewCell()

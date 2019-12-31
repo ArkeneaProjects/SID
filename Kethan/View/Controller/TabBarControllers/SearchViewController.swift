@@ -13,7 +13,7 @@ class SearchViewController: BaseViewController {
     @IBOutlet weak var txtImplant: CustomDropDown!
     
     @IBOutlet weak var txtManufacture: CustomDropDown!
-    
+     var searchVM = SearchVM()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,9 +51,13 @@ class SearchViewController: BaseViewController {
     
     // MARK: - Button Action
     @IBAction func searchClickAction(_ sender: Any) {
-        if let controller = self.instantiate(SearchListViewController.self, storyboard: STORYBOARD.main) as? SearchListViewController {
-            self.navigationController?.pushViewController(controller, animated: true)
+     
+        ProgressManager.show(withStatus: "", on: self.view)
+        self.searchVM.rootController = self
+        self.searchVM.getAllSearchResult(manufecture: self.txtManufacture.text ?? "", brandname: self.txtImplant.text ?? "") {
         }
+        
+       
     }
     
     // MARK: - TextField Delegate
