@@ -136,6 +136,7 @@ struct MESSAGES {
     static let internetOffline = "The Internet connection appears to be offline."
     static let noPayment = "No payment account available for this user."
     static let errorInLocation = "We got an error while detecting your location. Please try again."
+    static let emptySearch = "Enter either manufacture or either brand/name"
 }
 
 struct ERRORS {

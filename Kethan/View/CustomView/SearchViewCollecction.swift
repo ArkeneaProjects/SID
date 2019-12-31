@@ -59,13 +59,15 @@ class SearchViewCollecction: UIView, UICollectionViewDelegate, UICollectionViewD
     
     // MARK: - CollectionView Dalegate and DataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return STATICDATA.arrImages.count
+        return arrAllItems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCollectionViewCell", for: indexPath) as? CustomCollectionViewCell {
             print(cell.frame.size.height)
-            cell.imgPhoto.image = UIImage(named: STATICDATA.arrImages[indexPath.item])
+            if let obj = arrAllItems.object(at: indexPath.row) as? ImageData {
+                cell.imgPhoto.sd_setImage(with: URL(string: obj.imageName), placeholderImage: nil, options: .continueInBackground, context: nil)
+            }
             return cell
         }
         return UICollectionViewCell()

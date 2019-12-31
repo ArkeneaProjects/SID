@@ -11,7 +11,7 @@ import UIKit
 class SearchDetailViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tblView: UITableView!
-    
+    var detailObj = SearchResult()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBarWithTitle("Details", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeEdit)
@@ -37,7 +37,7 @@ class SearchDetailViewController: BaseViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return detailObj.removImplant.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -45,14 +45,16 @@ class SearchDetailViewController: BaseViewController, UITableViewDelegate, UITab
             if let cell = tableView.dequeueReusableCell(withIdentifier: IDENTIFIERS.DetailRow1TableViewCell) as? DetailRow1TableViewCell {
                 var customCollection: SearchViewCollecction?
                 customCollection = SearchViewCollecction.loadInstanceFromNib() as? SearchViewCollecction
+                cell.lblTitle.text = detailObj.objectName
+                cell.lblDiscription.text = detailObj.implantManufacture
                 customCollection!.setupWith(superView: cell.viewCollection, controller: self, isview: false)
-                customCollection!.pageControl.numberOfPages = STATICDATA.arrImages.count
-                customCollection!.arrAllItems =  NSMutableArray(array: STATICDATA.arrSearch)
+                customCollection!.pageControl.numberOfPages = self.detailObj.imageData.count
+                customCollection!.arrAllItems =  NSMutableArray(array: self.detailObj.imageData)
                 return cell
             }
         } else {
             if let cell = tableView.dequeueReusableCell(withIdentifier: IDENTIFIERS.DetailRow2TableViewCell) as? DetailRow2TableViewCell {
-                cell.lblResponse.text = STATICDATA.arrResponse[indexPath.row-1]
+                cell.lblResponse.text = detailObj.removImplant[indexPath.row - 1].removalProcess
                 return cell
             }
         }
