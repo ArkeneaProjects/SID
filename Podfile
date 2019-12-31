@@ -16,7 +16,8 @@ target 'Kethan' do
   pod 'SVPinView'
   pod 'CropViewController'
   pod 'Atributika'
-
+  pod 'GooglePlaces'
+   
 # Pods for Kethan
 
   target 'KethanTests' do

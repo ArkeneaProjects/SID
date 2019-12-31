@@ -10,9 +10,11 @@ import UIKit
 import FBSDKCoreKit
 import GoogleSignIn
 import IQKeyboardManagerSwift
+import GooglePlaces
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate {
-   
+    
     var tabBarController: BaseTabBarViewController!
     var tabBarDelegate: BaseTabBarControllerDelegate = BaseTabBarControllerDelegate()
     
@@ -33,7 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         //IQKeyboardManager.shared.enableAutoToolbar = false
         // Initialize sign-in
         GIDSignIn.sharedInstance().clientID = KEYS.googleKey
-
+        GMSPlacesClient.provideAPIKey(KEYS.GooglePlacesAPIKey)
+        
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         let base = BaseViewController()
         if let dictionary = getUserDefaultsForKey(key: UserDefaultsKeys.LoggedUser) as? NSDictionary {
@@ -41,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
             base.navigateToHome((AppConstant.shared.loggedUser.accesstoken.trimmedString().count > 0) ?false:true, true)
         } else {
             base.navigateToHome(true, true)
-
+            
         }
         return true
     }
@@ -60,5 +63,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     class func delegate() -> AppDelegate? {
         return UIApplication.shared.delegate as? AppDelegate
     }
-
+    
 }

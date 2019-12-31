@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import CoreLocation
+import GooglePlaces
 
-class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, GalleryManagerDelegate {
+class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, GalleryManagerDelegate, GMSAutocompleteViewControllerDelegate {
     
     @IBOutlet weak var tblView: UITableView!
     
@@ -81,8 +83,22 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     }
     
     @objc func placeBtnClickAction(_ sender: CustomButton) {
-        
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+
+        // Specify the place data types to return.
+        let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
+          UInt(GMSPlaceField.placeID.rawValue))!
+        autocompleteController.placeFields = fields
+
+        // Specify a filter.
+        let filter = GMSAutocompleteFilter()
+        filter.type = .noFilter
+        autocompleteController.autocompleteFilter = filter
+       
+        self.present(autocompleteController, animated: true, completion: nil)
     }
+    
     func reloadTableView(_ indexPath: IndexPath) {
         UIView.performWithoutAnimation {
             let loc = self.tblView.contentOffset
@@ -150,7 +166,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                     self.showAlert(title: "Delete Process?", message: "", yesTitle: "Delete", noTitle: "Cancel", yesCompletion: {
                         self.arrItem.removeObject(at: tableCell)
                         self.reloadTableView(indexPath)
-
+                        
                     }, noCompletion: nil)
                 }
                 return cell
@@ -168,6 +184,22 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         print(image)
     }
     
+    //MARK:- GMSAutocompleteViewControllerDelegate -
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        let address = place.name
+        let cell = self.tblView.cellForRow(at: IndexPath(row: 1, section: 0)) as! AddDetailHeader2Cell
+        cell.btnLocation.setTitle(address, for: .normal)
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        print("Error: ", error.localizedDescription)
+    }
+    
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        dismiss(animated: true, completion: nil)
+    }
     /*
      // MARK: - Navigation
      
