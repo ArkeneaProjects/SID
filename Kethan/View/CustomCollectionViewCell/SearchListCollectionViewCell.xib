@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchListCollectionViewCell" id="gTV-IL-0wX" customClass="SearchListCollectionViewCell" customModule="Kethan" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchListCollectionViewCell" id="gTV-IL-0wX" customClass="SearchListCollectionViewCell" customModule="SID" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="160" height="213"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -19,11 +19,23 @@
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="mgu-jZ-tfB">
                         <rect key="frame" x="13" y="12" width="144" height="146.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="146.5" id="1Jn-FA-Pd2" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstAttribute="width" constant="144" id="Ci2-2B-w9W" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skyline a:p lateran" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLT-hP-hPC" customClass="CustomLabel" customModule="Kethan" customModuleProvider="target">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skyline a:p lateran" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLT-hP-hPC" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
                         <rect key="frame" x="13" y="165.5" width="144" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="18" id="fWC-bb-CPJ" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                            <constraint firstAttribute="height" constant="18" id="fWC-bb-CPJ" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                 </userDefinedRuntimeAttributes>
@@ -39,7 +51,7 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Depuy Skyline " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00c-p8-V9T" customClass="CustomLabel" customModule="Kethan" customModuleProvider="target">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Depuy Skyline " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00c-p8-V9T" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
                         <rect key="frame" x="13" y="187.5" width="144" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="wXm-jt-4ov"/>
@@ -59,14 +71,14 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="00c-p8-V9T" firstAttribute="top" secondItem="cLT-hP-hPC" secondAttribute="bottom" constant="4" id="HvH-98-6yW"/>
-                <constraint firstItem="mgu-jZ-tfB" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="12" id="JU7-ZE-x6J" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                <constraint firstItem="mgu-jZ-tfB" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="12" id="JU7-ZE-x6J" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </constraint>
                 <constraint firstItem="00c-p8-V9T" firstAttribute="leading" secondItem="mgu-jZ-tfB" secondAttribute="leading" id="Jsr-fa-exj"/>
                 <constraint firstItem="cLT-hP-hPC" firstAttribute="trailing" secondItem="mgu-jZ-tfB" secondAttribute="trailing" id="RPv-Cg-TIf"/>
-                <constraint firstItem="mgu-jZ-tfB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="13" id="fXB-sZ-PjV" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                <constraint firstItem="mgu-jZ-tfB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="13" id="fXB-sZ-PjV" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                     </userDefinedRuntimeAttributes>
@@ -74,7 +86,7 @@
                 <constraint firstItem="00c-p8-V9T" firstAttribute="trailing" secondItem="mgu-jZ-tfB" secondAttribute="trailing" id="ftq-m7-UnX"/>
                 <constraint firstItem="cLT-hP-hPC" firstAttribute="leading" secondItem="mgu-jZ-tfB" secondAttribute="leading" id="jfT-Gg-ZtP"/>
                 <constraint firstAttribute="bottom" secondItem="00c-p8-V9T" secondAttribute="bottom" constant="7.5" id="lVp-9b-Qg9"/>
-                <constraint firstAttribute="trailing" secondItem="mgu-jZ-tfB" secondAttribute="trailing" constant="3" id="m7I-4q-8Rw" customClass="CustomConstraint" customModule="Kethan" customModuleProvider="target">
+                <constraint firstAttribute="trailing" secondItem="mgu-jZ-tfB" secondAttribute="trailing" constant="3" id="m7I-4q-8Rw" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                     </userDefinedRuntimeAttributes>

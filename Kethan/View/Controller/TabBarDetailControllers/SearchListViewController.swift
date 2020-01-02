@@ -56,7 +56,7 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: IDENTIFIERS.SearchListCollectionViewCell, for: indexPath) as? SearchListCollectionViewCell {
-            cell.configuration(model: self.searchVM.arrSearchResult[indexPath.row])
+            cell.configuration(obj: self.searchVM.arrSearchResult[indexPath.row])
           //  let arr = STATICDATA.arrSearch[indexPath.item]
 //            cell.imgPhoto.image = UIImage(named: arr["image"]!)
 //            cell.lblTitle.text = arr["title"]
@@ -65,10 +65,7 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
         }
         return UICollectionViewCell()
     }
-    
-    func configurationCell(cell: SearchListCollectionViewCell, indexPath: IndexPath) {
-        
-    }
+   
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Collection view at row \(collectionView.tag) selected index path \(indexPath)")
         if let controller = self.instantiate(SearchDetailViewController.self, storyboard: STORYBOARD.main) as? SearchDetailViewController {
@@ -78,7 +75,7 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width/2, height: getCalculated(225.0))
+        return CGSize(width: collectionView.frame.size.width/2, height: getCalculated(213.0))
     }
     
     /*

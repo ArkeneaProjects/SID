@@ -61,12 +61,16 @@ class SearchViewCollecction: UIView, UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return arrAllItems.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+       
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCollectionViewCell", for: indexPath) as? CustomCollectionViewCell {
             print(cell.frame.size.height)
             if let obj = arrAllItems.object(at: indexPath.row) as? ImageData {
-                cell.imgPhoto.sd_setImage(with: URL(string: obj.imageName), placeholderImage: nil, options: .continueInBackground, context: nil)
+             
+                cell.imgPhoto.sd_setImage(with: URL(string: obj.imageName), placeholderImage: nil, options: .continueInBackground) { (image, error, types, url) in
+                    cell.imgPhoto.drawRectangle(frameSize: CGSize(width: getCalculated(cell.imgPhoto.bounds.width), height: getCalculated(cell.imgPhoto.bounds.height)), imageWidth: image?.size.width ?? 0.0, imageHight: image?.size.height ?? 0.0, drawSize: CGRect(x: CGFloat(obj.objectLocation.left.floatValue()), y: CGFloat(obj.objectLocation.top.floatValue()), width: CGFloat(obj.objectLocation.width.floatValue()), height: CGFloat(obj.objectLocation.height.floatValue())))
+                }
             }
             return cell
         }

@@ -401,3 +401,22 @@ extension UIImage {
         return image
     }
 }
+extension UIImageView {
+    
+    func drawRectangle(frameSize: CGSize, imageWidth: CGFloat, imageHight: CGFloat, drawSize: CGRect) {
+      
+        let Width = frameSize.width//getCalculated(self.frame.size.width)
+        let Hight = frameSize.height//getCalculated(self.frame.size.height)
+
+        let acutalX = (Width * drawSize.origin.x ) / imageWidth
+        let actualY = (Hight * drawSize.origin.y) / imageHight
+        let actualWidth = (Width * drawSize.size.width)/imageWidth
+        let actualHight = (Hight * drawSize.size.height)/imageHight
+
+        let d = Draw(frame: CGRect(x: acutalX, y: actualY, width: actualWidth, height: actualHight))
+        for view in self.subviews {
+            view.removeFromSuperview()
+        }
+        self.addSubview(d)
+    }
+}

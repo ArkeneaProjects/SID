@@ -78,12 +78,7 @@ class LoginViewController: BaseViewController, GIDSignInDelegate {
         GIDSignIn.sharedInstance()?.restorePreviousSignIn()
         
         // Do any additional setup after loading the view.
-        
-        
-        
-        
-        
-        
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {

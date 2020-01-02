@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1800BA4823BE009B00BF5616 /* Draw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800BA4723BE009A00BF5616 /* Draw.swift */; };
 		1801AB912385036300F46223 /* GoogleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1801AB902385036300F46223 /* GoogleManager.swift */; };
 		1801AB932385036A00F46223 /* FacebookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1801AB922385036A00F46223 /* FacebookManager.swift */; };
 		1801ABAB23851DCB00F46223 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801AB9723851DCB00F46223 /* iCarousel.m */; };
@@ -171,6 +172,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1800BA4723BE009A00BF5616 /* Draw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Draw.swift; sourceTree = "<group>"; };
 		1801AB902385036300F46223 /* GoogleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleManager.swift; sourceTree = "<group>"; };
 		1801AB922385036A00F46223 /* FacebookManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookManager.swift; sourceTree = "<group>"; };
 		1801AB9723851DCB00F46223 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
@@ -560,6 +562,7 @@
 				18974549238D38A80000FCC4 /* ProcessDocumentView.xib */,
 				1879F575238BB98A00ABBBC0 /* SearchViewCollecction.swift */,
 				1879F577238BB99C00ABBBC0 /* SearchViewCollecction.xib */,
+				1800BA4723BE009A00BF5616 /* Draw.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -1283,6 +1286,7 @@
 				1879F585238BDA7800ABBBC0 /* DetailRow2TableViewCell.swift in Sources */,
 				1821AF0B237A741B0010B307 /* HomeViewController.swift in Sources */,
 				1879F588238BF3C600ABBBC0 /* CustomImagePageControl.swift in Sources */,
+				1800BA4823BE009B00BF5616 /* Draw.swift in Sources */,
 				1875FC1123A0ED7C00B1EA1F /* BezierPath+.swift in Sources */,
 				1879F573238BB2DA00ABBBC0 /* SearchDetailViewController.swift in Sources */,
 				1875FC0C23A0ED7C00B1EA1F /* CropDimView.swift in Sources */,
