@@ -122,6 +122,10 @@
 		189E882723953BDB009C8ECF /* CreditHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E882523953BDB009C8ECF /* CreditHistoryTableViewCell.swift */; };
 		189E882823953BDB009C8ECF /* CreditHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189E882623953BDB009C8ECF /* CreditHistoryTableViewCell.xib */; };
 		18A728E3239E687800537092 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A728E2239E687700537092 /* LoginVM.swift */; };
+		18ACDC8023BDC75900780CE1 /* ProcessListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACDC7F23BDC75800780CE1 /* ProcessListViewController.swift */; };
+		18ACDC8223BDEFE000780CE1 /* ProcessListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACDC8123BDEFE000780CE1 /* ProcessListCell.swift */; };
+		18ACDC8623BDF9B700780CE1 /* AddImplantVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACDC8523BDF9B700780CE1 /* AddImplantVM.swift */; };
+		18ACDC8823BE222E00780CE1 /* ImplantImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACDC8723BE222E00780CE1 /* ImplantImage.swift */; };
 		18C3E6E923A75FA4000ABA07 /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3E6E823A75FA4000ABA07 /* CountryListViewController.swift */; };
 		18C3E6EE23A76185000ABA07 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3E6EB23A76185000ABA07 /* Countries.swift */; };
 		18C3E6EF23A76185000ABA07 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3E6EC23A76185000ABA07 /* Country.swift */; };
@@ -305,6 +309,10 @@
 		189E882523953BDB009C8ECF /* CreditHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		189E882623953BDB009C8ECF /* CreditHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreditHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		18A728E2239E687700537092 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
+		18ACDC7F23BDC75800780CE1 /* ProcessListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessListViewController.swift; sourceTree = "<group>"; };
+		18ACDC8123BDEFE000780CE1 /* ProcessListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessListCell.swift; sourceTree = "<group>"; };
+		18ACDC8523BDF9B700780CE1 /* AddImplantVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImplantVM.swift; sourceTree = "<group>"; };
+		18ACDC8723BE222E00780CE1 /* ImplantImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImplantImage.swift; sourceTree = "<group>"; };
 		18C3E6E823A75FA4000ABA07 /* CountryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
 		18C3E6EB23A76185000ABA07 /* Countries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
 		18C3E6EC23A76185000ABA07 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
@@ -470,6 +478,7 @@
 				1892042623BB128A00C732FB /* ImageData.swift */,
 				1892042823BB12A000C732FB /* Implant.swift */,
 				1892042A23BB13C300C732FB /* ObjectLocation.swift */,
+				18ACDC8723BE222E00780CE1 /* ImplantImage.swift */,
 			);
 			path = ModelClasses;
 			sourceTree = "<group>";
@@ -585,6 +594,7 @@
 				189E882623953BDB009C8ECF /* CreditHistoryTableViewCell.xib */,
 				18F812E6239E0FCE00E96B47 /* DropDownTableViewCell.swift */,
 				18F812E7239E0FCE00E96B47 /* DropDownTableViewCell.xib */,
+				18ACDC8123BDEFE000780CE1 /* ProcessListCell.swift */,
 			);
 			path = CustomTableViewCell;
 			sourceTree = "<group>";
@@ -613,6 +623,7 @@
 		18956D1E2387FC5400BD8F63 /* TabBarDetailControllers */ = {
 			isa = PBXGroup;
 			children = (
+				18ACDC7F23BDC75800780CE1 /* ProcessListViewController.swift */,
 				18956D1F2387FC8100BD8F63 /* SearchListViewController.swift */,
 				1879F572238BB2DA00ABBBC0 /* SearchDetailViewController.swift */,
 				18974532238D08070000FCC4 /* AddDetailsViewController.swift */,
@@ -676,6 +687,7 @@
 				1847363C23AB8B5100C565A4 /* ForgotVM.swift */,
 				182239DE23B9FBAD00B3C01F /* SearchVM.swift */,
 				1834A3F223BB295C00C02C98 /* ImageSearchVM.swift */,
+				18ACDC8523BDF9B700780CE1 /* AddImplantVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1230,6 +1242,7 @@
 				18956D202387FC8100BD8F63 /* SearchListViewController.swift in Sources */,
 				1879F576238BB98A00ABBBC0 /* SearchViewCollecction.swift in Sources */,
 				1801ABB323851DCB00F46223 /* UIColor+KVNContrast.m in Sources */,
+				18ACDC8623BDF9B700780CE1 /* AddImplantVM.swift in Sources */,
 				18794DAF2398D02000E80457 /* EditProfileViewController.swift in Sources */,
 				18DDC78E23797AA6003FCCE8 /* SearchViewController.swift in Sources */,
 				1892E9DE23968E0800AE6ECC /* SignUpViewController.swift in Sources */,
@@ -1237,6 +1250,7 @@
 				188131B3238E8B66005334BF /* TPKeyboardAvoidingScrollView.m in Sources */,
 				1821AF1E237A7E670010B307 /* CustomTextView.swift in Sources */,
 				18E71D6B237C15690090FC90 /* LoginViewController.swift in Sources */,
+				18ACDC8023BDC75900780CE1 /* ProcessListViewController.swift in Sources */,
 				1801ABB7238547CB00F46223 /* BaseTabBarControllerDelegate.swift in Sources */,
 				1897454D238D52B50000FCC4 /* ThankYouViewController.swift in Sources */,
 				1821AF0D237A74320010B307 /* UploadViewController.swift in Sources */,
@@ -1258,6 +1272,7 @@
 				1875FC1323A0ED7C00B1EA1F /* LineButton.swift in Sources */,
 				18794DAD2398CBCF00E80457 /* AboutViewController.swift in Sources */,
 				1801ABB023851DCB00F46223 /* ProgressManager.m in Sources */,
+				18ACDC8223BDEFE000780CE1 /* ProcessListCell.swift in Sources */,
 				18DDC7D223798CD4003FCCE8 /* Constant.swift in Sources */,
 				188131A9238E5D34005334BF /* CustomDropDown.swift in Sources */,
 				18C3E6E923A75FA4000ABA07 /* CountryListViewController.swift in Sources */,
@@ -1271,6 +1286,7 @@
 				18DDC78A23797AA6003FCCE8 /* AppDelegate.swift in Sources */,
 				181FFAA2239A71170078E64D /* PreviewViewController.swift in Sources */,
 				1821AF25237A86C50010B307 /* CustomBase.swift in Sources */,
+				18ACDC8823BE222E00780CE1 /* ImplantImage.swift in Sources */,
 				1821AF1D237A7E670010B307 /* CustomButton.swift in Sources */,
 				1821AF1F237A7E670010B307 /* CustomLabel.swift in Sources */,
 				1821AF23237A860F0010B307 /* Extensions.swift in Sources */,

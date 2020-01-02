@@ -85,13 +85,17 @@ class CustomNavBar: UIView {
                 self.btnRight.backgroundColor = .white
                 self.btnRight.setTitle("$ 50", for: .normal)
             } else if rightButtonType == .buttonTypeEdit {
-                 self.btnRightEdit.alpha = 1.0
-                 self.btnRightEdit.setImage(UIImage(named: "pencil"), for: .normal)
-                 self.btnRightEdit.addTarget(target, action: rightAction, for: UIControl.Event.touchUpInside)
+                self.btnRightEdit.alpha = 1.0
+                self.btnRightEdit.setImage(UIImage(named: "pencil"), for: .normal)
+                self.btnRightEdit.addTarget(target, action: rightAction, for: UIControl.Event.touchUpInside)
             } else if rightButtonType == .buttonTypeSkip {
-                 self.btnRightEdit.alpha = 1.0
+                self.btnRightEdit.alpha = 1.0
                 self.btnRightEdit.setTitle("Skip", for: .normal)
-                 self.btnRightEdit.addTarget(target, action: rightAction, for: UIControl.Event.touchUpInside)
+                self.btnRightEdit.addTarget(target, action: rightAction, for: UIControl.Event.touchUpInside)
+            } else if rightButtonType == .buttonTypeSave {
+                self.btnRightEdit.alpha = 1.0
+                self.btnRightEdit.setTitle("Save", for: .normal)
+                self.btnRightEdit.addTarget(target, action: rightAction, for: UIControl.Event.touchUpInside)
             }
             
             if rightImageName.count > 0 {

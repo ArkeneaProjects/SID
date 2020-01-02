@@ -52,26 +52,34 @@ class UploadViewController: BaseViewController {
     
     // MARK: - Button Action
     @IBAction func addClickAction(_ sender: Any) {
-        if let controller = self.instantiate(AddDetailsViewController.self, storyboard: STORYBOARD.main) as? AddDetailsViewController {
-            controller.implantObj = self.implantObj
-            self.navigationController?.pushViewController(controller, animated: true)
+        if (self.implantObj.objectName.count < 1) {
+            ProgressManager.showError(withStatus: ERRORS.EmptyBrandName, on: self.view)
+            return
+        } else if (self.implantObj.implantManufacture.count < 1) {
+            ProgressManager.showError(withStatus: ERRORS.EmptyManufacturer, on: self.view)
+            return
+        } else {
+            if let controller = self.instantiate(AddDetailsViewController.self, storyboard: STORYBOARD.main) as? AddDetailsViewController {
+                controller.implantObj = self.implantObj
+                self.navigationController?.pushViewController(controller, animated: true)
+            }
         }
     }
-    
-    /* func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-     if textField.text!.count >= 3 {
-     // self.txtImplant.showList()
-     }
-     return true
-     }*/
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+        
+        /* func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+         if textField.text!.count >= 3 {
+         // self.txtImplant.showList()
+         }
+         return true
+         }*/
+        /*
+         // MARK: - Navigation
+         
+         // In a storyboard-based application, you will often want to do a little preparation before navigation
+         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         // Get the new view controller using segue.destination.
+         // Pass the selected object to the new view controller.
+         }
+         */
+        
 }

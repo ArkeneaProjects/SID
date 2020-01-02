@@ -23,7 +23,7 @@ struct APP_COLOR {
     static let color5 = UIColor(hexString: "#999999") //Annual button
     static let color6 = UIColor(hexString: "#00AF44") //Green
     static let color7 = UIColor(hexString: "#E44F60") //Light Red
-
+    
 }
 
 struct APP_FONT {
@@ -73,7 +73,7 @@ struct SUFFIX_URL {
     static let SearchByText = "implant/searchByText"
     static let SearchByImage = "implant/analyzeImage"
 }
-    
+
 struct KEYS {
     static let googleKey = "23307698272-psgd5pqvanqohndhmpu3en11t6o50ja9.apps.googleusercontent.com"
     static let GooglePlacesAPIKey = "AIzaSyD0SJanDGyOB3Azx1lToYnh03ocyU2M4Hs"
@@ -95,9 +95,9 @@ struct STATICDATA {
     static let arrResponse = ["Locate presence of 1 or 2 rod implant by palpation. Refer for further examination if not located.", "Clean the sit with antiseptic solution", "Anesthetise at the incision site and under the end of the capsule with upto 1ml of 1% lignocaine (without epinephrine)", "Locate presence of 1 or 2 rod implant by palpation. Refer for further examination if not located.", "Anesthetise at the incision site and under the end of the capsule with upto 1ml of 1% lignocaine (without epinephrine)"]
     
     static let arrUserGuide = [["image": "step1", "title": "Leverage Artificial Intelligence", "subtitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"],
-                            ["image": "step2", "title": "Search by names", "subtitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"],
-                            ["image": "step3", "title": "Add Information", "subtitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"],
-                            ["image": "step4", "title": "Refer & Earn", "subtitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"]]
+                               ["image": "step2", "title": "Search by names", "subtitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"],
+                               ["image": "step3", "title": "Add Information", "subtitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"],
+                               ["image": "step4", "title": "Refer & Earn", "subtitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"]]
     
     static let arrCreditHistory = [["image": "referral", "title": "Referral Rewards", "amount": "+ $ 20", "date": "November 20", "description": "Rewarded for being referred to SID by a friend"], ["image": "upload", "title": "Upload Images Rewards", "amount": "+ $ 10", "date": "November 19", "description": "Rewarded for being uploaded images on Database"], ["image": "referral", "title": "Referral Rewards", "amount": "+ $ 20", "date": "November 12", "description": ""], ["image": "bank", "title": "Credited in Bank", "amount": "- $ 120", "date": "November 10", "description": "Transfered to your bank account"], ["image": "referral", "title": "Referral Rewards", "amount": "+ $ 20", "date": "November 20", "description": "Rewarded for being referred to SID by a friend"]]
     
@@ -147,7 +147,7 @@ struct ERRORS {
     static let validMobileNumber: String = "It seems you have entered an incorrcect phone number"
     static let MobileNumberError: String = "Entered mobile number is invalid with selected country code"
     static let socialMediaError: String = "Something went to wrong try after some time"
-
+    
     //SignUp
     static let firstName: String = "Please enter first name"
     static let middleName: String = "Please enter middle name"
@@ -156,7 +156,7 @@ struct ERRORS {
     static let fullName: String = "Your name must not be left blank "
     static let profession: String = "Enter Profession"
     static let professionSelect: String = "Please select profession"
-
+    
     //OTP
     static let otp: String = "You need to input the verification code in order to proceed"
     
@@ -167,14 +167,18 @@ struct ERRORS {
     static let matchPwd: String = "The passwords do not match. Please try again"
     static let invalidPwd: String = "Password must be alpha numeric with 6-15 characters"
     static let invalidLenghtPwd: String = "Password should be atleast 6-15 characters"
-
+    
     static let EmptyCountryCode = "Please select county"
     static let EmptyMobileNumber = "Please enter mobile number"
     static let WrongMobileNumber = "Please enter valid mobile number"
     
     static let EmptyOTP = "Please enter OTP"
     static let WrongOTP = "Please enter valid OTP"
-
+    
+    //Upload
+    static let EmptyManufacturer = "Please enter manufacturer"
+    static let EmptyBrandName = "Please enter implant name/brand"
+    
 }
 
 struct CONSTANT {
@@ -217,30 +221,37 @@ struct ENTITIES {
     static let socialPlatform = "socialPlatform"
     
     //SearchResult
-       static let isApproved = "isApproved"
-       static let isRejected = "isRejected"
-       static let _id = "_id"
-       static let objectName = "objectName"
-       static let implantManufacture = "implantManufacture"
-       static let removImplant = "removImplant"
-       static let imageData = "imageData"
-       static let watsonImage_id = "watsonImage_id"
-       static let createdOn = "createdOn"
-       static let modifiedOn = "modifiedOn"
+    static let isApproved = "isApproved"
+    static let isRejected = "isRejected"
+    static let _id = "_id"
+    static let objectName = "objectName"
+    static let implantManufacture = "implantManufacture"
+    static let removImplant = "removImplant"
+    static let imageData = "imageData"
+    static let watsonImage_id = "watsonImage_id"
+    static let createdOn = "createdOn"
+    static let modifiedOn = "modifiedOn"
+    static let implantImage = "implantImage"
+    static let imageWidth = "imageWidth"
+    static let imageHeight = "imageHeight"
+    static let labelWidth = "labelWidth"
+    static let labelHeight = "labelHeight"
+    static let labelOffsetX = "labelOffsetX"
+    static let labelOffsetY = "labelOffsetY"
     
     //Implant
-      static let removalProcess = "removalProcess"
-      static let surgeryDate = "surgeryDate"
-      static let surgeryLocation = "surgeryLocation"
+    static let removalProcess = "removalProcess"
+    static let surgeryDate = "surgeryDate"
+    static let surgeryLocation = "surgeryLocation"
     
     //ImageData
-      static let imageName = "imageName"
-      static let objectLocation = "objectLocation"
+    static let imageName = "imageName"
+    static let objectLocation = "objectLocation"
     
     //ObjectLocation
-      static let top = "top"
-      static let left = "left"
-      static let width = "width"
-      static let height = "height"
+    static let top = "top"
+    static let left = "left"
+    static let width = "width"
+    static let height = "height"
     
 }

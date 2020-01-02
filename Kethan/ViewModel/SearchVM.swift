@@ -13,7 +13,6 @@ class SearchVM {
     var arrSearchResult = [SearchResult] ()
     var rootController: BaseViewController?
     
-    
     func getAllSearchByText(manufecture: String, brandname: String, completion: @escaping (_ error: String) -> Void) {
         ProgressManager.show(withStatus: "", on: self.rootController?.view)
         let dict: NSDictionary = ["manufecture": manufecture,

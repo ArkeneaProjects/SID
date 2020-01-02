@@ -15,11 +15,13 @@ class SearchResult: NSObject {
     var _id: String = ""
     var objectName: String = ""
     var implantManufacture: String = ""
-    var removImplant = [Implant]()
+    var removImplant = NSMutableArray()
     var imageData = [ImageData]()
     var watsonImage_id: String = ""
     var createdOn: String = "" //O for SignUp user, 1 for Facebook, 2 for Google
     var modifiedOn: String = ""
+    var implantImage = NSMutableArray()
+    
     override init() {
         
     }
@@ -40,7 +42,7 @@ class SearchResult: NSObject {
       if let dictarr = dictionary.value(forKey: ENTITIES.removImplant) as? [NSDictionary] {
                  self.removImplant = dictarr.map({ (dict) -> Implant in
                      return Implant(dictionary: dict)
-                 })
+                 }) as! NSMutableArray
              }
         
         self.watsonImage_id = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.watsonImage_id)
@@ -55,7 +57,7 @@ class SearchResult: NSObject {
             return obj.dictioary()
         }
         let implantdictarr = self.removImplant.map { (obj) -> NSDictionary in
-            return obj.dictioary()
+            return (obj as! Implant).dictioary()
         }
         let dictionary: NSDictionary = [
             ENTITIES.isApproved: self.isApproved,
@@ -67,8 +69,8 @@ class SearchResult: NSObject {
             ENTITIES.imageData: imgdictarr,
             ENTITIES.watsonImage_id: self.watsonImage_id,
             ENTITIES.createdOn: self.createdOn,
-            ENTITIES.modifiedOn: self.modifiedOn
-                      
+            ENTITIES.modifiedOn: self.modifiedOn,
+            ENTITIES.implantImage: self.implantImage
         ]
         return dictionary
     }

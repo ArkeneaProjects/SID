@@ -54,7 +54,7 @@ class SearchDetailViewController: BaseViewController, UITableViewDelegate, UITab
             }
         } else {
             if let cell = tableView.dequeueReusableCell(withIdentifier: IDENTIFIERS.DetailRow2TableViewCell) as? DetailRow2TableViewCell {
-                cell.lblResponse.text = detailObj.removImplant[indexPath.row - 1].removalProcess
+                cell.lblResponse.text = (detailObj.removImplant[indexPath.row - 1] as! Implant).removalProcess
                 return cell
             }
         }

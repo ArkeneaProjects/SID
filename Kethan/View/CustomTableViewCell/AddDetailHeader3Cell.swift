@@ -15,7 +15,7 @@ class AddDetailHeader3Cell: UITableViewCell {
     @IBOutlet weak var constViewXpos: NSLayoutConstraint!
     
     // MARK: - iVars
-    var arrTableView: NSMutableArray = NSMutableArray()
+    var arrTableView = NSMutableArray()
     
     var tableIndexPath = IndexPath()
     
@@ -40,6 +40,7 @@ class AddDetailHeader3Cell: UITableViewCell {
     
     @objc func seeAllProcessCompletion(_ sender:CustomButton) {
         if self.seeAllProcessCompletion != nil {
+            
             self.seeAllProcessCompletion!()
         }
     }
@@ -58,7 +59,7 @@ class AddDetailHeader3Cell: UITableViewCell {
                 self.viewListing.addSubview(processListingView)
                 processListingView.translatesAutoresizingMaskIntoConstraints = false
                 
-                processListingView.lblProcess.text = String(format: arrTableView[index] as? String ?? "")
+                processListingView.lblProcess.text = String(format: (arrTableView[index] as! Implant).removalProcess)
                 processListingView.backgroundColor = UIColor.gray
                 processListingView.btnRemove.indexPath = IndexPath(row: index, section: 0)
                 processListingView.tapCompletion = { indexPath in

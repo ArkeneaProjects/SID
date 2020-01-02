@@ -15,18 +15,18 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     @IBOutlet weak var tblView: UITableView!
     
     var imagePicker: GalleryManager!
-    
-    var arrItem = NSMutableArray()
-    var arrImages = NSMutableArray()
     var implantObj = SearchResult()
+    var implantVM = AddImplantVM()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBarWithTitle("Add Details", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeNil)
         // Do any additional setup after loading the view.
         
-//        self.arrItem = NSMutableArray(array: STATICDATA.arrProcess)
-        self.arrImages = NSMutableArray(array: STATICDATA.arrImagesSmall)
+        implantVM.arrImages = NSMutableArray(array: STATICDATA.arrImagesSmall)
+        
+        //save self. implant object into VM class implant object
+        implantVM.implantObj = self.implantObj
         
         self.tblView.registerNibWithIdentifier([IDENTIFIERS.AddDetailHeader1Cell, IDENTIFIERS.AddDetailHeader2Cell, IDENTIFIERS.AddDetailHeader3Cell])
         
@@ -54,14 +54,13 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
             if str.count > 0 {
                 let removalProcess:NSDictionary = ["removalProcess" : str, "surgeryDate" : "", "surgeryLocation" : ""]
                 let implant = Implant(dictionary: removalProcess)
-                self.arrItem.insert(implant, at: 0)
-                self.implantObj.removImplant.insert(implant, at: 0)
+                self.implantVM.implantObj.removImplant.insert(implant, at: 0)
                 if let cell = self.tblView.cellForRow(at: sender.indexPath) as? AddDetailHeader3Cell {
-                   if self.arrItem.count > 5 {
-                        let tempArray: NSArray = self.arrItem.subarray(with: NSRange(location: 0, length: 5)) as NSArray
+                    if self.implantVM.implantObj.removImplant.count > 5 {
+                        let tempArray: NSArray = self.implantVM.implantObj.removImplant.subarray(with: NSRange(location: 0, length: 5)) as NSArray
                         cell.arrTableView = NSMutableArray(array: tempArray)
                     } else {
-                        cell.arrTableView = self.arrItem
+                        cell.arrTableView = self.implantVM.implantObj.removImplant
                     }
                     cell.populateVehicleListing()
                     cell.viewListing.layoutIfNeeded()
@@ -76,6 +75,18 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
             print(str)
         }
     }
+    
+    @objc func seeAllProcesses(_ sender: CustomButton) {
+        if let processListVC = self.instantiate(ProcessListViewController.self, storyboard: STORYBOARD.main) as? ProcessListViewController {
+            processListVC.processArray = self.implantVM.implantObj.removImplant
+            processListVC.saveCompletion = { array in
+                self.implantVM.implantObj.removImplant = array
+                self.tblView.reloadData()
+            }
+            self.navigationController?.pushViewController(processListVC, animated: true)
+        }
+    }
+    
     @objc func dateBtnClickAction(_ sender: CustomButton) {
         let controller: DatePopUpViewController = self.instantiate(DatePopUpViewController.self, storyboard: STORYBOARD.main) as? DatePopUpViewController ?? DatePopUpViewController()
         controller.preparePopup(controller: self)
@@ -84,7 +95,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
             if date.count > 0 {
                 if let cell = self.tblView.cellForRow(at: sender.indexPath) as? AddDetailHeader2Cell {
                     cell.btnSurgeryDate.setTitle(date, for: .normal)
-                    //self.implantObj.surgeryDate = date
+//                    self.implantVM.implantObj.surgeryDate = date
                     self.reloadTableView(IndexPath(row: 2, section: 0))
                 }
             }
@@ -119,7 +130,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     // MARK: - UITabelVieeDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return (self.arrImages.count > 3) ?getCalculated(240.0):getCalculated(130.0)
+            return (implantVM.arrImages.count > 3) ?getCalculated(240.0):getCalculated(130.0)
         }
         return UITableView.automaticDimension
     }
@@ -131,13 +142,13 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: IDENTIFIERS.AddDetailHeader1Cell, for: indexPath) as? AddDetailHeader1Cell {
-                cell.arrAllItems = self.arrImages
-                cell.btnSeeAll.isHidden = self.arrImages.count < 6
+                cell.arrAllItems = implantVM.arrImages
+                cell.btnSeeAll.isHidden = implantVM.arrImages.count < 6
                 //Delete Image
                 cell.deleteImageCompletion = { index_Path in
                     self.showAlert(title: "", message: "Delete Image?", yesTitle: "Yes", noTitle: "NO", yesCompletion: {
-                        self.arrImages.removeObject(at: index_Path.item)
-                        cell.arrAllItems = self.arrImages
+                        self.implantVM.arrImages.removeObject(at: index_Path.item)
+                        cell.arrAllItems = self.implantVM.arrImages
                         if cell.arrAllItems.count == 3 {
                             self.reloadTableView(indexPath)
                         }
@@ -154,6 +165,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                 }
                 
                 cell.seeAllImageCompletion = {
+            
                 }
                 
                 return cell
@@ -161,6 +173,8 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         } else if indexPath.row == 1 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: IDENTIFIERS.AddDetailHeader2Cell, for: indexPath) as? AddDetailHeader2Cell {
                 
+                cell.lblImplant.text = self.implantVM.implantObj.objectName
+                cell.lblManufacture.text = self.implantVM.implantObj.implantManufacture
                 cell.btnSurgeryDate.indexPath = indexPath
                 cell.btnLocation.indexPath = indexPath
                 cell.btnSurgeryDate.addTarget(self, action: #selector(dateBtnClickAction(_:)), for: .touchUpInside)
@@ -169,11 +183,11 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
             }
         } else {
             if let cell = tableView.dequeueReusableCell(withIdentifier: IDENTIFIERS.AddDetailHeader3Cell, for: indexPath) as? AddDetailHeader3Cell {
-                if self.arrItem.count > 5 {
-                    let tempArray: NSArray = self.arrItem.subarray(with: NSRange(location: 0, length: 5)) as NSArray
+                if implantVM.implantObj.removImplant.count > 5 {
+                    let tempArray: NSArray = implantVM.implantObj.removImplant.subarray(with: NSRange(location: 0, length: 5)) as NSArray
                     cell.arrTableView = NSMutableArray(array: tempArray)
                 } else {
-                    cell.arrTableView = self.arrItem
+                    cell.arrTableView = self.implantVM.implantObj.removImplant as! NSMutableArray
                 }
                 cell.populateVehicleListing()
                 cell.viewListing.layoutIfNeeded()
@@ -181,17 +195,17 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                 cell.selectionStyle = .none
                 cell.btnAddResponse.indexPath = indexPath
                 cell.btnAddResponse.addTarget(self, action: #selector(addProcess(_:)), for: .touchUpInside)
-                cell.btnSeeAll.isHidden = self.arrItem.count < 6
+                cell.btnSeeAll.isHidden = self.implantVM.implantObj.removImplant.count < 6
+                cell.btnSeeAll.indexPath = indexPath
+                cell.btnSeeAll.addTarget(self, action: #selector(seeAllProcesses(_:)), for: .touchUpInside)
+                
                 //Delete Process
                 cell.cellSelectionCompletion = { tableCell in
                     self.showAlert(title: "Delete Process?", message: "", yesTitle: "Delete", noTitle: "Cancel", yesCompletion: {
-                        self.arrItem.removeObject(at: tableCell)
+                        self.implantVM.implantObj.removImplant.removeObject(at: tableCell)
                         self.reloadTableView(indexPath)
                         
                     }, noCompletion: nil)
-                }
-                
-                cell.seeAllProcessCompletion = {
                 }
                 
                 return cell
@@ -214,7 +228,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         let address = place.name
         let cell = self.tblView.cellForRow(at: IndexPath(row: 1, section: 0)) as! AddDetailHeader2Cell
         cell.btnLocation.setTitle(address, for: .normal)
-        
+        //self.implantVM.implantObj.surgeryLocation = address
         dismiss(animated: true, completion: nil)
     }
     
