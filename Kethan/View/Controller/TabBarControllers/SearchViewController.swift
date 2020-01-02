@@ -23,8 +23,8 @@ class SearchViewController: BaseViewController {
         self.txtManufacture.font = UIFont(name: self.txtManufacture.font!.fontName, size: getCalculated(14.0))
         
         //Brand
-        if let arrBrand = getUserDefaultsForKey(key: UserDefaultsKeys.BrandName) as? NSMutableArray {
-            self.txtImplant.optionArray = arrBrand as! [String]
+        if let arrBrand = getUserDefaultsForKey(key: UserDefaultsKeys.BrandName) as? [NSString] {
+            self.txtImplant.optionArray = arrBrand as [String]
             self.txtImplant.didSelect { (selected: String, index: Int, id: Int) in
                 self.txtImplant.text = selected
             }
@@ -36,8 +36,8 @@ class SearchViewController: BaseViewController {
         }
         
         //Manufacture
-        if let arrManufacture = getUserDefaultsForKey(key: UserDefaultsKeys.Manufecture) as? NSMutableArray {
-            self.txtManufacture.optionArray = arrManufacture as! [String]
+        if let arrManufacture = getUserDefaultsForKey(key: UserDefaultsKeys.Manufecture) as? [NSString] {
+            self.txtManufacture.optionArray = arrManufacture as [String]
             self.txtManufacture.didSelect { (selected: String, index: Int, id: Int) in
                 self.txtManufacture.text = selected
             }

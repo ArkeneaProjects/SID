@@ -45,7 +45,6 @@ class LoginViewController: BaseViewController, GIDSignInDelegate {
         } else {
             height = Double(getCalculated(198.0))
         }
-        print(height)
         if isLoginViewAnimated == false {
             self.constImageTop.constant = CGFloat(-height)
             self.constImageWidth.constant = getCalculated(203.0)
@@ -78,12 +77,7 @@ class LoginViewController: BaseViewController, GIDSignInDelegate {
         GIDSignIn.sharedInstance()?.restorePreviousSignIn()
         
         // Do any additional setup after loading the view.
-        
-        
-        
-        
-        
-        
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {

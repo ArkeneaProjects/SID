@@ -45,12 +45,10 @@ class SearchVM {
     }
     
     func getSearchByImage( itemArray: NSArray, completion: @escaping (_ error: String) -> Void) {
-        ProgressManager.show(withStatus: "Searching our database...", on: self.rootController?.view)
 
         let dict: NSDictionary = [:]
-        let imageDict  = saveImageInDocumentDict(image: itemArray.firstObject as! UIImage, imageName: "photo")
 
-        AFManager.sendMultipartRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.SearchByImage, parameters: dict, multipart: [imageDict], serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
+        AFManager.sendMultipartRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.SearchByImage, parameters: dict, multipart: itemArray, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
             if error != nil {
                 ProgressManager.showError(withStatus: error, on: self.rootController?.view)
                 completion(error ?? "")

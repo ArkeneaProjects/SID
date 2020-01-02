@@ -23,7 +23,7 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addNavBarWithTitle("Search Results", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeNil)
+        self.addNavBarWithTitle("Search Results", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeAdd)
         
         self.collectionView.register(UINib(nibName: IDENTIFIERS.SearchListCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: IDENTIFIERS.SearchListCollectionViewCell)
         
@@ -39,12 +39,20 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
         
     }
     
+    override func rightButtonAction() {
+        if let controller = self.instantiate(TagViewController.self, storyboard: STORYBOARD.leftMenu) as? TagViewController {
+            controller.selectedImage = self.searchImage
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
+    }
+    
     // MARK: - Action
     func apiCall() {
         self.searchVM.rootController = self
         if self.isSearchByImage == true {
-            self.searchVM.getSearchByImage(itemArray: [self.searchImage]) { (error) in
-                
+            ProgressManager.show(withStatus: "Searching our database...", on: self.view)
+            let imageDict  = saveImageInDocumentDict(image: self.searchImage!, imageName: "photo")
+            self.searchVM.getSearchByImage(itemArray: [imageDict]) { (error) in
                 if error != "" {
                     self.lblResultCount.text = error
                 } else {

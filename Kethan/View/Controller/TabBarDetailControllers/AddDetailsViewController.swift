@@ -206,7 +206,22 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     
     // MARK: - Gallery Delegate
     func didSelect(image: UIImage?) {
-        print(image)
+        ProgressManager.show(withStatus: "", on: self.view)
+        if let controller = self.instantiate(TagViewController.self, storyboard: STORYBOARD.leftMenu) as? TagViewController {
+            if let size = image!.getFileSize() {
+                //check image size is not more than 3 MB
+                if size >= 1.0 {
+                    controller.selectedImage = image!.imageWithImage(scaledToWidth: 600.0)
+                    
+                } else {
+                    controller.selectedImage = image!
+                }
+            } else {
+                controller.selectedImage = image!
+            }
+            ProgressManager.dismiss()
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
     
     // MARK:- GMSAutocompleteViewControllerDelegate -
