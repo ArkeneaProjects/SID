@@ -23,7 +23,7 @@ struct APP_COLOR {
     static let color5 = UIColor(hexString: "#999999") //Annual button
     static let color6 = UIColor(hexString: "#00AF44") //Green
     static let color7 = UIColor(hexString: "#E44F60") //Light Red
-
+    
 }
 
 struct APP_FONT {
@@ -70,9 +70,9 @@ struct SUFFIX_URL {
     static let SignupResendOTP = "auth/resendOTP"
     static let ForgotVerifyOTP = "auth/forgotPasswordVerifyOTP"
     static let TotalManufactureName = "implant/getTotalManufactureName"
-    static let SearchByText= "implant/searchByText"
+    static let SearchByText = "implant/searchByText"
 }
-    
+
 struct KEYS {
     static let googleKey = "23307698272-psgd5pqvanqohndhmpu3en11t6o50ja9.apps.googleusercontent.com"
     static let GooglePlacesAPIKey = "AIzaSyD0SJanDGyOB3Azx1lToYnh03ocyU2M4Hs"
@@ -89,14 +89,14 @@ struct STATICDATA {
     static let manufacturerDropDown = ["Depuy Skyline", "Depuy ab sky", "Depuy a: lateran ", "Depuy a: lateran x-ray "]
     static let arrSearch = [["image": "image1", "percent": "90 % match", "title": "Skyline a:p lateran ", "subTitle": "Depuy Skyline "], ["image": "image2", "percent": "70 % match", "title": "Spine clips Implant...", "subTitle": "Ruby Healthcare, Pune"], ["image": "image3", "percent": "50 % match", "title": "Lumbar Spine X-ra...", "subTitle": "SGS Healthcare Center."], ["image": "image4", "percent": "65 % match", "title": "Spine x-ray", "subTitle": "GE Healthcare, Pune"], ["image": "image1", "percent": "90 % match", "title": "Skyline a:p lateran", "subTitle": "Depuy Skyline "], ["image": "image2", "percent": "70 % match", "title": "Spine clips Implant...", "subTitle": "Ruby Healthcare, Pune"], ["image": "image1", "percent": "90 % match", "title": "Skyline a:p lateran ", "subTitle": "Depuy Skyline "], ["image": "image2", "percent": "70 % match", "title": "Spine clips Implant...", "subTitle": "Ruby Healthcare, Pune"], ["image": "image3", "percent": "50 % match", "title": "Lumbar Spine X-ra...", "subTitle": "SGS Healthcare Center."], ["image": "image4", "percent": "65 % match", "title": "Spine x-ray", "subTitle": "GE Healthcare, Pune"], ["image": "image1", "percent": "90 % match", "title": "Skyline a:p lateran", "subTitle": "Depuy Skyline "], ["image": "image2", "percent": "70 % match", "title": "Spine clips Implant...", "subTitle": "Ruby Healthcare, Pune"]]
     static let arrImages = ["image1", "image2", "image3", "image4", "image1"]
-    static let arrImagesSmall = ["image1Small", "image2Small", "image3Small", "image4Small", "lineImage"]
+    static let arrImagesSmall = ["lineImage"]
     static let arrProcess = ["Locate presence of 1 or 2 rod implant by palpation. Refer for further examination if ", "Anesthetise at the incision site and under the end of the capsule with upto 1ml of 1% ", "Locate presence of 1 or 2 rod implant by palpation. Refer for further examination if ", "Anesthetise at the incision site and under the end of the capsule with upto 1ml of 1% "]
     static let arrResponse = ["Locate presence of 1 or 2 rod implant by palpation. Refer for further examination if not located.", "Clean the sit with antiseptic solution", "Anesthetise at the incision site and under the end of the capsule with upto 1ml of 1% lignocaine (without epinephrine)", "Locate presence of 1 or 2 rod implant by palpation. Refer for further examination if not located.", "Anesthetise at the incision site and under the end of the capsule with upto 1ml of 1% lignocaine (without epinephrine)"]
     
     static let arrUserGuide = [["image": "step1", "title": "Leverage Artificial Intelligence", "subtitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"],
-                            ["image": "step2", "title": "Search by names", "subtitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"],
-                            ["image": "step3", "title": "Add Information", "subtitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"],
-                            ["image": "step4", "title": "Refer & Earn", "subtitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"]]
+                               ["image": "step2", "title": "Search by names", "subtitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"],
+                               ["image": "step3", "title": "Add Information", "subtitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"],
+                               ["image": "step4", "title": "Refer & Earn", "subtitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"]]
     
     static let arrCreditHistory = [["image": "referral", "title": "Referral Rewards", "amount": "+ $ 20", "date": "November 20", "description": "Rewarded for being referred to SID by a friend"], ["image": "upload", "title": "Upload Images Rewards", "amount": "+ $ 10", "date": "November 19", "description": "Rewarded for being uploaded images on Database"], ["image": "referral", "title": "Referral Rewards", "amount": "+ $ 20", "date": "November 12", "description": ""], ["image": "bank", "title": "Credited in Bank", "amount": "- $ 120", "date": "November 10", "description": "Transfered to your bank account"], ["image": "referral", "title": "Referral Rewards", "amount": "+ $ 20", "date": "November 20", "description": "Rewarded for being referred to SID by a friend"]]
     
@@ -145,7 +145,7 @@ struct ERRORS {
     static let validMobileNumber: String = "It seems you have entered an incorrcect phone number"
     static let MobileNumberError: String = "Entered mobile number is invalid with selected country code"
     static let socialMediaError: String = "Something went to wrong try after some time"
-
+    
     //SignUp
     static let firstName: String = "Please enter first name"
     static let middleName: String = "Please enter middle name"
@@ -154,7 +154,7 @@ struct ERRORS {
     static let fullName: String = "Your name must not be left blank "
     static let profession: String = "Enter Profession"
     static let professionSelect: String = "Please select profession"
-
+    
     //OTP
     static let otp: String = "You need to input the verification code in order to proceed"
     
@@ -165,14 +165,14 @@ struct ERRORS {
     static let matchPwd: String = "The passwords do not match. Please try again"
     static let invalidPwd: String = "Password must be alpha numeric with 6-15 characters"
     static let invalidLenghtPwd: String = "Password should be atleast 6-15 characters"
-
+    
     static let EmptyCountryCode = "Please select county"
     static let EmptyMobileNumber = "Please enter mobile number"
     static let WrongMobileNumber = "Please enter valid mobile number"
     
     static let EmptyOTP = "Please enter OTP"
     static let WrongOTP = "Please enter valid OTP"
-
+    
 }
 
 struct CONSTANT {
@@ -213,4 +213,13 @@ struct ENTITIES {
     static let isSocialMediaUser = "isSocialMediaUser"
     static let socialMediaToken = "socialMediaToken"
     static let socialPlatform = "socialPlatform"
+    
+    //Implant
+    static let imagesArray = "imagesArray"
+    static let processArray = "processArray"
+    static let location = "location"
+    static let manufacturer = "manufacturer"
+    static let implantName = "implantName"
+    static let surgeryDate = "surgeryDate"
+    static let isEditMode = "isEditMode"
 }

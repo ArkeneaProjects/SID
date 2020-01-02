@@ -18,13 +18,14 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     
     var arrItem = NSMutableArray()
     var arrImages = NSMutableArray()
+    var implantObj = Implant()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBarWithTitle("Add Details", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeNil)
         // Do any additional setup after loading the view.
         
-        self.arrItem = NSMutableArray(array: STATICDATA.arrProcess)
+//        self.arrItem = NSMutableArray(array: STATICDATA.arrProcess)
         self.arrImages = NSMutableArray(array: STATICDATA.arrImagesSmall)
         
         self.tblView.registerNibWithIdentifier([IDENTIFIERS.AddDetailHeader1Cell, IDENTIFIERS.AddDetailHeader2Cell, IDENTIFIERS.AddDetailHeader3Cell])
@@ -52,8 +53,14 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         controller.addCompletion = { str in
             if str.count > 0 {
                 self.arrItem.insert(str, at: 0)
+                self.implantObj.processArray.insert(str, at: 0)
                 if let cell = self.tblView.cellForRow(at: sender.indexPath) as? AddDetailHeader3Cell {
-                    cell.arrTableView = self.arrItem
+                   if self.arrItem.count > 5 {
+                        let tempArray: NSArray = self.arrItem.subarray(with: NSRange(location: 0, length: 5)) as NSArray
+                        cell.arrTableView = NSMutableArray(array: tempArray)
+                    } else {
+                        cell.arrTableView = self.arrItem
+                    }
                     cell.populateVehicleListing()
                     cell.viewListing.layoutIfNeeded()
                     cell.layoutIfNeeded()
@@ -75,6 +82,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
             if date.count > 0 {
                 if let cell = self.tblView.cellForRow(at: sender.indexPath) as? AddDetailHeader2Cell {
                     cell.btnSurgeryDate.setTitle(date, for: .normal)
+                    self.implantObj.surgeryDate = date
                     self.reloadTableView(IndexPath(row: 2, section: 0))
                 }
             }
@@ -85,17 +93,17 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     @objc func placeBtnClickAction(_ sender: CustomButton) {
         let autocompleteController = GMSAutocompleteViewController()
         autocompleteController.delegate = self
-
+        
         // Specify the place data types to return.
         let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
-          UInt(GMSPlaceField.placeID.rawValue))!
+            UInt(GMSPlaceField.placeID.rawValue))!
         autocompleteController.placeFields = fields
-
+        
         // Specify a filter.
         let filter = GMSAutocompleteFilter()
         filter.type = .noFilter
         autocompleteController.autocompleteFilter = filter
-       
+        
         self.present(autocompleteController, animated: true, completion: nil)
     }
     
@@ -122,6 +130,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         if indexPath.row == 0 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: IDENTIFIERS.AddDetailHeader1Cell, for: indexPath) as? AddDetailHeader1Cell {
                 cell.arrAllItems = self.arrImages
+                cell.btnSeeAll.isHidden = self.arrImages.count < 6
                 //Delete Image
                 cell.deleteImageCompletion = { index_Path in
                     self.showAlert(title: "", message: "Delete Image?", yesTitle: "Yes", noTitle: "NO", yesCompletion: {
@@ -141,6 +150,10 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                         self.imagePicker.present(croppingStyle: .circular, isCrop: false, isCamera: true)
                     }
                 }
+                
+                cell.seeAllImageCompletion = {
+                }
+                
                 return cell
             }
         } else if indexPath.row == 1 {
@@ -154,13 +167,19 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
             }
         } else {
             if let cell = tableView.dequeueReusableCell(withIdentifier: IDENTIFIERS.AddDetailHeader3Cell, for: indexPath) as? AddDetailHeader3Cell {
-                cell.arrTableView = self.arrItem
+                if self.arrItem.count > 5 {
+                    let tempArray: NSArray = self.arrItem.subarray(with: NSRange(location: 0, length: 5)) as NSArray
+                    cell.arrTableView = NSMutableArray(array: tempArray)
+                } else {
+                    cell.arrTableView = self.arrItem
+                }
                 cell.populateVehicleListing()
                 cell.viewListing.layoutIfNeeded()
                 cell.layoutIfNeeded()
                 cell.selectionStyle = .none
                 cell.btnAddResponse.indexPath = indexPath
                 cell.btnAddResponse.addTarget(self, action: #selector(addProcess(_:)), for: .touchUpInside)
+                cell.btnSeeAll.isHidden = self.arrItem.count < 6
                 //Delete Process
                 cell.cellSelectionCompletion = { tableCell in
                     self.showAlert(title: "Delete Process?", message: "", yesTitle: "Delete", noTitle: "Cancel", yesCompletion: {
@@ -169,6 +188,10 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                         
                     }, noCompletion: nil)
                 }
+                
+                cell.seeAllProcessCompletion = {
+                }
+                
                 return cell
             }
         }
@@ -184,7 +207,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         print(image)
     }
     
-    //MARK:- GMSAutocompleteViewControllerDelegate -
+    // MARK:- GMSAutocompleteViewControllerDelegate -
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         let address = place.name
         let cell = self.tblView.cellForRow(at: IndexPath(row: 1, section: 0)) as! AddDetailHeader2Cell

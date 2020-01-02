@@ -117,6 +117,7 @@
 		189E882723953BDB009C8ECF /* CreditHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E882523953BDB009C8ECF /* CreditHistoryTableViewCell.swift */; };
 		189E882823953BDB009C8ECF /* CreditHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189E882623953BDB009C8ECF /* CreditHistoryTableViewCell.xib */; };
 		18A728E3239E687800537092 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A728E2239E687700537092 /* LoginVM.swift */; };
+		18ACDC7E23BDBBDD00780CE1 /* ProcessListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACDC7D23BDBBDD00780CE1 /* ProcessListViewController.swift */; };
 		18C3E6E923A75FA4000ABA07 /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3E6E823A75FA4000ABA07 /* CountryListViewController.swift */; };
 		18C3E6EE23A76185000ABA07 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3E6EB23A76185000ABA07 /* Countries.swift */; };
 		18C3E6EF23A76185000ABA07 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3E6EC23A76185000ABA07 /* Country.swift */; };
@@ -139,6 +140,7 @@
 		18DDC7CD23798B9B003FCCE8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDC7CC23798B9B003FCCE8 /* BaseViewController.swift */; };
 		18DDC7D023798C34003FCCE8 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDC7CF23798C34003FCCE8 /* Common.swift */; };
 		18DDC7D223798CD4003FCCE8 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDC7D123798CD4003FCCE8 /* Constant.swift */; };
+		18E2B32623BB160F00BBA58F /* Implant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E2B32523BB160F00BBA58F /* Implant.swift */; };
 		18E71D6B237C15690090FC90 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E71D6A237C15690090FC90 /* LoginViewController.swift */; };
 		18E71D6D237C1EE30090FC90 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E71D6C237C1EE30090FC90 /* LeftMenuViewController.swift */; };
 		18E71D72237C1F670090FC90 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E71D71237C1F670090FC90 /* SWRevealViewController.m */; };
@@ -295,6 +297,7 @@
 		189E882523953BDB009C8ECF /* CreditHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		189E882623953BDB009C8ECF /* CreditHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreditHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		18A728E2239E687700537092 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
+		18ACDC7D23BDBBDD00780CE1 /* ProcessListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessListViewController.swift; sourceTree = "<group>"; };
 		18C3E6E823A75FA4000ABA07 /* CountryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
 		18C3E6EB23A76185000ABA07 /* Countries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
 		18C3E6EC23A76185000ABA07 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
@@ -323,6 +326,7 @@
 		18DDC7CC23798B9B003FCCE8 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		18DDC7CF23798C34003FCCE8 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		18DDC7D123798CD4003FCCE8 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		18E2B32523BB160F00BBA58F /* Implant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Implant.swift; sourceTree = "<group>"; };
 		18E71D6A237C15690090FC90 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		18E71D6C237C1EE30090FC90 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		18E71D70237C1F670090FC90 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -456,6 +460,7 @@
 			isa = PBXGroup;
 			children = (
 				1809E9F123A3A7D3001A8A77 /* User.swift */,
+				18E2B32523BB160F00BBA58F /* Implant.swift */,
 			);
 			path = ModelClasses;
 			sourceTree = "<group>";
@@ -604,6 +609,7 @@
 				18974532238D08070000FCC4 /* AddDetailsViewController.swift */,
 				1897454C238D52B50000FCC4 /* ThankYouViewController.swift */,
 				181FFAA1239A71160078E64D /* PreviewViewController.swift */,
+				18ACDC7D23BDBBDD00780CE1 /* ProcessListViewController.swift */,
 			);
 			path = TabBarDetailControllers;
 			sourceTree = "<group>";
@@ -1254,6 +1260,7 @@
 				1804E16C2394F61800210C0F /* SignUpUserGuideViewController.swift in Sources */,
 				18DDC78A23797AA6003FCCE8 /* AppDelegate.swift in Sources */,
 				181FFAA2239A71170078E64D /* PreviewViewController.swift in Sources */,
+				18ACDC7E23BDBBDD00780CE1 /* ProcessListViewController.swift in Sources */,
 				1821AF25237A86C50010B307 /* CustomBase.swift in Sources */,
 				1821AF1D237A7E670010B307 /* CustomButton.swift in Sources */,
 				1821AF1F237A7E670010B307 /* CustomLabel.swift in Sources */,
@@ -1306,6 +1313,7 @@
 				1809E9EA23A37D37001A8A77 /* EncDec.m in Sources */,
 				1875FC1023A0ED7C00B1EA1F /* CropView.swift in Sources */,
 				1821AF27237A8EF20010B307 /* CustomBarButtonItem.swift in Sources */,
+				18E2B32623BB160F00BBA58F /* Implant.swift in Sources */,
 				1801ABB6238547CB00F46223 /* BaseTabBarViewController.swift in Sources */,
 				1892E9DB23964B3700AE6ECC /* SubScriptionCollectionViewCell.swift in Sources */,
 			);

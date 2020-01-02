@@ -13,6 +13,7 @@ class AddDetailHeader1Cell: UITableViewCell, UICollectionViewDelegate, UICollect
     @IBOutlet weak var constCollectionHeight: CustomConstraint!
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var btnSeeAll: CustomButton!
     
     var arrAllItems: NSMutableArray = NSMutableArray() {
         didSet {
@@ -22,6 +23,7 @@ class AddDetailHeader1Cell: UITableViewCell, UICollectionViewDelegate, UICollect
     
     var cellSelectionCompletion:((_ index_Path: IndexPath) -> Void)?
     var deleteImageCompletion:((_ index_Path: IndexPath) -> Void)?
+    var seeAllImageCompletion:(() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -42,6 +44,12 @@ class AddDetailHeader1Cell: UITableViewCell, UICollectionViewDelegate, UICollect
     @objc func deleteImage(_ sender: CustomButton) {
         if self.deleteImageCompletion != nil {
             self.deleteImageCompletion!(sender.indexPath)
+        }
+    }
+    
+    @objc func seeAllImageCompletion(_ sender: CustomButton) {
+        if self.seeAllImageCompletion != nil {
+            self.seeAllImageCompletion!()
         }
     }
     
