@@ -126,6 +126,8 @@
 		18ACDC8223BDEFE000780CE1 /* ProcessListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACDC8123BDEFE000780CE1 /* ProcessListCell.swift */; };
 		18ACDC8623BDF9B700780CE1 /* AddImplantVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACDC8523BDF9B700780CE1 /* AddImplantVM.swift */; };
 		18ACDC8823BE222E00780CE1 /* ImplantImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACDC8723BE222E00780CE1 /* ImplantImage.swift */; };
+		18AD937523BE2680009F1165 /* TagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD937423BE2680009F1165 /* TagViewController.swift */; };
+		18AD937723BE2710009F1165 /* Draw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD937623BE2710009F1165 /* Draw.swift */; };
 		18C3E6E923A75FA4000ABA07 /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3E6E823A75FA4000ABA07 /* CountryListViewController.swift */; };
 		18C3E6EE23A76185000ABA07 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3E6EB23A76185000ABA07 /* Countries.swift */; };
 		18C3E6EF23A76185000ABA07 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3E6EC23A76185000ABA07 /* Country.swift */; };
@@ -313,6 +315,8 @@
 		18ACDC8123BDEFE000780CE1 /* ProcessListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessListCell.swift; sourceTree = "<group>"; };
 		18ACDC8523BDF9B700780CE1 /* AddImplantVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImplantVM.swift; sourceTree = "<group>"; };
 		18ACDC8723BE222E00780CE1 /* ImplantImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImplantImage.swift; sourceTree = "<group>"; };
+		18AD937423BE2680009F1165 /* TagViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagViewController.swift; sourceTree = "<group>"; };
+		18AD937623BE2710009F1165 /* Draw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Draw.swift; path = Kethan/View/CustomView/Draw.swift; sourceTree = SOURCE_ROOT; };
 		18C3E6E823A75FA4000ABA07 /* CountryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
 		18C3E6EB23A76185000ABA07 /* Countries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
 		18C3E6EC23A76185000ABA07 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
@@ -623,6 +627,7 @@
 		18956D1E2387FC5400BD8F63 /* TabBarDetailControllers */ = {
 			isa = PBXGroup;
 			children = (
+				18AD937423BE2680009F1165 /* TagViewController.swift */,
 				18ACDC7F23BDC75800780CE1 /* ProcessListViewController.swift */,
 				18956D1F2387FC8100BD8F63 /* SearchListViewController.swift */,
 				1879F572238BB2DA00ABBBC0 /* SearchDetailViewController.swift */,
@@ -653,6 +658,7 @@
 		1897454E238D5B9D0000FCC4 /* CheckBox */ = {
 			isa = PBXGroup;
 			children = (
+				18AD937623BE2710009F1165 /* Draw.swift */,
 				1897454F238D5B9D0000FCC4 /* BEMCheckBox.h */,
 				18974550238D5B9E0000FCC4 /* BEMAnimationManager.m */,
 				18974551238D5B9E0000FCC4 /* BEMPathManager.m */,
@@ -1270,6 +1276,7 @@
 				189E882723953BDB009C8ECF /* CreditHistoryTableViewCell.swift in Sources */,
 				18CEAE5523AB7F0D00115C12 /* AppConstant.swift in Sources */,
 				1875FC1323A0ED7C00B1EA1F /* LineButton.swift in Sources */,
+				18AD937523BE2680009F1165 /* TagViewController.swift in Sources */,
 				18794DAD2398CBCF00E80457 /* AboutViewController.swift in Sources */,
 				1801ABB023851DCB00F46223 /* ProgressManager.m in Sources */,
 				18ACDC8223BDEFE000780CE1 /* ProcessListCell.swift in Sources */,
@@ -1294,6 +1301,7 @@
 				18956D2423880AA500BD8F63 /* SearchListCollectionViewCell.swift in Sources */,
 				1892042923BB12A000C732FB /* Implant.swift in Sources */,
 				1875FC0B23A0ED7C00B1EA1F /* UIView+.swift in Sources */,
+				18AD937723BE2710009F1165 /* Draw.swift in Sources */,
 				1897453E238D2AA80000FCC4 /* AddDetailHeader2Cell.swift in Sources */,
 				189C064C2397C45200C292ED /* ChangePwdViewController.swift in Sources */,
 				1848DA2723B489E0004A711A /* SelectProfessionViewController.swift in Sources */,

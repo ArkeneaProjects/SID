@@ -96,7 +96,7 @@ class CustomNavBar: UIView {
                 self.btnRightEdit.alpha = 1.0
                 self.btnRightEdit.setTitle("Save", for: .normal)
                 self.btnRightEdit.addTarget(target, action: rightAction, for: UIControl.Event.touchUpInside)
-                
+            }
                 if rightImageName.count > 0 {
                     self.btnRight.alpha = 1.0
                     self.btnRight.setImage(UIImage(named: rightImageName), for: .normal)
