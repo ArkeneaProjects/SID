@@ -12,6 +12,7 @@ class UploadViewController: BaseViewController {
     
     @IBOutlet weak var txtImplant: CustomDropDown!
     @IBOutlet weak var txtManu: CustomDropDown!
+    var implantObj = SearchResult()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +22,11 @@ class UploadViewController: BaseViewController {
         self.txtManu.font = UIFont(name: self.txtManu.font!.fontName, size: getCalculated(14.0))
         
         //Brand
-        if let arrBrand = getUserDefaultsForKey(key: UserDefaultsKeys.BrandName) as? NSMutableArray {
-            self.txtImplant.optionArray = arrBrand as! [String]
+        if let arrBrand = getUserDefaultsForKey(key: UserDefaultsKeys.BrandName) as? [NSString] {
+            self.txtImplant.optionArray = arrBrand as [String]
             self.txtImplant.didSelect { (selected: String, index: Int, id: Int) in
                 self.txtImplant.text = selected
+                self.implantObj.objectName = selected
             }
             self.txtImplant.keyboardCompletion = {
                 if self.txtImplant.shadow != nil && self.txtImplant.shadow.alpha != 0 {
@@ -34,10 +36,11 @@ class UploadViewController: BaseViewController {
         }
         
         //Manufacture
-        if let arrManufacture = getUserDefaultsForKey(key: UserDefaultsKeys.Manufecture) as? NSMutableArray {
-            self.txtManu.optionArray = arrManufacture as! [String]
+        if let arrManufacture = getUserDefaultsForKey(key: UserDefaultsKeys.Manufecture) as? [NSString] {
+            self.txtManu.optionArray = arrManufacture as [String]
             self.txtManu.didSelect { (selected: String, index: Int, id: Int) in
                 self.txtManu.text = selected
+                self.implantObj.implantManufacture = selected
             }
             self.txtManu.keyboardCompletion = {
                 if self.txtManu.shadow != nil && self.txtManu.shadow.alpha != 0 {
@@ -50,6 +53,7 @@ class UploadViewController: BaseViewController {
     // MARK: - Button Action
     @IBAction func addClickAction(_ sender: Any) {
         if let controller = self.instantiate(AddDetailsViewController.self, storyboard: STORYBOARD.main) as? AddDetailsViewController {
+            controller.implantObj = self.implantObj
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }

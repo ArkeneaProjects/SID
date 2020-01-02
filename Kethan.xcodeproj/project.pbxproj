@@ -29,6 +29,7 @@
 		1809E9ED23A37DF0001A8A77 /* NSData+AESCrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 1809E9EC23A37DF0001A8A77 /* NSData+AESCrypt.m */; };
 		1809E9EF23A39379001A8A77 /* SignUpVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1809E9EE23A39379001A8A77 /* SignUpVM.swift */; };
 		1809E9F223A3A7D3001A8A77 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1809E9F123A3A7D3001A8A77 /* User.swift */; };
+		180D6FC523BDEDFB003507E0 /* TagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180D6FC423BDEDFB003507E0 /* TagViewController.swift */; };
 		181FFA9E239A26D50078E64D /* DatePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181FFA9D239A26D50078E64D /* DatePopUpViewController.swift */; };
 		181FFAA0239A3A8B0078E64D /* SearchFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181FFA9F239A3A8B0078E64D /* SearchFolderViewController.swift */; };
 		181FFAA2239A71170078E64D /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181FFAA1239A71160078E64D /* PreviewViewController.swift */; };
@@ -53,6 +54,7 @@
 		1822E31E23A2242D006042E3 /* AFManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822E31C23A2242C006042E3 /* AFManager.swift */; };
 		1822E32223A2278C006042E3 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1822E32023A2278C006042E3 /* Reachability.m */; };
 		1822E32523A228DD006042E3 /* CustomLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822E32423A228DD006042E3 /* CustomLogger.swift */; };
+		1834A3F323BB295C00C02C98 /* ImageSearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1834A3F223BB295C00C02C98 /* ImageSearchVM.swift */; };
 		1847363D23AB8B5100C565A4 /* ForgotVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1847363C23AB8B5100C565A4 /* ForgotVM.swift */; };
 		1848DA2723B489E0004A711A /* SelectProfessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848DA2623B489E0004A711A /* SelectProfessionViewController.swift */; };
 		18705385238FA2CD006ACA3D /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18705384238FA2CC006ACA3D /* CameraManager.swift */; };
@@ -204,6 +206,7 @@
 		1809E9EC23A37DF0001A8A77 /* NSData+AESCrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AESCrypt.m"; sourceTree = "<group>"; };
 		1809E9EE23A39379001A8A77 /* SignUpVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVM.swift; sourceTree = "<group>"; };
 		1809E9F123A3A7D3001A8A77 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		180D6FC423BDEDFB003507E0 /* TagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewController.swift; sourceTree = "<group>"; };
 		181FFA9D239A26D50078E64D /* DatePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePopUpViewController.swift; sourceTree = "<group>"; };
 		181FFA9F239A3A8B0078E64D /* SearchFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFolderViewController.swift; sourceTree = "<group>"; };
 		181FFAA1239A71160078E64D /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +232,7 @@
 		1822E32023A2278C006042E3 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		1822E32123A2278C006042E3 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		1822E32423A228DD006042E3 /* CustomLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLogger.swift; sourceTree = "<group>"; };
+		1834A3F223BB295C00C02C98 /* ImageSearchVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchVM.swift; sourceTree = "<group>"; };
 		1847363C23AB8B5100C565A4 /* ForgotVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotVM.swift; sourceTree = "<group>"; };
 		1848DA2623B489E0004A711A /* SelectProfessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectProfessionViewController.swift; sourceTree = "<group>"; };
 		18705384238FA2CC006ACA3D /* CameraManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
@@ -619,6 +623,7 @@
 				18974532238D08070000FCC4 /* AddDetailsViewController.swift */,
 				1897454C238D52B50000FCC4 /* ThankYouViewController.swift */,
 				181FFAA1239A71160078E64D /* PreviewViewController.swift */,
+				180D6FC423BDEDFB003507E0 /* TagViewController.swift */,
 			);
 			path = TabBarDetailControllers;
 			sourceTree = "<group>";
@@ -676,6 +681,7 @@
 				18C3E6F123A79879000ABA07 /* ChanagePasswordVM.swift */,
 				1847363C23AB8B5100C565A4 /* ForgotVM.swift */,
 				182239DE23B9FBAD00B3C01F /* SearchVM.swift */,
+				1834A3F223BB295C00C02C98 /* ImageSearchVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1230,6 +1236,7 @@
 				18956D202387FC8100BD8F63 /* SearchListViewController.swift in Sources */,
 				1879F576238BB98A00ABBBC0 /* SearchViewCollecction.swift in Sources */,
 				1801ABB323851DCB00F46223 /* UIColor+KVNContrast.m in Sources */,
+				180D6FC523BDEDFB003507E0 /* TagViewController.swift in Sources */,
 				18794DAF2398D02000E80457 /* EditProfileViewController.swift in Sources */,
 				18DDC78E23797AA6003FCCE8 /* SearchViewController.swift in Sources */,
 				1892E9DE23968E0800AE6ECC /* SignUpViewController.swift in Sources */,
@@ -1250,6 +1257,7 @@
 				18974559238D5B9E0000FCC4 /* BEMCheckBoxGroup.m in Sources */,
 				1879F57F238BD71B00ABBBC0 /* DetailRow1TableViewCell.swift in Sources */,
 				1801ABAC23851DCB00F46223 /* KVNProgress.m in Sources */,
+				1834A3F323BB295C00C02C98 /* ImageSearchVM.swift in Sources */,
 				189C064A2397B4B800C292ED /* ForgotPwdViewController.swift in Sources */,
 				1875FC0D23A0ED7C00B1EA1F /* NSLayoutConstraint+.swift in Sources */,
 				189E882723953BDB009C8ECF /* CreditHistoryTableViewCell.swift in Sources */,

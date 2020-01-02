@@ -9,16 +9,21 @@
 import UIKit
 
 class SearchListViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-   // @IBOutlet weak var searchVM: SearchVM!
+    // @IBOutlet weak var searchVM: SearchVM!
     @IBOutlet weak var lblResultCount: CustomLabel!
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    var isSearchByImage: Bool = false
+    
     var searchVM = SearchVM()
+    
     var menufeacture = ""
     var brandname = ""
+    var searchImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addNavBarWithTitle("Search Results", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeNil)
+        self.addNavBarWithTitle("Search Results", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeAdd)
         
         self.collectionView.register(UINib(nibName: IDENTIFIERS.SearchListCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: IDENTIFIERS.SearchListCollectionViewCell)
         
@@ -29,24 +34,55 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
         layout.sectionInset = UIEdgeInsets.zero
         layout.scrollDirection = .vertical
         self.collectionView.collectionViewLayout = layout
-       
+        
+        self.apiCall()
+        
+    }
+    
+    override func rightButtonAction() {
+        if let controller = self.instantiate(TagViewController.self, storyboard: STORYBOARD.leftMenu) as? TagViewController {
+            controller.selectedImage = self.searchImage
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
+    }
+    
+    // MARK: - Action
+    func apiCall() {
         self.searchVM.rootController = self
-        self.searchVM.getAllSearchResult(manufecture: self.menufeacture, brandname: self.brandname) { (error) in
-           
-            if error != "" {
-                 self.lblResultCount.text = error
-            } else {
-                DispatchQueue.main.async {
-                    if self.searchVM.arrSearchResult.count == 1 {
-                        self.lblResultCount.text = "1 result match to your upload"
-                    } else {
-                        self.lblResultCount.text = "\(self.searchVM.arrSearchResult.count) results match to your upload"
-                    }
+        if self.isSearchByImage == true {
+            ProgressManager.show(withStatus: "Searching our database...", on: self.view)
+            let imageDict  = saveImageInDocumentDict(image: self.searchImage!, imageName: "photo")
+            self.searchVM.getSearchByImage(itemArray: [imageDict]) { (error) in
+                if error != "" {
+                    self.lblResultCount.text = error
+                } else {
+                    DispatchQueue.main.async {
+                        if self.searchVM.arrSearchResult.count == 1 {
+                            self.lblResultCount.text = "1 result match to your upload"
+                        } else {
+                            self.lblResultCount.text = "\(self.searchVM.arrSearchResult.count) results match to your upload"
+                        }
                         self.collectionView.reloadData()
-                           }
+                    }
+                }
+            }
+        } else {
+            self.searchVM.getAllSearchByText(manufecture: self.menufeacture, brandname: self.brandname) { (error) in
+                
+                if error != "" {
+                    self.lblResultCount.text = error
+                } else {
+                    DispatchQueue.main.async {
+                        if self.searchVM.arrSearchResult.count == 1 {
+                            self.lblResultCount.text = "1 result match to your upload"
+                        } else {
+                            self.lblResultCount.text = "\(self.searchVM.arrSearchResult.count) results match to your upload"
+                        }
+                        self.collectionView.reloadData()
+                    }
+                }
             }
         }
-        
     }
     
     // MARK: - CollectionView Dalegate and DataSource
@@ -56,11 +92,19 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: IDENTIFIERS.SearchListCollectionViewCell, for: indexPath) as? SearchListCollectionViewCell {
+<<<<<<< HEAD
             cell.configuration(obj: self.searchVM.arrSearchResult[indexPath.row])
           //  let arr = STATICDATA.arrSearch[indexPath.item]
 //            cell.imgPhoto.image = UIImage(named: arr["image"]!)
 //            cell.lblTitle.text = arr["title"]
 //            cell.lblSubTitle.text = arr["subTitle"]
+=======
+            cell.configuration(model: self.searchVM.arrSearchResult[indexPath.row])
+            //  let arr = STATICDATA.arrSearch[indexPath.item]
+            //            cell.imgPhoto.image = UIImage(named: arr["image"]!)
+            //            cell.lblTitle.text = arr["title"]
+            //            cell.lblSubTitle.text = arr["subTitle"]
+>>>>>>> c16185d53e722a02878b8f5941f6d8703a85f776
             return cell
         }
         return UICollectionViewCell()

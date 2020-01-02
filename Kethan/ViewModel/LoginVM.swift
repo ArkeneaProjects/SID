@@ -30,10 +30,10 @@ class LoginViewModel: NSObject {
                 if error == nil || error == "" {
                     if let dictionary = response as? NSDictionary {
                         
-                        if let arrManufacture = dictionary.value(forKey: "manufecture") as? [String] {
+                        if let arrManufacture = dictionary.value(forKey: "manufecture") as? [NSString] {
                             setUserDefaults(value: NSMutableArray(array: arrManufacture), forKey: UserDefaultsKeys.Manufecture)
                         }
-                        if let arrBrandName = dictionary.value(forKey: "brandName") as? [String] {
+                        if let arrBrandName = dictionary.value(forKey: "brandName") as? [NSString] {
                             setUserDefaults(value: NSMutableArray(array: arrBrandName), forKey: UserDefaultsKeys.BrandName)
                         }
                     }
@@ -54,7 +54,12 @@ class LoginViewModel: NSObject {
         self.profileURL = ""
     }
     
+    func saveBrandName() {
+        
+    }
+    
     func validateLogin(_ controller: BaseViewController) {
+        self.saveBrandName()
         self.rootController = controller
         if email.trimmedString().count == 0 {
             ProgressManager.showError(withStatus: ERRORS.emilId, on: self.rootController!.view)

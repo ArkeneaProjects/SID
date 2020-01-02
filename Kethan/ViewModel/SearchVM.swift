@@ -14,7 +14,7 @@ class SearchVM {
     var rootController: BaseViewController?
     
     
-    func getAllSearchResult(manufecture: String, brandname: String, completion: @escaping (_ error: String) -> Void) {
+    func getAllSearchByText(manufecture: String, brandname: String, completion: @escaping (_ error: String) -> Void) {
         ProgressManager.show(withStatus: "", on: self.rootController?.view)
         let dict: NSDictionary = ["manufecture": manufecture,
                                   "brandName": brandname]
@@ -29,13 +29,12 @@ class SearchVM {
                         self.arrSearchResult = dataarr.map({ return SearchResult(dictionary: $0)
                         })
                         ProgressManager.dismiss()
-                     completion("")
+                        completion("")
                         
                     } else {
-                         completion(getValueFromDictionary(dictionary: dict, forKey: "message"))
+                        completion(getValueFromDictionary(dictionary: dict, forKey: "message"))
                         ProgressManager.showError(withStatus: getValueFromDictionary(dictionary: dict, forKey: "message"), on: self.rootController?.view)
                     }
-                    
                 }
             }
         }
@@ -45,4 +44,28 @@ class SearchVM {
         return self.arrSearchResult.count
     }
     
+    func getSearchByImage( itemArray: NSArray, completion: @escaping (_ error: String) -> Void) {
+
+        let dict: NSDictionary = [:]
+
+        AFManager.sendMultipartRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.SearchByImage, parameters: dict, multipart: itemArray, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
+            if error != nil {
+                ProgressManager.showError(withStatus: error, on: self.rootController?.view)
+                completion(error ?? "")
+            } else {
+                if let dict = response as? NSDictionary, let implantDict = dict.value(forKeyPath: "implantApi") as? NSDictionary {
+                    if let dataarr = implantDict.value(forKeyPath: "implant") as? [NSDictionary] {
+                        self.arrSearchResult = dataarr.map({ return SearchResult(dictionary: $0)
+                        })
+                        ProgressManager.dismiss()
+                        completion("")
+                        
+                    } else {
+                        completion(getValueFromDictionary(dictionary: dict, forKey: "message"))
+                        ProgressManager.showError(withStatus: getValueFromDictionary(dictionary: dict, forKey: "message"), on: self.rootController?.view)
+                    }
+                }
+            }
+        }
+    }
 }
