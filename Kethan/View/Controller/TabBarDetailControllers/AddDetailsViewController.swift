@@ -18,7 +18,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     
     var arrItem = NSMutableArray()
     var arrImages = NSMutableArray()
-    var implantObj = Implant()
+    var implantObj = SearchResult()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,8 +52,10 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         controller.showPopup()
         controller.addCompletion = { str in
             if str.count > 0 {
-                self.arrItem.insert(str, at: 0)
-                self.implantObj.processArray.insert(str, at: 0)
+                let removalProcess:NSDictionary = ["removalProcess" : str, "surgeryDate" : "", "surgeryLocation" : ""]
+                let implant = Implant(dictionary: removalProcess)
+                self.arrItem.insert(implant, at: 0)
+                self.implantObj.removImplant.insert(implant, at: 0)
                 if let cell = self.tblView.cellForRow(at: sender.indexPath) as? AddDetailHeader3Cell {
                    if self.arrItem.count > 5 {
                         let tempArray: NSArray = self.arrItem.subarray(with: NSRange(location: 0, length: 5)) as NSArray
@@ -82,7 +84,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
             if date.count > 0 {
                 if let cell = self.tblView.cellForRow(at: sender.indexPath) as? AddDetailHeader2Cell {
                     cell.btnSurgeryDate.setTitle(date, for: .normal)
-                    self.implantObj.surgeryDate = date
+                    //self.implantObj.surgeryDate = date
                     self.reloadTableView(IndexPath(row: 2, section: 0))
                 }
             }

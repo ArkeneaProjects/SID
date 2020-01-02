@@ -12,7 +12,7 @@ class UploadViewController: BaseViewController {
     
     @IBOutlet weak var txtImplant: CustomDropDown!
     @IBOutlet weak var txtManu: CustomDropDown!
-    var implantObj = Implant()
+    var implantObj = SearchResult()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ class UploadViewController: BaseViewController {
             self.txtImplant.optionArray = arrBrand as! [String]
             self.txtImplant.didSelect { (selected: String, index: Int, id: Int) in
                 self.txtImplant.text = selected
-                self.implantObj.implantName = selected
+                self.implantObj.objectName = selected
             }
             self.txtImplant.keyboardCompletion = {
                 if self.txtImplant.shadow != nil && self.txtImplant.shadow.alpha != 0 {
@@ -40,7 +40,7 @@ class UploadViewController: BaseViewController {
             self.txtManu.optionArray = arrManufacture as! [String]
             self.txtManu.didSelect { (selected: String, index: Int, id: Int) in
                 self.txtManu.text = selected
-                self.implantObj.manufacturer = selected
+                self.implantObj.implantManufacture = selected
             }
             self.txtManu.keyboardCompletion = {
                 if self.txtManu.shadow != nil && self.txtManu.shadow.alpha != 0 {
