@@ -238,6 +238,103 @@ as they can</string>
             </objects>
             <point key="canvasLocation" x="2145" y="-1389.0845070422536"/>
         </scene>
+        <!--Tag View Controller-->
+        <scene sceneID="Z5j-2M-jjE">
+            <objects>
+                <viewController storyboardIdentifier="TagViewController" id="tqw-TP-15C" customClass="TagViewController" customModule="SID" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oQX-Gs-5ky">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ek-V5-zsG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="fKW-VL-lEn"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YTi-HO-dEq">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uE7-qX-sPr" customClass="CropPickerView" customModule="SID" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="427"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2h-Og-kwn" customClass="CustomButton" customModule="SID" customModuleProvider="target">
+                                        <rect key="frame" x="13" y="442" width="294" height="40"/>
+                                        <color key="backgroundColor" red="0.035294117649999998" green="0.52156862749999999" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="46b-ck-zx1" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </constraint>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="Continue">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                <real key="value" value="17"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="continuClickAction:" destination="tqw-TP-15C" eventType="touchUpInside" id="7PI-Cq-Jxj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="E2h-Og-kwn" secondAttribute="trailing" constant="13" id="8p2-nW-C6U" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                    <constraint firstItem="E2h-Og-kwn" firstAttribute="top" secondItem="uE7-qX-sPr" secondAttribute="bottom" constant="15" id="OVQ-WP-yXb"/>
+                                    <constraint firstAttribute="bottom" secondItem="E2h-Og-kwn" secondAttribute="bottom" constant="22" id="TnL-42-dHf" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                    <constraint firstAttribute="trailing" secondItem="uE7-qX-sPr" secondAttribute="trailing" id="Trl-yU-BkZ"/>
+                                    <constraint firstItem="E2h-Og-kwn" firstAttribute="leading" secondItem="YTi-HO-dEq" secondAttribute="leading" constant="13" id="Yo8-aR-PNM" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                    <constraint firstItem="uE7-qX-sPr" firstAttribute="leading" secondItem="YTi-HO-dEq" secondAttribute="leading" id="m96-mV-7Is"/>
+                                    <constraint firstItem="uE7-qX-sPr" firstAttribute="top" secondItem="YTi-HO-dEq" secondAttribute="top" id="u5K-EZ-di1"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="3ek-V5-zsG" firstAttribute="leading" secondItem="YnQ-6c-AUh" secondAttribute="leading" id="4TC-35-HaU"/>
+                            <constraint firstAttribute="bottom" secondItem="YTi-HO-dEq" secondAttribute="bottom" id="9ca-Mr-B5M"/>
+                            <constraint firstItem="3ek-V5-zsG" firstAttribute="top" secondItem="oQX-Gs-5ky" secondAttribute="top" id="DYG-6q-7wB"/>
+                            <constraint firstItem="YnQ-6c-AUh" firstAttribute="trailing" secondItem="3ek-V5-zsG" secondAttribute="trailing" id="Fds-9D-Oph"/>
+                            <constraint firstItem="YTi-HO-dEq" firstAttribute="trailing" secondItem="YnQ-6c-AUh" secondAttribute="trailing" id="O0y-Y4-p4B"/>
+                            <constraint firstItem="YTi-HO-dEq" firstAttribute="top" secondItem="3ek-V5-zsG" secondAttribute="bottom" id="yAe-ds-PWZ"/>
+                            <constraint firstItem="YTi-HO-dEq" firstAttribute="leading" secondItem="YnQ-6c-AUh" secondAttribute="leading" id="zPL-8n-c4M"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YnQ-6c-AUh"/>
+                    </view>
+                    <connections>
+                        <outlet property="const_NavbarHeight" destination="fKW-VL-lEn" id="8c3-VT-Ugg"/>
+                        <outlet property="cropView" destination="uE7-qX-sPr" id="z5c-6V-6rh"/>
+                        <outlet property="viewContainer" destination="YTi-HO-dEq" id="hPZ-9v-ySw"/>
+                        <outlet property="viewNavBar" destination="3ek-V5-zsG" id="WRY-BZ-ERp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RvS-uz-Qv8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2925" y="-1390"/>
+        </scene>
         <!--Profile View Controller-->
         <scene sceneID="qyP-Sh-k3p">
             <objects>
@@ -1010,7 +1107,7 @@ as they can</string>
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="about_logo" translatesAutoresizingMaskIntoConstraints="NO" id="DU0-Og-od6">
-                                        <rect key="frame" x="74.5" y="35" width="171" height="51.5"/>
+                                        <rect key="frame" x="74.5" y="35" width="171" height="51.500000000000014"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="51.5" id="XyR-zI-fs9" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                 <userDefinedRuntimeAttributes>
@@ -1423,7 +1520,7 @@ Nulla wisi laoreet suspendisse integer vivamus elit eu mauris hendrerit facilisi
         </scene>
     </scenes>
     <resources>
-        <image name="about_logo" width="171" height="52"/>
+        <image name="about_logo" width="171" height="51.5"/>
         <image name="bgImage" width="276.5" height="171"/>
         <image name="call" width="16" height="16"/>
         <image name="callWhite" width="13" height="13"/>

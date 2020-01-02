@@ -81,7 +81,7 @@ extension UIView {
         self.layer.mask = mask
         self.layer.masksToBounds = true
     }
-
+    
     func addFullResizeConstraints(parent: UIView) {
         self.translatesAutoresizingMaskIntoConstraints = false
         
@@ -192,7 +192,7 @@ extension UIToolbar {
         let doneButton = UIBarButtonItem(title: doneTitle, style: UIBarButtonItem.Style.plain, target: self, action: mySelect)
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
         let cancelButton = UIBarButtonItem(title: cancelTitle, style: UIBarButtonItem.Style.plain, target: self, action: cancel)
-
+        
         toolBar.setItems([ cancelButton, spaceButton, doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
         
@@ -262,7 +262,7 @@ extension UIWindow {
     func setWindowRootViewController(rootController: UIViewController) {
         let previousRootViewController: UIViewController? = self.rootViewController
         
-       // self.rootViewController = rootController
+        // self.rootViewController = rootController
         
         for subview in self.subviews {
             if String(describing: type(of: subview)).lowercased() == "uitransitionview" {
@@ -365,7 +365,7 @@ extension UITableView {
 }
 
 extension UIPageControl {
-
+    
     func customPageControl(dotFillColor: UIColor, dotBorderColor: UIColor, dotBorderWidth: CGFloat) {
         for (pageIndex, dotView) in self.subviews.enumerated() {
             if self.currentPage == pageIndex {
@@ -379,7 +379,99 @@ extension UIPageControl {
             }
         }
     }
-
+    
+}
+extension UIImage {
+    
+    class func outlinedEllipse(size: CGSize, color: UIColor, lineWidth: CGFloat = 1.0) -> UIImage? {
+        
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return nil
+        }
+        
+        context.setStrokeColor(color.cgColor)
+        context.setLineWidth(lineWidth)
+        let rect = CGRect(origin: .zero, size: size).insetBy(dx: lineWidth * 0.5, dy: lineWidth * 0.5)
+        context.addEllipse(in: rect)
+        context.strokePath()
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+    
+    func compressProfileImage(maxWidth: CGFloat, maxHeight: CGFloat) -> UIImage {
+        var actualHeight: CGFloat = self.size.height
+        var actualWidth: CGFloat = self.size.width
+        
+        var imgRatio: CGFloat = actualWidth/actualHeight
+        let maxRatio: CGFloat = maxWidth/maxHeight
+        let compressionQuality: CGFloat = 0.5;//50 percent compression
+        
+        if actualHeight > maxHeight || actualWidth > maxWidth {
+            if imgRatio < maxRatio {
+                //adjust width according to maxHeight
+                imgRatio = maxHeight / actualHeight
+                actualWidth = imgRatio * actualWidth
+                actualHeight = maxHeight
+            } else if imgRatio > maxRatio {
+                //adjust height according to maxWidth
+                imgRatio = maxWidth / actualWidth
+                actualHeight = imgRatio * actualHeight
+                actualWidth = maxWidth
+            } else {
+                actualHeight = maxHeight
+                actualWidth = maxWidth
+            }
+        }
+        
+        let rect: CGRect = CGRect(x: 0, y: 0, width: actualWidth, height: actualHeight)
+        UIGraphicsBeginImageContext(rect.size)
+        self.draw(in: rect)
+        let img: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        //let imageData: Data = UIImageJPEGRepresentation(img, compressionQuality)!
+        let imageData = img.jpegData(compressionQuality: compressionQuality)
+        UIGraphicsEndImageContext()
+        return UIImage(data: imageData!)!
+        
+    }
+    
+    func imageWithImage(scaledToWidth: CGFloat) -> UIImage {
+        let oldWidth = self.size.width
+        let scaleFactor = scaledToWidth / oldWidth
+        
+        let newHeight = self.size.height * scaleFactor
+        let newWidth = oldWidth * scaleFactor
+        
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+        self.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage!
+    }
+    
+    func getFileSizeInfo(allowedUnits: ByteCountFormatter.Units = .useMB,
+                         countStyle: ByteCountFormatter.CountStyle = .file) -> String? {
+        let formatter = ByteCountFormatter()
+        formatter.allowedUnits = allowedUnits
+        formatter.countStyle = countStyle
+        return getSizeInfo(formatter: formatter)
+    }
+    
+    func getFileSize(allowedUnits: ByteCountFormatter.Units = .useMB,
+                     countStyle: ByteCountFormatter.CountStyle = .memory) -> Double? {
+        guard let num = getFileSizeInfo(allowedUnits: allowedUnits, countStyle: countStyle)?.getNumbers().first else {
+            return nil
+        }
+        
+        return Double(truncating: num)
+    }
+    
+    func getSizeInfo(formatter: ByteCountFormatter, compressionQuality: CGFloat = 1.0) -> String? {
+        guard let imageData = jpegData(compressionQuality: compressionQuality) else { return nil }
+        return formatter.string(fromByteCount: Int64(imageData.count))
+    }
 }
 
 extension String {
@@ -387,17 +479,17 @@ extension String {
     func numberFormatDecodedString() -> String {
         return self.replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "-", with: "")
     }
-   
+    
     var isValidURL: Bool {
-            let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
-            if let match = detector.firstMatch(in: self, options: [], range: NSRange(location: 0, length: self.utf16.count)) {
-                // it is a link, if the match covers the whole string
-                return match.range.length == self.utf16.count
-            } else {
-                return false
-            }
+        let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
+        if let match = detector.firstMatch(in: self, options: [], range: NSRange(location: 0, length: self.utf16.count)) {
+            // it is a link, if the match covers the whole string
+            return match.range.length == self.utf16.count
+        } else {
+            return false
         }
-   
+    }
+    
     func trimmedString() -> String {
         return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
@@ -503,7 +595,7 @@ extension String {
             return formatter.number(from: string.trimmingCharacters(in: charset))
         }
     }
-
+    
     // https://stackoverflow.com/a/54900097/4488252
     func matches(for regex: String) -> [String] {
         guard let regex = try? NSRegularExpression(pattern: regex, options: [.caseInsensitive]) else { return [] }
@@ -515,96 +607,22 @@ extension String {
     }
 }
 
-extension UIImage {
+extension UIImageView {
     
-    class func outlinedEllipse(size: CGSize, color: UIColor, lineWidth: CGFloat = 1.0) -> UIImage? {
+    func drawRectangle(frameSize: CGSize, imageWidth: CGFloat, imageHight: CGFloat, drawSize: CGRect) {
         
-        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
-        guard let context = UIGraphicsGetCurrentContext() else {
-            return nil
+        let Width = frameSize.width//getCalculated(self.frame.size.width)
+        let Hight = frameSize.height//getCalculated(self.frame.size.height)
+        
+        let acutalX = (Width * drawSize.origin.x ) / imageWidth
+        let actualY = (Hight * drawSize.origin.y) / imageHight
+        let actualWidth = (Width * drawSize.size.width)/imageWidth
+        let actualHight = (Hight * drawSize.size.height)/imageHight
+        
+        let d = Draw(frame: CGRect(x: acutalX, y: actualY, width: actualWidth, height: actualHight))
+        for view in self.subviews {
+            view.removeFromSuperview()
         }
-        
-        context.setStrokeColor(color.cgColor)
-        context.setLineWidth(lineWidth)
-        let rect = CGRect(origin: .zero, size: size).insetBy(dx: lineWidth * 0.5, dy: lineWidth * 0.5)
-        context.addEllipse(in: rect)
-        context.strokePath()
-        
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return image
-    }
-    
-    func compressProfileImage(maxWidth: CGFloat, maxHeight: CGFloat) -> UIImage {
-        var actualHeight: CGFloat = self.size.height
-        var actualWidth: CGFloat = self.size.width
-        
-        var imgRatio: CGFloat = actualWidth/actualHeight
-        let maxRatio: CGFloat = maxWidth/maxHeight
-        let compressionQuality: CGFloat = 0.5;//50 percent compression
-        
-        if actualHeight > maxHeight || actualWidth > maxWidth {
-            if imgRatio < maxRatio {
-                //adjust width according to maxHeight
-                imgRatio = maxHeight / actualHeight
-                actualWidth = imgRatio * actualWidth
-                actualHeight = maxHeight
-            } else if imgRatio > maxRatio {
-                //adjust height according to maxWidth
-                imgRatio = maxWidth / actualWidth
-                actualHeight = imgRatio * actualHeight
-                actualWidth = maxWidth
-            } else {
-                actualHeight = maxHeight
-                actualWidth = maxWidth
-            }
-        }
-        
-        let rect: CGRect = CGRect(x: 0, y: 0, width: actualWidth, height: actualHeight)
-        UIGraphicsBeginImageContext(rect.size)
-        self.draw(in: rect)
-        let img: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        //let imageData: Data = UIImageJPEGRepresentation(img, compressionQuality)!
-        let imageData = img.jpegData(compressionQuality: compressionQuality)
-        UIGraphicsEndImageContext()
-        return UIImage(data: imageData!)!
-        
-    }
-    
-    func imageWithImage(scaledToWidth: CGFloat) -> UIImage {
-        let oldWidth = self.size.width
-        let scaleFactor = scaledToWidth / oldWidth
-
-        let newHeight = self.size.height * scaleFactor
-        let newWidth = oldWidth * scaleFactor
-
-        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
-        self.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return newImage!
-    }
-    
-    func getFileSizeInfo(allowedUnits: ByteCountFormatter.Units = .useMB,
-                         countStyle: ByteCountFormatter.CountStyle = .file) -> String? {
-        let formatter = ByteCountFormatter()
-        formatter.allowedUnits = allowedUnits
-        formatter.countStyle = countStyle
-        return getSizeInfo(formatter: formatter)
-    }
-
-    func getFileSize(allowedUnits: ByteCountFormatter.Units = .useMB,
-                     countStyle: ByteCountFormatter.CountStyle = .memory) -> Double? {
-        guard let num = getFileSizeInfo(allowedUnits: allowedUnits, countStyle: countStyle)?.getNumbers().first else {
-            return nil
-        }
-                
-        return Double(truncating: num)
-    }
-
-    func getSizeInfo(formatter: ByteCountFormatter, compressionQuality: CGFloat = 1.0) -> String? {
-        guard let imageData = jpegData(compressionQuality: compressionQuality) else { return nil }
-        return formatter.string(fromByteCount: Int64(imageData.count))
+        self.addSubview(d)
     }
 }
-

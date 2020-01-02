@@ -8,7 +8,7 @@
 
 import UIKit
 enum ButtonType: NSInteger {
-    case buttonTypeNil = 0, buttonTypeBack, buttonTypeCredit, buttonTypeMenu, buttonTypeSave, buttonTypeEdit, buttonCrop, buttonTypeSkip
+    case buttonTypeNil = 0, buttonTypeBack, buttonTypeCredit, buttonTypeMenu, buttonTypeSave, buttonTypeEdit, buttonCrop, buttonTypeSkip, buttonTypeAdd
 }
 
 class CustomNavBar: UIView {
@@ -75,9 +75,9 @@ class CustomNavBar: UIView {
                 rightImageName = "back"
             } else if rightButtonType == .buttonTypeMenu {
                 rightImageName = "list"
-            } else if rightButtonType == .buttonCrop {
+            } else if rightButtonType == .buttonTypeAdd {
                 self.btnRightEdit.alpha = 1.0
-                self.btnRightEdit.setImage(UIImage(named: "torch"), for: .normal)
+                self.btnRightEdit.setImage(UIImage(named: "add"), for: .normal)
                 self.btnRightEdit.addTarget(target, action: rightAction, for: UIControl.Event.touchUpInside)
             } else if rightButtonType == .buttonTypeCredit {
                 self.btnRight.alpha = 1.0
@@ -92,24 +92,23 @@ class CustomNavBar: UIView {
                 self.btnRightEdit.alpha = 1.0
                 self.btnRightEdit.setTitle("Skip", for: .normal)
                 self.btnRightEdit.addTarget(target, action: rightAction, for: UIControl.Event.touchUpInside)
-            } else if rightButtonType == .buttonTypeSave {
+            }   else if rightButtonType == .buttonTypeSave {
                 self.btnRightEdit.alpha = 1.0
                 self.btnRightEdit.setTitle("Save", for: .normal)
                 self.btnRightEdit.addTarget(target, action: rightAction, for: UIControl.Event.touchUpInside)
+                
+                if rightImageName.count > 0 {
+                    self.btnRight.alpha = 1.0
+                    self.btnRight.setImage(UIImage(named: rightImageName), for: .normal)
+                }
+                
+                self.btnRight.addTarget(target, action: rightAction, for: UIControl.Event.touchUpInside)
+                self.layoutIfNeeded()
             }
             
-            if rightImageName.count > 0 {
-                self.btnRight.alpha = 1.0
-                self.btnRight.setImage(UIImage(named: rightImageName), for: .normal)
-            }
+            //        if AppConstant.shared.totalImageCount > 0 {
+            //            self.addProgress()
+            //        }
             
-            self.btnRight.addTarget(target, action: rightAction, for: UIControl.Event.touchUpInside)
-            self.layoutIfNeeded()
         }
-        
-        //        if AppConstant.shared.totalImageCount > 0 {
-        //            self.addProgress()
-        //        }
-        
-    }
 }
