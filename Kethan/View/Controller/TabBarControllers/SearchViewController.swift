@@ -51,8 +51,17 @@ class SearchViewController: BaseViewController {
     
     // MARK: - Button Action
     @IBAction func searchClickAction(_ sender: Any) {
+        self.txtImplant.text = self.txtImplant.text?.trimmedString()
+        self.txtManufacture.text = self.txtManufacture.text?.trimmedString()
+        if self.txtImplant.text?.count == 0 && self.txtManufacture.text?.count == 0 {
+            ProgressManager.showError(withStatus: MESSAGES.emptySearch, on: self.view)
+        } else {
+        
         if let controller = self.instantiate(SearchListViewController.self, storyboard: STORYBOARD.main) as? SearchListViewController {
+            controller.menufeacture = self.txtManufacture.text ?? ""
+             controller.brandname = self.txtImplant.text ?? ""
             self.navigationController?.pushViewController(controller, animated: true)
+        }
         }
     }
     

@@ -48,8 +48,8 @@ class AFManager: NSObject {
                 if AppConstant.shared.loggedUser.accesstoken.trimmedString().count > 0 {
                     token = AppConstant.shared.loggedUser.accesstoken
                 }
-                let headers = ["authorization": "\(token)"]
-                     
+                let headers = ["authorization": "Test \(token)"]
+
                 AlamofireManager.request(url, method: method, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
                     print("URL -> \(url) \n Bearer==\(token)")
                     print("Response -> \( response.result.value as? NSDictionary)")
@@ -101,8 +101,8 @@ class AFManager: NSObject {
                 if AppConstant.shared.loggedUser.accesstoken.trimmedString().count > 0 {
                     token = AppConstant.shared.loggedUser.accesstoken
                 }
-                let headers = ["headers": "\(token)", "Content-Type": "application/json"]
-
+                let headers = ["authorization": "Test \(token)", "Content-Type": "application/json"]
+                print("headers==\(headers)")
                 var strURL = urlSuffix
                 if !strURL.isValidURL {
                     strURL = String(format: "%@%@", APP_URLS.Domain, urlSuffix)
@@ -134,8 +134,8 @@ class AFManager: NSObject {
                 if AppConstant.shared.loggedUser.accesstoken.trimmedString().count > 0 {
                     token = AppConstant.shared.loggedUser.accesstoken
                 }
-                let headers = ["headers": "\(token)", "Content-Type": "application/json"]
-
+                let headers = ["authorization": "Test \(token)", "Content-Type": "application/json"]
+                
                 AlamofireManager.upload(multipartFormData: { (formData:MultipartFormData) in
                     for key in parameters.allKeys {
                         let value = parameters.object(forKey: key as? String ?? "") as? String ?? ""
@@ -147,17 +147,17 @@ class AFManager: NSObject {
                         let key = multipartFile.object(forKey: "key") as? String ?? ""
                         let path = multipartFile.object(forKey: "path") as? String ?? ""
                         let name = multipartFile.object(forKey: "name") as? String ?? ""
-                        let filURL:URL = URL(fileURLWithPath: path)
-                        formData.append(filURL, withName: key, fileName: name, mimeType: "image/png")
+                        let filURL: URL = URL(fileURLWithPath: path)
+                        formData.append(filURL, withName: key, fileName: name, mimeType: "image/jpeg")
                     }
-                }, to: strURL, method: .put, headers: headers) { (result: SessionManager.MultipartFormDataEncodingResult) in
+                }, to: strURL, method: method, headers: headers) { (result: SessionManager.MultipartFormDataEncodingResult) in
                     switch result {
                     case .success(request: let upload, _, _):
                         upload.responseJSON(completionHandler: { (response: DataResponse<Any>) in
                             self.renderResponse(method: method, urlSuffix: urlSuffix, type: "multi", strURL: strURL, headers: headers, parameters: parameters, multipart: multipart, response: response.result.value, error: response.result.error as NSError?, serviceCount: serviceCount, completion: completion)
                         })
                     case .failure(_):
-                        let error = NSError(domain: " ORLinkErrorDomain", code: ErrorCodeUploadFailed, userInfo: [NSLocalizedDescriptionKey: MESSAGES.uploadFailed])
+                        let error = NSError(domain: " SIDErrorDomain", code: ErrorCodeUploadFailed, userInfo: [NSLocalizedDescriptionKey: MESSAGES.uploadFailed])
                         self.renderResponse(method: method, urlSuffix: urlSuffix, type: "multi", strURL: strURL, headers: headers, parameters: parameters, multipart: multipart, response: nil, error: error, serviceCount: serviceCount, completion: completion)
                     }
                 }
@@ -233,4 +233,106 @@ class AFManager: NSObject {
         })
     }
     
+    static func request(method: HTTPMethod, parameters: [String:Any]?,imageNames : [String], images:[Data], completion: @escaping(Any?, Error?, Bool)->Void) {
+        var token = ""
+                       if AppConstant.shared.loggedUser.accesstoken.trimmedString().count > 0 {
+                           token = AppConstant.shared.loggedUser.accesstoken
+                       }
+                       let headers = ["authorization": "Test \(token)", "Content-Type": "application/json"]
+        
+        var stringUrl = "http://3.135.146.133:3000/api/implant/analyzeImage"
+        
+        // generate boundary string using a unique per-app string
+        let boundary = UUID().uuidString
+
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+
+        print("\n\ncomplete Url :-------------- ",stringUrl," \n\n-------------: complete Url")
+        guard let url = URL(string: stringUrl) else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = method.rawValue
+
+        if headers != nil{
+            print("\n\nHeaders :-------------- ",headers as Any,"\n\n --------------: Headers")
+            for (key, value) in headers {
+                request.setValue(value, forHTTPHeaderField: key)
+
+            }
+        }
+
+        // Set Content-Type Header to multipart/form-data, this is equivalent to submitting form data with file upload in a web browser
+        // And the boundary is also set here
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+
+        var data = Data()
+        if parameters != nil{
+            for(key, value) in parameters!{
+                // Add the reqtype field and its value to the raw http request data
+                data.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
+                data.append("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n".data(using: .utf8)!)
+                data.append("\(value)".data(using: .utf8)!)
+            }
+        }
+        for (index,imageData) in images.enumerated() {
+            // Add the image data to the raw http request data
+            data.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
+            data.append("Content-Disposition: form-data; implantPicture=\"\(imageNames[index])\"; implantPicture=\"\(imageNames[index])\"\r\n".data(using: .utf8)!)
+            data.append("Content-Type: image/jpeg\r\n\r\n".data(using: .utf8)!)
+            data.append(imageData)
+        }
+
+        // End the raw http request data, note that there is 2 extra dash ("-") at the end, this is to indicate the end of the data
+        data.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
+
+        // Send a POST request to the URL, with the data we created earlier
+        session.uploadTask(with: request, from: data, completionHandler: { data, response, error in
+
+            if let checkResponse = response as? HTTPURLResponse{
+                if checkResponse.statusCode == 200 {
+                    guard let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: [JSONSerialization.ReadingOptions.allowFragments]) else {
+                        completion(nil, error, false)
+                        return
+                    }
+                    let jsonString = String(data: data, encoding: .utf8)!
+                    print("\n\n---------------------------\n\n"+jsonString+"\n\n---------------------------\n\n")
+                    print(json)
+                    completion(json, nil, true)
+                } else {
+                    guard let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: []) else {
+                        completion(nil, error, false)
+                        return
+                    }
+                    let jsonString = String(data: data, encoding: .utf8)!
+                    print("\n\n---------------------------\n\n"+jsonString+"\n\n---------------------------\n\n")
+                    print(json)
+                    completion(json, nil, false)
+                }
+            } else {
+                guard let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: []) else {
+                    completion(nil, error, false)
+                    return
+                }
+                completion(json, nil, false)
+            }
+
+        }).resume()
+
+    }
+
+    
+}
+extension Data {
+
+    /// Append string to Data
+    ///
+    /// Rather than littering my code with calls to `data(using: .utf8)` to convert `String` values to `Data`, this wraps it in a nice convenient little extension to Data. This defaults to converting using UTF-8.
+    ///
+    /// - parameter string:       The string to be added to the `Data`.
+
+    mutating func append(_ string: String, using encoding: String.Encoding = .utf8) {
+        if let data = string.data(using: encoding) {
+            append(data)
+        }
+    }
 }

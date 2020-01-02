@@ -62,11 +62,7 @@ class PurchesViewController: BaseViewController, UITableViewDelegate, UITableVie
     }
     
     @IBAction func uploadImageClickAction(_ sender: Any) {
-       self.showActionSheet(headerTitle: "Choose Image From", cameraTitle: "Camera", galleryTitle: "Gallery", galleryCompletion: {
-            self.imagePicker.present(croppingStyle: .circular, isCrop: false, isCamera: false)
-        }) {
-            self.imagePicker.present(croppingStyle: .circular, isCrop: false, isCamera: true)
-        }
+        self.tabBarController?.selectedIndex = 2
     }
     
     @IBAction func creditActionClick(_ sender: Any) {

@@ -69,7 +69,6 @@ class LoginViewModel: NSObject {
         self.loginAPI()
     }
     
-    
     func validateSocialLogin(controller: BaseViewController) {
         self.rootController = controller
         if email.trimmedString().count == 0 {
