@@ -92,19 +92,9 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: IDENTIFIERS.SearchListCollectionViewCell, for: indexPath) as? SearchListCollectionViewCell {
-<<<<<<< HEAD
+
             cell.configuration(obj: self.searchVM.arrSearchResult[indexPath.row])
-          //  let arr = STATICDATA.arrSearch[indexPath.item]
-//            cell.imgPhoto.image = UIImage(named: arr["image"]!)
-//            cell.lblTitle.text = arr["title"]
-//            cell.lblSubTitle.text = arr["subTitle"]
-=======
-            cell.configuration(model: self.searchVM.arrSearchResult[indexPath.row])
-            //  let arr = STATICDATA.arrSearch[indexPath.item]
-            //            cell.imgPhoto.image = UIImage(named: arr["image"]!)
-            //            cell.lblTitle.text = arr["title"]
-            //            cell.lblSubTitle.text = arr["subTitle"]
->>>>>>> c16185d53e722a02878b8f5941f6d8703a85f776
+            
             return cell
         }
         return UICollectionViewCell()
