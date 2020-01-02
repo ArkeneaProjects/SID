@@ -71,6 +71,7 @@ struct SUFFIX_URL {
     static let ForgotVerifyOTP = "auth/forgotPasswordVerifyOTP"
     static let TotalManufactureName = "implant/getTotalManufactureName"
     static let SearchByText = "implant/searchByText"
+    static let SearchByImage = "implant/analyzeImage"
 }
     
 struct KEYS {
