@@ -14,6 +14,8 @@ class AddImplantVM: NSObject {
     var implantObj = SearchResult()
     
     func uploadImplant(){
+        ProgressManager.show(withStatus: "Uploading Implant...", on: self.rootViewController!.view)
+
         let parameters: NSDictionary = ["accessToken": AppConstant.shared.loggedUser.accesstoken,
                                         "labelName": self.implantObj.objectName,
                                         "implantManufacture": self.implantObj.implantManufacture,
@@ -25,19 +27,17 @@ class AddImplantVM: NSObject {
                                         "labelOffsetY": self.implantObj.implantImage.labelOffsetY,
                                         "removeImplant": self.implantObj.removImplant]
         
-        let arrMultipart: NSMutableArray = NSMutableArray()
+        let arrMultipart = NSMutableArray()
         
-        if self.implantObj.implantImage.uploadImagePath.trimmedString().count > 0 {
-            let name: String = URL(fileURLWithPath: self.implantObj.implantImage.uploadImagePath).lastPathComponent
-            arrMultipart.add(NSDictionary(dictionary: ["key": "implantPicture", "name": name, "path": self.implantObj.implantImage.uploadImagePath]))
-        }
+        let image  = saveImageInDocumentDict(image: self.implantObj.implantImage.selectedImage!, imageName: "photo", key: "implantPicture")
+        arrMultipart.add(image)
         
         AFManager.sendMultipartRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.addImplant, parameters: parameters, multipart: arrMultipart, serviceCount: 0, completion: { (response: AnyObject?, error: String?, errorCode: String?) in
             if error == nil {
-                ProgressManager.showSuccess(withStatus: "Implant uploaded successfully", on: self.view)
+                ProgressManager.showSuccess(withStatus: "Implant uploaded successfully", on: self.rootViewController!.view)
             } else {
                 ProgressManager.dismiss()
-                ProgressManager.showError(withStatus: error, on: self.view)
+                ProgressManager.showError(withStatus: error, on: self.rootViewController!.view)
             }
         })
     }
