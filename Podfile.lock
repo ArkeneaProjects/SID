@@ -44,7 +44,6 @@ PODS:
     - SDWebImage/Core (= 5.3.1)
   - SDWebImage/Core (5.3.1)
   - SkeletonView (1.8.2)
-  - SKPhotoBrowser (6.1.0)
   - SVPinView (1.0.7)
 
 DEPENDENCIES:
@@ -59,7 +58,6 @@ DEPENDENCIES:
   - LNSideMenu
   - SDWebImage
   - SkeletonView
-  - SKPhotoBrowser
   - SVPinView
 
 SPEC REPOS:
@@ -81,7 +79,6 @@ SPEC REPOS:
     - LNSideMenu
     - SDWebImage
     - SkeletonView
-    - SKPhotoBrowser
     - SVPinView
 
 SPEC CHECKSUMS:
@@ -102,9 +99,8 @@ SPEC CHECKSUMS:
   LNSideMenu: 43aaa1f9b5f406f04b3c9980b7a6f6569686176d
   SDWebImage: 7137d57385fb632129838c1e6ab9528a22c666cc
   SkeletonView: bb27c39857e5492136f02ee8a3aa78de55d12ecd
-  SKPhotoBrowser: 343de95d89dc7913763c5dda243cc6e606e4a168
   SVPinView: 6c1da57e4a1273298802f460c60511ba10f7c831
 
-PODFILE CHECKSUM: c4173fda6f5f46ca53fee622dbfd06c71d61d3c5
+PODFILE CHECKSUM: 5a4b1f596e638c747bf2a65d6d741560d671e4e1
 
 COCOAPODS: 1.8.4

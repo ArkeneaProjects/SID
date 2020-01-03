@@ -255,4 +255,3 @@ private extension SKPagingScrollView {
         return lastIndex
     }
 }
-
