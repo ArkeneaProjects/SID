@@ -26,7 +26,6 @@ class UploadViewController: BaseViewController {
             self.txtImplant.optionArray = arrBrand as [String]
             self.txtImplant.didSelect { (selected: String, index: Int, id: Int) in
                 self.txtImplant.text = selected
-                self.implantObj.objectName = selected
             }
             self.txtImplant.keyboardCompletion = {
                 if self.txtImplant.shadow != nil && self.txtImplant.shadow.alpha != 0 {
@@ -40,7 +39,6 @@ class UploadViewController: BaseViewController {
             self.txtManu.optionArray = arrManufacture as [String]
             self.txtManu.didSelect { (selected: String, index: Int, id: Int) in
                 self.txtManu.text = selected
-                self.implantObj.implantManufacture = selected
             }
             self.txtManu.keyboardCompletion = {
                 if self.txtManu.shadow != nil && self.txtManu.shadow.alpha != 0 {
@@ -52,10 +50,13 @@ class UploadViewController: BaseViewController {
     
     // MARK: - Button Action
     @IBAction func addClickAction(_ sender: Any) {
-        if (self.implantObj.objectName.count < 1) {
+        self.implantObj.objectName = self.txtImplant.text!
+        self.implantObj.implantManufacture = self.txtManu.text!
+
+        if self.implantObj.objectName.trimmedString().count == 0 {
             ProgressManager.showError(withStatus: ERRORS.EmptyBrandName, on: self.view)
             return
-        } else if (self.implantObj.implantManufacture.count < 1) {
+        } else if self.implantObj.implantManufacture.trimmedString().count == 0 {
             ProgressManager.showError(withStatus: ERRORS.EmptyManufacturer, on: self.view)
             return
         } else {
@@ -66,12 +67,6 @@ class UploadViewController: BaseViewController {
         }
     }
         
-        /* func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-         if textField.text!.count >= 3 {
-         // self.txtImplant.showList()
-         }
-         return true
-         }*/
         /*
          // MARK: - Navigation
          

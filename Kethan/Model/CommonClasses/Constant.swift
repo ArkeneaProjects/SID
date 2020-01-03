@@ -72,6 +72,7 @@ struct SUFFIX_URL {
     static let TotalManufactureName = "implant/getTotalManufactureName"
     static let SearchByText = "implant/searchByText"
     static let SearchByImage = "implant/analyzeImage"
+    static let addImplant = "implant/addImpnatApi"
 }
 
 struct KEYS {
@@ -238,7 +239,8 @@ struct ENTITIES {
     static let labelHeight = "labelHeight"
     static let labelOffsetX = "labelOffsetX"
     static let labelOffsetY = "labelOffsetY"
-    
+    static let selectedImage = "selectedImage"
+
     //Implant
     static let removalProcess = "removalProcess"
     static let surgeryDate = "surgeryDate"

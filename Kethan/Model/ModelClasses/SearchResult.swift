@@ -20,7 +20,7 @@ class SearchResult: NSObject {
     var watsonImage_id: String = ""
     var createdOn: String = "" //O for SignUp user, 1 for Facebook, 2 for Google
     var modifiedOn: String = ""
-    var implantImage = NSMutableArray()
+    var implantImage = ImplantImage()
     
     override init() {
         

@@ -15,6 +15,7 @@ class ImplantImage: NSObject {
     var labelHeight: String = ""
     var labelOffsetX: String = ""
     var labelOffsetY: String = ""
+    var selectedImage: UIImage?
     
     override init() {
         
@@ -32,9 +33,11 @@ class ImplantImage: NSObject {
         let dictionary: NSDictionary = [
             ENTITIES.imageWidth: self.imageWidth,
             ENTITIES.imageHeight: self.imageHeight,
-            ENTITIES.labelWidth: self.labelWidth,
             ENTITIES.labelOffsetX: self.labelOffsetX,
             ENTITIES.labelOffsetY: self.labelOffsetY,
+            ENTITIES.labelWidth: self.labelWidth,
+            ENTITIES.labelHeight: self.labelHeight,
+            ENTITIES.selectedImage: self.selectedImage
         ]
         return dictionary
     }

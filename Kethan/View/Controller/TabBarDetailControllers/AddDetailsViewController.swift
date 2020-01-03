@@ -52,7 +52,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         controller.showPopup()
         controller.addCompletion = { str in
             if str.count > 0 {
-                let removalProcess:NSDictionary = ["removalProcess" : str, "surgeryDate" : "", "surgeryLocation" : ""]
+                let removalProcess: NSDictionary = ["removalProcess" : str, "surgeryDate" : "", "surgeryLocation" : ""]
                 let implant = Implant(dictionary: removalProcess)
                 self.implantVM.implantObj.removImplant.insert(implant, at: 0)
                 if let cell = self.tblView.cellForRow(at: sender.indexPath) as? AddDetailHeader3Cell {
@@ -221,7 +221,11 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     // MARK: - Gallery Delegate
     func didSelect(image: UIImage?) {
         ProgressManager.show(withStatus: "", on: self.view)
-        if let controller = self.instantiate(TagViewController.self, storyboard: STORYBOARD.leftMenu) as? TagViewController {
+        if let controller = self.instantiate(TagViewController.self, storyboard: STORYBOARD.main) as? TagViewController {
+            //Get cordinate value from Tagview controller
+            controller.continueCompletion = { cordinate in
+                print(cordinate.dictioary())
+            }
             if let size = image!.getFileSize() {
                 //check image size is not more than 3 MB
                 if size >= 1.0 {

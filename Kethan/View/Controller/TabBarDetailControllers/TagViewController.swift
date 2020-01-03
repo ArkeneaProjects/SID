@@ -12,6 +12,8 @@ class TagViewController: BaseViewController {
 
     @IBOutlet weak var cropView: CropPickerView!
     var selectedImage: UIImage?
+    var isComeFromCreate: Bool = true
+    var continueCompletion: ((_ cordinate: ImplantImage) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +24,25 @@ class TagViewController: BaseViewController {
         
         // Do any additional setup after loading the view.
     }
-    
 
     @IBAction func continuClickAction(_ sender: Any) {
         print("Dimention==\(cropView.getCropViewDimention().frame)")
-        if let controller = self.instantiate(AddDetailsViewController.self, storyboard: STORYBOARD.main) as? AddDetailsViewController {
-            self.navigationController?.pushViewController(controller, animated: true)
+        if self.continueCompletion != nil {
+            let impantObj = ImplantImage()
+            impantObj.imageWidth = "\(String(describing: self.cropView.image!.size.width))"
+            impantObj.imageHeight = "\(String(describing: self.cropView.image!.size.height))"
+            impantObj.labelOffsetX = "\(String(describing: cropView.getCropViewDimention().frame.minX))"
+            impantObj.labelOffsetY = "\(String(describing: cropView.getCropViewDimention().frame.minY))"
+            impantObj.labelWidth = "\(String(describing: cropView.getCropViewDimention().frame.width))"
+            impantObj.labelHeight = "\(String(describing: cropView.getCropViewDimention().frame.height))"
+            impantObj.selectedImage = self.cropView.image
+            
+            self.continueCompletion!(impantObj)
+            self.navigationController?.popViewController(animated: true)
+        } else {
+            if let controller = self.instantiate(AddDetailsViewController.self, storyboard: STORYBOARD.main) as? AddDetailsViewController {
+                       self.navigationController?.pushViewController(controller, animated: true)
+            }
         }
     }
     
