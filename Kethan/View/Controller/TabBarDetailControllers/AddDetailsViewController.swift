@@ -221,7 +221,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     // MARK: - Gallery Delegate
     func didSelect(image: UIImage?) {
         ProgressManager.show(withStatus: "", on: self.view)
-        if let controller = self.instantiate(TagViewController.self, storyboard: STORYBOARD.leftMenu) as? TagViewController {
+        if let controller = self.instantiate(TagViewController.self, storyboard: STORYBOARD.main) as? TagViewController {
             if let size = image!.getFileSize() {
                 //check image size is not more than 3 MB
                 if size >= 1.0 {

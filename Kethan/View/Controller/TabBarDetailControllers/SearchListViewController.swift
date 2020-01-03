@@ -40,7 +40,7 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
     }
     
     override func rightButtonAction() {
-        if let controller = self.instantiate(TagViewController.self, storyboard: STORYBOARD.leftMenu) as? TagViewController {
+        if let controller = self.instantiate(TagViewController.self, storyboard: STORYBOARD.main) as? TagViewController {
             controller.selectedImage = self.searchImage
             self.navigationController?.pushViewController(controller, animated: true)
         }
