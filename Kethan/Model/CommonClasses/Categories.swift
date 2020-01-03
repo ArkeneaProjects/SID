@@ -11,7 +11,7 @@ enum ImageFormat: String {
     case png, jpg, gif, tiff, webp, heic, unknown
 }
 
-func saveImageInDocumentDict(image: UIImage, imageName: String) -> Dictionary<String, Any> {
+func saveImageInDocumentDict(image: UIImage, imageName: String, key: String) -> Dictionary<String, Any> {
     let imageData: Data = image.pngData()!
     let fileExtension = ImageFormat.get(from: imageData)
        let filePath: String = (NSTemporaryDirectory() as NSString).appendingPathComponent("\(imageName).\(fileExtension)")
@@ -20,7 +20,7 @@ func saveImageInDocumentDict(image: UIImage, imageName: String) -> Dictionary<St
        } catch {
            
        }
-       let imageDict: Dictionary = ["key": "implantPicture", "path": filePath, "name": "\(imageName).\(fileExtension)"]
+       let imageDict: Dictionary = ["key": key, "path": filePath, "name": "\(imageName).\(fileExtension)"]
        return imageDict
 }
 
