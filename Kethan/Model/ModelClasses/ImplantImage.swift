@@ -37,7 +37,7 @@ class ImplantImage: NSObject {
             ENTITIES.labelOffsetY: self.labelOffsetY,
             ENTITIES.labelWidth: self.labelWidth,
             ENTITIES.labelHeight: self.labelHeight,
-            "selectedImage": self.selectedImage
+            ENTITIES.selectedImage: self.selectedImage
         ]
         return dictionary
     }

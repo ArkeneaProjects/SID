@@ -239,7 +239,7 @@ struct ENTITIES {
     static let labelHeight = "labelHeight"
     static let labelOffsetX = "labelOffsetX"
     static let labelOffsetY = "labelOffsetY"
-    static let uploadImagePath = "uploadImagePath"
+    static let selectedImage = "selectedImage"
 
     //Implant
     static let removalProcess = "removalProcess"
