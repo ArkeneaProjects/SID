@@ -51,7 +51,7 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
         self.searchVM.rootController = self
         if self.isSearchByImage == true {
             ProgressManager.show(withStatus: "Searching our database...", on: self.view)
-            let imageDict  = saveImageInDocumentDict(image: self.searchImage!, imageName: "photo")
+            let imageDict  = saveImageInDocumentDict(image: self.searchImage!, imageName: "photo", key: "implantPicture")
             self.searchVM.getSearchByImage(itemArray: [imageDict]) { (error) in
                 if error != "" {
                     self.lblResultCount.text = error

@@ -35,7 +35,6 @@ class PreviewViewController: BaseViewController {
         }
     }
     
-    
     // MARK: - Button Action
     override func rightButtonAction() {
         self.cropView.isCrop = true
