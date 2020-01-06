@@ -48,7 +48,6 @@ class TagViewController: BaseViewController {
     
     @IBAction func continuClickAction(_ sender: Any) {
         print("Dimention==\(cropView.getCropViewDimention().frame)")
-        
         let croppedFrame = cropView.getCropViewDimention().frame
         let rect = self.calculateRectOfImageInImageView(imageView: self.cropView.imageView)
         let actualX = croppedFrame.origin.x - rect.origin.x
