@@ -625,7 +625,7 @@ extension UIImage {
 }
 extension UIImageView {
     
-    func drawRectangle(frameSize: CGSize, imageWidth: CGFloat, imageHight: CGFloat, drawSize: CGRect) {
+    func drawRectangle(frameSize: CGSize, imageWidth: CGFloat, imageHight: CGFloat, drawSize: CGRect) { //frameSize = diaplayed imageview size, imagewidth = actual image width, imageHight= actual image hight, drawSize= drow image size
         
         let Width = frameSize.width//getCalculated(self.frame.size.width)
         let Hight = frameSize.height//getCalculated(self.frame.size.height)

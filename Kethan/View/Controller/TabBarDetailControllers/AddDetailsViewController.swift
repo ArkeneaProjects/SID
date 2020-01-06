@@ -25,7 +25,6 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         
         self.implantVM.implantObj = self.implantObj
     
-        
         self.tblView.registerNibWithIdentifier([IDENTIFIERS.AddDetailHeader1Cell, IDENTIFIERS.AddDetailHeader2Cell, IDENTIFIERS.AddDetailHeader3Cell])
         
         self.tblView.rowHeight = UITableView.automaticDimension
@@ -47,7 +46,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         controller.showPopup()
         controller.addCompletion = { str in
             if str.count > 0 {
-                let removalProcess: NSDictionary = ["removalProcess" : str, "surgeryDate" : "", "surgeryLocation" : ""]
+                let removalProcess: NSDictionary = ["removalProcess": str, "surgeryDate": "", "surgeryLocation": ""]
                 let implant = Implant(dictionary: removalProcess)
                 self.implantVM.implantObj.removImplant.insert(implant, at: 0)
                 if let cell = self.tblView.cellForRow(at: sender.indexPath) as? AddDetailHeader3Cell {

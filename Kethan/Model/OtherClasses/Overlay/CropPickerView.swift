@@ -157,6 +157,7 @@ public class CropPickerView: UIView {
     }
     
     func getCropViewDimention() -> UIView {
+        print("dimview==\(self.dimView.frame)")
         return cropView
     }
     // MARK: Private Property

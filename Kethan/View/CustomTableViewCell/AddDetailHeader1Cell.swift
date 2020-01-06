@@ -72,8 +72,13 @@ class AddDetailHeader1Cell: UITableViewCell, UICollectionViewDelegate, UICollect
                 cell.imgSelected.image = UIImage(named: self.arrAllItems[indexPath.item] as? String ?? "")
                 
             } else {
-                if(self.isNewUpload){
-                    cell.imgSelected.image = (self.arrAllItems[indexPath.item] as! ImplantImage).selectedImage
+                if self.isNewUpload {
+                    if let implantObj = self.arrAllItems[indexPath.item] as? ImplantImage {
+                        cell.imgSelected.image = implantObj.selectedImage
+                        
+                        cell.imgSelected.drawRectangle(frameSize: CGSize(width: cell.imgSelected.frame.width, height: cell.imgSelected.frame.height), imageWidth: CGFloat(implantObj.imageWidth.floatValue()), imageHight: CGFloat(implantObj.imageHeight.floatValue()), drawSize: CGRect(x: CGFloat(implantObj.labelOffsetX.floatValue()), y: CGFloat(implantObj.labelOffsetY.floatValue()), width: CGFloat(implantObj.labelWidth.floatValue()), height: CGFloat(implantObj.labelHeight.floatValue())))
+
+                    }
                 } else {
                     cell.imgSelected.image = UIImage(named: self.arrAllItems[indexPath.item] as? String ?? "")
                 }

@@ -20,7 +20,8 @@ class UploadViewController: BaseViewController {
         
         self.txtImplant.font = UIFont(name: self.txtImplant.font!.fontName, size: getCalculated(14.0))
         self.txtManu.font = UIFont(name: self.txtManu.font!.fontName, size: getCalculated(14.0))
-        
+        self.txtManu.text = "fds"
+        self.txtImplant.text = "fdgfd"
         if AppConstant.shared.manufactureName.count != 0 {
             self.txtManu.text = AppConstant.shared.manufactureName
             AppConstant.shared.manufactureName = ""
