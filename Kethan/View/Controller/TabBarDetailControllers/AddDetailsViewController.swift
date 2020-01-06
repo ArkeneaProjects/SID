@@ -200,7 +200,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                     let tempArray: NSArray = implantVM.implantObj.removImplant.subarray(with: NSRange(location: 0, length: 5)) as NSArray
                     cell.arrTableView = NSMutableArray(array: tempArray)
                 } else {
-                    cell.arrTableView = self.implantVM.implantObj.removImplant as! NSMutableArray
+                    cell.arrTableView = self.implantVM.implantObj.removImplant
                 }
                 cell.populateVehicleListing()
                 cell.viewListing.layoutIfNeeded()

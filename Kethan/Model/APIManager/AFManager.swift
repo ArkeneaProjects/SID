@@ -171,9 +171,9 @@ class AFManager: NSObject {
     
     private static func renderResponse(method: HTTPMethod, urlSuffix: String, type: String, strURL: String, headers: [String: String], parameters: NSDictionary, multipart: NSArray, response: Any?, error: NSError?, serviceCount: NSInteger, completion: @escaping APICompletion) {
         DispatchQueue.main.async(execute: {
-            let webServiceData = "\n\nRequest -> \n\(strURL)\n\nHeaders -> \n\(headers)\n\nParameters -> \n\(parameters.jsonString())\n\nResponce -> \n\(response ?? "")"
-            print(webServiceData)
-            CustomLogger.sharedInstance.logValues("request \n \(parameters) \n\n respones \n\(String(describing: response))")
+//            let webServiceData = "\n\nRequest -> \n\(strURL)\n\nHeaders -> \n\(headers)\n\nParameters -> \n\(parameters.jsonString())\n\nResponce -> \n\(response ?? "")"
+//            print(webServiceData)
+//            CustomLogger.sharedInstance.logValues("request \n \(parameters) \n\n respones \n\(String(describing: response))")
             if response != nil {
                 var jsonObject: NSDictionary?
                 if let responseDict = response as? NSDictionary {

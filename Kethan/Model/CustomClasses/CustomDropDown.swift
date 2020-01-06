@@ -79,7 +79,7 @@ open class CustomDropDown: UITextField {
             }
         }
     }
-    @IBInspectable public var arrowSize: CGFloat = 15 {
+    @IBInspectable public var arrowSize: CGFloat = 12 {
         didSet {
             let center =  arrow.superview!.center
             arrow.frame = CGRect(x: center.x - arrowSize/2, y: center.y - arrowSize/2, width: arrowSize, height: arrowSize)
@@ -106,7 +106,7 @@ open class CustomDropDown: UITextField {
 
         }
     }
-    @IBInspectable var placeColor: UIColor = UIColor.gray
+    @IBInspectable var placeColor: UIColor = UIColor.white
 
     // Init
     public override init(frame: CGRect) {
@@ -260,9 +260,9 @@ open class CustomDropDown: UITextField {
 
     public func hideList() {
         TableWillDisappearCompletion()
-        UIView.animate(withDuration: 1.0,
-                       delay: 0.4,
-                       usingSpringWithDamping: 0.9,
+        UIView.animate(withDuration: 0.9,
+                       delay: 0,
+                       usingSpringWithDamping: 0.4,
                        initialSpringVelocity: 0.1,
                        options: .curveEaseInOut,
                        animations: { () -> Void in
@@ -300,8 +300,8 @@ open class CustomDropDown: UITextField {
             y = self.pointToParent.y - tableheightX
         }
         UIView.animate(withDuration: 0.2,
-                       delay: 0.1,
-                       usingSpringWithDamping: 0.9,
+                       delay: 0,
+                       usingSpringWithDamping: 0.4,
                        initialSpringVelocity: 0.1,
                        options: .curveEaseInOut,
                        animations: { () -> Void in
@@ -389,18 +389,19 @@ extension CustomDropDown: UITableViewDataSource {
         let cellIdentifier = "DropDownTableViewCell"
 
         if let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? DropDownTableViewCell {
-            if indexPath.row != selectedIndex {
-                cell.backgroundColor = rowBackgroundColor
-            } else {
-                cell.backgroundColor = selectedRowColor
-            }
+//            if indexPath.row != selectedIndex {
+                cell.backgroundColor = UIColor.init(hexCode: 0xF9F8F9)
+//            } else {
+//                cell.backgroundColor = selectedRowColor
+//            }
 
             if self.imageArray.count > indexPath.row {
                 cell.imageView!.image = UIImage(named: imageArray[indexPath.row])
             }
             cell.lblText.text = "\(dataArray[indexPath.row])"
-            cell.accessoryType = (indexPath.row == selectedIndex) && checkMarkEnabled  ? .checkmark : .none
-            //cell.imgCheck.alpha = (indexPath.row == selectedIndex) && checkMarkEnabled  ? 1.0: 0
+            cell.lblText.textColor = (indexPath.row == selectedIndex) && checkMarkEnabled  ? UIColor.init(hexCode: 0x0985E9) : UIColor.init(hexCode: 0x333333)
+            cell.accessoryType = .none
+            cell.imgCheck.alpha = (indexPath.row == selectedIndex) && checkMarkEnabled  ? 1.0: 0
             cell.selectionStyle = .none
             return cell
         }
