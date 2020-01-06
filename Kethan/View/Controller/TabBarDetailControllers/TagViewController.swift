@@ -20,10 +20,6 @@ class TagViewController: BaseViewController {
         self.addNavBarWithTitle("Tag View", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeNil)
         self.cropView.image = self.selectedImage
         self.cropView.isCrop = true
-        
-//        let visibleRect = AVMakeRect(aspectRatio: CGSize(width: selectedImage.size.width, height: selectedImage.size.height), insideRect: self.frame)
-//
-      
     }
     
     func calculateRectOfImageInImageView(imageView: UIImageView) -> CGRect {
