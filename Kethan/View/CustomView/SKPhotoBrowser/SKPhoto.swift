@@ -18,14 +18,14 @@ import UIKit
 }
 
 // MARK: - SKPhoto
-open class SKPhoto: NSObject, SKPhotoProtocol {
-    open var index: Int = 0
-    open var underlyingImage: UIImage!
-    open var caption: String?
-    open var contentMode: UIView.ContentMode = .scaleAspectFill
-    open var shouldCachePhotoURLImage: Bool = false
-    open var photoURL: String!
-
+ class SKPhoto: NSObject, SKPhotoProtocol {
+     var index: Int = 0
+    var underlyingImage: UIImage!
+    var caption: String?
+     var contentMode: UIView.ContentMode = .scaleAspectFill
+     var shouldCachePhotoURLImage: Bool = false
+     var photoURL: String!
+     var objectLocation: ObjectLocation?
     override init() {
         super.init()
     }
@@ -35,15 +35,17 @@ open class SKPhoto: NSObject, SKPhotoProtocol {
         underlyingImage = image
     }
     
-    convenience init(url: String) {
+    convenience init(url: String, object: ObjectLocation?) {
         self.init()
         photoURL = url
+        objectLocation = object
     }
     
-    convenience init(url: String, holder: UIImage?) {
+    convenience init(url: String, holder: UIImage?, object: ObjectLocation?) {
         self.init()
         photoURL = url
         underlyingImage = holder
+        objectLocation = object
     }
     
     open func checkCache() {
@@ -57,11 +59,11 @@ open class SKPhoto: NSObject, SKPhotoProtocol {
         if SKCache.sharedCache.imageCache is SKRequestResponseCacheable {
             let request = URLRequest(url: URL(string: photoURL)!)
             if let img = SKCache.sharedCache.imageForRequest(request) {
-                underlyingImage = img
+                underlyingImage = img.drawRectangleOnImage(drawSize: CGRect(x: CGFloat(objectLocation?.left.floatValue() ?? 0.0), y: CGFloat(objectLocation?.top.floatValue() ?? 0.0), width: CGFloat(objectLocation?.width.floatValue() ?? 0.0), height: CGFloat(objectLocation?.height.floatValue() ?? 0.0)))
             }
         } else {
             if let img = SKCache.sharedCache.imageForKey(photoURL) {
-                underlyingImage = img
+                underlyingImage = img.drawRectangleOnImage(drawSize: CGRect(x: CGFloat(objectLocation?.left.floatValue() ?? 0.0), y: CGFloat(objectLocation?.top.floatValue() ?? 0.0), width: CGFloat(objectLocation?.width.floatValue() ?? 0.0), height: CGFloat(objectLocation?.height.floatValue() ?? 0.0)))
             }
         }
     }
@@ -92,7 +94,7 @@ open class SKPhoto: NSObject, SKPhotoProtocol {
                         }
                     }
                     DispatchQueue.main.async {
-                        self.underlyingImage = image
+                        self.underlyingImage = image.drawRectangleOnImage(drawSize: CGRect(x: CGFloat(self.objectLocation?.left.floatValue() ?? 0.0), y: CGFloat(self.objectLocation?.top.floatValue() ?? 0.0), width: CGFloat(self.objectLocation?.width.floatValue() ?? 0.0), height: CGFloat(self.objectLocation?.height.floatValue() ?? 0.0)))
                         self.loadUnderlyingImageComplete()
                     }
                 }
@@ -114,11 +116,11 @@ extension SKPhoto {
         return SKPhoto(image: image)
     }
     
-    public static func photoWithImageURL(_ url: String) -> SKPhoto {
-        return SKPhoto(url: url)
+    public static func photoWithImageURL(_ url: String, object: ObjectLocation?) -> SKPhoto {
+        return SKPhoto(url: url, object: object)
     }
     
-    public static func photoWithImageURL(_ url: String, holder: UIImage?) -> SKPhoto {
-        return SKPhoto(url: url, holder: holder)
+    public static func photoWithImageURL(_ url: String, holder: UIImage?, object: ObjectLocation?) -> SKPhoto {
+        return SKPhoto(url: url, holder: holder, object: object)
     }
 }

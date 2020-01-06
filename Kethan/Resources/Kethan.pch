@@ -1,3 +1,14 @@
+//
+//  Kethan.pch
+//  Kethan
+//
+//  Created by Sunil on 03/01/20.
+//  Copyright © 2020 Arkenea. All rights reserved.
+//
+
+#ifndef Kethan_pch
+#define Kethan_pch
+
 #ifdef __OBJC__
 #import <UIKit/UIKit.h>
 #else
@@ -10,8 +21,4 @@
 #endif
 #endif
 
-#import "SKPhotoBrowser.h"
-
-FOUNDATION_EXPORT double SKPhotoBrowserVersionNumber;
-FOUNDATION_EXPORT const unsigned char SKPhotoBrowserVersionString[];
-
+#endif /* Kethan_pch */

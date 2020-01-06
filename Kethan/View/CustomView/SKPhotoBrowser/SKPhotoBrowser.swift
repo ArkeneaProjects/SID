@@ -374,6 +374,7 @@ internal extension SKPhotoBrowser {
     
     func pageDisplayedAtIndex(_ index: Int) -> SKZoomingScrollView? {
         return pagingScrollView.pageDisplayedAtIndex(index)
+        
     }
     
     func getImageFromView(_ sender: UIView) -> UIImage {

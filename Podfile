@@ -12,7 +12,7 @@ target 'Kethan' do
   pod 'IQKeyboardManagerSwift'
   pod 'Alamofire'
   pod 'SDWebImage'
-  pod 'SKPhotoBrowser'
+ 
   pod 'SVPinView'
   pod 'CropViewController'
   pod 'Atributika'

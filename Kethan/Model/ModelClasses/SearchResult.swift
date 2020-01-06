@@ -40,9 +40,10 @@ class SearchResult: NSObject {
         }
         
       if let dictarr = dictionary.value(forKey: ENTITIES.removImplant) as? [NSDictionary] {
-                 self.removImplant = dictarr.map({ (dict) -> Implant in
+              let arrImaplant  = dictarr.map({ (dict) -> Implant in
                      return Implant(dictionary: dict)
-                 }) as! NSMutableArray
+                 }) //as! [Implant]
+          self.removImplant = NSMutableArray(array: arrImaplant)
              }
         
         self.watsonImage_id = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.watsonImage_id)
