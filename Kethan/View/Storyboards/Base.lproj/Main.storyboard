@@ -813,7 +813,7 @@ about an implant, upon verifiication  we'll add
                                             </constraint>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
-                                        <state key="normal" title="Add Details">
+                                        <state key="normal" title="Edit">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -826,7 +826,7 @@ about an implant, upon verifiication  we'll add
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="searchClickAction:" destination="UXV-jn-cdj" eventType="touchUpInside" id="iVB-1L-qfx"/>
+                                            <action selector="edittButtonAction" destination="Ugl-xi-j2w" eventType="touchUpInside" id="3xY-Jh-S27"/>
                                         </connections>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c1T-9l-4WT">

@@ -28,6 +28,7 @@ class AddImplantVM: NSObject {
             return
         } else {
             ProgressManager.show(withStatus: "Uploading Implant...", on: self.rootViewController!.view)
+        
             let parameters: NSDictionary =  [ "labelName": self.implantObj.objectName,
                                             "implantManufacture": self.implantObj.implantManufacture,
                                             "imageWidth": self.implantObj.implantImage.imageWidth,
@@ -36,7 +37,7 @@ class AddImplantVM: NSObject {
                                             "labelHeight": self.implantObj.implantImage.labelHeight,
                                             "labelOffsetX": self.implantObj.implantImage.labelOffsetX,
                                             "labelOffsetY": self.implantObj.implantImage.labelOffsetY,
-                                            "removeImplant": self.implantObj.getRemovalArray()]
+                                            "removeImplant": self.implantObj.getRemovalArray().jsonString()]
             
             let image  = saveImageInDocumentDict(image: self.implantObj.implantImage.selectedImage!, imageName: "photo", key: "implantPicture")
             
