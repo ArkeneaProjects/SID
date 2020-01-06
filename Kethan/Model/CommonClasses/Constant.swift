@@ -179,6 +179,8 @@ struct ERRORS {
     //Upload
     static let EmptyManufacturer = "Please enter manufacturer"
     static let EmptyBrandName = "Please enter implant name/brand"
+    static let EmptyRemovalProcess = "Please add removal process"
+    static let EmptyImage = "Please add implant image"
     
 }
 

@@ -10,35 +10,53 @@ import UIKit
 
 class AddImplantVM: NSObject {
     var rootViewController: BaseViewController?
-    var arrImages = NSMutableArray()
     var implantObj = SearchResult()
     
-    func uploadImplant(){
-        ProgressManager.show(withStatus: "Uploading Implant...", on: self.rootViewController!.view)
-
-        let parameters: NSDictionary = ["accessToken": AppConstant.shared.loggedUser.accesstoken,
-                                        "labelName": self.implantObj.objectName,
-                                        "implantManufacture": self.implantObj.implantManufacture,
-                                        "imageWidth": self.implantObj.implantImage.imageWidth,
-                                        "imageHeight": self.implantObj.implantImage.imageHeight,
-                                        "labelWidth": self.implantObj.implantImage.labelWidth,
-                                        "labelHeight": self.implantObj.implantImage.labelHeight,
-                                        "labelOffsetX": self.implantObj.implantImage.labelOffsetX,
-                                        "labelOffsetY": self.implantObj.implantImage.labelOffsetY,
-                                        "removeImplant": self.implantObj.removImplant]
-        
-        let arrMultipart = NSMutableArray()
-        
-        let image  = saveImageInDocumentDict(image: self.implantObj.implantImage.selectedImage!, imageName: "photo", key: "implantPicture")
-        arrMultipart.add(image)
-        
-        AFManager.sendMultipartRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.addImplant, parameters: parameters, multipart: arrMultipart, serviceCount: 0, completion: { (response: AnyObject?, error: String?, errorCode: String?) in
-            if error == nil {
-                ProgressManager.showSuccess(withStatus: "Implant uploaded successfully", on: self.rootViewController!.view)
-            } else {
-                ProgressManager.dismiss()
-                ProgressManager.showError(withStatus: error, on: self.rootViewController!.view)
-            }
-        })
+    func uploadImplant(_ controller: BaseViewController) {
+        self.rootViewController = controller
+        if implantObj.objectName.count < 1 {
+            ProgressManager.showError(withStatus: ERRORS.EmptyBrandName, on: self.rootViewController!.view)
+            return
+        } else if implantObj.implantManufacture.count < 1 {
+            ProgressManager.showError(withStatus: ERRORS.EmptyManufacturer, on: self.rootViewController!.view)
+            return
+        } else if implantObj.removImplant.count < 1 {
+            ProgressManager.showError(withStatus: ERRORS.EmptyRemovalProcess, on: self.rootViewController!.view)
+            return
+        } else if implantObj.implantImage.selectedImage == nil {
+            ProgressManager.showError(withStatus: ERRORS.EmptyImage, on: self.rootViewController!.view)
+            return
+        } else {
+            ProgressManager.show(withStatus: "Uploading Implant...", on: self.rootViewController!.view)
+            
+            let parameters: NSDictionary = ["accessToken": AppConstant.shared.loggedUser.accesstoken,
+                                            "labelName": self.implantObj.objectName,
+                                            "implantManufacture": self.implantObj.implantManufacture,
+                                            "imageWidth": self.implantObj.implantImage.imageWidth,
+                                            "imageHeight": self.implantObj.implantImage.imageHeight,
+                                            "labelWidth": self.implantObj.implantImage.labelWidth,
+                                            "labelHeight": self.implantObj.implantImage.labelHeight,
+                                            "labelOffsetX": self.implantObj.implantImage.labelOffsetX,
+                                            "labelOffsetY": self.implantObj.implantImage.labelOffsetY,
+                                            "removeImplant": self.implantObj.removImplant]
+            
+            let arrMultipart = NSMutableArray()
+            
+            let image  = saveImageInDocumentDict(image: self.implantObj.implantImage.selectedImage!, imageName: "photo", key: "implantPicture")
+            arrMultipart.add(image)
+            
+            AFManager.sendMultipartRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.addImplant, parameters: parameters, multipart: arrMultipart, serviceCount: 0, completion: { (response: AnyObject?, error: String?, errorCode: String?) in
+                if error == nil {
+                    ProgressManager.showSuccess(withStatus: "Implant uploaded successfully", on: self.rootViewController!.view)
+                    if let controller = self.rootViewController!.instantiate(ThankYouViewController.self, storyboard: STORYBOARD.main) as? ThankYouViewController {
+                        controller.isComeFrom = 1
+                        self.rootViewController?.navigationController?.pushViewController(controller, animated: true)
+                    }
+                } else {
+                    ProgressManager.dismiss()
+                    ProgressManager.showError(withStatus: error, on: self.rootViewController!.view)
+                }
+            })
+        }
     }
 }

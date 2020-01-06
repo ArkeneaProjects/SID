@@ -9,12 +9,12 @@
 import UIKit
 
 class ImplantImage: NSObject {
-    var imageWidth: String = ""
-    var imageHeight: String = ""
-    var labelWidth: String = ""
-    var labelHeight: String = ""
-    var labelOffsetX: String = ""
-    var labelOffsetY: String = ""
+    var imageWidth =  ""
+    var imageHeight = ""
+    var labelWidth = ""
+    var labelHeight = ""
+    var labelOffsetX = ""
+    var labelOffsetY = ""
     var selectedImage: UIImage?
     
     override init() {
@@ -27,6 +27,8 @@ class ImplantImage: NSObject {
         self.labelWidth = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.labelWidth)
         self.labelOffsetY = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.labelOffsetY)
         self.labelOffsetX = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.labelOffsetX)
+        self.labelWidth = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.labelWidth)
+        self.labelHeight = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.labelHeight)
     }
     
     func dictioary() -> NSDictionary {
