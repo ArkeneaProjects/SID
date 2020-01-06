@@ -382,7 +382,7 @@ extension UIPageControl {
     
 }
 extension UIImage {
-
+    
     class func outlinedEllipse(size: CGSize, color: UIColor, lineWidth: CGFloat = 1.0) -> UIImage? {
         
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
@@ -606,23 +606,7 @@ extension String {
         }
     }
 }
-extension UIImage {
-    func drawRectangleOnImage(drawSize: CGRect) -> UIImage? {
-           let imageSize = self.size
-           UIGraphicsBeginImageContextWithOptions(imageSize, false, self.scale)
-       
-           self.draw(at: CGPoint.zero)
-           let color: UIColor = UIColor.red
-           let bpath: UIBezierPath = UIBezierPath(rect: drawSize)
-            bpath.lineWidth = 3.0
-            color.set()
-            bpath.stroke()
 
-           let newImage = UIGraphicsGetImageFromCurrentImageContext()
-           UIGraphicsEndImageContext()
-           return newImage
-              }
-}
 extension UIImageView {
     
     func drawRectangle(frameSize: CGSize, imageWidth: CGFloat, imageHight: CGFloat, drawSize: CGRect) {
@@ -640,5 +624,20 @@ extension UIImageView {
             view.removeFromSuperview()
         }
         self.addSubview(d)
+    }
+}
+
+extension FileManager {
+    func clearTmpDirectory() {
+        do {
+            let tmpDirURL = FileManager.default.temporaryDirectory
+            let tmpDirectory = try contentsOfDirectory(atPath: tmpDirURL.path)
+            try tmpDirectory.forEach { file in
+                let fileUrl = tmpDirURL.appendingPathComponent(file)
+                try removeItem(atPath: fileUrl.path)
+            }
+        } catch {
+           //catch the error somehow
+        }
     }
 }

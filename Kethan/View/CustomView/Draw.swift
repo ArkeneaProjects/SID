@@ -25,7 +25,7 @@ class Draw: UIView {
 
         let drect = CGRect(x: rect.origin.x, y: rect.origin.y, width: w, height: h)
         let bpath: UIBezierPath = UIBezierPath(rect: drect)
-         bpath.lineWidth = 3.0
+         bpath.lineWidth = 2.0
         color.set()
         bpath.stroke()
 

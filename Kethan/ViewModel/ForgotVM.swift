@@ -15,6 +15,7 @@ class ForgotVM: NSObject {
     var errorOTP: String = ""
     var statusCodeOTP: String = ""
     var otp: String = ""
+    var isCameFromForgotScreen: Bool = true
 
     func clearAllData() {
         self.email = ""
@@ -45,7 +46,6 @@ class ForgotVM: NSObject {
         self.verifyOTPAPI()
     }
     
-    
     // MARK: - API Call
     func callResendOTP(controller: BaseViewController) {
         
@@ -53,7 +53,7 @@ class ForgotVM: NSObject {
         ProgressManager.show(withStatus: "", on: self.rootViewController!.view)
         
         let dict: NSDictionary = [ENTITIES.email: self.email]
-        AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.ForgotPassword, parameters: dict, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
+        AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: (self.isCameFromForgotScreen == true) ? SUFFIX_URL.ForgotPassword:SUFFIX_URL.ChangeEmail, parameters: dict, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
             if error != nil {
                 self.errorOTP = error!
                 self.statusCodeOTP = errorCode ?? ""
@@ -78,9 +78,11 @@ class ForgotVM: NSObject {
         
         ProgressManager.show(withStatus: "", on: self.rootViewController!.view)
         
-        let dict: NSDictionary = [ENTITIES.email: self.email, ENTITIES.resetOtp: self.otp]
+        let key = (self.isCameFromForgotScreen == true) ?ENTITIES.resetOtp:ENTITIES.otp
         
-        AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.ForgotVerifyOTP, parameters: dict, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
+        let dict: NSDictionary = [ENTITIES.email: self.email, key: self.otp]
+        
+        AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: (self.isCameFromForgotScreen == true) ? SUFFIX_URL.ForgotVerifyOTP:SUFFIX_URL.EmailVerifyOTP, parameters: dict, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
             if error != nil {
                 self.errorOTP = error ?? ""
                 self.statusCodeOTP = errorCode ?? ""

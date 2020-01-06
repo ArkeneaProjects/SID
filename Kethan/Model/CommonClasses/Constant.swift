@@ -72,7 +72,10 @@ struct SUFFIX_URL {
     static let TotalManufactureName = "implant/getTotalManufactureName"
     static let SearchByText = "implant/searchByText"
     static let SearchByImage = "implant/analyzeImage"
-    static let addImplant = "implant/addImpnatApi"
+    static let UpdateProfile = "user/updateProfile"
+    static let ChangeEmail = "auth/changeEmail"
+    static let EmailVerifyOTP = "auth/changeEmailverifyOPT"
+
 }
 
 struct KEYS {
@@ -86,7 +89,7 @@ struct NOTIFICATIONS {
 }
 
 struct STATICDATA {
-    static let arrLeftItems = [["image": "profile", "text": "Profile"], ["image": "changeEmail", "text": "Change Email "], ["image": "changePassword", "text": "Change Password "], ["image": "upgradeSubscription", "text": "Upgrade Subscription"], ["image": "userWalkthrough", "text": "User Walkthrough"], ["image": "faqs", "text": "FAQs"], ["image": "termsOfService", "text": "Terms of Service"], ["image": "privacyPolicy", "text": "Privacy Policy"], ["image": "about", "text": "About the App"], ["image": "support", "text": "Support"]]
+    static var arrLeftItems = [["image": "profile", "text": "Profile"], ["image": "changeEmail", "text": "Change Email "], ["image": "changePassword", "text": "Change Password "], ["image": "upgradeSubscription", "text": "Upgrade Subscription"], ["image": "userWalkthrough", "text": "User Walkthrough"], ["image": "faqs", "text": "FAQs"], ["image": "termsOfService", "text": "Terms of Service"], ["image": "privacyPolicy", "text": "Privacy Policy"], ["image": "about", "text": "About the App"], ["image": "support", "text": "Support"]]
     static let implantDropDown = ["Skyline lateran Skyline lateran Skyline lateran Skyline lateran.", "Skyline x-ray", "Skyline lateran x-ray", "Skyline a:p lateran", "Skyline a:p lateran x-ray"]
     static let manufacturerDropDown = ["Depuy Skyline", "Depuy ab sky", "Depuy a: lateran ", "Depuy a: lateran x-ray "]
     static let arrSearch = [["image": "image1", "percent": "90 % match", "title": "Skyline a:p lateran ", "subTitle": "Depuy Skyline "], ["image": "image2", "percent": "70 % match", "title": "Spine clips Implant...", "subTitle": "Ruby Healthcare, Pune"], ["image": "image3", "percent": "50 % match", "title": "Lumbar Spine X-ra...", "subTitle": "SGS Healthcare Center."], ["image": "image4", "percent": "65 % match", "title": "Spine x-ray", "subTitle": "GE Healthcare, Pune"], ["image": "image1", "percent": "90 % match", "title": "Skyline a:p lateran", "subTitle": "Depuy Skyline "], ["image": "image2", "percent": "70 % match", "title": "Spine clips Implant...", "subTitle": "Ruby Healthcare, Pune"], ["image": "image1", "percent": "90 % match", "title": "Skyline a:p lateran ", "subTitle": "Depuy Skyline "], ["image": "image2", "percent": "70 % match", "title": "Spine clips Implant...", "subTitle": "Ruby Healthcare, Pune"], ["image": "image3", "percent": "50 % match", "title": "Lumbar Spine X-ra...", "subTitle": "SGS Healthcare Center."], ["image": "image4", "percent": "65 % match", "title": "Spine x-ray", "subTitle": "GE Healthcare, Pune"], ["image": "image1", "percent": "90 % match", "title": "Skyline a:p lateran", "subTitle": "Depuy Skyline "], ["image": "image2", "percent": "70 % match", "title": "Spine clips Implant...", "subTitle": "Ruby Healthcare, Pune"]]
@@ -179,8 +182,6 @@ struct ERRORS {
     //Upload
     static let EmptyManufacturer = "Please enter manufacturer"
     static let EmptyBrandName = "Please enter implant name/brand"
-    static let EmptyRemovalProcess = "Please add removal process"
-    static let EmptyImage = "Please add implant image"
     
 }
 
@@ -241,8 +242,7 @@ struct ENTITIES {
     static let labelHeight = "labelHeight"
     static let labelOffsetX = "labelOffsetX"
     static let labelOffsetY = "labelOffsetY"
-    static let selectedImage = "selectedImage"
-
+    
     //Implant
     static let removalProcess = "removalProcess"
     static let surgeryDate = "surgeryDate"
@@ -257,5 +257,8 @@ struct ENTITIES {
     static let left = "left"
     static let width = "width"
     static let height = "height"
+    
+    //Edit Profile
+    static let contactNumber = "contactNumber"
     
 }

@@ -54,12 +54,7 @@ class LoginViewModel: NSObject {
         self.profileURL = ""
     }
     
-    func saveBrandName() {
-        
-    }
-    
     func validateLogin(_ controller: BaseViewController) {
-        self.saveBrandName()
         self.rootController = controller
         if email.trimmedString().count == 0 {
             ProgressManager.showError(withStatus: ERRORS.emilId, on: self.rootController!.view)

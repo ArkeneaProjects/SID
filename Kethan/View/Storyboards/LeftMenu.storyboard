@@ -496,6 +496,10 @@ as they can</string>
                     <connections>
                         <outlet property="const_NavbarHeight" destination="3v3-U6-Ebu" id="I0k-hL-2dy"/>
                         <outlet property="imgProfile" destination="BSF-oH-Tob" id="Kj0-Ay-yB1"/>
+                        <outlet property="lblCreditPoints" destination="95o-Cs-Hoc" id="ANF-7r-qRo"/>
+                        <outlet property="lblEmail" destination="jzB-li-RUx" id="1sS-x6-Vvz"/>
+                        <outlet property="lblName" destination="kvl-Ek-KQC" id="lO0-8g-sVm"/>
+                        <outlet property="lblNumber" destination="epP-Nl-WGf" id="FYr-9p-IrB"/>
                         <outlet property="viewContainer" destination="cys-8t-BLT" id="O2z-BD-pUr"/>
                         <outlet property="viewNavBar" destination="cBR-po-Z2e" id="eoi-v4-cZ4"/>
                     </connections>
@@ -526,7 +530,7 @@ as they can</string>
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B7c-OT-zX3">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="507"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilePic" translatesAutoresizingMaskIntoConstraints="NO" id="cHM-C8-2fn">
                                                         <rect key="frame" x="105" y="25" width="110" height="110"/>
@@ -591,7 +595,7 @@ as they can</string>
                                                                     </constraint>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHe-Bh-eCW" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name*" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHe-Bh-eCW" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
                                                                 <rect key="frame" x="41" y="12" width="240" height="17"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="17" id="p6z-ro-DLq" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
@@ -610,11 +614,11 @@ as they can</string>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Name" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="s0x-tb-2KS" customClass="CustomTextField" customModule="SID" customModuleProvider="target">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Full Name" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="s0x-tb-2KS" customClass="CustomTextField" customModule="SID" customModuleProvider="target">
                                                                 <rect key="frame" x="41" y="29" width="253" height="32"/>
                                                                 <color key="textColor" red="0.56470588235294117" green="0.56470588235294117" blue="0.56470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
@@ -624,6 +628,9 @@ as they can</string>
                                                                         <color key="value" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="edQ-9g-ryP" id="doz-CU-Fvt"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -671,28 +678,28 @@ as they can</string>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dZ0-BX-14R" userLabel="View Email">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4KC-sY-UoK" userLabel="View Contact">
                                                         <rect key="frame" x="13" y="239" width="294" height="66"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="ZcK-yx-9zJ">
-                                                                <rect key="frame" x="13" y="15" width="15" height="13"/>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="call" translatesAutoresizingMaskIntoConstraints="NO" id="giQ-Lp-W5E">
+                                                                <rect key="frame" x="13" y="17" width="15" height="13"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="15" id="Zlm-fc-djJ" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                                    <constraint firstAttribute="width" constant="15" id="N3J-1c-pQj" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </constraint>
-                                                                    <constraint firstAttribute="height" constant="13" id="rbs-xc-OnW" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                                    <constraint firstAttribute="height" constant="13" id="W4V-f5-m2V" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </constraint>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fx-7i-0bP" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6B2-kf-Xzh" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
                                                                 <rect key="frame" x="41" y="12" width="240" height="17"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="17" id="fSL-Th-7dC" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                                    <constraint firstAttribute="height" constant="17" id="Lhd-z9-QMk" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
@@ -708,11 +715,12 @@ as they can</string>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Email" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="MqU-2x-Tvy" customClass="CustomTextField" customModule="SID" customModuleProvider="target">
-                                                                <rect key="frame" x="41" y="29" width="253" height="32"/>
-                                                                <color key="textColor" red="0.56470588235294117" green="0.56470588235294117" blue="0.56470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Contact Number" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-wN-iPV" customClass="CustomTextField" customModule="SID" customModuleProvider="target">
+                                                                <rect key="frame" x="70" y="29" width="224" height="32"/>
+                                                                <color key="tintColor" red="0.56470588239999997" green="0.56470588239999997" blue="0.56470588239999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="textColor" red="0.56470588239999997" green="0.56470588239999997" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="phonePad" returnKeyType="next"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
@@ -722,40 +730,68 @@ as they can</string>
                                                                         <color key="value" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="edQ-9g-ryP" id="6sO-R5-gBy"/>
+                                                                </connections>
+                                                            </textField>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="+91" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hqt-vz-urR" customClass="CustomTextField" customModule="SID" customModuleProvider="target">
+                                                                <rect key="frame" x="41" y="29" width="24" height="32"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="80" id="r2B-Zx-BAH"/>
+                                                                </constraints>
+                                                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                                        <real key="value" value="14"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="edQ-9g-ryP" id="gpb-NP-0Gv"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <constraints>
-                                                            <constraint firstItem="ZcK-yx-9zJ" firstAttribute="top" secondItem="dZ0-BX-14R" secondAttribute="top" constant="15" id="JDz-dE-m63" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                            <constraint firstAttribute="bottom" secondItem="BtS-wN-iPV" secondAttribute="bottom" constant="5" id="5mV-l2-hco"/>
+                                                            <constraint firstItem="BtS-wN-iPV" firstAttribute="leading" secondItem="Hqt-vz-urR" secondAttribute="trailing" constant="5" id="Bas-Ot-18d" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </constraint>
-                                                            <constraint firstAttribute="height" constant="66" id="M6D-Jb-mYu" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                            <constraint firstItem="6B2-kf-Xzh" firstAttribute="top" secondItem="4KC-sY-UoK" secondAttribute="top" constant="12" id="GZB-bI-5p1" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </constraint>
-                                                            <constraint firstAttribute="bottom" secondItem="MqU-2x-Tvy" secondAttribute="bottom" constant="5" id="OhV-y1-8kM"/>
-                                                            <constraint firstItem="7fx-7i-0bP" firstAttribute="top" secondItem="dZ0-BX-14R" secondAttribute="top" constant="12" id="QCu-aV-mpo" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                            <constraint firstItem="giQ-Lp-W5E" firstAttribute="leading" secondItem="4KC-sY-UoK" secondAttribute="leading" constant="13" id="KhN-CG-3ct" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </constraint>
-                                                            <constraint firstAttribute="trailing" secondItem="MqU-2x-Tvy" secondAttribute="trailing" id="TgO-5b-xAN"/>
-                                                            <constraint firstItem="ZcK-yx-9zJ" firstAttribute="leading" secondItem="dZ0-BX-14R" secondAttribute="leading" constant="13" id="fbF-kk-qAX" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                            <constraint firstItem="Hqt-vz-urR" firstAttribute="top" secondItem="BtS-wN-iPV" secondAttribute="top" id="SyZ-Wm-z9a"/>
+                                                            <constraint firstItem="Hqt-vz-urR" firstAttribute="leading" secondItem="6B2-kf-Xzh" secondAttribute="leading" id="Xwg-xe-4L4"/>
+                                                            <constraint firstItem="BtS-wN-iPV" firstAttribute="top" secondItem="6B2-kf-Xzh" secondAttribute="bottom" id="dWu-p4-Y52"/>
+                                                            <constraint firstItem="Hqt-vz-urR" firstAttribute="bottom" secondItem="BtS-wN-iPV" secondAttribute="bottom" id="iT6-KE-E00"/>
+                                                            <constraint firstAttribute="trailing" secondItem="BtS-wN-iPV" secondAttribute="trailing" id="jAu-Eb-yiP"/>
+                                                            <constraint firstItem="giQ-Lp-W5E" firstAttribute="top" secondItem="4KC-sY-UoK" secondAttribute="top" constant="17" id="k1j-CC-VHU" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </constraint>
-                                                            <constraint firstItem="MqU-2x-Tvy" firstAttribute="leading" secondItem="7fx-7i-0bP" secondAttribute="leading" id="il8-Is-DPi"/>
-                                                            <constraint firstItem="7fx-7i-0bP" firstAttribute="leading" secondItem="ZcK-yx-9zJ" secondAttribute="trailing" constant="13" id="oJe-Jp-jUP" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                            <constraint firstAttribute="height" constant="66" id="osU-Kv-9Yb" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </constraint>
+                                                            <constraint firstItem="6B2-kf-Xzh" firstAttribute="leading" secondItem="giQ-Lp-W5E" secondAttribute="trailing" constant="13" id="qHF-6R-ShI" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="NO"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </constraint>
-                                                            <constraint firstAttribute="trailing" secondItem="7fx-7i-0bP" secondAttribute="trailing" constant="13" id="t2h-n5-FPO"/>
-                                                            <constraint firstItem="MqU-2x-Tvy" firstAttribute="top" secondItem="7fx-7i-0bP" secondAttribute="bottom" id="vF2-Xk-ra2"/>
+                                                            <constraint firstAttribute="trailing" secondItem="6B2-kf-Xzh" secondAttribute="trailing" constant="13" id="rDB-yx-I4Y"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -769,28 +805,28 @@ as they can</string>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AV1-5u-KKM" userLabel="View Contact">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G88-xg-NNc" userLabel="View Profession">
                                                         <rect key="frame" x="13" y="318" width="294" height="66"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="call" translatesAutoresizingMaskIntoConstraints="NO" id="AQL-Mw-H3q">
-                                                                <rect key="frame" x="13" y="15" width="15" height="17"/>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profession" translatesAutoresizingMaskIntoConstraints="NO" id="xnX-UR-LiF">
+                                                                <rect key="frame" x="13" y="15" width="15" height="15"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="17" id="ZgP-UW-j6r" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                                    <constraint firstAttribute="width" constant="15" id="0KQ-KF-Yh4" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </constraint>
-                                                                    <constraint firstAttribute="width" constant="15" id="imH-1D-Pdg" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                                    <constraint firstAttribute="height" constant="15" id="O1l-Xa-8BI" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </constraint>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQO-8i-Pn4" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profession" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jdo-cn-g6m" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
                                                                 <rect key="frame" x="41" y="12" width="240" height="17"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="17" id="Fih-Z3-b2m" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                                    <constraint firstAttribute="height" constant="17" id="1xI-PP-EQl" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
@@ -806,54 +842,72 @@ as they can</string>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Contact Number" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="W9W-9p-6dX" customClass="CustomTextField" customModule="SID" customModuleProvider="target">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="droparrow" translatesAutoresizingMaskIntoConstraints="NO" id="uDi-9Z-Bwl">
+                                                                <rect key="frame" x="267" y="41" width="14" height="8"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="8" id="Ec6-3t-fQe" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </constraint>
+                                                                    <constraint firstAttribute="width" constant="14" id="Yh2-Ry-8Ug" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </constraint>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select Profession" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Hco-wH-pqn" customClass="CustomTextField" customModule="SID" customModuleProvider="target">
                                                                 <rect key="frame" x="41" y="29" width="253" height="32"/>
-                                                                <color key="textColor" red="0.56470588235294117" green="0.56470588235294117" blue="0.56470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="tintColor" red="0.56470588239999997" green="0.56470588239999997" blue="0.56470588239999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="textColor" red="0.56470588239999997" green="0.56470588239999997" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="phonePad" returnKeyType="next"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
                                                                         <real key="value" value="14"/>
                                                                     </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeColor">
-                                                                        <color key="value" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="edQ-9g-ryP" id="iWR-Xg-NL2"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <constraints>
-                                                            <constraint firstItem="nQO-8i-Pn4" firstAttribute="leading" secondItem="AQL-Mw-H3q" secondAttribute="trailing" constant="13" id="6Ab-Ga-l9x" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                            <constraint firstItem="Jdo-cn-g6m" firstAttribute="top" secondItem="G88-xg-NNc" secondAttribute="top" constant="12" id="Eei-Ea-KR9" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </constraint>
+                                                            <constraint firstItem="Hco-wH-pqn" firstAttribute="top" secondItem="Jdo-cn-g6m" secondAttribute="bottom" id="JfR-Bh-ZCN"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Hco-wH-pqn" secondAttribute="trailing" id="MPf-6n-0Fc"/>
+                                                            <constraint firstItem="uDi-9Z-Bwl" firstAttribute="centerY" secondItem="Hco-wH-pqn" secondAttribute="centerY" id="O8r-Ra-mvz"/>
+                                                            <constraint firstItem="Hco-wH-pqn" firstAttribute="leading" secondItem="Jdo-cn-g6m" secondAttribute="leading" id="Ogs-Q0-DwG"/>
+                                                            <constraint firstItem="xnX-UR-LiF" firstAttribute="top" secondItem="G88-xg-NNc" secondAttribute="top" constant="15" id="Pzt-6d-4IL" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </constraint>
+                                                            <constraint firstItem="xnX-UR-LiF" firstAttribute="leading" secondItem="G88-xg-NNc" secondAttribute="leading" constant="13" id="Yvd-TR-cis" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </constraint>
+                                                            <constraint firstAttribute="trailing" secondItem="uDi-9Z-Bwl" secondAttribute="trailing" constant="13" id="bAG-g0-T08"/>
+                                                            <constraint firstItem="Jdo-cn-g6m" firstAttribute="leading" secondItem="xnX-UR-LiF" secondAttribute="trailing" constant="13" id="chR-h6-YgM" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="NO"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </constraint>
-                                                            <constraint firstAttribute="height" constant="66" id="APz-er-PGS" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                            <constraint firstAttribute="bottom" secondItem="Hco-wH-pqn" secondAttribute="bottom" constant="5" id="nSU-Xf-j1M"/>
+                                                            <constraint firstAttribute="height" constant="66" id="qhd-oo-bP8" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </constraint>
-                                                            <constraint firstItem="W9W-9p-6dX" firstAttribute="leading" secondItem="nQO-8i-Pn4" secondAttribute="leading" id="Acm-N3-iGu"/>
-                                                            <constraint firstItem="W9W-9p-6dX" firstAttribute="top" secondItem="nQO-8i-Pn4" secondAttribute="bottom" id="LB3-L2-mp2"/>
-                                                            <constraint firstAttribute="bottom" secondItem="W9W-9p-6dX" secondAttribute="bottom" constant="5" id="X7J-Xl-9f6"/>
-                                                            <constraint firstAttribute="trailing" secondItem="W9W-9p-6dX" secondAttribute="trailing" id="b4f-rO-rjZ"/>
-                                                            <constraint firstItem="AQL-Mw-H3q" firstAttribute="top" secondItem="AV1-5u-KKM" secondAttribute="top" constant="15" id="cak-Nw-Sek" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </constraint>
-                                                            <constraint firstItem="nQO-8i-Pn4" firstAttribute="top" secondItem="AV1-5u-KKM" secondAttribute="top" constant="12" id="frG-7x-H0g" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </constraint>
-                                                            <constraint firstAttribute="trailing" secondItem="nQO-8i-Pn4" secondAttribute="trailing" constant="13" id="gGi-9P-uUw"/>
-                                                            <constraint firstItem="AQL-Mw-H3q" firstAttribute="leading" secondItem="AV1-5u-KKM" secondAttribute="leading" constant="13" id="oRe-oX-LeZ" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </constraint>
+                                                            <constraint firstAttribute="trailing" secondItem="Jdo-cn-g6m" secondAttribute="trailing" constant="13" id="wHL-2i-kDE"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -868,7 +922,7 @@ as they can</string>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sa8-n2-NTk" customClass="CustomButton" customModule="SID" customModuleProvider="target">
-                                                        <rect key="frame" x="13" y="417" width="294" height="40"/>
+                                                        <rect key="frame" x="13" y="434" width="294" height="40"/>
                                                         <color key="backgroundColor" red="0.035294117649999998" green="0.52156862749999999" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="2DJ-24-X1X"/>
@@ -893,13 +947,24 @@ as they can</string>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="AV1-5u-KKM" firstAttribute="trailing" secondItem="eDa-MJ-aJf" secondAttribute="trailing" id="2Yy-ZG-IE6"/>
+                                                    <constraint firstItem="4KC-sY-UoK" firstAttribute="top" secondItem="eDa-MJ-aJf" secondAttribute="bottom" constant="13" id="0Qs-pD-6Kd" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </constraint>
                                                     <constraint firstItem="cHM-C8-2fn" firstAttribute="centerX" secondItem="B7c-OT-zX3" secondAttribute="centerX" id="58A-cW-rwz"/>
+                                                    <constraint firstItem="4KC-sY-UoK" firstAttribute="trailing" secondItem="eDa-MJ-aJf" secondAttribute="trailing" id="7UL-BM-1Cd"/>
+                                                    <constraint firstItem="G88-xg-NNc" firstAttribute="top" secondItem="4KC-sY-UoK" secondAttribute="bottom" constant="13" id="9EP-Hs-h5b" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </constraint>
                                                     <constraint firstItem="cHM-C8-2fn" firstAttribute="top" secondItem="B7c-OT-zX3" secondAttribute="top" constant="25" id="DL6-ec-MvR" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </constraint>
+                                                    <constraint firstItem="G88-xg-NNc" firstAttribute="leading" secondItem="eDa-MJ-aJf" secondAttribute="leading" id="GZa-Oh-ljx"/>
                                                     <constraint firstAttribute="trailing" secondItem="eDa-MJ-aJf" secondAttribute="trailing" constant="13" id="IxQ-Zw-pTZ" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
@@ -911,41 +976,30 @@ as they can</string>
                                                         </userDefinedRuntimeAttributes>
                                                     </constraint>
                                                     <constraint firstItem="Sa8-n2-NTk" firstAttribute="trailing" secondItem="eDa-MJ-aJf" secondAttribute="trailing" id="My9-lm-XPx"/>
-                                                    <constraint firstItem="dZ0-BX-14R" firstAttribute="trailing" secondItem="eDa-MJ-aJf" secondAttribute="trailing" id="OTP-v7-ZTw"/>
                                                     <constraint firstItem="3DA-zf-WOd" firstAttribute="trailing" secondItem="cHM-C8-2fn" secondAttribute="trailing" constant="-3" id="SKY-LQ-sga" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </constraint>
-                                                    <constraint firstItem="dZ0-BX-14R" firstAttribute="leading" secondItem="eDa-MJ-aJf" secondAttribute="leading" id="T6G-KB-bmu"/>
                                                     <constraint firstItem="eDa-MJ-aJf" firstAttribute="top" secondItem="cHM-C8-2fn" secondAttribute="bottom" constant="25" id="Vzh-0b-0dn" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </constraint>
-                                                    <constraint firstItem="Sa8-n2-NTk" firstAttribute="top" secondItem="AV1-5u-KKM" secondAttribute="bottom" constant="33" id="WWx-q1-Cae" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                    <constraint firstItem="Sa8-n2-NTk" firstAttribute="top" secondItem="G88-xg-NNc" secondAttribute="bottom" constant="50" id="XJ0-X3-f5c" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </constraint>
                                                     <constraint firstItem="Sa8-n2-NTk" firstAttribute="leading" secondItem="eDa-MJ-aJf" secondAttribute="leading" id="Y3d-Y3-MO1"/>
+                                                    <constraint firstItem="4KC-sY-UoK" firstAttribute="leading" secondItem="eDa-MJ-aJf" secondAttribute="leading" id="Yzq-IK-SBh"/>
                                                     <constraint firstItem="3DA-zf-WOd" firstAttribute="bottom" secondItem="cHM-C8-2fn" secondAttribute="bottom" id="bUT-nu-PcW"/>
                                                     <constraint firstItem="eDa-MJ-aJf" firstAttribute="leading" secondItem="B7c-OT-zX3" secondAttribute="leading" constant="13" id="e1Z-9G-vVO" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </constraint>
-                                                    <constraint firstItem="AV1-5u-KKM" firstAttribute="leading" secondItem="eDa-MJ-aJf" secondAttribute="leading" id="iRO-VL-gGX"/>
-                                                    <constraint firstItem="AV1-5u-KKM" firstAttribute="top" secondItem="dZ0-BX-14R" secondAttribute="bottom" constant="13" id="iui-Vx-Fvt" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </constraint>
-                                                    <constraint firstItem="dZ0-BX-14R" firstAttribute="top" secondItem="eDa-MJ-aJf" secondAttribute="bottom" constant="13" id="jnW-xM-NlD" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </constraint>
+                                                    <constraint firstItem="G88-xg-NNc" firstAttribute="trailing" secondItem="eDa-MJ-aJf" secondAttribute="trailing" id="kwr-2t-6Lz"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -984,6 +1038,10 @@ as they can</string>
                     <connections>
                         <outlet property="const_NavbarHeight" destination="kMI-8j-wuZ" id="8kh-n4-5Ia"/>
                         <outlet property="imgProfile" destination="cHM-C8-2fn" id="ZBf-Ti-LdH"/>
+                        <outlet property="txtCountryCode" destination="Hqt-vz-urR" id="4lB-tA-b9T"/>
+                        <outlet property="txtMobile" destination="BtS-wN-iPV" id="nmy-NS-KGZ"/>
+                        <outlet property="txtName" destination="s0x-tb-2KS" id="N2K-Dq-cZJ"/>
+                        <outlet property="txtProfession" destination="Hco-wH-pqn" id="IzQ-tP-Xlj"/>
                         <outlet property="viewNavBar" destination="v89-uE-GAe" id="AU8-Uf-gFW"/>
                     </connections>
                 </viewController>
@@ -1430,12 +1488,13 @@ Nulla wisi laoreet suspendisse integer vivamus elit eu mauris hendrerit facilisi
         <image name="call_black" width="13.5" height="13.5"/>
         <image name="changeEmail" width="14.5" height="11"/>
         <image name="dollar" width="14.5" height="14.5"/>
+        <image name="droparrow" width="13.5" height="7.5"/>
         <image name="editWithBlueCircle" width="26.5" height="26.5"/>
         <image name="editWithCircle" width="21" height="21"/>
-        <image name="email" width="13.5" height="10.5"/>
         <image name="emailWhite" width="13.5" height="10"/>
         <image name="email_black" width="13.5" height="10"/>
         <image name="logout" width="14.5" height="14.5"/>
+        <image name="profession" width="13" height="11.5"/>
         <image name="profile-1" width="13.5" height="13.5"/>
         <image name="profilePic" width="64.5" height="64.5"/>
     </resources>

@@ -11,7 +11,11 @@ import UIKit
 class ProfileViewController: BaseViewController {
 
     @IBOutlet weak var imgProfile: UIImageView!
-
+    @IBOutlet weak var lblName: CustomLabel!
+    @IBOutlet weak var lblEmail: CustomLabel!
+    @IBOutlet weak var lblNumber: CustomLabel!
+    @IBOutlet weak var lblCreditPoints: CustomLabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,6 +26,16 @@ class ProfileViewController: BaseViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.profileClickAction(_:)))
         self.imgProfile.addGestureRecognizer(tapGesture)
         self.imgProfile.isUserInteractionEnabled = true
+        
+        self.displayData()
+    }
+    
+    func displayData() {
+        self.imgProfile.sd_setImage(with: URL(string: AppConstant.shared.loggedUser.userImage), placeholderImage: UIImage(named: "default-user"), options: .continueInBackground, context: nil)
+        self.lblName.text = AppConstant.shared.loggedUser.name
+        self.lblEmail.text = AppConstant.shared.loggedUser.email
+        self.lblNumber.text = "\(AppConstant.shared.loggedUser.country_code) \(AppConstant.shared.loggedUser.contactNumber)"
+        self.lblCreditPoints.text = "\(AppConstant.shared.loggedUser.creditPoint) Credits"
     }
     
     // MARK: - Button Action
@@ -32,7 +46,7 @@ class ProfileViewController: BaseViewController {
     }
 
     @objc func profileClickAction(_ sender: Any) {
-        self.openGalleryList(indexpath: IndexPath(row: 0, section: 0), imgNameArr: NSMutableArray(array: ["profilePic"]), sourceView: self.imgProfile)
+        self.openGalleryList(indexpath: IndexPath(row: 0, section: 0), imgNameArr: NSMutableArray(array: [AppConstant.shared.loggedUser.userImage]), sourceView: self.imgProfile)
     }
     /*
     // MARK: - Navigation
