@@ -14,16 +14,12 @@ class TagViewController: BaseViewController {
     var selectedImage: UIImage?
     var isComeFromCreate: Bool = true
     var continueCompletion: ((_ cordinate: ImplantImage) -> Void)?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.addNavBarWithTitle("Tag View", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeNil)
         self.cropView.image = self.selectedImage
         self.cropView.isCrop = true
-<<<<<<< HEAD
-        // Do any additional setup after loading the view.
-=======
     }
     
     func calculateRectOfImageInImageView(imageView: UIImageView) -> CGRect {
@@ -48,18 +44,22 @@ class TagViewController: BaseViewController {
         imageRect.origin.y += imageView.frame.origin.y
 
         return imageRect
->>>>>>> 4b8e2ab2b5e9010d31d0a2504ff8101276e112ab
     }
     
     @IBAction func continuClickAction(_ sender: Any) {
         print("Dimention==\(cropView.getCropViewDimention().frame)")
+        let croppedFrame = cropView.getCropViewDimention().frame
+        let rect = self.calculateRectOfImageInImageView(imageView: self.cropView.imageView)
+        let actualX = croppedFrame.origin.x - rect.origin.x
+        let actualY = croppedFrame.origin.y - rect.origin.y
+        print(actualX, actualY)
         
         if self.continueCompletion != nil {
             let impantObj = ImplantImage()
             impantObj.imageWidth = String(format: "%.1f", self.cropView.image!.size.width)
             impantObj.imageHeight = String(format: "%.1f", self.cropView.image!.size.height)
-            impantObj.labelOffsetX = String(format: "%.1f", cropView.getCropViewDimention().frame.minX)
-            impantObj.labelOffsetY = String(format: "%.1f", cropView.getCropViewDimention().frame.minY)
+            impantObj.labelOffsetX = String(format: "%.1f", actualX)
+            impantObj.labelOffsetY = String(format: "%.1f", actualY)
             impantObj.labelWidth = String(format: "%.1f", cropView.getCropViewDimention().frame.width)
             impantObj.labelHeight = String(format: "%.1f", cropView.getCropViewDimention().frame.height)
             impantObj.selectedImage = self.cropView.image!
