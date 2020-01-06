@@ -76,6 +76,7 @@ struct SUFFIX_URL {
     static let UpdateProfile = "user/updateProfile"
     static let ChangeEmail = "auth/changeEmail"
     static let EmailVerifyOTP = "auth/changeEmailverifyOPT"
+    static let changePassword = "auth/changePassword"
 }
 
 struct KEYS {

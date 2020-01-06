@@ -14,7 +14,6 @@ class TagViewController: BaseViewController {
     var selectedImage: UIImage?
     var isComeFromCreate: Bool = true
     var continueCompletion: ((_ cordinate: ImplantImage) -> Void)?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,17 +21,50 @@ class TagViewController: BaseViewController {
         self.cropView.image = self.selectedImage
         self.cropView.isCrop = true
         
-        // Do any additional setup after loading the view.
+//        let visibleRect = AVMakeRect(aspectRatio: CGSize(width: selectedImage.size.width, height: selectedImage.size.height), insideRect: self.frame)
+//
+      
+    }
+    
+    func calculateRectOfImageInImageView(imageView: UIImageView) -> CGRect {
+        let imageViewSize = imageView.frame.size
+        let imgSize = imageView.image?.size
+
+        guard let imageSize = imgSize else {
+            return CGRect.zero
+        }
+
+        let scaleWidth = imageViewSize.width / imageSize.width
+        let scaleHeight = imageViewSize.height / imageSize.height
+        let aspect = fmin(scaleWidth, scaleHeight)
+
+        var imageRect = CGRect(x: 0, y: 0, width: imageSize.width * aspect, height: imageSize.height * aspect)
+        // Center image
+        imageRect.origin.x = (imageViewSize.width - imageRect.size.width) / 2
+        imageRect.origin.y = (imageViewSize.height - imageRect.size.height) / 2
+
+        // Add imageView offset
+        imageRect.origin.x += imageView.frame.origin.x
+        imageRect.origin.y += imageView.frame.origin.y
+
+        return imageRect
     }
     
     @IBAction func continuClickAction(_ sender: Any) {
         print("Dimention==\(cropView.getCropViewDimention().frame)")
+        
+        let croppedFrame = cropView.getCropViewDimention().frame
+        let rect = self.calculateRectOfImageInImageView(imageView: self.cropView.imageView)
+        let actualX = croppedFrame.origin.x - rect.origin.x
+        let actualY = croppedFrame.origin.y - rect.origin.y
+        print(actualX, actualY)
+        
         if self.continueCompletion != nil {
             let impantObj = ImplantImage()
             impantObj.imageWidth = String(format: "%.1f", self.cropView.image!.size.width)
             impantObj.imageHeight = String(format: "%.1f", self.cropView.image!.size.height)
-            impantObj.labelOffsetX = String(format: "%.1f", cropView.getCropViewDimention().frame.minX)
-            impantObj.labelOffsetY = String(format: "%.1f", cropView.getCropViewDimention().frame.minY)
+            impantObj.labelOffsetX = String(format: "%.1f", actualX)
+            impantObj.labelOffsetY = String(format: "%.1f", actualY)
             impantObj.labelWidth = String(format: "%.1f", cropView.getCropViewDimention().frame.width)
             impantObj.labelHeight = String(format: "%.1f", cropView.getCropViewDimention().frame.height)
             impantObj.selectedImage = self.cropView.image!

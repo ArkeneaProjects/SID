@@ -37,7 +37,10 @@ class ChanagePasswordVM: NSObject {
     
     func validateChangePwd(controller: BaseViewController) {
         self.rootController = controller
-        if self.newPwd.trimmedString().count == 0 {
+        if(self.oldPwd.trimmedString().count == 0 && self.iscommingFrom == 0){
+            ProgressManager.showError(withStatus: ERRORS.oldPwdEmpty, on: self.rootController!.view)
+            return
+        } else if self.newPwd.trimmedString().count == 0 {
             ProgressManager.showError(withStatus: ERRORS.newPwdEmpty, on: self.rootController!.view)
             return
         } else if self.confirmPwd.trimmedString().count == 0 {
@@ -53,10 +56,34 @@ class ChanagePasswordVM: NSObject {
             ProgressManager.showError(withStatus: ERRORS.invalidLenghtPwd, on: self.rootController!.view)
             return
         }
-        self.changePwdAPI()
+        if self.iscommingFrom == 0 {
+            self.changePassword()
+        } else {
+            self.setPassword()
+        }
     }
     
-    func changePwdAPI() {
+    func changePassword() {
+        ProgressManager.show(withStatus: "", on: self.rootController!.view)
+        
+        let encryptedPassword = EncDec.aes128Base64Encrypt(self.newPwd)
+        let encryptedOldPassword = EncDec.aes128Base64Encrypt(self.oldPwd)
+        
+        let dict: NSDictionary = [ENTITIES.password: encryptedPassword!, "oldPassword": encryptedOldPassword!]
+        AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.changePassword, parameters: dict, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
+            if error != nil {
+                self.error = error ?? ""
+                ProgressManager.showError(withStatus: self.error, on: self.rootController!.view)
+            } else {
+                
+                ProgressManager.showSuccess(withStatus: "Your password has been reset successfully", on: self.rootController!.view) {
+                    self.rootController!.navigationController?.popToRootViewController(animated: true)
+                }
+            }
+        }
+    }
+    
+    func setPassword() {
         
         ProgressManager.show(withStatus: "", on: self.rootController!.view)
         

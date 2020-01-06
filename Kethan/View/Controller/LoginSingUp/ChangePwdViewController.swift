@@ -32,7 +32,7 @@ class ChangePwdViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addNavBarWithTitle("Change Password", withLeftButtonType: (isComeFrom == 0) ?.buttonTypeNil:.buttonTypeBack, withRightButtonType: .buttonTypeNil)
+        self.addNavBarWithTitle("Change Password", withLeftButtonType: (isComeFrom == 0) ?.buttonTypeBack:.buttonTypeNil, withRightButtonType: .buttonTypeNil)
         
         self.constOldPwdHeight.constant = (isComeFrom != 0) ?0:getCalculated(66.0)
         self.constNewPwdTop.constant = (isComeFrom != 0) ?0:getCalculated(24.0)
@@ -62,6 +62,7 @@ class ChangePwdViewController: BaseViewController {
     @IBAction func DoneClickAction(_ sender: Any) {
         self.view.endEditing(true)
         self.changePwdVM.clearAll()
+        self.changePwdVM.oldPwd = self.txtOldPwd.text!
         self.changePwdVM.newPwd = self.txtPwd.text!
         self.changePwdVM.confirmPwd = self.txtConfirmPwd.text!
         self.changePwdVM.email = email

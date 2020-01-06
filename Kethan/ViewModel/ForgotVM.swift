@@ -16,7 +16,7 @@ class ForgotVM: NSObject {
     var statusCodeOTP: String = ""
     var otp: String = ""
     var isCameFromForgotScreen: Bool = true
-
+    
     func clearAllData() {
         self.email = ""
         self.responseOTPDict = NSDictionary()
@@ -95,12 +95,18 @@ class ForgotVM: NSObject {
             } else {
                 if let dict = response as? NSDictionary {
                     self.responseOTPDict = dict
-                    ProgressManager.dismiss()
-                    
-                    if let controller = self.rootViewController!.instantiate(ChangePwdViewController.self, storyboard: STORYBOARD.signup) as? ChangePwdViewController {
-                        controller.email = self.email
-                        controller.isComeFrom = 1
-                        self.rootViewController!.navigationController?.pushViewController(controller, animated: true)
+                  
+                    if self.isCameFromForgotScreen == true{
+                          ProgressManager.dismiss()
+                        if let controller = self.rootViewController!.instantiate(ChangePwdViewController.self, storyboard: STORYBOARD.signup) as? ChangePwdViewController {
+                            controller.email = self.email
+                            controller.isComeFrom = 1
+                            self.rootViewController!.navigationController?.pushViewController(controller, animated: true)
+                        }
+                    } else {
+                        ProgressManager.showSuccess(withStatus: "") {
+                        self.rootViewController?.navigationController?.popToRootViewController(animated: true)
+                        }
                     }
                 }
             }

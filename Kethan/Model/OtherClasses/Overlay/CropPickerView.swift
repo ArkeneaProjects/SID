@@ -169,7 +169,7 @@ public class CropPickerView: UIView {
         return scrollView
     }()
     
-    private lazy var imageView: UIImageView = {
+    public lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         self.scrollView.addSubview(imageView)
         self.scrollView.isUserInteractionEnabled = false
