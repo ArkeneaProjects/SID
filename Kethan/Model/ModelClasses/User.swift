@@ -18,6 +18,8 @@ class User: NSObject {
     var name: String = ""
     var country_code: String = ""
     var userImage: String = ""
+    var creditPoint: String = ""
+    var referralCode: String = ""
     var isSocialMediaUser: String = "" //O for SignUp user, 1 for Facebook, 2 for Google
     
     override init() {
@@ -33,7 +35,8 @@ class User: NSObject {
         self.profession = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.profession)
         self.country_code = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.countryCode)
         self.userImage = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.userImage)
-
+        self.referralCode = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.referralCode)
+        self.contactNumber = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.contactNumber)
     }
     
     func dictioary() -> NSDictionary {
@@ -45,7 +48,10 @@ class User: NSObject {
             ENTITIES.profession: self.profession,
             ENTITIES.name: self.name,
             ENTITIES.countryCode: self.country_code,
-            ENTITIES.userImage: self.userImage
+            ENTITIES.userImage: self.userImage,
+            "creditPoint": self.creditPoint,
+            ENTITIES.referralCode: self.referralCode,
+            ENTITIES.contactNumber: self.contactNumber
         ]
         return dictionary
     }

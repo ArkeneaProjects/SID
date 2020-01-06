@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleSignIn
+import SKPhotoBrowser
 
 class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIGestureRecognizerDelegate, SWRevealViewControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var viewContainer: UIView!
@@ -384,22 +385,15 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
     func openGalleryList(indexpath: IndexPath, imgNameArr: NSMutableArray, sourceView: UIImageView, isProfile: Bool = false, isdelete: Bool = false) {
     
         var items = [SKPhoto]()
-        var arr = [ObjectLocation]()
         for item in imgNameArr {
-            if let object = item as? ImageData {
-                arr.append(object.objectLocation)
-                let item = SKPhoto.photoWithImageURL(object.imageName, object: object.objectLocation)
-                    items.append(item)
-            } else if let url = item as? String {
-                let item = SKPhoto.photoWithImage(UIImage(named: url) ?? UIImage())
-                items.append(item)
-            }
+            //let item = KSPhotoItem(sourceView: sourceView, imageUrl: URL(string: item as? String ?? ""))
+            let item = SKPhoto.photoWithImage(UIImage(named: item as? String ?? "")!)
+            items.append(item)
         }
         
         // 2. create PhotoBrowser Instance, and present.
         let browser = SKPhotoBrowser(photos: items)
         browser.initializePageIndex(indexpath.row)
-      //  browser.setlocationArray(arr)
         present(browser, animated: true, completion: {})
         
     }
@@ -626,4 +620,18 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
                }
            }
        }
+    
+    func checkImageSize(_ image: UIImage) -> UIImage? {
+        if let size = image.getFileSize() {
+            //check image size is not more than 3 MB
+            if size >= 1.0 {
+                return image.imageWithImage(scaledToWidth: 600.0)
+                
+            } else {
+                return image
+            }
+        } else {
+            return image
+        }
+    }
 }

@@ -22,6 +22,10 @@ class LeftMenuViewController: BaseViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         DispatchQueue.main.async {
+            if AppConstant.shared.loggedUser.isSocialMediaUser != "0" {
+                STATICDATA.arrLeftItems.remove(at: 1)
+                STATICDATA.arrLeftItems.remove(at: 1)
+            }
             self.tblView.registerNibWithIdentifier([IDENTIFIERS.LeftMenuTableViewCell])
             self.tblView.reloadData()
             
@@ -36,12 +40,20 @@ class LeftMenuViewController: BaseViewController, UITableViewDelegate, UITableVi
         super.viewWillAppear(true)
         self.revealViewController().frontViewController.view.isUserInteractionEnabled = false
         self.revealViewController().view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        self.displayData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.revealViewController().frontViewController.view.isUserInteractionEnabled = true
     }
+    
+    func displayData() {
+           self.imgProfile.sd_setImage(with: URL(string: AppConstant.shared.loggedUser.userImage), placeholderImage: UIImage(named: "default-user"), options: .continueInBackground, context: nil)
+           self.lblUserName.text = AppConstant.shared.loggedUser.name
+           self.lblEmail.text = AppConstant.shared.loggedUser.email
+           self.lblPhone.text = "\(AppConstant.shared.loggedUser.country_code) \(AppConstant.shared.loggedUser.contactNumber)"
+       }
     
     // MARK: - Button Action
     @IBAction func editProfileAction(_ sender: Any) {
@@ -58,7 +70,7 @@ class LeftMenuViewController: BaseViewController, UITableViewDelegate, UITableVi
     }
     
     @objc func profileClickAction(_ sender: Any) {
-        self.openGalleryList(indexpath: IndexPath(row: 0, section: 0), imgNameArr: NSMutableArray(array: ["profilePic"]), sourceView: self.imgProfile)
+        self.openGalleryList(indexpath: IndexPath(row: 0, section: 0), imgNameArr: NSMutableArray(array: [AppConstant.shared.loggedUser.userImage]), sourceView: self.imgProfile)
     }
     
     func cellClickAction(_ identifier: String, _ screen: String) {
@@ -157,25 +169,28 @@ class LeftMenuViewController: BaseViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.item == 0 {
+        let arr = STATICDATA.arrLeftItems[indexPath.row]
+        let cellValue = arr["text"]
+        
+        if cellValue == "Profile" {
             self.cellClickAction("ProfileViewController", "Profile")
-        } else if indexPath.item == 1 {
+        } else if cellValue == "Change Email " {
             self.cellClickAction("ForgotPwdViewController", "Email")
-        } else if indexPath.item == 2 {
+        } else if cellValue == "Change Password " {
             self.cellClickAction("ChangePwdViewController", "Password")
-        } else if indexPath.item == 3 {
+        } else if cellValue == "Upgrade Subscription" {
             self.cellClickAction("SubScriptionViewController", "SubScription")
-        } else if indexPath.item == 4 {
+        } else if cellValue == "User Walkthrough" {
             self.cellClickAction("SignUpUserGuideViewController", "Guide")
-        } else if indexPath.item == 5 {
+        } else if cellValue == "FAQs" {
             self.cellClickAction("TermsConditionViewController", "FAQ")
-        } else if indexPath.item == 6 {
+        } else if cellValue == "Terms of Service" {
             self.cellClickAction("TermsConditionViewController", "Terms")
-        } else if indexPath.item == 7 {
+        } else if cellValue == "Privacy Policy" {
             self.cellClickAction("TermsConditionViewController", "Privacy")
-        } else if indexPath.item == 8 {
+        } else if cellValue == "About the App" {
             self.cellClickAction("AboutViewController", "About")
-        } else if indexPath.item == 9 {
+        } else if cellValue == "Support" {
             self.cellClickAction("SupportViewController", "Support")
         }
     }

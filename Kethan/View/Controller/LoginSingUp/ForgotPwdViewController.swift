@@ -32,7 +32,7 @@ class ForgotPwdViewController: BaseViewController {
         super.viewDidLoad()
         self.addNavBarWithTitle((self.isShowForgotScreen == true) ?"Forgot Password":"Change Email", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeNil)
         
-        self.constSpacerViewHeight.constant = self.view.frame.size.height - getCalculated(142.0)
+        self.hideOTPView()
         
         self.lblNewEmail.text = (self.isShowForgotScreen == true) ?"Enter email address":"Enter new email address"
         self.lblOTPMsg.text = (self.isShowForgotScreen == true) ?"Forgot your password? Don't worry we got you covered. We've sent an OTP to your registered email address Enter the OTP below to proceed further":"We've sent you an OTP on the above email address. Enter the OTP and verify to change your email address"
@@ -45,6 +45,7 @@ class ForgotPwdViewController: BaseViewController {
         self.view.endEditing(true)
         
         self.forgotVM.clearAllData()
+        self.forgotVM.isCameFromForgotScreen = self.isShowForgotScreen
         self.forgotVM.email = self.txtEmail.text!
         self.forgotVM.validateEmail(controller: self)
     }
@@ -52,6 +53,7 @@ class ForgotPwdViewController: BaseViewController {
     @IBAction func verifyActionClick(_ sender: Any) {
         
         self.forgotVM.clearAllData()
+        self.forgotVM.isCameFromForgotScreen = self.isShowForgotScreen
         self.forgotVM.otp = self.otp
         self.forgotVM.email = self.txtEmail.text!
         self.forgotVM.validateOTP(controller: self)
@@ -60,6 +62,10 @@ class ForgotPwdViewController: BaseViewController {
     
     @IBAction func reSendOTPClickAction(_ sender: Any) {
         self.sendActionClick(sender)
+    }
+    
+    func hideOTPView() {
+        self.constSpacerViewHeight.constant = self.view.frame.size.height - getCalculated(142.0)
     }
     
     func showOTPView() {
@@ -81,6 +87,15 @@ class ForgotPwdViewController: BaseViewController {
             self.btnSend.alpha = 0
             self.constSpacerViewHeight.constant = 0
             self.view.layoutIfNeeded()
+        }
+    }
+    
+    override func leftButtonAction() {
+        if self.constSpacerViewHeight.constant != 0 {
+            self.navigationController?.popViewController(animated: true)
+        } else {
+            self.hideOTPView()
+            self.view.endEditing(true)
         }
     }
     

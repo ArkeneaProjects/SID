@@ -20,7 +20,7 @@ class SearchResult: NSObject {
     var watsonImage_id: String = ""
     var createdOn: String = "" //O for SignUp user, 1 for Facebook, 2 for Google
     var modifiedOn: String = ""
-    var implantImage = ImplantImage()
+    var implantImage = NSMutableArray()
     
     override init() {
         
@@ -40,10 +40,9 @@ class SearchResult: NSObject {
         }
         
       if let dictarr = dictionary.value(forKey: ENTITIES.removImplant) as? [NSDictionary] {
-              let arrImaplant  = dictarr.map({ (dict) -> Implant in
+                 self.removImplant = dictarr.map({ (dict) -> Implant in
                      return Implant(dictionary: dict)
-                 }) //as! [Implant]
-          self.removImplant = NSMutableArray(array: arrImaplant)
+                 }) as! NSMutableArray
              }
         
         self.watsonImage_id = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.watsonImage_id)

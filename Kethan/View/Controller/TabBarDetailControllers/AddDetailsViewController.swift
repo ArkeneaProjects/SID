@@ -23,8 +23,10 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         self.addNavBarWithTitle("Add Details", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeNil)
         // Do any additional setup after loading the view.
         
-        self.implantVM.implantObj = self.implantObj
-    
+        implantVM.arrImages = NSMutableArray(array: STATICDATA.arrImagesSmall)
+        
+        //save self. implant object into VM class implant object
+        implantVM.implantObj = self.implantObj
         
         self.tblView.registerNibWithIdentifier([IDENTIFIERS.AddDetailHeader1Cell, IDENTIFIERS.AddDetailHeader2Cell, IDENTIFIERS.AddDetailHeader3Cell])
         
@@ -38,7 +40,10 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     
     // MARK: - Button Click Action
     @IBAction func uploadClickAction(_ sender: CustomButton) {
-        self.implantVM.uploadImplant(self)
+        if let controller = self.instantiate(ThankYouViewController.self, storyboard: STORYBOARD.main) as? ThankYouViewController {
+            controller.isComeFrom = 1
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
     
     @objc func addProcess(_ sender: CustomButton) {
@@ -90,7 +95,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
             if date.count > 0 {
                 if let cell = self.tblView.cellForRow(at: sender.indexPath) as? AddDetailHeader2Cell {
                     cell.btnSurgeryDate.setTitle(date, for: .normal)
-                    //                    self.implantVM.implantObj.surgeryDate = date
+//                    self.implantVM.implantObj.surgeryDate = date
                     self.reloadTableView(IndexPath(row: 2, section: 0))
                 }
             }
@@ -122,11 +127,10 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
             self.tblView.contentOffset = loc
         }
     }
-    
     // MARK: - UITabelVieeDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return (self.implantVM.implantObj.imageData.count > 3) ?getCalculated(240.0):getCalculated(130.0)
+            return (implantVM.arrImages.count > 3) ?getCalculated(240.0):getCalculated(130.0)
         }
         return UITableView.automaticDimension
     }
@@ -138,30 +142,13 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: IDENTIFIERS.AddDetailHeader1Cell, for: indexPath) as? AddDetailHeader1Cell {
-                if self.implantVM.implantObj._id.count > 0 {
-                    cell.isNewUpload = false
-                    cell.arrAllItems = self.implantVM.implantObj.imageData as! NSMutableArray
-                    cell.btnSeeAll.isHidden = self.implantVM.implantObj.imageData.count < 6
-                } else {
-                    cell.btnSeeAll.isHidden = true
-                    cell.isNewUpload = true
-                    if (self.implantVM.implantObj.implantImage.selectedImage) != nil {
-                        cell.arrAllItems = NSMutableArray(array: [self.implantVM.implantObj.implantImage])
-                    } else {
-                        cell.arrAllItems = ["lineImage"]
-                    }
-                }
-                
+                cell.arrAllItems = implantVM.arrImages
+                cell.btnSeeAll.isHidden = implantVM.arrImages.count < 6
                 //Delete Image
                 cell.deleteImageCompletion = { index_Path in
                     self.showAlert(title: "", message: "Delete Image?", yesTitle: "Yes", noTitle: "NO", yesCompletion: {
-                        if self.implantVM.implantObj._id.count > 0 {
-                            self.implantVM.implantObj.imageData.remove(at: index_Path.item)
-                            cell.arrAllItems = self.implantVM.implantObj.imageData as! NSMutableArray
-                        } else {
-                            cell.arrAllItems = ["lineImage"]
-                        }
-                        
+                        self.implantVM.arrImages.removeObject(at: index_Path.item)
+                        cell.arrAllItems = self.implantVM.arrImages
                         if cell.arrAllItems.count == 3 {
                             self.reloadTableView(indexPath)
                         }
@@ -178,7 +165,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                 }
                 
                 cell.seeAllImageCompletion = {
-                    
+            
                 }
                 
                 return cell
@@ -224,7 +211,6 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                 return cell
             }
         }
-
         return UITableViewCell()
     }
     
@@ -237,22 +223,12 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         ProgressManager.show(withStatus: "", on: self.view)
         if let controller = self.instantiate(TagViewController.self, storyboard: STORYBOARD.main) as? TagViewController {
             //Get cordinate value from Tagview controller
-            controller.continueCompletion = { implantImageObj in
-                print(implantImageObj.dictioary())
-                self.implantVM.implantObj.implantImage = implantImageObj
-                self.tblView.reloadData()
+            controller.continueCompletion = { cordinate in
+                print(cordinate.dictioary())
             }
-            if let size = image!.getFileSize() {
-                //check image size is not more than 3 MB
-                if size >= 1.0 {
-                    controller.selectedImage = image!.imageWithImage(scaledToWidth: 600.0)
-                    
-                } else {
-                    controller.selectedImage = image!
-                }
-            } else {
-                controller.selectedImage = image!
-            }
+            
+            controller.selectedImage = self.checkImageSize(image!)
+            
             ProgressManager.dismiss()
             self.navigationController?.pushViewController(controller, animated: true)
         }
