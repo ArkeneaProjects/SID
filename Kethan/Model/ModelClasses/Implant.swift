@@ -34,4 +34,3 @@ class Implant: NSObject {
         return dictionary
     }
 }
-
