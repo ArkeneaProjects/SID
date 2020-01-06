@@ -157,7 +157,7 @@ public class CropPickerView: UIView {
     }
     
     func getCropViewDimention() -> UIView {
-        return self.cropView
+        return cropView
     }
     // MARK: Private Property
     
@@ -285,8 +285,8 @@ public class CropPickerView: UIView {
     private lazy var centerButton: LineButton = {
         let button = LineButton(.center)
         self.addSubview(button)
-        button.widthConstraint(constant: 80, relatedBy: .equal).priority = UILayoutPriority(700)
-        button.heightConstraint(constant: 80, relatedBy: .equal).priority = UILayoutPriority(700)
+        button.widthConstraint(constant: 10, relatedBy: .equal).priority = UILayoutPriority(700)
+        button.heightConstraint(constant: 10, relatedBy: .equal).priority = UILayoutPriority(700)
         self.centerXConstraint(item: self.cropView, subView: button)
         self.centerYConstraint(item: self.cropView, subView: button)
         
@@ -744,6 +744,10 @@ extension CropPickerView {
         path.append(UIBezierPath(rect: self.dimView.bounds))
         
         self.dimView.mask(path.cgPath, duration: duration, animated: animated)
+        print("ImageView==\(self.self.imageView)")
+
+        print("cropTopConstraint==\(self.cropTopConstraint?.constant)")
+        print("cropBottomConstraint==\(self.cropBottomConstraint?.constant)")
     }
 }
 

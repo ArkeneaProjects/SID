@@ -80,9 +80,9 @@ class EditProfileViewController: BaseViewController, GalleryManagerDelegate, Cou
     
     @IBAction func editImageClickAction(_ sender: Any) {
         self.showActionSheet(headerTitle: "Choose Image From", cameraTitle: "Camera", galleryTitle: "Gallery", galleryCompletion: {
-            self.imagePicker.present(croppingStyle: .circular, isCrop: true, isCamera: false)
+            self.imagePicker.present(croppingStyle: .default, isCrop: true, isCamera: false)
         }) {
-            self.imagePicker.present(croppingStyle: .circular, isCrop: true, isCamera: true)
+            self.imagePicker.present(croppingStyle: .default, isCrop: true, isCamera: true)
         }
     }
     
