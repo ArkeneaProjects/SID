@@ -14,6 +14,7 @@ class AddDetailHeader1Cell: UITableViewCell, UICollectionViewDelegate, UICollect
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var btnSeeAll: CustomButton!
+    var isNewUpload: Bool = false
     
     var arrAllItems: NSMutableArray = NSMutableArray() {
         didSet {
@@ -71,7 +72,11 @@ class AddDetailHeader1Cell: UITableViewCell, UICollectionViewDelegate, UICollect
                 cell.imgSelected.image = UIImage(named: self.arrAllItems[indexPath.item] as? String ?? "")
                 
             } else {
-                cell.imgSelected.image = UIImage(named: self.arrAllItems[indexPath.item] as? String ?? "")
+                if(self.isNewUpload){
+                    cell.imgSelected.image = (self.arrAllItems[indexPath.item] as! ImplantImage).selectedImage
+                } else {
+                    cell.imgSelected.image = UIImage(named: self.arrAllItems[indexPath.item] as? String ?? "")
+                }
                 cell.btnDelete.indexPath = indexPath
                 cell.btnDelete.addTarget(self, action: #selector(deleteImage(_:)), for: .touchUpInside)
             }

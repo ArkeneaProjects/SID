@@ -60,7 +60,7 @@ class SearchViewController: BaseViewController {
             if let controller = self.instantiate(SearchListViewController.self, storyboard: STORYBOARD.main) as? SearchListViewController {
                 controller.menufeacture = self.txtManufacture.text ?? ""
                 controller.brandname = self.txtImplant.text ?? ""
-                controller.isSearchByImage = false
+                controller.isCalledFrom = 0
                 self.navigationController?.pushViewController(controller, animated: true)
             }
         }

@@ -72,10 +72,10 @@ struct SUFFIX_URL {
     static let TotalManufactureName = "implant/getTotalManufactureName"
     static let SearchByText = "implant/searchByText"
     static let SearchByImage = "implant/analyzeImage"
+    static let addImplant = "implant/addImpnatApi"
     static let UpdateProfile = "user/updateProfile"
     static let ChangeEmail = "auth/changeEmail"
     static let EmailVerifyOTP = "auth/changeEmailverifyOPT"
-
 }
 
 struct KEYS {
@@ -182,6 +182,8 @@ struct ERRORS {
     //Upload
     static let EmptyManufacturer = "Please enter manufacturer"
     static let EmptyBrandName = "Please enter implant name/brand"
+    static let EmptyRemovalProcess = "Please add removal process"
+    static let EmptyImage = "Please add implant image"
     
 }
 
@@ -242,7 +244,8 @@ struct ENTITIES {
     static let labelHeight = "labelHeight"
     static let labelOffsetX = "labelOffsetX"
     static let labelOffsetY = "labelOffsetY"
-    
+    static let selectedImage = "selectedImage"
+
     //Implant
     static let removalProcess = "removalProcess"
     static let surgeryDate = "surgeryDate"

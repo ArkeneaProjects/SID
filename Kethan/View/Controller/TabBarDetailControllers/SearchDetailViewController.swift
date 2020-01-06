@@ -14,7 +14,7 @@ class SearchDetailViewController: BaseViewController, UITableViewDelegate, UITab
     var detailObj = SearchResult()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addNavBarWithTitle("Details", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeEdit)
+        self.addNavBarWithTitle("Details", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeNil)
         self.navBar.btnRightEdit.contentHorizontalAlignment = .right
 
         self.tblView.registerNibWithIdentifier([IDENTIFIERS.DetailRow1TableViewCell, IDENTIFIERS.DetailRow2TableViewCell])
@@ -25,7 +25,7 @@ class SearchDetailViewController: BaseViewController, UITableViewDelegate, UITab
     }
     
     // MARK: - Button Action
-    override func rightButtonAction() {
+    @IBAction func edittButtonAction() {
         if let controller = self.instantiate(AddDetailsViewController.self, storyboard: STORYBOARD.main) as? AddDetailsViewController {
             self.navigationController?.pushViewController(controller, animated: true)
         }

@@ -21,6 +21,16 @@ class UploadViewController: BaseViewController {
         self.txtImplant.font = UIFont(name: self.txtImplant.font!.fontName, size: getCalculated(14.0))
         self.txtManu.font = UIFont(name: self.txtManu.font!.fontName, size: getCalculated(14.0))
         
+        if AppConstant.shared.manufactureName.count != 0 {
+            self.txtManu.text = AppConstant.shared.manufactureName
+            AppConstant.shared.manufactureName = ""
+        }
+        
+        if AppConstant.shared.brandName.count != 0 {
+            self.txtImplant.text = AppConstant.shared.brandName
+            AppConstant.shared.brandName = ""
+        }
+        
         //Brand
         if let arrBrand = getUserDefaultsForKey(key: UserDefaultsKeys.BrandName) as? [NSString] {
             self.txtImplant.optionArray = arrBrand as [String]
@@ -60,8 +70,14 @@ class UploadViewController: BaseViewController {
             ProgressManager.showError(withStatus: ERRORS.EmptyManufacturer, on: self.view)
             return
         } else {
-            if let controller = self.instantiate(AddDetailsViewController.self, storyboard: STORYBOARD.main) as? AddDetailsViewController {
-                controller.implantObj = self.implantObj
+//            if let controller = self.instantiate(AddDetailsViewController.self, storyboard: STORYBOARD.main) as? AddDetailsViewController {
+//                controller.implantObj = self.implantObj
+//                self.navigationController?.pushViewController(controller, animated: true)
+//            }
+            if let controller = self.instantiate(SearchListViewController.self, storyboard: STORYBOARD.main) as? SearchListViewController {
+                controller.menufeacture = self.txtManu.text ?? ""
+                controller.brandname = self.txtImplant.text ?? ""
+                controller.isCalledFrom = 2
                 self.navigationController?.pushViewController(controller, animated: true)
             }
         }

@@ -13,7 +13,7 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
     @IBOutlet weak var lblResultCount: CustomLabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var isSearchByImage: Bool = false
+    var isCalledFrom = 0 //0 coming search by text screen, 1 comming search by Image screen and 2 coming from upload screen
     
     var searchVM = SearchVM()
     
@@ -23,7 +23,6 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addNavBarWithTitle("Search Results", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeAdd)
         
         self.collectionView.register(UINib(nibName: IDENTIFIERS.SearchListCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: IDENTIFIERS.SearchListCollectionViewCell)
         
@@ -39,34 +38,57 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
         
     }
     
+    func displayNavBar() {
+        self.addNavBarWithTitle("Search Results", withLeftButtonType: .buttonTypeBack, withRightButtonType: (searchVM.arrSearchResult.count == 0) ?.buttonTypeAdd:.buttonTypeNil)
+    }
+    
     override func rightButtonAction() {
-        if self.isSearchByImage == true {
+        if self.isCalledFrom == 0 {
+            if self.brandname.count != 0 && self.menufeacture.count != 0 {
+                self.addDetailCalling()
+            } else {
+                AppConstant.shared.manufactureName = self.menufeacture
+                AppConstant.shared.brandName = self.brandname
+                self.navigationController?.popToRootViewController(animated: false)
+                AppDelegate.delegate()?.tabBarController.selectedIndex = 2
+            }
+        } else if self.isCalledFrom == 1 {
             if let controller = self.instantiate(TagViewController.self, storyboard: STORYBOARD.main) as? TagViewController {
                 controller.selectedImage = self.searchImage
                 self.navigationController?.pushViewController(controller, animated: true)
             }
         } else {
-            if let controller = self.instantiate(AddDetailsViewController.self, storyboard: STORYBOARD.main) as? AddDetailsViewController {
-                self.navigationController?.pushViewController(controller, animated: true)
-            }
+            self.addDetailCalling()
+        }
+    }
+    
+    func addDetailCalling() {
+        let implantObj = SearchResult()
+        implantObj.objectName = self.brandname
+        implantObj.implantManufacture = self.menufeacture
+        
+        if let controller = self.instantiate(AddDetailsViewController.self, storyboard: STORYBOARD.main) as? AddDetailsViewController {
+            controller.implantObj = implantObj
+            self.navigationController?.pushViewController(controller, animated: true)
         }
     }
     
     // MARK: - Action
     func apiCall() {
         self.searchVM.rootController = self
-        if self.isSearchByImage == true {
+        if self.isCalledFrom == 1 {
             ProgressManager.show(withStatus: "Searching our database...", on: self.view)
             let imageDict  = saveImageInDocumentDict(image: self.searchImage!, imageName: "photo", key: "implantPicture")
             self.searchVM.getSearchByImage(itemArray: [imageDict]) { (error) in
+                self.displayNavBar()
                 if error != "" {
                     self.lblResultCount.text = error
                 } else {
                     DispatchQueue.main.async {
                         if self.searchVM.arrSearchResult.count == 1 {
-                            self.lblResultCount.text = "1 result match to your upload"
+                            self.lblResultCount.text = "1 result match to your search by image"
                         } else {
-                            self.lblResultCount.text = "\(self.searchVM.arrSearchResult.count) results match to your upload"
+                            self.lblResultCount.text = "\(self.searchVM.arrSearchResult.count) results match to your search by images"
                         }
                         self.collectionView.reloadData()
                     }
@@ -74,15 +96,15 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
             }
         } else {
             self.searchVM.getAllSearchByText(manufecture: self.menufeacture, brandname: self.brandname) { (error) in
-                
+                self.displayNavBar()
                 if error != "" {
                     self.lblResultCount.text = error
                 } else {
                     DispatchQueue.main.async {
                         if self.searchVM.arrSearchResult.count == 1 {
-                            self.lblResultCount.text = "1 result match to your upload"
+                            self.lblResultCount.text = "1 result match to your search field"
                         } else {
-                            self.lblResultCount.text = "\(self.searchVM.arrSearchResult.count) results match to your upload"
+                            self.lblResultCount.text = "\(self.searchVM.arrSearchResult.count) results match to your search field"
                         }
                         self.collectionView.reloadData()
                     }

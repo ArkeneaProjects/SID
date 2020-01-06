@@ -19,8 +19,20 @@ class PreviewViewController: BaseViewController {
         
         self.addNavBarWithTitle("Preview", withLeftButtonType: .buttonTypeBack, withRightButtonType: (self.isCrop == true) ?.buttonCrop:.buttonTypeNil)
         
-        self.cropView.image = self.checkImageSize(self.selectedImage!)
-        self.cropView.isCrop = false
+        if let size = self.selectedImage!.getFileSize() {
+            //check image size is not more than 3 MB
+            if size >= 1.0 {
+                let image = self.selectedImage!.imageWithImage(scaledToWidth: 600.0)
+                self.cropView.image = image
+                self.cropView.isCrop = false
+            } else {
+                self.cropView.image = self.selectedImage
+                self.cropView.isCrop = false
+            }
+        } else {
+            self.cropView.image = self.selectedImage
+            self.cropView.isCrop = false
+        }
     }
     
     // MARK: - Button Action
@@ -34,7 +46,7 @@ class PreviewViewController: BaseViewController {
         
         if let controller = self.instantiate(SearchListViewController.self, storyboard: STORYBOARD.main) as? SearchListViewController {
             controller.searchImage = self.cropView.image!
-            controller.isSearchByImage = true
+            controller.isCalledFrom = 1
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }
