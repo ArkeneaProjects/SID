@@ -200,6 +200,25 @@ extension UIToolbar {
     }
     
 }
+
+extension String {
+    func convertLocalTimeZoneToUTC(actualFormat:String, expectedFormat:String, actualZone:TimeZone, expectedZone:TimeZone)-> String{
+         
+         let formatter: DateFormatter = DateFormatter()
+         formatter.dateFormat = actualFormat
+         formatter.timeZone = actualZone
+         
+         var stringDate: String = String()
+         if let date = formatter.date(from: self) {
+             formatter.dateFormat = expectedFormat
+             formatter.timeZone = expectedZone
+             stringDate = formatter.string(from: date)
+         }
+         return stringDate
+         
+     }
+}
+
 extension UIColor {
     convenience init(hexCode: UInt32) {
         let red = CGFloat((hexCode & 0xFF0000) >> 16)/256.0

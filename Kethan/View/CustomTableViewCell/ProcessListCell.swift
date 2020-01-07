@@ -11,7 +11,13 @@ import UIKit
 class ProcessListCell: UITableViewCell {
 
     @IBOutlet weak var lblProcessTitle: CustomLabel!
-    
+    @IBOutlet weak var lblLocation: CustomLabel!
+    @IBOutlet weak var lblSurgeryDate: CustomLabel!
+    @IBOutlet weak var constLocationImgHeight: NSLayoutConstraint!
+    @IBOutlet weak var constSurgeryDateTop: NSLayoutConstraint!
+    @IBOutlet weak var constSurgeryDateBottom: NSLayoutConstraint!
+    @IBOutlet weak var constDateHeight: NSLayoutConstraint!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

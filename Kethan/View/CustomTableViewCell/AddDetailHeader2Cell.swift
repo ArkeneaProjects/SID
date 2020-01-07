@@ -10,9 +10,6 @@ import UIKit
 
 class AddDetailHeader2Cell: UITableViewCell {
 
-    @IBOutlet weak var btnLocation: CustomButton!
-    @IBOutlet weak var btnSurgeryDate: CustomButton!
-    
     @IBOutlet weak var lblImplant: CustomLabel!
     @IBOutlet weak var lblManufacture: CustomLabel!
     

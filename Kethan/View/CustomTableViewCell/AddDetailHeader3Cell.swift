@@ -59,7 +59,27 @@ class AddDetailHeader3Cell: UITableViewCell {
                 self.viewListing.addSubview(processListingView)
                 processListingView.translatesAutoresizingMaskIntoConstraints = false
                 
-                processListingView.lblProcess.text = String(format: (arrTableView[index] as! Implant).removalProcess)
+                let process = arrTableView.object(at: index) as! Implant
+                
+                processListingView.lblProcess.text = process.removalProcess
+                
+                if process.surgeryDate.count > 0 {
+                    processListingView.lblSurgeryDate.text = process.surgeryDate.convertLocalTimeZoneToUTC(actualFormat: "yyyy-MM-dd HH:mm", expectedFormat: "dd/MM/yyyy", actualZone: TimeZone(identifier: "UTC")!, expectedZone: NSTimeZone.local)
+                    processListingView.constDateHeight.constant = 18.0
+                } else {
+                    processListingView.constDateHeight.constant = 0.0
+                    processListingView.constSurgeryDateTop.constant = 0.0
+                }
+                
+                if process.surgeryLocation.count > 0 {
+                    processListingView.lblLocation.text = process.surgeryLocation
+                    processListingView.constLocationImgHeight.constant = 18.0
+                } else {
+                    processListingView.constLocationImgHeight.constant = 0.0
+                    processListingView.constSurgeryDateBottom.constant = 0.0
+                }
+                
+                processListingView.layoutIfNeeded()
                 processListingView.backgroundColor = UIColor.gray
                 processListingView.btnRemove.indexPath = IndexPath(row: index, section: 0)
                 processListingView.tapCompletion = { indexPath in

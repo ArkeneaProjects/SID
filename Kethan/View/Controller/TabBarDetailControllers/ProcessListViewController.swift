@@ -34,9 +34,9 @@ class ProcessListViewController: BaseViewController, UITableViewDelegate, UITabl
         let controller: ResponsePopUpViewController = self.instantiate(ResponsePopUpViewController.self, storyboard: STORYBOARD.main) as? ResponsePopUpViewController ?? ResponsePopUpViewController()
         controller.preparePopup(controller: self)
         controller.showPopup()
-        controller.addCompletion = { str in
+        controller.addCompletion = { str, location, date in
             if str.count > 0 {
-                let removalProcess:NSDictionary = ["removalProcess" : str, "surgeryDate" : "", "surgeryLocation" : ""]
+                let removalProcess:NSDictionary = ["removalProcess" : str, "surgeryDate" : date, "surgeryLocation" : location]
                 let implant = Implant(dictionary: removalProcess)
                 self.processArray.insert(implant, at: 0)
                 self.processTblView.reloadData()
@@ -56,7 +56,23 @@ class ProcessListViewController: BaseViewController, UITableViewDelegate, UITabl
         let process: Implant = self.processArray.object(at: indexPath.row) as! Implant
         let cell: ProcessListCell = tableView.dequeueReusableCell(withIdentifier: String(describing: ProcessListCell.self), for: indexPath) as! ProcessListCell
         cell.lblProcessTitle.text = process.removalProcess
+        if process.surgeryDate.count > 0 {
+            cell.lblSurgeryDate.text = process.surgeryDate.convertLocalTimeZoneToUTC(actualFormat: "yyyy-MM-dd HH:mm", expectedFormat: "dd/MM/yyyy", actualZone: TimeZone(identifier: "UTC")!, expectedZone: NSTimeZone.local)
+            cell.constDateHeight.constant = 18.0
+        } else {
+            cell.constDateHeight.constant = 0.0
+            cell.constSurgeryDateTop.constant = 0.0
+        }
         
+        if process.surgeryLocation.count > 0 {
+            cell.lblLocation.text = process.surgeryLocation
+            cell.constLocationImgHeight.constant = 18.0
+        } else {
+            cell.constLocationImgHeight.constant = 0.0
+            cell.constSurgeryDateBottom.constant = 0.0
+        }
+        
+        cell.layoutIfNeeded()
         return cell
     }
     
@@ -67,8 +83,8 @@ class ProcessListViewController: BaseViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
             self.showAlert(title: "Delete Removal Process?", message: "", yesTitle: "Delete", noTitle: "Cancel", yesCompletion: {
-               self.processArray.removeObject(at: index.row)
-                           self.processTblView.reloadData()
+                self.processArray.removeObject(at: index.row)
+                self.processTblView.reloadData()
                 
             }, noCompletion: nil)
         }

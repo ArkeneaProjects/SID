@@ -23,6 +23,8 @@ class AFManager: NSObject {
     static var AlamofireManager: Alamofire.SessionManager = {
         let configuration = URLSessionConfiguration.default
         configuration.httpAdditionalHeaders = Alamofire.SessionManager.defaultHTTPHeaders
+        configuration.timeoutIntervalForRequest = 10
+        configuration.timeoutIntervalForResource = 10
         
         let serverTrustPolicies: [String: ServerTrustPolicy] = [APP_URLS.Domain: .disableEvaluation]
         let manager = Alamofire.SessionManager(configuration: URLSessionConfiguration.default, serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies))
@@ -35,7 +37,8 @@ class AFManager: NSObject {
         
         //Default timeout
         configuration.timeoutIntervalForRequest = 10
-        
+        configuration.timeoutIntervalForResource = 10
+
         var manager = Alamofire.SessionManager(configuration: configuration)
         
         return manager

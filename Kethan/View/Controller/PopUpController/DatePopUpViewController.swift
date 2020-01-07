@@ -39,7 +39,7 @@ class DatePopUpViewController: BaseViewController {
         self.dismissWithCompletion {
             if self.addCompletion != nil {
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "dd/MM/yyyy"
+                dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
                 self.addCompletion!(dateFormatter.string(from: self.datepicker.date))
             }
         }

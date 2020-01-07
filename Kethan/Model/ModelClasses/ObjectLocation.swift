@@ -35,4 +35,3 @@ class ObjectLocation: NSObject {
         return dictionary
     }
 }
-
