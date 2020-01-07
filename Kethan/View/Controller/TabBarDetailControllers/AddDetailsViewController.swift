@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import CoreLocation
-import GooglePlaces
 
-class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, GalleryManagerDelegate, GMSAutocompleteViewControllerDelegate {
+
+class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, GalleryManagerDelegate {
     
     @IBOutlet weak var tblView: UITableView!
     
@@ -47,9 +46,9 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         let controller: ResponsePopUpViewController = self.instantiate(ResponsePopUpViewController.self, storyboard: STORYBOARD.main) as? ResponsePopUpViewController ?? ResponsePopUpViewController()
         controller.preparePopup(controller: self)
         controller.showPopup()
-        controller.addCompletion = { str in
+        controller.addCompletion = { str, location, date in
             if str.count > 0 {
-                let removalProcess: NSDictionary = ["removalProcess": str, "surgeryDate": "", "surgeryLocation": ""]
+                let removalProcess: NSDictionary = ["removalProcess": str, "surgeryDate": date, "surgeryLocation": location]
                 let implant = Implant(dictionary: removalProcess)
                 self.implantVM.implantObj.removImplant.insert(implant, at: 0)
                 if let cell = self.tblView.cellForRow(at: sender.indexPath) as? AddDetailHeader3Cell {
@@ -84,39 +83,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         }
     }
     
-    @objc func dateBtnClickAction(_ sender: CustomButton) {
-        let controller: DatePopUpViewController = self.instantiate(DatePopUpViewController.self, storyboard: STORYBOARD.main) as? DatePopUpViewController ?? DatePopUpViewController()
-        controller.preparePopup(controller: self)
-        controller.showPopup()
-        controller.addCompletion = { date in
-            if date.count > 0 {
-                if let cell = self.tblView.cellForRow(at: sender.indexPath) as? AddDetailHeader2Cell {
-                    cell.btnSurgeryDate.setTitle(date, for: .normal)
-                    //                    self.implantVM.implantObj.surgeryDate = date
-                    self.reloadTableView(IndexPath(row: 2, section: 0))
-                }
-            }
-            print(date)
-        }
-    }
-    
-    @objc func placeBtnClickAction(_ sender: CustomButton) {
-        let autocompleteController = GMSAutocompleteViewController()
-        autocompleteController.delegate = self
-        
-        // Specify the place data types to return.
-        let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
-            UInt(GMSPlaceField.placeID.rawValue))!
-        autocompleteController.placeFields = fields
-        
-        // Specify a filter.
-        let filter = GMSAutocompleteFilter()
-        filter.type = .noFilter
-        autocompleteController.autocompleteFilter = filter
-        
-        self.present(autocompleteController, animated: true, completion: nil)
-    }
-    
+
     func reloadTableView(_ indexPath: IndexPath) {
         UIView.performWithoutAnimation {
             let loc = self.tblView.contentOffset
@@ -177,10 +144,8 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                 
                 cell.lblImplant.text = self.implantVM.implantObj.objectName
                 cell.lblManufacture.text = self.implantVM.implantObj.implantManufacture
-                cell.btnSurgeryDate.indexPath = indexPath
-                cell.btnLocation.indexPath = indexPath
-                cell.btnSurgeryDate.addTarget(self, action: #selector(dateBtnClickAction(_:)), for: .touchUpInside)
-                cell.btnLocation.addTarget(self, action: #selector(placeBtnClickAction(_:)), for: .touchUpInside)
+//                cell.btnSurgeryDate.addTarget(self, action: #selector(dateBtnClickAction(_:)), for: .touchUpInside)
+//                cell.btnLocation.addTarget(self, action: #selector(placeBtnClickAction(_:)), for: .touchUpInside)
                 return cell
             }
         } else {
@@ -248,22 +213,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         }
     }
     
-    // MARK:- GMSAutocompleteViewControllerDelegate -
-    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        let address = place.name
-        let cell = self.tblView.cellForRow(at: IndexPath(row: 1, section: 0)) as! AddDetailHeader2Cell
-        cell.btnLocation.setTitle(address, for: .normal)
-        //self.implantVM.implantObj.surgeryLocation = address
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        print("Error: ", error.localizedDescription)
-    }
-    
-    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-        dismiss(animated: true, completion: nil)
-    }
+ 
     /*
      // MARK: - Navigation
      

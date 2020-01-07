@@ -12,7 +12,13 @@ class ProcessDocumentView: UIView {
     
     @IBOutlet weak var btnRemove: CustomButton!
     @IBOutlet weak var lblProcess: CustomLabel!
+    @IBOutlet weak var lblLocation: CustomLabel!
+    @IBOutlet weak var lblSurgeryDate: CustomLabel!
+    @IBOutlet weak var constLocationImgHeight: NSLayoutConstraint!
+    @IBOutlet weak var constSurgeryDateTop: NSLayoutConstraint!
+    @IBOutlet weak var constSurgeryDateBottom: NSLayoutConstraint!
     
+    @IBOutlet weak var constDateHeight: NSLayoutConstraint!
     var tapCompletion:((_ IndexPath: IndexPath) -> Void)?
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -23,15 +29,15 @@ class ProcessDocumentView: UIView {
     @IBAction func btnRemoveClickAction(_ sender: CustomButton) {
         if self.tapCompletion != nil {
             self.tapCompletion!(sender.indexPath)
-            }
+        }
     }
     
     /*
      // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+     // An empty implementation adversely affects performance during animation.
+     override func draw(_ rect: CGRect) {
+     // Drawing code
+     }
+     */
     
 }
