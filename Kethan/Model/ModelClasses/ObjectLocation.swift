@@ -14,6 +14,10 @@ class ObjectLocation: NSObject {
     var left: String = ""
     var width: String = ""
     var height: String = ""
+    
+    var actualImageWidth: String = ""
+    var actualImageHeight: String = ""
+    
     override init() {
         
     }
@@ -30,9 +34,10 @@ class ObjectLocation: NSObject {
             ENTITIES.top: self.top,
             ENTITIES.left: self.left,
             ENTITIES.width: self.width,
-            ENTITIES.height: self.height
+            ENTITIES.height: self.height,
+            "actualImageWidth": self.actualImageWidth,
+            "actualImageHeight": self.actualImageHeight
         ]
         return dictionary
     }
 }
-

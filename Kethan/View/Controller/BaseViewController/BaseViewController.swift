@@ -388,8 +388,13 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
         for item in imgNameArr {
             if let object = item as? ImageData {
                 arr.append(object.objectLocation)
-                let item = SKPhoto.photoWithImageURL(object.imageName, object: object.objectLocation)
+                if let image = object.image {
+                    let item = SKPhoto.photoWithImage(image, object: object.objectLocation)
                     items.append(item)
+                } else {
+                    let item = SKPhoto.photoWithImageURL(object.imageName, object: object.objectLocation)
+                    items.append(item)
+                }
             } else if let url = item as? String {
                 let item = SKPhoto.photoWithImage(UIImage(named: url) ?? UIImage())
                 items.append(item)
@@ -399,7 +404,7 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
         // 2. create PhotoBrowser Instance, and present.
         let browser = SKPhotoBrowser(photos: items)
         browser.initializePageIndex(indexpath.row)
-      //  browser.setlocationArray(arr)
+        browser.cordinate = arr
         present(browser, animated: true, completion: {})
         
     }

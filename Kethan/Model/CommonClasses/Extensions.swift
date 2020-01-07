@@ -641,6 +641,11 @@ extension UIImageView {
         }
         self.addSubview(d)
     }
+    func clearDrowRectangle() {
+        for view in self.subviews {
+            view.removeFromSuperview()
+        }
+    }
 }
 
 extension FileManager {

@@ -18,13 +18,16 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     var implantObj = SearchResult()
     var implantVM = AddImplantVM()
     
+    var imageArray = NSMutableArray()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBarWithTitle("Add Details", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeNil)
         // Do any additional setup after loading the view.
         
         self.implantVM.implantObj = self.implantObj
-    
+        self.imageArray = NSMutableArray(array: self.implantVM.implantObj.imageData)
+        
         self.tblView.registerNibWithIdentifier([IDENTIFIERS.AddDetailHeader1Cell, IDENTIFIERS.AddDetailHeader2Cell, IDENTIFIERS.AddDetailHeader3Cell])
         
         self.tblView.rowHeight = UITableView.automaticDimension
@@ -137,29 +140,16 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: IDENTIFIERS.AddDetailHeader1Cell, for: indexPath) as? AddDetailHeader1Cell {
-                if self.implantVM.implantObj._id.count > 0 {
-                    cell.isNewUpload = false
-                    cell.arrAllItems = self.implantVM.implantObj.imageData as! NSMutableArray
-                    cell.btnSeeAll.isHidden = self.implantVM.implantObj.imageData.count < 6
-                } else {
-                    cell.btnSeeAll.isHidden = true
-                    cell.isNewUpload = true
-                    if (self.implantVM.implantObj.implantImage.selectedImage) != nil {
-                        cell.arrAllItems = NSMutableArray(array: [self.implantVM.implantObj.implantImage])
-                    } else {
-                        cell.arrAllItems = ["lineImage"]
-                    }
-                }
+                cell.arrAllItems = self.imageArray
+                cell.btnSeeAll.isHidden = (self.implantVM.implantObj.imageData.count < 6) ?true:false
                 
                 //Delete Image
                 cell.deleteImageCompletion = { index_Path in
                     self.showAlert(title: "", message: "Delete Image?", yesTitle: "Yes", noTitle: "NO", yesCompletion: {
-                        if self.implantVM.implantObj._id.count > 0 {
-                            self.implantVM.implantObj.imageData.remove(at: index_Path.item)
-                            cell.arrAllItems = self.implantVM.implantObj.imageData as! NSMutableArray
-                        } else {
-                            cell.arrAllItems = ["lineImage"]
+                        if let deleteObj = self.imageArray[index_Path.item] as? ImplantImage {
+                            self.imageArray.remove(deleteObj)
                         }
+                        cell.arrAllItems = self.imageArray
                         
                         if cell.arrAllItems.count == 3 {
                             self.reloadTableView(indexPath)
@@ -238,6 +228,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
             //Get cordinate value from Tagview controller
             controller.continueCompletion = { implantImageObj in
                 print(implantImageObj.dictioary())
+                self.imageArray.add(implantImageObj)
                 self.implantVM.implantObj.implantImage = implantImageObj
                 self.tblView.reloadData()
             }

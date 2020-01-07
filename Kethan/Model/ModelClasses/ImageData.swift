@@ -13,6 +13,7 @@ class ImageData: NSObject {
     var imageName: String = ""
     var watsonImage_id: String = ""
     var objectLocation: ObjectLocation = ObjectLocation()
+    var image: UIImage?
   
     override init() {
         

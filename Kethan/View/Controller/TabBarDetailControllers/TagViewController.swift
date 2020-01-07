@@ -53,15 +53,15 @@ class TagViewController: BaseViewController {
         let actualX = croppedFrame.origin.x - rect.origin.x
         let actualY = croppedFrame.origin.y - rect.origin.y
         print(actualX, actualY)
-        
+  
         if self.continueCompletion != nil {
             let impantObj = ImplantImage()
-            impantObj.imageWidth = String(format: "%.1f", self.cropView.image!.size.width)
-            impantObj.imageHeight = String(format: "%.1f", self.cropView.image!.size.height)
+            impantObj.imageWidth = String(format: "%.1f", self.cropView.actualImageWidth)
+            impantObj.imageHeight = String(format: "%.1f", self.cropView.actualImageHeight)
             impantObj.labelOffsetX = String(format: "%.1f", actualX)
             impantObj.labelOffsetY = String(format: "%.1f", actualY)
-            impantObj.labelWidth = String(format: "%.1f", cropView.getCropViewDimention().frame.width)
-            impantObj.labelHeight = String(format: "%.1f", cropView.getCropViewDimention().frame.height)
+            impantObj.labelWidth = String(format: "%.1f", self.cropView.tagViewWidth)
+            impantObj.labelHeight = String(format: "%.1f", self.cropView.tagViewHeight)
             impantObj.selectedImage = self.cropView.image!
             
             self.continueCompletion!(impantObj)

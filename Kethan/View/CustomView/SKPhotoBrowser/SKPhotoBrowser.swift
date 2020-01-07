@@ -11,12 +11,13 @@ import UIKit
 public let SKPHOTO_LOADING_DID_END_NOTIFICATION = "photoLoadingDidEndNotification"
 
 // MARK: - SKPhotoBrowser
-open class SKPhotoBrowser: UIViewController {
+public class SKPhotoBrowser: UIViewController {
     // open function
     open var currentPageIndex: Int = 0
     open var initPageIndex: Int = 0
     open var activityItemProvider: UIActivityItemProvider?
     open var photos: [SKPhotoProtocol] = []
+    var cordinate = [ObjectLocation]()
     
     internal lazy var pagingScrollView: SKPagingScrollView = SKPagingScrollView(frame: self.view.frame, browser: self)
     
@@ -265,7 +266,11 @@ open class SKPhotoBrowser: UIViewController {
 
 // MARK: - Public Function For Customizing Buttons
 
-public extension SKPhotoBrowser {
+extension SKPhotoBrowser {
+    func updateCordinate(_ updtaeCordinate: [ObjectLocation]) {
+        self.cordinate = updtaeCordinate
+    }
+    
     func updateCloseButton(_ image: UIImage, size: CGSize? = nil) {
         actionView.updateCloseButton(image: image, size: size)
     }

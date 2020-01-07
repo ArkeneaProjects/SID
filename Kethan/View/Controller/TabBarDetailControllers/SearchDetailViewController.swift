@@ -12,6 +12,7 @@ class SearchDetailViewController: BaseViewController, UITableViewDelegate, UITab
 
     @IBOutlet weak var tblView: UITableView!
     var detailObj = SearchResult()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBarWithTitle("Details", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeNil)
@@ -27,6 +28,7 @@ class SearchDetailViewController: BaseViewController, UITableViewDelegate, UITab
     // MARK: - Button Action
     @IBAction func edittButtonAction() {
         if let controller = self.instantiate(AddDetailsViewController.self, storyboard: STORYBOARD.main) as? AddDetailsViewController {
+            controller.implantObj = detailObj
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }

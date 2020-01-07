@@ -38,7 +38,7 @@ class SKDetectingImageView: UIImageView {
 private extension SKDetectingImageView {
     func setup() {
         isUserInteractionEnabled = true
-        
+       
         let doubleTap = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap(_:)))
         doubleTap.numberOfTapsRequired = 2
         addGestureRecognizer(doubleTap)

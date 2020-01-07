@@ -81,7 +81,7 @@ class SearchViewCollecction: UIView, UICollectionViewDelegate, UICollectionViewD
         print("Collection view at row \(collectionView.tag) selected index path \(indexPath)")
         if let collectionCell = self.collectionView.cellForItem(at: indexPath) as? CustomCollectionViewCell {
             
-            self.viewController?.openGalleryList(indexpath: indexPath, imgNameArr: self.arrAllItems , sourceView: collectionCell.imgPhoto)
+            self.viewController?.openGalleryList(indexpath: indexPath, imgNameArr: self.arrAllItems, sourceView: collectionCell.imgPhoto)
         }
     }
     

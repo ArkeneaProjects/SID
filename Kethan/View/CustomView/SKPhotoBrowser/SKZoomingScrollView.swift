@@ -120,7 +120,7 @@ open class SKZoomingScrollView: UIScrollView {
         
         let xScale = boundsSize.width / imageSize.width
         let yScale = boundsSize.height / imageSize.height
-        var minScale: CGFloat = min(xScale.isNormal ? xScale : 1.0 , yScale.isNormal ? yScale : 1.0)
+        var minScale: CGFloat = min(xScale.isNormal ? xScale : 1.0, yScale.isNormal ? yScale : 1.0)
         var maxScale: CGFloat = 1.0
         
         let scale = max(SKMesurement.screenScale, 2.0)
@@ -143,7 +143,7 @@ open class SKZoomingScrollView: UIScrollView {
             // here if imageView.frame.width == deviceScreenWidth
             maxScale = 2.5
         }
-    
+        
         maximumZoomScale = maxScale
         minimumZoomScale = minScale
         zoomScale = minScale
@@ -152,15 +152,20 @@ open class SKZoomingScrollView: UIScrollView {
         // maximum zoom scale to 0.5
         // After changing this value, we still never use more
         /*
-        maxScale = maxScale / scale 
-        if maxScale < minScale {
-            maxScale = minScale * 2
-        }
-        */
+         maxScale = maxScale / scale
+         if maxScale < minScale {
+         maxScale = minScale * 2
+         }
+         */
         
         // reset position
         imageView.frame.origin = CGPoint.zero
         setNeedsLayout()
+        if browser?.cordinate.count ?? 0 > 0 {
+            if let objCordinate = browser?.cordinate[browser?.initPageIndex ?? 0] {
+                imageView.drawRectangle(frameSize: CGSize(width: imageView.bounds.width, height: imageView.bounds.height), imageWidth: CGFloat(objCordinate.actualImageWidth.floatValue()), imageHight: CGFloat(objCordinate.actualImageHeight.floatValue()), drawSize: CGRect(x: CGFloat(objCordinate.left.floatValue()), y: CGFloat(objCordinate.top.floatValue()), width: CGFloat(objCordinate.width.floatValue()), height: CGFloat(objCordinate.height.floatValue())))
+            }
+        }
     }
     
     open func prepareForReuse() {
@@ -188,6 +193,7 @@ open class SKZoomingScrollView: UIScrollView {
         imageView.frame = imageViewFrame
         
         contentSize = imageViewFrame.size
+        
         setMaxMinZoomScalesForCurrentBounds()
     }
     

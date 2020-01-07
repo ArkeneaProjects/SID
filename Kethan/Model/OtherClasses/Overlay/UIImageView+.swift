@@ -49,11 +49,15 @@ extension UIImageView {
             let scaleFactor = imageViewSize.height / imageSize.height
             let width = imageSize.width * scaleFactor
             let topLeftX = (imageViewSize.width - width) * 0.5
+            print("topLeftX==\(CGRect(x: topLeftX, y: 0, width: width, height: imageViewSize.height))")
+
             return CGRect(x: topLeftX, y: 0, width: width, height: imageViewSize.height)
         } else {
             let scalFactor = imageViewSize.width / imageSize.width
             let height = imageSize.height * scalFactor
             let topLeftY = (imageViewSize.height - height) * 0.5
+            print("rexrr==\(CGRect(x: 0, y: topLeftY, width: imageViewSize.width, height: height))")
+            
             return CGRect(x: 0, y: topLeftY, width: imageViewSize.width, height: height)
         }
     }
