@@ -201,24 +201,6 @@ extension UIToolbar {
     
 }
 
-extension String {
-    func convertLocalTimeZoneToUTC(actualFormat:String, expectedFormat:String, actualZone:TimeZone, expectedZone:TimeZone)-> String{
-         
-         let formatter: DateFormatter = DateFormatter()
-         formatter.dateFormat = actualFormat
-         formatter.timeZone = actualZone
-         
-         var stringDate: String = String()
-         if let date = formatter.date(from: self) {
-             formatter.dateFormat = expectedFormat
-             formatter.timeZone = expectedZone
-             stringDate = formatter.string(from: date)
-         }
-         return stringDate
-         
-     }
-}
-
 extension UIColor {
     convenience init(hexCode: UInt32) {
         let red = CGFloat((hexCode & 0xFF0000) >> 16)/256.0
@@ -624,6 +606,43 @@ extension String {
             return String(self[range])
         }
     }
+    
+    func convertLocalTimeZoneToUTC(actualFormat: String, expectedFormat: String, actualZone: TimeZone, expectedZone: TimeZone)-> String {
+        let formatter: DateFormatter = DateFormatter()
+        formatter.dateFormat = actualFormat
+        formatter.timeZone = actualZone
+        
+        var stringDate: String = String()
+        if let date = formatter.date(from: self) {
+            formatter.dateFormat = expectedFormat
+            formatter.timeZone = expectedZone
+            stringDate = formatter.string(from: date)
+        }
+        return stringDate
+        
+    }
+    
+    func convertStringToDate(actualFormat: String, expectedFormat: String) -> Date? {
+        let simpleDateFormat = DateFormatter()
+        simpleDateFormat.dateFormat = actualFormat //format our date String
+        simpleDateFormat.timeZone = NSTimeZone.local
+        simpleDateFormat.amSymbol = "am"
+        simpleDateFormat.pmSymbol = "pm"
+        if let date = simpleDateFormat.date(from: self) {
+            let dateFormat = DateFormatter()
+            dateFormat.dateFormat = expectedFormat //format return
+            dateFormat.timeZone = NSTimeZone.local
+            dateFormat.amSymbol = "am"
+            dateFormat.pmSymbol = "pm"
+            let datestring = dateFormat.string(from: date)
+            if datestring.count > 0 {
+                return dateFormat.date(from: datestring)
+            } else {
+                return Date()
+            }
+        }
+        return Date()
+    }
 }
 extension UIImage {
     func drawRectangleOnImage(drawSize: CGRect) -> UIImage? {
@@ -659,6 +678,11 @@ extension UIImageView {
             view.removeFromSuperview()
         }
         self.addSubview(d)
+    }
+    func clearDrowRectangle() {
+        for view in self.subviews {
+            view.removeFromSuperview()
+        }
     }
 }
 

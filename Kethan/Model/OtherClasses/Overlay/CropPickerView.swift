@@ -1,4 +1,4 @@
-//Copyright (c) 2018 pikachu987 <pikachu77769@gmail.com>
+//Copyright (c) 3018 pikachu987 <pikachu77769@gmail.com>
 //
 //Permission is hereby granted, free of charge, to any person obtaining a copy
 //of this software and associated documentation files (the "Software"), to deal
@@ -34,6 +34,13 @@ public class CropPickerView: UIView {
     
     // MARK: Public Property
     // Set Image
+    
+    var tagViewWidth = 0.0
+    var tagViewHeight = 0.0
+    
+    var actualImageWidth = 0.0
+    var actualImageHeight = 0.0
+    
     @IBInspectable
     public var image: UIImage? {
         get {
@@ -177,6 +184,8 @@ public class CropPickerView: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         self.scrollView.edgesConstraint(subView: imageView)
         self.scrollView.sizeConstraint(subView: imageView)
+        print("lazy var==\(imageView.frame)")
+
         return imageView
     }()
     
@@ -307,13 +316,13 @@ public class CropPickerView: UIView {
         return button
     }()
     
-    private var cropLeadingConstraint: NSLayoutConstraint?
+    public var cropLeadingConstraint: NSLayoutConstraint?
     
-    private var cropTrailingConstraint: NSLayoutConstraint?
+    public var cropTrailingConstraint: NSLayoutConstraint?
     
-    private var cropTopConstraint: NSLayoutConstraint?
+    public var cropTopConstraint: NSLayoutConstraint?
     
-    private var cropBottomConstraint: NSLayoutConstraint?
+    public var cropBottomConstraint: NSLayoutConstraint?
     
     private var lineButtonTouchPoint: CGPoint?
     
@@ -403,7 +412,8 @@ extension CropPickerView {
         
         self.imageView.clipsToBounds = true
         self.imageView.contentMode = .scaleAspectFit
-        
+        print("initVars==\(self.imageView.frame)")
+
         self.cropLineHidden(self.image)
         
         self.cropLineColor = self.cropLineColor ?? .white
@@ -498,10 +508,10 @@ extension CropPickerView {
         let hConstant = cropLeadingConstraint.constant - (currentPoint.x - touchPoint.x)
         let vConstant = cropTopConstraint.constant - (currentPoint.y - touchPoint.y)
         
-        if (hConstant <= 0 || currentPoint.x - touchPoint.x > 0) && self.bounds.width + (hConstant - cropTrailingConstraint.constant) > 100 {
+        if (hConstant <= 0 || currentPoint.x - touchPoint.x > 0) && self.bounds.width + (hConstant - cropTrailingConstraint.constant) > 30 {
             self.cropLeadingConstraint?.constant = hConstant
         }
-        if (vConstant <= 0 || currentPoint.y - touchPoint.y > 0) && self.bounds.height + (vConstant - cropBottomConstraint.constant) > 100 {
+        if (vConstant <= 0 || currentPoint.y - touchPoint.y > 0) && self.bounds.height + (vConstant - cropBottomConstraint.constant) > 30 {
             self.cropTopConstraint?.constant = vConstant
         }
         self.dimLayerMask(animated: false)
@@ -520,10 +530,10 @@ extension CropPickerView {
         let hConstant = cropLeadingConstraint.constant - (currentPoint.x - touchPoint.x)
         let vConstant = cropBottomConstraint.constant - (currentPoint.y - touchPoint.y)
         
-        if (hConstant <= 0 || currentPoint.x - touchPoint.x > 0) && self.bounds.width + (hConstant - cropTrailingConstraint.constant) > 100 {
+        if (hConstant <= 0 || currentPoint.x - touchPoint.x > 0) && self.bounds.width + (hConstant - cropTrailingConstraint.constant) > 30 {
             self.cropLeadingConstraint?.constant = hConstant
         }
-        if (vConstant > 0 || currentPoint.y - touchPoint.y < 0) && self.bounds.height - (vConstant - cropTopConstraint.constant) > 100 {
+        if (vConstant > 0 || currentPoint.y - touchPoint.y < 0) && self.bounds.height - (vConstant - cropTopConstraint.constant) > 30 {
             self.cropBottomConstraint?.constant = vConstant
         }
         self.dimLayerMask(animated: false)
@@ -542,10 +552,10 @@ extension CropPickerView {
         let hConstant = cropTrailingConstraint.constant - (currentPoint.x - touchPoint.x)
         let vConstant = cropTopConstraint.constant - (currentPoint.y - touchPoint.y)
         
-        if (hConstant > 0 || currentPoint.x - touchPoint.x < 0) && self.bounds.width - (hConstant - cropLeadingConstraint.constant) > 100 {
+        if (hConstant > 0 || currentPoint.x - touchPoint.x < 0) && self.bounds.width - (hConstant - cropLeadingConstraint.constant) > 30 {
             self.cropTrailingConstraint?.constant = hConstant
         }
-        if (vConstant <= 0 || currentPoint.y - touchPoint.y > 0) && self.bounds.height + (vConstant - cropBottomConstraint.constant) > 100 {
+        if (vConstant <= 0 || currentPoint.y - touchPoint.y > 0) && self.bounds.height + (vConstant - cropBottomConstraint.constant) > 30 {
             self.cropTopConstraint?.constant = vConstant
         }
         self.dimLayerMask(animated: false)
@@ -565,10 +575,10 @@ extension CropPickerView {
         let hConstant = cropTrailingConstraint.constant - (currentPoint.x - touchPoint.x)
         let vConstant = cropBottomConstraint.constant - (currentPoint.y - touchPoint.y)
         
-        if (hConstant > 0 || currentPoint.x - touchPoint.x < 0) && self.bounds.width - (hConstant - cropLeadingConstraint.constant) > 100 {
+        if (hConstant > 0 || currentPoint.x - touchPoint.x < 0) && self.bounds.width - (hConstant - cropLeadingConstraint.constant) > 30 {
             self.cropTrailingConstraint?.constant = hConstant
         }
-        if (vConstant > 0 || currentPoint.y - touchPoint.y < 0) && self.bounds.height - (vConstant - cropTopConstraint.constant) > 100 {
+        if (vConstant > 0 || currentPoint.y - touchPoint.y < 0) && self.bounds.height - (vConstant - cropTopConstraint.constant) > 30 {
             self.cropBottomConstraint?.constant = vConstant
         }
         self.dimLayerMask(animated: false)
@@ -582,7 +592,7 @@ extension CropPickerView {
         
         let hConstant = cropLeadingConstraint.constant - (currentPoint.x - touchPoint.x)
         
-        if (hConstant <= 0 || currentPoint.x - touchPoint.x > 0) && self.bounds.width + (hConstant - cropTrailingConstraint.constant) > 100 {
+        if (hConstant <= 0 || currentPoint.x - touchPoint.x > 0) && self.bounds.width + (hConstant - cropTrailingConstraint.constant) > 30 {
             self.cropLeadingConstraint?.constant = hConstant
         }
         self.dimLayerMask(animated: false)
@@ -596,7 +606,7 @@ extension CropPickerView {
         
         let vConstant = cropTopConstraint.constant - (currentPoint.y - touchPoint.y)
         
-        if (vConstant <= 0 || currentPoint.y - touchPoint.y > 0) && self.bounds.height + (vConstant - cropBottomConstraint.constant) > 100 {
+        if (vConstant <= 0 || currentPoint.y - touchPoint.y > 0) && self.bounds.height + (vConstant - cropBottomConstraint.constant) > 30 {
             self.cropTopConstraint?.constant = vConstant
         }
         self.dimLayerMask(animated: false)
@@ -612,7 +622,7 @@ extension CropPickerView {
         
         let hConstant = cropTrailingConstraint.constant - (currentPoint.x - touchPoint.x)
         
-        if (hConstant > 0 || currentPoint.x - touchPoint.x < 0) && self.bounds.width - (hConstant - cropLeadingConstraint.constant) > 100 {
+        if (hConstant > 0 || currentPoint.x - touchPoint.x < 0) && self.bounds.width - (hConstant - cropLeadingConstraint.constant) > 30 {
             self.cropTrailingConstraint?.constant = hConstant
         }
         self.dimLayerMask(animated: false)
@@ -628,7 +638,7 @@ extension CropPickerView {
         
         let vConstant = cropBottomConstraint.constant - (currentPoint.y - touchPoint.y)
         
-        if (vConstant > 0 || currentPoint.y - touchPoint.y < 0) && self.bounds.height - (vConstant - cropTopConstraint.constant) > 100 {
+        if (vConstant > 0 || currentPoint.y - touchPoint.y < 0) && self.bounds.height - (vConstant - cropTopConstraint.constant) > 30 {
             self.cropBottomConstraint?.constant = vConstant
         }
         self.dimLayerMask(animated: false)
@@ -668,7 +678,7 @@ extension CropPickerView {
     private func imageRealSize(_ animated: Bool = false) {
         if self.imageView.image == nil { return }
         self.scrollView.setZoomScale(1, animated: false)
-        
+        print("self.imageView==\(self.imageView.frame)")
         let imageSize = self.imageView.frameForImageInImageViewAspectFit
         let widthRate =  self.bounds.width / imageSize.width
         let heightRate = self.bounds.height / imageSize.height
@@ -713,6 +723,15 @@ extension CropPickerView {
         self.cropTrailingConstraint?.constant = point.x
         self.cropTopConstraint?.constant = -point.y
         self.cropBottomConstraint?.constant = point.y
+        guard let cropLeadingConstraint = self.cropLeadingConstraint,
+                   let cropTrailingConstraint = self.cropTrailingConstraint,
+                   let cropTopConstraint = self.cropTopConstraint,
+                   let cropBottomConstraint = self.cropBottomConstraint else { return }
+               let width = self.scrollView.bounds.width - (-cropLeadingConstraint.constant + cropTrailingConstraint.constant)
+               let height = self.scrollView.bounds.height - (-cropTopConstraint.constant + cropBottomConstraint.constant)
+               self.actualImageWidth = Double(width)
+               self.actualImageHeight = Double(height)
+        
         if animated {
             self.dimLayerMask(duration, animated: animated)
             UIView.animate(withDuration: duration, delay: 0, options: UIView.AnimationOptions.curveEaseInOut, animations: {
@@ -734,6 +753,8 @@ extension CropPickerView {
             let cropBottomConstraint = self.cropBottomConstraint else { return }
         let width = self.scrollView.bounds.width - (-cropLeadingConstraint.constant + cropTrailingConstraint.constant)
         let height = self.scrollView.bounds.height - (-cropTopConstraint.constant + cropBottomConstraint.constant)
+        self.tagViewWidth = Double(width)
+        self.tagViewHeight = Double(height)
         self.dimView.layoutIfNeeded()
         
         let path = UIBezierPath(rect: CGRect(
@@ -745,10 +766,7 @@ extension CropPickerView {
         path.append(UIBezierPath(rect: self.dimView.bounds))
         
         self.dimView.mask(path.cgPath, duration: duration, animated: animated)
-        print("ImageView==\(self.self.imageView)")
 
-        print("cropTopConstraint==\(self.cropTopConstraint?.constant)")
-        print("cropBottomConstraint==\(self.cropBottomConstraint?.constant)")
     }
 }
 

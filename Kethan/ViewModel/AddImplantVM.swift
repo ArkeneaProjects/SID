@@ -27,9 +27,11 @@ class AddImplantVM: NSObject {
             ProgressManager.showError(withStatus: ERRORS.EmptyImage, on: self.rootViewController!.view)
             return
         } else {
-            ProgressManager.show(withStatus: "Uploading Implant...", on: self.rootViewController!.view)
+            ProgressManager.show(withStatus: "\((self.implantObj._id.count != 0) ?"Update":"Upload") Implant...", on: self.rootViewController!.view)
         
-            let parameters: NSDictionary =  [ "labelName": self.implantObj.objectName,
+            let parameters: NSDictionary =  [
+                "implantId": self.implantObj._id,
+                "labelName": self.implantObj.objectName,
                                             "implantManufacture": self.implantObj.implantManufacture,
                                             "imageWidth": self.implantObj.implantImage.imageWidth,
                                             "imageHeight": self.implantObj.implantImage.imageHeight,
@@ -41,9 +43,9 @@ class AddImplantVM: NSObject {
             
             let image  = saveImageInDocumentDict(image: self.implantObj.implantImage.selectedImage!, imageName: "photo", key: "implantPicture")
             
-            AFManager.sendMultipartRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.addImplant, parameters: parameters, multipart: [image], serviceCount: 0, completion: { (response: AnyObject?, error: String?, errorCode: String?) in
+            AFManager.sendMultipartRequestWithParameters(method: .post, urlSuffix: (self.implantObj._id.count != 0) ?SUFFIX_URL.editImplant:SUFFIX_URL.addImplant, parameters: parameters, multipart: [image], serviceCount: 0, completion: { (response: AnyObject?, error: String?, errorCode: String?) in
                 if error == nil {
-                    ProgressManager.showSuccess(withStatus: "Implant uploaded successfully", on: self.rootViewController!.view)
+                    ProgressManager.showSuccess(withStatus: "Implant \((self.implantObj._id.count != 0) ?"updated":"uploaded") successfully", on: self.rootViewController!.view)
                     if let controller = self.rootViewController!.instantiate(ThankYouViewController.self, storyboard: STORYBOARD.main) as? ThankYouViewController {
                         controller.isComeFrom = 1
                         self.rootViewController?.navigationController?.pushViewController(controller, animated: true)

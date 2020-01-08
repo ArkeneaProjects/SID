@@ -13,6 +13,9 @@ class ProcessListCell: UITableViewCell {
     @IBOutlet weak var lblProcessTitle: CustomLabel!
     @IBOutlet weak var lblLocation: CustomLabel!
     @IBOutlet weak var lblSurgeryDate: CustomLabel!
+    
+    @IBOutlet weak var btnDelete: CustomButton!
+    
     @IBOutlet weak var constLocationImgHeight: NSLayoutConstraint!
     @IBOutlet weak var constSurgeryDateTop: NSLayoutConstraint!
     @IBOutlet weak var constSurgeryDateBottom: NSLayoutConstraint!

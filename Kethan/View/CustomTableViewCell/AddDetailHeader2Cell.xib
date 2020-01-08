@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="199" id="KGk-i7-Jjw" customClass="AddDetailHeader2Cell" customModule="SID" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="199"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="198" id="yk3-kD-aIr" customClass="AddDetailHeader2Cell" customModule="SID" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="198"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="199"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yk3-kD-aIr" id="mcp-3u-rww">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="198"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rS1-4f-KMv" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MBv-Ei-iqS" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="13" width="46.5" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="I0y-m1-RW9" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                            <constraint firstAttribute="height" constant="21" id="mOv-jy-OpU" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                 </userDefinedRuntimeAttributes>
@@ -36,28 +36,28 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DJ1-Rx-XQc" userLabel="ViewImplant">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEn-GX-gWn" userLabel="ViewImplant">
                         <rect key="frame" x="0.0" y="47" width="320" height="66"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="implantIcon" translatesAutoresizingMaskIntoConstraints="NO" id="P0a-H9-Rks">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="implantIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Niw-wJ-pau">
                                 <rect key="frame" x="13" y="15" width="14" height="17"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="14" id="O5w-aE-tOn" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                    <constraint firstAttribute="width" constant="14" id="tRc-yV-EtH" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </constraint>
-                                    <constraint firstAttribute="height" constant="17" id="mSM-5y-lit" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                    <constraint firstAttribute="height" constant="17" id="vTt-Vk-h3e" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </constraint>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Implant Name/Brand" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMc-JY-C9v" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Implant Name/Brand" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FC7-MV-eAP" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
                                 <rect key="frame" x="40" y="12" width="267" height="17"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="17" id="tvU-iN-42W" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                    <constraint firstAttribute="height" constant="17" id="ET6-Db-TFA" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                         </userDefinedRuntimeAttributes>
@@ -73,7 +73,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Oj-oQ-VJQ" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IH8-3h-VIE" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
                                 <rect key="frame" x="40" y="37" width="267" height="16"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13.5"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -88,44 +88,44 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="66" id="06e-vT-A0V" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                            <constraint firstAttribute="height" constant="66" id="2E4-8K-V00" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstAttribute="trailing" secondItem="GMc-JY-C9v" secondAttribute="trailing" constant="13" id="6mH-jF-NjW"/>
-                            <constraint firstItem="1Oj-oQ-VJQ" firstAttribute="leading" secondItem="GMc-JY-C9v" secondAttribute="leading" id="9Mq-5C-5R4"/>
-                            <constraint firstItem="P0a-H9-Rks" firstAttribute="leading" secondItem="DJ1-Rx-XQc" secondAttribute="leading" constant="13" id="AXc-PK-QqP" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                            <constraint firstItem="Niw-wJ-pau" firstAttribute="leading" secondItem="QEn-GX-gWn" secondAttribute="leading" constant="13" id="3xR-CS-UlL" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="1Oj-oQ-VJQ" firstAttribute="trailing" secondItem="GMc-JY-C9v" secondAttribute="trailing" id="BCU-xG-npx"/>
-                            <constraint firstItem="GMc-JY-C9v" firstAttribute="top" secondItem="DJ1-Rx-XQc" secondAttribute="top" constant="12" id="BI9-bj-Caf" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                            <constraint firstItem="IH8-3h-VIE" firstAttribute="trailing" secondItem="FC7-MV-eAP" secondAttribute="trailing" id="LpT-3R-Mmf"/>
+                            <constraint firstAttribute="bottom" secondItem="IH8-3h-VIE" secondAttribute="bottom" constant="13" id="Ps2-Yj-UzH" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstAttribute="bottom" secondItem="1Oj-oQ-VJQ" secondAttribute="bottom" constant="13" id="Twn-IK-mN7" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                            <constraint firstItem="IH8-3h-VIE" firstAttribute="top" secondItem="FC7-MV-eAP" secondAttribute="bottom" constant="8" id="ZmJ-im-MBM" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="GMc-JY-C9v" firstAttribute="leading" secondItem="P0a-H9-Rks" secondAttribute="trailing" constant="13" id="hRD-gm-Afu" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                            <constraint firstItem="FC7-MV-eAP" firstAttribute="top" secondItem="QEn-GX-gWn" secondAttribute="top" constant="12" id="cNi-Qe-o7s" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="1Oj-oQ-VJQ" firstAttribute="top" secondItem="GMc-JY-C9v" secondAttribute="bottom" constant="8" id="jNu-P9-szk" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                            <constraint firstAttribute="trailing" secondItem="FC7-MV-eAP" secondAttribute="trailing" constant="13" id="hBn-AX-nxw"/>
+                            <constraint firstItem="FC7-MV-eAP" firstAttribute="leading" secondItem="Niw-wJ-pau" secondAttribute="trailing" constant="13" id="pX3-mO-fQ5" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="P0a-H9-Rks" firstAttribute="top" secondItem="DJ1-Rx-XQc" secondAttribute="top" constant="15" id="xCT-KZ-LR2" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                            <constraint firstItem="Niw-wJ-pau" firstAttribute="top" secondItem="QEn-GX-gWn" secondAttribute="top" constant="15" id="tFA-oz-CBi" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
+                            <constraint firstItem="IH8-3h-VIE" firstAttribute="leading" secondItem="FC7-MV-eAP" secondAttribute="leading" id="vnh-kp-h5z"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -139,28 +139,28 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="el8-B4-Kkz" userLabel="ViewManufacturer">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oN0-0Q-tOZ" userLabel="ViewManufacturer">
                         <rect key="frame" x="0.0" y="126" width="320" height="66"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="manufacturer" translatesAutoresizingMaskIntoConstraints="NO" id="RSS-bz-vcy">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="manufacturer" translatesAutoresizingMaskIntoConstraints="NO" id="BbB-Gg-3sa">
                                 <rect key="frame" x="13" y="15" width="14" height="17"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="14" id="AVL-jv-DjH" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                    <constraint firstAttribute="height" constant="17" id="9Rw-8c-zQJ" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </constraint>
-                                    <constraint firstAttribute="height" constant="17" id="oUP-zq-eH1" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                    <constraint firstAttribute="width" constant="14" id="y3m-dL-doc" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </constraint>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manufacturer " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdI-6W-MJF" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manufacturer " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzo-IO-Had" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
                                 <rect key="frame" x="40" y="12" width="267" height="17"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="17" id="gEV-jq-YUe" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                    <constraint firstAttribute="height" constant="17" id="Yta-WL-n3l" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                         </userDefinedRuntimeAttributes>
@@ -176,7 +176,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sa6-Jb-glx" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fau-yM-K7n" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
                                 <rect key="frame" x="40" y="37" width="267" height="16"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13.5"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -191,44 +191,44 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="VdI-6W-MJF" firstAttribute="leading" secondItem="RSS-bz-vcy" secondAttribute="trailing" constant="13" id="170-4H-fOK" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                            <constraint firstItem="BbB-Gg-3sa" firstAttribute="leading" secondItem="oN0-0Q-tOZ" secondAttribute="leading" constant="13" id="96U-vP-wuH" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="sa6-Jb-glx" firstAttribute="leading" secondItem="VdI-6W-MJF" secondAttribute="leading" id="3X8-3G-XFy"/>
-                            <constraint firstAttribute="trailing" secondItem="VdI-6W-MJF" secondAttribute="trailing" constant="13" id="CaW-sv-sLi"/>
-                            <constraint firstAttribute="height" constant="66" id="RTI-dg-D71" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                            <constraint firstItem="fau-yM-K7n" firstAttribute="top" secondItem="jzo-IO-Had" secondAttribute="bottom" constant="8" id="AEy-4q-23n" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="RSS-bz-vcy" firstAttribute="top" secondItem="el8-B4-Kkz" secondAttribute="top" constant="15" id="TOd-lC-vdd" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                            <constraint firstItem="fau-yM-K7n" firstAttribute="trailing" secondItem="jzo-IO-Had" secondAttribute="trailing" id="HyZ-Rk-Etd"/>
+                            <constraint firstItem="BbB-Gg-3sa" firstAttribute="top" secondItem="oN0-0Q-tOZ" secondAttribute="top" constant="15" id="Pll-2A-4HK" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstAttribute="bottom" secondItem="sa6-Jb-glx" secondAttribute="bottom" constant="13" id="UXX-d5-Kkn" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                            <constraint firstItem="jzo-IO-Had" firstAttribute="top" secondItem="oN0-0Q-tOZ" secondAttribute="top" constant="12" id="RUH-Um-DqX" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="sa6-Jb-glx" firstAttribute="top" secondItem="VdI-6W-MJF" secondAttribute="bottom" constant="8" id="YGz-ip-eHD" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                            <constraint firstAttribute="height" constant="66" id="TS5-GU-FjN" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="VdI-6W-MJF" firstAttribute="top" secondItem="el8-B4-Kkz" secondAttribute="top" constant="12" id="hoj-Re-tUi" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                            <constraint firstItem="fau-yM-K7n" firstAttribute="leading" secondItem="jzo-IO-Had" secondAttribute="leading" id="bZl-Yr-Hp0"/>
+                            <constraint firstAttribute="bottom" secondItem="fau-yM-K7n" secondAttribute="bottom" constant="13" id="h4X-ky-Opu" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="sa6-Jb-glx" firstAttribute="trailing" secondItem="VdI-6W-MJF" secondAttribute="trailing" id="r5Y-WY-gVL"/>
-                            <constraint firstItem="RSS-bz-vcy" firstAttribute="leading" secondItem="el8-B4-Kkz" secondAttribute="leading" constant="13" id="sA6-yQ-ycG" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                            <constraint firstItem="jzo-IO-Had" firstAttribute="leading" secondItem="BbB-Gg-3sa" secondAttribute="trailing" constant="13" id="jVt-vA-bg9" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
+                            <constraint firstAttribute="trailing" secondItem="jzo-IO-Had" secondAttribute="trailing" constant="13" id="jf3-TU-OrS"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -244,35 +244,35 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="DJ1-Rx-XQc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="0NR-v9-1gi"/>
-                    <constraint firstItem="rS1-4f-KMv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="9Ms-Qg-F2w"/>
-                    <constraint firstItem="el8-B4-Kkz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="9SG-cy-TOp"/>
-                    <constraint firstAttribute="trailing" secondItem="DJ1-Rx-XQc" secondAttribute="trailing" id="FyI-pU-KHL"/>
-                    <constraint firstItem="el8-B4-Kkz" firstAttribute="top" secondItem="DJ1-Rx-XQc" secondAttribute="bottom" constant="13" id="McP-Pb-GU6" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                    <constraint firstAttribute="trailing" secondItem="oN0-0Q-tOZ" secondAttribute="trailing" id="5rq-E4-deD"/>
+                    <constraint firstItem="MBv-Ei-iqS" firstAttribute="top" secondItem="mcp-3u-rww" secondAttribute="top" constant="13" id="6oB-7I-XLd" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </constraint>
-                    <constraint firstItem="rS1-4f-KMv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="Pwa-5g-ZNk" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                    <constraint firstAttribute="bottom" secondItem="oN0-0Q-tOZ" secondAttribute="bottom" priority="999" constant="6" id="8Wg-Nd-1lk"/>
+                    <constraint firstItem="oN0-0Q-tOZ" firstAttribute="top" secondItem="QEn-GX-gWn" secondAttribute="bottom" constant="13" id="JDO-ls-0if" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </constraint>
-                    <constraint firstItem="DJ1-Rx-XQc" firstAttribute="top" secondItem="rS1-4f-KMv" secondAttribute="bottom" constant="13" id="eEV-CF-ToQ" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                    <constraint firstItem="oN0-0Q-tOZ" firstAttribute="leading" secondItem="mcp-3u-rww" secondAttribute="leading" id="VZl-Tg-YTp"/>
+                    <constraint firstItem="QEn-GX-gWn" firstAttribute="top" secondItem="MBv-Ei-iqS" secondAttribute="bottom" constant="13" id="VhE-G3-an0" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </constraint>
-                    <constraint firstAttribute="trailing" secondItem="el8-B4-Kkz" secondAttribute="trailing" id="v3D-sy-COD"/>
-                    <constraint firstAttribute="bottom" secondItem="el8-B4-Kkz" secondAttribute="bottom" constant="7" id="wA4-I8-VLz"/>
+                    <constraint firstItem="MBv-Ei-iqS" firstAttribute="leading" secondItem="mcp-3u-rww" secondAttribute="leading" id="eZe-gP-paK"/>
+                    <constraint firstAttribute="trailing" secondItem="QEn-GX-gWn" secondAttribute="trailing" id="mZc-Nf-Fhz"/>
+                    <constraint firstItem="QEn-GX-gWn" firstAttribute="leading" secondItem="mcp-3u-rww" secondAttribute="leading" id="nqh-I7-wic"/>
                 </constraints>
             </tableViewCellContentView>
-            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <viewLayoutGuide key="safeArea" id="KLa-6o-C2N"/>
             <connections>
-                <outlet property="lblImplant" destination="1Oj-oQ-VJQ" id="bvb-ld-Bku"/>
-                <outlet property="lblManufacture" destination="sa6-Jb-glx" id="3Xh-RJ-vG3"/>
+                <outlet property="lblImplant" destination="IH8-3h-VIE" id="KnX-xO-jGT"/>
+                <outlet property="lblManufacture" destination="fau-yM-K7n" id="eb5-IP-69H"/>
             </connections>
-            <point key="canvasLocation" x="131.8840579710145" y="57.254464285714285"/>
+            <point key="canvasLocation" x="740.57971014492762" y="48.883928571428569"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -39,12 +39,29 @@ class SearchResult: NSObject {
             })
         }
         
+        //Sorted by Date
+        self.imageData = self.imageData.sorted(by: { (obj1: Any, obj2: Any) -> Bool in
+             let objImageData1 = obj1 as? ImageData ?? ImageData()
+            let objImageData2 = obj2 as? ImageData ?? ImageData()
+            let date1 = objImageData1.createdDate.convertStringToDate(actualFormat: DATEFORMATTERS.YYYYMMDDTHHMMSSZ, expectedFormat: DATEFORMATTERS.YYYYMMDDTHHMMSSZ)
+            let date2 = objImageData2.createdDate.convertStringToDate(actualFormat: DATEFORMATTERS.YYYYMMDDTHHMMSSZ, expectedFormat: DATEFORMATTERS.YYYYMMDDTHHMMSSZ)
+            return (date2!.compare(date1!) == ComparisonResult.orderedAscending)
+        })
+        
       if let dictarr = dictionary.value(forKey: ENTITIES.removImplant) as? [NSDictionary] {
               let arrImaplant  = dictarr.map({ (dict) -> Implant in
                      return Implant(dictionary: dict)
                  }) //as! [Implant]
-          self.removImplant = NSMutableArray(array: arrImaplant)
-             }
+        
+        //Sorted by Date
+          self.removImplant = NSMutableArray(array: arrImaplant.sorted(by: { (obj1: Any, obj2: Any) -> Bool in
+               let objImplant1 = obj1 as? Implant ?? Implant()
+              let objImplant2 = obj2 as? Implant ?? Implant()
+              let date1 = objImplant1.createdDate.convertStringToDate(actualFormat: DATEFORMATTERS.YYYYMMDDTHHMMSSZ, expectedFormat: DATEFORMATTERS.YYYYMMDDTHHMMSSZ)
+              let date2 = objImplant2.createdDate.convertStringToDate(actualFormat: DATEFORMATTERS.YYYYMMDDTHHMMSSZ, expectedFormat: DATEFORMATTERS.YYYYMMDDTHHMMSSZ)
+              return (date2!.compare(date1!) == ComparisonResult.orderedAscending)
+          }))
+        }
         
         self.watsonImage_id = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.watsonImage_id)
         self.createdOn = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.createdOn)

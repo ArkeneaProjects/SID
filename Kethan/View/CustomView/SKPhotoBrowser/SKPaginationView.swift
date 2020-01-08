@@ -14,6 +14,7 @@ class SKPaginationView: UIView {
     var counterLabel: UILabel?
     var prevButton: UIButton?
     var nextButton: UIButton?
+    var currentPage = 0
     private var margin: CGFloat = 100
     private var extraMargin: CGFloat = SKMesurement.isPhoneX ? 40 : 0
     
@@ -60,7 +61,7 @@ class SKPaginationView: UIView {
     
     func update(_ currentPageIndex: Int) {
         guard let browser = browser else { return }
-        
+        self.currentPage = currentPageIndex
         if browser.photos.count > 1 {
             counterLabel?.text = "\(currentPageIndex + 1) / \(browser.photos.count)"
         } else {

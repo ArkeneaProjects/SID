@@ -14,11 +14,16 @@ open class SKZoomingScrollView: UIScrollView {
         didSet {
             imageView.image = nil
             if photo != nil && photo.underlyingImage != nil {
-                displayImage(complete: true)
-                return
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.displayImage(complete: true)
+                    return
+                }
+                
             }
             if photo != nil {
-                displayImage(complete: false)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.displayImage(complete: false)
+                }
             }
         }
     }
@@ -120,7 +125,7 @@ open class SKZoomingScrollView: UIScrollView {
         
         let xScale = boundsSize.width / imageSize.width
         let yScale = boundsSize.height / imageSize.height
-        var minScale: CGFloat = min(xScale.isNormal ? xScale : 1.0 , yScale.isNormal ? yScale : 1.0)
+        var minScale: CGFloat = min(xScale.isNormal ? xScale : 1.0, yScale.isNormal ? yScale : 1.0)
         var maxScale: CGFloat = 1.0
         
         let scale = max(SKMesurement.screenScale, 2.0)
@@ -143,7 +148,7 @@ open class SKZoomingScrollView: UIScrollView {
             // here if imageView.frame.width == deviceScreenWidth
             maxScale = 2.5
         }
-    
+        
         maximumZoomScale = maxScale
         minimumZoomScale = minScale
         zoomScale = minScale
@@ -152,15 +157,24 @@ open class SKZoomingScrollView: UIScrollView {
         // maximum zoom scale to 0.5
         // After changing this value, we still never use more
         /*
-        maxScale = maxScale / scale 
-        if maxScale < minScale {
-            maxScale = minScale * 2
-        }
-        */
+         maxScale = maxScale / scale
+         if maxScale < minScale {
+         maxScale = minScale * 2
+         }
+         */
         
         // reset position
         imageView.frame.origin = CGPoint.zero
+
         setNeedsLayout()
+            if browser?.cordinate.count ?? 0 > 0 {
+                if let objCordinate = browser?.cordinate[browser?.currentPageIndex ?? 0] {
+                    if objCordinate.imageWidth.count != 0 || objCordinate.imageHeight.count != 0 {
+                        imageView.clearDrowRectangle()
+                        imageView.drawRectangle(frameSize: CGSize(width: imageView.bounds.width, height: imageView.bounds.height), imageWidth: CGFloat(objCordinate.imageWidth.floatValue()), imageHight: CGFloat(objCordinate.imageHeight.floatValue()), drawSize: CGRect(x: CGFloat(objCordinate.left.floatValue()), y: CGFloat(objCordinate.top.floatValue()), width: CGFloat(objCordinate.width.floatValue()), height: CGFloat(objCordinate.height.floatValue())))
+                    }
+                }
+            }
     }
     
     open func prepareForReuse() {
@@ -188,6 +202,7 @@ open class SKZoomingScrollView: UIScrollView {
         imageView.frame = imageViewFrame
         
         contentSize = imageViewFrame.size
+        
         setMaxMinZoomScalesForCurrentBounds()
     }
     

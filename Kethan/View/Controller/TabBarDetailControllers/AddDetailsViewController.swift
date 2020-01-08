@@ -8,14 +8,16 @@
 
 import UIKit
 
-
 class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, GalleryManagerDelegate {
     
     @IBOutlet weak var tblView: UITableView!
+    @IBOutlet weak var btnUpload: CustomButton!
     
     var imagePicker: GalleryManager!
     var implantObj = SearchResult()
     var implantVM = AddImplantVM()
+    
+    var imageArray = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +25,11 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         // Do any additional setup after loading the view.
         
         self.implantVM.implantObj = self.implantObj
-    
+        self.imageArray = NSMutableArray(array: self.implantVM.implantObj.imageData)
+        self.checkAndAddPulsButton()
+        
+        self.btnUpload.setTitle((self.implantObj._id.count == 0) ?"Upload for verification":"Update for verification", for: .normal)
+        
         self.tblView.registerNibWithIdentifier([IDENTIFIERS.AddDetailHeader1Cell, IDENTIFIERS.AddDetailHeader2Cell, IDENTIFIERS.AddDetailHeader3Cell])
         
         self.tblView.rowHeight = UITableView.automaticDimension
@@ -45,7 +51,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         controller.showPopup()
         controller.addCompletion = { str, location, date in
             if str.count > 0 {
-                let removalProcess: NSDictionary = ["removalProcess": str, "surgeryDate": date, "surgeryLocation": location]
+                let removalProcess: NSDictionary = ["removalProcess": str, "surgeryDate": date, "surgeryLocation": location, "userId": AppConstant.shared.loggedUser.userId, "isApproved": "0"]
                 let implant = Implant(dictionary: removalProcess)
                 self.implantVM.implantObj.removImplant.insert(implant, at: 0)
                 if let cell = self.tblView.cellForRow(at: sender.indexPath) as? AddDetailHeader3Cell {
@@ -65,7 +71,6 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                     }
                 }
             }
-            print(str)
         }
     }
     
@@ -80,7 +85,6 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         }
     }
     
-
     func reloadTableView(_ indexPath: IndexPath) {
         UIView.performWithoutAnimation {
             let loc = self.tblView.contentOffset
@@ -89,10 +93,32 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         }
     }
     
+    func checkAndAddPulsButton() {
+        if (self.imageArray.lastObject as? ImageData) != nil || self.imageArray.count == 0 {
+            if self.imageArray.count >= 4 {
+                let arr = NSMutableArray()
+                for i in 0..<self.imageArray.count where i <= 4 {
+                    arr.add(self.imageArray[i])
+                }
+                arr.add(["lineImage"])
+                self.imageArray = NSMutableArray(array: arr)
+            } else {
+                self.imageArray.add(["lineImage"])
+            }
+        } else {
+            if (self.imageArray.lastObject as? NSArray) == nil {
+                if self.imageArray.count > 1 {
+                    let totalCount = self.imageArray.count
+                    self.imageArray.removeObject(at: totalCount - 2)
+                }
+            }
+        }
+    }
+    
     // MARK: - UITabelVieeDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return (self.implantVM.implantObj.imageData.count > 3) ?getCalculated(240.0):getCalculated(130.0)
+            return (self.imageArray.count > 3) ?getCalculated(240.0):getCalculated(130.0)
         }
         return UITableView.automaticDimension
     }
@@ -104,33 +130,20 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: IDENTIFIERS.AddDetailHeader1Cell, for: indexPath) as? AddDetailHeader1Cell {
-                if self.implantVM.implantObj._id.count > 0 {
-                    cell.isNewUpload = false
-                    cell.arrAllItems = self.implantVM.implantObj.imageData as! NSMutableArray
-                    cell.btnSeeAll.isHidden = self.implantVM.implantObj.imageData.count < 6
-                } else {
-                    cell.btnSeeAll.isHidden = true
-                    cell.isNewUpload = true
-                    if (self.implantVM.implantObj.implantImage.selectedImage) != nil {
-                        cell.arrAllItems = NSMutableArray(array: [self.implantVM.implantObj.implantImage])
-                    } else {
-                        cell.arrAllItems = ["lineImage"]
-                    }
-                }
+                cell.arrAllItems = self.imageArray
+                cell.btnSeeAll.isHidden = (self.implantVM.implantObj.imageData.count < 6) ?true:false
                 
                 //Delete Image
                 cell.deleteImageCompletion = { index_Path in
                     self.showAlert(title: "", message: "Delete Image?", yesTitle: "Yes", noTitle: "NO", yesCompletion: {
-                        if self.implantVM.implantObj._id.count > 0 {
-                            self.implantVM.implantObj.imageData.remove(at: index_Path.item)
-                            cell.arrAllItems = self.implantVM.implantObj.imageData as! NSMutableArray
-                        } else {
-                            cell.arrAllItems = ["lineImage"]
+                        self.imageArray.removeObject(at: index_Path.item)
+                        self.checkAndAddPulsButton()
+                        cell.arrAllItems = self.imageArray
+
+                        if self.imageArray.count == 3 {
+                            self.tblView.reloadData()
                         }
                         
-                        if cell.arrAllItems.count == 3 {
-                            self.reloadTableView(indexPath)
-                        }
                     }, noCompletion: nil)
                 }
                 
@@ -195,7 +208,6 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                 return cell
             }
         }
-
         return UITableViewCell()
     }
     
@@ -210,6 +222,8 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
             //Get cordinate value from Tagview controller
             controller.continueCompletion = { implantImageObj in
                 print(implantImageObj.dictioary())
+                self.imageArray.add(implantImageObj)
+                self.checkAndAddPulsButton()
                 self.implantVM.implantObj.implantImage = implantImageObj
                 self.tblView.reloadData()
             }
@@ -228,8 +242,6 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }
-    
- 
     /*
      // MARK: - Navigation
      

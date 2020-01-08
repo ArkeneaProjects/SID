@@ -57,9 +57,8 @@ class ResponsePopUpViewController: BaseViewController, GMSAutocompleteViewContro
         controller.addCompletion = { date in
             if date.count > 0 {
                 self.btnSurgeryDate.setTitle((date as String).components(separatedBy: " ")[0], for: .normal)
-                self.dateString = date.convertLocalTimeZoneToUTC(actualFormat: "dd/MM/yyyy HH:mm", expectedFormat: "yyyy-MM-dd HH:mm", actualZone: NSTimeZone.local, expectedZone: TimeZone(identifier: "UTC")!)
+                self.dateString = date.convertLocalTimeZoneToUTC(actualFormat: "dd/MM/yyyy HH:mm", expectedFormat: DATEFORMATTERS.YYYYMMDDTHHMMSSZ, actualZone: NSTimeZone.local, expectedZone: TimeZone(identifier: "UTC")!)
             }
-            print(date)
         }
     }
     
