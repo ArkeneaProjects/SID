@@ -14,11 +14,16 @@ open class SKZoomingScrollView: UIScrollView {
         didSet {
             imageView.image = nil
             if photo != nil && photo.underlyingImage != nil {
-                displayImage(complete: true)
-                return
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.displayImage(complete: true)
+                    return
+                }
+                
             }
             if photo != nil {
-                displayImage(complete: false)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.displayImage(complete: false)
+                }
             }
         }
     }
@@ -160,12 +165,16 @@ open class SKZoomingScrollView: UIScrollView {
         
         // reset position
         imageView.frame.origin = CGPoint.zero
+
         setNeedsLayout()
-        if browser?.cordinate.count ?? 0 > 0 {
-            if let objCordinate = browser?.cordinate[browser?.initPageIndex ?? 0] {
-                imageView.drawRectangle(frameSize: CGSize(width: imageView.bounds.width, height: imageView.bounds.height), imageWidth: CGFloat(objCordinate.actualImageWidth.floatValue()), imageHight: CGFloat(objCordinate.actualImageHeight.floatValue()), drawSize: CGRect(x: CGFloat(objCordinate.left.floatValue()), y: CGFloat(objCordinate.top.floatValue()), width: CGFloat(objCordinate.width.floatValue()), height: CGFloat(objCordinate.height.floatValue())))
+            if browser?.cordinate.count ?? 0 > 0 {
+                if let objCordinate = browser?.cordinate[browser?.currentPageIndex ?? 0] {
+                    if objCordinate.imageWidth.count != 0 || objCordinate.imageHeight.count != 0 {
+                        imageView.clearDrowRectangle()
+                        imageView.drawRectangle(frameSize: CGSize(width: imageView.bounds.width, height: imageView.bounds.height), imageWidth: CGFloat(objCordinate.imageWidth.floatValue()), imageHight: CGFloat(objCordinate.imageHeight.floatValue()), drawSize: CGRect(x: CGFloat(objCordinate.left.floatValue()), y: CGFloat(objCordinate.top.floatValue()), width: CGFloat(objCordinate.width.floatValue()), height: CGFloat(objCordinate.height.floatValue())))
+                    }
+                }
             }
-        }
     }
     
     open func prepareForReuse() {

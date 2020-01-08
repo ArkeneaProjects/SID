@@ -55,10 +55,10 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
                 AppDelegate.delegate()?.tabBarController.selectedIndex = 2
             }
         } else if self.isCalledFrom == 1 {
-            if let controller = self.instantiate(TagViewController.self, storyboard: STORYBOARD.main) as? TagViewController {
-                controller.selectedImage = self.searchImage
-                self.navigationController?.pushViewController(controller, animated: true)
-            }
+            AppConstant.shared.manufactureName = self.menufeacture
+            AppConstant.shared.brandName = self.brandname
+            self.navigationController?.popToRootViewController(animated: false)
+            AppDelegate.delegate()?.tabBarController.selectedIndex = 2
         } else {
             self.addDetailCalling()
         }

@@ -15,8 +15,8 @@ class ObjectLocation: NSObject {
     var width: String = ""
     var height: String = ""
     
-    var actualImageWidth: String = ""
-    var actualImageHeight: String = ""
+    var imageHeight: String = ""
+    var imageWidth: String = ""
     
     override init() {
         
@@ -27,6 +27,8 @@ class ObjectLocation: NSObject {
         self.left = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.left)
         self.width = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.width)
         self.height = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.height)
+        self.imageWidth = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.imageWidth)
+        self.imageHeight = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.imageHeight)
     }
     
     func dictioary() -> NSDictionary {
@@ -35,8 +37,8 @@ class ObjectLocation: NSObject {
             ENTITIES.left: self.left,
             ENTITIES.width: self.width,
             ENTITIES.height: self.height,
-            "actualImageWidth": self.actualImageWidth,
-            "actualImageHeight": self.actualImageHeight
+            ENTITIES.imageWidth: self.imageWidth,
+            ENTITIES.imageHeight: self.imageHeight
         ]
         return dictionary
     }

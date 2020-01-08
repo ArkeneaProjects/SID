@@ -8,10 +8,10 @@
 
 import UIKit
 
-
 class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, GalleryManagerDelegate {
     
     @IBOutlet weak var tblView: UITableView!
+    @IBOutlet weak var btnUpload: CustomButton!
     
     var imagePicker: GalleryManager!
     var implantObj = SearchResult()
@@ -26,6 +26,9 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         
         self.implantVM.implantObj = self.implantObj
         self.imageArray = NSMutableArray(array: self.implantVM.implantObj.imageData)
+        self.checkAndAddPulsButton()
+        
+        self.btnUpload.setTitle((self.implantObj._id.count == 0) ?"Upload for verification":"Update for verification", for: .normal)
         
         self.tblView.registerNibWithIdentifier([IDENTIFIERS.AddDetailHeader1Cell, IDENTIFIERS.AddDetailHeader2Cell, IDENTIFIERS.AddDetailHeader3Cell])
         
@@ -48,7 +51,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         controller.showPopup()
         controller.addCompletion = { str, location, date in
             if str.count > 0 {
-                let removalProcess: NSDictionary = ["removalProcess": str, "surgeryDate": date, "surgeryLocation": location]
+                let removalProcess: NSDictionary = ["removalProcess": str, "surgeryDate": date, "surgeryLocation": location, "userId": AppConstant.shared.loggedUser.userId, "isApproved": "0"]
                 let implant = Implant(dictionary: removalProcess)
                 self.implantVM.implantObj.removImplant.insert(implant, at: 0)
                 if let cell = self.tblView.cellForRow(at: sender.indexPath) as? AddDetailHeader3Cell {
@@ -68,7 +71,6 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                     }
                 }
             }
-            print(str)
         }
     }
     
@@ -83,7 +85,6 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         }
     }
     
-
     func reloadTableView(_ indexPath: IndexPath) {
         UIView.performWithoutAnimation {
             let loc = self.tblView.contentOffset
@@ -92,10 +93,32 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         }
     }
     
+    func checkAndAddPulsButton() {
+        if (self.imageArray.lastObject as? ImageData) != nil || self.imageArray.count == 0 {
+            if self.imageArray.count >= 4 {
+                let arr = NSMutableArray()
+                for i in 0..<self.imageArray.count where i <= 4 {
+                    arr.add(self.imageArray[i])
+                }
+                arr.add(["lineImage"])
+                self.imageArray = NSMutableArray(array: arr)
+            } else {
+                self.imageArray.add(["lineImage"])
+            }
+        } else {
+            if (self.imageArray.lastObject as? NSArray) == nil {
+                if self.imageArray.count > 1 {
+                    let totalCount = self.imageArray.count
+                    self.imageArray.removeObject(at: totalCount - 2)
+                }
+            }
+        }
+    }
+    
     // MARK: - UITabelVieeDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return (self.implantVM.implantObj.imageData.count > 3) ?getCalculated(240.0):getCalculated(130.0)
+            return (self.imageArray.count > 3) ?getCalculated(240.0):getCalculated(130.0)
         }
         return UITableView.automaticDimension
     }
@@ -113,14 +136,14 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                 //Delete Image
                 cell.deleteImageCompletion = { index_Path in
                     self.showAlert(title: "", message: "Delete Image?", yesTitle: "Yes", noTitle: "NO", yesCompletion: {
-                        if let deleteObj = self.imageArray[index_Path.item] as? ImplantImage {
-                            self.imageArray.remove(deleteObj)
-                        }
+                        self.imageArray.removeObject(at: index_Path.item)
+                        self.checkAndAddPulsButton()
                         cell.arrAllItems = self.imageArray
-                        
-                        if cell.arrAllItems.count == 3 {
-                            self.reloadTableView(indexPath)
+
+                        if self.imageArray.count == 3 {
+                            self.tblView.reloadData()
                         }
+                        
                     }, noCompletion: nil)
                 }
                 
@@ -178,7 +201,6 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                 return cell
             }
         }
-
         return UITableViewCell()
     }
     
@@ -194,6 +216,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
             controller.continueCompletion = { implantImageObj in
                 print(implantImageObj.dictioary())
                 self.imageArray.add(implantImageObj)
+                self.checkAndAddPulsButton()
                 self.implantVM.implantObj.implantImage = implantImageObj
                 self.tblView.reloadData()
             }
@@ -212,8 +235,6 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }
-    
- 
     /*
      // MARK: - Navigation
      

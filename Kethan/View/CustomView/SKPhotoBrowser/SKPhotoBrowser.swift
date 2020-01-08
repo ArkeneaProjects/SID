@@ -15,6 +15,7 @@ public class SKPhotoBrowser: UIViewController {
     // open function
     open var currentPageIndex: Int = 0
     open var initPageIndex: Int = 0
+    var currentPage: Int = 0
     open var activityItemProvider: UIActivityItemProvider?
     open var photos: [SKPhotoProtocol] = []
     var cordinate = [ObjectLocation]()
@@ -86,6 +87,7 @@ public class SKPhotoBrowser: UIViewController {
         self.photos.forEach { $0.checkCache() }
         self.currentPageIndex = min(initialPageIndex, photos.count - 1)
         self.initPageIndex = self.currentPageIndex
+        self.currentPage = currentPageIndex
         animator.senderOriginImage = photos[currentPageIndex].underlyingImage
         animator.senderViewForAnimation = photos[currentPageIndex] as? UIView
     }
@@ -608,20 +610,22 @@ private extension SKPhotoBrowser {
 
 extension SKPhotoBrowser: UIScrollViewDelegate {
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard isViewActive else { return }
-        guard !isPerformingLayout else { return }
-        
-        // tile page
-        pagingScrollView.tilePages()
-        
-        // Calculate current page
-        let previousCurrentPage = currentPageIndex
-        let visibleBounds = pagingScrollView.bounds
-        currentPageIndex = min(max(Int(floor(visibleBounds.midX / visibleBounds.width)), 0), photos.count - 1)
-        
-        if currentPageIndex != previousCurrentPage {
-            delegate?.didShowPhotoAtIndex?(self, index: currentPageIndex)
-            paginationView.update(currentPageIndex)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            guard self.isViewActive else { return }
+            guard !self.isPerformingLayout else { return }
+            
+            // tile page
+            self.pagingScrollView.tilePages()
+            
+            // Calculate current page
+            let previousCurrentPage = self.currentPageIndex
+            let visibleBounds = self.pagingScrollView.bounds
+            self.currentPageIndex = min(max(Int(floor(visibleBounds.midX / visibleBounds.width)), 0), self.photos.count - 1)
+            self.currentPage = self.currentPageIndex
+            if self.currentPageIndex != previousCurrentPage {
+                self.delegate?.didShowPhotoAtIndex?(self, index: self.currentPageIndex)
+                self.paginationView.update(self.currentPageIndex)
+            }
         }
     }
     

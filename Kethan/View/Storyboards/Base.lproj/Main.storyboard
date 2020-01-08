@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vnA-h8-cmU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vnA-h8-cmU">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -963,6 +963,7 @@ about an implant, upon verifiication  we'll add
                         <viewLayoutGuide key="safeArea" id="QYl-QD-2pb"/>
                     </view>
                     <connections>
+                        <outlet property="btnUpload" destination="Eea-Jf-zck" id="iac-YR-F5W"/>
                         <outlet property="const_NavbarHeight" destination="c4i-hu-gBF" id="c0w-uX-IXg"/>
                         <outlet property="tblView" destination="M7X-jy-buj" id="6La-Cd-aD9"/>
                         <outlet property="viewContainer" destination="rsx-8s-5To" id="DMz-tU-VAK"/>
@@ -2969,7 +2970,7 @@ to search in our Database</string>
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="18g-RH-7Df">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="464"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <color key="separatorColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <inset key="separatorInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
@@ -3010,7 +3011,7 @@ to search in our Database</string>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9P-Mp-gAg" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
-                                                                    <rect key="frame" x="41.5" y="11" width="259.5" height="20"/>
+                                                                    <rect key="frame" x="41.5" y="11" width="243.5" height="20"/>
                                                                     <string key="text">Locate presence of 1 or 2 rod implant by 
 palpation. Refer for further examination if</string>
                                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
@@ -3041,7 +3042,7 @@ palpation. Refer for further examination if</string>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Orl-CH-s1f" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
-                                                                    <rect key="frame" x="41.5" y="41" width="259.5" height="0.0"/>
+                                                                    <rect key="frame" x="41.5" y="41" width="243.5" height="0.0"/>
                                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -3060,7 +3061,7 @@ palpation. Refer for further examination if</string>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XgU-In-4Kl" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
-                                                                    <rect key="frame" x="41.5" y="51" width="259.5" height="0.0"/>
+                                                                    <rect key="frame" x="41.5" y="51" width="243.5" height="0.0"/>
                                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -3071,14 +3072,32 @@ palpation. Refer for further examination if</string>
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWn-tX-OyQ" customClass="CustomButton" customModule="SID" customModuleProvider="target">
+                                                                    <rect key="frame" x="291" y="21" width="20" height="20"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="20" id="GcU-KY-5gJ" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                                            </userDefinedRuntimeAttributes>
+                                                                        </constraint>
+                                                                        <constraint firstAttribute="height" constant="20" id="YBO-mi-rnz" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                                            </userDefinedRuntimeAttributes>
+                                                                        </constraint>
+                                                                    </constraints>
+                                                                    <state key="normal" image="close"/>
+                                                                </button>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="0IU-Ra-MuD" secondAttribute="bottom" id="0JA-5Z-oV0"/>
                                                                 <constraint firstItem="n9P-Mp-gAg" firstAttribute="top" secondItem="cB6-F3-QHn" secondAttribute="bottom" constant="10" id="4UT-3w-lHg"/>
                                                                 <constraint firstItem="Orl-CH-s1f" firstAttribute="trailing" secondItem="n9P-Mp-gAg" secondAttribute="trailing" id="4sD-RL-7CY"/>
+                                                                <constraint firstAttribute="trailing" secondItem="vWn-tX-OyQ" secondAttribute="trailing" constant="9" id="7Lz-Ht-s64"/>
                                                                 <constraint firstItem="2hv-AY-Eeb" firstAttribute="leading" secondItem="Sze-r3-ReK" secondAttribute="leading" id="Al6-KQ-TDZ"/>
                                                                 <constraint firstItem="0IU-Ra-MuD" firstAttribute="top" secondItem="XgU-In-4Kl" secondAttribute="bottom" constant="10" id="CCl-rb-qxD"/>
+                                                                <constraint firstItem="vWn-tX-OyQ" firstAttribute="leading" secondItem="n9P-Mp-gAg" secondAttribute="trailing" constant="6" id="H1Q-Ry-BJb"/>
                                                                 <constraint firstItem="5X2-J2-KWR" firstAttribute="top" secondItem="n9P-Mp-gAg" secondAttribute="top" id="Ibt-ci-SWR"/>
                                                                 <constraint firstItem="Orl-CH-s1f" firstAttribute="leading" secondItem="n9P-Mp-gAg" secondAttribute="leading" id="K3K-mb-04m"/>
                                                                 <constraint firstItem="Orl-CH-s1f" firstAttribute="top" secondItem="n9P-Mp-gAg" secondAttribute="bottom" constant="10" id="QKv-tD-gbf"/>
@@ -3089,10 +3108,10 @@ palpation. Refer for further examination if</string>
                                                                 <constraint firstItem="Sze-r3-ReK" firstAttribute="centerY" secondItem="Orl-CH-s1f" secondAttribute="centerY" id="fez-bi-boM"/>
                                                                 <constraint firstItem="0IU-Ra-MuD" firstAttribute="leading" secondItem="vl3-Lh-2E7" secondAttribute="leading" constant="20" id="h9b-Rq-FDb"/>
                                                                 <constraint firstItem="XgU-In-4Kl" firstAttribute="top" secondItem="Orl-CH-s1f" secondAttribute="bottom" constant="10" id="kbt-q6-VB4"/>
-                                                                <constraint firstAttribute="trailing" secondItem="n9P-Mp-gAg" secondAttribute="trailing" constant="19" id="kdx-ah-Xhv"/>
+                                                                <constraint firstItem="vWn-tX-OyQ" firstAttribute="centerY" secondItem="vl3-Lh-2E7" secondAttribute="centerY" id="mVY-zR-g07"/>
                                                                 <constraint firstItem="n9P-Mp-gAg" firstAttribute="leading" secondItem="5X2-J2-KWR" secondAttribute="trailing" constant="10.5" id="q5w-li-jeM"/>
                                                                 <constraint firstItem="Sze-r3-ReK" firstAttribute="leading" secondItem="5X2-J2-KWR" secondAttribute="leading" id="uNO-45-iqz"/>
-                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0IU-Ra-MuD" secondAttribute="trailing" symbolic="YES" id="xeP-Zx-cAt"/>
+                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0IU-Ra-MuD" secondAttribute="trailing" constant="20" symbolic="YES" id="xeP-Zx-cAt"/>
                                                                 <constraint firstItem="5X2-J2-KWR" firstAttribute="leading" secondItem="vl3-Lh-2E7" secondAttribute="leading" constant="13" id="xqh-jp-Pda"/>
                                                                 <constraint firstItem="XgU-In-4Kl" firstAttribute="trailing" secondItem="Orl-CH-s1f" secondAttribute="trailing" id="ysQ-Wt-8Lw"/>
                                                                 <constraint firstItem="2hv-AY-Eeb" firstAttribute="centerY" secondItem="XgU-In-4Kl" secondAttribute="centerY" id="zfO-3p-U9a"/>
@@ -3118,6 +3137,7 @@ palpation. Refer for further examination if</string>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
+                                                    <outlet property="btnDelete" destination="vWn-tX-OyQ" id="69V-yY-MEH"/>
                                                     <outlet property="constDateHeight" destination="Nf6-0J-3HW" id="vdf-1p-F0H"/>
                                                     <outlet property="constLocationImgHeight" destination="hsV-Ir-BD1" id="1Lz-CN-Wfs"/>
                                                     <outlet property="constSurgeryDateBottom" destination="kbt-q6-VB4" id="kw7-Fp-lfU"/>
@@ -3133,42 +3153,12 @@ palpation. Refer for further examination if</string>
                                             <outlet property="delegate" destination="ro3-KY-mO9" id="ySp-Vu-A8Z"/>
                                         </connections>
                                     </tableView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHm-ni-ZQ1" customClass="CustomButton" customModule="SID" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="464" width="320" height="40"/>
-                                        <color key="backgroundColor" red="0.035294117649999998" green="0.52156862749999999" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="mgs-8C-vEM" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
-                                        <state key="normal" title="Add Process">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                <real key="value" value="17"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="3.1000000000000001"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="btnAddProcessClicked:" destination="ro3-KY-mO9" eventType="touchUpInside" id="Pv8-dc-Ovt"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="fHm-ni-ZQ1" secondAttribute="bottom" id="1H4-2q-Sc8"/>
                                     <constraint firstAttribute="trailing" secondItem="18g-RH-7Df" secondAttribute="trailing" id="1zm-65-GKy"/>
                                     <constraint firstItem="18g-RH-7Df" firstAttribute="leading" secondItem="uQn-wa-0bm" secondAttribute="leading" id="57a-rF-tel"/>
-                                    <constraint firstAttribute="trailing" secondItem="fHm-ni-ZQ1" secondAttribute="trailing" id="6JT-lY-2p1"/>
-                                    <constraint firstItem="fHm-ni-ZQ1" firstAttribute="leading" secondItem="uQn-wa-0bm" secondAttribute="leading" id="UKv-zj-0sC"/>
-                                    <constraint firstItem="fHm-ni-ZQ1" firstAttribute="top" secondItem="18g-RH-7Df" secondAttribute="bottom" id="vj7-ta-1uJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="18g-RH-7Df" secondAttribute="bottom" id="bQJ-OZ-Z9r"/>
                                     <constraint firstItem="18g-RH-7Df" firstAttribute="top" secondItem="uQn-wa-0bm" secondAttribute="top" id="yNy-cG-y5g"/>
                                 </constraints>
                             </view>
@@ -3186,7 +3176,6 @@ palpation. Refer for further examination if</string>
                         <viewLayoutGuide key="safeArea" id="9Th-i0-Qhe"/>
                     </view>
                     <connections>
-                        <outlet property="btnAddProcess" destination="fHm-ni-ZQ1" id="3U7-Yb-bMm"/>
                         <outlet property="const_NavbarHeight" destination="9zP-nL-L1T" id="GBJ-DR-BX5"/>
                         <outlet property="processTblView" destination="18g-RH-7Df" id="OzF-QC-1aU"/>
                         <outlet property="viewContainer" destination="uQn-wa-0bm" id="kJH-NY-vde"/>

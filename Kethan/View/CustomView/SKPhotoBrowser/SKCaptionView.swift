@@ -69,4 +69,3 @@ private extension SKCaptionView {
         addSubview(photoLabel)
     }
 }
-

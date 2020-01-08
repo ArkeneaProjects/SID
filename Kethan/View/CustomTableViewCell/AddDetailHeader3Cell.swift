@@ -62,9 +62,10 @@ class AddDetailHeader3Cell: UITableViewCell {
                 let process = arrTableView.object(at: index) as! Implant
                 
                 processListingView.lblProcess.text = process.removalProcess
-                
+                processListingView.btnRemove.alpha =  (process.isApproved == "0" && process.userId == AppConstant.shared.loggedUser.userId) ?1.0:0
+
                 if process.surgeryDate.count > 0 {
-                    processListingView.lblSurgeryDate.text = process.surgeryDate.convertLocalTimeZoneToUTC(actualFormat: "yyyy-MM-dd HH:mm", expectedFormat: "dd/MM/yyyy", actualZone: TimeZone(identifier: "UTC")!, expectedZone: NSTimeZone.local)
+                    processListingView.lblSurgeryDate.text = process.surgeryDate.convertLocalTimeZoneToUTC(actualFormat: DATEFORMATTERS.YYYYMMDDTHHMMSSZ, expectedFormat: "dd/MM/yyyy", actualZone: TimeZone(identifier: "UTC")!, expectedZone: NSTimeZone.local)
                     processListingView.constDateHeight.constant = 18.0
                 } else {
                     processListingView.constDateHeight.constant = 0.0

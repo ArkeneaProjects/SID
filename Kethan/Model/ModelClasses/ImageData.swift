@@ -10,11 +10,16 @@ import UIKit
 
 class ImageData: NSObject {
     
+    var createdDate: String = ""
+    var id: String = ""
+    var isApproved: String = ""
+    var userId: String = ""
+    
     var imageName: String = ""
     var watsonImage_id: String = ""
     var objectLocation: ObjectLocation = ObjectLocation()
     var image: UIImage?
-  
+    
     override init() {
         
     }
@@ -22,19 +27,26 @@ class ImageData: NSObject {
     init(dictionary: NSDictionary) {
         self.imageName = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.imageName)
         self.watsonImage_id = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.watsonImage_id)
-        if let dict = dictionary.value(forKey: ENTITIES.objectLocation) as? NSDictionary {
+        self.createdDate = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.createdDate)
+        self.id = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.id)
+        self.isApproved = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.isApproved)
+        self.userId = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.userId)
+        if let dict = dictionary.value(forKey: ENTITIES.imageObjective) as? NSDictionary {
             self.objectLocation = ObjectLocation(dictionary: dict)
         }
-
+        
     }
     
     func dictioary() -> NSDictionary {
         let dictionary: NSDictionary = [
             ENTITIES.imageName: self.imageName,
             ENTITIES.watsonImage_id: self.watsonImage_id,
+            ENTITIES.createdDate: self.createdDate,
+            ENTITIES.id: self.id,
+            ENTITIES.isApproved: self.isApproved,
+            ENTITIES.userId: self.userId,
             ENTITIES.objectLocation: self.objectLocation.dictioary()
         ]
         return dictionary
     }
 }
-

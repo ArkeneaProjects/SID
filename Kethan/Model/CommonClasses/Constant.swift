@@ -41,6 +41,28 @@ struct APP_FONT {
     }
 }
 
+struct DATEFORMATTERS {
+    static let YYYYMMDDTHHMMSSZZZZZZ: String = "yyyy-MM-dd HH:mm:ss.zzzzzz"
+    static let YYYYMMDDTHHMMSSZ: String = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    static let YYYYMMDDTHHMMSS: String = "yyyy-MM-dd HH:mm:ss"
+    static let MMDDYYYY: String = "MM/dd/yyyy"
+    static let MMDDYY: String = "MM/dd/yy"
+    static let YYYYMMDD: String = "yyyy-MM-dd"
+    static let DDMMYYYY: String = "dd-MM-yyyy"
+    static let MMMMDDYYYY: String =  "MMMM dd, yyyy"
+    static let YYYYMMMMDD: String = "yyyy-MMMM-dd"
+    static let HHMM: String = "HH:mm"
+    static let EMMMMDDYYYY: String = "E, MMMM dd, yyyy"
+    static let DDMMMYYYY: String = "dd MMM yyyy"
+    static let MMMYYYY: String = "MMM yyyy"
+    static let MMYY = "MMMM yy"
+    static let DDMMYY = "dd/MM/yy"
+    static let DD = "dd"
+    static let MMMDD: String = "MMM dd"
+    static let HHMMA: String = "hh:mm a"
+    static let DDMMM: String = "dd MMM"
+}
+
 struct DEVICES {
     static let iPhoneSE: String = "iPhoneSE"
     static let iPhone6: String = "iPhone6"
@@ -73,6 +95,7 @@ struct SUFFIX_URL {
     static let SearchByText = "implant/searchByText"
     static let SearchByImage = "implant/analyzeImage"
     static let addImplant = "implant/addImpnatApi"
+    static let editImplant = "implant/editImplantApi"
     static let UpdateProfile = "user/updateProfile"
     static let ChangeEmail = "auth/changeEmail"
     static let EmailVerifyOTP = "auth/changeEmailverifyOPT"
@@ -228,6 +251,8 @@ struct ENTITIES {
     static let socialPlatform = "socialPlatform"
     
     //SearchResult
+    static let id = "id"
+    static let createdDate = "createdDate"
     static let isApproved = "isApproved"
     static let isRejected = "isRejected"
     static let _id = "_id"
@@ -255,7 +280,8 @@ struct ENTITIES {
     //ImageData
     static let imageName = "imageName"
     static let objectLocation = "objectLocation"
-    
+    static let imageObjective = "imageObjective"
+
     //ObjectLocation
     static let top = "top"
     static let left = "left"

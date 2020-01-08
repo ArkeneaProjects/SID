@@ -18,14 +18,6 @@ class AddDetailHeader1Cell: UITableViewCell, UICollectionViewDelegate, UICollect
     
     var arrAllItems: NSMutableArray = NSMutableArray() {
         didSet {
-            if (arrAllItems.lastObject as? ImageData) != nil || arrAllItems.count == 0 {
-                arrAllItems.add(["lineImage"])
-            } else {
-                if arrAllItems.count > 1 {
-                    let totalCount = arrAllItems.count
-                    arrAllItems.removeObject(at: totalCount - 2)
-                }
-            }
             self.collectionView.reloadData()
         }
     }
@@ -72,18 +64,21 @@ class AddDetailHeader1Cell: UITableViewCell, UICollectionViewDelegate, UICollect
             cell.lblAdd.alpha = 0
             cell.imgPlus.alpha = 0
             cell.btnDelete.alpha = 0
+            cell.btnDelete.indexPath = indexPath
+            cell.btnDelete.addTarget(self, action: #selector(deleteImage(_:)), for: .touchUpInside)
             cell.imgSelected.clearDrowRectangle()
-            
+
             if let obj = arrAllItems.object(at: indexPath.row) as? ImageData {
-                
+                cell.btnDelete.alpha = (obj.isApproved == "0" && obj.userId == AppConstant.shared.loggedUser.userId) ?1.0:0
                 cell.imgSelected.sd_setImage(with: URL(string: obj.imageName), placeholderImage: nil, options: .continueInBackground) { (image, error, types, url) in
-                    cell.imgSelected.drawRectangle(frameSize: CGSize(width: getCalculated(cell.imgSelected.bounds.width), height: getCalculated(cell.imgSelected.bounds.height)), imageWidth: image?.size.width ?? 0.0, imageHight: image?.size.height ?? 0.0, drawSize: CGRect(x: CGFloat(obj.objectLocation.left.floatValue()), y: CGFloat(obj.objectLocation.top.floatValue()), width: CGFloat(obj.objectLocation.width.floatValue()), height: CGFloat(obj.objectLocation.height.floatValue())))
+                    if obj.objectLocation.imageWidth.count != 0 || obj.objectLocation.imageHeight.count != 0 {
+                        cell.imgSelected.drawRectangle(frameSize: CGSize(width: getCalculated(cell.imgSelected.bounds.width), height: getCalculated(cell.imgSelected.bounds.height)), imageWidth: CGFloat(obj.objectLocation.imageWidth.floatValue()), imageHight: CGFloat(obj.objectLocation.imageHeight.floatValue()), drawSize: CGRect(x: CGFloat(obj.objectLocation.left.floatValue()), y: CGFloat(obj.objectLocation.top.floatValue()), width: CGFloat(obj.objectLocation.width.floatValue()), height: CGFloat(obj.objectLocation.height.floatValue())))
+                    }
                 }
             } else if let implantObj = self.arrAllItems[indexPath.item] as? ImplantImage {
                 cell.imgSelected.image = implantObj.selectedImage
                 cell.imgSelected.drawRectangle(frameSize: CGSize(width: cell.imgSelected.frame.width, height: cell.imgSelected.frame.height), imageWidth: CGFloat(implantObj.imageWidth.floatValue()), imageHight: CGFloat(implantObj.imageHeight.floatValue()), drawSize: CGRect(x: CGFloat(implantObj.labelOffsetX.floatValue()), y: CGFloat(implantObj.labelOffsetY.floatValue()), width: CGFloat(implantObj.labelWidth.floatValue()), height: CGFloat(implantObj.labelHeight.floatValue())))
                 cell.btnDelete.indexPath = indexPath
-                cell.btnDelete.addTarget(self, action: #selector(deleteImage(_:)), for: .touchUpInside)
                 cell.btnDelete.alpha = 1.0
             } else {
                 cell.lblAdd.alpha = 1.0
@@ -117,8 +112,8 @@ class AddDetailHeader1Cell: UITableViewCell, UICollectionViewDelegate, UICollect
                         objLocation.left = objRemovalData.labelOffsetX
                         objLocation.width = objRemovalData.labelWidth
                         objLocation.height = objRemovalData.labelHeight
-                        objLocation.actualImageWidth = objRemovalData.imageWidth
-                        objLocation.actualImageHeight = objRemovalData.imageHeight
+                        objLocation.imageWidth = objRemovalData.imageWidth
+                        objLocation.imageHeight = objRemovalData.imageHeight
                         imageData.objectLocation = objLocation
                         imageData.image = objRemovalData.selectedImage
                         arr.add(imageData)
