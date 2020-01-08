@@ -144,7 +144,14 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                 }
                 
                 cell.seeAllImageCompletion = {
-                    
+                    if let processListVC = self.instantiate(ImageListViewController.self, storyboard: STORYBOARD.main) as? ImageListViewController {
+                        processListVC.arrAllItems = self.implantVM.implantObj.imageData as! NSMutableArray
+//                               processListVC.saveCompletion = { array in
+//                                   self.implantVM.implantObj.removImplant = array
+//                                   self.tblView.reloadData()
+//                               }
+                               self.navigationController?.pushViewController(processListVC, animated: true)
+                           }
                 }
                 
                 return cell
