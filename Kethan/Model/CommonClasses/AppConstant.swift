@@ -24,6 +24,10 @@ class AppConstant: NSObject {
         AppConstant.shared.loggedUser.contactNumber = updatedProfile.contactNumber
         AppConstant.shared.loggedUser.name = updatedProfile.name
         AppConstant.shared.loggedUser.profession = updatedProfile.profession
+        AppConstant.shared.loggedUser.userImage = updatedProfile.userImage
+        AppConstant.shared.loggedUser.country_code = updatedProfile.country_code
+        AppConstant.shared.loggedUser.referralCode = updatedProfile.referralCode
+        AppConstant.shared.loggedUser.creditPoint = updatedProfile.creditPoint
 
         setUserDefaults(value: AppConstant.shared.loggedUser.dictioary(), forKey: UserDefaultsKeys.LoggedUser)
     }

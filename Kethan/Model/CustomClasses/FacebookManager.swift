@@ -14,7 +14,8 @@ import FacebookCore
 
 class FacebookManager: NSObject {
     static func loginToFacebookWith(controller: UIViewController, completion: @escaping ResponseCompletion) {
-        LoginManager().logIn(permissions: ["public_profile", "email"], viewController: controller) { (result) in
+        let facebookLoginManager = LoginManager()
+        facebookLoginManager.logIn(permissions: ["public_profile", "email"], viewController: controller) { (result) in
             switch result {
             case .cancelled:
                 print("LOGIN REQUEST CANCELED")
@@ -27,6 +28,7 @@ class FacebookManager: NSObject {
                 
                 let graphRequest = GraphRequest.init(graphPath: "/me", parameters: ["fields": "email, first_name, middle_name, last_name, gender, picture.type(large)"], tokenString: token.tokenString, version: nil, httpMethod: .get)
                 graphRequest.start { (connection: GraphRequestConnection?, result: Any?, error: Error?) in
+                    self.logoutUser()
                     if error == nil {
                         if let dictResponse = result as? NSDictionary {
                             completion(dictResponse, nil)
@@ -37,7 +39,6 @@ class FacebookManager: NSObject {
                 }
             }
         }
-        
     }
     
     static func logoutUser() {

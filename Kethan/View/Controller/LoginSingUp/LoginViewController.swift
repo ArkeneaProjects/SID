@@ -79,14 +79,16 @@ class LoginViewController: BaseViewController, GIDSignInDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        FacebookManager.logoutUser()
     }
     
     // MARK: - Button Action
     @IBAction func fbClickAction(_ sender: Any) {
-        /*  ProgressManager.show(withStatus: "", on: self.view)
+        ProgressManager.show(withStatus: "", on: self.view)
          FacebookManager.loginToFacebookWith(controller: self) { (result: Any?, error: String?) in
          if error == nil {
          if let dict = result as? NSDictionary, let pictureDict = dict["picture"] as? NSDictionary, let dataDict = pictureDict["data"] as? NSDictionary {
+         FacebookManager.logoutUser()
          if AppConstant.shared.loggedUser.accesstoken.trimmedString().count == 0 {
          self.loginVM.clearAllData()
          self.loginVM.email = dict["email"] as? String ?? ""
@@ -100,14 +102,14 @@ class LoginViewController: BaseViewController, GIDSignInDelegate {
          } else {
          ProgressManager.showError(withStatus: error, on: self.view)
          }
-         }*/
+         }
     }
     
     @IBAction func googleClickAction(_ sender: Any) {
-        /* ProgressManager.show(withStatus: "", on: self.view)
+         ProgressManager.show(withStatus: "", on: self.view)
          GIDSignIn.sharedInstance()?.delegate = self
          GIDSignIn.sharedInstance()?.signIn()
-         GIDSignIn.sharedInstance()?.signOut()*/
+         GIDSignIn.sharedInstance()?.signOut()
     }
     
     @IBAction func signUpClickAction(_ sender: Any) {
