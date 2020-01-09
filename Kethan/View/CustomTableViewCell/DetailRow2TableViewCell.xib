@@ -42,12 +42,12 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLM-tV-En1" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
-                        <rect key="frame" x="33" y="3" width="258" height="28"/>
+                        <rect key="frame" x="33" y="3" width="258" height="24"/>
                         <string key="text">Locate presence of 1 or 2 rod implant by 
 palpation. Refer for further examination if not 
 located.</string>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13.5"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
@@ -63,7 +63,7 @@ located.</string>
                     <constraint firstAttribute="trailing" secondItem="gLM-tV-En1" secondAttribute="trailing" constant="29" id="RN6-Nq-b8A"/>
                     <constraint firstItem="b8g-fH-AqB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="VNS-JV-EmF"/>
                     <constraint firstItem="b8g-fH-AqB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="eKb-RB-ssc"/>
-                    <constraint firstAttribute="bottom" secondItem="gLM-tV-En1" secondAttribute="bottom" constant="3" id="zpE-Ee-2H7"/>
+                    <constraint firstAttribute="bottom" secondItem="gLM-tV-En1" secondAttribute="bottom" constant="7" id="zpE-Ee-2H7"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
