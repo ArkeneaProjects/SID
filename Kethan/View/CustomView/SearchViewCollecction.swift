@@ -32,6 +32,15 @@ class SearchViewCollecction: UIView, UICollectionViewDelegate, UICollectionViewD
         //ColeationView
         self.collectionView.register(UINib(nibName: IDENTIFIERS.CustomCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: IDENTIFIERS.CustomCollectionViewCell)
         
+        //SetUp SubView
+        self.translatesAutoresizingMaskIntoConstraints = false
+        superView.addConstraint(NSLayoutConstraint(item: self, attribute: .centerX, relatedBy: .equal, toItem: superView, attribute: .centerX, multiplier: 1.0, constant: 0))
+        superView.addConstraint(NSLayoutConstraint(item: self, attribute: .centerY, relatedBy: .equal, toItem: superView, attribute: .centerY, multiplier: 1.0, constant: 0))
+        superView.addConstraint(NSLayoutConstraint(item: self, attribute: .width, relatedBy: .equal, toItem: superView, attribute: .width, multiplier: 1.0, constant: 0))
+        superView.addConstraint(NSLayoutConstraint(item: self, attribute: .height, relatedBy: .equal, toItem: superView, attribute: .height, multiplier: 1.0, constant: 0))
+        superView.layoutIfNeeded()
+        
+        //CollectionView
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: collectionView.frame.size.width, height: getCalculated(295.0))
         layout.minimumLineSpacing = getCalculated(0.0)
@@ -40,14 +49,6 @@ class SearchViewCollecction: UIView, UICollectionViewDelegate, UICollectionViewD
         layout.scrollDirection = .horizontal
         self.collectionView.collectionViewLayout = layout
         self.collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        
-        //SetUp SubView
-        self.translatesAutoresizingMaskIntoConstraints = false
-        superView.addConstraint(NSLayoutConstraint(item: self, attribute: .centerX, relatedBy: .equal, toItem: superView, attribute: .centerX, multiplier: 1.0, constant: 0))
-        superView.addConstraint(NSLayoutConstraint(item: self, attribute: .centerY, relatedBy: .equal, toItem: superView, attribute: .centerY, multiplier: 1.0, constant: 0))
-        superView.addConstraint(NSLayoutConstraint(item: self, attribute: .width, relatedBy: .equal, toItem: superView, attribute: .width, multiplier: 1.0, constant: 0))
-        superView.addConstraint(NSLayoutConstraint(item: self, attribute: .height, relatedBy: .equal, toItem: superView, attribute: .height, multiplier: 1.0, constant: 0))
-        superView.layoutIfNeeded()
         
         //PageControl
         let image = UIImage.outlinedEllipse(size: CGSize(width: 7.0, height: 7.0), color: .darkGray)
@@ -88,7 +89,7 @@ class SearchViewCollecction: UIView, UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width, height: getCalculated(295.0))
+        return CGSize(width: collectionView.frame.size.width, height: getCalculated(405.0))
     }
     
     // MARK: - ScrollDelegate

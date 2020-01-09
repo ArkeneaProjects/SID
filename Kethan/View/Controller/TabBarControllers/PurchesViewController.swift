@@ -27,7 +27,7 @@ class PurchesViewController: BaseViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         self.addNavBarWithTitle("Credits", withLeftButtonType: .buttonTypeNil, withRightButtonType: .buttonTypeNil)
         
-        let referralNumber = "(hd09w7r)"
+        let referralNumber = AppConstant.shared.loggedUser.referralCode
         let attributedString = NSMutableAttributedString(string: "Referral Code \(referralNumber) ", attributes: [
           .font: UIFont(name: "HelveticaNeue-Medium", size: getCalculated(16.75))!,
           .foregroundColor: UIColor(red: 9.0 / 255.0, green: 133.0 / 255.0, blue: 233.0 / 255.0, alpha: 1.0)
@@ -51,7 +51,7 @@ class PurchesViewController: BaseViewController, UITableViewDelegate, UITableVie
     @IBAction func referralClickAction(_ sender: Any) {
         
         // text to share
-        let text = "Use my Referral Code hd09w7r to sign up. Use code first to get free first 5 photos to upload"
+        let text = "Use my Referral Code \(AppConstant.shared.loggedUser.referralCode) to sign up. Use code first to get free first 5 photos to upload"
 
         // set up activity view controller
         let textToShare = [ text ]

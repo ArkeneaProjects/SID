@@ -94,11 +94,11 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     
     @objc func seeAllImages(_ sender: CustomButton) {
         if let imagesListVC = self.instantiate(ImageListViewController.self, storyboard: STORYBOARD.main) as? ImageListViewController {
-            imagesListVC.arrAllItems = self.implantVM.implantObj.imageData
+            imagesListVC.arrAllItems = self.imageArray
             imagesListVC.saveCompletion = { array, allImagesArray in
-                self.implantVM.implantObj.imageData = allImagesArray as! [ImageData]
-                self.deletedImageArr = array
-                self.reloadTableView(IndexPath(row: 0, section: 0))
+//                self.implantVM.implantObj.imageData = allImagesArray as! [ImageData]
+//                self.deletedImageArr = array
+                self.tblView.reloadData()
             }
             self.navigationController?.pushViewController(imagesListVC, animated: true)
         }
@@ -106,8 +106,9 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     
     func reloadTableView(_ indexPath: IndexPath) {
         if indexPath.row == 0 {
-            let cell = self.tblView.cellForRow(at: indexPath) as! AddDetailHeader1Cell
-            cell.collectionView.reloadData()
+            if let cell = self.tblView.cellForRow(at: indexPath) as? AddDetailHeader1Cell {
+                cell.collectionView.reloadData()
+            }
         }
         
         UIView.performWithoutAnimation {
@@ -155,7 +156,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         if indexPath.row == 0 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: IDENTIFIERS.AddDetailHeader1Cell, for: indexPath) as? AddDetailHeader1Cell {
                 cell.arrAllItems = self.imageArray
-                cell.btnSeeAll.isHidden = (self.implantVM.implantObj.imageData.count < 6) ?true:false
+                cell.btnSeeAll.isHidden = (self.imageArray.count < 7) ?true:false
                 cell.btnSeeAll.indexPath = indexPath
                 cell.btnSeeAll.addTarget(self, action: #selector(seeAllImages(_:)), for: .touchUpInside)
                 
