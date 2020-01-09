@@ -100,12 +100,13 @@ struct SUFFIX_URL {
     static let ChangeEmail = "auth/changeEmail"
     static let EmailVerifyOTP = "auth/changeEmailverifyOPT"
     static let changePassword = "auth/changePassword"
+    static let SignOut = "auth/signout"
+    static let Support = "support/create"
 }
 
 struct KEYS {
-    static let googleKey = "23307698272-psgd5pqvanqohndhmpu3en11t6o50ja9.apps.googleusercontent.com"
+    static let googleKey = "365325651862-j2dmt4k5f2hupc98roosv91fs78249j4.apps.googleusercontent.com"
     static let GooglePlacesAPIKey = "AIzaSyD0SJanDGyOB3Azx1lToYnh03ocyU2M4Hs"
-    
 }
 
 struct NOTIFICATIONS {
@@ -249,7 +250,8 @@ struct ENTITIES {
     static let isSocialMediaUser = "isSocialMediaUser"
     static let socialMediaToken = "socialMediaToken"
     static let socialPlatform = "socialPlatform"
-    
+    static let creditPoint = "creditPoint"
+
     //SearchResult
     static let id = "id"
     static let createdDate = "createdDate"
@@ -290,5 +292,8 @@ struct ENTITIES {
     
     //Edit Profile
     static let contactNumber = "contactNumber"
+    
+    //Query
+    static let query = "query"
     
 }

@@ -142,7 +142,8 @@ class LeftMenuViewController: BaseViewController, UITableViewDelegate, UITableVi
     @IBAction func logOutAction(_ sender: Any) {
         if let displayName = Bundle.main.infoDictionary!["CFBundleName"] as? String {
             self.showAlert(title: "", message: "Are you sure you want to logout from \(displayName)", yesTitle: YESNO.yes, noTitle: YESNO.no, yesCompletion: {
-                self.logoutFromApp()
+                let logoutVM = LogoutVM()
+                logoutVM.logoutFromSystem(controller: self)
             }, noCompletion: nil)
         }
     }

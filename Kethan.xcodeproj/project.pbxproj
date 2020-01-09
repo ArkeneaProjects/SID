@@ -53,6 +53,8 @@
 		1822E31E23A2242D006042E3 /* AFManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822E31C23A2242C006042E3 /* AFManager.swift */; };
 		1822E32223A2278C006042E3 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1822E32023A2278C006042E3 /* Reachability.m */; };
 		1822E32523A228DD006042E3 /* CustomLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822E32423A228DD006042E3 /* CustomLogger.swift */; };
+		182E24AC23C72D85000EBC54 /* LogoutVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182E24AB23C72D85000EBC54 /* LogoutVM.swift */; };
+		182E24AE23C73152000EBC54 /* SupportVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182E24AD23C73152000EBC54 /* SupportVM.swift */; };
 		184488B623C3363D001178AB /* SKPhotoBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844889E23C3363C001178AB /* SKPhotoBrowser.swift */; };
 		184488B723C3363D001178AB /* SKMesurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844889F23C3363C001178AB /* SKMesurement.swift */; };
 		184488B823C3363D001178AB /* SKZoomingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184488A023C3363C001178AB /* SKZoomingScrollView.swift */; };
@@ -258,6 +260,8 @@
 		1822E32023A2278C006042E3 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		1822E32123A2278C006042E3 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		1822E32423A228DD006042E3 /* CustomLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLogger.swift; sourceTree = "<group>"; };
+		182E24AB23C72D85000EBC54 /* LogoutVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutVM.swift; sourceTree = "<group>"; };
+		182E24AD23C73152000EBC54 /* SupportVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportVM.swift; sourceTree = "<group>"; };
 		1844889D23C3363C001178AB /* SKPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPhotoBrowser.h; sourceTree = "<group>"; };
 		1844889E23C3363C001178AB /* SKPhotoBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKPhotoBrowser.swift; sourceTree = "<group>"; };
 		1844889F23C3363C001178AB /* SKMesurement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKMesurement.swift; sourceTree = "<group>"; };
@@ -781,6 +785,8 @@
 				182239DE23B9FBAD00B3C01F /* SearchVM.swift */,
 				18ACDC8523BDF9B700780CE1 /* AddImplantVM.swift */,
 				1805FC6E23BF1C4800391B6C /* EditProfileVM.swift */,
+				182E24AB23C72D85000EBC54 /* LogoutVM.swift */,
+				182E24AD23C73152000EBC54 /* SupportVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1337,6 +1343,7 @@
 				184488BC23C3363D001178AB /* SKPhotoBrowserOptions.swift in Sources */,
 				18C3E6EF23A76185000ABA07 /* Country.swift in Sources */,
 				18956D202387FC8100BD8F63 /* SearchListViewController.swift in Sources */,
+				182E24AC23C72D85000EBC54 /* LogoutVM.swift in Sources */,
 				1879F576238BB98A00ABBBC0 /* SearchViewCollecction.swift in Sources */,
 				1801ABB323851DCB00F46223 /* UIColor+KVNContrast.m in Sources */,
 				18ACDC8623BDF9B700780CE1 /* AddImplantVM.swift in Sources */,
@@ -1354,6 +1361,7 @@
 				1821AF12237A7BB50010B307 /* CustomNavBar.swift in Sources */,
 				18C3E6EE23A76185000ABA07 /* Countries.swift in Sources */,
 				1879F57B238BBDC300ABBBC0 /* CustomCollectionViewCell.swift in Sources */,
+				182E24AE23C73152000EBC54 /* SupportVM.swift in Sources */,
 				1897454A238D38A80000FCC4 /* ProcessDocumentView.swift in Sources */,
 				1822E31E23A2242D006042E3 /* AFManager.swift in Sources */,
 				184488C623C3363D001178AB /* SKPhoto.swift in Sources */,
@@ -1636,9 +1644,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Kethan/Kethan.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development: brian murray (8Y773CMT4L)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = VKP9REQFNG;
+				DEVELOPMENT_TEAM = 99VXX6YS4Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Kethan/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1676,9 +1684,9 @@
 					"\"UIKit\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ZipGrid;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kethan.sid;
 				PRODUCT_NAME = SID;
-				PROVISIONING_PROFILE_SPECIFIER = Dev_ZipGrid;
+				PROVISIONING_PROFILE_SPECIFIER = Dev_SID;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Kethan/Resources/Kethan-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1691,9 +1699,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Kethan/Kethan.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Distribution: brian murray (99VXX6YS4Q)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = VKP9REQFNG;
+				DEVELOPMENT_TEAM = 99VXX6YS4Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Kethan/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1731,9 +1739,9 @@
 					"\"UIKit\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ZipGrid;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kethan.sid;
 				PRODUCT_NAME = SID;
-				PROVISIONING_PROFILE_SPECIFIER = Dev_ZipGrid;
+				PROVISIONING_PROFILE_SPECIFIER = Dist_SID;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Kethan/Resources/Kethan-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

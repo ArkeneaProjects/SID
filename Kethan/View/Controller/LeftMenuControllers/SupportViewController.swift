@@ -9,7 +9,7 @@
 import UIKit
 
 class SupportViewController: BaseViewController {
-
+    
     @IBOutlet weak var txtQuery: CustomTextView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,20 +19,20 @@ class SupportViewController: BaseViewController {
     }
     
     @IBAction func submitClickAction(_ sender: Any) {
-        if let controller = self.instantiate(ThankYouViewController.self, storyboard: STORYBOARD.main) as? ThankYouViewController {
-            controller.isComeFrom = 0
-            self.navigationController?.pushViewController(controller, animated: true)
-        }
+        self.view.endEditing(true)
+        let supportVM = SupportVM()
+        supportVM.query = txtQuery.text!
+        supportVM.supportQuery(controller: self)
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

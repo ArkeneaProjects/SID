@@ -37,6 +37,8 @@ class User: NSObject {
         self.userImage = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.userImage)
         self.referralCode = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.referralCode)
         self.contactNumber = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.contactNumber)
+        let cre = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.creditPoint)
+        self.creditPoint = (cre.trimmedString().count == 0) ?"0":cre
     }
     
     func dictioary() -> NSDictionary {
@@ -49,9 +51,9 @@ class User: NSObject {
             ENTITIES.name: self.name,
             ENTITIES.countryCode: self.country_code,
             ENTITIES.userImage: self.userImage,
-            "creditPoint": self.creditPoint,
             ENTITIES.referralCode: self.referralCode,
-            ENTITIES.contactNumber: self.contactNumber
+            ENTITIES.contactNumber: self.contactNumber,
+            ENTITIES.creditPoint: self.creditPoint
         ]
         return dictionary
     }

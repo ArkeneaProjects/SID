@@ -83,7 +83,6 @@ class CustomNavBar: UIView {
                 self.btnRight.alpha = 1.0
                 self.btnRight.layer.cornerRadius = getCalculated(9.0)
                 self.btnRight.backgroundColor = .white
-                self.btnRight.setTitle("$ 50", for: .normal)
             } else if rightButtonType == .buttonTypeEdit {
                 self.btnRightEdit.alpha = 1.0
                 self.btnRightEdit.setImage(UIImage(named: "pencil"), for: .normal)

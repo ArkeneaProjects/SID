@@ -38,14 +38,6 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate {
         cameraManager.cameraOutputMode = CameraOutputMode.stillImage
         cameraManager.cameraOutputQuality = CameraOutputQuality.high
         
-        //Display User name
-        let userName = "Bruce"
-        let attributedString = NSMutableAttributedString(string: "Hello \(userName),\rLet\'s get you started! ", attributes: [
-            .font: APP_FONT.regularFont(withSize: 13.5), .foregroundColor: UIColor(white: 1.0, alpha: 1.0)])
-        attributedString.addAttribute(.font, value: APP_FONT.regularFont(withSize: 15.5), range: NSRange(location: 0, length: 5))
-        attributedString.addAttribute(.font, value: APP_FONT.boldFont(withSize: 15.5), range: NSRange(location: 6, length: userName.count))
-        self.lblUserName.attributedText = attributedString
-        
         //Gallery
         self.imagePicker = GalleryManager(presentationController: self, delegate: self)
         
@@ -53,6 +45,16 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.navBar.btnRight.setTitle("$ \(AppConstant.shared.loggedUser.creditPoint)", for: .normal)
+        
+        //Display User name
+        let userName = AppConstant.shared.loggedUser.name
+        let attributedString = NSMutableAttributedString(string: "Hello \(userName),\rLet\'s get you started! ", attributes: [
+            .font: APP_FONT.regularFont(withSize: 13.5), .foregroundColor: UIColor(white: 1.0, alpha: 1.0)])
+        attributedString.addAttribute(.font, value: APP_FONT.regularFont(withSize: 15.5), range: NSRange(location: 0, length: 5))
+        attributedString.addAttribute(.font, value: APP_FONT.boldFont(withSize: 15.5), range: NSRange(location: 6, length: userName.count))
+        self.lblUserName.attributedText = attributedString
         
         //Checking Camera Staus
         let currentCameraState = cameraManager.currentCameraStatus()
@@ -184,7 +186,6 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate {
     
     // MARK: - Gallery Delegate
     func didSelect(image: UIImage?) {
-        print(image)
         if let controller = self.instantiate(PreviewViewController.self, storyboard: STORYBOARD.main) as? PreviewViewController {
             controller.selectedImage = image
             controller.isCrop = false

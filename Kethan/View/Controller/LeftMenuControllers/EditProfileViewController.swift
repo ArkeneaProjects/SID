@@ -70,7 +70,7 @@ class EditProfileViewController: BaseViewController, GalleryManagerDelegate, Cou
         
         editVM.clearAllData()
         editVM.name = self.txtName.text!
-        editVM.countryCode = self.txtCountryCode.text!
+        editVM.countryCode = self.countyCode
         editVM.contactNumber = self.txtMobile.text!
         editVM.profession = self.txtProfession.text!
         
