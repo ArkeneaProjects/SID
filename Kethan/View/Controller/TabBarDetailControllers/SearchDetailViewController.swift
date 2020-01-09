@@ -35,6 +35,9 @@ class SearchDetailViewController: BaseViewController, UITableViewDelegate, UITab
     
     // MARK: - UITabelVieeDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return getCalculated(400.0)
+        }
         return UITableView.automaticDimension
     }
     
@@ -56,11 +59,10 @@ class SearchDetailViewController: BaseViewController, UITableViewDelegate, UITab
             }
         } else {
             if let cell = tableView.dequeueReusableCell(withIdentifier: IDENTIFIERS.DetailRow2TableViewCell) as? DetailRow2TableViewCell {
-                cell.lblResponse.text = (detailObj.removImplant[indexPath.row - 1] as! Implant).removalProcess
+                cell.lblResponse.text = (detailObj.removImplant[indexPath.row - 1] as? Implant ?? Implant()).removalProcess
                 return cell
             }
         }
-        
         return UITableViewCell()
     }
     

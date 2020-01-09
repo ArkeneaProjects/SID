@@ -8,20 +8,23 @@
 
 import UIKit
 
-class ImageListViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource, GalleryManagerDelegate {
+class ImageListViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var arrAllItems = [Any]()
-    var imagePicker: GalleryManager!
-    var isNewUpload: Bool = false
-    var deletedImageArr = NSMutableArray()
     
-    var saveCompletion: ((_ deletedImageArray: NSMutableArray, _ allImageArray: [Any]) -> Void)? = nil
+    var arrAllItems = NSMutableArray()
+    var deletedImageArr = NSMutableArray()
+
+    var imagePicker: GalleryManager!
+    
+    var isNewUpload: Bool = false
+    
+    var saveCompletion: ((_ deletedImageArray: NSMutableArray, _ allImageArray: NSMutableArray) -> Void)? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.addNavBarWithTitle("Implant Images", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeSave)
+        self.addNavBarWithTitle("Implant Images", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeNil)
         
         self.collectionView.register(UINib(nibName: IDENTIFIERS.AddDetail1CollectionViewCell, bundle: nil), forCellWithReuseIdentifier: IDENTIFIERS.AddDetail1CollectionViewCell)
         
@@ -39,7 +42,7 @@ class ImageListViewController: BaseViewController, UICollectionViewDelegate, UIC
         self.showAlert(title: "", message: "Delete Image?", yesTitle: "Yes", noTitle: "NO", yesCompletion: {
             if self.arrAllItems.count > 0 {
                 self.deletedImageArr.add(self.arrAllItems[sender.indexPath.item])
-                self.arrAllItems.remove(at: sender.indexPath.item)
+                self.arrAllItems.removeObject(at: sender.indexPath.item)
                 self.collectionView.reloadData()
             }
         }, noCompletion: nil)
@@ -51,7 +54,7 @@ class ImageListViewController: BaseViewController, UICollectionViewDelegate, UIC
     
     // MARK: - CollectionView Dalegate and DataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return arrAllItems.count
+        return arrAllItems.count - 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -81,49 +84,15 @@ class ImageListViewController: BaseViewController, UICollectionViewDelegate, UIC
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Collection view at row \(collectionView.tag) selected index path \(indexPath)")
-        //        if self.arrAllItems[indexPath.item] as? String ?? "" == "lineImage" {
-        //            self.showActionSheet(headerTitle: "Choose Image From", cameraTitle: "Camera", galleryTitle: "Gallery", galleryCompletion: {
-        //                self.imagePicker.present(croppingStyle: .circular, isCrop: false, isCamera: false)
-        //            }) {
-        //                self.imagePicker.present(croppingStyle: .circular, isCrop: false, isCamera: true)
-        //            }
-        //        } else {
+      
         if let collectionCell = self.collectionView.cellForItem(at: indexPath) as? AddDetail1CollectionViewCell {
             let controller = getTopViewController()
             controller!.openGalleryList(indexpath: indexPath, imgNameArr: NSMutableArray(array: STATICDATA.arrImages), sourceView: collectionCell.imgSelected)
         }
-        //        }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: getCalculated(95.0), height: getCalculated(95.0))
-    }
-    
-    // MARK: - Gallery Delegate
-    func didSelect(image: UIImage?) {
-        ProgressManager.show(withStatus: "", on: self.view)
-        if let controller = self.instantiate(TagViewController.self, storyboard: STORYBOARD.main) as? TagViewController {
-            //Get cordinate value from Tagview controller
-            controller.continueCompletion = { implantImageObj in
-                print(implantImageObj.dictioary())
-                self.arrAllItems.append(implantImageObj)
-                self.collectionView.reloadData()
-            }
-            if let size = image!.getFileSize() {
-                //check image size is not more than 3 MB
-                if size >= 1.0 {
-                    controller.selectedImage = image!.imageWithImage(scaledToWidth: 600.0)
-                    
-                } else {
-                    controller.selectedImage = image!
-                }
-            } else {
-                controller.selectedImage = image!
-            }
-            ProgressManager.dismiss()
-            self.navigationController?.pushViewController(controller, animated: true)
-        }
     }
     
     /*
