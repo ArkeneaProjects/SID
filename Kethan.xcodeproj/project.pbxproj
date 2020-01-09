@@ -80,6 +80,7 @@
 		184488CC23C3363D001178AB /* SKButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184488B523C3363D001178AB /* SKButtons.swift */; };
 		1847363D23AB8B5100C565A4 /* ForgotVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1847363C23AB8B5100C565A4 /* ForgotVM.swift */; };
 		1848DA2723B489E0004A711A /* SelectProfessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848DA2623B489E0004A711A /* SelectProfessionViewController.swift */; };
+		1849715023C60A7D00BFAFF3 /* ImageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1849714F23C60A7D00BFAFF3 /* ImageListViewController.swift */; };
 		18705385238FA2CD006ACA3D /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18705384238FA2CC006ACA3D /* CameraManager.swift */; };
 		18705387238FB000006ACA3D /* GalleryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18705386238FB000006ACA3D /* GalleryManager.swift */; };
 		1875FBED23A0D55E00B1EA1F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1875FBEC23A0D55E00B1EA1F /* QuartzCore.framework */; };
@@ -288,6 +289,7 @@
 		184488B523C3363D001178AB /* SKButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKButtons.swift; sourceTree = "<group>"; };
 		1847363C23AB8B5100C565A4 /* ForgotVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotVM.swift; sourceTree = "<group>"; };
 		1848DA2623B489E0004A711A /* SelectProfessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectProfessionViewController.swift; sourceTree = "<group>"; };
+		1849714F23C60A7D00BFAFF3 /* ImageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListViewController.swift; sourceTree = "<group>"; };
 		18705384238FA2CC006ACA3D /* CameraManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		18705386238FB000006ACA3D /* GalleryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryManager.swift; sourceTree = "<group>"; };
 		1875FBEC23A0D55E00B1EA1F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -725,6 +727,7 @@
 				18974532238D08070000FCC4 /* AddDetailsViewController.swift */,
 				1897454C238D52B50000FCC4 /* ThankYouViewController.swift */,
 				181FFAA1239A71160078E64D /* PreviewViewController.swift */,
+				1849714F23C60A7D00BFAFF3 /* ImageListViewController.swift */,
 			);
 			path = TabBarDetailControllers;
 			sourceTree = "<group>";
@@ -1339,6 +1342,7 @@
 				18C3E6F223A79879000ABA07 /* ChanagePasswordVM.swift in Sources */,
 				188131AC238E64EE005334BF /* ResponsePopUpViewController.swift in Sources */,
 				18974557238D5B9E0000FCC4 /* BEMAnimationManager.m in Sources */,
+				1849715023C60A7D00BFAFF3 /* ImageListViewController.swift in Sources */,
 				1897455A238D5B9E0000FCC4 /* BEMCheckBox.m in Sources */,
 				184488BC23C3363D001178AB /* SKPhotoBrowserOptions.swift in Sources */,
 				18C3E6EF23A76185000ABA07 /* Country.swift in Sources */,

@@ -11,9 +11,10 @@ import UIKit
 class ProcessListViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var processTblView: UITableView!
-    @IBOutlet weak var btnAddProcess: CustomButton!
     
     var processArray = NSMutableArray()
+    var deletedProcessArr = NSMutableArray()
+    
     var saveCompletion: ((_ processArray:NSMutableArray) -> Void)? = nil
     
     override func viewDidLoad() {
@@ -28,9 +29,10 @@ class ProcessListViewController: BaseViewController, UITableViewDelegate, UITabl
     @objc func deleteProcess(_ sender: CustomButton) {
         self.showAlert(title: "Delete Process?", message: "", yesTitle: "Delete", noTitle: "Cancel", yesCompletion: {
             if self.saveCompletion != nil {
+                self.deletedProcessArr.add(self.processArray.object(at: sender.indexPath.row))
                 self.processArray.removeObject(at: sender.indexPath.row)
                 self.processTblView.reloadData()
-                self.saveCompletion!( self.processArray)
+                self.saveCompletion!( self.deletedProcessArr)
             }
         }, noCompletion: nil)
         

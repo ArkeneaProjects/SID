@@ -31,8 +31,9 @@ class SearchVM {
                         completion("")
                         
                     } else {
+                         ProgressManager.dismiss()
                         completion(getValueFromDictionary(dictionary: dict, forKey: "message"))
-                        ProgressManager.showError(withStatus: getValueFromDictionary(dictionary: dict, forKey: "message"), on: self.rootController?.view)
+//                        ProgressManager.showError(withStatus: getValueFromDictionary(dictionary: dict, forKey: "message"), on: self.rootController?.view)
                     }
                 }
             }
