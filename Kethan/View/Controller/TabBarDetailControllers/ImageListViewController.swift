@@ -11,10 +11,13 @@ import UIKit
 class ImageListViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource, GalleryManagerDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var arrAllItems = NSMutableArray()
+    var arrAllItems = [Any]()
     var imagePicker: GalleryManager!
     var isNewUpload: Bool = false
+    var deletedImageArr = NSMutableArray()
     
+    var saveCompletion: ((_ deletedImageArray: NSMutableArray, _ allImageArray: [Any]) -> Void)? = nil
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,12 +38,15 @@ class ImageListViewController: BaseViewController, UICollectionViewDelegate, UIC
     @objc func deleteImage(_ sender: CustomButton) {
         self.showAlert(title: "", message: "Delete Image?", yesTitle: "Yes", noTitle: "NO", yesCompletion: {
             if self.arrAllItems.count > 0 {
-                self.arrAllItems.removeObject(at: sender.indexPath.item)
-            } else {
-               
+                self.deletedImageArr.add(self.arrAllItems[sender.indexPath.item])
+                self.arrAllItems.remove(at: sender.indexPath.item)
+                self.collectionView.reloadData()
             }
-            
         }, noCompletion: nil)
+    }
+    override func rightButtonAction() {
+         self.saveCompletion!( self.deletedImageArr, self.arrAllItems)
+        self.navigationController?.popViewController(animated: true)
     }
     
     // MARK: - CollectionView Dalegate and DataSource
@@ -52,28 +58,22 @@ class ImageListViewController: BaseViewController, UICollectionViewDelegate, UIC
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddDetail1CollectionViewCell", for: indexPath) as? AddDetail1CollectionViewCell {
             cell.lblAdd.alpha = 0
             cell.imgPlus.alpha = 0
-            cell.btnDelete.alpha = 1.0
             
-//            if self.arrAllItems[indexPath.item] as? String ?? "" == "lineImage" {
-//                cell.lblAdd.alpha = 1.0
-//                cell.imgPlus.alpha = 1.0
-//                cell.btnDelete.alpha = 0
-//                cell.imgSelected.image = UIImage(named: self.arrAllItems[indexPath.item] as? String ?? "")
-//
-//            } else {
-                if self.isNewUpload {
-                    if let implantObj = self.arrAllItems[indexPath.item] as? ImplantImage {
-                        cell.imgSelected.image = implantObj.selectedImage
-                        
-                        cell.imgSelected.drawRectangle(frameSize: CGSize(width: cell.imgSelected.frame.width, height: cell.imgSelected.frame.height), imageWidth: CGFloat(implantObj.imageWidth.floatValue()), imageHight: CGFloat(implantObj.imageHeight.floatValue()), drawSize: CGRect(x: CGFloat(implantObj.labelOffsetX.floatValue()), y: CGFloat(implantObj.labelOffsetY.floatValue()), width: CGFloat(implantObj.labelWidth.floatValue()), height: CGFloat(implantObj.labelHeight.floatValue())))
-                        
+            if let obj = arrAllItems[indexPath.row] as? ImageData {
+                cell.btnDelete.alpha = (obj.isApproved == "0" && obj.userId == AppConstant.shared.loggedUser.userId) ?1.0:0
+                cell.imgSelected.sd_setImage(with: URL(string: obj.imageName), placeholderImage: nil, options: .continueInBackground) { (image, error, types, url) in
+                    if obj.objectLocation.imageWidth.count != 0 || obj.objectLocation.imageHeight.count != 0 {
+                        cell.imgSelected.drawRectangle(frameSize: CGSize(width: getCalculated(cell.imgSelected.bounds.width), height: getCalculated(cell.imgSelected.bounds.height)), imageWidth: CGFloat(obj.objectLocation.imageWidth.floatValue()), imageHight: CGFloat(obj.objectLocation.imageHeight.floatValue()), drawSize: CGRect(x: CGFloat(obj.objectLocation.left.floatValue()), y: CGFloat(obj.objectLocation.top.floatValue()), width: CGFloat(obj.objectLocation.width.floatValue()), height: CGFloat(obj.objectLocation.height.floatValue())))
                     }
-                } else {
-                    cell.imgSelected.image = UIImage(named: self.arrAllItems[indexPath.item] as? String ?? "")
                 }
+            } else if let implantObj = self.arrAllItems[indexPath.item] as? ImplantImage {
+                cell.imgSelected.image = implantObj.selectedImage
+                cell.imgSelected.drawRectangle(frameSize: CGSize(width: cell.imgSelected.frame.width, height: cell.imgSelected.frame.height), imageWidth: CGFloat(implantObj.imageWidth.floatValue()), imageHight: CGFloat(implantObj.imageHeight.floatValue()), drawSize: CGRect(x: CGFloat(implantObj.labelOffsetX.floatValue()), y: CGFloat(implantObj.labelOffsetY.floatValue()), width: CGFloat(implantObj.labelWidth.floatValue()), height: CGFloat(implantObj.labelHeight.floatValue())))
                 cell.btnDelete.indexPath = indexPath
-                cell.btnDelete.addTarget(self, action: #selector(deleteImage(_:)), for: .touchUpInside)
-//            }
+                cell.btnDelete.alpha = 1.0
+            }
+            cell.btnDelete.indexPath = indexPath
+            cell.btnDelete.addTarget(self, action: #selector(deleteImage(_:)), for: .touchUpInside)
             return cell
         }
         return UICollectionViewCell()
@@ -81,23 +81,23 @@ class ImageListViewController: BaseViewController, UICollectionViewDelegate, UIC
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Collection view at row \(collectionView.tag) selected index path \(indexPath)")
-//        if self.arrAllItems[indexPath.item] as? String ?? "" == "lineImage" {
-//            self.showActionSheet(headerTitle: "Choose Image From", cameraTitle: "Camera", galleryTitle: "Gallery", galleryCompletion: {
-//                self.imagePicker.present(croppingStyle: .circular, isCrop: false, isCamera: false)
-//            }) {
-//                self.imagePicker.present(croppingStyle: .circular, isCrop: false, isCamera: true)
-//            }
-//        } else {
-            if let collectionCell = self.collectionView.cellForItem(at: indexPath) as? AddDetail1CollectionViewCell {
-                let controller = getTopViewController()
-                controller!.openGalleryList(indexpath: indexPath, imgNameArr: NSMutableArray(array: STATICDATA.arrImages), sourceView: collectionCell.imgSelected)
-            }
-//        }
+        //        if self.arrAllItems[indexPath.item] as? String ?? "" == "lineImage" {
+        //            self.showActionSheet(headerTitle: "Choose Image From", cameraTitle: "Camera", galleryTitle: "Gallery", galleryCompletion: {
+        //                self.imagePicker.present(croppingStyle: .circular, isCrop: false, isCamera: false)
+        //            }) {
+        //                self.imagePicker.present(croppingStyle: .circular, isCrop: false, isCamera: true)
+        //            }
+        //        } else {
+        if let collectionCell = self.collectionView.cellForItem(at: indexPath) as? AddDetail1CollectionViewCell {
+            let controller = getTopViewController()
+            controller!.openGalleryList(indexpath: indexPath, imgNameArr: NSMutableArray(array: STATICDATA.arrImages), sourceView: collectionCell.imgSelected)
+        }
+        //        }
         
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: getCalculated(92.0), height: getCalculated(92.0))
+        return CGSize(width: getCalculated(95.0), height: getCalculated(95.0))
     }
     
     // MARK: - Gallery Delegate
@@ -107,7 +107,7 @@ class ImageListViewController: BaseViewController, UICollectionViewDelegate, UIC
             //Get cordinate value from Tagview controller
             controller.continueCompletion = { implantImageObj in
                 print(implantImageObj.dictioary())
-                self.arrAllItems.add(implantImageObj)
+                self.arrAllItems.append(implantImageObj)
                 self.collectionView.reloadData()
             }
             if let size = image!.getFileSize() {
