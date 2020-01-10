@@ -55,22 +55,6 @@ class ProcessListViewController: BaseViewController, UITableViewDelegate, UITabl
             cell.btnDelete.indexPath = indexPath
             cell.btnDelete.addTarget(self, action: #selector(deleteProcess(_:)), for: .touchUpInside)
             
-            if process.surgeryDate.count > 0 {
-                cell.lblSurgeryDate.text = process.surgeryDate.convertLocalTimeZoneToUTC(actualFormat: "yyyy-MM-dd HH:mm", expectedFormat: "dd/MM/yyyy", actualZone: TimeZone(identifier: "UTC")!, expectedZone: NSTimeZone.local)
-                cell.constDateHeight.constant = 18.0
-            } else {
-                cell.constDateHeight.constant = 0.0
-                cell.constSurgeryDateTop.constant = 0.0
-            }
-            
-            if process.surgeryLocation.count > 0 {
-                cell.lblLocation.text = process.surgeryLocation
-                cell.constLocationImgHeight.constant = 18.0
-            } else {
-                cell.constLocationImgHeight.constant = 0.0
-                cell.constSurgeryDateBottom.constant = 0.0
-            }
-            
             cell.layoutIfNeeded()
             return cell
         }

@@ -64,23 +64,6 @@ class AddDetailHeader3Cell: UITableViewCell {
                 processListingView.lblProcess.text = process.removalProcess
                 processListingView.btnRemove.alpha =  (process.isApproved == "0" && process.userId == AppConstant.shared.loggedUser.userId) ?1.0:0
 
-                if process.surgeryDate.count > 0 {
-                    processListingView.lblSurgeryDate.text = process.surgeryDate.convertLocalTimeZoneToUTC(actualFormat: DATEFORMATTERS.YYYYMMDDTHHMMSSZ, expectedFormat: "dd/MM/yyyy", actualZone: TimeZone(identifier: "UTC")!, expectedZone: NSTimeZone.local)
-                    processListingView.constDateHeight.constant = 18.0
-                } else {
-                    processListingView.constDateHeight.constant = 0.0
-                    processListingView.constSurgeryDateTop.constant = 0.0
-                }
-                
-                if process.surgeryLocation.count > 0 {
-                    processListingView.lblLocation.text = process.surgeryLocation
-                    processListingView.constLocationImgHeight.constant = 18.0
-                } else {
-                    processListingView.constLocationImgHeight.constant = 0.0
-                    processListingView.constSurgeryDateBottom.constant = 0.0
-                }
-                
-                processListingView.layoutIfNeeded()
                 processListingView.backgroundColor = UIColor.gray
                 processListingView.btnRemove.indexPath = IndexPath(row: index, section: 0)
                 processListingView.tapCompletion = { indexPath in
