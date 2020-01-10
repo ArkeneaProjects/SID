@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchResult: NSObject {
+class SearchResult: NSObject, NSCopying {
     
     var isApproved: String = ""
     var isRejected: String = ""
@@ -97,4 +97,22 @@ class SearchResult: NSObject {
         ]
         return dictionary
     }
+    
+    func copy(with zone: NSZone? = nil) -> Any {
+        let copy: SearchResult = SearchResult()
+        copy.isApproved = self.isApproved
+        copy.isRejected = self.isRejected
+        copy._id = self._id
+        copy.objectName = self.objectName
+        copy.implantManufacture = self.implantManufacture
+        copy.imageData = self.imageData
+        copy.removImplant = self.removImplant
+        copy.watsonImage_id = self.watsonImage_id
+        copy.createdOn = self.createdOn
+        copy.modifiedOn = self.modifiedOn
+        copy.implantImage = self.implantImage
+        return copy
+        
+    }
+    
 }

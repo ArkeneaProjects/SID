@@ -659,7 +659,7 @@ extension UIImage {
            let newImage = UIGraphicsGetImageFromCurrentImageContext()
            UIGraphicsEndImageContext()
            return newImage
-              }
+    }
 }
 extension UIImageView {
     
@@ -672,7 +672,7 @@ extension UIImageView {
         let actualY = (Hight * drawSize.origin.y) / imageHight
         let actualWidth = (Width * drawSize.size.width)/imageWidth
         let actualHight = (Hight * drawSize.size.height)/imageHight
-        
+        print(CGRect(x: acutalX, y: actualY, width: actualWidth, height: actualHight))
         let d = Draw(frame: CGRect(x: acutalX, y: actualY, width: actualWidth, height: actualHight))
         for view in self.subviews {
             view.removeFromSuperview()
