@@ -64,9 +64,10 @@ class ImageListViewController: BaseViewController, UICollectionViewDelegate, UIC
             
             if let obj = arrAllItems[indexPath.row] as? ImageData {
                 cell.btnDelete.alpha = (obj.isApproved == "0" && obj.userId == AppConstant.shared.loggedUser.userId) ?1.0:0
+                cell.layoutIfNeeded()
                 cell.imgSelected.sd_setImage(with: URL(string: obj.imageName), placeholderImage: nil, options: .continueInBackground) { (image, error, types, url) in
                     if obj.objectLocation.imageWidth.count != 0 || obj.objectLocation.imageHeight.count != 0 {
-                        cell.imgSelected.drawRectangle(frameSize: CGSize(width: getCalculated(cell.imgSelected.bounds.width), height: getCalculated(cell.imgSelected.bounds.height)), imageWidth: CGFloat(obj.objectLocation.imageWidth.floatValue()), imageHight: CGFloat(obj.objectLocation.imageHeight.floatValue()), drawSize: CGRect(x: CGFloat(obj.objectLocation.left.floatValue()), y: CGFloat(obj.objectLocation.top.floatValue()), width: CGFloat(obj.objectLocation.width.floatValue()), height: CGFloat(obj.objectLocation.height.floatValue())))
+                        cell.imgSelected.drawRectangle(frameSize: CGSize(width: cell.imgSelected.bounds.width, height: cell.imgSelected.bounds.height), imageWidth: CGFloat(obj.objectLocation.imageWidth.floatValue()), imageHight: CGFloat(obj.objectLocation.imageHeight.floatValue()), drawSize: CGRect(x: CGFloat(obj.objectLocation.left.floatValue()), y: CGFloat(obj.objectLocation.top.floatValue()), width: CGFloat(obj.objectLocation.width.floatValue()), height: CGFloat(obj.objectLocation.height.floatValue())))
                     }
                 }
             } else if let implantObj = self.arrAllItems[indexPath.item] as? ImplantImage {
