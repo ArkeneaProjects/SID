@@ -68,10 +68,10 @@ class SearchViewCollecction: UIView, UICollectionViewDelegate, UICollectionViewD
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCollectionViewCell", for: indexPath) as? CustomCollectionViewCell {
             print(cell.frame.size.height)
             if let obj = arrAllItems.object(at: indexPath.row) as? ImageData {
-                
+                cell.layoutIfNeeded()
                 cell.imgPhoto.sd_setImage(with: URL(string: obj.imageName), placeholderImage: nil, options: .continueInBackground) { (image, error, types, url) in
                     if obj.objectLocation.imageWidth.count != 0 || obj.objectLocation.imageHeight.count != 0 {
-                        cell.imgPhoto.drawRectangle(frameSize: CGSize(width: getCalculated(cell.imgPhoto.bounds.width), height: getCalculated(cell.imgPhoto.bounds.height)), imageWidth: CGFloat(obj.objectLocation.imageWidth.floatValue()), imageHight: CGFloat(obj.objectLocation.imageHeight.floatValue()), drawSize: CGRect(x: CGFloat(obj.objectLocation.left.floatValue()), y: CGFloat(obj.objectLocation.top.floatValue()), width: CGFloat(obj.objectLocation.width.floatValue()), height: CGFloat(obj.objectLocation.height.floatValue())))
+                        cell.imgPhoto.drawRectangle(frameSize: CGSize(width: cell.imgPhoto.bounds.width, height: cell.imgPhoto.bounds.height), imageWidth: CGFloat(obj.objectLocation.imageWidth.floatValue()), imageHight: CGFloat(obj.objectLocation.imageHeight.floatValue()), drawSize: CGRect(x: CGFloat(obj.objectLocation.left.floatValue()), y: CGFloat(obj.objectLocation.top.floatValue()), width: CGFloat(obj.objectLocation.width.floatValue()), height: CGFloat(obj.objectLocation.height.floatValue())))
                     }
                 }
             }
