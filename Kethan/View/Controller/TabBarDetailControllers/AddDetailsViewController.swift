@@ -96,6 +96,18 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         if let imagesListVC = self.instantiate(ImageListViewController.self, storyboard: STORYBOARD.main) as? ImageListViewController {
             imagesListVC.arrAllItems = self.imageArray
             imagesListVC.saveCompletion = { array, allImagesArray in
+                for objImage in array {
+                    if let obj = objImage as? ImageData {
+                        self.implantVM.arrDeletedImage.add(obj.id)
+                    }
+                }
+                var arrImage = [ImageData]()
+                for obj in allImagesArray {
+                    if let imgObj = obj as? ImageData {
+                        arrImage.append(imgObj)
+                    }
+                }
+                self.implantVM.implantObj.imageData = arrImage
 //                self.implantVM.implantObj.imageData = allImagesArray as! [ImageData]
 //                self.deletedImageArr = array
                 self.tblView.reloadData()
@@ -163,7 +175,17 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                 //Delete Image
                 cell.deleteImageCompletion = { index_Path in
                     self.showAlert(title: "", message: "Delete Image?", yesTitle: "Yes", noTitle: "NO", yesCompletion: {
-                        self.imageArray.removeObject(at: index_Path.item)
+                        if let objImage = self.imageArray.object(at: indexPath.row) as? ImageData {
+                            self.implantVM.arrDeletedImage.add(objImage.id)
+                            self.imageArray.removeObject(at: index_Path.item)
+                        }
+                        var arrImage = [ImageData]()
+                        for obj in self.imageArray {
+                            if let imgObj = obj as? ImageData {
+                                arrImage.append(imgObj)
+                            }
+                        }
+                        self.implantVM.implantObj.imageData = arrImage
                         self.checkAndAddPulsButton()
                         cell.arrAllItems = self.imageArray
                         
@@ -215,7 +237,11 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                 //Delete Process
                 cell.cellSelectionCompletion = { tableCell in
                     self.showAlert(title: "Delete Process?", message: "", yesTitle: "Delete", noTitle: "Cancel", yesCompletion: {
-                        self.implantVM.implantObj.removImplant.removeObject(at: tableCell)
+                        if let objImplant =  self.implantVM.implantObj.removImplant.object(at: tableCell)  as? Implant {
+                            self.implantVM.arrDeletedProcess.add(objImplant.id)
+                            self.implantVM.implantObj.removImplant.removeObject(at: tableCell)
+                        }
+                      
                         self.reloadTableView(indexPath)
                         
                     }, noCompletion: nil)
