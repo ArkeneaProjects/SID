@@ -22,6 +22,7 @@ class SearchListCollectionViewCell: UICollectionViewCell {
     func configuration(obj: SearchResult) {
         self.lblTitle.text = obj.objectName
         self.lblSubTitle.text = obj.implantManufacture
+        self.layoutIfNeeded()
         if obj.imageData.count > 0 {
             self.imgPhoto.sd_setImage(with: URL(string: obj.imageData[0].imageName), placeholderImage: nil, options: .continueInBackground) { (image, error, types, url) in
                 if obj.imageData[0].objectLocation.imageWidth.count != 0 || obj.imageData[0].objectLocation.imageHeight.count != 0 {

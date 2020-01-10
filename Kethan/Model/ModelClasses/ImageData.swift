@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageData: NSObject {
+class ImageData: NSObject,NSCopying {
     
     var createdDate: String = ""
     var id: String = ""
@@ -48,5 +48,18 @@ class ImageData: NSObject {
             ENTITIES.objectLocation: self.objectLocation.dictioary()
         ]
         return dictionary
+    }
+    
+    func copy(with zone: NSZone? = nil) -> Any {
+        let copy: ImageData = ImageData()
+        copy.imageName = self.imageName
+        copy.watsonImage_id = self.watsonImage_id
+        copy.createdDate = self.createdDate
+        copy.id = self.id
+        copy.isApproved = self.isApproved
+        copy.userId = self.userId
+        copy.objectLocation = self.objectLocation
+        return copy
+        
     }
 }

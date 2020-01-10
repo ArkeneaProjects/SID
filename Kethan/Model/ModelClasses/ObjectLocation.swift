@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ObjectLocation: NSObject {
+class ObjectLocation: NSObject, NSCopying {
     
     var top: String = ""
     var left: String = ""
@@ -41,5 +41,17 @@ class ObjectLocation: NSObject {
             ENTITIES.imageHeight: self.imageHeight
         ]
         return dictionary
+    }
+    
+    func copy(with zone: NSZone? = nil) -> Any {
+        let copy: ObjectLocation = ObjectLocation()
+        copy.top = self.top
+        copy.left = self.left
+        copy.width = self.width
+        copy.height = self.height
+        copy.imageWidth = self.imageWidth
+        copy.imageHeight = self.imageHeight
+        return copy
+        
     }
 }
