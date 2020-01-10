@@ -24,7 +24,8 @@ class SearchDetailViewController: BaseViewController, UITableViewDelegate, UITab
         self.tblView.tableFooterView = UIView()
         // Do any additional setup after loading the view.
     }
-    
+    git rm --cached -- FitNSpicy
+
     // MARK: - Button Action
     @IBAction func edittButtonAction() {
         if let controller = self.instantiate(AddDetailsViewController.self, storyboard: STORYBOARD.main) as? AddDetailsViewController {
