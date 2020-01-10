@@ -20,7 +20,7 @@ class SearchDetailViewController: BaseViewController, UITableViewDelegate, UITab
 
         self.tblView.registerNibWithIdentifier([IDENTIFIERS.DetailRow1TableViewCell, IDENTIFIERS.DetailRow2TableViewCell])
         self.tblView.rowHeight = UITableView.automaticDimension
-        self.tblView.estimatedRowHeight = getCalculated(20.0)
+        self.tblView.estimatedRowHeight = getCalculated(35.0)
         self.tblView.tableFooterView = UIView()
         // Do any additional setup after loading the view.
     }
