@@ -21,7 +21,7 @@ class ResponsePopUpViewController: BaseViewController, GMSAutocompleteViewContro
     var locationString = ""
     var dateString = ""
     
-    var addCompletion:((_ str: String,_ location:String,_ date:String) -> Void)?
+    var addCompletion:((_ str: String, _ location:String, _ date:String) -> Void)?
     
     @IBOutlet weak var btnClose: CustomButton!
     
@@ -81,7 +81,6 @@ class ResponsePopUpViewController: BaseViewController, GMSAutocompleteViewContro
     
     // MARK: - Custom Functions -
     func preparePopup(controller: BaseViewController) {
-        
         if let parent = self.findParentBaseViewController() {
             controller.addViewController(controller: self, view: parent.view, parent: parent)
         } else {
@@ -102,7 +101,7 @@ class ResponsePopUpViewController: BaseViewController, GMSAutocompleteViewContro
         }
     }
     
-    // MARK:- GMSAutocompleteViewControllerDelegate -
+    // MARK: - GMSAutocompleteViewControllerDelegate -
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         let address = place.name
         self.btnLocation.setTitle(address, for: .normal)
