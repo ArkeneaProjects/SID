@@ -113,6 +113,11 @@ struct NOTIFICATIONS {
     static let googleUserUpdate = "googleUserUpdate"
 }
 
+struct SubscriptionPlans {
+    static var Monitor50Patients = "com.telemedhome.Monitor50Patients"
+    static var Monitor125Patients = "com.telemedhome.Monitor125Patients"
+}
+
 struct STATICDATA {
     static var arrLeftItems = [["image": "profile", "text": "Profile"], ["image": "changeEmail", "text": "Change Email "], ["image": "changePassword", "text": "Change Password "], ["image": "upgradeSubscription", "text": "Upgrade Subscription"], ["image": "userWalkthrough", "text": "User Walkthrough"], ["image": "faqs", "text": "FAQs"], ["image": "termsOfService", "text": "Terms of Service"], ["image": "privacyPolicy", "text": "Privacy Policy"], ["image": "about", "text": "About the App"], ["image": "support", "text": "Support"]]
     static let implantDropDown = ["Skyline lateran Skyline lateran Skyline lateran Skyline lateran.", "Skyline x-ray", "Skyline lateran x-ray", "Skyline a:p lateran", "Skyline a:p lateran x-ray"]
@@ -130,7 +135,7 @@ struct STATICDATA {
     
     static let arrCreditHistory = [["image": "referral", "title": "Referral Rewards", "amount": "+ $ 20", "date": "November 20", "description": "Rewarded for being referred to SID by a friend"], ["image": "upload", "title": "Upload Images Rewards", "amount": "+ $ 10", "date": "November 19", "description": "Rewarded for being uploaded images on Database"], ["image": "referral", "title": "Referral Rewards", "amount": "+ $ 20", "date": "November 12", "description": ""], ["image": "bank", "title": "Credited in Bank", "amount": "- $ 120", "date": "November 10", "description": "Transfered to your bank account"], ["image": "referral", "title": "Referral Rewards", "amount": "+ $ 20", "date": "November 20", "description": "Rewarded for being referred to SID by a friend"]]
     
-    static let arrSubscription = [["image": "monthlyBg", "price": "$2.99", "plan": "Monthly Plan", "valid": "Valid for 30 Days", "type": "month"], ["image": "annualBg", "price": "$4.99", "plan": "Annual Plan", "valid": "Valid for 365 Days", "type": "year"]]
+    static let arrSubscription = [["image": "monthlyBg", "price": "", "plan": "Monthly Plan", "valid": "- Ability to search for implant via text and images. Add implant information for future references.\n- Auto-renewable. Cancel Anytime.\n- Valid for 30 Days", "type": "month"], ["image": "annualBg", "price": "", "plan": "Annual Plan", "valid": "- Ability to search for implant via text and images. Add implant information for future references.\n- Earn Credits and redeem during next subscription. Cancel Anytime\n- Valid for 365 Days", "type": "year"]]
 }
 
 struct IDENTIFIERS {

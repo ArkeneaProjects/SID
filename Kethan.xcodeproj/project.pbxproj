@@ -81,6 +81,9 @@
 		1847363D23AB8B5100C565A4 /* ForgotVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1847363C23AB8B5100C565A4 /* ForgotVM.swift */; };
 		1848DA2723B489E0004A711A /* SelectProfessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848DA2623B489E0004A711A /* SelectProfessionViewController.swift */; };
 		1849715023C60A7D00BFAFF3 /* ImageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1849714F23C60A7D00BFAFF3 /* ImageListViewController.swift */; };
+		1859402323CC7AEF0024324E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1859402223CC7AEE0024324E /* StoreKit.framework */; };
+		1859402523CC90990024324E /* IAPProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859402423CC90980024324E /* IAPProduct.swift */; };
+		1859402723CC93B80024324E /* NetworkActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859402623CC93B80024324E /* NetworkActivityIndicatorManager.swift */; };
 		18705385238FA2CD006ACA3D /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18705384238FA2CC006ACA3D /* CameraManager.swift */; };
 		18705387238FB000006ACA3D /* GalleryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18705386238FB000006ACA3D /* GalleryManager.swift */; };
 		1875FBED23A0D55E00B1EA1F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1875FBEC23A0D55E00B1EA1F /* QuartzCore.framework */; };
@@ -290,6 +293,9 @@
 		1847363C23AB8B5100C565A4 /* ForgotVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotVM.swift; sourceTree = "<group>"; };
 		1848DA2623B489E0004A711A /* SelectProfessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectProfessionViewController.swift; sourceTree = "<group>"; };
 		1849714F23C60A7D00BFAFF3 /* ImageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListViewController.swift; sourceTree = "<group>"; };
+		1859402223CC7AEE0024324E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		1859402423CC90980024324E /* IAPProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPProduct.swift; sourceTree = "<group>"; };
+		1859402623CC93B80024324E /* NetworkActivityIndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicatorManager.swift; sourceTree = "<group>"; };
 		18705384238FA2CC006ACA3D /* CameraManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		18705386238FB000006ACA3D /* GalleryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryManager.swift; sourceTree = "<group>"; };
 		1875FBEC23A0D55E00B1EA1F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -421,6 +427,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1859402323CC7AEF0024324E /* StoreKit.framework in Frameworks */,
 				1875FBED23A0D55E00B1EA1F /* QuartzCore.framework in Frameworks */,
 				A662AD3830527FE57E613C63 /* Pods_Kethan.framework in Frameworks */,
 			);
@@ -533,6 +540,7 @@
 				1809E9F123A3A7D3001A8A77 /* User.swift */,
 				1892042423BB102800C732FB /* SearchResult.swift */,
 				1892042623BB128A00C732FB /* ImageData.swift */,
+				1859402423CC90980024324E /* IAPProduct.swift */,
 				1892042823BB12A000C732FB /* Implant.swift */,
 				1892042A23BB13C300C732FB /* ObjectLocation.swift */,
 				18ACDC8723BE222E00780CE1 /* ImplantImage.swift */,
@@ -591,6 +599,7 @@
 		1822E31F23A2278C006042E3 /* Reachability */ = {
 			isa = PBXGroup;
 			children = (
+				1859402623CC93B80024324E /* NetworkActivityIndicatorManager.swift */,
 				1822E32023A2278C006042E3 /* Reachability.m */,
 				1822E32123A2278C006042E3 /* Reachability.h */,
 			);
@@ -1005,6 +1014,7 @@
 		CB700E3233A1DCD356040D3D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1859402223CC7AEE0024324E /* StoreKit.framework */,
 				1875FBEC23A0D55E00B1EA1F /* QuartzCore.framework */,
 				890B82F08AB34E77A2A7FFA0 /* Pods_Kethan.framework */,
 				51C2C5B99F865ED493CCA4D1 /* Pods_Kethan_KethanUITests.framework */,
@@ -1381,6 +1391,7 @@
 				18CEAE5523AB7F0D00115C12 /* AppConstant.swift in Sources */,
 				1875FC1323A0ED7C00B1EA1F /* LineButton.swift in Sources */,
 				184488B923C3363D001178AB /* SKPaginationView.swift in Sources */,
+				1859402523CC90990024324E /* IAPProduct.swift in Sources */,
 				18AD937523BE2680009F1165 /* TagViewController.swift in Sources */,
 				184488C423C3363D001178AB /* SKCaptionView.swift in Sources */,
 				18794DAD2398CBCF00E80457 /* AboutViewController.swift in Sources */,
@@ -1426,6 +1437,7 @@
 				1875FC0C23A0ED7C00B1EA1F /* CropDimView.swift in Sources */,
 				184488BF23C3363D001178AB /* SKPagingScrollView.swift in Sources */,
 				18956D1D2387C7BB00BD8F63 /* Categories.swift in Sources */,
+				1859402723CC93B80024324E /* NetworkActivityIndicatorManager.swift in Sources */,
 				1801ABAE23851DCB00F46223 /* KVNRotationViewController.m in Sources */,
 				189C06512397DF0D00C292ED /* SupportViewController.swift in Sources */,
 				18DDC7CD23798B9B003FCCE8 /* BaseViewController.swift in Sources */,
@@ -1648,9 +1660,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Kethan/Kethan.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development: brian murray (8Y773CMT4L)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Arkenea Admin (H22LU4X6HU)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 99VXX6YS4Q;
+				DEVELOPMENT_TEAM = 6SSMT78DBN;
 				INFOPLIST_FILE = "$(SRCROOT)/Kethan/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1688,9 +1700,9 @@
 					"\"UIKit\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kethan.sid;
+				PRODUCT_BUNDLE_IDENTIFIER = com.telemedhome;
 				PRODUCT_NAME = SID;
-				PROVISIONING_PROFILE_SPECIFIER = Dev_SID;
+				PROVISIONING_PROFILE_SPECIFIER = TeleMedHomeDeveloper;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Kethan/Resources/Kethan-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1703,9 +1715,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Kethan/Kethan.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Distribution: brian murray (99VXX6YS4Q)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Arkenea Admin (H22LU4X6HU)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 99VXX6YS4Q;
+				DEVELOPMENT_TEAM = 6SSMT78DBN;
 				INFOPLIST_FILE = "$(SRCROOT)/Kethan/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1743,9 +1755,9 @@
 					"\"UIKit\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kethan.sid;
+				PRODUCT_BUNDLE_IDENTIFIER = com.telemedhome;
 				PRODUCT_NAME = SID;
-				PROVISIONING_PROFILE_SPECIFIER = Dist_SID;
+				PROVISIONING_PROFILE_SPECIFIER = TeleMedHomeDeveloper;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Kethan/Resources/Kethan-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

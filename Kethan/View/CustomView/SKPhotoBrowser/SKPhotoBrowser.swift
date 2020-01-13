@@ -232,10 +232,14 @@ public class SKPhotoBrowser: UIViewController {
     
     open func popupShare(includeCaption: Bool = true) {
         let photo = photos[currentPageIndex]
-        guard let underlyingImage = photo.underlyingImage else {
+       
+        guard var underlyingImage = photo.underlyingImage else {
             return
         }
-        
+        if self.cordinate.count > currentPageIndex {
+            let obj = self.cordinate[currentPageIndex]
+            underlyingImage = underlyingImage.drawRectangleOnImage(drawSize: CGRect(x: CGFloat(obj.left.floatValue()), y: CGFloat(obj.top.floatValue()), width: CGFloat(obj.width.floatValue()), height: CGFloat(obj.height.floatValue()))) ?? underlyingImage
+        }
         var activityItems: [AnyObject] = [underlyingImage]
         if photo.caption != nil && includeCaption {
             if let shareExtraCaption = SKPhotoBrowserOptions.shareExtraCaption {

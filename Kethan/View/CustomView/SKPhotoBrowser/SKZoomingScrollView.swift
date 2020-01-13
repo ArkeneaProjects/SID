@@ -171,7 +171,9 @@ open class SKZoomingScrollView: UIScrollView {
                 if let objCordinate = browser?.cordinate[browser?.currentPageIndex ?? 0] {
                     if objCordinate.imageWidth.count != 0 || objCordinate.imageHeight.count != 0 {
                         imageView.clearDrowRectangle()
+                        if imageView.image != nil {
                         imageView.drawRectangle(frameSize: CGSize(width: imageView.bounds.width, height: imageView.bounds.height), imageWidth: CGFloat(objCordinate.imageWidth.floatValue()), imageHight: CGFloat(objCordinate.imageHeight.floatValue()), drawSize: CGRect(x: CGFloat(objCordinate.left.floatValue()), y: CGFloat(objCordinate.top.floatValue()), width: CGFloat(objCordinate.width.floatValue()), height: CGFloat(objCordinate.height.floatValue())))
+                        }
                     }
                 }
             }

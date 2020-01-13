@@ -12,21 +12,21 @@ target 'Kethan' do
   pod 'IQKeyboardManagerSwift'
   pod 'Alamofire'
   pod 'SDWebImage'
- 
+  pod 'SwiftyStoreKit'
   pod 'SVPinView'
   pod 'CropViewController'
   pod 'Atributika'
   pod 'GooglePlaces'
-   
-# Pods for Kethan
-
+  
+  # Pods for Kethan
+  
   target 'KethanTests' do
     inherit! :search_paths
     # Pods for testing
   end
-
+  
   target 'KethanUITests' do
     # Pods for testing
   end
-
+  
 end
