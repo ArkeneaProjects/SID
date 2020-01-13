@@ -50,7 +50,7 @@ class ProcessListViewController: BaseViewController, UITableViewDelegate, UITabl
         
         if let cell: ProcessListCell = tableView.dequeueReusableCell(withIdentifier: String(describing: ProcessListCell.self), for: indexPath) as? ProcessListCell {
             let process: Implant = self.processArray.object(at: indexPath.row) as? Implant ?? Implant()
-            cell.lblProcessTitle.text = process.removalProcess
+            cell.lblProcessTitle.text = process.removalProcess.decodeEmoji()
             cell.btnDelete.alpha = (process.isApproved == "0" && process.userId == AppConstant.shared.loggedUser.userId) ?1.0:0
             cell.btnDelete.indexPath = indexPath
             cell.btnDelete.addTarget(self, action: #selector(deleteProcess(_:)), for: .touchUpInside)

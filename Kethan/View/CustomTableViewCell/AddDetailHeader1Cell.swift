@@ -79,11 +79,12 @@ class AddDetailHeader1Cell: UITableViewCell, UICollectionViewDelegate, UICollect
                 }
             } else if let implantObj = self.arrAllItems[indexPath.item] as? ImplantImage {
                 cell.imgSelected.image = implantObj.selectedImage
+                cell.layoutIfNeeded()
                 cell.imgSelected.drawRectangle(frameSize: CGSize(width: cell.imgSelected.frame.width, height: cell.imgSelected.frame.height), imageWidth: CGFloat(implantObj.imageWidth.floatValue()), imageHight: CGFloat(implantObj.imageHeight.floatValue()), drawSize: CGRect(x: CGFloat(implantObj.labelOffsetX.floatValue()), y: CGFloat(implantObj.labelOffsetY.floatValue()), width: CGFloat(implantObj.labelWidth.floatValue()), height: CGFloat(implantObj.labelHeight.floatValue())))
                 cell.btnDelete.indexPath = indexPath
                 cell.btnDelete.alpha = 1.0
             } else {
-                cell.imgSelected.alpha = 0
+                cell.imgSelected.alpha = 1.0
                 cell.lblAdd.alpha = 1.0
                 cell.imgPlus.alpha = 1.0
                 cell.btnDelete.alpha = 0

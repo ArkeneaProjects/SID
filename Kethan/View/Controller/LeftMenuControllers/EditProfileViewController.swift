@@ -134,7 +134,7 @@ class EditProfileViewController: BaseViewController, GalleryManagerDelegate, Cou
         if textField == self.txtName {
             return finalText.hasOnlyAlphabets()
         }
-        if textField == self.txtMobile &&  textField.text!.count >= 10 {
+        if textField == self.txtMobile &&  textField.text!.count >= 16 {
             return false
         }
         return true

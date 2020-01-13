@@ -114,10 +114,6 @@ class AFManager: NSObject {
                 AlamofireManager.request(strURL, method: method, parameters: parameters as? Parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
                     
                     self.renderResponse(method: method, urlSuffix: urlSuffix, type: "method", strURL: strURL, headers: headers, parameters: parameters, multipart: [], response: response.result.value, error: response.result.error as NSError?, serviceCount: serviceCount, completion: completion)
-                    
-                    if response.result.value == nil {
-                        //print("\n\nresponse -> \n\(String(data: response.data!, encoding: String.Encoding.utf8) ?? "")\n")
-                    }
                 }
                 
             } else {

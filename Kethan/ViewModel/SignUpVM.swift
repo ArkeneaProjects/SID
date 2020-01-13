@@ -87,9 +87,9 @@ class SignUpViewModel: NSObject {
         ProgressManager.show(withStatus: "", on: self.rootViewController!.view)
         var dict: NSDictionary = [:]
         if self.loginVM == nil { //Without Social media login
-            dict = [ENTITIES.name: self.name, ENTITIES.email: self.email, ENTITIES.phoneNumber: self.contactNumber, ENTITIES.profession: self.profession, ENTITIES.referralCode: self.referral, ENTITIES.countryCode: (self.contactNumber.count == 0) ?"":countryCode]
+            dict = [ENTITIES.name: self.name, ENTITIES.email: self.email, ENTITIES.contactNumber: self.contactNumber, ENTITIES.profession: self.profession, ENTITIES.referralCode: self.referral, ENTITIES.countryCode: (self.contactNumber.count == 0) ?"":countryCode]
         } else {
-            dict = [ENTITIES.name: self.name, ENTITIES.email: self.email, ENTITIES.phoneNumber: self.contactNumber, ENTITIES.profession: self.profession, ENTITIES.referralCode: self.referral, ENTITIES.countryCode: (self.contactNumber.count == 0) ?"":countryCode, ENTITIES.socialMediaToken: self.loginVM!.socialMediaID, ENTITIES.socialPlatform: (self.loginVM!.loginType == "facebook") ?"facebook":"google", ENTITIES.userImage: self.loginVM!.profileURL]
+            dict = [ENTITIES.name: self.name, ENTITIES.email: self.email, ENTITIES.contactNumber: self.contactNumber, ENTITIES.profession: self.profession, ENTITIES.referralCode: self.referral, ENTITIES.countryCode: (self.contactNumber.count == 0) ?"":countryCode, ENTITIES.socialMediaToken: self.loginVM!.socialMediaID, ENTITIES.socialPlatform: (self.loginVM!.loginType == "facebook") ?"facebook":"google", ENTITIES.userImage: self.loginVM!.profileURL]
         }
         
         AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.SignUp, parameters: dict, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in

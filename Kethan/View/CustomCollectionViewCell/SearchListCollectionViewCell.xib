@@ -19,18 +19,6 @@
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="mgu-jZ-tfB">
                         <rect key="frame" x="13" y="12" width="144" height="146.5"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="146.5" id="1Jn-FA-Pd2" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
-                            <constraint firstAttribute="width" constant="144" id="Ci2-2B-w9W" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
-                        </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skyline a:p lateran" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLT-hP-hPC" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
                         <rect key="frame" x="13" y="165.5" width="144" height="18"/>

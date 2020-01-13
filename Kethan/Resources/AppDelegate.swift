@@ -33,6 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         
         //IQKeyboardManager.shared.enable = true
         //IQKeyboardManager.shared.enableAutoToolbar = false
+        
+        //Custom Logger
+        CustomLogger.sharedInstance.setupLogger(true)
+        
         // Initialize sign-in
         GIDSignIn.sharedInstance().clientID = KEYS.googleKey
         GMSPlacesClient.provideAPIKey(KEYS.GooglePlacesAPIKey)

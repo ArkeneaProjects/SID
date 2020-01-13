@@ -17,6 +17,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     var implantObj = SearchResult()
     var implantVM = AddImplantVM()
     
+    var arrUpoading = NSMutableArray()
     var imageArray = NSMutableArray()
     var deletedImageArr = NSMutableArray()
     var deletedProcessArr = NSMutableArray()
@@ -28,6 +29,8 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         
         self.implantVM.implantObj = self.implantObj
         self.imageArray = NSMutableArray(array: self.implantVM.implantObj.imageData)
+        self.arrUpoading = NSMutableArray(array: self.implantVM.implantObj.imageData)
+
         self.checkAndAddPulsButton()
         
         self.btnUpload.setTitle((self.implantObj._id.count == 0) ?"Upload for verification":"Update for verification", for: .normal)
@@ -58,7 +61,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         controller.showPopup()
         controller.addCompletion = { str, location, date in
             if str.count > 0 {
-                let removalProcess: NSDictionary = ["removalProcess": str, "surgeryDate": date, "surgeryLocation": location, "userId": AppConstant.shared.loggedUser.userId, "isApproved": "0"]
+                let removalProcess: NSDictionary = ["removalProcess": str.encodeEmoji(), "surgeryDate": date, "surgeryLocation": location, "userId": AppConstant.shared.loggedUser.userId, "isApproved": "0"]
                 let implant = Implant(dictionary: removalProcess)
                 self.implantVM.implantObj.removImplant.insert(implant, at: 0)
                 if let cell = self.tblView.cellForRow(at: sender.indexPath) as? AddDetailHeader3Cell {
@@ -94,22 +97,28 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     
     @objc func seeAllImages(_ sender: CustomButton) {
         if let imagesListVC = self.instantiate(ImageListViewController.self, storyboard: STORYBOARD.main) as? ImageListViewController {
-            imagesListVC.arrAllItems = self.imageArray
+            imagesListVC.arrAllItems = self.arrUpoading
             imagesListVC.saveCompletion = { array, allImagesArray in
                 for objImage in array {
                     if let obj = objImage as? ImageData {
+                        //Save deleted image id
                         self.implantVM.arrDeletedImage.add(obj.id)
+                        
+                        //Delete Image
+                        for item in self.imageArray {
+                            if let itemObj = item as? ImageData {
+                                if itemObj.id == obj.id {
+                                    self.imageArray.remove(itemObj)
+                                    let arr = self.arrUpoading.filtered(using: NSPredicate(format: "id == %@", argumentArray: [itemObj.id]))
+                                    if arr.count > 0 {
+                                        self.arrUpoading.remove(arr.last!)
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
-                var arrImage = [ImageData]()
-                for obj in allImagesArray {
-                    if let imgObj = obj as? ImageData {
-                        arrImage.append(imgObj)
-                    }
-                }
-                self.implantVM.implantObj.imageData = arrImage
-//                self.implantVM.implantObj.imageData = allImagesArray as! [ImageData]
-//                self.deletedImageArr = array
+                self.checkAndAddPulsButton()
                 self.tblView.reloadData()
             }
             self.navigationController?.pushViewController(imagesListVC, animated: true)
@@ -131,26 +140,25 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     }
     
     func checkAndAddPulsButton() {
-        if (self.imageArray.lastObject as? ImageData) != nil || self.imageArray.count == 0 {
-            if self.imageArray.count >= 4 {
+            if self.arrUpoading.count >= 4 {
                 let arr = NSMutableArray()
-                for i in 0..<self.imageArray.count where i <= 4 {
-                    arr.add(self.imageArray[i])
+                for i in 0..<self.arrUpoading.count where i <= 4 {
+                    arr.add(self.arrUpoading[i])
                 }
-                arr.add(["lineImage"])
+                if let imageObj = self.arrUpoading.lastObject as? ImplantImage {
+                    arr.add(imageObj)
+                } else {
+                    arr.add(["lineImage"])
+                }
                 self.imageArray = NSMutableArray(array: arr)
             } else {
-                self.imageArray.add(["lineImage"])
-            }
-        } else {
-            if (self.imageArray.lastObject as? NSArray) == nil {
-                if self.imageArray.count > 1 {
-                    let totalCount = self.imageArray.count
-                    self.imageArray.removeObject(at: totalCount - 2)
+                if (self.imageArray.lastObject as? ImplantImage) != nil {
+                    
+                } else {
+                    self.imageArray.add(["lineImage"])
                 }
             }
         }
-    }
     
     // MARK: - UITabelVieeDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -176,17 +184,20 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                 //Delete Image
                 cell.deleteImageCompletion = { index_Path in
                     self.showAlert(title: "", message: "Delete Image?", yesTitle: "Yes", noTitle: "NO", yesCompletion: {
-                        if let objImage = self.imageArray.object(at: indexPath.row) as? ImageData {
+                        if let objImage = self.imageArray[index_Path.row] as? ImageData {
                             self.implantVM.arrDeletedImage.add(objImage.id)
                             self.imageArray.removeObject(at: index_Path.item)
-                        }
-                        var arrImage = [ImageData]()
-                        for obj in self.imageArray {
-                            if let imgObj = obj as? ImageData {
-                                arrImage.append(imgObj)
+                            
+                            let arr = self.arrUpoading.filtered(using: NSPredicate(format: "id == %@", argumentArray: [objImage.id]))
+                            if arr.count > 0 {
+                                self.arrUpoading.remove(arr.last!)
                             }
+                        } else {
+                            self.imageArray.removeObject(at: index_Path.item)
+                            self.implantVM.implantObj.implantImage = ImplantImage()
+                            self.arrUpoading.removeLastObject()
                         }
-                        self.implantVM.implantObj.imageData = arrImage
+                       
                         self.checkAndAddPulsButton()
                         cell.arrAllItems = self.imageArray
                         
@@ -265,16 +276,16 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
             //Get cordinate value from Tagview controller
             controller.continueCompletion = { implantImageObj in
                 print(implantImageObj.dictioary())
+                self.imageArray.removeLastObject()
                 self.imageArray.add(implantImageObj)
-                self.checkAndAddPulsButton()
+                self.arrUpoading.add(implantImageObj)
                 self.implantVM.implantObj.implantImage = implantImageObj
                 self.tblView.reloadData()
             }
             if let size = image!.getFileSize() {
                 //check image size is not more than 3 MB
                 if size >= 1.0 {
-                    controller.selectedImage = image!.imageWithImage(scaledToWidth: 600.0)
-                    
+                    controller.selectedImage = image!.imageWithImage(scaledToWidth: getCalculated(640.0))
                 } else {
                     controller.selectedImage = image!
                 }

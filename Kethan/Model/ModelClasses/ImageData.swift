@@ -8,10 +8,10 @@
 
 import UIKit
 
-class ImageData: NSObject,NSCopying {
+class ImageData: NSObject, NSCopying {
     
     var createdDate: String = ""
-    var id: String = ""
+    @objc var id: String = ""
     var isApproved: String = ""
     var userId: String = ""
     
