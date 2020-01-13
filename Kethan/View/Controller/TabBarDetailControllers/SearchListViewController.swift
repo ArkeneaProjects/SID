@@ -133,7 +133,7 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Collection view at row \(collectionView.tag) selected index path \(indexPath)")
         if let controller = self.instantiate(SearchDetailViewController.self, storyboard: STORYBOARD.main) as? SearchDetailViewController {
-            controller.detailObj = self.searchVM.arrSearchResult[indexPath.row]
+            controller.detailObj = self.searchVM.arrSearchResult[indexPath.row].copy() as? SearchResult ?? SearchResult()
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }

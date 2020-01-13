@@ -61,6 +61,7 @@ class AddDetailHeader1Cell: UITableViewCell, UICollectionViewDelegate, UICollect
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddDetail1CollectionViewCell", for: indexPath) as? AddDetail1CollectionViewCell {
+            cell.imgSelected.alpha = 1.0
             cell.lblAdd.alpha = 0
             cell.imgPlus.alpha = 0
             cell.btnDelete.alpha = 0
@@ -82,6 +83,7 @@ class AddDetailHeader1Cell: UITableViewCell, UICollectionViewDelegate, UICollect
                 cell.btnDelete.indexPath = indexPath
                 cell.btnDelete.alpha = 1.0
             } else {
+                cell.imgSelected.alpha = 0
                 cell.lblAdd.alpha = 1.0
                 cell.imgPlus.alpha = 1.0
                 cell.btnDelete.alpha = 0

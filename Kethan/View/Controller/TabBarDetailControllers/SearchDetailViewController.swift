@@ -25,7 +25,6 @@ class SearchDetailViewController: BaseViewController, UITableViewDelegate, UITab
         // Do any additional setup after loading the view.
     }
    
-
     // MARK: - Button Action
     @IBAction func edittButtonAction() {
         if let controller = self.instantiate(AddDetailsViewController.self, storyboard: STORYBOARD.main) as? AddDetailsViewController {
