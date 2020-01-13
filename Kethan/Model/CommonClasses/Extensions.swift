@@ -646,17 +646,18 @@ extension String {
 }
 extension UIImage {
     func drawRectangleOnImage(drawSize: CGRect) -> UIImage? {
-           let imageSize = self.size
-           UIGraphicsBeginImageContextWithOptions(imageSize, false, self.scale)
-       
-           self.draw(at: CGPoint.zero)
-           let color: UIColor = UIColor.red
-           let bpath: UIBezierPath = UIBezierPath(rect: drawSize)
+        let imageSize = self.size
+      
+        UIGraphicsBeginImageContextWithOptions(imageSize, false, 1.0)
+
+            self.draw(at: CGPoint.zero)
+        let color: UIColor = UIColor.red
+        let bpath: UIBezierPath = UIBezierPath(rect: drawSize)
             bpath.lineWidth = 3.0
             color.set()
             bpath.stroke()
 
-           let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
            UIGraphicsEndImageContext()
            return newImage
     }
