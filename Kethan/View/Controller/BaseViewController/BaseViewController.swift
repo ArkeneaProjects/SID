@@ -396,7 +396,7 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
                     items.append(item)
                 }
             } else if let url = item as? String {
-                let item = SKPhoto.photoWithImage(UIImage(named: url) ?? UIImage())
+                let item = SKPhoto.profilePhotoURL(url, holder: UIImage(named: "default-user"))
                 items.append(item)
             }
         }

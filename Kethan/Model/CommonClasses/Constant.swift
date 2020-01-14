@@ -242,7 +242,6 @@ struct ENTITIES {
     static let email = "email"
     static let password = "password"
     static let name = "name"
-    static let phoneNumber = "phoneNumber"
     static let profession = "profession"
     static let referralCode = "referralCode"
     static let otp = "otp"

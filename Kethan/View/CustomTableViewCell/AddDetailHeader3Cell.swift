@@ -61,7 +61,7 @@ class AddDetailHeader3Cell: UITableViewCell {
                 
                 let process = arrTableView.object(at: index) as! Implant
                 
-                processListingView.lblProcess.text = process.removalProcess
+                processListingView.lblProcess.text = process.removalProcess.decodeEmoji()
                 processListingView.btnRemove.alpha =  (process.isApproved == "0" && process.userId == AppConstant.shared.loggedUser.userId) ?1.0:0
 
                 processListingView.backgroundColor = UIColor.gray

@@ -63,24 +63,19 @@ class UploadViewController: BaseViewController {
     @IBAction func addClickAction(_ sender: Any) {
         self.implantObj.objectName = self.txtImplant.text!
         self.implantObj.implantManufacture = self.txtManu.text!
-
-        if self.implantObj.objectName.trimmedString().count == 0 {
-            ProgressManager.showError(withStatus: ERRORS.EmptyBrandName, on: self.view)
-            return
-        } else if self.implantObj.implantManufacture.trimmedString().count == 0 {
+        
+        if self.implantObj.implantManufacture.trimmedString().count == 0 {
             ProgressManager.showError(withStatus: ERRORS.EmptyManufacturer, on: self.view)
             return
-        } else {
-//            if let controller = self.instantiate(AddDetailsViewController.self, storyboard: STORYBOARD.main) as? AddDetailsViewController {
-//                controller.implantObj = self.implantObj
-//                self.navigationController?.pushViewController(controller, animated: true)
-//            }
-            if let controller = self.instantiate(SearchListViewController.self, storyboard: STORYBOARD.main) as? SearchListViewController {
-                controller.menufeacture = self.txtManu.text ?? ""
-                controller.brandname = self.txtImplant.text ?? ""
-                controller.isCalledFrom = 2
-                self.navigationController?.pushViewController(controller, animated: true)
-            }
+        } else if self.implantObj.objectName.trimmedString().count == 0 {
+            ProgressManager.showError(withStatus: ERRORS.EmptyBrandName, on: self.view)
+            return
+        }
+        if let controller = self.instantiate(SearchListViewController.self, storyboard: STORYBOARD.main) as? SearchListViewController {
+            controller.menufeacture = self.txtManu.text ?? ""
+            controller.brandname = self.txtImplant.text ?? ""
+            controller.isCalledFrom = 2
+            self.navigationController?.pushViewController(controller, animated: true)
         }
     }
         

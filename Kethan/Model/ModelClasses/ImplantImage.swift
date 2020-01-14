@@ -9,6 +9,7 @@
 import UIKit
 
 class ImplantImage: NSObject {
+    @objc var id = ""
     var imageWidth =  ""
     var imageHeight = ""
     var labelWidth = ""
@@ -33,6 +34,7 @@ class ImplantImage: NSObject {
     
     func dictioary() -> NSDictionary {
         let dictionary: NSDictionary = [
+            "id": self.id,
             ENTITIES.imageWidth: self.imageWidth,
             ENTITIES.imageHeight: self.imageHeight,
             ENTITIES.labelOffsetX: self.labelOffsetX,
