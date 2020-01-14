@@ -10,7 +10,7 @@ import UIKit
 
 class SubScriptionCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var btnSubscribe: UIButton!
+    @IBOutlet weak var btnSubscribe: CustomButton!
     @IBOutlet weak var btnTerms: UIButton!
     @IBOutlet weak var btnPrivacy: UIButton!
 

@@ -8,7 +8,7 @@
 
 import UIKit
 enum ButtonType: NSInteger {
-    case buttonTypeNil = 0, buttonTypeBack, buttonTypeCredit, buttonTypeMenu, buttonTypeSave, buttonTypeEdit, buttonCrop, buttonTypeSkip, buttonTypeAdd
+    case buttonTypeNil = 0, buttonTypeBack, buttonTypeCredit, buttonTypeMenu, buttonTypeSave, buttonTypeEdit, buttonCrop, buttonTypeSkip, buttonTypeAdd, buttonTypeRestore
 }
 
 class CustomNavBar: UIView {
@@ -91,9 +91,13 @@ class CustomNavBar: UIView {
                 self.btnRightEdit.alpha = 1.0
                 self.btnRightEdit.setTitle("Skip", for: .normal)
                 self.btnRightEdit.addTarget(target, action: rightAction, for: UIControl.Event.touchUpInside)
-            }   else if rightButtonType == .buttonTypeSave {
+            } else if rightButtonType == .buttonTypeSave {
                 self.btnRightEdit.alpha = 1.0
                 self.btnRightEdit.setTitle("Save", for: .normal)
+                self.btnRightEdit.addTarget(target, action: rightAction, for: UIControl.Event.touchUpInside)
+            } else if rightButtonType == .buttonTypeRestore {
+                self.btnRightEdit.alpha = 1.0
+                self.btnRightEdit.setTitle("Restore", for: .normal)
                 self.btnRightEdit.addTarget(target, action: rightAction, for: UIControl.Event.touchUpInside)
             }
                 if rightImageName.count > 0 {

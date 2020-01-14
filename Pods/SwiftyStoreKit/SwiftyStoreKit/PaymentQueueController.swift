@@ -110,14 +110,14 @@ class PaymentQueueController: NSObject, SKPaymentTransactionObserver {
         paymentQueue.add(self)
     }
     
-    private func assertCompleteTransactionsWasCalled() {
-        
-        let message = "SwiftyStoreKit.completeTransactions() must be called when the app launches."
-        assert(completeTransactionsController.completeTransactions != nil, message)
-    }
+//    private func assertCompleteTransactionsWasCalled() {
+//
+//        let message = "SwiftyStoreKit.completeTransactions() must be called when the app launches."
+//        assert(completeTransactionsController.completeTransactions != nil, message)
+//    }
 
     func startPayment(_ payment: Payment) {
-        assertCompleteTransactionsWasCalled()
+//        assertCompleteTransactionsWasCalled()
         
         let skPayment = SKMutablePayment(product: payment.product)
         skPayment.applicationUsername = payment.applicationUsername
@@ -135,7 +135,7 @@ class PaymentQueueController: NSObject, SKPaymentTransactionObserver {
     }
 
     func restorePurchases(_ restorePurchases: RestorePurchases) {
-        assertCompleteTransactionsWasCalled()
+//        assertCompleteTransactionsWasCalled()
 
         if restorePurchasesController.restorePurchases != nil {
             return
