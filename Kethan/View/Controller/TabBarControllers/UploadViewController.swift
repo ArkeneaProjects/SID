@@ -12,6 +12,9 @@ class UploadViewController: BaseViewController {
     
     @IBOutlet weak var txtImplant: CustomDropDown!
     @IBOutlet weak var txtManu: CustomDropDown!
+    
+    @IBOutlet weak var btnAdd: CustomButton!
+    
     var implantObj = SearchResult()
     
     override func viewDidLoad() {
@@ -20,11 +23,25 @@ class UploadViewController: BaseViewController {
         
         self.txtImplant.font = UIFont(name: self.txtImplant.font!.fontName, size: getCalculated(14.0))
         self.txtManu.font = UIFont(name: self.txtManu.font!.fontName, size: getCalculated(14.0))
+        
         self.txtManu.text = ""
         self.txtImplant.text = ""
+        self.txtImplant.delegate = self
+//        self.txtImplant.textFieldDelgateCallBack = { textField in
+//            if self.txtManu.text!.count == 0 {
+//                self.txtManu.optionArray = []
+//                ProgressManager.showError(withStatus: MESSAGES.selectManufacture, on: self.view, completion: {
+//                    self.view.endEditing(true)
+//                })
+//                return
+//            } else {
+//                self.getBrandName()
+//            }
+//        }
         if AppConstant.shared.manufactureName.count != 0 {
             self.txtManu.text = AppConstant.shared.manufactureName
             AppConstant.shared.manufactureName = ""
+            self.getBrandName()
         }
         
         if AppConstant.shared.brandName.count != 0 {
@@ -32,28 +49,42 @@ class UploadViewController: BaseViewController {
             AppConstant.shared.brandName = ""
         }
         
+        //Manufacture
+        if let arrManufacture = getUserDefaultsForKey(key: UserDefaultsKeys.ManufectureUpload) as? [NSDictionary] {
+            let arr = arrManufacture.map { (obj) -> String in
+                return getValueFromDictionary(dictionary: obj, forKey: ENTITIES.implantManufacture)
+            }
+            self.txtManu.optionArray = arr
+            self.txtManu.didSelect { (selected: String, index: Int, id: Int) in
+                self.txtManu.text = selected
+                self.txtImplant.text = ""
+            }
+            self.txtManu.keyboardCompletion = {
+                if self.txtManu.shadow != nil && self.txtManu.shadow.alpha != 0 {
+                    self.txtManu.hideList()
+                }
+            }
+        }
+    }
+    
+    func getBrandName() {
         //Brand
-        if let arrBrand = getUserDefaultsForKey(key: UserDefaultsKeys.BrandName) as? [NSString] {
-            self.txtImplant.optionArray = arrBrand as [String]
+        if let arrManufacture = getUserDefaultsForKey(key: UserDefaultsKeys.ManufectureUpload) as? [NSDictionary] {
+            
+            let arritem = NSMutableArray(array: arrManufacture)
+            let arr = arritem.filtered(using: NSPredicate(format: "\(ENTITIES.implantManufacture) == %@", argumentArray: [self.txtManu.text!]))
+            if arr.count > 0 {
+                if let manuDict = arr.last as? NSDictionary {
+                    self.txtImplant.optionArray = manuDict.object(forKey: ENTITIES.brand) as? [String] ?? []
+                }
+            }
+            
             self.txtImplant.didSelect { (selected: String, index: Int, id: Int) in
                 self.txtImplant.text = selected
             }
             self.txtImplant.keyboardCompletion = {
                 if self.txtImplant.shadow != nil && self.txtImplant.shadow.alpha != 0 {
                     self.txtImplant.hideList()
-                }
-            }
-        }
-        
-        //Manufacture
-        if let arrManufacture = getUserDefaultsForKey(key: UserDefaultsKeys.Manufecture) as? [NSString] {
-            self.txtManu.optionArray = arrManufacture as [String]
-            self.txtManu.didSelect { (selected: String, index: Int, id: Int) in
-                self.txtManu.text = selected
-            }
-            self.txtManu.keyboardCompletion = {
-                if self.txtManu.shadow != nil && self.txtManu.shadow.alpha != 0 {
-                    self.txtManu.hideList()
                 }
             }
         }
@@ -78,7 +109,24 @@ class UploadViewController: BaseViewController {
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }
-        
+       
+    // MARK: - TextField Deleget
+    override func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField == self.txtImplant {
+            if self.txtManu.text!.count == 0 {
+                ProgressManager.showError(withStatus: MESSAGES.selectManufacture, on: self.view)
+                self.txtImplant.text = ""
+                self.txtImplant.optionArray = []
+                return false
+            } else {
+                self.getBrandName()
+                self.txtImplant.isSearchEnable = true
+            }
+            return self.txtImplant.textFieldShouldBeginEditing(textField)
+        }
+        return true
+    }
+    
         /*
          // MARK: - Navigation
          

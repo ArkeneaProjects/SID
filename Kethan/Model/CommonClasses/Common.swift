@@ -147,6 +147,11 @@ func getTopViewController() -> BaseViewController? {
 }
 
 func updateUserDetail(userDetail: NSDictionary) {
+    
+    //Get Manufacture and Brand Name
+    let loginVM = LoginViewModel()
+    loginVM.callManutactureAPI()
+    
     let user = User.init(dictionary: userDetail)
     AppConstant.shared.updateProfile(updatedProfile: user)
 }

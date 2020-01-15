@@ -53,6 +53,7 @@ class SearchDetailViewController: BaseViewController, UITableViewDelegate, UITab
                 cell.lblTitle.text = detailObj.objectName
                 cell.lblDiscription.text = detailObj.implantManufacture
                 customCollection!.setupWith(superView: cell.viewCollection, controller: self, isview: false)
+                customCollection!.pageControl.alpha = (self.detailObj.imageData.count > 1) ?1.0:0
                 customCollection!.pageControl.numberOfPages = self.detailObj.imageData.count
                 customCollection!.arrAllItems =  NSMutableArray(array: self.detailObj.imageData)
                 return cell
