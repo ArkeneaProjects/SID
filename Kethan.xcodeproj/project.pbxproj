@@ -55,6 +55,8 @@
 		1822E32523A228DD006042E3 /* CustomLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822E32423A228DD006042E3 /* CustomLogger.swift */; };
 		182E24AC23C72D85000EBC54 /* LogoutVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182E24AB23C72D85000EBC54 /* LogoutVM.swift */; };
 		182E24AE23C73152000EBC54 /* SupportVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182E24AD23C73152000EBC54 /* SupportVM.swift */; };
+		183081F623CF368700FC9F92 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183081F523CF368700FC9F92 /* CreditsViewController.swift */; };
+		183081F823CF38DA00FC9F92 /* CreditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183081F723CF38DA00FC9F92 /* CreditTableViewCell.swift */; };
 		184488B623C3363D001178AB /* SKPhotoBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844889E23C3363C001178AB /* SKPhotoBrowser.swift */; };
 		184488B723C3363D001178AB /* SKMesurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844889F23C3363C001178AB /* SKMesurement.swift */; };
 		184488B823C3363D001178AB /* SKZoomingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184488A023C3363C001178AB /* SKZoomingScrollView.swift */; };
@@ -268,6 +270,8 @@
 		1822E32423A228DD006042E3 /* CustomLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLogger.swift; sourceTree = "<group>"; };
 		182E24AB23C72D85000EBC54 /* LogoutVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutVM.swift; sourceTree = "<group>"; };
 		182E24AD23C73152000EBC54 /* SupportVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportVM.swift; sourceTree = "<group>"; };
+		183081F523CF368700FC9F92 /* CreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
+		183081F723CF38DA00FC9F92 /* CreditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditTableViewCell.swift; sourceTree = "<group>"; };
 		1844889D23C3363C001178AB /* SKPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPhotoBrowser.h; sourceTree = "<group>"; };
 		1844889E23C3363C001178AB /* SKPhotoBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKPhotoBrowser.swift; sourceTree = "<group>"; };
 		1844889F23C3363C001178AB /* SKMesurement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKMesurement.swift; sourceTree = "<group>"; };
@@ -706,6 +710,7 @@
 				18F812E6239E0FCE00E96B47 /* DropDownTableViewCell.swift */,
 				18F812E7239E0FCE00E96B47 /* DropDownTableViewCell.xib */,
 				18ACDC8123BDEFE000780CE1 /* ProcessListCell.swift */,
+				183081F723CF38DA00FC9F92 /* CreditTableViewCell.swift */,
 			);
 			path = CustomTableViewCell;
 			sourceTree = "<group>";
@@ -716,6 +721,7 @@
 				1848DA2623B489E0004A711A /* SelectProfessionViewController.swift */,
 				188131AB238E64EE005334BF /* ResponsePopUpViewController.swift */,
 				181FFA9D239A26D50078E64D /* DatePopUpViewController.swift */,
+				183081F523CF368700FC9F92 /* CreditsViewController.swift */,
 			);
 			path = PopUpController;
 			sourceTree = "<group>";
@@ -1426,6 +1432,7 @@
 				184488C023C3363D001178AB /* SKDetectingView.swift in Sources */,
 				1821AF23237A860F0010B307 /* Extensions.swift in Sources */,
 				18E71D72237C1F670090FC90 /* SWRevealViewController.m in Sources */,
+				183081F823CF38DA00FC9F92 /* CreditTableViewCell.swift in Sources */,
 				18956D2423880AA500BD8F63 /* SearchListCollectionViewCell.swift in Sources */,
 				1892042923BB12A000C732FB /* Implant.swift in Sources */,
 				1875FC0B23A0ED7C00B1EA1F /* UIView+.swift in Sources */,
@@ -1475,6 +1482,7 @@
 				18C3E6F023A76186000ABA07 /* CountryCell.swift in Sources */,
 				1809E9EF23A39379001A8A77 /* SignUpVM.swift in Sources */,
 				18794DB12398DF2900E80457 /* ProfileViewController.swift in Sources */,
+				183081F623CF368700FC9F92 /* CreditsViewController.swift in Sources */,
 				1892042723BB128A00C732FB /* ImageData.swift in Sources */,
 				1822E31723A1FEF7006042E3 /* SkyFloatingLabelTextField.swift in Sources */,
 				1801ABB223851DCB00F46223 /* UIImage+KVNEmpty.m in Sources */,
@@ -1668,9 +1676,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Kethan/Kethan.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development: brian murray (8Y773CMT4L)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Arkenea Admin (H22LU4X6HU)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 99VXX6YS4Q;
+				DEVELOPMENT_TEAM = 6SSMT78DBN;
 				INFOPLIST_FILE = "$(SRCROOT)/Kethan/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1708,9 +1716,9 @@
 					"\"UIKit\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kethan.sid;
+				PRODUCT_BUNDLE_IDENTIFIER = com.telemedhome;
 				PRODUCT_NAME = SID;
-				PROVISIONING_PROFILE_SPECIFIER = Dev_SID;
+				PROVISIONING_PROFILE_SPECIFIER = TeleMedHomeDeveloper;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Kethan/Resources/Kethan-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1723,9 +1731,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Kethan/Kethan.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Distribution: brian murray (99VXX6YS4Q)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Arkenea Admin (H22LU4X6HU)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 99VXX6YS4Q;
+				DEVELOPMENT_TEAM = 6SSMT78DBN;
 				INFOPLIST_FILE = "$(SRCROOT)/Kethan/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1763,9 +1771,9 @@
 					"\"UIKit\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kethan.sid;
+				PRODUCT_BUNDLE_IDENTIFIER = com.telemedhome;
 				PRODUCT_NAME = SID;
-				PROVISIONING_PROFILE_SPECIFIER = AddHoc_SID;
+				PROVISIONING_PROFILE_SPECIFIER = TeleMedHomeDeveloper;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Kethan/Resources/Kethan-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

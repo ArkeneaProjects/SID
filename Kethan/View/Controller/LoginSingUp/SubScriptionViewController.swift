@@ -65,8 +65,20 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
         if self.isComeFromLogin == true {
             self.navigateToHome(false, false)
         } else {
-            self.subscriptionVmObj.selectedIndex = sender.indexPath.item
-            self.subscriptionVmObj.subscribe()
+            if sender.indexPath.item == 0 {
+                self.subscriptionVmObj.selectedIndex = sender.indexPath.item
+                self.subscriptionVmObj.subscribe()
+            } else {
+                let controller: CreditsViewController = self.instantiate(CreditsViewController.self, storyboard: STORYBOARD.main) as? CreditsViewController ?? CreditsViewController()
+                controller.preparePopup(controller: self)
+                controller.showPopup()
+                controller.addCompletion = { creditValue, creditedPoints in
+                    self.subscriptionVmObj.creditedPoint = creditedPoints
+                    self.subscriptionVmObj.creditedValue = creditValue
+                    self.subscriptionVmObj.selectedIndex = sender.indexPath.item
+                    self.subscriptionVmObj.checkForIdentifire()
+                }
+            }
         }
     }
     

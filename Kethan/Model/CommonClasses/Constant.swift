@@ -104,6 +104,8 @@ struct SUFFIX_URL {
     static let changePassword = "auth/changePassword"
     static let SignOut = "auth/signout"
     static let Support = "support/create"
+    static let subscriptionUpdate = "auth/subscriptionUpdate"
+
 }
 
 struct KEYS {
