@@ -45,6 +45,7 @@ class ForgotPwdViewController: BaseViewController {
         self.view.endEditing(true)
         
         self.forgotVM.clearAllData()
+        self.forgotVM.isCameFromForgotScreen = (self.isShowForgotScreen == true) ?true:false
         self.forgotVM.email = self.txtEmail.text!
         self.forgotVM.validateEmail(controller: self)
     }

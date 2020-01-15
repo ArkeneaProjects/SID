@@ -146,14 +146,13 @@ class LoginViewController: BaseViewController, GIDSignInDelegate {
             print(error.localizedDescription)
             ProgressManager.showError(withStatus: error.localizedDescription, on: self.view)
         } else {
-            if AppConstant.shared.loggedUser.accesstoken.trimmedString().count == 0 {
-                self.loginVM.clearAllData()
-                self.loginVM.email = user.profile.email!
-                self.loginVM.socialMediaID = user.userID!
-                self.loginVM.fullName = "\(user.profile.givenName!) \(user.profile.familyName!)"
-                self.loginVM.loginType = "google"
-                self.loginVM.validateSocialLogin(controller: self)
-            }
+            self.loginVM.clearAllData()
+            self.loginVM.email = user.profile.email!
+            self.loginVM.socialMediaID = user.authentication.idToken!
+            self.loginVM.fullName = "\(user.profile.givenName!) \(user.profile.familyName!)"
+            self.loginVM.loginType = "google"
+            self.loginVM.validateSocialLogin(controller: self)
+            
             GIDSignIn.sharedInstance()?.signOut()
         }
     }
@@ -171,10 +170,5 @@ class LoginViewController: BaseViewController, GIDSignInDelegate {
             textField.resignFirstResponder()
         }
         return true
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-        super.touchesBegan(touches, with: event)
     }
 }

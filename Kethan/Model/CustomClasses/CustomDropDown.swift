@@ -19,6 +19,7 @@ open class CustomDropDown: UITextField {
     var tableViewWidth: CGFloat = 0.0
     
     var keyboardCompletion: VoidCompletion?
+    var textFieldDelgateCallBack: ((_ textField: UITextField) -> Void)?
     
     // MARK: - IBInspectable
     @IBInspectable public var tableViewX: CGFloat = 0 {
@@ -358,6 +359,9 @@ extension CustomDropDown: UITextFieldDelegate {
         
     }
     public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if self.textFieldDelgateCallBack != nil {
+            self.textFieldDelgateCallBack!(textField)
+        }
         return isSearchEnable
     }
 

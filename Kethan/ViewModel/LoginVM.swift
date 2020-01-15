@@ -19,27 +19,42 @@ class LoginViewModel: NSObject {
     var socialMediaID: String = ""
     var fullName: String = ""
     var profileURL: String = ""
+    var contactNumber: String = ""
     
     var rootController: BaseViewController?
     
     override init() {
+        
+    }
+    
+    func callManutactureAPI() {
         DispatchQueue.main.async {
-            let dict: NSDictionary = [:]
-            AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.TotalManufactureName, parameters: dict, serviceCount: 0, completion: { (response: AnyObject?, error: String?, errorCode: String?) in
-                
-                if error == nil || error == "" {
-                    if let dictionary = response as? NSDictionary {
+                    let dict: NSDictionary = [:]
+                    AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.GetManufactureName, parameters: dict, serviceCount: 0, completion: { (response: AnyObject?, error: String?, errorCode: String?) in
                         
-                        if let arrManufacture = dictionary.value(forKey: "manufecture") as? [NSString] {
-                            setUserDefaults(value: NSMutableArray(array: arrManufacture), forKey: UserDefaultsKeys.Manufecture)
+                        if error == nil || error == "" {
+                            if let dictionary = response as? NSDictionary {
+                                
+                                if let arrDict = dictionary.value(forKey: "implantList") as? [NSDictionary] {
+                                    let arr = NSMutableArray()
+                                    for item in arrDict {
+                                        let obj = ManufaturesBrands(dictionary: item)
+                                        arr.add(obj.dictioary())
+                                    }
+                                    setUserDefaults(value: arr, forKey: UserDefaultsKeys.ManufectureUpload)
+                                }
+                                
+                                
+        //                        if let arrManufacture = dictionary.value(forKey: "manufecture") as? [NSString] {
+        //                            setUserDefaults(value: NSMutableArray(array: arrManufacture), forKey: UserDefaultsKeys.Manufecture)
+        //                        }
+        //                        if let arrBrandName = dictionary.value(forKey: "brandName") as? [NSString] {
+        //                            setUserDefaults(value: NSMutableArray(array: arrBrandName), forKey: UserDefaultsKeys.BrandName)
+        //                        }
+                            }
                         }
-                        if let arrBrandName = dictionary.value(forKey: "brandName") as? [NSString] {
-                            setUserDefaults(value: NSMutableArray(array: arrBrandName), forKey: UserDefaultsKeys.BrandName)
-                        }
-                    }
+                    })
                 }
-            })
-        }
     }
     
     func clearAllData() {
@@ -52,6 +67,7 @@ class LoginViewModel: NSObject {
         self.socialMediaID = ""
         self.fullName = ""
         self.profileURL = ""
+        self.contactNumber = ""
     }
     
     func saveBrandName() {

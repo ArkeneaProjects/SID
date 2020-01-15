@@ -150,6 +150,7 @@
 		189C06512397DF0D00C292ED /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C06502397DF0D00C292ED /* SupportViewController.swift */; };
 		189E882723953BDB009C8ECF /* CreditHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E882523953BDB009C8ECF /* CreditHistoryTableViewCell.swift */; };
 		189E882823953BDB009C8ECF /* CreditHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189E882623953BDB009C8ECF /* CreditHistoryTableViewCell.xib */; };
+		18A6D1D823CD8DEE00090030 /* ManufaturesBrands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A6D1D723CD8DEE00090030 /* ManufaturesBrands.swift */; };
 		18A728E3239E687800537092 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A728E2239E687700537092 /* LoginVM.swift */; };
 		18ACDC8023BDC75900780CE1 /* ProcessListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACDC7F23BDC75800780CE1 /* ProcessListViewController.swift */; };
 		18ACDC8223BDEFE000780CE1 /* ProcessListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACDC8123BDEFE000780CE1 /* ProcessListCell.swift */; };
@@ -369,6 +370,7 @@
 		189C06502397DF0D00C292ED /* SupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportViewController.swift; sourceTree = "<group>"; };
 		189E882523953BDB009C8ECF /* CreditHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		189E882623953BDB009C8ECF /* CreditHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreditHistoryTableViewCell.xib; sourceTree = "<group>"; };
+		18A6D1D723CD8DEE00090030 /* ManufaturesBrands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManufaturesBrands.swift; sourceTree = "<group>"; };
 		18A728E2239E687700537092 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		18ACDC7F23BDC75800780CE1 /* ProcessListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessListViewController.swift; sourceTree = "<group>"; };
 		18ACDC8123BDEFE000780CE1 /* ProcessListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessListCell.swift; sourceTree = "<group>"; };
@@ -544,6 +546,7 @@
 				1892042823BB12A000C732FB /* Implant.swift */,
 				1892042A23BB13C300C732FB /* ObjectLocation.swift */,
 				18ACDC8723BE222E00780CE1 /* ImplantImage.swift */,
+				18A6D1D723CD8DEE00090030 /* ManufaturesBrands.swift */,
 			);
 			path = ModelClasses;
 			sourceTree = "<group>";
@@ -1484,6 +1487,7 @@
 				1821AF27237A8EF20010B307 /* CustomBarButtonItem.swift in Sources */,
 				1801ABB6238547CB00F46223 /* BaseTabBarViewController.swift in Sources */,
 				184488C323C3363D001178AB /* UIView+Radius.swift in Sources */,
+				18A6D1D823CD8DEE00090030 /* ManufaturesBrands.swift in Sources */,
 				1892E9DB23964B3700AE6ECC /* SubScriptionCollectionViewCell.swift in Sources */,
 				1892042B23BB13C300C732FB /* ObjectLocation.swift in Sources */,
 			);
@@ -1660,9 +1664,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Kethan/Kethan.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Arkenea Admin (H22LU4X6HU)";
+				CODE_SIGN_IDENTITY = "Apple Development: brian murray (8Y773CMT4L)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 6SSMT78DBN;
+				DEVELOPMENT_TEAM = 99VXX6YS4Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Kethan/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1700,9 +1704,9 @@
 					"\"UIKit\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.telemedhome;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kethan.sid;
 				PRODUCT_NAME = SID;
-				PROVISIONING_PROFILE_SPECIFIER = TeleMedHomeDeveloper;
+				PROVISIONING_PROFILE_SPECIFIER = Dev_SID;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Kethan/Resources/Kethan-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1715,9 +1719,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Kethan/Kethan.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Arkenea Admin (H22LU4X6HU)";
+				CODE_SIGN_IDENTITY = "Apple Distribution: brian murray (99VXX6YS4Q)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 6SSMT78DBN;
+				DEVELOPMENT_TEAM = 99VXX6YS4Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Kethan/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1755,9 +1759,9 @@
 					"\"UIKit\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.telemedhome;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kethan.sid;
 				PRODUCT_NAME = SID;
-				PROVISIONING_PROFILE_SPECIFIER = TeleMedHomeDeveloper;
+				PROVISIONING_PROFILE_SPECIFIER = AddHoc_SID;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Kethan/Resources/Kethan-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

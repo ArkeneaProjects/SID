@@ -13,6 +13,7 @@ struct UserDefaultsKeys {
     static let LoggedUser = "LoggedUser"
     static let BrandName = "BrandName"
     static let Manufecture = "Manufecture"
+    static let ManufectureUpload = "ManufectureUpload"
 }
 
 struct APP_COLOR {
@@ -92,6 +93,7 @@ struct SUFFIX_URL {
     static let SignupResendOTP = "auth/resendOTP"
     static let ForgotVerifyOTP = "auth/forgotPasswordVerifyOTP"
     static let TotalManufactureName = "implant/getTotalManufactureName"
+    static let GetManufactureName = "implant/getMenufectureApi"
     static let SearchByText = "implant/searchByText"
     static let SearchByImage = "implant/analyzeImage"
     static let addImplant = "implant/addImpnatApi"
@@ -172,6 +174,8 @@ struct MESSAGES {
     static let noPayment = "No payment account available for this user."
     static let errorInLocation = "We got an error while detecting your location. Please try again."
     static let emptySearch = "Enter either manufacture or either brand/name"
+    static let selectManufacture = "First enter/select manufacturer name"
+
 }
 
 struct ERRORS {
@@ -234,6 +238,7 @@ struct CONSTANT {
     static let data = "data"
     static let StatusCodeOne = "1"
     static let StatusCodeTwo = "2"
+    static let auth = "auth"
 }
 
 struct ENTITIES {
@@ -264,6 +269,7 @@ struct ENTITIES {
     static let _id = "_id"
     static let objectName = "objectName"
     static let implantManufacture = "implantManufacture"
+    static let brand = "brand"
     static let removImplant = "removImplant"
     static let imageData = "imageData"
     static let watsonImage_id = "watsonImage_id"
