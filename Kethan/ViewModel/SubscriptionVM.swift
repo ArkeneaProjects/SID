@@ -29,21 +29,21 @@ class SubscriptionVM: NSObject {
         productIdArr.add(SubscriptionPlans.Monitor125Patients)
         
         for p in productIdArr {
-            retriveProductInfo(pName: p as! String)
-            // self.verifyPurchase(pName: p as! String)
+            if let productId: String = p as? String {
+              retriveProductInfo(pName: productId)
+            }
         }
     }
     
     func retriveProductInfo(pName: String) {
-        ProgressManager.show(withStatus: "", on: self.rootController?.view)
+//        ProgressManager.show(withStatus: "", on: self.rootController?.view)
         NetworkActivityIndicatorManager.networkOperationStarted()
-        SwiftyStoreKit.retrieveProductsInfo([/*appBundleId + "." + */pName]) { result in
+        SwiftyStoreKit.retrieveProductsInfo([pName]) { result in
             NetworkActivityIndicatorManager.networkOperationFinished()
             
             if result.retrievedProducts.count > 0 {
                 self.ProductArr.append(result.retrievedProducts.first!)
             }
-            // set info in labels
             if self.ProductArr.count > 0 {
                 for i in 0 ..< self.ProductArr.count {
                     if let currencyCode: String = CFLocaleGetValue(self.ProductArr[i].priceLocale as CFLocale, CFLocaleKey.currencyCode) as? String {
@@ -65,7 +65,6 @@ class SubscriptionVM: NSObject {
                             cell.lblPrice.attributedText = attributedString
                         }
                     }
-                    
                 }
                 
                 DispatchQueue.main.async {
@@ -75,8 +74,6 @@ class SubscriptionVM: NSObject {
                 }
                 ProgressManager.dismiss()
             }
-            
-            // self.showAlert(self.alertForProductRetrievalInfo(result))
         }
         
     }
@@ -145,7 +142,6 @@ class SubscriptionVM: NSObject {
             switch result {
             case .success(let receipt):
                 ProgressManager.dismiss()
-                //  let productId = self.appBundleId + "." + purchase.rawValue
                 let productId = pName
                 /* if let latestReceipt: NSArray = (receipt as NSDictionary).object(forKey: "latest_receipt_info") as? NSArray {
                  let expiryDateValue = latestReceipt.object(at: latestReceipt.count-1)

@@ -19,7 +19,7 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
     
     var isComeFromLogin: Bool = false
     var subscriptionVmObj = SubscriptionVM()
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -80,7 +80,7 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
             print(cell.frame.size.height)
             let arr = STATICDATA.arrSubscription[indexPath.item]
             cell.imgBG.image = UIImage(named: arr["image"] ?? "")
-
+            
             cell.lblPlan.text = arr["plan"]?.uppercased()
             cell.lblValid.text = arr["valid"]
             
@@ -131,7 +131,6 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
 extension UIViewController {
     
     func alertWithTitle(_ title: String, message: String) -> UIAlertController {
-        
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         return alert
@@ -216,7 +215,6 @@ extension UIViewController {
     }
     
     func alertForVerifyReceipt(_ result: VerifyReceiptResult) -> UIAlertController {
-        
         switch result {
         case .success(let receipt):
             print("Verify receipt Success: \(receipt)")
@@ -235,7 +233,6 @@ extension UIViewController {
     }
     
     func alertForVerifySubscription(_ result: VerifySubscriptionResult) -> UIAlertController {
-        
         switch result {
         case .purchased(let expiryDate):
             print("Product is valid until \(expiryDate)")
@@ -250,7 +247,6 @@ extension UIViewController {
     }
     
     func alertForVerifyPurchase(_ result: VerifyPurchaseResult) -> UIAlertController {
-        
         switch result {
         case .purchased:
             print("Product is purchased")
