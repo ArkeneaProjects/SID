@@ -50,7 +50,7 @@
                                     <rect key="frame" x="271" y="0.0" width="44" height="44"/>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="44" id="FE6-cr-NnE"/>
+                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="FE6-cr-NnE"/>
                                         <constraint firstAttribute="height" constant="44" id="d2y-aC-S2x"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
@@ -80,7 +80,7 @@
                                     </constraints>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <state key="normal" title="$ 50">
+                                    <state key="normal" title="Restore">
                                         <color key="titleColor" red="0.035294117649999998" green="0.52156862749999999" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <userDefinedRuntimeAttributes>

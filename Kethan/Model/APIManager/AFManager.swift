@@ -55,6 +55,7 @@ class AFManager: NSObject {
 
                 AlamofireManager.request(url, method: method, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
                     print("URL -> \(url) \n Bearer==\(token)")
+                    print("Response -> \( String(describing: response.result.value as? NSDictionary))")
                     
                     if let diction = response.result.value as? NSDictionary {
                     CustomLogger.sharedInstance.logValues("URL \n \(url) \n\n respones \n\(String(describing: diction))")
@@ -194,15 +195,9 @@ class AFManager: NSObject {
                             }
                         } else {
                             if let responseDict = jsonObject!.object(forKey: CONSTANT.data) as? NSDictionary {
-                                let message = getValueFromDictionary(dictionary: responseDict, forKey: CONSTANT.Message)
-                                let errorCode = getValueFromDictionary(dictionary: responseDict, forKey: CONSTANT.ErrorCode)
-                                let auth = getValueFromDictionary(dictionary: responseDict, forKey: CONSTANT.auth)
-                                if auth == "0" {
-                                    let topController = getTopViewController()
-                                    topController?.authenticationFailed()
-                                } else {
-                                    completion(nil, message, errorCode)
-                                }
+                                let message = responseDict.object(forKey: CONSTANT.Message) as? String ?? ""
+                                let errorCode = responseDict.object(forKey: CONSTANT.ErrorCode) as? String ?? ""
+                                completion(nil, message, errorCode)
                             } else {
                                 completion(nil, MESSAGES.errorOccured, "")
                             }
@@ -244,7 +239,7 @@ class AFManager: NSObject {
                        }
                        let headers = ["authorization": "Test \(token)", "Content-Type": "application/json"]
         
-        var stringUrl = "http://3.135.146.133:3000/api/implant/analyzeImage"
+        let stringUrl = "http://3.135.146.133:3000/api/implant/analyzeImage"
         
         // generate boundary string using a unique per-app string
         let boundary = UUID().uuidString
@@ -252,7 +247,7 @@ class AFManager: NSObject {
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
 
-        print("\n\ncomplete Url :-------------- ",stringUrl," \n\n-------------: complete Url")
+        print("\n\ncomplete Url :-------------- ", stringUrl, " \n\n-------------: complete Url")
         guard let url = URL(string: stringUrl) else { return }
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
