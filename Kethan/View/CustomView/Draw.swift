@@ -8,12 +8,15 @@
 import UIKit
 
 class Draw: UIView {
-
+    var line  = CGFloat(3.0)
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .clear
     }
-
+    convenience init (frame: CGRect, lineWidth: CGFloat) {
+        self.init(frame: frame)
+        line = lineWidth
+    }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -25,7 +28,7 @@ class Draw: UIView {
 
         let drect = CGRect(x: rect.origin.x, y: rect.origin.y, width: w, height: h)
         let bpath: UIBezierPath = UIBezierPath(rect: drect)
-        bpath.lineWidth = 3.0
+        bpath.lineWidth = line
         color.set()
         bpath.stroke()
 
