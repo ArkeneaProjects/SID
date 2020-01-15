@@ -45,6 +45,7 @@ PODS:
   - SDWebImage/Core (5.3.1)
   - SkeletonView (1.8.2)
   - SVPinView (1.0.7)
+  - SwiftyStoreKit (0.15.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -59,6 +60,7 @@ DEPENDENCIES:
   - SDWebImage
   - SkeletonView
   - SVPinView
+  - SwiftyStoreKit
 
 SPEC REPOS:
   trunk:
@@ -80,6 +82,7 @@ SPEC REPOS:
     - SDWebImage
     - SkeletonView
     - SVPinView
+    - SwiftyStoreKit
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
@@ -100,7 +103,8 @@ SPEC CHECKSUMS:
   SDWebImage: 7137d57385fb632129838c1e6ab9528a22c666cc
   SkeletonView: bb27c39857e5492136f02ee8a3aa78de55d12ecd
   SVPinView: 6c1da57e4a1273298802f460c60511ba10f7c831
+  SwiftyStoreKit: 033d06b6f87955405d3f844a18a7687c2438592a
 
-PODFILE CHECKSUM: 5a4b1f596e638c747bf2a65d6d741560d671e4e1
+PODFILE CHECKSUM: 78a92fbd266900e5bc1652efc1984e03e17b1406
 
 COCOAPODS: 1.8.4

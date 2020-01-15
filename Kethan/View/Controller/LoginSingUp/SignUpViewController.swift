@@ -181,7 +181,7 @@ class SignUpViewController: BaseViewController, CountryListDelegate {
         if textField == self.txtEmail &&  textField.text!.count >= 50 {
             return false
         }
-        if textField == self.txtContact &&  textField.text!.count >= 10 {
+        if textField == self.txtContact &&  textField.text!.count >= 16 {
             return false
         }
         return true
@@ -191,7 +191,7 @@ class SignUpViewController: BaseViewController, CountryListDelegate {
         if textField == self.txtName {
             self.txtEmail.becomeFirstResponder()
         } else if textField == self.txtEmail {
-            self.txtContact.resignFirstResponder()
+            textField.resignFirstResponder()
         }
         return true
     }

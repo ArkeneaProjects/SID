@@ -10,12 +10,15 @@ import UIKit
 
 class SubScriptionCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var btnSubscribe: UIButton!
-    
+    @IBOutlet weak var btnSubscribe: CustomButton!
+    @IBOutlet weak var btnTerms: UIButton!
+    @IBOutlet weak var btnPrivacy: UIButton!
+
     @IBOutlet weak var lblValid: CustomLabel!
     @IBOutlet weak var lblPlan: CustomLabel!
     @IBOutlet weak var lblPrice: CustomLabel!
     @IBOutlet weak var imgBG: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

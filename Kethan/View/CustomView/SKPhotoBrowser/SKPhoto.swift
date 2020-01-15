@@ -31,9 +31,10 @@ class SKPhoto: NSObject, SKPhotoProtocol {
         super.init()
     }
     
-    convenience init(onlyImage: UIImage) {
+    convenience init(url: String, holder: UIImage?) {
         self.init()
-        underlyingImage = onlyImage
+        photoURL = url
+        underlyingImage = holder
     }
     
     convenience init(image: UIImage, object: ObjectLocation?) {
@@ -119,8 +120,8 @@ class SKPhoto: NSObject, SKPhotoProtocol {
 // MARK: - Static Function
 
 extension SKPhoto {
-    public static func photoWithImage(_ image: UIImage) -> SKPhoto {
-        return SKPhoto(onlyImage: image)
+    public static func profilePhotoURL(_ url: String, holder: UIImage?) -> SKPhoto {
+        return SKPhoto(url: url, holder: holder)
     }
     
     public static func photoWithImage(_ image: UIImage, object: ObjectLocation?) -> SKPhoto {

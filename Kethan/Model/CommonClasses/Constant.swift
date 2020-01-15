@@ -13,6 +13,7 @@ struct UserDefaultsKeys {
     static let LoggedUser = "LoggedUser"
     static let BrandName = "BrandName"
     static let Manufecture = "Manufecture"
+    static let ManufectureUpload = "ManufectureUpload"
 }
 
 struct APP_COLOR {
@@ -92,6 +93,7 @@ struct SUFFIX_URL {
     static let SignupResendOTP = "auth/resendOTP"
     static let ForgotVerifyOTP = "auth/forgotPasswordVerifyOTP"
     static let TotalManufactureName = "implant/getTotalManufactureName"
+    static let GetManufactureName = "implant/getMenufectureApi"
     static let SearchByText = "implant/searchByText"
     static let SearchByImage = "implant/analyzeImage"
     static let addImplant = "implant/addImpnatApi"
@@ -113,6 +115,11 @@ struct NOTIFICATIONS {
     static let googleUserUpdate = "googleUserUpdate"
 }
 
+struct SubscriptionPlans {
+    static var Monitor50Patients = "com.telemedhome.Monitor50Patients"
+    static var Monitor125Patients = "com.telemedhome.Monitor125Patients"
+}
+
 struct STATICDATA {
     static var arrLeftItems = [["image": "profile", "text": "Profile"], ["image": "changeEmail", "text": "Change Email "], ["image": "changePassword", "text": "Change Password "], ["image": "upgradeSubscription", "text": "Upgrade Subscription"], ["image": "userWalkthrough", "text": "User Walkthrough"], ["image": "faqs", "text": "FAQs"], ["image": "termsOfService", "text": "Terms of Service"], ["image": "privacyPolicy", "text": "Privacy Policy"], ["image": "about", "text": "About the App"], ["image": "support", "text": "Support"]]
     static let implantDropDown = ["Skyline lateran Skyline lateran Skyline lateran Skyline lateran.", "Skyline x-ray", "Skyline lateran x-ray", "Skyline a:p lateran", "Skyline a:p lateran x-ray"]
@@ -130,7 +137,7 @@ struct STATICDATA {
     
     static let arrCreditHistory = [["image": "referral", "title": "Referral Rewards", "amount": "+ $ 20", "date": "November 20", "description": "Rewarded for being referred to SID by a friend"], ["image": "upload", "title": "Upload Images Rewards", "amount": "+ $ 10", "date": "November 19", "description": "Rewarded for being uploaded images on Database"], ["image": "referral", "title": "Referral Rewards", "amount": "+ $ 20", "date": "November 12", "description": ""], ["image": "bank", "title": "Credited in Bank", "amount": "- $ 120", "date": "November 10", "description": "Transfered to your bank account"], ["image": "referral", "title": "Referral Rewards", "amount": "+ $ 20", "date": "November 20", "description": "Rewarded for being referred to SID by a friend"]]
     
-    static let arrSubscription = [["image": "monthlyBg", "price": "$2.99", "plan": "Monthly Plan", "valid": "Valid for 30 Days", "type": "month"], ["image": "annualBg", "price": "$4.99", "plan": "Annual Plan", "valid": "Valid for 365 Days", "type": "year"]]
+    static let arrSubscription = [["image": "monthlyBg", "price": "", "plan": "Monthly Plan", "valid": "- Ability to search for implant via text and images. Add implant information for future references.\n- Auto-renewable. Cancel Anytime.\n- Valid for 30 Days\n\nPayment will be charged to iTunes Account at confirmation of purchase. Subscription automatically renews unless auto-renew is turned off at least 24-hours before the end of the current period. Account will be charged for renewal within 24-hours prior to the end of the current period. You can manage or disable subscription by going to the Account Settings after purchase. Any unused portion of a free trial period, if offered, will be forfeited when the user purchases a subscription to that publication, where applicable.", "type": "month"], ["image": "annualBg", "price": "", "plan": "Annual Plan", "valid": "- Ability to search for implant via text and images. Add implant information for future references.\n- Earn Credits and redeem during next subscription. Cancel Anytime\n- Valid for 365 Days\n\nPayment will be charged to iTunes Account at confirmation of purchase. Subscription will not automatically renew for annual subscription at the end of the current period. Account will therefore not be charged. You can cancel subscription by going to the Account Settings after purchase. Any unused portion of a free trial period, if offered, will be forfeited when the user purchases a subscription to that publication, where applicable.", "type": "year"]]
 }
 
 struct IDENTIFIERS {
@@ -167,6 +174,8 @@ struct MESSAGES {
     static let noPayment = "No payment account available for this user."
     static let errorInLocation = "We got an error while detecting your location. Please try again."
     static let emptySearch = "Enter either manufacture or either brand/name"
+    static let selectManufacture = "First enter/select manufacturer name"
+
 }
 
 struct ERRORS {
@@ -229,6 +238,7 @@ struct CONSTANT {
     static let data = "data"
     static let StatusCodeOne = "1"
     static let StatusCodeTwo = "2"
+    static let auth = "auth"
 }
 
 struct ENTITIES {
@@ -237,7 +247,6 @@ struct ENTITIES {
     static let email = "email"
     static let password = "password"
     static let name = "name"
-    static let phoneNumber = "phoneNumber"
     static let profession = "profession"
     static let referralCode = "referralCode"
     static let otp = "otp"
@@ -260,6 +269,7 @@ struct ENTITIES {
     static let _id = "_id"
     static let objectName = "objectName"
     static let implantManufacture = "implantManufacture"
+    static let brand = "brand"
     static let removImplant = "removImplant"
     static let imageData = "imageData"
     static let watsonImage_id = "watsonImage_id"

@@ -43,18 +43,19 @@ class ImageListViewController: BaseViewController, UICollectionViewDelegate, UIC
             if self.arrAllItems.count > 0 {
                 self.deletedImageArr.add(self.arrAllItems[sender.indexPath.item])
                 self.arrAllItems.removeObject(at: sender.indexPath.item)
+                if self.saveCompletion != nil {
+                    self.saveCompletion!( self.deletedImageArr, self.arrAllItems)
+                }
                 self.collectionView.reloadData()
             }
         }, noCompletion: nil)
     }
-    override func rightButtonAction() {
-         self.saveCompletion!( self.deletedImageArr, self.arrAllItems)
-        self.navigationController?.popViewController(animated: true)
-    }
+    
+    
     
     // MARK: - CollectionView Dalegate and DataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return arrAllItems.count - 1
+        return arrAllItems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -72,6 +73,7 @@ class ImageListViewController: BaseViewController, UICollectionViewDelegate, UIC
                 }
             } else if let implantObj = self.arrAllItems[indexPath.item] as? ImplantImage {
                 cell.imgSelected.image = implantObj.selectedImage
+                cell.layoutIfNeeded()
                 cell.imgSelected.drawRectangle(frameSize: CGSize(width: cell.imgSelected.frame.width, height: cell.imgSelected.frame.height), imageWidth: CGFloat(implantObj.imageWidth.floatValue()), imageHight: CGFloat(implantObj.imageHeight.floatValue()), drawSize: CGRect(x: CGFloat(implantObj.labelOffsetX.floatValue()), y: CGFloat(implantObj.labelOffsetY.floatValue()), width: CGFloat(implantObj.labelWidth.floatValue()), height: CGFloat(implantObj.labelHeight.floatValue())))
                 cell.btnDelete.indexPath = indexPath
                 cell.btnDelete.alpha = 1.0

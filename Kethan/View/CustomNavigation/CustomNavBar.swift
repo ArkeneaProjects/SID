@@ -8,7 +8,7 @@
 
 import UIKit
 enum ButtonType: NSInteger {
-    case buttonTypeNil = 0, buttonTypeBack, buttonTypeCredit, buttonTypeMenu, buttonTypeSave, buttonTypeEdit, buttonCrop, buttonTypeSkip, buttonTypeAdd
+    case buttonTypeNil = 0, buttonTypeBack, buttonTypeCredit, buttonTypeMenu, buttonTypeSave, buttonTypeEdit, buttonCrop, buttonTypeSkip, buttonTypeAdd, buttonTypeDone, buttonTypeRestore
 }
 
 class CustomNavBar: UIView {
@@ -61,6 +61,10 @@ class CustomNavBar: UIView {
                 leftImageName = "menu"
             } else if leftButtonType == .buttonTypeSave {
                 leftImageName = "tik"
+            } else if leftButtonType == .buttonTypeSkip {
+                self.btnLeft.alpha = 1.0
+                self.btnLeft.setTitle("Skip", for: .normal)
+                self.btnLeft.addTarget(target, action: leftAction, for: UIControl.Event.touchUpInside)
             }
             if leftImageName.count > 0 {
                 self.btnLeft.alpha = 1.0
@@ -79,6 +83,10 @@ class CustomNavBar: UIView {
                 self.btnRightEdit.alpha = 1.0
                 self.btnRightEdit.setImage(UIImage(named: "add"), for: .normal)
                 self.btnRightEdit.addTarget(target, action: rightAction, for: UIControl.Event.touchUpInside)
+            } else if rightButtonType == .buttonTypeDone {
+                self.btnRightEdit.alpha = 1.0
+                self.btnRightEdit.setTitle("Done", for: .normal)
+                self.btnRightEdit.addTarget(target, action: rightAction, for: UIControl.Event.touchUpInside)
             } else if rightButtonType == .buttonTypeCredit {
                 self.btnRight.alpha = 1.0
                 self.btnRight.layer.cornerRadius = getCalculated(9.0)
@@ -91,9 +99,13 @@ class CustomNavBar: UIView {
                 self.btnRightEdit.alpha = 1.0
                 self.btnRightEdit.setTitle("Skip", for: .normal)
                 self.btnRightEdit.addTarget(target, action: rightAction, for: UIControl.Event.touchUpInside)
-            }   else if rightButtonType == .buttonTypeSave {
+            } else if rightButtonType == .buttonTypeSave {
                 self.btnRightEdit.alpha = 1.0
                 self.btnRightEdit.setTitle("Save", for: .normal)
+                self.btnRightEdit.addTarget(target, action: rightAction, for: UIControl.Event.touchUpInside)
+            } else if rightButtonType == .buttonTypeRestore {
+                self.btnRightEdit.alpha = 1.0
+                self.btnRightEdit.setTitle("Restore", for: .normal)
                 self.btnRightEdit.addTarget(target, action: rightAction, for: UIControl.Event.touchUpInside)
             }
                 if rightImageName.count > 0 {

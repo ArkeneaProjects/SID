@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vnA-h8-cmU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vnA-h8-cmU">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -54,7 +54,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z1b-bU-ZWg" userLabel="ViewImplant">
                                         <rect key="frame" x="13" y="43" width="294" height="66"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="implantIcon" translatesAutoresizingMaskIntoConstraints="NO" id="2rQ-Cb-rgH">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="manufacturer" translatesAutoresizingMaskIntoConstraints="NO" id="2rQ-Cb-rgH">
                                                 <rect key="frame" x="13" y="15" width="14" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="14" id="hD5-NO-85r" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
@@ -69,7 +69,7 @@
                                                     </constraint>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Implant Name/Brand" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cb-bD-p1a" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manufacturer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cb-bD-p1a" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
                                                 <rect key="frame" x="40" y="12" width="241" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="17" id="hrW-ao-zmD" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
@@ -88,11 +88,11 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Implant Name/Brand" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ndl-gx-w8y" customClass="CustomDropDown" customModule="SID" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Manufacturer Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ndl-gx-w8y" customClass="CustomDropDown" customModule="SID" customModuleProvider="target">
                                                 <rect key="frame" x="40" y="29" width="254" height="32"/>
                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13.5"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="rowHeight">
                                                         <real key="value" value="40"/>
@@ -169,7 +169,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a7n-Kd-Eyo" userLabel="ViewImplant">
                                         <rect key="frame" x="13" y="124" width="294" height="66"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="manufacturer" translatesAutoresizingMaskIntoConstraints="NO" id="jnc-te-k5d">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="implantIcon" translatesAutoresizingMaskIntoConstraints="NO" id="jnc-te-k5d">
                                                 <rect key="frame" x="13" y="15" width="14" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="14" id="QiP-35-tJA" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
@@ -184,7 +184,7 @@
                                                     </constraint>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manufacturer " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OoR-Eb-UKh" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Implant Name/Brand" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OoR-Eb-UKh" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
                                                 <rect key="frame" x="40" y="12" width="241" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="17" id="Jca-xe-Rp1" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
@@ -203,11 +203,11 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Manufacturer Name" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="8LA-x9-1Hl" customClass="CustomDropDown" customModule="SID" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Implant Name/Brand" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="8LA-x9-1Hl" customClass="CustomDropDown" customModule="SID" customModuleProvider="target">
                                                 <rect key="frame" x="40" y="29" width="252" height="32"/>
                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="rowBackgroundColor">
                                                         <color key="value" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -337,10 +337,18 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </constraint>
-                                    <constraint firstItem="ofx-Ri-Eqv" firstAttribute="top" secondItem="a7n-Kd-Eyo" secondAttribute="bottom" constant="25" id="Xqd-6o-yeC"/>
+                                    <constraint firstItem="ofx-Ri-Eqv" firstAttribute="top" secondItem="a7n-Kd-Eyo" secondAttribute="bottom" constant="25" id="Xqd-6o-yeC" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
                                     <constraint firstAttribute="trailing" secondItem="z1b-bU-ZWg" secondAttribute="trailing" constant="13" id="ftZ-0Q-Tu9"/>
                                     <constraint firstItem="z1b-bU-ZWg" firstAttribute="leading" secondItem="Tkc-yE-JR5" secondAttribute="leading" constant="13" id="hdB-uA-1pl"/>
-                                    <constraint firstItem="a7n-Kd-Eyo" firstAttribute="top" secondItem="z1b-bU-ZWg" secondAttribute="bottom" constant="15" id="lBX-dN-RJa"/>
+                                    <constraint firstItem="a7n-Kd-Eyo" firstAttribute="top" secondItem="z1b-bU-ZWg" secondAttribute="bottom" constant="15" id="lBX-dN-RJa" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
                                     <constraint firstItem="a7n-Kd-Eyo" firstAttribute="leading" secondItem="Tkc-yE-JR5" secondAttribute="leading" constant="13" id="nKt-0Q-TpR"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ibl-ZV-vTl" secondAttribute="trailing" constant="20" symbolic="YES" id="whj-bx-xuO"/>
                                 </constraints>
@@ -359,9 +367,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="btnAdd" destination="ofx-Ri-Eqv" id="GBA-Na-s30"/>
                         <outlet property="const_NavbarHeight" destination="fp0-qC-WEf" id="eQj-GM-QOp"/>
-                        <outlet property="txtImplant" destination="Ndl-gx-w8y" id="Lsy-id-crB"/>
-                        <outlet property="txtManu" destination="8LA-x9-1Hl" id="vNX-xw-7kl"/>
+                        <outlet property="txtImplant" destination="8LA-x9-1Hl" id="rwk-ke-TEX"/>
+                        <outlet property="txtManu" destination="Ndl-gx-w8y" id="K1I-0a-2V3"/>
                         <outlet property="viewContainer" destination="Tkc-yE-JR5" id="wqe-ey-T2t"/>
                         <outlet property="viewNavBar" destination="wLY-Gt-Thm" id="tBc-Jc-aea"/>
                     </connections>
@@ -1453,7 +1462,7 @@ once it's verified. </string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QI5-fn-o7H" userLabel="ViewImplant">
                                         <rect key="frame" x="13" y="43" width="294" height="66"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="implantIcon" translatesAutoresizingMaskIntoConstraints="NO" id="j4W-kq-Nx5">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="manufacturer" translatesAutoresizingMaskIntoConstraints="NO" id="j4W-kq-Nx5">
                                                 <rect key="frame" x="13" y="15" width="14" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="17" id="6ll-ee-9Gw" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
@@ -1468,7 +1477,7 @@ once it's verified. </string>
                                                     </constraint>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Implant Name/Brand" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="He5-85-aKD" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manufacturer " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="He5-85-aKD" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
                                                 <rect key="frame" x="40" y="12" width="241" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="17" id="sgf-Xf-cBn" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
@@ -1487,12 +1496,12 @@ once it's verified. </string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Implant Name/Brand" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="8jT-7w-ZwB" customClass="CustomDropDown" customModule="SID" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Manufacturer Name" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="8jT-7w-ZwB" customClass="CustomDropDown" customModule="SID" customModuleProvider="target">
                                                 <rect key="frame" x="40" y="29" width="252" height="32"/>
                                                 <color key="tintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="rowBackgroundColor">
                                                         <color key="value" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1569,7 +1578,7 @@ once it's verified. </string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rso-IX-l4h" userLabel="ViewImplant">
                                         <rect key="frame" x="13" y="124" width="294" height="66"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="manufacturer" translatesAutoresizingMaskIntoConstraints="NO" id="2d1-oj-3PP">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="implantIcon" translatesAutoresizingMaskIntoConstraints="NO" id="2d1-oj-3PP">
                                                 <rect key="frame" x="13" y="15" width="14" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="14" id="L1J-xB-fEE" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
@@ -1584,7 +1593,7 @@ once it's verified. </string>
                                                     </constraint>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manufacturer " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUK-H5-wfp" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Implant Name/Brand" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUK-H5-wfp" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
                                                 <rect key="frame" x="40" y="12" width="241" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="17" id="tMf-pm-aSa" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
@@ -1603,12 +1612,12 @@ once it's verified. </string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Manufacturer Name" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="cBJ-ic-2YZ" customClass="CustomDropDown" customModule="SID" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Implant Name/Brand" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="cBJ-ic-2YZ" customClass="CustomDropDown" customModule="SID" customModuleProvider="target">
                                                 <rect key="frame" x="40" y="29" width="252" height="32"/>
                                                 <color key="tintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="rowBackgroundColor">
                                                         <color key="value" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1786,8 +1795,8 @@ once it's verified. </string>
                     <navigationItem key="navigationItem" id="Wmw-f7-Wn0"/>
                     <connections>
                         <outlet property="const_NavbarHeight" destination="rhs-IC-hfL" id="dmw-hB-0Ac"/>
-                        <outlet property="txtImplant" destination="8jT-7w-ZwB" id="h25-5E-YnM"/>
-                        <outlet property="txtManufacture" destination="cBJ-ic-2YZ" id="aM6-AF-Zns"/>
+                        <outlet property="txtImplant" destination="cBJ-ic-2YZ" id="dzZ-bn-vx2"/>
+                        <outlet property="txtManufacture" destination="8jT-7w-ZwB" id="UT6-zP-eRL"/>
                         <outlet property="viewNavBar" destination="w3j-dG-Qkz" id="cHS-tO-UCX"/>
                     </connections>
                 </viewController>
@@ -2010,13 +2019,6 @@ once it's verified. </string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7F-Oi-IRh">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="Gxg-9h-Y5f"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yWy-DW-L4i">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
@@ -2166,6 +2168,13 @@ to search in our Database</string>
                                         </userDefinedRuntimeAttributes>
                                     </constraint>
                                     <constraint firstItem="Oum-rw-afD" firstAttribute="leading" secondItem="yWy-DW-L4i" secondAttribute="leading" id="xvt-pg-30o"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7F-Oi-IRh">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="Gxg-9h-Y5f"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -2952,58 +2961,18 @@ palpation. Refer for further examination if</string>
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XZF-UW-aWn" customClass="CropPickerView" customModule="SID" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="427"/>
+                                        <rect key="frame" x="0.0" y="38.5" width="320" height="427"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                    </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IeL-Lf-gvo" customClass="CustomButton" customModule="SID" customModuleProvider="target">
-                                        <rect key="frame" x="13" y="442" width="294" height="40"/>
-                                        <color key="backgroundColor" red="0.035294117649999998" green="0.52156862749999999" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="agz-HA-VHE" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
+                                            <constraint firstAttribute="height" constant="427" id="mQj-w1-97c"/>
+                                            <constraint firstAttribute="width" constant="320" id="w3x-Zj-Qfe"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
-                                        <state key="normal" title="Continue">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                <real key="value" value="17"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="4"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="continuClickAction:" destination="yFY-kc-Qo2" eventType="touchUpInside" id="Js0-JP-Zk1"/>
-                                        </connections>
-                                    </button>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="IeL-Lf-gvo" firstAttribute="leading" secondItem="ZAm-Yv-LR1" secondAttribute="leading" constant="13" id="2Dx-En-qsL" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </constraint>
-                                    <constraint firstItem="XZF-UW-aWn" firstAttribute="leading" secondItem="ZAm-Yv-LR1" secondAttribute="leading" id="6ST-iX-kyo"/>
-                                    <constraint firstItem="IeL-Lf-gvo" firstAttribute="top" secondItem="XZF-UW-aWn" secondAttribute="bottom" constant="15" id="J6p-1b-0TM"/>
-                                    <constraint firstAttribute="trailing" secondItem="XZF-UW-aWn" secondAttribute="trailing" id="T6P-4O-2w6"/>
-                                    <constraint firstAttribute="bottom" secondItem="IeL-Lf-gvo" secondAttribute="bottom" constant="22" id="WJi-XR-u9Z" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </constraint>
-                                    <constraint firstAttribute="trailing" secondItem="IeL-Lf-gvo" secondAttribute="trailing" constant="13" id="XcN-fO-h6F" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </constraint>
-                                    <constraint firstItem="XZF-UW-aWn" firstAttribute="top" secondItem="ZAm-Yv-LR1" secondAttribute="top" id="eJi-t4-HNu"/>
+                                    <constraint firstItem="XZF-UW-aWn" firstAttribute="centerX" secondItem="ZAm-Yv-LR1" secondAttribute="centerX" id="X7g-0u-UqM"/>
+                                    <constraint firstItem="XZF-UW-aWn" firstAttribute="centerY" secondItem="ZAm-Yv-LR1" secondAttribute="centerY" id="ygf-sw-Xr5"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -3020,6 +2989,8 @@ palpation. Refer for further examination if</string>
                         <viewLayoutGuide key="safeArea" id="Ul2-9z-LVx"/>
                     </view>
                     <connections>
+                        <outlet property="constCropViewHeight" destination="mQj-w1-97c" id="ZwU-qb-lft"/>
+                        <outlet property="constCropViewWidth" destination="w3x-Zj-Qfe" id="bkV-Ao-aTi"/>
                         <outlet property="const_NavbarHeight" destination="Lka-cp-jWl" id="CCg-8r-psb"/>
                         <outlet property="cropView" destination="XZF-UW-aWn" id="XVL-eg-geh"/>
                         <outlet property="viewContainer" destination="ZAm-Yv-LR1" id="cub-iF-mIH"/>

@@ -81,6 +81,9 @@
 		1847363D23AB8B5100C565A4 /* ForgotVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1847363C23AB8B5100C565A4 /* ForgotVM.swift */; };
 		1848DA2723B489E0004A711A /* SelectProfessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848DA2623B489E0004A711A /* SelectProfessionViewController.swift */; };
 		1849715023C60A7D00BFAFF3 /* ImageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1849714F23C60A7D00BFAFF3 /* ImageListViewController.swift */; };
+		1859402323CC7AEF0024324E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1859402223CC7AEE0024324E /* StoreKit.framework */; };
+		1859402523CC90990024324E /* IAPProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859402423CC90980024324E /* IAPProduct.swift */; };
+		1859402723CC93B80024324E /* NetworkActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859402623CC93B80024324E /* NetworkActivityIndicatorManager.swift */; };
 		18705385238FA2CD006ACA3D /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18705384238FA2CC006ACA3D /* CameraManager.swift */; };
 		18705387238FB000006ACA3D /* GalleryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18705386238FB000006ACA3D /* GalleryManager.swift */; };
 		1875FBED23A0D55E00B1EA1F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1875FBEC23A0D55E00B1EA1F /* QuartzCore.framework */; };
@@ -147,6 +150,7 @@
 		189C06512397DF0D00C292ED /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C06502397DF0D00C292ED /* SupportViewController.swift */; };
 		189E882723953BDB009C8ECF /* CreditHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E882523953BDB009C8ECF /* CreditHistoryTableViewCell.swift */; };
 		189E882823953BDB009C8ECF /* CreditHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189E882623953BDB009C8ECF /* CreditHistoryTableViewCell.xib */; };
+		18A6D1D823CD8DEE00090030 /* ManufaturesBrands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A6D1D723CD8DEE00090030 /* ManufaturesBrands.swift */; };
 		18A728E3239E687800537092 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A728E2239E687700537092 /* LoginVM.swift */; };
 		18ACDC8023BDC75900780CE1 /* ProcessListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACDC7F23BDC75800780CE1 /* ProcessListViewController.swift */; };
 		18ACDC8223BDEFE000780CE1 /* ProcessListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACDC8123BDEFE000780CE1 /* ProcessListCell.swift */; };
@@ -154,6 +158,7 @@
 		18ACDC8823BE222E00780CE1 /* ImplantImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACDC8723BE222E00780CE1 /* ImplantImage.swift */; };
 		18AD937523BE2680009F1165 /* TagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD937423BE2680009F1165 /* TagViewController.swift */; };
 		18AD937723BE2710009F1165 /* Draw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD937623BE2710009F1165 /* Draw.swift */; };
+		18BB39E723CD992B00174415 /* SubscriptionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BB39E623CD992B00174415 /* SubscriptionVM.swift */; };
 		18C3E6E923A75FA4000ABA07 /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3E6E823A75FA4000ABA07 /* CountryListViewController.swift */; };
 		18C3E6EE23A76185000ABA07 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3E6EB23A76185000ABA07 /* Countries.swift */; };
 		18C3E6EF23A76185000ABA07 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3E6EC23A76185000ABA07 /* Country.swift */; };
@@ -290,6 +295,9 @@
 		1847363C23AB8B5100C565A4 /* ForgotVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotVM.swift; sourceTree = "<group>"; };
 		1848DA2623B489E0004A711A /* SelectProfessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectProfessionViewController.swift; sourceTree = "<group>"; };
 		1849714F23C60A7D00BFAFF3 /* ImageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListViewController.swift; sourceTree = "<group>"; };
+		1859402223CC7AEE0024324E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		1859402423CC90980024324E /* IAPProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPProduct.swift; sourceTree = "<group>"; };
+		1859402623CC93B80024324E /* NetworkActivityIndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicatorManager.swift; sourceTree = "<group>"; };
 		18705384238FA2CC006ACA3D /* CameraManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		18705386238FB000006ACA3D /* GalleryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryManager.swift; sourceTree = "<group>"; };
 		1875FBEC23A0D55E00B1EA1F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -363,6 +371,7 @@
 		189C06502397DF0D00C292ED /* SupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportViewController.swift; sourceTree = "<group>"; };
 		189E882523953BDB009C8ECF /* CreditHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		189E882623953BDB009C8ECF /* CreditHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreditHistoryTableViewCell.xib; sourceTree = "<group>"; };
+		18A6D1D723CD8DEE00090030 /* ManufaturesBrands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManufaturesBrands.swift; sourceTree = "<group>"; };
 		18A728E2239E687700537092 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		18ACDC7F23BDC75800780CE1 /* ProcessListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessListViewController.swift; sourceTree = "<group>"; };
 		18ACDC8123BDEFE000780CE1 /* ProcessListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessListCell.swift; sourceTree = "<group>"; };
@@ -370,6 +379,7 @@
 		18ACDC8723BE222E00780CE1 /* ImplantImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImplantImage.swift; sourceTree = "<group>"; };
 		18AD937423BE2680009F1165 /* TagViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagViewController.swift; sourceTree = "<group>"; };
 		18AD937623BE2710009F1165 /* Draw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Draw.swift; path = Kethan/View/CustomView/Draw.swift; sourceTree = SOURCE_ROOT; };
+		18BB39E623CD992B00174415 /* SubscriptionVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionVM.swift; sourceTree = "<group>"; };
 		18C3E6E823A75FA4000ABA07 /* CountryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
 		18C3E6EB23A76185000ABA07 /* Countries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
 		18C3E6EC23A76185000ABA07 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
@@ -421,6 +431,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1859402323CC7AEF0024324E /* StoreKit.framework in Frameworks */,
 				1875FBED23A0D55E00B1EA1F /* QuartzCore.framework in Frameworks */,
 				A662AD3830527FE57E613C63 /* Pods_Kethan.framework in Frameworks */,
 			);
@@ -533,9 +544,11 @@
 				1809E9F123A3A7D3001A8A77 /* User.swift */,
 				1892042423BB102800C732FB /* SearchResult.swift */,
 				1892042623BB128A00C732FB /* ImageData.swift */,
+				1859402423CC90980024324E /* IAPProduct.swift */,
 				1892042823BB12A000C732FB /* Implant.swift */,
 				1892042A23BB13C300C732FB /* ObjectLocation.swift */,
 				18ACDC8723BE222E00780CE1 /* ImplantImage.swift */,
+				18A6D1D723CD8DEE00090030 /* ManufaturesBrands.swift */,
 			);
 			path = ModelClasses;
 			sourceTree = "<group>";
@@ -591,6 +604,7 @@
 		1822E31F23A2278C006042E3 /* Reachability */ = {
 			isa = PBXGroup;
 			children = (
+				1859402623CC93B80024324E /* NetworkActivityIndicatorManager.swift */,
 				1822E32023A2278C006042E3 /* Reachability.m */,
 				1822E32123A2278C006042E3 /* Reachability.h */,
 			);
@@ -790,6 +804,7 @@
 				1805FC6E23BF1C4800391B6C /* EditProfileVM.swift */,
 				182E24AB23C72D85000EBC54 /* LogoutVM.swift */,
 				182E24AD23C73152000EBC54 /* SupportVM.swift */,
+				18BB39E623CD992B00174415 /* SubscriptionVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1005,6 +1020,7 @@
 		CB700E3233A1DCD356040D3D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1859402223CC7AEE0024324E /* StoreKit.framework */,
 				1875FBEC23A0D55E00B1EA1F /* QuartzCore.framework */,
 				890B82F08AB34E77A2A7FFA0 /* Pods_Kethan.framework */,
 				51C2C5B99F865ED493CCA4D1 /* Pods_Kethan_KethanUITests.framework */,
@@ -1371,6 +1387,7 @@
 				184488C623C3363D001178AB /* SKPhoto.swift in Sources */,
 				18974558238D5B9E0000FCC4 /* BEMPathManager.m in Sources */,
 				184488C223C3363D001178AB /* UIImage+Rotation.swift in Sources */,
+				18BB39E723CD992B00174415 /* SubscriptionVM.swift in Sources */,
 				1847363D23AB8B5100C565A4 /* ForgotVM.swift in Sources */,
 				18974559238D5B9E0000FCC4 /* BEMCheckBoxGroup.m in Sources */,
 				1879F57F238BD71B00ABBBC0 /* DetailRow1TableViewCell.swift in Sources */,
@@ -1381,6 +1398,7 @@
 				18CEAE5523AB7F0D00115C12 /* AppConstant.swift in Sources */,
 				1875FC1323A0ED7C00B1EA1F /* LineButton.swift in Sources */,
 				184488B923C3363D001178AB /* SKPaginationView.swift in Sources */,
+				1859402523CC90990024324E /* IAPProduct.swift in Sources */,
 				18AD937523BE2680009F1165 /* TagViewController.swift in Sources */,
 				184488C423C3363D001178AB /* SKCaptionView.swift in Sources */,
 				18794DAD2398CBCF00E80457 /* AboutViewController.swift in Sources */,
@@ -1426,6 +1444,7 @@
 				1875FC0C23A0ED7C00B1EA1F /* CropDimView.swift in Sources */,
 				184488BF23C3363D001178AB /* SKPagingScrollView.swift in Sources */,
 				18956D1D2387C7BB00BD8F63 /* Categories.swift in Sources */,
+				1859402723CC93B80024324E /* NetworkActivityIndicatorManager.swift in Sources */,
 				1801ABAE23851DCB00F46223 /* KVNRotationViewController.m in Sources */,
 				189C06512397DF0D00C292ED /* SupportViewController.swift in Sources */,
 				18DDC7CD23798B9B003FCCE8 /* BaseViewController.swift in Sources */,
@@ -1472,6 +1491,7 @@
 				1821AF27237A8EF20010B307 /* CustomBarButtonItem.swift in Sources */,
 				1801ABB6238547CB00F46223 /* BaseTabBarViewController.swift in Sources */,
 				184488C323C3363D001178AB /* UIView+Radius.swift in Sources */,
+				18A6D1D823CD8DEE00090030 /* ManufaturesBrands.swift in Sources */,
 				1892E9DB23964B3700AE6ECC /* SubScriptionCollectionViewCell.swift in Sources */,
 				1892042B23BB13C300C732FB /* ObjectLocation.swift in Sources */,
 			);
@@ -1745,7 +1765,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kethan.sid;
 				PRODUCT_NAME = SID;
-				PROVISIONING_PROFILE_SPECIFIER = Dist_SID;
+				PROVISIONING_PROFILE_SPECIFIER = AddHoc_SID;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Kethan/Resources/Kethan-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

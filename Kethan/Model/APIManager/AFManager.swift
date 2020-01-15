@@ -55,7 +55,7 @@ class AFManager: NSObject {
 
                 AlamofireManager.request(url, method: method, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
                     print("URL -> \(url) \n Bearer==\(token)")
-                    print("Response -> \( response.result.value as? NSDictionary)")
+                    print("Response -> \( String(describing: response.result.value as? NSDictionary))")
                     
                     if let diction = response.result.value as? NSDictionary {
                     CustomLogger.sharedInstance.logValues("URL \n \(url) \n\n respones \n\(String(describing: diction))")
@@ -114,10 +114,6 @@ class AFManager: NSObject {
                 AlamofireManager.request(strURL, method: method, parameters: parameters as? Parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
                     
                     self.renderResponse(method: method, urlSuffix: urlSuffix, type: "method", strURL: strURL, headers: headers, parameters: parameters, multipart: [], response: response.result.value, error: response.result.error as NSError?, serviceCount: serviceCount, completion: completion)
-                    
-                    if response.result.value == nil {
-                        //print("\n\nresponse -> \n\(String(data: response.data!, encoding: String.Encoding.utf8) ?? "")\n")
-                    }
                 }
                 
             } else {
@@ -243,7 +239,7 @@ class AFManager: NSObject {
                        }
                        let headers = ["authorization": "Test \(token)", "Content-Type": "application/json"]
         
-        var stringUrl = "http://3.135.146.133:3000/api/implant/analyzeImage"
+        let stringUrl = "http://3.135.146.133:3000/api/implant/analyzeImage"
         
         // generate boundary string using a unique per-app string
         let boundary = UUID().uuidString
@@ -251,7 +247,7 @@ class AFManager: NSObject {
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
 
-        print("\n\ncomplete Url :-------------- ",stringUrl," \n\n-------------: complete Url")
+        print("\n\ncomplete Url :-------------- ", stringUrl, " \n\n-------------: complete Url")
         guard let url = URL(string: stringUrl) else { return }
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue

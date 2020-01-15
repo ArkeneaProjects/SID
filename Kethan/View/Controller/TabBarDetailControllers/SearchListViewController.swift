@@ -24,7 +24,7 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         self.addNavBarWithTitle("Search Results", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeNil)
+         self.addNavBarWithTitle("Search Results", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeAdd)
         
         self.collectionView.register(UINib(nibName: IDENTIFIERS.SearchListCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: IDENTIFIERS.SearchListCollectionViewCell)
         
@@ -38,10 +38,6 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
         
         self.apiCall()
         
-    }
-    
-    func displayNavBar() {
-        self.addNavBarWithTitle("Search Results", withLeftButtonType: .buttonTypeBack, withRightButtonType: (searchVM.arrSearchResult.count == 0) ?.buttonTypeAdd:.buttonTypeNil)
     }
     
     override func rightButtonAction() {
@@ -82,7 +78,6 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
             ProgressManager.show(withStatus: "Searching our database...", on: self.view)
             let imageDict  = saveImageInDocumentDict(image: self.searchImage!, imageName: "photo", key: "implantPicture")
             self.searchVM.getSearchByImage(itemArray: [imageDict]) { (error) in
-                self.displayNavBar()
                 if error != "" {
                     self.lblResultCount.text = error
                 } else {
@@ -98,7 +93,6 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
             }
         } else {
             self.searchVM.getAllSearchByText(manufecture: self.menufeacture, brandname: self.brandname) { (error) in
-                self.displayNavBar()
                 if error != "" {
                     self.lblResultCount.text = error
                 } else {

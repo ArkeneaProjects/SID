@@ -477,6 +477,22 @@ extension UIImage {
 
 extension String {
     
+    func decodeEmoji() -> String {
+           let data = self.data(using: String.Encoding.utf8);
+           let decodedStr = NSString(data: data!, encoding: String.Encoding.nonLossyASCII.rawValue)
+           if let str = decodedStr{
+               return str as String
+           }
+           return self
+       }
+    
+    func encodeEmoji() -> String{
+        if let encodeStr = NSString(cString: self.cString(using: .nonLossyASCII)!, encoding: String.Encoding.utf8.rawValue){
+            return encodeStr as String
+        }
+        return self
+    }
+    
     func numberFormatDecodedString() -> String {
         return self.replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "-", with: "")
     }
@@ -607,7 +623,7 @@ extension String {
         }
     }
     
-    func convertLocalTimeZoneToUTC(actualFormat: String, expectedFormat: String, actualZone: TimeZone, expectedZone: TimeZone)-> String {
+    func convertLocalTimeZoneToUTC(actualFormat: String, expectedFormat: String, actualZone: TimeZone, expectedZone: TimeZone) -> String {
         let formatter: DateFormatter = DateFormatter()
         formatter.dateFormat = actualFormat
         formatter.timeZone = actualZone

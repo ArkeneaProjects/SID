@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Login View Controller-->
         <scene sceneID="ybW-pZ-L1W">
@@ -2809,10 +2814,10 @@ email address</string>
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJF-TZ-p68">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCT-C0-Jvs">
-                                                <rect key="frame" x="160" y="0.0" width="0.0" height="63"/>
+                                                <rect key="frame" x="160" y="-11.5" width="0.0" height="63"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="63" id="wRT-B5-4Hm"/>
                                                 </constraints>
@@ -2821,7 +2826,7 @@ email address</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KpH-2N-KvV" customClass="CustomButton" customModule="SID" customModuleProvider="target">
-                                                <rect key="frame" x="181" y="15" width="70" height="33"/>
+                                                <rect key="frame" x="181" y="3.5" width="70" height="33"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="33" id="TB5-KO-XAm" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                         <userDefinedRuntimeAttributes>
@@ -2849,7 +2854,7 @@ email address</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8J2-xt-4bd" customClass="CustomButton" customModule="SID" customModuleProvider="target">
-                                                <rect key="frame" x="66" y="15" width="70" height="33"/>
+                                                <rect key="frame" x="66" y="3.5" width="70" height="33"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="33" id="SzW-Fj-Mfm" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                         <userDefinedRuntimeAttributes>
@@ -2886,7 +2891,7 @@ email address</string>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </constraint>
-                                            <constraint firstAttribute="height" constant="63" id="jKC-DK-dFn" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                            <constraint firstAttribute="height" constant="40" id="jKC-DK-dFn" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
@@ -2901,7 +2906,7 @@ email address</string>
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rai-jl-mon">
-                                        <rect key="frame" x="0.0" y="63" width="320" height="392"/>
+                                        <rect key="frame" x="0.0" y="40" width="320" height="439"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="26" minimumInteritemSpacing="0.0" id="fGz-gc-N5O">
                                             <size key="itemSize" width="50" height="50"/>
@@ -2930,7 +2935,7 @@ email address</string>
                                     <constraint firstItem="rai-jl-mon" firstAttribute="leading" secondItem="Y2N-Q4-0UB" secondAttribute="leading" id="0dB-BZ-g9M"/>
                                     <constraint firstItem="ZJF-TZ-p68" firstAttribute="top" secondItem="Y2N-Q4-0UB" secondAttribute="top" id="3Sl-ZU-3Vc"/>
                                     <constraint firstItem="ZJF-TZ-p68" firstAttribute="leading" secondItem="Y2N-Q4-0UB" secondAttribute="leading" id="BnS-Ya-CDh"/>
-                                    <constraint firstAttribute="bottom" secondItem="rai-jl-mon" secondAttribute="bottom" constant="49" id="HYF-c8-gBJ" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                    <constraint firstAttribute="bottom" secondItem="rai-jl-mon" secondAttribute="bottom" constant="25" id="HYF-c8-gBJ" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                         </userDefinedRuntimeAttributes>

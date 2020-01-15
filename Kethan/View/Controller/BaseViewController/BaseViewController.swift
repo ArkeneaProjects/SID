@@ -373,9 +373,18 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
     }
     
     // MARK: - LogOut
+    // MARK: - Logout
+    func authenticationFailed() {
+        
+        self.showAlert(title: "", message: "Authentication failed try to re login", yesTitle: nil, noTitle: "OK", yesCompletion: nil) {
+            self.logoutFromApp()
+        }
+    }
+    
     func logoutFromApp() {
         FacebookManager.logoutUser()
         GIDSignIn.sharedInstance()?.signOut()
+        AppConstant.shared.loggedUser = User()
         deleteUserDefaultsForKey(key: UserDefaultsKeys.LoggedUser)
         isLoginViewAnimated = false
         self.navigateToHome(true, false)
@@ -396,7 +405,7 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
                     items.append(item)
                 }
             } else if let url = item as? String {
-                let item = SKPhoto.photoWithImage(UIImage(named: url) ?? UIImage())
+                let item = SKPhoto.profilePhotoURL(url, holder: UIImage(named: "default-user"))
                 items.append(item)
             }
         }
@@ -632,4 +641,9 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
                }
            }
        }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        super.touchesBegan(touches, with: event)
+    }
 }
