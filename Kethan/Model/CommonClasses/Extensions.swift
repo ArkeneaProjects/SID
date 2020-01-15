@@ -664,7 +664,7 @@ extension UIImage {
 }
 extension UIImageView {
     
-    func drawRectangle(frameSize: CGSize, imageWidth: CGFloat, imageHight: CGFloat, drawSize: CGRect) { //frameSize = diaplayed imageview size, imagewidth = actual image width, imageHight= actual image hight, drawSize= drow image size
+    func drawRectangle(frameSize: CGSize, imageWidth: CGFloat, imageHight: CGFloat, drawSize: CGRect, linewidh: CGFloat = CGFloat(3.0)) { //frameSize = diaplayed imageview size, imagewidth = actual image width, imageHight= actual image hight, drawSize= drow image size
         
         let Width = frameSize.width//getCalculated(self.frame.size.width)
         let Hight = frameSize.height//getCalculated(self.frame.size.height)
@@ -674,7 +674,8 @@ extension UIImageView {
         let actualWidth = (Width * drawSize.size.width)/imageWidth
         let actualHight = (Hight * drawSize.size.height)/imageHight
         print(CGRect(x: acutalX, y: actualY, width: actualWidth, height: actualHight))
-        let d = Draw(frame: CGRect(x: acutalX, y: actualY, width: actualWidth, height: actualHight))
+        let d = Draw(frame: CGRect(x: acutalX, y: actualY, width: actualWidth, height: actualHight), lineWidth: linewidh)
+       // let d = Draw(frame: )
         for view in self.subviews {
             view.removeFromSuperview()
         }
