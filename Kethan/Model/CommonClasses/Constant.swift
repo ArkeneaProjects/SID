@@ -119,7 +119,7 @@ struct NOTIFICATIONS {
 
 struct SubscriptionPlans {
     static var Monitor50Patients = "com.telemedhome.Monitor50Patients"
-    static var Monitor125Patients = "com.telemedhome.Monitor125Patients"
+    static var Monitor125Patients = "com.kethan.50"
 }
 
 struct STATICDATA {
@@ -196,6 +196,7 @@ struct ERRORS {
     static let fullName: String = "Your name must not be left blank "
     static let profession: String = "Enter Profession"
     static let professionSelect: String = "Please select profession"
+    static let amountSelect: String = "Please select credits option"
     
     //OTP
     static let otp: String = "You need to input the verification code in order to proceed"

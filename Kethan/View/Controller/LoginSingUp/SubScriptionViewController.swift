@@ -24,7 +24,7 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
         super.viewDidLoad()
         
         //Nav Bar
-        self.addNavBarWithTitle("Subscription Plans", withLeftButtonType: (self.isComeFromLogin == false) ?.buttonTypeBack:.buttonTypeSkip, withRightButtonType: .buttonTypeNil)
+        self.addNavBarWithTitle("Subscription Plans", withLeftButtonType: (self.isComeFromLogin == false) ?.buttonTypeBack:.buttonTypeSkip, withRightButtonType: .buttonTypeRestore)
         
         //CollectionView
         self.collectionView.register(UINib(nibName: IDENTIFIERS.SubScriptionCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: IDENTIFIERS.SubScriptionCollectionViewCell)
@@ -38,7 +38,7 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
         self.collectionView.collectionViewLayout = layout
         self.collectionView.contentInset = UIEdgeInsets(top: 0, left: getCalculated(25.0), bottom: 0, right: getCalculated(20.5))
         
-//        self.subscriptionVmObj.getPlanInfo(self)
+        self.subscriptionVmObj.getPlanInfo(self)
     }
     
     // MARK: - Button Action
@@ -65,20 +65,20 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
         if self.isComeFromLogin == true {
             self.navigateToHome(false, false)
         } else {
-//            if sender.indexPath.item == 0 {
-//                self.subscriptionVmObj.selectedIndex = sender.indexPath.item
-//                self.subscriptionVmObj.subscribe()
-//            } else {
-//                let controller: CreditsViewController = self.instantiate(CreditsViewController.self, storyboard: STORYBOARD.main) as? CreditsViewController ?? CreditsViewController()
-//                controller.preparePopup(controller: self)
-//                controller.showPopup()
-//                controller.addCompletion = { creditValue, creditedPoints in
-//                    self.subscriptionVmObj.creditedPoint = creditedPoints
-//                    self.subscriptionVmObj.creditedValue = creditValue
-//                    self.subscriptionVmObj.selectedIndex = sender.indexPath.item
-//                    self.subscriptionVmObj.checkForIdentifire()
-//                }
-//            }
+            if sender.indexPath.item == 0 {
+                self.subscriptionVmObj.selectedIndex = sender.indexPath.item
+                self.subscriptionVmObj.subscribe()
+            } else {
+                let controller: CreditsViewController = self.instantiate(CreditsViewController.self, storyboard: STORYBOARD.main) as? CreditsViewController ?? CreditsViewController()
+                controller.preparePopup(controller: self)
+                controller.showPopup()
+                controller.addCompletion = { creditValue, creditedPoints in
+                    self.subscriptionVmObj.creditedPoint = creditedPoints
+                    self.subscriptionVmObj.creditedValue = creditValue
+                    self.subscriptionVmObj.selectedIndex = sender.indexPath.item
+                    self.subscriptionVmObj.checkForIdentifire()
+                }
+            }
         }
     }
     
@@ -95,15 +95,6 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
             
             cell.lblPlan.text = arr["plan"]?.uppercased()
             cell.lblValid.text = arr["valid"]
-            
-            let attributedString = NSMutableAttributedString(string: arr["price"]!, attributes: [
-                .font: APP_FONT.boldFont(withSize: 45.0),
-                .foregroundColor: UIColor(white: 1.0, alpha: 1.0)
-            ])
-            attributedString.addAttribute(.font, value: APP_FONT.regularFont(withSize: 30.0), range: NSRange(location: 0, length: 1))
-            attributedString.addAttributes([.baselineOffset: 15], range: NSRange(location: 0, length: 1))
-            
-            cell.lblPrice.attributedText = attributedString
             
             cell.btnSubscribe.titleLabel?.font = APP_FONT.mediumFont(withSize: 17.0)
             cell.btnSubscribe.setTitleColor((arr["type"] == "year") ?APP_COLOR.color3:APP_COLOR.color2, for: .normal)

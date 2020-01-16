@@ -38,7 +38,7 @@ class SubscriptionVM: NSObject {
     }
     
     func retriveProductInfo(pName: String) {
-        //        ProgressManager.show(withStatus: "", on: self.rootController?.view)
+        ProgressManager.show(withStatus: "", on: self.rootController?.view)
         NetworkActivityIndicatorManager.networkOperationStarted()
         SwiftyStoreKit.retrieveProductsInfo([pName]) { result in
             NetworkActivityIndicatorManager.networkOperationFinished()
@@ -77,7 +77,6 @@ class SubscriptionVM: NSObject {
                 ProgressManager.dismiss()
             }
         }
-        
     }
     
     func subscribe() {
@@ -118,22 +117,8 @@ class SubscriptionVM: NSObject {
     }
     
     func getIdentifire() -> String {
-        switch 50-self.creditedValue.intValue() {
-        case 50:
-            return "com.Sid.50"
-        case 40:
-            return "com.Sid.40"
-        case 30:
-            return "com.Sid.30"
-        case 20:
-            return "com.Sid.20"
-        case 10:
-            return "com.Sid.10"
-        case 0:
-            return "com.Sid.0"
-        default:
-            return "com.Sid.50"
-        }
+        let finalValue =  50-self.creditedValue.intValue()
+        return "com.Sid.\(finalValue)"
     }
     
     func purchase(pName: String, completion: @escaping ((_ result: PurchaseResult, _ pName: String) -> Void)) {
