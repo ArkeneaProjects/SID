@@ -94,7 +94,7 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
         if self.navigationController != nil {
             self.navigationController?.delegate = self
             self.navigationController?.interactivePopGestureRecognizer?.delegate = self
-            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = (self is TagViewController) ?false:true
         }
         
         //TabBar button Hide/Show

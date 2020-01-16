@@ -44,13 +44,21 @@ class LoginViewModel: NSObject {
                                     setUserDefaults(value: arr, forKey: UserDefaultsKeys.ManufectureUpload)
                                 }
                                 
+                                if let arrManufacture = dictionary.value(forKey: "manufecture") as? [NSDictionary] {
+                                    let arr = NSMutableArray()
+                                    for item in arrManufacture {
+                                        arr.add((getValueFromDictionary(dictionary: item, forKey: "implantManufacture")).capitalizingFirstLetter())
+                                    }
+                                    setUserDefaults(value: arr, forKey: UserDefaultsKeys.Manufecture)
+                                }
                                 
-        //                        if let arrManufacture = dictionary.value(forKey: "manufecture") as? [NSString] {
-        //                            setUserDefaults(value: NSMutableArray(array: arrManufacture), forKey: UserDefaultsKeys.Manufecture)
-        //                        }
-        //                        if let arrBrandName = dictionary.value(forKey: "brandName") as? [NSString] {
-        //                            setUserDefaults(value: NSMutableArray(array: arrBrandName), forKey: UserDefaultsKeys.BrandName)
-        //                        }
+                                if let arrBrand = dictionary.value(forKey: "brandName") as? [NSDictionary] {
+                                    let arr = NSMutableArray()
+                                    for item in arrBrand {
+                                        arr.add((getValueFromDictionary(dictionary: item, forKey: "brandName")).capitalizingFirstLetter())
+                                    }
+                                    setUserDefaults(value: arr, forKey: UserDefaultsKeys.BrandName)
+                                }
                             }
                         }
                     })

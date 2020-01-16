@@ -27,6 +27,16 @@ class SearchVM {
                     if let dataarr = dict.value(forKeyPath: "implant") as? [NSDictionary] {
                         self.arrSearchResult = dataarr.map({ return SearchResult(dictionary: $0)
                         })
+                        
+                        //Sorted by Date
+                        self.arrSearchResult = self.arrSearchResult.sorted(by: { (obj1: Any, obj2: Any) -> Bool in
+                             let objSearcheData1 = obj1 as? SearchResult ?? SearchResult()
+                            let objSearcheData2 = obj2 as? SearchResult ?? SearchResult()
+                            let date1 = objSearcheData1.modifiedOn.convertStringToDate(actualFormat: DATEFORMATTERS.YYYYMMDDTHHMMSSZ, expectedFormat: DATEFORMATTERS.YYYYMMDDTHHMMSSZ)
+                            let date2 = objSearcheData2.modifiedOn.convertStringToDate(actualFormat: DATEFORMATTERS.YYYYMMDDTHHMMSSZ, expectedFormat: DATEFORMATTERS.YYYYMMDDTHHMMSSZ)
+                            return (date2!.compare(date1!) == ComparisonResult.orderedAscending)
+                        })
+                        
                         ProgressManager.dismiss()
                         completion("")
                         
@@ -65,6 +75,27 @@ class SearchVM {
                         ProgressManager.showError(withStatus: getValueFromDictionary(dictionary: dict, forKey: "message"), on: self.rootController?.view)
                     }
                 }
+            }
+        }
+    }
+    
+    func checkDuplicateManufacture( manufactureName: String, brandName: String, rootController: BaseViewController) {
+         
+        ProgressManager.show(withStatus: "", on: rootController.view)
+        let dict: NSDictionary = [ENTITIES.manufacture: manufactureName, ENTITIES
+            .brandName: brandName]
+        
+        AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.DuplicateManufactureName, parameters: dict, serviceCount: 1) { (response: AnyObject?, error: String?, errorCode: String?) in
+            if error == nil {
+                ProgressManager.dismiss()
+                if let controller = rootController.instantiate(SearchListViewController.self, storyboard: STORYBOARD.main) as? SearchListViewController {
+                           controller.menufeacture = manufactureName
+                           controller.brandname = brandName
+                           controller.isCalledFrom = 2
+                           rootController.navigationController?.pushViewController(controller, animated: true)
+                }
+            } else {
+                ProgressManager.showError(withStatus: error, on: rootController.view, completion: nil)
             }
         }
     }

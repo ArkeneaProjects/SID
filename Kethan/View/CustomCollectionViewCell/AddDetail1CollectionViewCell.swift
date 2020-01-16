@@ -15,6 +15,7 @@ class AddDetail1CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imgPlus: UIImageView!
     @IBOutlet weak var imgSelected: UIImageView!
+    @IBOutlet weak var imgBorder: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

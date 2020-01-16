@@ -152,7 +152,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                 }
                 self.imageArray = NSMutableArray(array: arr)
             } else {
-                if (self.imageArray.lastObject as? ImplantImage) != nil {
+               if (self.imageArray.lastObject as? ImplantImage) != nil || (self.imageArray.lastObject as? NSArray) != nil {
                     
                 } else {
                     self.imageArray.add(["lineImage"])

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PurchesViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, GalleryManagerDelegate {
+class PurchesViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var btnCredit: CustomButton!
     @IBOutlet weak var btnReferral: CustomButton!
@@ -20,8 +20,6 @@ class PurchesViewController: BaseViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var constViewTableHeight: NSLayoutConstraint!
     
     @IBOutlet weak var tblView: UITableView!
-    
-    var imagePicker: GalleryManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,16 +41,12 @@ class PurchesViewController: BaseViewController, UITableViewDelegate, UITableVie
         self.tblView.estimatedRowHeight = getCalculated(80.0)
         self.tblView.tableFooterView = UIView()
         
-        //Gallery
-        self.imagePicker = GalleryManager(presentationController: self, delegate: self)
-        
     }
     
     @IBAction func referralClickAction(_ sender: Any) {
         
         // text to share
-        let text = "Use my Referral Code \(AppConstant.shared.loggedUser.referralCode) to sign up. Use code first to get free first 5 photos to upload"
-
+        let text = "Hey there, please sign-up using the code \(AppConstant.shared.loggedUser.referralCode) to receive credits that can be redeemed against annual subscription. Download app: \("https://www.google.com")"
         // set up activity view controller
         let textToShare = [ text ]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
@@ -95,11 +89,6 @@ class PurchesViewController: BaseViewController, UITableViewDelegate, UITableVie
         ])
         credit_attributedString.addAttribute(.font, value: UIFont(name: "HelveticaNeue", size: getCalculated(13.5))!, range: NSRange(location: 15, length: points.count))
         self.btnCredit.setAttributedTitle(credit_attributedString, for: .normal)
-    }
-    
-    // MARK: - Gallery Delegate
-    func didSelect(image: UIImage?) {
-        print(image)
     }
     
     // MARK: - UITabelVieeDelegate, UITableViewDataSource

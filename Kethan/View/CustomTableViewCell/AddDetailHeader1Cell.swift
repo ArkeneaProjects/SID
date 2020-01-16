@@ -65,11 +65,12 @@ class AddDetailHeader1Cell: UITableViewCell, UICollectionViewDelegate, UICollect
             cell.lblAdd.alpha = 0
             cell.imgPlus.alpha = 0
             cell.btnDelete.alpha = 0
+            cell.imgBorder.alpha = 0
             cell.btnDelete.indexPath = indexPath
             cell.btnDelete.addTarget(self, action: #selector(deleteImage(_:)), for: .touchUpInside)
             cell.imgSelected.clearDrowRectangle()
 
-            if let obj = arrAllItems.object(at: indexPath.row) as? ImageData {
+            if let obj = arrAllItems.object(at: indexPath.item) as? ImageData {
                 cell.btnDelete.alpha = (obj.isApproved == "0" && obj.userId == AppConstant.shared.loggedUser.userId) ?1.0:0
                 cell.layoutIfNeeded()
                 cell.imgSelected.sd_setImage(with: URL(string: obj.imageName), placeholderImage: UIImage(named: "placeholder_smaller"), options: .continueInBackground) { (image, error, types, url) in
@@ -84,11 +85,13 @@ class AddDetailHeader1Cell: UITableViewCell, UICollectionViewDelegate, UICollect
                 cell.btnDelete.indexPath = indexPath
                 cell.btnDelete.alpha = 1.0
             } else {
-                cell.imgSelected.alpha = 1.0
+                cell.imgSelected.image = nil
+                cell.imgSelected.alpha = 0
                 cell.lblAdd.alpha = 1.0
                 cell.imgPlus.alpha = 1.0
                 cell.btnDelete.alpha = 0
-                cell.imgSelected.image = UIImage(named: "lineImage")
+                cell.imgBorder.alpha = 1.0
+                cell.imgBorder.image = UIImage(named: "lineImage")
             }
             
             return cell

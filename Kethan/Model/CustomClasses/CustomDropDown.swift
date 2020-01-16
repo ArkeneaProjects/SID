@@ -343,6 +343,22 @@ open class CustomDropDown: UITextField {
     public func listDidDisappear(completion: @escaping () -> Void) {
         TableDidDisappearCompletion = completion
     }
+    
+    public func textFieldShoulBegin(textField: UITextField) {
+        self.isSearchEnable = true
+    }
+    
+    public func textFieldShouldChange(textField: UITextField, replacementString string: String) {
+        if string != "" {
+            self.searchText = self.text! + string
+        } else {
+            let subText = self.text?.dropLast()
+            self.searchText = String(subText!)
+        }
+        if !isSelected {
+            showList()
+        }
+    }
 }
 
 // MARK: - UITextFieldDelegate
