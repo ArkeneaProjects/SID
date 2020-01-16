@@ -100,14 +100,7 @@ class UploadViewController: BaseViewController {
         self.implantObj.objectName = self.txtImplant.text!
         self.implantObj.implantManufacture = self.txtManu.text!
         
-        if self.implantObj.implantManufacture.trimmedString().count == 0 {
-            ProgressManager.showError(withStatus: ERRORS.EmptyManufacturer, on: self.view)
-            return
-        } else if self.implantObj.objectName.trimmedString().count == 0 {
-            ProgressManager.showError(withStatus: ERRORS.EmptyBrandName, on: self.view)
-            return
-        }
-        
+        //Check Duplicate Manufacture
         let searchVM = SearchVM()
         searchVM.checkDuplicateManufacture(manufactureName: self.txtManu.text!, brandName: self.txtImplant.text!, rootController: self)
     }

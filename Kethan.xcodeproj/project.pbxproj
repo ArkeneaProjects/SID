@@ -1676,9 +1676,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Kethan/Kethan.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Arkenea Admin (H22LU4X6HU)";
+				CODE_SIGN_IDENTITY = "Apple Development: brian murray (8Y773CMT4L)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 6SSMT78DBN;
+				DEVELOPMENT_TEAM = 99VXX6YS4Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Kethan/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1716,9 +1716,9 @@
 					"\"UIKit\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.telemedhome;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kethan.sid;
 				PRODUCT_NAME = SID;
-				PROVISIONING_PROFILE_SPECIFIER = TeleMedHomeDeveloper;
+				PROVISIONING_PROFILE_SPECIFIER = Dev_SID;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Kethan/Resources/Kethan-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1731,9 +1731,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Kethan/Kethan.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Arkenea Admin (H22LU4X6HU)";
+				CODE_SIGN_IDENTITY = "Apple Distribution: brian murray (99VXX6YS4Q)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 6SSMT78DBN;
+				DEVELOPMENT_TEAM = 99VXX6YS4Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Kethan/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1771,9 +1771,9 @@
 					"\"UIKit\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.telemedhome;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kethan.sid;
 				PRODUCT_NAME = SID;
-				PROVISIONING_PROFILE_SPECIFIER = TeleMedHomeDeveloper;
+				PROVISIONING_PROFILE_SPECIFIER = AddHoc_SID;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Kethan/Resources/Kethan-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
