@@ -3034,7 +3034,7 @@ palpation. Refer for further examination if</string>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="he8-Ht-03n">
-                                                        <rect key="frame" x="10" y="71" width="272" height="267"/>
+                                                        <rect key="frame" x="10" y="106" width="272" height="232"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <prototypes>
@@ -3154,13 +3154,28 @@ palpation. Refer for further examination if</string>
                                                             <action selector="addClickAction:" destination="W4k-tC-XXP" eventType="touchUpInside" id="o1g-7V-4Pq"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select credit points that you want to redeem for subscription." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZF-x4-C3W" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="35" width="272" height="28"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select credit points that you want to redeem for subscription where value for 4 credits is equivalent to 1$" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZF-x4-C3W" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
+                                                        <rect key="frame" x="10" y="56" width="272" height="42"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="10" id="LmV-qG-ekN"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                                <real key="value" value="12"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Credits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWf-Ry-cGC" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
+                                                        <rect key="frame" x="10" y="32" width="272" height="22"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="22" id="nxJ-xT-HWU"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
+                                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
@@ -3184,14 +3199,17 @@ palpation. Refer for further examination if</string>
                                                         </userDefinedRuntimeAttributes>
                                                     </constraint>
                                                     <constraint firstItem="hBy-34-4PV" firstAttribute="top" secondItem="he8-Ht-03n" secondAttribute="bottom" constant="14" id="6k5-2W-2Fr"/>
-                                                    <constraint firstItem="cZF-x4-C3W" firstAttribute="top" secondItem="Pju-P5-8vs" secondAttribute="bottom" constant="5" id="Eaj-Wi-CMV"/>
+                                                    <constraint firstItem="BWf-Ry-cGC" firstAttribute="top" secondItem="Pju-P5-8vs" secondAttribute="bottom" constant="2" id="RHc-Ei-mGH"/>
                                                     <constraint firstAttribute="trailing" secondItem="hBy-34-4PV" secondAttribute="trailing" constant="10" id="Rpt-jl-2DV"/>
                                                     <constraint firstAttribute="bottom" secondItem="hBy-34-4PV" secondAttribute="bottom" constant="8" id="VTf-u3-dQR"/>
                                                     <constraint firstItem="he8-Ht-03n" firstAttribute="top" secondItem="cZF-x4-C3W" secondAttribute="bottom" constant="8" id="dZa-Ra-s6y"/>
+                                                    <constraint firstAttribute="trailing" secondItem="BWf-Ry-cGC" secondAttribute="trailing" constant="10" id="due-Bm-ePM"/>
+                                                    <constraint firstItem="cZF-x4-C3W" firstAttribute="top" secondItem="BWf-Ry-cGC" secondAttribute="bottom" constant="2" id="exg-C6-O3c"/>
                                                     <constraint firstAttribute="trailing" secondItem="cZF-x4-C3W" secondAttribute="trailing" constant="10" id="fW1-gC-1jj"/>
                                                     <constraint firstItem="he8-Ht-03n" firstAttribute="leading" secondItem="mnm-7Z-fuh" secondAttribute="leading" constant="10" id="g0K-vx-buC"/>
                                                     <constraint firstAttribute="trailing" secondItem="he8-Ht-03n" secondAttribute="trailing" constant="10" id="i48-IY-WQn"/>
                                                     <constraint firstItem="hBy-34-4PV" firstAttribute="leading" secondItem="mnm-7Z-fuh" secondAttribute="leading" constant="10" id="mBl-3U-DKo"/>
+                                                    <constraint firstItem="BWf-Ry-cGC" firstAttribute="leading" secondItem="mnm-7Z-fuh" secondAttribute="leading" constant="10" id="tBJ-aR-CnA"/>
                                                     <constraint firstItem="cZF-x4-C3W" firstAttribute="leading" secondItem="mnm-7Z-fuh" secondAttribute="leading" constant="10" id="vZh-kS-ChF"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -3256,6 +3274,7 @@ palpation. Refer for further examination if</string>
                     </view>
                     <connections>
                         <outlet property="btnClose" destination="CFA-6U-0xu" id="djd-YN-54S"/>
+                        <outlet property="lblTotalCredits" destination="BWf-Ry-cGC" id="SWk-b4-e7f"/>
                         <outlet property="tblView" destination="he8-Ht-03n" id="3mb-iY-Ezw"/>
                         <outlet property="viewBlur" destination="WCI-vk-GPo" id="XXv-SR-Woe"/>
                         <outlet property="viewPopup" destination="mnm-7Z-fuh" id="Z49-lv-2kz"/>

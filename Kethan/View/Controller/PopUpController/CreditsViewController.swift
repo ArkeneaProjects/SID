@@ -12,7 +12,7 @@ class CreditsViewController: BaseViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet weak var viewBlur: UIView!
     @IBOutlet weak var viewPopup: UIView!
-    
+    @IBOutlet weak var lblTotalCredits: CustomLabel!
     @IBOutlet weak var tblView: UITableView!
     
     var addCompletion:((_ creditValue: String, _ creditPoints: String) -> Void)?
@@ -37,6 +37,7 @@ class CreditsViewController: BaseViewController, UITableViewDelegate, UITableVie
     
     func getValueForEarned() {
         let current = "272" //AppConstant.shared.loggedUser.creditPoint //272 points
+        self.lblTotalCredits.text = "Total Credits: \(current)"
         let valueForCurrent = current.intValue()/4 // 68 $
         
         let baseUsableValue = valueForCurrent - valueForCurrent % 5 // 65
