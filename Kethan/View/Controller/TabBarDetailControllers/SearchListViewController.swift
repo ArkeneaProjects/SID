@@ -79,7 +79,9 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
             let imageDict  = saveImageInDocumentDict(image: self.searchImage!, imageName: "photo", key: "implantPicture")
             self.searchVM.getSearchByImage(itemArray: [imageDict]) { (error) in
                 if error != "" {
-                    self.lblResultCount.text = error
+                    ProgressManager.showError(withStatus: error, on: self.view) {
+                        self.lblResultCount.text = error
+                    }
                 } else {
                     DispatchQueue.main.async {
                         if self.searchVM.arrSearchResult.count == 1 {
@@ -94,7 +96,9 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
         } else {
             self.searchVM.getAllSearchByText(manufecture: self.menufeacture, brandname: self.brandname) { (error) in
                 if error != "" {
-                    self.lblResultCount.text = error
+                    ProgressManager.showError(withStatus: error, on: self.view) {
+                        self.lblResultCount.text = error
+                    }
                 } else {
                     DispatchQueue.main.async {
                         if self.searchVM.arrSearchResult.count == 1 {

@@ -21,6 +21,7 @@ class SearchViewController: BaseViewController {
         
         self.txtImplant.font = UIFont(name: self.txtImplant.font!.fontName, size: getCalculated(14.0))
         self.txtManufacture.font = UIFont(name: self.txtManufacture.font!.fontName, size: getCalculated(14.0))
+        //self.txtManufacture.text = "manufecture 6"
         //Brand
         if let arrBrand = getUserDefaultsForKey(key: UserDefaultsKeys.BrandName) as? [NSString] {
             self.txtImplant.optionArray = arrBrand as [String]

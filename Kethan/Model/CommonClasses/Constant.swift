@@ -105,7 +105,7 @@ struct SUFFIX_URL {
     static let SignOut = "auth/signout"
     static let Support = "support/create"
     static let subscriptionUpdate = "auth/subscriptionUpdate"
-
+    static let DuplicateManufactureName = "implant/checkDuplicateApi"
 }
 
 struct KEYS {
@@ -308,5 +308,9 @@ struct ENTITIES {
     
     //Query
     static let query = "query"
+    
+    //Duplicate Manufature check
+    static let manufacture = "manufacture"
+    static let brandName = "brandName"
     
 }

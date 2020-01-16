@@ -38,22 +38,13 @@ class UploadViewController: BaseViewController {
 //                self.getBrandName()
 //            }
 //        }
-        if AppConstant.shared.manufactureName.count != 0 {
-            self.txtManu.text = AppConstant.shared.manufactureName
-            AppConstant.shared.manufactureName = ""
-            self.getBrandName()
-        }
-        
-        if AppConstant.shared.brandName.count != 0 {
-            self.txtImplant.text = AppConstant.shared.brandName
-            AppConstant.shared.brandName = ""
-        }
         
         //Manufacture
         if let arrManufacture = getUserDefaultsForKey(key: UserDefaultsKeys.ManufectureUpload) as? [NSDictionary] {
             let arr = arrManufacture.map { (obj) -> String in
                 return getValueFromDictionary(dictionary: obj, forKey: ENTITIES.implantManufacture)
             }
+            print(arr)
             self.txtManu.optionArray = arr
             self.txtManu.didSelect { (selected: String, index: Int, id: Int) in
                 self.txtManu.text = selected
@@ -66,6 +57,20 @@ class UploadViewController: BaseViewController {
             }
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+           super.viewWillAppear(animated)
+           if AppConstant.shared.manufactureName.count != 0 {
+               self.txtManu.text = AppConstant.shared.manufactureName
+               AppConstant.shared.manufactureName = ""
+               self.getBrandName()
+           }
+           
+           if AppConstant.shared.brandName.count != 0 {
+               self.txtImplant.text = AppConstant.shared.brandName
+               AppConstant.shared.brandName = ""
+           }
+       }
     
     func getBrandName() {
         //Brand
@@ -95,19 +100,9 @@ class UploadViewController: BaseViewController {
         self.implantObj.objectName = self.txtImplant.text!
         self.implantObj.implantManufacture = self.txtManu.text!
         
-        if self.implantObj.implantManufacture.trimmedString().count == 0 {
-            ProgressManager.showError(withStatus: ERRORS.EmptyManufacturer, on: self.view)
-            return
-        } else if self.implantObj.objectName.trimmedString().count == 0 {
-            ProgressManager.showError(withStatus: ERRORS.EmptyBrandName, on: self.view)
-            return
-        }
-        if let controller = self.instantiate(SearchListViewController.self, storyboard: STORYBOARD.main) as? SearchListViewController {
-            controller.menufeacture = self.txtManu.text ?? ""
-            controller.brandname = self.txtImplant.text ?? ""
-            controller.isCalledFrom = 2
-            self.navigationController?.pushViewController(controller, animated: true)
-        }
+        //Check Duplicate Manufacture
+        let searchVM = SearchVM()
+        searchVM.checkDuplicateManufacture(manufactureName: self.txtManu.text!, brandName: self.txtImplant.text!, rootController: self)
     }
        
     // MARK: - TextField Deleget
@@ -122,8 +117,28 @@ class UploadViewController: BaseViewController {
                 self.getBrandName()
                 self.txtImplant.isSearchEnable = true
             }
-            return self.txtImplant.textFieldShouldBeginEditing(textField)
+            self.txtImplant.textFieldShoulBegin(textField: textField)
+            return true
+        } else {
+            self.txtManu.textFieldShoulBegin(textField: textField)
         }
+        return true
+    }
+    
+   
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == self.txtManu {
+            self.txtManu.textFieldShouldChange(textField: textField, replacementString: string)
+        } else {
+           self.txtImplant.textFieldShouldChange(textField: textField, replacementString: string)
+        }
+        
+        return true
+    }
+    
+    override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
         return true
     }
     

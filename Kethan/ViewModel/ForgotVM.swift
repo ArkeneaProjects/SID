@@ -96,7 +96,7 @@ class ForgotVM: NSObject {
                 if let dict = response as? NSDictionary {
                     self.responseOTPDict = dict
                   
-                    if self.isCameFromForgotScreen == true{
+                    if self.isCameFromForgotScreen == true {
                           ProgressManager.dismiss()
                         if let controller = self.rootViewController!.instantiate(ChangePwdViewController.self, storyboard: STORYBOARD.signup) as? ChangePwdViewController {
                             controller.email = self.email
@@ -105,6 +105,9 @@ class ForgotVM: NSObject {
                         }
                     } else {
                         ProgressManager.showSuccess(withStatus: "") {
+                            if let userDict = dict["user"] as? NSDictionary {
+                                updateUserDetail(userDetail: userDict)
+                            }
                         self.rootViewController?.navigationController?.popToRootViewController(animated: true)
                         }
                     }

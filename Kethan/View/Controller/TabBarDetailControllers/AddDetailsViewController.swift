@@ -152,7 +152,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                 }
                 self.imageArray = NSMutableArray(array: arr)
             } else {
-                if (self.imageArray.lastObject as? ImplantImage) != nil {
+               if (self.imageArray.lastObject as? ImplantImage) != nil || (self.imageArray.lastObject as? NSArray) != nil {
                     
                 } else {
                     self.imageArray.add(["lineImage"])
@@ -287,7 +287,11 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                 if size >= 1.0 {
                     controller.selectedImage = image!.imageWithImage(scaledToWidth: getCalculated(640.0))
                 } else {
-                    controller.selectedImage = image!
+                    if image!.size.width > getCalculated(640.0) {
+                        controller.selectedImage = image!.imageWithImage(scaledToWidth: getCalculated(640.0))
+                    } else {
+                        controller.selectedImage = image!
+                    }
                 }
             } else {
                 controller.selectedImage = image!

@@ -182,9 +182,11 @@ class AFManager: NSObject {
                         jsonObject = responseDict
                     } else {
                         //need to update code but not necessary
+                        completion(nil, MESSAGES.invalidFormat, "")
                     }
                 } else {
                     //need to update code but not necessary
+                    completion(nil, MESSAGES.invalidFormat, "")
                 }
                 
                 if jsonObject != nil {
@@ -195,9 +197,15 @@ class AFManager: NSObject {
                             }
                         } else {
                             if let responseDict = jsonObject!.object(forKey: CONSTANT.data) as? NSDictionary {
-                                let message = responseDict.object(forKey: CONSTANT.Message) as? String ?? ""
-                                let errorCode = responseDict.object(forKey: CONSTANT.ErrorCode) as? String ?? ""
-                                completion(nil, message, errorCode)
+                                let message = getValueFromDictionary(dictionary: responseDict, forKey: CONSTANT.Message)
+                                let errorCode = getValueFromDictionary(dictionary: responseDict, forKey: CONSTANT.ErrorCode)
+                                let auth = getValueFromDictionary(dictionary: responseDict, forKey: CONSTANT.auth)
+                                if auth == "0" {
+                                    let topController = getTopViewController()
+                                    topController?.authenticationFailed()
+                                } else {
+                                    completion(nil, message, errorCode)
+                                }
                             } else {
                                 completion(nil, MESSAGES.errorOccured, "")
                             }
@@ -232,7 +240,7 @@ class AFManager: NSObject {
         })
     }
     
-    static func request(method: HTTPMethod, parameters: [String:Any]?,imageNames : [String], images:[Data], completion: @escaping(Any?, Error?, Bool)->Void) {
+    static func request(method: HTTPMethod, parameters: [String:Any]?, imageNames : [String], images:[Data], completion: @escaping(Any?, Error?, Bool)->Void) {
         var token = ""
                        if AppConstant.shared.loggedUser.accesstoken.trimmedString().count > 0 {
                            token = AppConstant.shared.loggedUser.accesstoken

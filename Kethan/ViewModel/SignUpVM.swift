@@ -108,11 +108,12 @@ class SignUpViewModel: NSObject {
             } else {
                 if let dict = response as? NSDictionary {
                     self.responseSignUpDict = dict
-                    ProgressManager.dismiss()
-                    if let controller = self.rootViewController!.instantiate(VerifyOTPViewController.self, storyboard: STORYBOARD.signup) as? VerifyOTPViewController {
-                        controller.enterEmail = self.email
-                        controller.signupVM.loginVM = self.loginVM
-                        self.rootViewController!.navigationController?.pushViewController(controller, animated: true)
+                    ProgressManager.showSuccess(withStatus: getValueFromDictionary(dictionary: self.responseSignUpDict, forKey: CONSTANT.Message), on: self.rootViewController!.view) {
+                        if let controller = self.rootViewController!.instantiate(VerifyOTPViewController.self, storyboard: STORYBOARD.signup) as? VerifyOTPViewController {
+                            controller.enterEmail = self.email
+                            controller.signupVM.loginVM = self.loginVM
+                            self.rootViewController!.navigationController?.pushViewController(controller, animated: true)
+                        }
                     }
                 }
             }

@@ -182,6 +182,8 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate {
         self.lblPermissions.isUserInteractionEnabled = (isTrue == true) ?false:true
         self.lblPermissions.text = (isTrue == true) ?"Click a picture of the X-Ray to search in our Database":"Tap here to enable camera access and take great pictures"
         self.lblPermissions.textColor = (isTrue == true) ?UIColor.white:UIColor.black
+        self.btnCamera.alpha = (isTrue == true) ?1.0:0
+        self.btnFlash.alpha = (isTrue == true) ?1.0:0
     }
     
     // MARK: - Gallery Delegate

@@ -39,7 +39,7 @@ class Implant: NSObject {
             ENTITIES.surgeryLocation: self.surgeryLocation,
             ENTITIES.createdDate: self.createdDate,
             ENTITIES.id: self.id,
-            ENTITIES.isApproved: self.isApproved,
+            ENTITIES.isApproved: (self.isApproved == "" || self.isApproved == "0") ?false:true,
             ENTITIES.userId: self.userId
         ]
         return dictionary

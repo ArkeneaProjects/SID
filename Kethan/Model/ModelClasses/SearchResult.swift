@@ -30,28 +30,45 @@ class SearchResult: NSObject, NSCopying {
         self.isApproved = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.isApproved)
         self.isRejected = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.isRejected)
         self._id = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES._id)
-        self.objectName = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.objectName)
-        self.implantManufacture = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.implantManufacture)
+        self.objectName = (getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.objectName)).capitalizingFirstLetter()
+        self.implantManufacture = (getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.implantManufacture)).capitalizingFirstLetter()
       
         if let dictarr = dictionary.value(forKey: ENTITIES.imageData) as? [NSDictionary] {
-            self.imageData = dictarr.map({ (dict) -> ImageData in
-                return ImageData(dictionary: dict)
+            
+            for item in dictarr {
+                let objItem = ImageData(dictionary: item)
+                if objItem.userId == AppConstant.shared.loggedUser.userId || objItem.isApproved == "1" {
+                    self.imageData.append(objItem)
+                }
+                //if objItem.
+            }
+            
+            //            self.imageData = dictarr.map({ (dict) -> ImageData in
+            //                return ImageData(dictionary: dict)
+            //            })
+            
+            
+            //Sorted by Date
+            self.imageData = self.imageData.sorted(by: { (obj1: Any, obj2: Any) -> Bool in
+                let objImageData1 = obj1 as? ImageData ?? ImageData()
+                let objImageData2 = obj2 as? ImageData ?? ImageData()
+                let date1 = objImageData1.createdDate.convertStringToDate(actualFormat: DATEFORMATTERS.YYYYMMDDTHHMMSSZ, expectedFormat: DATEFORMATTERS.YYYYMMDDTHHMMSSZ)
+                let date2 = objImageData2.createdDate.convertStringToDate(actualFormat: DATEFORMATTERS.YYYYMMDDTHHMMSSZ, expectedFormat: DATEFORMATTERS.YYYYMMDDTHHMMSSZ)
+                return (date2!.compare(date1!) == ComparisonResult.orderedAscending)
             })
         }
         
-        //Sorted by Date
-        self.imageData = self.imageData.sorted(by: { (obj1: Any, obj2: Any) -> Bool in
-             let objImageData1 = obj1 as? ImageData ?? ImageData()
-            let objImageData2 = obj2 as? ImageData ?? ImageData()
-            let date1 = objImageData1.createdDate.convertStringToDate(actualFormat: DATEFORMATTERS.YYYYMMDDTHHMMSSZ, expectedFormat: DATEFORMATTERS.YYYYMMDDTHHMMSSZ)
-            let date2 = objImageData2.createdDate.convertStringToDate(actualFormat: DATEFORMATTERS.YYYYMMDDTHHMMSSZ, expectedFormat: DATEFORMATTERS.YYYYMMDDTHHMMSSZ)
-            return (date2!.compare(date1!) == ComparisonResult.orderedAscending)
-        })
-        
       if let dictarr = dictionary.value(forKey: ENTITIES.removImplant) as? [NSDictionary] {
-              let arrImaplant  = dictarr.map({ (dict) -> Implant in
-                     return Implant(dictionary: dict)
-                 }) //as! [Implant]
+        let arrImaplant = NSMutableArray()
+        for item in dictarr {
+            let objItem = Implant(dictionary: item)
+            if objItem.userId == AppConstant.shared.loggedUser.userId || objItem.isApproved == "1" {
+                arrImaplant.add(objItem)
+            }
+        }
+//              let arrImaplant  = dictarr.map({ (dict) -> Implant in
+//                     return Implant(dictionary: dict)
+//                 }) //as! [Implant]
         
         //Sorted by Date
           self.removImplant = NSMutableArray(array: arrImaplant.sorted(by: { (obj1: Any, obj2: Any) -> Bool in
@@ -70,7 +87,7 @@ class SearchResult: NSObject, NSCopying {
     }
     func getRemovalArray() -> NSArray {
         let implantdictarr = self.removImplant.map { (obj) -> NSDictionary in
-            return (obj as! Implant).dictioary()
+            return (obj as? Implant ?? Implant()).dictioary()
         }
         return implantdictarr as NSArray
     }
@@ -80,7 +97,7 @@ class SearchResult: NSObject, NSCopying {
             return obj.dictioary()
         }
         let implantdictarr = self.removImplant.map { (obj) -> NSDictionary in
-            return (obj as! Implant).dictioary()
+            return (obj as? Implant ?? Implant()).dictioary()
         }
         let dictionary: NSDictionary = [
             ENTITIES.isApproved: self.isApproved,
