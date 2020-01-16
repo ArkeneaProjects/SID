@@ -1,19 +1,18 @@
 //
-//  ProcessListCell.swift
+//  CreditTableViewCell.swift
 //  Kethan
 //
-//  Created by Ashwini on 02/01/20.
+//  Created by Ashwini on 15/01/20.
 //  Copyright © 2020 Arkenea. All rights reserved.
 //
 
 import UIKit
 
-class ProcessListCell: UITableViewCell {
+class CreditTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var lblProcessTitle: CustomLabel!
-    @IBOutlet weak var btnDelete: CustomButton!
-
-
+    @IBOutlet weak var lblCredits: CustomLabel!
+    @IBOutlet weak var imgSelect: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

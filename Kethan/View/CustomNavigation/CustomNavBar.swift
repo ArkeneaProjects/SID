@@ -61,6 +61,10 @@ class CustomNavBar: UIView {
                 leftImageName = "menu"
             } else if leftButtonType == .buttonTypeSave {
                 leftImageName = "tik"
+            } else if leftButtonType == .buttonTypeSkip {
+                self.btnLeft.alpha = 1.0
+                self.btnLeft.setTitle("Skip", for: .normal)
+                self.btnLeft.addTarget(target, action: leftAction, for: UIControl.Event.touchUpInside)
             }
             if leftImageName.count > 0 {
                 self.btnLeft.alpha = 1.0

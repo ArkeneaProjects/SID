@@ -84,10 +84,10 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate {
         super.viewWillDisappear(animated)
         #if TARGET_OS_SIMULATOR
         // Simulator-specific code
-            cameraManager.stopCaptureSession()
+        cameraManager.stopCaptureSession()
         #else
         // Device-specific code
-            cameraManager.stopCaptureSession()
+        cameraManager.stopCaptureSession()
         #endif
         
     }
@@ -95,7 +95,7 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate {
     // MARK: - Button Click Action
     override func leftButtonAction() {
         self.revealViewController()?.revealToggle(self.navBar.btnLeft)
-
+        
     }
     @IBAction func galleryClickAction(_ sender: CustomButton) {
         self.imagePicker.present(croppingStyle: .circular, isCrop: false, isCamera: false)

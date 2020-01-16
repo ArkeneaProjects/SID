@@ -17,6 +17,8 @@ class SubscriptionVM: NSObject {
     var ProductArr = [SKProduct]()
     var selectedIndex = 0
     var rootController: BaseViewController?
+    var creditedPoint = ""
+    var creditedValue = ""
     
     func getPlanInfo(_ controller: BaseViewController) {
         self.rootController = controller
@@ -29,21 +31,21 @@ class SubscriptionVM: NSObject {
         productIdArr.add(SubscriptionPlans.Monitor125Patients)
         
         for p in productIdArr {
-            retriveProductInfo(pName: p as! String)
-            // self.verifyPurchase(pName: p as! String)
+            if let productId: String = p as? String {
+                retriveProductInfo(pName: productId)
+            }
         }
     }
     
     func retriveProductInfo(pName: String) {
-        ProgressManager.show(withStatus: "", on: self.rootController?.view)
+        //        ProgressManager.show(withStatus: "", on: self.rootController?.view)
         NetworkActivityIndicatorManager.networkOperationStarted()
-        SwiftyStoreKit.retrieveProductsInfo([/*appBundleId + "." + */pName]) { result in
+        SwiftyStoreKit.retrieveProductsInfo([pName]) { result in
             NetworkActivityIndicatorManager.networkOperationFinished()
             
             if result.retrievedProducts.count > 0 {
                 self.ProductArr.append(result.retrievedProducts.first!)
             }
-            // set info in labels
             if self.ProductArr.count > 0 {
                 for i in 0 ..< self.ProductArr.count {
                     if let currencyCode: String = CFLocaleGetValue(self.ProductArr[i].priceLocale as CFLocale, CFLocaleKey.currencyCode) as? String {
@@ -65,7 +67,6 @@ class SubscriptionVM: NSObject {
                             cell.lblPrice.attributedText = attributedString
                         }
                     }
-                    
                 }
                 
                 DispatchQueue.main.async {
@@ -75,8 +76,6 @@ class SubscriptionVM: NSObject {
                 }
                 ProgressManager.dismiss()
             }
-            
-            // self.showAlert(self.alertForProductRetrievalInfo(result))
         }
         
     }
@@ -96,6 +95,45 @@ class SubscriptionVM: NSObject {
                 }
             })
         }, noCompletion: nil)
+    }
+    
+    func checkForIdentifire() {
+        
+        let finalIdentifire = self.getIdentifire()
+        
+        self.rootController?.showAlert(title: "Confirm?", message: "Are you sure you want to purchase this?", yesTitle: "Yes", noTitle: "No", yesCompletion: {
+            ProgressManager.show(withStatus: "Subscribing..", on: self.rootController?.view)
+            self.purchase(pName: finalIdentifire, completion: { result, pName in
+                if let alert = self.rootController?.alertForPurchaseResult(result as PurchaseResult) {
+                    self.rootController?.showAlert(alert)
+                    switch result {
+                    case .success( _):
+                        self.verifyPurchase(pName: pName, tag: self.selectedIndex)
+                    case .error:
+                        ProgressManager.dismiss()
+                    }
+                }
+            })
+        }, noCompletion: nil)
+    }
+    
+    func getIdentifire() -> String {
+        switch 50-self.creditedValue.intValue() {
+        case 50:
+            return "com.Sid.50"
+        case 40:
+            return "com.Sid.40"
+        case 30:
+            return "com.Sid.30"
+        case 20:
+            return "com.Sid.20"
+        case 10:
+            return "com.Sid.10"
+        case 0:
+            return "com.Sid.0"
+        default:
+            return "com.Sid.50"
+        }
     }
     
     func purchase(pName: String, completion: @escaping ((_ result: PurchaseResult, _ pName: String) -> Void)) {
@@ -145,7 +183,6 @@ class SubscriptionVM: NSObject {
             switch result {
             case .success(let receipt):
                 ProgressManager.dismiss()
-                //  let productId = self.appBundleId + "." + purchase.rawValue
                 let productId = pName
                 /* if let latestReceipt: NSArray = (receipt as NSDictionary).object(forKey: "latest_receipt_info") as? NSArray {
                  let expiryDateValue = latestReceipt.object(at: latestReceipt.count-1)
@@ -165,14 +202,18 @@ class SubscriptionVM: NSObject {
                 //                let receiptData: Data = try! JSONSerialization.data(withJSONObject: receipt, options: JSONSerialization.WritingOptions.prettyPrinted)
                 //                let receiptDataBase64 = receiptData.base64EncodedString()
                 
-                /* let str = ((self.planArray[self.selectedIndex] as? IAPProduct)!.plan)
-                 let PatientCountArr: [String] = str.components(separatedBy: " ")
-                 if let data: IAPProduct = self.planArray.object(at: tag) as? IAPProduct {
-                 print(PatientCountArr, data)
-                 }
-                 
-                 self.updatePurchaseStatusOnServer(price: (self.planArray[self.selectedIndexPath.row] as! IAPProduct).planAmount, planName: (self.planArray[self.selectedIndexPath.row] as! IAPProduct).patients, planStatus: "", allowedPatientCount: PatientCountArr[1], receipt: receiptDataBase64, plan_title: data.planTitle, perpatient_cost:data.detailPlan )
-                 */
+                let str = ((self.planArray[self.selectedIndex] as? IAPProduct)!.plan)
+                let PatientCountArr: [String] = str.components(separatedBy: " ")
+                if let data: IAPProduct = self.planArray.object(at: tag) as? IAPProduct {
+                    print(PatientCountArr, data)
+                }
+                
+                let expiryDate: Date = (tag == 0 ? Date(timeInterval: 3600 * 24 * 30, since: Date()) : Date(timeInterval: 3600 * 24 * 365, since: Date()))
+                let renewalDate: Date = (tag == 0 ? Date(timeInterval: 3600 * 24 * 31, since: Date()) : Date(timeInterval: 3600 * 24 * 366, since: Date()))
+                
+                let parameters = ["creditPointRedeem": tag == 0 ? "" : self.creditedPoint, "startDate": Date().convertDateToString(), "endDate": expiryDate.convertDateToString(), "subscriptionType": tag == 0 ? "Monthly" : "Yearly", "subscriptionRenewalDate": tag == 0 ? renewalDate.convertDateToString() : ""]
+                
+                self.updatePurchaseStatusOnServer(parameters: parameters as NSDictionary)
                 
                 self.setStatus(result: purchaseResult, name: pName)
                 self.rootController?.showAlert((self.rootController?.alertForVerifySubscription(purchaseResult))!)
@@ -184,16 +225,24 @@ class SubscriptionVM: NSObject {
         }
     }
     
-    func setStatus(result: VerifySubscriptionResult, name: String) {
-        if name == SubscriptionPlans.Monitor50Patients {
-            switch result {
-            case.purchased(let expiryDate):
-                print("Monitor50Patients is valid until \(expiryDate)")
-            case.expired(let expiryDate):
-                print("Monitor50Patients is expired since \(expiryDate)")
-            case .notPurchased:
-                print("Monitor50Patients has never been purchased")
+    func updatePurchaseStatusOnServer(parameters: NSDictionary) {
+        AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.subscriptionUpdate, parameters: parameters, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
+            if error == nil {
+            } else {
+                ProgressManager.dismiss()
+                ProgressManager.showError(withStatus: error, on: self.rootController?.view)
             }
+        }
+    }
+    
+    func setStatus(result: VerifySubscriptionResult, name: String) {
+        switch result {
+        case.purchased(let expiryDate, let items):
+            print("SubscriptionPlans is valid until \(expiryDate) \(items)")
+        case.expired(let expiryDate):
+            print("SubscriptionPlans is expired since \(expiryDate)")
+        case .notPurchased:
+            print("SubscriptionPlans has never been purchased")
         }
     }
 }

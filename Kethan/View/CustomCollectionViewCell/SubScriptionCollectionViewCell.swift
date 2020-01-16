@@ -18,6 +18,7 @@ class SubScriptionCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lblPlan: CustomLabel!
     @IBOutlet weak var lblPrice: CustomLabel!
     @IBOutlet weak var imgBG: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

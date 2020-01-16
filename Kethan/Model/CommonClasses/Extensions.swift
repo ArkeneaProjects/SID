@@ -383,7 +383,7 @@ extension UIPageControl {
     
 }
 extension UIImage {
-
+    
     class func outlinedEllipse(size: CGSize, color: UIColor, lineWidth: CGFloat = 1.0) -> UIImage? {
         
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
@@ -478,13 +478,13 @@ extension UIImage {
 extension String {
     
     func decodeEmoji() -> String {
-           let data = self.data(using: String.Encoding.utf8);
-           let decodedStr = NSString(data: data!, encoding: String.Encoding.nonLossyASCII.rawValue)
-           if let str = decodedStr{
-               return str as String
-           }
-           return self
-       }
+        let data = self.data(using: String.Encoding.utf8);
+        let decodedStr = NSString(data: data!, encoding: String.Encoding.nonLossyASCII.rawValue)
+        if let str = decodedStr{
+            return str as String
+        }
+        return self
+    }
     
     func encodeEmoji() -> String{
         if let encodeStr = NSString(cString: self.cString(using: .nonLossyASCII)!, encoding: String.Encoding.utf8.rawValue){
@@ -660,27 +660,39 @@ extension String {
         return Date()
     }
 }
+
+extension Date {
+    func convertDateToString() -> String {
+        let formatter: DateFormatter = DateFormatter()
+        formatter.dateFormat = DATEFORMATTERS.YYYYMMDDTHHMMSSZ
+        formatter.timeZone = TimeZone(identifier: "UTC")
+        var stringDate: String = String()
+        stringDate = formatter.string(from: self)
+        return stringDate
+    }
+}
+
 extension UIImage {
     func drawRectangleOnImage(drawSize: CGRect) -> UIImage? {
         let imageSize = self.size
-      
+        
         UIGraphicsBeginImageContextWithOptions(imageSize, false, 1.0)
-
-            self.draw(at: CGPoint.zero)
+        
+        self.draw(at: CGPoint.zero)
         let color: UIColor = UIColor.red
         let bpath: UIBezierPath = UIBezierPath(rect: drawSize)
-            bpath.lineWidth = 3.0
-            color.set()
-            bpath.stroke()
-
+        bpath.lineWidth = 3.0
+        color.set()
+        bpath.stroke()
+        
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
-           UIGraphicsEndImageContext()
-           return newImage
+        UIGraphicsEndImageContext()
+        return newImage
     }
 }
 extension UIImageView {
     
-    func drawRectangle(frameSize: CGSize, imageWidth: CGFloat, imageHight: CGFloat, drawSize: CGRect) { //frameSize = diaplayed imageview size, imagewidth = actual image width, imageHight= actual image hight, drawSize= drow image size
+    func drawRectangle(frameSize: CGSize, imageWidth: CGFloat, imageHight: CGFloat, drawSize: CGRect, linewidh: CGFloat = CGFloat(3.0)) { //frameSize = diaplayed imageview size, imagewidth = actual image width, imageHight= actual image hight, drawSize= drow image size
         
         let Width = frameSize.width//getCalculated(self.frame.size.width)
         let Hight = frameSize.height//getCalculated(self.frame.size.height)
@@ -690,7 +702,8 @@ extension UIImageView {
         let actualWidth = (Width * drawSize.size.width)/imageWidth
         let actualHight = (Hight * drawSize.size.height)/imageHight
         print(CGRect(x: acutalX, y: actualY, width: actualWidth, height: actualHight))
-        let d = Draw(frame: CGRect(x: acutalX, y: actualY, width: actualWidth, height: actualHight))
+        let d = Draw(frame: CGRect(x: acutalX, y: actualY, width: actualWidth, height: actualHight), lineWidth: linewidh)
+       // let d = Draw(frame: )
         for view in self.subviews {
             view.removeFromSuperview()
         }
@@ -713,7 +726,7 @@ extension FileManager {
                 try removeItem(atPath: fileUrl.path)
             }
         } catch {
-           //catch the error somehow
+            //catch the error somehow
         }
     }
 }
