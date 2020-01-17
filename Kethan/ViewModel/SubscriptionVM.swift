@@ -38,7 +38,7 @@ class SubscriptionVM: NSObject {
     }
     
     func retriveProductInfo(pName: String) {
-        //        ProgressManager.show(withStatus: "", on: self.rootController?.view)
+        ProgressManager.show(withStatus: "", on: self.rootController?.view)
         NetworkActivityIndicatorManager.networkOperationStarted()
         SwiftyStoreKit.retrieveProductsInfo([pName]) { result in
             NetworkActivityIndicatorManager.networkOperationFinished()
@@ -77,31 +77,40 @@ class SubscriptionVM: NSObject {
                 ProgressManager.dismiss()
             }
         }
-        
     }
     
     func subscribe() {
-        self.rootController?.showAlert(title: "Confirm?", message: "Are you sure you want to purchase this?", yesTitle: "Yes", noTitle: "No", yesCompletion: {
+        let controller: BaseViewController  = getTopViewController()!
+        controller.showAlert(title: "Confirm?", message: "Are you sure you want to purchase this?", yesTitle: "Yes", noTitle: "No", yesCompletion: {
             ProgressManager.show(withStatus: "Subscribing..", on: self.rootController?.view)
-            self.purchase(pName: self.productIdArr[self.selectedIndex] as! String, completion: { result, pName in
-                if let alert = self.rootController?.alertForPurchaseResult(result as PurchaseResult) {
-                    self.rootController?.showAlert(alert)
-                    switch result {
-                    case .success( _):
-                        self.verifyPurchase(pName: pName, tag: self.selectedIndex)
-                    case .error:
-                        ProgressManager.dismiss()
-                    }
-                }
-            })
+            
+            //Delete Below
+            let tag = self.selectedIndex
+            let expiryDate: Date = (tag == 0 ? Date(timeInterval: 300, since: Date()) : Date(timeInterval: 600, since: Date()))
+            let renewalDate: Date = (tag == 0 ? Date(timeInterval: 301, since: Date()) : Date(timeInterval: 601, since: Date()))
+            let parameters = ["creditPointRedeem": tag == 0 ? "" : self.creditedPoint, "startDate": Date().convertDateToString(), "endDate": expiryDate.convertDateToString(), "subscriptionType": tag == 0 ? "Monthly" : "Yearly", "subscriptionRenewalDate": tag == 0 ? renewalDate.convertDateToString() : ""]
+            self.updatePurchaseStatusOnServer(parameters: parameters as NSDictionary)
+            
+            /*self.purchase(pName: self.productIdArr[self.selectedIndex] as! String, completion: { result, pName in
+             if let alert = self.rootController?.alertForPurchaseResult(result as PurchaseResult) {
+             self.rootController?.showAlert(alert)
+             switch result {
+             case .success( _):
+             self.verifyPurchase(pName: pName, tag: self.selectedIndex)
+             case .error:
+             ProgressManager.dismiss()
+             }
+             }
+             })*/
         }, noCompletion: nil)
     }
     
     func checkForIdentifire() {
-        
         let finalIdentifire = self.getIdentifire()
+         //Delete Below
+        self.subscribe()
         
-        self.rootController?.showAlert(title: "Confirm?", message: "Are you sure you want to purchase this?", yesTitle: "Yes", noTitle: "No", yesCompletion: {
+       /* self.rootController?.showAlert(title: "Confirm?", message: "Are you sure you want to purchase this?", yesTitle: "Yes", noTitle: "No", yesCompletion: {
             ProgressManager.show(withStatus: "Subscribing..", on: self.rootController?.view)
             self.purchase(pName: finalIdentifire, completion: { result, pName in
                 if let alert = self.rootController?.alertForPurchaseResult(result as PurchaseResult) {
@@ -114,26 +123,12 @@ class SubscriptionVM: NSObject {
                     }
                 }
             })
-        }, noCompletion: nil)
+        }, noCompletion: nil)*/
     }
     
     func getIdentifire() -> String {
-        switch 50-self.creditedValue.intValue() {
-        case 50:
-            return "com.Sid.50"
-        case 40:
-            return "com.Sid.40"
-        case 30:
-            return "com.Sid.30"
-        case 20:
-            return "com.Sid.20"
-        case 10:
-            return "com.Sid.10"
-        case 0:
-            return "com.Sid.0"
-        default:
-            return "com.Sid.50"
-        }
+        let finalValue =  50-self.creditedValue.intValue()
+        return "com.Sid.\(finalValue)"
     }
     
     func purchase(pName: String, completion: @escaping ((_ result: PurchaseResult, _ pName: String) -> Void)) {
@@ -228,6 +223,10 @@ class SubscriptionVM: NSObject {
     func updatePurchaseStatusOnServer(parameters: NSDictionary) {
         AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.subscriptionUpdate, parameters: parameters, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
             if error == nil {
+                 //Delete Below
+                ProgressManager.dismiss()
+                ProgressManager.showSuccess(withStatus: "Subscription Successfull", on: self.rootController?.view)
+                
             } else {
                 ProgressManager.dismiss()
                 ProgressManager.showError(withStatus: error, on: self.rootController?.view)

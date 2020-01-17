@@ -181,4 +181,19 @@ class SignUpViewModel: NSObject {
             }
         }
     }
+    
+    func checkEmailisValid( completion: @escaping ( _ isValidate: Bool)-> Void) {
+         let dict: NSDictionary = [ENTITIES.email: self.email]
+        AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.CheckEmail, parameters: dict, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
+            if error != nil {
+                completion(false)
+                ProgressManager.showError(withStatus: self.errorOTP, on: self.rootViewController!.view)
+            } else {
+                if let dict = response as? NSDictionary {
+                    completion(true)
+                }
+            }
+        }
+
+    }
 }

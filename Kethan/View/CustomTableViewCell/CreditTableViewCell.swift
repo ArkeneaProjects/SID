@@ -12,7 +12,7 @@ class CreditTableViewCell: UITableViewCell {
 
     @IBOutlet weak var lblCredits: CustomLabel!
     @IBOutlet weak var imgSelect: UIImageView!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

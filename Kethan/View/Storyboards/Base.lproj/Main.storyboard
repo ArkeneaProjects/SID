@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vnA-h8-cmU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vnA-h8-cmU">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -207,7 +207,7 @@
                                                 <rect key="frame" x="40" y="29" width="252" height="32"/>
                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="rowBackgroundColor">
                                                         <color key="value" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3016,12 +3016,12 @@ palpation. Refer for further examination if</string>
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mnm-7Z-fuh">
-                                                <rect key="frame" x="14" y="84" width="292" height="400"/>
+                                                <rect key="frame" x="14" y="71.5" width="292" height="425"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Credits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pju-P5-8vs" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="8" width="94" height="22"/>
+                                                        <rect key="frame" x="10" y="8" width="272" height="22"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="22" id="d9P-jL-YbS"/>
+                                                            <constraint firstAttribute="height" constant="22" id="p31-Vz-Lfj"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3034,7 +3034,7 @@ palpation. Refer for further examination if</string>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="he8-Ht-03n">
-                                                        <rect key="frame" x="10" y="106" width="272" height="232"/>
+                                                        <rect key="frame" x="10" y="106" width="272" height="221"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <prototypes>
@@ -3053,18 +3053,18 @@ palpation. Refer for further examination if</string>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="40" id="apM-p9-dko"/>
                                                                                     </constraints>
-                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12.5"/>
                                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                     <userDefinedRuntimeAttributes>
                                                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
                                                                                         <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                                                            <real key="value" value="14"/>
+                                                                                            <real key="value" value="12.5"/>
                                                                                         </userDefinedRuntimeAttribute>
                                                                                     </userDefinedRuntimeAttributes>
                                                                                 </label>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dollarsign.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wFx-dV-m14">
-                                                                                    <rect key="frame" x="8" y="13.5" width="18" height="17"/>
+                                                                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upgradeSubscription" translatesAutoresizingMaskIntoConstraints="NO" id="wFx-dV-m14">
+                                                                                    <rect key="frame" x="8" y="13" width="18" height="18"/>
                                                                                     <color key="tintColor" red="0.035294117649999998" green="0.52156862749999999" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="18" id="Bsq-zE-XXp"/>
@@ -3126,19 +3126,30 @@ palpation. Refer for further examination if</string>
                                                                 </connections>
                                                             </tableViewCell>
                                                         </prototypes>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="2"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <outlet property="dataSource" destination="W4k-tC-XXP" id="gcM-d5-XoT"/>
                                                             <outlet property="delegate" destination="W4k-tC-XXP" id="vyc-d0-6ab"/>
                                                         </connections>
                                                     </tableView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBy-34-4PV" customClass="CustomButton" customModule="SID" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="352" width="272" height="40"/>
+                                                        <rect key="frame" x="10" y="377" width="272" height="40"/>
                                                         <color key="backgroundColor" red="0.035294117649999998" green="0.52156862749999999" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="3rX-gl-imm"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
-                                                        <state key="normal" title="Use">
+                                                        <state key="normal" title="Pay">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
@@ -3184,32 +3195,65 @@ palpation. Refer for further examination if</string>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
+                                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qa7-yQ-ASN" customClass="CustomButton" customModule="SID" customModuleProvider="target">
+                                                        <rect key="frame" x="10" y="347" width="272" height="20"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="20" id="rA8-Ec-d1v"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                        <color key="tintColor" red="0.035294117649999998" green="0.52156862749999999" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <state key="normal" title=" Do not use credits" image="uncheck">
+                                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <state key="selected" image="check"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                                <real key="value" value="14"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="0.0"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="0.0"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="titlePadding">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="doNotUseAction:" destination="W4k-tC-XXP" eventType="touchUpInside" id="gMl-ZI-Gl2"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="Pju-P5-8vs" firstAttribute="leading" secondItem="mnm-7Z-fuh" secondAttribute="leading" constant="10" id="05c-MX-rig"/>
-                                                    <constraint firstItem="Pju-P5-8vs" firstAttribute="top" secondItem="mnm-7Z-fuh" secondAttribute="top" constant="8" id="116-m4-9yB" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                    <constraint firstAttribute="trailing" secondItem="qa7-yQ-ASN" secondAttribute="trailing" constant="10" id="2Yi-MY-k5f"/>
+                                                    <constraint firstItem="qa7-yQ-ASN" firstAttribute="top" secondItem="he8-Ht-03n" secondAttribute="bottom" constant="20" id="3nm-0O-zzL"/>
+                                                    <constraint firstAttribute="height" constant="425" id="5PI-LA-262" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </constraint>
-                                                    <constraint firstAttribute="height" constant="400" id="5PI-LA-262" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </constraint>
-                                                    <constraint firstItem="hBy-34-4PV" firstAttribute="top" secondItem="he8-Ht-03n" secondAttribute="bottom" constant="14" id="6k5-2W-2Fr"/>
-                                                    <constraint firstItem="BWf-Ry-cGC" firstAttribute="top" secondItem="Pju-P5-8vs" secondAttribute="bottom" constant="2" id="RHc-Ei-mGH"/>
+                                                    <constraint firstItem="BWf-Ry-cGC" firstAttribute="top" secondItem="Pju-P5-8vs" secondAttribute="bottom" constant="2" id="AnJ-Ct-s0F"/>
                                                     <constraint firstAttribute="trailing" secondItem="hBy-34-4PV" secondAttribute="trailing" constant="10" id="Rpt-jl-2DV"/>
+                                                    <constraint firstItem="Pju-P5-8vs" firstAttribute="top" secondItem="mnm-7Z-fuh" secondAttribute="top" constant="8" id="V0C-FZ-rqc"/>
                                                     <constraint firstAttribute="bottom" secondItem="hBy-34-4PV" secondAttribute="bottom" constant="8" id="VTf-u3-dQR"/>
+                                                    <constraint firstItem="qa7-yQ-ASN" firstAttribute="leading" secondItem="mnm-7Z-fuh" secondAttribute="leading" constant="10" id="dFC-6w-ZIM"/>
                                                     <constraint firstItem="he8-Ht-03n" firstAttribute="top" secondItem="cZF-x4-C3W" secondAttribute="bottom" constant="8" id="dZa-Ra-s6y"/>
                                                     <constraint firstAttribute="trailing" secondItem="BWf-Ry-cGC" secondAttribute="trailing" constant="10" id="due-Bm-ePM"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Pju-P5-8vs" secondAttribute="trailing" constant="10" id="ehB-K9-oZY"/>
                                                     <constraint firstItem="cZF-x4-C3W" firstAttribute="top" secondItem="BWf-Ry-cGC" secondAttribute="bottom" constant="2" id="exg-C6-O3c"/>
+                                                    <constraint firstItem="Pju-P5-8vs" firstAttribute="leading" secondItem="mnm-7Z-fuh" secondAttribute="leading" constant="10" id="fSw-zB-zXX"/>
                                                     <constraint firstAttribute="trailing" secondItem="cZF-x4-C3W" secondAttribute="trailing" constant="10" id="fW1-gC-1jj"/>
                                                     <constraint firstItem="he8-Ht-03n" firstAttribute="leading" secondItem="mnm-7Z-fuh" secondAttribute="leading" constant="10" id="g0K-vx-buC"/>
                                                     <constraint firstAttribute="trailing" secondItem="he8-Ht-03n" secondAttribute="trailing" constant="10" id="i48-IY-WQn"/>
                                                     <constraint firstItem="hBy-34-4PV" firstAttribute="leading" secondItem="mnm-7Z-fuh" secondAttribute="leading" constant="10" id="mBl-3U-DKo"/>
                                                     <constraint firstItem="BWf-Ry-cGC" firstAttribute="leading" secondItem="mnm-7Z-fuh" secondAttribute="leading" constant="10" id="tBJ-aR-CnA"/>
+                                                    <constraint firstItem="hBy-34-4PV" firstAttribute="top" secondItem="qa7-yQ-ASN" secondAttribute="bottom" constant="10" id="ueb-TZ-0hu"/>
                                                     <constraint firstItem="cZF-x4-C3W" firstAttribute="leading" secondItem="mnm-7Z-fuh" secondAttribute="leading" constant="10" id="vZh-kS-ChF"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -3219,7 +3263,7 @@ palpation. Refer for further examination if</string>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CFA-6U-0xu" customClass="CustomButton" customModule="SID" customModuleProvider="target">
-                                                <rect key="frame" x="288" y="69" width="35" height="35"/>
+                                                <rect key="frame" x="288" y="56.5" width="35" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="35" id="Ckl-44-vZR" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                         <userDefinedRuntimeAttributes>
@@ -3274,6 +3318,8 @@ palpation. Refer for further examination if</string>
                     </view>
                     <connections>
                         <outlet property="btnClose" destination="CFA-6U-0xu" id="djd-YN-54S"/>
+                        <outlet property="btnDontUse" destination="qa7-yQ-ASN" id="0TB-0q-hdS"/>
+                        <outlet property="btnSubscribe" destination="hBy-34-4PV" id="xcF-a2-gDn"/>
                         <outlet property="lblTotalCredits" destination="BWf-Ry-cGC" id="SWk-b4-e7f"/>
                         <outlet property="tblView" destination="he8-Ht-03n" id="3mb-iY-Ezw"/>
                         <outlet property="viewBlur" destination="WCI-vk-GPo" id="XXv-SR-Woe"/>
@@ -3288,9 +3334,9 @@ palpation. Refer for further examination if</string>
     <resources>
         <image name="camera" width="51" height="51.5"/>
         <image name="cervical" width="173" height="172.5"/>
+        <image name="check" width="18" height="18"/>
         <image name="close" width="25" height="25"/>
         <image name="creditsGraphic" width="174.5" height="124"/>
-        <image name="dollarsign.circle" catalog="system" width="64" height="60"/>
         <image name="email" width="13.5" height="10.5"/>
         <image name="flashOff" width="35" height="35.5"/>
         <image name="gallery" width="35.5" height="35.5"/>
@@ -3300,6 +3346,8 @@ palpation. Refer for further examination if</string>
         <image name="removal" width="13.5" height="13.5"/>
         <image name="thoracoLumbar" width="173" height="173"/>
         <image name="tickBlue" width="15.5" height="11.5"/>
+        <image name="uncheck" width="18" height="18"/>
         <image name="upArrow" width="13.5" height="7.5"/>
+        <image name="upgradeSubscription" width="14.5" height="14.5"/>
     </resources>
 </document>
