@@ -148,7 +148,7 @@ class LoginViewController: BaseViewController, GIDSignInDelegate {
         } else {
             self.loginVM.clearAllData()
             self.loginVM.email = user.profile.email!
-            self.loginVM.socialMediaID = user.authentication.idToken!
+            self.loginVM.socialMediaID = user.userID!
             self.loginVM.fullName = "\(user.profile.givenName!) \(user.profile.familyName!)"
             self.loginVM.loginType = "google"
             self.loginVM.validateSocialLogin(controller: self)

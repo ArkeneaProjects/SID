@@ -60,7 +60,9 @@ class ForgotPwdViewController: BaseViewController {
     }
     
     @IBAction func reSendOTPClickAction(_ sender: Any) {
-        self.sendActionClick(sender)
+        let signupVM = SignUpViewModel()
+        signupVM.email = self.txtEmail.text!
+        signupVM.signupResendOTP(controller: self)
     }
     
     func showOTPView() {

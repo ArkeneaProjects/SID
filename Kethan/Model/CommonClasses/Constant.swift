@@ -106,6 +106,7 @@ struct SUFFIX_URL {
     static let Support = "support/create"
     static let subscriptionUpdate = "auth/subscriptionUpdate"
     static let DuplicateManufactureName = "implant/checkDuplicateApi"
+    static let CheckEmail = "auth/checkEmail"
 }
 
 struct KEYS {
@@ -259,6 +260,7 @@ struct ENTITIES {
     //User
     static let accesstoken = "accessToken"
     static let userId = "userId"
+    static let createdUserId = "createdUserId"
     static let isSocialMediaUser = "isSocialMediaUser"
     static let socialMediaToken = "socialMediaToken"
     static let socialPlatform = "socialPlatform"

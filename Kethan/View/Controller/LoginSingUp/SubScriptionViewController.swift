@@ -24,7 +24,9 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
         super.viewDidLoad()
         
         //Nav Bar
-        self.addNavBarWithTitle("Subscription Plans", withLeftButtonType: (self.isComeFromLogin == false) ?.buttonTypeBack:.buttonTypeSkip, withRightButtonType: .buttonTypeRestore)
+        //self.addNavBarWithTitle("Subscription Plans", withLeftButtonType: (self.isComeFromLogin == false) ?.buttonTypeBack:.buttonTypeSkip, withRightButtonType: .buttonTypeRestore)
+        
+        self.addNavBarWithTitle("Subscription Plans", withLeftButtonType: .buttonTypeBack, withRightButtonType: (self.isComeFromLogin == false) ?.buttonTypeSkip:.buttonTypeNil)
         
         //CollectionView
         self.collectionView.register(UINib(nibName: IDENTIFIERS.SubScriptionCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: IDENTIFIERS.SubScriptionCollectionViewCell)
@@ -38,6 +40,7 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
         self.collectionView.collectionViewLayout = layout
         self.collectionView.contentInset = UIEdgeInsets(top: 0, left: getCalculated(25.0), bottom: 0, right: getCalculated(20.5))
         
+        self.subscriptionVmObj.rootController = self
 //        self.subscriptionVmObj.getPlanInfo(self)
     }
     
@@ -52,6 +55,7 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
     
     override func rightButtonAction() {
 //        self.subscriptionVmObj.restoreSubscription()
+        self.navigateToHome(false, false)
     }
     
     @IBAction func annualActionClick(_ sender: Any) {
@@ -106,7 +110,6 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
             
             cell.lblPrice.attributedText = attributedString
 
-            
             cell.btnSubscribe.titleLabel?.font = APP_FONT.mediumFont(withSize: 17.0)
             cell.btnSubscribe.setTitleColor((arr["type"] == "year") ?APP_COLOR.color3:APP_COLOR.color2, for: .normal)
             cell.btnSubscribe.indexPath = indexPath

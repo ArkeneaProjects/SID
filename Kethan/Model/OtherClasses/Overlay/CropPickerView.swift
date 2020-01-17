@@ -8,7 +8,7 @@
 //furnished to do so, subject to the following conditions:
 //
 //The above copyright notice and this permission notice shall be included in
-//all copies or substantial portions of the Software.
+//all copies or substantial portions of the Softwarblinee.
 //
 //THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 //IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -60,7 +60,7 @@ public class CropPickerView: UIView {
             }
         }
     }
-    
+
     // Set Image
     @IBInspectable
     public var changeImage: UIImage? {
@@ -294,22 +294,26 @@ public class CropPickerView: UIView {
     
     private lazy var centerButton: LineButton = {
         let button = LineButton(.center)
+       // button.backgroundColor = .blue
         self.addSubview(button)
-        button.widthConstraint(constant: 10, relatedBy: .equal).priority = UILayoutPriority(700)
-        button.heightConstraint(constant: 10, relatedBy: .equal).priority = UILayoutPriority(700)
+
+      //  button.widthConstraint(constant: 10, relatedBy: .equal).priority = UILayoutPriority(700)
+      //  button.heightConstraint(constant: 10, relatedBy: .equal).priority = UILayoutPriority(700)
+
+
         self.centerXConstraint(item: self.cropView, subView: button)
         self.centerYConstraint(item: self.cropView, subView: button)
-        
-        let leading = NSLayoutConstraint(item: self.leftButton, attribute: .trailing, relatedBy: .greaterThanOrEqual, toItem: button, attribute: .leading, multiplier: 1, constant: 0)
-        let trailing = NSLayoutConstraint(item: self.rightButton, attribute: .leading, relatedBy: .greaterThanOrEqual, toItem: button, attribute: .trailing, multiplier: 1, constant: 0)
-        let top = NSLayoutConstraint(item: self.topButton, attribute: .bottom, relatedBy: .greaterThanOrEqual, toItem: button, attribute: .top, multiplier: 1, constant: 0)
-        let bottom = NSLayoutConstraint(item: self.bottomButton, attribute: .top, relatedBy: .greaterThanOrEqual, toItem: button, attribute: .bottom, multiplier: 1, constant: 0)
-        
+
+        let leading = NSLayoutConstraint(item: self.leftButton, attribute: .trailing, relatedBy: .equal, toItem: button, attribute: .leading, multiplier: 1, constant: 0)
+        let trailing = NSLayoutConstraint(item: self.rightButton, attribute: .leading, relatedBy: .equal, toItem: button, attribute: .trailing, multiplier: 1, constant: 0)
+        let top = NSLayoutConstraint(item: self.topButton, attribute: .bottom, relatedBy: .equal, toItem: button, attribute: .top, multiplier: 1, constant: 0)
+        let bottom = NSLayoutConstraint(item: self.bottomButton, attribute: .top, relatedBy: .equal, toItem: button, attribute: .bottom, multiplier: 1, constant: 0)
+
         leading.priority = UILayoutPriority(600)
         trailing.priority = UILayoutPriority(600)
         top.priority = UILayoutPriority(600)
         bottom.priority = UILayoutPriority(600)
-        
+
         self.addConstraints([leading, trailing, top, bottom])
         button.addTarget(self, action: #selector(self.centerDoubleTap(_:)), for: .touchDownRepeat)
         button.addTarget(self, action: #selector(self.cropButtonCenterDrag(_:forEvent:)), for: .touchDragInside)
