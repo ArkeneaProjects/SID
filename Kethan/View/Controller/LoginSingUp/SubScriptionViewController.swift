@@ -26,7 +26,7 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
         //Nav Bar
         //self.addNavBarWithTitle("Subscription Plans", withLeftButtonType: (self.isComeFromLogin == false) ?.buttonTypeBack:.buttonTypeSkip, withRightButtonType: .buttonTypeRestore)
         
-        self.addNavBarWithTitle("Subscription Plans", withLeftButtonType: .buttonTypeBack, withRightButtonType: (self.isComeFromLogin == false) ?.buttonTypeSkip:.buttonTypeNil)
+        self.addNavBarWithTitle("Subscription Plans", withLeftButtonType: (self.isComeFromLogin == true) ?.buttonTypeNil:.buttonTypeBack, withRightButtonType: (self.isComeFromLogin == false) ?.buttonTypeNil:.buttonTypeSkip)
         
         //CollectionView
         self.collectionView.register(UINib(nibName: IDENTIFIERS.SubScriptionCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: IDENTIFIERS.SubScriptionCollectionViewCell)
@@ -66,7 +66,7 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
     }
     
     @objc func planSelection(_ sender: CustomButton) {
-        if self.isComeFromLogin == true {
+       /* if self.isComeFromLogin == true {
             self.navigateToHome(false, false)
         } else {
             if sender.indexPath.item == 0 {
@@ -84,7 +84,8 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
                     self.subscriptionVmObj.checkForIdentifire()
                 }
             }
-        }
+        }*/
+        self.navigateToHome(false, false)
     }
     
     // MARK: - CollectionView Dalegate and DataSource
