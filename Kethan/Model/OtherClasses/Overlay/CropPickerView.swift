@@ -296,13 +296,11 @@ public class CropPickerView: UIView {
         let button = LineButton(.center)
        // button.backgroundColor = .blue
         self.addSubview(button)
-<<<<<<< HEAD
+
       //  button.widthConstraint(constant: 10, relatedBy: .equal).priority = UILayoutPriority(700)
       //  button.heightConstraint(constant: 10, relatedBy: .equal).priority = UILayoutPriority(700)
-=======
-        button.widthConstraint(constant: 50, relatedBy: .equal).priority = UILayoutPriority(700)
-        button.heightConstraint(constant: 50, relatedBy: .equal).priority = UILayoutPriority(700)
->>>>>>> 6a1569700c12ccad752970fc8d511d9f7e6eb914
+
+
         self.centerXConstraint(item: self.cropView, subView: button)
         self.centerYConstraint(item: self.cropView, subView: button)
 
