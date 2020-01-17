@@ -295,8 +295,8 @@ public class CropPickerView: UIView {
     private lazy var centerButton: LineButton = {
         let button = LineButton(.center)
         self.addSubview(button)
-        button.widthConstraint(constant: 10, relatedBy: .equal).priority = UILayoutPriority(700)
-        button.heightConstraint(constant: 10, relatedBy: .equal).priority = UILayoutPriority(700)
+        button.widthConstraint(constant: 50, relatedBy: .equal).priority = UILayoutPriority(700)
+        button.heightConstraint(constant: 50, relatedBy: .equal).priority = UILayoutPriority(700)
         self.centerXConstraint(item: self.cropView, subView: button)
         self.centerYConstraint(item: self.cropView, subView: button)
         

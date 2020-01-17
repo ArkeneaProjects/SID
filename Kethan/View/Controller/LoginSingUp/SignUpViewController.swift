@@ -25,6 +25,8 @@ class SignUpViewController: BaseViewController, CountryListDelegate {
     @IBOutlet weak var txtName: CustomTextField!
     @IBOutlet weak var txtProfession: CustomTextField!
     
+    @IBOutlet weak var checkbox: BEMCheckBox!
+    
     let signUpVM = SignUpViewModel()
     var countryList = CountryListViewController()
     
@@ -44,6 +46,11 @@ class SignUpViewController: BaseViewController, CountryListDelegate {
         countryList.delegate = self
         scrollView.contentInsetAdjustmentBehavior = .never
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        
+        //TickMark
+        self.checkbox.onAnimationType = .stroke
+        self.checkbox.offAnimationType = .stroke
+        self.checkbox.animationDuration = 0.9
         
         //Terms and Condition Text
         self.lblTerms.numberOfLines = 0
@@ -145,6 +152,21 @@ class SignUpViewController: BaseViewController, CountryListDelegate {
     }
     
     // MARK: - UITextFieldDelegate
+  /*  func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == txtEmail {
+            if self.txtEmail.text!.trimmedString().count != 0 && self.txtEmail.text!.isValidEmail() == true {
+                self.signUpVM.clearAllData()
+                self.signUpVM.email = self.txtEmail.text!
+                self.signUpVM.checkEmailisValid { (isValidate) in
+                    self.checkbox.alpha = (isValidate == true) ?1.0:0
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.checkbox.setOn(true, animated: true)
+                    }
+                }
+            }
+        }
+    } */
+    
     override func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         
         if textField == self.txtContryCode {

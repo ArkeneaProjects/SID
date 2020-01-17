@@ -21,6 +21,7 @@ class SearchResult: NSObject, NSCopying {
     var createdOn: String = "" //O for SignUp user, 1 for Facebook, 2 for Google
     var modifiedOn: String = ""
     var implantImage = ImplantImage()
+    var userId: String = ""
     
     override init() {
         
@@ -32,7 +33,8 @@ class SearchResult: NSObject, NSCopying {
         self._id = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES._id)
         self.objectName = (getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.objectName)).capitalizingFirstLetter()
         self.implantManufacture = (getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.implantManufacture)).capitalizingFirstLetter()
-      
+        self.userId = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.createdUserId)
+
         if let dictarr = dictionary.value(forKey: ENTITIES.imageData) as? [NSDictionary] {
             
             for item in dictarr {
@@ -40,13 +42,11 @@ class SearchResult: NSObject, NSCopying {
                 if objItem.userId == AppConstant.shared.loggedUser.userId || objItem.isApproved == "1" {
                     self.imageData.append(objItem)
                 }
-                //if objItem.
             }
             
             //            self.imageData = dictarr.map({ (dict) -> ImageData in
             //                return ImageData(dictionary: dict)
             //            })
-            
             
             //Sorted by Date
             self.imageData = self.imageData.sorted(by: { (obj1: Any, obj2: Any) -> Bool in
@@ -110,7 +110,8 @@ class SearchResult: NSObject, NSCopying {
             ENTITIES.watsonImage_id: self.watsonImage_id,
             ENTITIES.createdOn: self.createdOn,
             ENTITIES.modifiedOn: self.modifiedOn,
-            ENTITIES.implantImage: self.implantImage
+            ENTITIES.implantImage: self.implantImage,
+            ENTITIES.userId: self.userId
         ]
         return dictionary
     }
@@ -128,8 +129,7 @@ class SearchResult: NSObject, NSCopying {
         copy.createdOn = self.createdOn
         copy.modifiedOn = self.modifiedOn
         copy.implantImage = self.implantImage
+        copy.userId = self.userId
         return copy
-        
     }
-    
 }

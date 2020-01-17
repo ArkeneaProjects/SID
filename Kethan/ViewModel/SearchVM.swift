@@ -25,8 +25,15 @@ class SearchVM {
             } else {
                 if let dict = response as? NSDictionary {
                     if let dataarr = dict.value(forKeyPath: "implant") as? [NSDictionary] {
-                        self.arrSearchResult = dataarr.map({ return SearchResult(dictionary: $0)
-                        })
+//                        self.arrSearchResult = dataarr.map({ return SearchResult(dictionary: $0)
+//                        })
+                        
+                        for item in dataarr {
+                            let objItem = SearchResult(dictionary: item)
+                             if objItem.userId == AppConstant.shared.loggedUser.userId || objItem.isApproved == "1" {
+                                    self.arrSearchResult.append(objItem)
+                            }
+                        }
                         
                         //Sorted by Date
                         self.arrSearchResult = self.arrSearchResult.sorted(by: { (obj1: Any, obj2: Any) -> Bool in

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -2257,9 +2257,42 @@ change your email address </string>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
+                                                            <view userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oPL-pK-hcp" customClass="BEMCheckBox">
+                                                                <rect key="frame" x="271" y="181" width="20" height="20"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="20" id="4Ab-qM-qJb"/>
+                                                                    <constraint firstAttribute="height" constant="20" id="pnL-O2-uXv"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                                                        <real key="value" value="2"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="onTintColor">
+                                                                        <color key="value" red="0.035294117649999998" green="0.52156862749999999" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="onFillColor">
+                                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="onCheckColor">
+                                                                        <color key="value" red="0.035294117649999998" green="0.52156862749999999" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="offFillColor">
+                                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hideBox" value="NO"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="animationDuration">
+                                                                        <real key="value" value="0.90000000000000002"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <constraints>
+                                                            <constraint firstItem="a3s-PQ-nei" firstAttribute="leading" secondItem="WYm-hb-awp" secondAttribute="leading" id="09k-r7-usy"/>
                                                             <constraint firstItem="cXo-w7-ZWq" firstAttribute="top" secondItem="a3s-PQ-nei" secondAttribute="bottom" constant="13" id="3AU-ey-0Sh" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
@@ -2313,9 +2346,15 @@ change your email address </string>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </constraint>
+                                                            <constraint firstItem="oPL-pK-hcp" firstAttribute="leading" secondItem="Xd5-sD-ivX" secondAttribute="trailing" constant="5" id="lyo-Ts-xsZ"/>
                                                             <constraint firstItem="zNm-jp-KKO" firstAttribute="top" secondItem="hei-0p-sYQ" secondAttribute="bottom" constant="18" id="nVi-9m-Rah"/>
                                                             <constraint firstAttribute="trailing" secondItem="VkP-qE-fek" secondAttribute="trailing" id="naX-U0-835"/>
                                                             <constraint firstAttribute="trailing" secondItem="Oer-mC-xCG" secondAttribute="trailing" id="ntI-75-8Da"/>
+                                                            <constraint firstItem="oPL-pK-hcp" firstAttribute="bottom" secondItem="Xd5-sD-ivX" secondAttribute="bottom" constant="-15" id="owI-XP-rJa" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </constraint>
                                                             <constraint firstItem="hei-0p-sYQ" firstAttribute="top" secondItem="Oer-mC-xCG" secondAttribute="bottom" constant="25" id="r7M-oJ-vOO"/>
                                                             <constraint firstItem="Pcl-Wf-zQk" firstAttribute="top" secondItem="cXo-w7-ZWq" secondAttribute="bottom" constant="13" id="s8J-iB-l7r" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                                 <userDefinedRuntimeAttributes>
@@ -2376,6 +2415,7 @@ change your email address </string>
                         <viewLayoutGuide key="safeArea" id="0Bi-Hd-b5e"/>
                     </view>
                     <connections>
+                        <outlet property="checkbox" destination="oPL-pK-hcp" id="qeG-6G-OlB"/>
                         <outlet property="lblSignIn" destination="zNm-jp-KKO" id="sB7-P8-EEg"/>
                         <outlet property="lblTerms" destination="hei-0p-sYQ" id="wfY-u9-fXZ"/>
                         <outlet property="scrollView" destination="mQr-M5-KAK" id="Tb9-Cq-MVE"/>

@@ -23,9 +23,6 @@ class AddImplantVM: NSObject {
             } else if implantObj.implantManufacture.count < 1 {
                 ProgressManager.showError(withStatus: ERRORS.EmptyManufacturer, on: self.rootViewController!.view)
                 return
-            } else if implantObj.removImplant.count < 1 {
-                ProgressManager.showError(withStatus: ERRORS.EmptyRemovalProcess, on: self.rootViewController!.view)
-                return
             }
             
             if implantObj.implantImage.selectedImage == nil {
