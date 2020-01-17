@@ -372,7 +372,6 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
         self.present(alert, animated: true, completion: nil)
     }
     
-    // MARK: - LogOut
     // MARK: - Logout
     func authenticationFailed() {
         

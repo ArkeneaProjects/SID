@@ -14,16 +14,16 @@ class CreditsViewController: BaseViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var viewPopup: UIView!
     @IBOutlet weak var lblTotalCredits: CustomLabel!
     @IBOutlet weak var tblView: UITableView!
-    
-    var addCompletion:((_ creditValue: String, _ creditPoints: String) -> Void)?
-    
+    @IBOutlet weak var btnDontUse: CustomButton!
     @IBOutlet weak var btnClose: CustomButton!
+    @IBOutlet weak var btnSubscribe: CustomButton!
     
     var creditsUsed = ""
     var creditValue = ""
+    var creditDivisionArr = [NSDictionary]()
+    var selectedIndex: Int?
     
-    var creditDivisionArr = NSMutableArray()
-    var selectedIndex = 0
+    var addCompletion:((_ creditValue: String, _ creditPoints: String) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,20 +36,22 @@ class CreditsViewController: BaseViewController, UITableViewDelegate, UITableVie
     }
     
     func getValueForEarned() {
-        let current = "272" //AppConstant.shared.loggedUser.creditPoint //272 points
+        var current = "250" //AppConstant.shared.loggedUser.creditPoint //272 points
+        current = current.intValue() > 200 ? "200" : current //to match credits woth max subscription amount.
         self.lblTotalCredits.text = "Total Credits: \(current)"
         let valueForCurrent = current.intValue()/4 // 68 $
         
         let baseUsableValue = valueForCurrent - valueForCurrent % 5 // 65
         for i in 0..<baseUsableValue/5 {
-            self.creditDivisionArr.add(["value": (i+1)*5, "points": (i+1)*5*4])
+            self.creditDivisionArr.append(["value": (i+1)*5, "points": (i+1)*5*4])
         }
+        
+        self.btnSubscribe.setTitle(self.creditDivisionArr.count == 0 ? "Subscribe with $50" : "Subscribe", for: .normal)
+        self.btnDontUse.isHidden = self.creditDivisionArr.count == 0
+        self.creditsUsed = self.creditDivisionArr.count == 0 ? "0" : ""
+        self.creditValue = self.creditDivisionArr.count == 0 ? "0" : ""
     }
     
-    /*
-     4 points = 1 $
-     20 points = 5$
-     */
     // MARK: - Button Action
     @IBAction func cancelClickAction(_ sender: Any) {
         self.dismissWithCompletion {
@@ -61,7 +63,7 @@ class CreditsViewController: BaseViewController, UITableViewDelegate, UITableVie
     
     @IBAction func addClickAction(_ sender: Any) {
         if self.creditValue.count == 0 {
-            ProgressManager.showError(withStatus: ERRORS.professionSelect, on: self.view)
+            ProgressManager.showError(withStatus: ERRORS.amountSelect, on: self.view)
             return
         }
         self.dismissWithCompletion {
@@ -69,6 +71,15 @@ class CreditsViewController: BaseViewController, UITableViewDelegate, UITableVie
                 self.addCompletion!(self.creditValue, self.creditsUsed)
             }
         }
+    }
+    
+    @IBAction func doNotUseAction(_ sender: Any) {
+        self.btnDontUse.isSelected = !self.btnDontUse.isSelected
+        self.creditsUsed = self.btnDontUse.isSelected ? "0" : ""
+        self.creditValue = self.btnDontUse.isSelected ? "0" : ""
+        self.btnSubscribe.setTitle(self.btnDontUse.isSelected ? "Subscribe with $50" : "Subscribe", for: .normal)
+        self.tblView.reloadData()
+        self.selectedIndex = nil
     }
     
     // MARK: - Custom Functions -
@@ -101,11 +112,26 @@ class CreditsViewController: BaseViewController, UITableViewDelegate, UITableVie
         return self.creditDivisionArr.count
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return self.creditDivisionArr.count > 0 ? 0.0 : 100.0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: 60))
+        headerView.backgroundColor = UIColor.white
+        let headerLbl: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 60))
+        headerLbl.text = "You do not have enough credits"
+        headerView.addSubview(headerLbl)
+        return headerView
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell: CreditTableViewCell = tableView.dequeueReusableCell(withIdentifier: String(describing: CreditTableViewCell.self), for: indexPath) as? CreditTableViewCell {
-            let creditsDict: NSDictionary = self.creditDivisionArr[indexPath.row] as! NSDictionary
+            let creditsDict = self.creditDivisionArr[indexPath.row]
+            
             let value = "\(getValueFromDictionary(dictionary: creditsDict, forKey: "points")) Credits = $\(getValueFromDictionary(dictionary: creditsDict, forKey: "value"))"
             cell.lblCredits.text = value
+            
             cell.lblCredits.textColor = indexPath.row == self.selectedIndex ? UIColor.init(hexCode: 0x0985E9) : UIColor.init(hexCode: 0x333333)
             cell.accessoryType = .none
             cell.imgSelect.alpha = indexPath.row == self.selectedIndex ? 1.0: 0
@@ -121,9 +147,15 @@ class CreditsViewController: BaseViewController, UITableViewDelegate, UITableVie
         tableView.deselectRow(at: indexPath, animated: false)
         self.tblView.reloadData()
         self.selectedIndex = indexPath.row
-        let creditsDict: NSDictionary = self.creditDivisionArr[indexPath.row] as! NSDictionary
+        let creditsDict = self.creditDivisionArr[indexPath.row]
         self.creditsUsed = getValueFromDictionary(dictionary: creditsDict, forKey: "points")
         self.creditValue = getValueFromDictionary(dictionary: creditsDict, forKey: "value")
+        if self.creditValue.intValue() == 50 {
+            self.btnSubscribe.setTitle("Subscribe", for: .normal)
+        } else {
+            self.btnSubscribe.setTitle("Subscribe with $\(50 - self.creditValue.intValue())", for: .normal)
+        }
+        self.btnDontUse.isSelected = false
     }
     
     /*

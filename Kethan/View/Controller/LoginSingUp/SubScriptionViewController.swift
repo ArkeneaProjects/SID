@@ -24,7 +24,7 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
         super.viewDidLoad()
         
         //Nav Bar
-        self.addNavBarWithTitle("Subscription Plans", withLeftButtonType: (self.isComeFromLogin == false) ?.buttonTypeBack:.buttonTypeSkip, withRightButtonType: .buttonTypeNil)
+        self.addNavBarWithTitle("Subscription Plans", withLeftButtonType: (self.isComeFromLogin == false) ?.buttonTypeBack:.buttonTypeSkip, withRightButtonType: .buttonTypeRestore)
         
         //CollectionView
         self.collectionView.register(UINib(nibName: IDENTIFIERS.SubScriptionCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: IDENTIFIERS.SubScriptionCollectionViewCell)
@@ -51,7 +51,7 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
     }
     
     override func rightButtonAction() {
-        self.subscriptionVmObj.restoreSubscription()
+//        self.subscriptionVmObj.restoreSubscription()
     }
     
     @IBAction func annualActionClick(_ sender: Any) {
@@ -65,20 +65,21 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
         if self.isComeFromLogin == true {
             self.navigateToHome(false, false)
         } else {
-//            if sender.indexPath.item == 0 {
-//                self.subscriptionVmObj.selectedIndex = sender.indexPath.item
-//                self.subscriptionVmObj.subscribe()
-//            } else {
-//                let controller: CreditsViewController = self.instantiate(CreditsViewController.self, storyboard: STORYBOARD.main) as? CreditsViewController ?? CreditsViewController()
-//                controller.preparePopup(controller: self)
-//                controller.showPopup()
-//                controller.addCompletion = { creditValue, creditedPoints in
-//                    self.subscriptionVmObj.creditedPoint = creditedPoints
-//                    self.subscriptionVmObj.creditedValue = creditValue
-//                    self.subscriptionVmObj.selectedIndex = sender.indexPath.item
-//                    self.subscriptionVmObj.checkForIdentifire()
-//                }
-//            }
+            if sender.indexPath.item == 0 {
+                self.subscriptionVmObj.selectedIndex = sender.indexPath.item
+                self.subscriptionVmObj.subscribe()
+            } else {
+                let controller: CreditsViewController = self.instantiate(CreditsViewController.self, storyboard: STORYBOARD.main) as? CreditsViewController ?? CreditsViewController()
+                controller.preparePopup(controller: self)
+                controller.showPopup()
+                controller.addCompletion = { creditValue, creditedPoints in
+                    self.subscriptionVmObj.creditedPoint = creditedPoints
+                    self.subscriptionVmObj.creditedValue = creditValue
+                    self.subscriptionVmObj.selectedIndex = sender.indexPath.item
+                    //self.subscriptionVmObj.subscribe()
+                    self.subscriptionVmObj.checkForIdentifire()
+                }
+            }
         }
     }
     
@@ -104,6 +105,7 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
             attributedString.addAttributes([.baselineOffset: 15], range: NSRange(location: 0, length: 1))
             
             cell.lblPrice.attributedText = attributedString
+
             
             cell.btnSubscribe.titleLabel?.font = APP_FONT.mediumFont(withSize: 17.0)
             cell.btnSubscribe.setTitleColor((arr["type"] == "year") ?APP_COLOR.color3:APP_COLOR.color2, for: .normal)
