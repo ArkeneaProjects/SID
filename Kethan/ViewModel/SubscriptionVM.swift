@@ -38,7 +38,7 @@ class SubscriptionVM: NSObject {
     }
     
     func retriveProductInfo(pName: String) {
-        ProgressManager.show(withStatus: "", on: self.rootController?.view)
+        ProgressManager.show(withStatus: "", on: self.rootController!.view)
         NetworkActivityIndicatorManager.networkOperationStarted()
         SwiftyStoreKit.retrieveProductsInfo([pName]) { result in
             NetworkActivityIndicatorManager.networkOperationFinished()
@@ -82,7 +82,7 @@ class SubscriptionVM: NSObject {
     func subscribe() {
         let controller: BaseViewController  = getTopViewController()!
         controller.showAlert(title: "Confirm?", message: "Are you sure you want to purchase this?", yesTitle: "Yes", noTitle: "No", yesCompletion: {
-            ProgressManager.show(withStatus: "Subscribing..", on: self.rootController?.view)
+            ProgressManager.show(withStatus: "Subscribing..", on: self.rootController!.view)
             
             //Delete Below
             let tag = self.selectedIndex
@@ -150,7 +150,7 @@ class SubscriptionVM: NSObject {
     }
     
     func restoreSubscription() {
-        ProgressManager.show(withStatus: "Restoring your subscription..", on: self.rootController?.view)
+        ProgressManager.show(withStatus: "Restoring your subscription..", on: self.rootController!.view)
         NetworkActivityIndicatorManager.networkOperationStarted()
         SwiftyStoreKit.restorePurchases(atomically: true) { results in
             NetworkActivityIndicatorManager.networkOperationFinished()
@@ -169,7 +169,7 @@ class SubscriptionVM: NSObject {
     
     //verify current product status from itunes
     func verifyPurchase(pName: String, tag: Int) {
-        ProgressManager.show(withStatus: "Verifying purchase..", on: self.rootController?.view)
+        ProgressManager.show(withStatus: "Verifying purchase..", on: self.rootController!.view)
         
         NetworkActivityIndicatorManager.networkOperationStarted()
         verifyReceipt { result in
@@ -225,11 +225,11 @@ class SubscriptionVM: NSObject {
             if error == nil {
                  //Delete Below
                 ProgressManager.dismiss()
-                ProgressManager.showSuccess(withStatus: "Subscription Successfull", on: self.rootController?.view)
+                ProgressManager.showSuccess(withStatus: "Subscription Successfull", on: self.rootController!.view)
                 
             } else {
                 ProgressManager.dismiss()
-                ProgressManager.showError(withStatus: error, on: self.rootController?.view)
+                ProgressManager.showError(withStatus: error, on: self.rootController!.view)
             }
         }
     }
