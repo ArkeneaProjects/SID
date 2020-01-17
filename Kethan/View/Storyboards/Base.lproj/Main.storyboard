@@ -3034,7 +3034,7 @@ palpation. Refer for further examination if</string>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="he8-Ht-03n">
-                                                        <rect key="frame" x="10" y="106" width="272" height="221"/>
+                                                        <rect key="frame" x="10" y="106" width="272" height="216"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <prototypes>
@@ -3195,10 +3195,10 @@ palpation. Refer for further examination if</string>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
-                                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qa7-yQ-ASN" customClass="CustomButton" customModule="SID" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="347" width="272" height="20"/>
+                                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qa7-yQ-ASN" customClass="CustomButton" customModule="SID" customModuleProvider="target">
+                                                        <rect key="frame" x="10" y="342" width="272" height="25"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="20" id="rA8-Ec-d1v"/>
+                                                            <constraint firstAttribute="height" constant="25" id="rA8-Ec-d1v"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                         <color key="tintColor" red="0.035294117649999998" green="0.52156862749999999" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
