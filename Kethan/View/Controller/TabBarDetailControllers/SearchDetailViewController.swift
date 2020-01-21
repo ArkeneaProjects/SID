@@ -22,6 +22,12 @@ class SearchDetailViewController: BaseViewController, UITableViewDelegate, UITab
         self.tblView.rowHeight = UITableView.automaticDimension
         self.tblView.estimatedRowHeight = getCalculated(35.0)
         self.tblView.tableFooterView = UIView()
+        
+        let searchVM = SearchVM()
+        DispatchQueue.main.async {
+            searchVM.sendEmail(implantId: self.detailObj._id)
+        }
+        
         // Do any additional setup after loading the view.
     }
    

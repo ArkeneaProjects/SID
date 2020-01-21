@@ -287,7 +287,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                 if size >= 1.0 {
                     controller.selectedImage = image!.imageWithImage(scaledToWidth: getCalculated(640.0))
                 } else {
-                    if image!.size.width > getCalculated(640.0) {
+                    if image!.size.width >= getCalculated(640.0) {
                         controller.selectedImage = image!.imageWithImage(scaledToWidth: getCalculated(640.0))
                     } else {
                         controller.selectedImage = image!

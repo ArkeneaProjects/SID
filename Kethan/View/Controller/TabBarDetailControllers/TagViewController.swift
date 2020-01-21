@@ -24,7 +24,9 @@ class TagViewController: BaseViewController {
         self.addNavBarWithTitle("Tag View", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeDone)
         self.constCropViewWidth.constant = self.selectedImage!.size.width/2
         self.constCropViewHeight.constant = self.selectedImage!.size.height/2
+       // self.constCropViewHeight.constant = (self.selectedImage!.size.height/2 > getCalculated(427.0)) ?getCalculated(427.0):self.selectedImage!.size.height/2
         self.cropView.image = self.selectedImage
+        
         self.cropView.isCrop = true
     }
     

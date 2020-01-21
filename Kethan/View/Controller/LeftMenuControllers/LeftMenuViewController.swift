@@ -22,10 +22,10 @@ class LeftMenuViewController: BaseViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         DispatchQueue.main.async {
-            if AppConstant.shared.loggedUser.isSocialMediaUser != "0" {
-                STATICDATA.arrLeftItems.remove(at: 1)
-                STATICDATA.arrLeftItems.remove(at: 1)
-            }
+//            if AppConstant.shared.loggedUser.isSocialMediaUser != "0" {
+//                STATICDATA.arrLeftItems.remove(at: 1)
+//                STATICDATA.arrLeftItems.remove(at: 1)
+//            }
             self.tblView.registerNibWithIdentifier([IDENTIFIERS.LeftMenuTableViewCell])
             self.tblView.reloadData()
             
@@ -109,13 +109,9 @@ class LeftMenuViewController: BaseViewController, UITableViewDelegate, UITableVi
                     if let controller = self.instantiate(SupportViewController.self, storyboard: STORYBOARD.leftMenu) as? SupportViewController {
                         baseController = controller
                     }
-                } else if identifier == "AboutViewController" {
-                    if let controller = self.instantiate(AboutViewController.self, storyboard: STORYBOARD.leftMenu) as? AboutViewController {
-                        baseController = controller
-                    }
                 } else if identifier == "TermsConditionViewController" {
                     if let controller = self.instantiate(TermsConditionViewController.self, storyboard: STORYBOARD.leftMenu) as? TermsConditionViewController {
-                        controller.isPage = (screen == "Terms") ?0:(screen == "Privacy") ?1:2
+                        controller.isPage = (screen == "Terms") ?0:(screen == "Privacy") ?1:(screen == "FAQ") ?2:3
                         controller.urlString = "https://www.google.com/"
                         baseController = controller
                     }
@@ -154,13 +150,12 @@ class LeftMenuViewController: BaseViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return STATICDATA.arrLeftItems.count
+        return (AppConstant.shared.loggedUser.isSocialMediaUser != "0") ?STATICDATA.arrLeftItemsWithoutEmail.count:STATICDATA.arrLeftItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: IDENTIFIERS.LeftMenuTableViewCell) as? LeftMenuTableViewCell {
-            
-            let arr = STATICDATA.arrLeftItems[indexPath.row]
+            let arr = (AppConstant.shared.loggedUser.isSocialMediaUser != "0") ?STATICDATA.arrLeftItemsWithoutEmail[indexPath.row]:STATICDATA.arrLeftItems[indexPath.row]
             cell.imgProfile.image = UIImage(named: arr["image"]!)
             cell.lblText.text = arr["text"]
             return cell
@@ -190,7 +185,7 @@ class LeftMenuViewController: BaseViewController, UITableViewDelegate, UITableVi
         } else if cellValue == "Privacy Policy" {
             self.cellClickAction("TermsConditionViewController", "Privacy")
         } else if cellValue == "About the App" {
-            self.cellClickAction("AboutViewController", "About")
+            self.cellClickAction("TermsConditionViewController", "About")
         } else if cellValue == "Support" {
             self.cellClickAction("SupportViewController", "Support")
         }
