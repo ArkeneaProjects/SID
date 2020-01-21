@@ -60,6 +60,12 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) would like to access your camera for your profile photo upload and XRay. Your photos wont be shared without your permission.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>$(PRODUCT_NAME) would like to access your location.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>$(PRODUCT_NAME) would like to access your location.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>$(PRODUCT_NAME) would like to access your location.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>$(PRODUCT_NAME) would like to access your photo gallery for your photo upload. Your photos wont be shared without your permission.</string>
 	<key>NSPhotoLibraryUsageDescription</key>

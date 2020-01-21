@@ -103,15 +103,29 @@ class SearchVM {
         AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.DuplicateManufactureName, parameters: dict, serviceCount: 1) { (response: AnyObject?, error: String?, errorCode: String?) in
             if error == nil {
                 ProgressManager.dismiss()
-                if let controller = rootController.instantiate(SearchListViewController.self, storyboard: STORYBOARD.main) as? SearchListViewController {
-                    controller.menufeacture = manufactureName
-                    controller.brandname = brandName
-                    controller.isCalledFrom = 2
+                if let controller = rootController.instantiate(AddDetailsViewController.self, storyboard: STORYBOARD.main) as? AddDetailsViewController {
+                    //controller.menufeacture = manufactureName
+                    //controller.brandname = brandName
+                   // controller.isCalledFrom = 2
+                    
+                    let implantObj = SearchResult()
+                    implantObj.objectName = brandName
+                    implantObj.implantManufacture = manufactureName
+                    
+                    controller.implantObj = implantObj
                     rootController.navigationController?.pushViewController(controller, animated: true)
                 }
             } else {
                 ProgressManager.showError(withStatus: error, on: rootController.view, completion: nil)
             }
+        }
+    }
+    
+    func sendEmail( implantId: String) {
+        let dict: NSDictionary = [ENTITIES.implantId: implantId]
+        
+        AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.SendEmail, parameters: dict, serviceCount: 1) { (response: AnyObject?, error: String?, errorCode: String?) in
+                  
         }
     }
 }

@@ -46,7 +46,8 @@ class PurchesViewController: BaseViewController, UITableViewDelegate, UITableVie
     @IBAction func referralClickAction(_ sender: Any) {
         
         // text to share
-        let text = "Hey there, please sign-up using the code \(AppConstant.shared.loggedUser.referralCode) to receive credits that can be redeemed against annual subscription. Download app: \("https://www.google.com")"
+        let text = "Hey, your friend \(AppConstant.shared.loggedUser.name) has recommended you to sign-up on Spinal Implant Database application by using code \(AppConstant.shared.loggedUser.referralCode). To download app: https://www.google.com"
+       // let text = "Hey there, please sign-up using the code \(AppConstant.shared.loggedUser.referralCode) to receive credits that can be redeemed against annual subscription. Download app: \("https://www.google.com")"
         // set up activity view controller
         let textToShare = [ text ]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)

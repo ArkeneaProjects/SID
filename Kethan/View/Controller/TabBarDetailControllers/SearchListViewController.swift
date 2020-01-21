@@ -43,7 +43,15 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
     override func rightButtonAction() {
         if self.isCalledFrom == 0 {
             if self.brandname.count != 0 && self.menufeacture.count != 0 {
-                self.addDetailCalling()
+                if searchVM.arrSearchResult.count == 0 {
+                    self.addDetailCalling()
+                } else {
+                    AppConstant.shared.manufactureName = self.menufeacture
+                    AppConstant.shared.brandName = self.brandname
+                    self.navigationController?.popToRootViewController(animated: false)
+                    AppDelegate.delegate()?.tabBarController.selectedIndex = 2
+                }
+                
             } else {
                 AppConstant.shared.manufactureName = self.menufeacture
                 AppConstant.shared.brandName = self.brandname

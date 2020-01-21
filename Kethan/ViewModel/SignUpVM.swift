@@ -182,7 +182,7 @@ class SignUpViewModel: NSObject {
         }
     }
     
-    func checkEmailisValid( completion: @escaping ( _ isValidate: Bool)-> Void) {
+    func checkEmailisValid( completion: @escaping ( _ isValidate: Bool) -> Void) {
          let dict: NSDictionary = [ENTITIES.email: self.email]
         AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.CheckEmail, parameters: dict, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
             if error != nil {

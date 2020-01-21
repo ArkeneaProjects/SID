@@ -40,6 +40,10 @@ class ChangePwdViewController: BaseViewController {
         self.lblNewPwd.text = (isComeFrom == 0) ?"Enter Old Password":""
         self.lblNewPwd.text = (isComeFrom == 0) ?"Enter New Password":"Enter New Password"
         self.lblConfirmPwd.text = (isComeFrom == 0) ?"Confirm New Password":"Confirm New Password"
+        
+        self.txtOldPwd.placeholder = (isComeFrom == 0) ?"Enter Old Password":""
+        self.txtPwd.placeholder = (isComeFrom == 0) ?"Enter New Password":"Enter New Password"
+        self.txtConfirmPwd.placeholder = (isComeFrom == 0) ?"Confirm New Password":"Confirm New Password"
         // Do any additional setup after loading the view.
     }
     
