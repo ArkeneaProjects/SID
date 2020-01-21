@@ -74,8 +74,9 @@ class SubscriptionVM: NSObject {
                         controller.collectionView.reloadData()
                     }
                 }
-                ProgressManager.dismiss()
+               
             }
+             ProgressManager.dismiss()
         }
     }
     
@@ -85,32 +86,32 @@ class SubscriptionVM: NSObject {
             ProgressManager.show(withStatus: "Subscribing..", on: self.rootController!.view)
             
             //Delete Below
-            let tag = self.selectedIndex
-            let expiryDate: Date = (tag == 0 ? Date(timeInterval: 300, since: Date()) : Date(timeInterval: 600, since: Date()))
-            let renewalDate: Date = (tag == 0 ? Date(timeInterval: 301, since: Date()) : Date(timeInterval: 601, since: Date()))
-            let parameters = ["creditPointRedeem": tag == 0 ? "" : self.creditedPoint, "startDate": Date().convertDateToString(), "endDate": expiryDate.convertDateToString(), "subscriptionType": tag == 0 ? "Monthly" : "Yearly", "subscriptionRenewalDate": tag == 0 ? renewalDate.convertDateToString() : ""]
-            self.updatePurchaseStatusOnServer(parameters: parameters as NSDictionary)
-            
-            /*self.purchase(pName: self.productIdArr[self.selectedIndex] as! String, completion: { result, pName in
-             if let alert = self.rootController?.alertForPurchaseResult(result as PurchaseResult) {
-             self.rootController?.showAlert(alert)
-             switch result {
-             case .success( _):
-             self.verifyPurchase(pName: pName, tag: self.selectedIndex)
-             case .error:
-             ProgressManager.dismiss()
-             }
-             }
-             })*/
+            /* let tag = self.selectedIndex
+             let expiryDate: Date = (tag == 0 ? Date(timeInterval: 300, since: Date()) : Date(timeInterval: 600, since: Date()))
+             let renewalDate: Date = (tag == 0 ? Date(timeInterval: 301, since: Date()) : Date(timeInterval: 601, since: Date()))
+             let parameters = ["creditPointRedeem": tag == 0 ? "" : self.creditedPoint, "startDate": Date().convertDateToString(), "endDate": expiryDate.convertDateToString(), "subscriptionType": tag == 0 ? "Monthly" : "Yearly", "subscriptionRenewalDate": tag == 0 ? renewalDate.convertDateToString() : ""]
+             self.updatePurchaseStatusOnServer(parameters: parameters as NSDictionary)
+             */
+            self.purchase(pName: self.productIdArr[self.selectedIndex] as! String, completion: { result, pName in
+                if let alert = self.rootController?.alertForPurchaseResult(result as PurchaseResult) {
+                    self.rootController?.showAlert(alert)
+                    switch result {
+                    case .success( _):
+                        self.verifyPurchase(pName: pName, tag: self.selectedIndex)
+                    case .error:
+                        ProgressManager.dismiss()
+                    }
+                }
+            })
         }, noCompletion: nil)
     }
     
     func checkForIdentifire() {
         let finalIdentifire = self.getIdentifire()
-         //Delete Below
-        self.subscribe()
+        //Delete Below
+        // self.subscribe()
         
-       /* self.rootController?.showAlert(title: "Confirm?", message: "Are you sure you want to purchase this?", yesTitle: "Yes", noTitle: "No", yesCompletion: {
+        self.rootController?.showAlert(title: "Confirm?", message: "Are you sure you want to purchase this?", yesTitle: "Yes", noTitle: "No", yesCompletion: {
             ProgressManager.show(withStatus: "Subscribing..", on: self.rootController?.view)
             self.purchase(pName: finalIdentifire, completion: { result, pName in
                 if let alert = self.rootController?.alertForPurchaseResult(result as PurchaseResult) {
@@ -123,7 +124,7 @@ class SubscriptionVM: NSObject {
                     }
                 }
             })
-        }, noCompletion: nil)*/
+        }, noCompletion: nil)
     }
     
     func getIdentifire() -> String {
@@ -223,10 +224,9 @@ class SubscriptionVM: NSObject {
     func updatePurchaseStatusOnServer(parameters: NSDictionary) {
         AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.subscriptionUpdate, parameters: parameters, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
             if error == nil {
-                 //Delete Below
-                ProgressManager.dismiss()
-                ProgressManager.showSuccess(withStatus: "Subscription Successfull", on: self.rootController!.view)
-                
+                //Delete Below
+                // ProgressManager.dismiss()
+                // ProgressManager.showSuccess(withStatus: "Subscription Successfull", on: self.rootController!.view)
             } else {
                 ProgressManager.dismiss()
                 ProgressManager.showError(withStatus: error, on: self.rootController!.view)

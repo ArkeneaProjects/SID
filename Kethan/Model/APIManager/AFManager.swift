@@ -135,7 +135,7 @@ class AFManager: NSObject {
                 }
                 let headers = ["authorization": "Test \(token)", "Content-Type": "application/json"]
                 
-                AlamofireManager.upload(multipartFormData: { (formData:MultipartFormData) in
+                AlamofireManager.upload(multipartFormData: { (formData: MultipartFormData) in
                     for key in parameters.allKeys {
                         let value = parameters.object(forKey: key as? String ?? "") as? String ?? ""
                         formData.append(value.data(using: String.Encoding.utf8)!, withName: key as? String ?? "")

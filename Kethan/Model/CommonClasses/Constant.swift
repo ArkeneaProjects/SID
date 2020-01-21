@@ -119,7 +119,7 @@ struct NOTIFICATIONS {
 }
 
 struct SubscriptionPlans {
-    static var Monitor50Patients = "com.telemedhome.Monitor50Patients"
+    static var Monitor50Patients = "com.sid.monthly"
     static var Monitor125Patients = "com.kethan.50"
 }
 
