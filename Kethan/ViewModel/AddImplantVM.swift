@@ -30,10 +30,10 @@ class AddImplantVM: NSObject {
                 return
             }
         } else {
-            if implantObj.implantImage.selectedImage == nil {
-                ProgressManager.showError(withStatus: ERRORS.EmptyImage, on: self.rootViewController!.view)
-                return
-            }
+            //if implantObj.implantImage.selectedImage == nil {
+             //   ProgressManager.showError(withStatus: ERRORS.EmptyImage, on: self.rootViewController!.view)
+             //   return
+            //}
             //            else if implantObj.removImplant.count == 0 {
             //
             //                    ProgressManager.showError(withStatus: ERRORS.EmptyRemovalProcess, on: self.rootViewController!.view)
@@ -41,7 +41,7 @@ class AddImplantVM: NSObject {
             //                }
             //            }
         }
-        ProgressManager.show(withStatus: "\((self.implantObj._id.count != 0) ?"Update":"Upload") Implant...", on: self.rootViewController!.view)
+        ProgressManager.show(withStatus: "\((self.implantObj._id.count != 0) ?"Updating":"Uploading") Implant...", on: self.rootViewController!.view)
         
         let parameters: NSDictionary =  [
             "implantId": self.implantObj._id,
@@ -58,7 +58,7 @@ class AddImplantVM: NSObject {
             "deletedimage": self.arrDeletedImage.jsonString()]
         
         var array = Array<Any>()
-        if self.implantObj.implantImage.selectedImage != nil {
+        if self.implantObj.implantImage.selectedImage != nil { 
             let image  = saveImageInDocumentDict(image: self.implantObj.implantImage.selectedImage!, imageName: "photo", key: "implantPicture")
             array = [image]
         }
@@ -66,6 +66,7 @@ class AddImplantVM: NSObject {
             if error == nil {
                 ProgressManager.showSuccess(withStatus: "Implant \((self.implantObj._id.count != 0) ?"updated":"uploaded") successfully", on: self.rootViewController!.view)
                 if let controller = self.rootViewController!.instantiate(ThankYouViewController.self, storyboard: STORYBOARD.main) as? ThankYouViewController {
+                    FileManager.default.clearTmpDirectory()
                     controller.isComeFrom = 1
                     self.rootViewController?.navigationController?.pushViewController(controller, animated: true)
                 }

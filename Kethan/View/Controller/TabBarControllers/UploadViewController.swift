@@ -125,8 +125,6 @@ class UploadViewController: BaseViewController {
         return true
     }
     
-   
-    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == self.txtManu {
             self.txtManu.textFieldShouldChange(textField: textField, replacementString: string)
