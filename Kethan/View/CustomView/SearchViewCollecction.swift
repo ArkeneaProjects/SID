@@ -10,7 +10,7 @@ import UIKit
 
 class SearchViewCollecction: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
     
-    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var lblImageCount: CustomLabel!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -25,8 +25,6 @@ class SearchViewCollecction: UIView, UICollectionViewDelegate, UICollectionViewD
     func setupWith(superView: UIView, controller: BaseViewController, isview: Bool) {
         
         viewController = controller
-        pageControl.isUserInteractionEnabled = false
-        
         superView.addSubview(self)
         
         //ColeationView
@@ -42,19 +40,13 @@ class SearchViewCollecction: UIView, UICollectionViewDelegate, UICollectionViewD
         
         //CollectionView
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: collectionView.frame.size.width, height: getCalculated(295.0))
+        layout.itemSize = CGSize(width: getCalculated(320.0), height: getCalculated(295.0))
         layout.minimumLineSpacing = getCalculated(0.0)
         layout.minimumInteritemSpacing = 0
         layout.sectionInset = UIEdgeInsets.zero
         layout.scrollDirection = .horizontal
         self.collectionView.collectionViewLayout = layout
         self.collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        
-        //PageControl
-        let image = UIImage.outlinedEllipse(size: CGSize(width: 7.0, height: 7.0), color: .darkGray)
-        self.pageControl.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
-        self.pageControl.pageIndicatorTintColor = UIColor.init(patternImage: image!)
-        self.pageControl.currentPageIndicatorTintColor = UIColor(hexString: "#0985E9")
         
     }
     
@@ -66,7 +58,7 @@ class SearchViewCollecction: UIView, UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCollectionViewCell", for: indexPath) as? CustomCollectionViewCell {
-            print(cell.frame.size.height)
+            print("cell==\(cell.frame.size.width)")
             if let obj = arrAllItems.object(at: indexPath.row) as? ImageData {
                 cell.layoutIfNeeded()
                 cell.imgPhoto.sd_setImage(with: URL(string: obj.imageName), placeholderImage: UIImage(named: "placeholder_larger"), options: .continueInBackground) { (image, error, types, url) in
@@ -89,14 +81,14 @@ class SearchViewCollecction: UIView, UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width, height: getCalculated(405.0))
+        return CGSize(width: getCalculated(320.0), height: getCalculated(405.0))
     }
     
     // MARK: - ScrollDelegate
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let width = scrollView.frame.size.width
         let page = (scrollView.contentOffset.x + (0.5 * width)) / width
-        self.pageControl.currentPage = NSInteger(page)
+        self.lblImageCount.text = "\(NSInteger(page) + 1)/\(self.arrAllItems.count)"
     }
     
     /*

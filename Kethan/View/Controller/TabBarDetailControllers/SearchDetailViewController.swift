@@ -24,10 +24,7 @@ class SearchDetailViewController: BaseViewController, UITableViewDelegate, UITab
         self.tblView.tableFooterView = UIView()
         
         let searchVM = SearchVM()
-        DispatchQueue.main.async {
-            searchVM.sendEmail(implantId: self.detailObj._id)
-        }
-        
+        //searchVM.sendEmail(implantId: detailObj._id)
         // Do any additional setup after loading the view.
     }
    
@@ -59,8 +56,8 @@ class SearchDetailViewController: BaseViewController, UITableViewDelegate, UITab
                 cell.lblTitle.text = detailObj.objectName
                 cell.lblDiscription.text = detailObj.implantManufacture
                 customCollection!.setupWith(superView: cell.viewCollection, controller: self, isview: false)
-                customCollection!.pageControl.alpha = (self.detailObj.imageData.count > 1) ?1.0:0
-                customCollection!.pageControl.numberOfPages = self.detailObj.imageData.count
+                customCollection!.lblImageCount.alpha = (self.detailObj.imageData.count > 1) ?1.0:0
+                customCollection!.lblImageCount.text = "1/\(self.detailObj.imageData.count)"
                 customCollection!.arrAllItems =  NSMutableArray(array: self.detailObj.imageData)
                 return cell
             }

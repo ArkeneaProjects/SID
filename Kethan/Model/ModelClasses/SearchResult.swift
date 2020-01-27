@@ -22,7 +22,8 @@ class SearchResult: NSObject, NSCopying {
     var modifiedOn: String = ""
     var implantImage = ImplantImage()
     var userId: String = ""
-    
+    var match: String = ""
+
     override init() {
         
     }
@@ -111,7 +112,8 @@ class SearchResult: NSObject, NSCopying {
             ENTITIES.createdOn: self.createdOn,
             ENTITIES.modifiedOn: self.modifiedOn,
             ENTITIES.implantImage: self.implantImage,
-            ENTITIES.userId: self.userId
+            ENTITIES.userId: self.userId,
+            ENTITIES.match: self.match
         ]
         return dictionary
     }
@@ -130,6 +132,7 @@ class SearchResult: NSObject, NSCopying {
         copy.modifiedOn = self.modifiedOn
         copy.implantImage = self.implantImage
         copy.userId = self.userId
+        copy.match = self.match
         return copy
     }
 }

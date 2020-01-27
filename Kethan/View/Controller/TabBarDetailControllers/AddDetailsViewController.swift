@@ -22,14 +22,18 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     var deletedImageArr = NSMutableArray()
     var deletedProcessArr = NSMutableArray()
     
+    var isCameFromImageScreen: Bool = false  //User came from search image screen
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBarWithTitle("Add Details", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeNil)
         // Do any additional setup after loading the view.
         
         self.implantVM.implantObj = self.implantObj
-        self.imageArray = NSMutableArray(array: self.implantVM.implantObj.imageData)
-        self.arrUpoading = NSMutableArray(array: self.implantVM.implantObj.imageData)
+       // if isCameFromImageScreen == false {
+            self.imageArray = NSMutableArray(array: self.implantVM.implantObj.imageData)
+            self.arrUpoading = NSMutableArray(array: self.implantVM.implantObj.imageData)
+     //   }
 
         self.checkAndAddPulsButton()
         
@@ -283,9 +287,9 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                 self.tblView.reloadData()
             }
             
-            controller.selectedImage = self.resizeImageWithAspect(image: image!, scaledToMaxWidth: getCalculated(640.0), maxHeight: getCalculated(854.0))
+            //controller.selectedImage = self.resizeImageWithAspect(image: image!, scaledToMaxWidth: getCalculated(640.0), maxHeight: getCalculated(854.0))
             
-           /* if let size = image!.getFileSize() {
+            if let size = image!.getFileSize() {
                 //check image size is not more than 3 MB
                 if size >= 1.0 {
                     controller.selectedImage = image!.imageWithImage(scaledToWidth: getCalculated(640.0))
@@ -298,7 +302,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                 }
             } else {
                 controller.selectedImage = image!
-            } */
+            }
             ProgressManager.dismiss()
             self.navigationController?.pushViewController(controller, animated: true)
         }

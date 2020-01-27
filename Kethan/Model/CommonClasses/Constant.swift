@@ -159,6 +159,7 @@ struct IDENTIFIERS {
     static let GuideCollectionViewCell = "GuideCollectionViewCell"
     static let CreditHistoryTableViewCell = "CreditHistoryTableViewCell"
     static let SubScriptionCollectionViewCell = "SubScriptionCollectionViewCell"
+    static let CreditTableViewCell = "CreditTableViewCell"
 }
 
 struct YESNO {
@@ -180,7 +181,7 @@ struct MESSAGES {
     static let noPayment = "No payment account available for this user."
     static let errorInLocation = "We got an error while detecting your location. Please try again."
     static let emptySearch = "Enter either manufacture or either brand/name"
-    static let selectManufacture = "First enter/select manufacturer name"
+    static let selectManufacture = "First select manufacturer name"
 
 }
 
@@ -268,6 +269,7 @@ struct ENTITIES {
     static let socialMediaToken = "socialMediaToken"
     static let socialPlatform = "socialPlatform"
     static let creditPoint = "creditPoint"
+    static let match = "match"
 
     //SearchResult
     static let id = "id"

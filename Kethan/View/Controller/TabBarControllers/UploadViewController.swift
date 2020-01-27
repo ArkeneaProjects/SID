@@ -10,8 +10,8 @@ import UIKit
 
 class UploadViewController: BaseViewController {
     
-    @IBOutlet weak var txtImplant: CustomDropDown!
-    @IBOutlet weak var txtManu: CustomDropDown!
+    @IBOutlet weak var txtImplant: CustomTextField!
+    @IBOutlet weak var txtManu: CustomTextField!
     
     @IBOutlet weak var btnAdd: CustomButton!
     
@@ -26,36 +26,6 @@ class UploadViewController: BaseViewController {
         
         self.txtManu.text = ""
         self.txtImplant.text = ""
-        self.txtImplant.delegate = self
-//        self.txtImplant.textFieldDelgateCallBack = { textField in
-//            if self.txtManu.text!.count == 0 {
-//                self.txtManu.optionArray = []
-//                ProgressManager.showError(withStatus: MESSAGES.selectManufacture, on: self.view, completion: {
-//                    self.view.endEditing(true)
-//                })
-//                return
-//            } else {
-//                self.getBrandName()
-//            }
-//        }
-        
-        //Manufacture
-        if let arrManufacture = getUserDefaultsForKey(key: UserDefaultsKeys.ManufectureUpload) as? [NSDictionary] {
-            let arr = arrManufacture.map { (obj) -> String in
-                return getValueFromDictionary(dictionary: obj, forKey: ENTITIES.implantManufacture)
-            }
-            print(arr)
-            self.txtManu.optionArray = arr
-            self.txtManu.didSelect { (selected: String, index: Int, id: Int) in
-                self.txtManu.text = selected
-                self.txtImplant.text = ""
-            }
-            self.txtManu.keyboardCompletion = {
-                if self.txtManu.shadow != nil && self.txtManu.shadow.alpha != 0 {
-                    self.txtManu.hideList()
-                }
-            }
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,7 +33,6 @@ class UploadViewController: BaseViewController {
            if AppConstant.shared.manufactureName.count != 0 {
                self.txtManu.text = AppConstant.shared.manufactureName
                AppConstant.shared.manufactureName = ""
-               self.getBrandName()
            }
            
            if AppConstant.shared.brandName.count != 0 {
@@ -72,7 +41,18 @@ class UploadViewController: BaseViewController {
            }
        }
     
-    func getBrandName() {
+    func getManufatureName() -> [String] {
+        //Manufacture
+        if let arrManufacture = getUserDefaultsForKey(key: UserDefaultsKeys.ManufectureUpload) as? [NSDictionary] {
+            let arr = arrManufacture.map { (obj) -> String in
+                return getValueFromDictionary(dictionary: obj, forKey: ENTITIES.implantManufacture)
+            }
+            return arr
+        }
+        return []
+    }
+    
+    func getBrandName() -> [String] {
         //Brand
         if let arrManufacture = getUserDefaultsForKey(key: UserDefaultsKeys.ManufectureUpload) as? [NSDictionary] {
             
@@ -80,19 +60,11 @@ class UploadViewController: BaseViewController {
             let arr = arritem.filtered(using: NSPredicate(format: "\(ENTITIES.implantManufacture) == %@", argumentArray: [self.txtManu.text!]))
             if arr.count > 0 {
                 if let manuDict = arr.last as? NSDictionary {
-                    self.txtImplant.optionArray = manuDict.object(forKey: ENTITIES.brand) as? [String] ?? []
-                }
-            }
-            
-            self.txtImplant.didSelect { (selected: String, index: Int, id: Int) in
-                self.txtImplant.text = selected
-            }
-            self.txtImplant.keyboardCompletion = {
-                if self.txtImplant.shadow != nil && self.txtImplant.shadow.alpha != 0 {
-                    self.txtImplant.hideList()
+                    return manuDict.object(forKey: ENTITIES.brand) as? [String] ?? []
                 }
             }
         }
+        return []
     }
     
     // MARK: - Button Action
@@ -107,39 +79,19 @@ class UploadViewController: BaseViewController {
        
     // MARK: - TextField Deleget
     override func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if textField == self.txtImplant {
-            if self.txtManu.text!.count == 0 {
-                ProgressManager.showError(withStatus: MESSAGES.selectManufacture, on: self.view)
-                self.txtImplant.text = ""
-                self.txtImplant.optionArray = []
-                return false
-            } else {
-                self.getBrandName()
-                self.txtImplant.isSearchEnable = true
-            }
-            self.txtImplant.textFieldShoulBegin(textField: textField)
-            return true
-        } else {
-            self.txtManu.textFieldShoulBegin(textField: textField)
-        }
-        return true
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == self.txtManu {
-            self.txtManu.textFieldShouldChange(textField: textField, replacementString: string)
+            if let controller: ManufacturesPopUpViewController = self.instantiate(ManufacturesPopUpViewController.self, storyboard: STORYBOARD.main) as? ManufacturesPopUpViewController {
+                controller.preparePopup(controller: self)
+                controller.showPopup(array: self.getManufatureName(), textName: self.txtManu.text!, isManufacture: true)
+                controller.addCompletion = { selectedText in
+                    self.txtManu.text = selectedText
+                }
+            }
         } else {
-           self.txtImplant.textFieldShouldChange(textField: textField, replacementString: string)
+           return true
         }
-        
-        return true
+        return false
     }
-    
-    override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return true
-    }
-    
         /*
          // MARK: - Navigation
          

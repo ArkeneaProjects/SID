@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import SkeletonView
 
-class SearchListViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class SearchListViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SkeletonCollectionViewDelegate, SkeletonCollectionViewDataSource {
     // @IBOutlet weak var searchVM: SearchVM!
+    
     @IBOutlet weak var lblResultCount: CustomLabel!
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var viewError: UIView!
+
     var isCalledFrom = 0 //0 coming search by text screen, 1 comming search by Image screen and 2 coming from upload screen
     
     var searchVM = SearchVM()
@@ -78,17 +83,33 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }
+    func gradientSkeltonShowHide( isShow: Bool) {
+        DispatchQueue.main.async {
+            if isShow {
+                self.viewContainer.showAnimatedGradientSkeleton()
+                self.viewContainer.startSkeletonAnimation()
+            } else {
+                self.viewContainer.stopSkeletonAnimation()
+                self.viewContainer.hideSkeleton()
+            }
+        }
+    }
     
     // MARK: - Action
     func apiCall() {
         self.searchVM.rootController = self
+        
+        self.gradientSkeltonShowHide(isShow: true)
+        self.viewError.alpha = 0
         if self.isCalledFrom == 1 {
-            ProgressManager.show(withStatus: "Searching our database...", on: self.view)
+           
             let imageDict  = saveImageInDocumentDict(image: self.searchImage!, imageName: "photo", key: "implantPicture")
             self.searchVM.getSearchByImage(itemArray: [imageDict]) { (error) in
-                if error != "" {
-                    ProgressManager.showError(withStatus: error, on: self.view) {
-                        self.lblResultCount.text = error
+                self.gradientSkeltonShowHide(isShow: false)
+                if self.searchVM.arrSearchResult.count == 0 {
+                    ProgressManager.showError(withStatus: "No Result found.", on: self.view) {
+                        self.lblResultCount.text = "No Result found."
+                        self.viewError.alpha = 1.0
                     }
                 } else {
                     DispatchQueue.main.async {
@@ -103,12 +124,15 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
             }
         } else {
             self.searchVM.getAllSearchByText(manufecture: self.menufeacture, brandname: self.brandname) { (error) in
-                if error != "" {
+                self.gradientSkeltonShowHide(isShow: false)
+                if self.searchVM.arrSearchResult.count == 0 {
                     ProgressManager.showError(withStatus: error, on: self.view) {
                         self.lblResultCount.text = error
+                        self.viewError.alpha = 1.0
                     }
                 } else {
                     DispatchQueue.main.async {
+                       
                         if self.searchVM.arrSearchResult.count == 1 {
                             self.lblResultCount.text = "1 result match to your search field"
                         } else {
@@ -137,10 +161,11 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
     }
    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Collection view at row \(collectionView.tag) selected index path \(indexPath)")
-        if let controller = self.instantiate(SearchDetailViewController.self, storyboard: STORYBOARD.main) as? SearchDetailViewController {
-            controller.detailObj = self.searchVM.arrSearchResult[indexPath.row].copy() as? SearchResult ?? SearchResult()
-            self.navigationController?.pushViewController(controller, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            if let controller = self.instantiate(SearchDetailViewController.self, storyboard: STORYBOARD.main) as? SearchDetailViewController {
+                controller.detailObj = self.searchVM.arrSearchResult[indexPath.row].copy() as? SearchResult ?? SearchResult()
+                self.navigationController?.pushViewController(controller, animated: true)
+            }
         }
     }
     
@@ -148,6 +173,57 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
         return CGSize(width: collectionView.frame.size.width/2, height: getCalculated(213.0))
     }
     
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        UIView.animate(withDuration: 0.5) {
+            if let cell = collectionView.cellForItem(at: indexPath) as? SearchListCollectionViewCell {
+                cell.imgPhoto.transform = .init(scaleX: 0.95, y: 0.95)
+                cell.contentView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
+            }
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        UIView.animate(withDuration: 0.5) {
+            if let cell = collectionView.cellForItem(at: indexPath) as? SearchListCollectionViewCell {
+                cell.imgPhoto.transform = .identity
+                cell.contentView.backgroundColor = .clear
+            }
+        }
+    }
+    
+    private func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? SearchListCollectionViewCell {
+            animateCell(cell: cell)
+        }
+        
+    }
+
+    func animateCell(cell: SearchListCollectionViewCell) {
+        let animation = CABasicAnimation(keyPath: "cornerRadius")
+        animation.fromValue = 200
+        cell.layer.cornerRadius = 0
+        animation.toValue = 0
+        animation.duration = 1
+        cell.layer.add(animation, forKey: animation.keyPath)
+    }
+
+    func animateCellAtIndexPath(indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath as IndexPath) else { return }
+        animateCell(cell: cell as? SearchListCollectionViewCell ?? SearchListCollectionViewCell())
+    }
+
+    private func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: IndexPath) {
+        animateCellAtIndexPath(indexPath: indexPath)
+    }
+    
+    // MARK: - SkeltonView Delegate
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 6
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return IDENTIFIERS.SearchListCollectionViewCell
+    }
     /*
      // MARK: - Navigation
      

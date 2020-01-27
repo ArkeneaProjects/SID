@@ -48,7 +48,12 @@ class GalleryManager: NSObject {
             self.pickerController.sourceType = .photoLibrary
             self.presentationController!.present(self.pickerController, animated: true)
         }
-        
+    }
+    
+    public func cropImage( image: UIImage, croppingStyle: CropViewCroppingStyle, isCrop: Bool) {
+        self.crop = isCrop
+        self.croppingStyle = croppingStyle
+        self.callCoperView(image: image)
     }
     
     // MARK: - Permission
@@ -98,39 +103,37 @@ class GalleryManager: NSObject {
     
     private func pickerController(_ controller: UIImagePickerController, didSelect image: UIImage?) {
         controller.dismiss(animated: false) {
-            if let imageSelect = image {
-                if self.crop == false {
-                    self.delegate?.didSelect(image: imageSelect)
-                } else {
-                    let cropController = CropViewController(croppingStyle: self.croppingStyle, image: imageSelect)
-                    // if self.aspectRatioPickerButtonHidden == true {
-                         cropController.aspectRatioPreset = .presetSquare
-                         cropController.rotateButtonsHidden = true
-                         cropController.aspectRatioPickerButtonHidden = true
-                         cropController.resetAspectRatioEnabled = false
-                         cropController.cropView.cropBoxResizeEnabled = false
-                   //  }
-                    
-                     cropController.delegate = self
-                     cropController.title = "Crop Image"
-                     cropController.toolbar.doneTextButton.setTitleColor(UIColor.white, for: .normal)
-                     cropController.toolbar.cancelTextButton.setTitleColor(UIColor.white, for: .normal)
-                       cropController.isAccessibilityElement = true
-                     //If profile picture, push onto the same navigation stack
-                    if self.croppingStyle == .circular {
-                        if controller.sourceType == .camera {
-                            self.presentationController!.present(cropController, animated: true, completion: nil)
-                         } else {
-                             self.presentationController!.present(cropController, animated: true)
-                         }
-                     } else { //otherwise dismiss, and then present from the main controller
-                        self.presentationController!.present(cropController, animated: true, completion: nil)
-                     }
-                }
-            }
-            
+            self.callCoperView(image: image)
         }
-        
+    }
+    
+    func callCoperView(image: UIImage?) {
+        if let imageSelect = image {
+            if self.crop == false {
+                self.delegate?.didSelect(image: imageSelect)
+            } else {
+                let cropController = CropViewController(croppingStyle: self.croppingStyle, image: imageSelect)
+                // if self.aspectRatioPickerButtonHidden == true {
+                     cropController.aspectRatioPreset = .presetSquare
+                     cropController.rotateButtonsHidden = true
+                     cropController.aspectRatioPickerButtonHidden = true
+                     cropController.resetAspectRatioEnabled = false
+                     cropController.cropView.cropBoxResizeEnabled = false
+               //  }
+                
+                 cropController.delegate = self
+                 cropController.title = "Crop Image"
+                 cropController.toolbar.doneTextButton.setTitleColor(UIColor.white, for: .normal)
+                 cropController.toolbar.cancelTextButton.setTitleColor(UIColor.white, for: .normal)
+                   cropController.isAccessibilityElement = true
+                 //If profile picture, push onto the same navigation stack
+                if self.croppingStyle == .circular {
+                    self.presentationController!.present(cropController, animated: true)
+                 } else { //otherwise dismiss, and then present from the main controller
+                    self.presentationController!.present(cropController, animated: true, completion: nil)
+                 }
+            }
+        }
     }
 }
 

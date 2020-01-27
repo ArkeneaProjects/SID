@@ -14,7 +14,6 @@ class SearchVM {
     var rootController: BaseViewController?
     
     func getAllSearchByText(manufecture: String, brandname: String, completion: @escaping (_ error: String) -> Void) {
-        ProgressManager.show(withStatus: "", on: self.rootController?.view)
         let dict: NSDictionary = ["manufecture": manufecture,
                                   "brandName": brandname]
         
@@ -72,7 +71,22 @@ class SearchVM {
             } else {
                 if let dict = response as? NSDictionary, let implantDict = dict.value(forKeyPath: "implantApi") as? NSDictionary {
                     if let dataarr = implantDict.value(forKeyPath: "implant") as? [NSDictionary] {
-                        self.arrSearchResult = dataarr.map({ return SearchResult(dictionary: $0)
+                        self.arrSearchResult = dataarr.map({
+                            let objSearch = SearchResult(dictionary: $0)
+                            if let dictWatson = dict.value(forKeyPath: "wastson") as? NSDictionary, let arrImages = dictWatson.value(forKeyPath: "images")! as? [NSDictionary] {
+                                if arrImages.count > 0 {
+                                    if let images = arrImages[0] as? NSDictionary, let object = images.value(forKeyPath: "objects")! as? NSDictionary, let arrCollection = object.value(forKeyPath: "collections")! as? [NSDictionary] {
+                                        if let arr = arrCollection.last!["objects"] as? [NSDictionary] {
+                                            if arr.count > 0, let firstObj = arr.last {
+                                                let value = getValueFromDictionary(dictionary: firstObj, forKey: "score")
+                                                let valueInt = value.floatValue()*100
+                                                objSearch.match = String(format: "%.0f%% match", valueInt)
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            return objSearch
                         })
                         ProgressManager.dismiss()
                         completion("")
@@ -104,14 +118,10 @@ class SearchVM {
             if error == nil {
                 ProgressManager.dismiss()
                 if let controller = rootController.instantiate(AddDetailsViewController.self, storyboard: STORYBOARD.main) as? AddDetailsViewController {
-                    //controller.menufeacture = manufactureName
-                    //controller.brandname = brandName
-                   // controller.isCalledFrom = 2
                     
                     let implantObj = SearchResult()
                     implantObj.objectName = brandName
                     implantObj.implantManufacture = manufactureName
-                    
                     controller.implantObj = implantObj
                     rootController.navigationController?.pushViewController(controller, animated: true)
                 }

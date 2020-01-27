@@ -135,6 +135,24 @@ class AddDetailHeader1Cell: UITableViewCell, UICollectionViewDelegate, UICollect
         return CGSize(width: getCalculated(92.0), height: getCalculated(92.0))
     }
     
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+           UIView.animate(withDuration: 0.5) {
+               if let cell = collectionView.cellForItem(at: indexPath) as? AddDetail1CollectionViewCell {
+                   cell.imgSelected.transform = .init(scaleX: 0.95, y: 0.95)
+                   cell.contentView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
+               }
+           }
+       }
+
+       func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+           UIView.animate(withDuration: 0.5) {
+               if let cell = collectionView.cellForItem(at: indexPath) as? AddDetail1CollectionViewCell {
+                   cell.imgSelected.transform = .identity
+                   cell.contentView.backgroundColor = .clear
+               }
+           }
+       }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         

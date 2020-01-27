@@ -30,7 +30,6 @@
 		1809E9EF23A39379001A8A77 /* SignUpVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1809E9EE23A39379001A8A77 /* SignUpVM.swift */; };
 		1809E9F223A3A7D3001A8A77 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1809E9F123A3A7D3001A8A77 /* User.swift */; };
 		181FFA9E239A26D50078E64D /* DatePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181FFA9D239A26D50078E64D /* DatePopUpViewController.swift */; };
-		181FFAA0239A3A8B0078E64D /* SearchFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181FFA9F239A3A8B0078E64D /* SearchFolderViewController.swift */; };
 		181FFAA2239A71170078E64D /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181FFAA1239A71160078E64D /* PreviewViewController.swift */; };
 		1821AF0B237A741B0010B307 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF0A237A741B0010B307 /* HomeViewController.swift */; };
 		1821AF0D237A74320010B307 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF0C237A74320010B307 /* UploadViewController.swift */; };
@@ -57,7 +56,6 @@
 		182E24AC23C72D85000EBC54 /* LogoutVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182E24AB23C72D85000EBC54 /* LogoutVM.swift */; };
 		182E24AE23C73152000EBC54 /* SupportVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182E24AD23C73152000EBC54 /* SupportVM.swift */; };
 		183081F623CF368700FC9F92 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183081F523CF368700FC9F92 /* CreditsViewController.swift */; };
-		183081F823CF38DA00FC9F92 /* CreditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183081F723CF38DA00FC9F92 /* CreditTableViewCell.swift */; };
 		184488B623C3363D001178AB /* SKPhotoBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844889E23C3363C001178AB /* SKPhotoBrowser.swift */; };
 		184488B723C3363D001178AB /* SKMesurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844889F23C3363C001178AB /* SKMesurement.swift */; };
 		184488B823C3363D001178AB /* SKZoomingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184488A023C3363C001178AB /* SKZoomingScrollView.swift */; };
@@ -118,6 +116,11 @@
 		188131AC238E64EE005334BF /* ResponsePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188131AB238E64EE005334BF /* ResponsePopUpViewController.swift */; };
 		188131B2238E8B66005334BF /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 188131AF238E8B65005334BF /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		188131B3238E8B66005334BF /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 188131B0238E8B65005334BF /* TPKeyboardAvoidingScrollView.m */; };
+		1891BD3E23D96B1100BA0E94 /* ManufacturesPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1891BD3D23D96B1100BA0E94 /* ManufacturesPopUpViewController.swift */; };
+		1891BD4123D9706E00BA0E94 /* CreditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1891BD3F23D9706E00BA0E94 /* CreditTableViewCell.swift */; };
+		1891BD4223D9706E00BA0E94 /* CreditTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1891BD4023D9706E00BA0E94 /* CreditTableViewCell.xib */; };
+		1891BD4523D9AAE800BA0E94 /* DropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1891BD4423D9AAE800BA0E94 /* DropDownView.swift */; };
+		1891BD4723D9AAFE00BA0E94 /* DropDownView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1891BD4623D9AAFE00BA0E94 /* DropDownView.xib */; };
 		1892042523BB102800C732FB /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1892042423BB102800C732FB /* SearchResult.swift */; };
 		1892042723BB128A00C732FB /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1892042623BB128A00C732FB /* ImageData.swift */; };
 		1892042923BB12A000C732FB /* Implant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1892042823BB12A000C732FB /* Implant.swift */; };
@@ -187,6 +190,9 @@
 		18E71D6B237C15690090FC90 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E71D6A237C15690090FC90 /* LoginViewController.swift */; };
 		18E71D6D237C1EE30090FC90 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E71D6C237C1EE30090FC90 /* LeftMenuViewController.swift */; };
 		18E71D72237C1F670090FC90 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E71D71237C1F670090FC90 /* SWRevealViewController.m */; };
+		18F07C4B23DAB91C0068F894 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F07C4823DAB91B0068F894 /* Animator.swift */; };
+		18F07C4C23DAB91C0068F894 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F07C4923DAB91B0068F894 /* Animations.swift */; };
+		18F07C4D23DAB91C0068F894 /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F07C4A23DAB91C0068F894 /* UITableView+Ext.swift */; };
 		18F812E8239E0FCE00E96B47 /* DropDownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F812E6239E0FCE00E96B47 /* DropDownTableViewCell.swift */; };
 		18F812E9239E0FCE00E96B47 /* DropDownTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F812E7239E0FCE00E96B47 /* DropDownTableViewCell.xib */; };
 		2EBFF58603242F8F6BC9E019 /* Pods_Kethan_KethanUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C2C5B99F865ED493CCA4D1 /* Pods_Kethan_KethanUITests.framework */; };
@@ -245,7 +251,6 @@
 		1809E9EE23A39379001A8A77 /* SignUpVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVM.swift; sourceTree = "<group>"; };
 		1809E9F123A3A7D3001A8A77 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		181FFA9D239A26D50078E64D /* DatePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePopUpViewController.swift; sourceTree = "<group>"; };
-		181FFA9F239A3A8B0078E64D /* SearchFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFolderViewController.swift; sourceTree = "<group>"; };
 		181FFAA1239A71160078E64D /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		1821AF0A237A741B0010B307 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1821AF0C237A74320010B307 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
@@ -273,7 +278,6 @@
 		182E24AB23C72D85000EBC54 /* LogoutVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutVM.swift; sourceTree = "<group>"; };
 		182E24AD23C73152000EBC54 /* SupportVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportVM.swift; sourceTree = "<group>"; };
 		183081F523CF368700FC9F92 /* CreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
-		183081F723CF38DA00FC9F92 /* CreditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditTableViewCell.swift; sourceTree = "<group>"; };
 		1844889D23C3363C001178AB /* SKPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPhotoBrowser.h; sourceTree = "<group>"; };
 		1844889E23C3363C001178AB /* SKPhotoBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKPhotoBrowser.swift; sourceTree = "<group>"; };
 		1844889F23C3363C001178AB /* SKMesurement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKMesurement.swift; sourceTree = "<group>"; };
@@ -338,6 +342,11 @@
 		188131B0238E8B65005334BF /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
 		188131B1238E8B65005334BF /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		188131B4238EB11D005334BF /* Kethan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Kethan.entitlements; sourceTree = "<group>"; };
+		1891BD3D23D96B1100BA0E94 /* ManufacturesPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManufacturesPopUpViewController.swift; sourceTree = "<group>"; };
+		1891BD3F23D9706E00BA0E94 /* CreditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditTableViewCell.swift; sourceTree = "<group>"; };
+		1891BD4023D9706E00BA0E94 /* CreditTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreditTableViewCell.xib; sourceTree = "<group>"; };
+		1891BD4423D9AAE800BA0E94 /* DropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownView.swift; sourceTree = "<group>"; };
+		1891BD4623D9AAFE00BA0E94 /* DropDownView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropDownView.xib; sourceTree = "<group>"; };
 		1892042423BB102800C732FB /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		1892042623BB128A00C732FB /* ImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
 		1892042823BB12A000C732FB /* Implant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Implant.swift; sourceTree = "<group>"; };
@@ -419,6 +428,9 @@
 		18E71D70237C1F670090FC90 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		18E71D71237C1F670090FC90 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		18E71D73237C208C0090FC90 /* Kethan-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Kethan-Bridging-Header.h"; sourceTree = "<group>"; };
+		18F07C4823DAB91B0068F894 /* Animator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		18F07C4923DAB91B0068F894 /* Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
+		18F07C4A23DAB91C0068F894 /* UITableView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		18F812E6239E0FCE00E96B47 /* DropDownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownTableViewCell.swift; sourceTree = "<group>"; };
 		18F812E7239E0FCE00E96B47 /* DropDownTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropDownTableViewCell.xib; sourceTree = "<group>"; };
 		1C2A909D3432CFA01B3F2ECA /* Pods-KethanTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KethanTests.debug.xcconfig"; path = "Target Support Files/Pods-KethanTests/Pods-KethanTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -682,6 +694,8 @@
 		1879F574238BB4D000ABBBC0 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				18F07C4723DAB9000068F894 /* TableViewAnimation */,
+				1891BD4323D9AAC400BA0E94 /* DropDownView */,
 				1844889C23C3363C001178AB /* SKPhotoBrowser */,
 				1897454E238D5B9D0000FCC4 /* CheckBox */,
 				18974548238D38A70000FCC4 /* ProcessDocumentView.swift */,
@@ -712,7 +726,8 @@
 				18F812E6239E0FCE00E96B47 /* DropDownTableViewCell.swift */,
 				18F812E7239E0FCE00E96B47 /* DropDownTableViewCell.xib */,
 				18ACDC8123BDEFE000780CE1 /* ProcessListCell.swift */,
-				183081F723CF38DA00FC9F92 /* CreditTableViewCell.swift */,
+				1891BD3F23D9706E00BA0E94 /* CreditTableViewCell.swift */,
+				1891BD4023D9706E00BA0E94 /* CreditTableViewCell.xib */,
 			);
 			path = CustomTableViewCell;
 			sourceTree = "<group>";
@@ -724,6 +739,7 @@
 				188131AB238E64EE005334BF /* ResponsePopUpViewController.swift */,
 				181FFA9D239A26D50078E64D /* DatePopUpViewController.swift */,
 				183081F523CF368700FC9F92 /* CreditsViewController.swift */,
+				1891BD3D23D96B1100BA0E94 /* ManufacturesPopUpViewController.swift */,
 			);
 			path = PopUpController;
 			sourceTree = "<group>";
@@ -737,6 +753,15 @@
 				188131B1238E8B65005334BF /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
 			);
 			path = TPKeyboardAvoiding;
+			sourceTree = "<group>";
+		};
+		1891BD4323D9AAC400BA0E94 /* DropDownView */ = {
+			isa = PBXGroup;
+			children = (
+				1891BD4423D9AAE800BA0E94 /* DropDownView.swift */,
+				1891BD4623D9AAFE00BA0E94 /* DropDownView.xib */,
+			);
+			path = DropDownView;
 			sourceTree = "<group>";
 		};
 		18956D1E2387FC5400BD8F63 /* TabBarDetailControllers */ = {
@@ -980,7 +1005,6 @@
 			isa = PBXGroup;
 			children = (
 				18DDC78D23797AA6003FCCE8 /* SearchViewController.swift */,
-				181FFA9F239A3A8B0078E64D /* SearchFolderViewController.swift */,
 				1821AF0A237A741B0010B307 /* HomeViewController.swift */,
 				1821AF0C237A74320010B307 /* UploadViewController.swift */,
 				1821AF0E237A74450010B307 /* PurchesViewController.swift */,
@@ -1011,6 +1035,16 @@
 				18E71D71237C1F670090FC90 /* SWRevealViewController.m */,
 			);
 			path = SWRevealViewController;
+			sourceTree = "<group>";
+		};
+		18F07C4723DAB9000068F894 /* TableViewAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				18F07C4923DAB91B0068F894 /* Animations.swift */,
+				18F07C4823DAB91B0068F894 /* Animator.swift */,
+				18F07C4A23DAB91C0068F894 /* UITableView+Ext.swift */,
+			);
+			path = TableViewAnimation;
 			sourceTree = "<group>";
 		};
 		1A92D1A4F4A12A3CF71B2213 /* Pods */ = {
@@ -1166,9 +1200,11 @@
 				18974537238D0DA90000FCC4 /* AddDetailHeader1Cell.xib in Resources */,
 				1879F586238BDA7800ABBBC0 /* DetailRow2TableViewCell.xib in Resources */,
 				1821AF14237A7BC60010B307 /* CustomNavBar.xib in Resources */,
+				1891BD4223D9706E00BA0E94 /* CreditTableViewCell.xib in Resources */,
 				1804E1722394FABA00210C0F /* GuideCollectionViewCell.xib in Resources */,
 				18DDC7CA237982BC003FCCE8 /* NeoSans-Bold.otf in Resources */,
 				18956D2523880AA600BD8F63 /* SearchListCollectionViewCell.xib in Resources */,
+				1891BD4723D9AAFE00BA0E94 /* DropDownView.xib in Resources */,
 				18DDC79323797AAA003FCCE8 /* Assets.xcassets in Resources */,
 				1879F580238BD71B00ABBBC0 /* DetailRow1TableViewCell.xib in Resources */,
 				18974547238D38920000FCC4 /* AddDetailHeader3Cell.xib in Resources */,
@@ -1379,7 +1415,6 @@
 				18794DAF2398D02000E80457 /* EditProfileViewController.swift in Sources */,
 				18DDC78E23797AA6003FCCE8 /* SearchViewController.swift in Sources */,
 				1892E9DE23968E0800AE6ECC /* SignUpViewController.swift in Sources */,
-				181FFAA0239A3A8B0078E64D /* SearchFolderViewController.swift in Sources */,
 				188131B3238E8B66005334BF /* TPKeyboardAvoidingScrollView.m in Sources */,
 				1821AF1E237A7E670010B307 /* CustomTextView.swift in Sources */,
 				18E71D6B237C15690090FC90 /* LoginViewController.swift in Sources */,
@@ -1394,15 +1429,18 @@
 				1897454A238D38A80000FCC4 /* ProcessDocumentView.swift in Sources */,
 				1822E31E23A2242D006042E3 /* AFManager.swift in Sources */,
 				184488C623C3363D001178AB /* SKPhoto.swift in Sources */,
+				1891BD3E23D96B1100BA0E94 /* ManufacturesPopUpViewController.swift in Sources */,
 				18974558238D5B9E0000FCC4 /* BEMPathManager.m in Sources */,
 				184488C223C3363D001178AB /* UIImage+Rotation.swift in Sources */,
 				18BB39E723CD992B00174415 /* SubscriptionVM.swift in Sources */,
 				1847363D23AB8B5100C565A4 /* ForgotVM.swift in Sources */,
+				1891BD4523D9AAE800BA0E94 /* DropDownView.swift in Sources */,
 				18974559238D5B9E0000FCC4 /* BEMCheckBoxGroup.m in Sources */,
 				1879F57F238BD71B00ABBBC0 /* DetailRow1TableViewCell.swift in Sources */,
 				1801ABAC23851DCB00F46223 /* KVNProgress.m in Sources */,
 				189C064A2397B4B800C292ED /* ForgotPwdViewController.swift in Sources */,
 				1875FC0D23A0ED7C00B1EA1F /* NSLayoutConstraint+.swift in Sources */,
+				18F07C4B23DAB91C0068F894 /* Animator.swift in Sources */,
 				189E882723953BDB009C8ECF /* CreditHistoryTableViewCell.swift in Sources */,
 				18CEAE5523AB7F0D00115C12 /* AppConstant.swift in Sources */,
 				1875FC1323A0ED7C00B1EA1F /* LineButton.swift in Sources */,
@@ -1425,6 +1463,7 @@
 				1801AB932385036A00F46223 /* FacebookManager.swift in Sources */,
 				1804E16C2394F61800210C0F /* SignUpUserGuideViewController.swift in Sources */,
 				18DDC78A23797AA6003FCCE8 /* AppDelegate.swift in Sources */,
+				18F07C4C23DAB91C0068F894 /* Animations.swift in Sources */,
 				181FFAA2239A71170078E64D /* PreviewViewController.swift in Sources */,
 				1826332723D6D7A30058AA88 /* AboutUsVM.swift in Sources */,
 				1821AF25237A86C50010B307 /* CustomBase.swift in Sources */,
@@ -1436,7 +1475,6 @@
 				184488C023C3363D001178AB /* SKDetectingView.swift in Sources */,
 				1821AF23237A860F0010B307 /* Extensions.swift in Sources */,
 				18E71D72237C1F670090FC90 /* SWRevealViewController.m in Sources */,
-				183081F823CF38DA00FC9F92 /* CreditTableViewCell.swift in Sources */,
 				18956D2423880AA500BD8F63 /* SearchListCollectionViewCell.swift in Sources */,
 				1892042923BB12A000C732FB /* Implant.swift in Sources */,
 				1875FC0B23A0ED7C00B1EA1F /* UIView+.swift in Sources */,
@@ -1449,6 +1487,7 @@
 				18E71D6D237C1EE30090FC90 /* LeftMenuViewController.swift in Sources */,
 				1879F585238BDA7800ABBBC0 /* DetailRow2TableViewCell.swift in Sources */,
 				1821AF0B237A741B0010B307 /* HomeViewController.swift in Sources */,
+				1891BD4123D9706E00BA0E94 /* CreditTableViewCell.swift in Sources */,
 				1879F588238BF3C600ABBBC0 /* CustomImagePageControl.swift in Sources */,
 				1875FC1123A0ED7C00B1EA1F /* BezierPath+.swift in Sources */,
 				1879F573238BB2DA00ABBBC0 /* SearchDetailViewController.swift in Sources */,
@@ -1474,6 +1513,7 @@
 				1821AF21237A7E670010B307 /* CustomTextField.swift in Sources */,
 				1801ABAB23851DCB00F46223 /* iCarousel.m in Sources */,
 				182239DF23B9FBAD00B3C01F /* SearchVM.swift in Sources */,
+				18F07C4D23DAB91C0068F894 /* UITableView+Ext.swift in Sources */,
 				184488C923C3363D001178AB /* SKPhotoBrowserDelegate.swift in Sources */,
 				184488BE23C3363D001178AB /* UIApplication+UIWindow.swift in Sources */,
 				1875FC1223A0ED7C00B1EA1F /* UIImageView+.swift in Sources */,
