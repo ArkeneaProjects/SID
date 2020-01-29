@@ -163,7 +163,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     // MARK: - UITabelVieeDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return (self.imageArray.count > 3) ?getCalculated(240.0):getCalculated(130.0)
+            return (self.imageArray.count > 3) ? getCalculated(240.0) : getCalculated(130.0)
         }
         return UITableView.automaticDimension
     }
