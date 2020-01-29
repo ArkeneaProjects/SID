@@ -152,6 +152,7 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate {
                 case .success(let content):
                     if let capturedImage = content.asImage {
                         print("Sucess")
+                        //self.imagePicker.cropImage(image: capturedImage, croppingStyle: .default, isCrop: true)
                         if let controller = self.instantiate(PreviewViewController.self, storyboard: STORYBOARD.main) as? PreviewViewController {
                             controller.selectedImage = capturedImage
                             controller.isCrop = false

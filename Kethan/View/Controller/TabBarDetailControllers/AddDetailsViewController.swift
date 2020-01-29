@@ -22,14 +22,18 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     var deletedImageArr = NSMutableArray()
     var deletedProcessArr = NSMutableArray()
     
+    var isCameFromImageScreen: Bool = false  //User came from search image screen
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBarWithTitle("Add Details", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeNil)
         // Do any additional setup after loading the view.
         
         self.implantVM.implantObj = self.implantObj
-        self.imageArray = NSMutableArray(array: self.implantVM.implantObj.imageData)
-        self.arrUpoading = NSMutableArray(array: self.implantVM.implantObj.imageData)
+       // if isCameFromImageScreen == false {
+            self.imageArray = NSMutableArray(array: self.implantVM.implantObj.imageData)
+            self.arrUpoading = NSMutableArray(array: self.implantVM.implantObj.imageData)
+     //   }
 
         self.checkAndAddPulsButton()
         
@@ -282,6 +286,9 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                 self.implantVM.implantObj.implantImage = implantImageObj
                 self.tblView.reloadData()
             }
+            
+            //controller.selectedImage = self.resizeImageWithAspect(image: image!, scaledToMaxWidth: getCalculated(640.0), maxHeight: getCalculated(854.0))
+            
             if let size = image!.getFileSize() {
                 //check image size is not more than 3 MB
                 if size >= 1.0 {
@@ -299,6 +306,35 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
             ProgressManager.dismiss()
             self.navigationController?.pushViewController(controller, animated: true)
         }
+    }
+    
+    func imageWithSize(image: UIImage, size: CGSize) -> UIImage {
+        if UIScreen.main.responds(to: #selector(NSDecimalNumberBehaviors.scale)) {
+            UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
+        } else {
+             UIGraphicsBeginImageContext(size)
+        }
+        image.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        //image.draw(in: CGRectMake(0, 0, size.width, size.height));
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return newImage!
+    }
+
+    //Summon this function VVV
+    func resizeImageWithAspect(image: UIImage, scaledToMaxWidth width: CGFloat, maxHeight height :CGFloat) -> UIImage {
+        let oldWidth = image.size.width
+        let oldHeight = image.size.height
+
+        let scaleFactor = (oldWidth > oldHeight) ? width / oldWidth : height / oldHeight
+
+        let newHeight = oldHeight * scaleFactor
+        let newWidth = oldWidth * scaleFactor
+        let newSize = CGSize(width: newWidth, height: newHeight)
+       // let newSize = CGSizeMake(newWidth, newHeight);
+
+        return imageWithSize(image: image, size: newSize)
     }
     /*
      // MARK: - Navigation

@@ -27,42 +27,54 @@ class LoginViewModel: NSObject {
         
     }
     
+    func sortArray( arr: NSMutableArray, value: String) -> NSArray {
+        let descriptor: NSSortDescriptor = NSSortDescriptor(key: value, ascending: true, selector: #selector(NSString.localizedCaseInsensitiveCompare(_:)))
+        let sortedResults: NSArray = arr.sortedArray(using: [descriptor]) as NSArray
+        return sortedResults
+    }
+    
     func callManutactureAPI() {
         DispatchQueue.main.async {
-                    let dict: NSDictionary = [:]
-                    AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.GetManufactureName, parameters: dict, serviceCount: 0, completion: { (response: AnyObject?, error: String?, errorCode: String?) in
+            let dict: NSDictionary = [:]
+            AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.GetManufactureName, parameters: dict, serviceCount: 0, completion: { (response: AnyObject?, error: String?, errorCode: String?) in
+                
+                if error == nil || error == "" {
+                    if let dictionary = response as? NSDictionary {
                         
-                        if error == nil || error == "" {
-                            if let dictionary = response as? NSDictionary {
-                                
-                                if let arrDict = dictionary.value(forKey: "implantList") as? [NSDictionary] {
-                                    let arr = NSMutableArray()
-                                    for item in arrDict {
-                                        let obj = ManufaturesBrands(dictionary: item)
-                                        arr.add(obj.dictioary())
-                                    }
-                                    setUserDefaults(value: arr, forKey: UserDefaultsKeys.ManufectureUpload)
-                                }
-                                
-                                if let arrManufacture = dictionary.value(forKey: "manufecture") as? [NSDictionary] {
-                                    let arr = NSMutableArray()
-                                    for item in arrManufacture {
-                                        arr.add((getValueFromDictionary(dictionary: item, forKey: "implantManufacture")).capitalizingFirstLetter())
-                                    }
-                                    setUserDefaults(value: arr, forKey: UserDefaultsKeys.Manufecture)
-                                }
-                                
-                                if let arrBrand = dictionary.value(forKey: "brandName") as? [NSDictionary] {
-                                    let arr = NSMutableArray()
-                                    for item in arrBrand {
-                                        arr.add((getValueFromDictionary(dictionary: item, forKey: "brandName")).capitalizingFirstLetter())
-                                    }
-                                    setUserDefaults(value: arr, forKey: UserDefaultsKeys.BrandName)
-                                }
+                        if let arrDict = dictionary.value(forKey: "implantList") as? [NSDictionary] {
+                            let arr = NSMutableArray()
+                            for item in arrDict {
+                                let obj = ManufaturesBrands(dictionary: item)
+                                arr.add(obj.dictioary())
                             }
+                            
+                            setUserDefaults(value: self.sortArray(arr: arr, value: "implantManufacture"), forKey: UserDefaultsKeys.ManufectureUpload)
                         }
-                    })
+                        
+                        if let arrManufacture = dictionary.value(forKey: "manufecture") as? [NSDictionary] {
+                            var arr = NSMutableArray()
+                            for item in arrManufacture {
+                                arr.add((getValueFromDictionary(dictionary: item, forKey: "implantManufacture")).capitalizingFirstLetter())
+                            }
+                            let sortedArray = arr.sorted { ($0 as AnyObject).localizedCaseInsensitiveCompare($1 as? String ?? "") == ComparisonResult.orderedAscending }
+                            arr = NSMutableArray(array: sortedArray)
+                            
+                            setUserDefaults(value: arr, forKey: UserDefaultsKeys.Manufecture)
+                        }
+                        
+                        if let arrBrand = dictionary.value(forKey: "brandName") as? [NSDictionary] {
+                            var arr = NSMutableArray()
+                            for item in arrBrand {
+                                arr.add((getValueFromDictionary(dictionary: item, forKey: "brandName")).capitalizingFirstLetter())
+                            }
+                            let sortedArray = arr.sorted { ($0 as AnyObject).localizedCaseInsensitiveCompare($1 as? String ?? "") == ComparisonResult.orderedAscending }
+                            arr = NSMutableArray(array: sortedArray)
+                            setUserDefaults(value: arr, forKey: UserDefaultsKeys.BrandName)
+                        }
+                    }
                 }
+            })
+        }
     }
     
     func clearAllData() {

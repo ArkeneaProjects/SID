@@ -46,7 +46,7 @@ class TagViewController: BaseViewController {
             impantObj.labelOffsetY = String(format: "%.1f", actualY*2)
             impantObj.labelWidth = String(format: "%.1f", self.cropView.tagViewWidth*2)
             impantObj.labelHeight = String(format: "%.1f", self.cropView.tagViewHeight*2)
-            impantObj.selectedImage = self.cropView.image!
+            impantObj.selectedImage = selectedImage
             
             self.continueCompletion!(impantObj)
             self.navigationController?.popViewController(animated: true)

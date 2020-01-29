@@ -165,7 +165,7 @@ class LeftMenuViewController: BaseViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let arr = STATICDATA.arrLeftItems[indexPath.row]
+        let arr = (AppConstant.shared.loggedUser.isSocialMediaUser != "0") ?STATICDATA.arrLeftItemsWithoutEmail[indexPath.row]:STATICDATA.arrLeftItems[indexPath.row]
         let cellValue = arr["text"]
         
         if cellValue == "Profile" {

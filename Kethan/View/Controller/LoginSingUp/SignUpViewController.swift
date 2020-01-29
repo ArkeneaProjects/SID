@@ -25,7 +25,7 @@ class SignUpViewController: BaseViewController, CountryListDelegate {
     @IBOutlet weak var txtName: CustomTextField!
     @IBOutlet weak var txtProfession: CustomTextField!
     
-    @IBOutlet weak var checkbox: BEMCheckBox!
+    @IBOutlet weak var imgCheckEmail: UIImageView!
     
     let signUpVM = SignUpViewModel()
     var countryList = CountryListViewController()
@@ -48,9 +48,7 @@ class SignUpViewController: BaseViewController, CountryListDelegate {
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
         //TickMark
-        self.checkbox.onAnimationType = .stroke
-        self.checkbox.offAnimationType = .stroke
-        self.checkbox.animationDuration = 0.9
+        self.imgCheckEmail.alpha = 0
         
         //Terms and Condition Text
         self.lblTerms.numberOfLines = 0
@@ -152,20 +150,16 @@ class SignUpViewController: BaseViewController, CountryListDelegate {
     }
     
     // MARK: - UITextFieldDelegate
-  /*  func textFieldDidEndEditing(_ textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == txtEmail {
-            if self.txtEmail.text!.trimmedString().count != 0 && self.txtEmail.text!.isValidEmail() == true {
-                self.signUpVM.clearAllData()
-                self.signUpVM.email = self.txtEmail.text!
-                self.signUpVM.checkEmailisValid { (isValidate) in
-                    self.checkbox.alpha = (isValidate == true) ?1.0:0
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        self.checkbox.setOn(true, animated: true)
-                    }
-                }
+            self.signUpVM.clearAllData()
+            self.signUpVM.email = self.txtEmail.text!
+            self.signUpVM.checkEmailisValid { (isValidate) in
+                self.imgCheckEmail.alpha = 1.0
+                self.imgCheckEmail.image = UIImage(named: (isValidate == true) ?"tick":"close")
             }
         }
-    } */
+    }
     
     override func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         
@@ -199,6 +193,9 @@ class SignUpViewController: BaseViewController, CountryListDelegate {
         }
         if textField == self.txtName {
             return finalText.hasOnlyAlphabets()
+        }
+        if textField == self.txtEmail {
+            self.imgCheckEmail.alpha = 0
         }
         if textField == self.txtEmail &&  textField.text!.count >= 50 {
             return false

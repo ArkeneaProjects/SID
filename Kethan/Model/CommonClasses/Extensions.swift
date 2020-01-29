@@ -478,16 +478,16 @@ extension UIImage {
 extension String {
     
     func decodeEmoji() -> String {
-        let data = self.data(using: String.Encoding.utf8);
+        let data = self.data(using: String.Encoding.utf8)
         let decodedStr = NSString(data: data!, encoding: String.Encoding.nonLossyASCII.rawValue)
-        if let str = decodedStr{
+        if let str = decodedStr {
             return str as String
         }
         return self
     }
     
-    func encodeEmoji() -> String{
-        if let encodeStr = NSString(cString: self.cString(using: .nonLossyASCII)!, encoding: String.Encoding.utf8.rawValue){
+    func encodeEmoji() -> String {
+        if let encodeStr = NSString(cString: self.cString(using: .nonLossyASCII)!, encoding: String.Encoding.utf8.rawValue) {
             return encodeStr as String
         }
         return self
@@ -701,7 +701,6 @@ extension UIImageView {
         let actualY = (Hight * drawSize.origin.y) / imageHight
         let actualWidth = (Width * drawSize.size.width)/imageWidth
         let actualHight = (Hight * drawSize.size.height)/imageHight
-        print(CGRect(x: acutalX, y: actualY, width: actualWidth, height: actualHight))
         let d = Draw(frame: CGRect(x: acutalX, y: actualY, width: actualWidth, height: actualHight), lineWidth: linewidh)
        // let d = Draw(frame: )
         for view in self.subviews {

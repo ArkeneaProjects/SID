@@ -27,7 +27,7 @@ class CreditsViewController: BaseViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tblView.register(UITableViewCell.self, forCellReuseIdentifier: "creditCell")
+        self.tblView.registerNibWithIdentifier([IDENTIFIERS.CreditTableViewCell])
         self.tblView.rowHeight = UITableView.automaticDimension
         self.tblView.estimatedRowHeight = getCalculated(20.0)
         self.tblView.tableFooterView = UIView()
@@ -105,7 +105,7 @@ class CreditsViewController: BaseViewController, UITableViewDelegate, UITableVie
     
     // MARK: - UITabelVieeDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        return getCalculated(30.0)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -126,7 +126,7 @@ class CreditsViewController: BaseViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell: CreditTableViewCell = tableView.dequeueReusableCell(withIdentifier: String(describing: CreditTableViewCell.self), for: indexPath) as? CreditTableViewCell {
+        if let cell: CreditTableViewCell = tableView.dequeueReusableCell(withIdentifier: IDENTIFIERS.CreditTableViewCell, for: indexPath) as? CreditTableViewCell {
             let creditsDict = self.creditDivisionArr[indexPath.row]
             
             let value = "\(getValueFromDictionary(dictionary: creditsDict, forKey: "points")) Credits = $\(getValueFromDictionary(dictionary: creditsDict, forKey: "value"))"

@@ -370,7 +370,7 @@ extension CustomDropDown: UITextFieldDelegate {
     }
     public func  textFieldDidBeginEditing(_ textField: UITextField) {
         textField.text = ""
-        //self.selectedIndex = nil
+        self.selectedIndex = nil
         self.dataArray = self.optionArray
         
     }
@@ -418,6 +418,7 @@ extension CustomDropDown: UITableViewDataSource {
             if self.imageArray.count > indexPath.row {
                 cell.imageView!.image = UIImage(named: imageArray[indexPath.row])
             }
+            print("indexPath.row == selectedIndex==\(indexPath.row) \(selectedIndex)")
             cell.lblText.text = "\(dataArray[indexPath.row])"
             cell.lblText.textColor = (indexPath.row == selectedIndex) && checkMarkEnabled  ? UIColor.init(hexCode: 0x0985E9) : UIColor.init(hexCode: 0x333333)
             cell.accessoryType = .none

@@ -18,7 +18,7 @@ class TermsConditionViewController: BaseViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let page = (self.isPage == 0) ?"Terms of Service":(self.isPage == 1) ?"Privacy Policy":(self.isPage == 1) ?"FAQs":"About Us"
+        let page = (self.isPage == 0) ?"Terms of Service":(self.isPage == 1) ?"Privacy Policy":(self.isPage == 2) ?"FAQs":"About Us"
 
         self.addNavBarWithTitle(page, withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeNil)
         
