@@ -198,7 +198,7 @@ open class CustomLogger: NSObject, UITextFieldDelegate {
             })
         }
     }
-    
+
     func performAttributionAndScroll(_ finalString: String) {
         self.attributedText.removeAttribute(NSAttributedString.Key.backgroundColor, range: NSRange(location: 0, length: self.wholeText.count))
         do {

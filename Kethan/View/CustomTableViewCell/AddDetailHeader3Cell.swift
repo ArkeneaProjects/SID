@@ -38,7 +38,7 @@ class AddDetailHeader3Cell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    @objc func seeAllProcessCompletion(_ sender:CustomButton) {
+    @objc func seeAllProcessCompletion(_ sender: CustomButton) {
         if self.seeAllProcessCompletion != nil {
             
             self.seeAllProcessCompletion!()
@@ -59,11 +59,11 @@ class AddDetailHeader3Cell: UITableViewCell {
                 self.viewListing.addSubview(processListingView)
                 processListingView.translatesAutoresizingMaskIntoConstraints = false
                 
-                let process = arrTableView.object(at: index) as! Implant
-                
-                processListingView.lblProcess.text = process.removalProcess.decodeEmoji()
-                processListingView.btnRemove.alpha =  (process.isApproved == "0" && process.userId == AppConstant.shared.loggedUser.userId) ?1.0:0
-
+                if let process = arrTableView.object(at: index) as? Implant {
+                    
+                    processListingView.lblProcess.text = process.removalProcess.decodeEmoji()
+                    processListingView.btnRemove.alpha =  (process.isApproved == "0" && process.userId == AppConstant.shared.loggedUser.userId) ?1.0:0
+                }
                 processListingView.backgroundColor = UIColor.gray
                 processListingView.btnRemove.indexPath = IndexPath(row: index, section: 0)
                 processListingView.tapCompletion = { indexPath in

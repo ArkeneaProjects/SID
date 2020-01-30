@@ -22,7 +22,9 @@ class PreviewViewController: BaseViewController {
         if let size = self.selectedImage!.getFileSize() {
             //check image size is not more than 3 MB
             if size >= 1.0 {
-                let image = self.selectedImage!.imageWithImage(scaledToWidth: 600.0)
+                //let image = self.selectedImage!.imageWithImage(scaledToWidth: 600.0)
+                let image = self.selectedImage!.resizeImage(targetSize: CGSize(width: getCalculated(640.0), height: getCalculated(854.0)))
+
                 self.cropView.image = image
                 self.cropView.isCrop = false
             } else {

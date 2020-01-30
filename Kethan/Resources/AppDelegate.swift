@@ -1,16 +1,15 @@
 //
 //  AppDelegate.swift
-//  YupEasy
 //
 //  Created by Pankaj on 11/11/19.
 //  Copyright © 2019 Kethan. All rights reserved.
-// com.YupEasy1
 
 import UIKit
 import FBSDKCoreKit
 import GoogleSignIn
 import IQKeyboardManagerSwift
 import GooglePlaces
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate {
@@ -23,13 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        /* let storyBoard = UIStoryboard(name: STORYBOARD.main, bundle: Bundle.main)
-         self.window = UIWindow(frame: UIScreen.main.bounds)
-         let yourVc = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController
-         if let window = window {
-         window.rootViewController = yourVc
-         }
-         self.window?.makeKeyAndVisible()*/
+       UNUserNotificationCenter.current().delegate = self
         
         //IQKeyboardManager.shared.enable = true
         //IQKeyboardManager.shared.enableAutoToolbar = false
@@ -42,6 +35,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         GMSPlacesClient.provideAPIKey(KEYS.GooglePlacesAPIKey)
         
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+
+        //Notification Enable
+        if let notification = launchOptions?[.remoteNotification] as? [String: AnyObject] {
+
+            // If your app wasn’t running and the user launches it by tapping the push notification, the push notification is passed to your app in the launchOptions
+            if let aps = notification["aps"] as? [String: AnyObject] {
+                
+            }
+            UIApplication.shared.applicationIconBadgeNumber = 0
+        }
+
+        registerForPushNotifications()
+        
         let base = BaseViewController()
         if let dictionary = getUserDefaultsForKey(key: UserDefaultsKeys.LoggedUser) as? NSDictionary {
             updateUserDetail(userDetail: dictionary)

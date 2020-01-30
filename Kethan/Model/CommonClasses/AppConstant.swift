@@ -13,7 +13,7 @@ class AppConstant: NSObject {
     
     var manufactureName: String = ""
     var brandName: String = ""
-    
+        
     static let shared: AppConstant = AppConstant()
     
     func updateProfile(updatedProfile: User) {

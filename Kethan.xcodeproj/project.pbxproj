@@ -29,6 +29,8 @@
 		1809E9ED23A37DF0001A8A77 /* NSData+AESCrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 1809E9EC23A37DF0001A8A77 /* NSData+AESCrypt.m */; };
 		1809E9EF23A39379001A8A77 /* SignUpVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1809E9EE23A39379001A8A77 /* SignUpVM.swift */; };
 		1809E9F223A3A7D3001A8A77 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1809E9F123A3A7D3001A8A77 /* User.swift */; };
+		180AAB9823DEE89A00080A00 /* AGPushNoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180AAB9623DEE89900080A00 /* AGPushNoteView.xib */; };
+		180AAB9923DEE89A00080A00 /* AGPushNoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 180AAB9723DEE89900080A00 /* AGPushNoteView.m */; };
 		181FFA9E239A26D50078E64D /* DatePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181FFA9D239A26D50078E64D /* DatePopUpViewController.swift */; };
 		181FFAA2239A71170078E64D /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181FFAA1239A71160078E64D /* PreviewViewController.swift */; };
 		1821AF0B237A741B0010B307 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF0A237A741B0010B307 /* HomeViewController.swift */; };
@@ -171,6 +173,7 @@
 		18C3E6F023A76186000ABA07 /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3E6ED23A76185000ABA07 /* CountryCell.swift */; };
 		18C3E6F223A79879000ABA07 /* ChanagePasswordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3E6F123A79879000ABA07 /* ChanagePasswordVM.swift */; };
 		18CEAE5523AB7F0D00115C12 /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CEAE5423AB7F0D00115C12 /* AppConstant.swift */; };
+		18D6A96D23DECCE50032CD40 /* AppDelegate+PushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D6A96C23DECCE50032CD40 /* AppDelegate+PushNotifications.swift */; };
 		18DDC78A23797AA6003FCCE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDC78923797AA6003FCCE8 /* AppDelegate.swift */; };
 		18DDC78E23797AA6003FCCE8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDC78D23797AA6003FCCE8 /* SearchViewController.swift */; };
 		18DDC79123797AA6003FCCE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18DDC78F23797AA6003FCCE8 /* Main.storyboard */; };
@@ -250,6 +253,9 @@
 		1809E9EC23A37DF0001A8A77 /* NSData+AESCrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AESCrypt.m"; sourceTree = "<group>"; };
 		1809E9EE23A39379001A8A77 /* SignUpVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVM.swift; sourceTree = "<group>"; };
 		1809E9F123A3A7D3001A8A77 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		180AAB9523DEE89900080A00 /* AGPushNoteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGPushNoteView.h; sourceTree = "<group>"; };
+		180AAB9623DEE89900080A00 /* AGPushNoteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGPushNoteView.xib; sourceTree = "<group>"; };
+		180AAB9723DEE89900080A00 /* AGPushNoteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGPushNoteView.m; sourceTree = "<group>"; };
 		181FFA9D239A26D50078E64D /* DatePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePopUpViewController.swift; sourceTree = "<group>"; };
 		181FFAA1239A71160078E64D /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		1821AF0A237A741B0010B307 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -401,6 +407,7 @@
 		18C3E6ED23A76185000ABA07 /* CountryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
 		18C3E6F123A79879000ABA07 /* ChanagePasswordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChanagePasswordVM.swift; sourceTree = "<group>"; };
 		18CEAE5423AB7F0D00115C12 /* AppConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
+		18D6A96C23DECCE50032CD40 /* AppDelegate+PushNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+PushNotifications.swift"; sourceTree = "<group>"; };
 		18DDC78623797AA6003FCCE8 /* SID.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SID.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DDC78923797AA6003FCCE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18DDC78D23797AA6003FCCE8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -569,6 +576,16 @@
 				18A6D1D723CD8DEE00090030 /* ManufaturesBrands.swift */,
 			);
 			path = ModelClasses;
+			sourceTree = "<group>";
+		};
+		180AAB9423DEE89900080A00 /* AGPushNotification */ = {
+			isa = PBXGroup;
+			children = (
+				180AAB9523DEE89900080A00 /* AGPushNoteView.h */,
+				180AAB9623DEE89900080A00 /* AGPushNoteView.xib */,
+				180AAB9723DEE89900080A00 /* AGPushNoteView.m */,
+			);
+			path = AGPushNotification;
 			sourceTree = "<group>";
 		};
 		1821AF10237A7B830010B307 /* CustomNavigation */ = {
@@ -948,6 +965,7 @@
 			children = (
 				18DDC7BD23797BC9003FCCE8 /* Fonts */,
 				18DDC78923797AA6003FCCE8 /* AppDelegate.swift */,
+				18D6A96C23DECCE50032CD40 /* AppDelegate+PushNotifications.swift */,
 				18DDC79723797AAA003FCCE8 /* Info.plist */,
 				18DDC79423797AAA003FCCE8 /* LaunchScreen.storyboard */,
 				18DDC79223797AAA003FCCE8 /* Assets.xcassets */,
@@ -1015,6 +1033,7 @@
 		18E71D6E237C1F5A0090FC90 /* OtherClasses */ = {
 			isa = PBXGroup;
 			children = (
+				180AAB9423DEE89900080A00 /* AGPushNotification */,
 				18C3E6EA23A76185000ABA07 /* CountryList */,
 				1809E9E723A37D1E001A8A77 /* AES128 */,
 				1822E32323A228DD006042E3 /* CustomLogger */,
@@ -1212,6 +1231,7 @@
 				18DDC7C9237982BC003FCCE8 /* OpenSans-Regular.ttf in Resources */,
 				1879F57C238BBDC300ABBBC0 /* CustomCollectionViewCell.xib in Resources */,
 				189C064E2397DE7300C292ED /* LeftMenu.storyboard in Resources */,
+				180AAB9823DEE89A00080A00 /* AGPushNoteView.xib in Resources */,
 				18DDC7C6237982BC003FCCE8 /* NeoSans-Italic.otf in Resources */,
 				189C06482397B29F00C292ED /* SignUp.storyboard in Resources */,
 				1897454B238D38A80000FCC4 /* ProcessDocumentView.xib in Resources */,
@@ -1412,6 +1432,7 @@
 				1879F576238BB98A00ABBBC0 /* SearchViewCollecction.swift in Sources */,
 				1801ABB323851DCB00F46223 /* UIColor+KVNContrast.m in Sources */,
 				18ACDC8623BDF9B700780CE1 /* AddImplantVM.swift in Sources */,
+				180AAB9923DEE89A00080A00 /* AGPushNoteView.m in Sources */,
 				18794DAF2398D02000E80457 /* EditProfileViewController.swift in Sources */,
 				18DDC78E23797AA6003FCCE8 /* SearchViewController.swift in Sources */,
 				1892E9DE23968E0800AE6ECC /* SignUpViewController.swift in Sources */,
@@ -1420,6 +1441,7 @@
 				18E71D6B237C15690090FC90 /* LoginViewController.swift in Sources */,
 				18ACDC8023BDC75900780CE1 /* ProcessListViewController.swift in Sources */,
 				1801ABB7238547CB00F46223 /* BaseTabBarControllerDelegate.swift in Sources */,
+				18D6A96D23DECCE50032CD40 /* AppDelegate+PushNotifications.swift in Sources */,
 				1897454D238D52B50000FCC4 /* ThankYouViewController.swift in Sources */,
 				1821AF0D237A74320010B307 /* UploadViewController.swift in Sources */,
 				1821AF12237A7BB50010B307 /* CustomNavBar.swift in Sources */,

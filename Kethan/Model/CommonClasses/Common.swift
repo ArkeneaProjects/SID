@@ -13,6 +13,7 @@ typealias VoidCompletion = () -> Void
 let screenHeight = UIScreen.main.bounds.height
 let screenWidth = UIScreen.main.bounds.width
 var isLoginViewAnimated: Bool = true
+var device_token: String = ""
 
 enum ValidationState {
     case Valid
