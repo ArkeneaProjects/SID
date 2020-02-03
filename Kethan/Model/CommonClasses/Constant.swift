@@ -109,6 +109,7 @@ struct SUFFIX_URL {
     static let CheckEmail = "auth/checkEmail"
     static let SendEmail = "implant/sendDetailMail"
     static let GetCMSPage = "cms/getPages"
+    static let Credit = "user/userCreditList"
 }
 
 struct KEYS {
@@ -118,6 +119,9 @@ struct KEYS {
 
 struct NOTIFICATIONS {
     static let googleUserUpdate = "googleUserUpdate"
+    static let verification = "verification"
+    static let referral = "referral"
+    static let subscription = "subscription"
 }
 
 struct SubscriptionPlans {
@@ -325,4 +329,9 @@ struct ENTITIES {
     
     //Send Mail
     static let implantId = "implantId"
+    
+    //Credit
+    static let creditPoints = "creditPoints"
+    static let isApprovedDate = "isApprovedDate"
+    static let manufactur = "manufactur"
 }

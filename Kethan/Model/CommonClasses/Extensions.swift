@@ -696,6 +696,30 @@ extension Date {
         stringDate = formatter.string(from: self)
         return stringDate
     }
+    
+    func convertDateToStringWithFormat(actualFormat: String, expectedFormat: String) -> String? {
+        let simpleDateFormat = DateFormatter()
+        simpleDateFormat.dateFormat = actualFormat //format our date String
+        simpleDateFormat.timeZone = NSTimeZone.local
+        simpleDateFormat.amSymbol = "am"
+        simpleDateFormat.pmSymbol = "pm"
+        let str = simpleDateFormat.string(from: self)
+        if str.count > 0 {
+            let dateFormat = DateFormatter()
+            dateFormat.dateFormat = expectedFormat //format return
+            dateFormat.timeZone = NSTimeZone.local
+            dateFormat.amSymbol = "am"
+            dateFormat.pmSymbol = "pm"
+            if let date = simpleDateFormat.date(from: str) {
+                let dateStr = dateFormat.string(from: date)
+                return dateStr
+            } else {
+                return ""
+            }
+        } else {
+            return ""
+        }
+    }
 }
 
 extension UIImage {

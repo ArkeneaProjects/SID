@@ -173,32 +173,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "180131B2-496B-4A0B-8BA2-74424CC96CFF"
+            uuid = "9132E2C8-84CF-490B-93DC-EE09E21C57E8"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Kethan/View/Controller/TabBarDetailControllers/AddDetailsViewController.swift"
+            filePath = "Kethan/View/Controller/BaseViewController/BaseViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "315"
-            endingLineNumber = "315"
-            landmarkName = "imageWithSize(image:size:)"
+            startingLineNumber = "389"
+            endingLineNumber = "389"
+            landmarkName = "logoutFromApp()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "58F3EA0F-8663-4338-BE08-5FED435828B3"
+            uuid = "3E75161F-5B16-40AA-993B-89AF1FC2C1A2"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Kethan/View/Controller/TabBarDetailControllers/AddDetailsViewController.swift"
+            filePath = "Kethan/Resources/AppDelegate+PushNotifications.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292"
-            landmarkName = "didSelect(image:)"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "application(_:didReceiveRemoteNotification:fetchCompletionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "49269C6E-1D4D-40D1-ABB2-72ADDADD9CDA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kethan/Resources/AppDelegate+PushNotifications.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "application(_:didReceiveRemoteNotification:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7449985C-0B88-478F-9638-B80997579731"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kethan/Resources/AppDelegate+PushNotifications.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "notificationDict(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

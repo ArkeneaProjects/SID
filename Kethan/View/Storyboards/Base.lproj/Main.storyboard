@@ -616,6 +616,7 @@ about an implant, upon verifiication  we'll add
                         <outlet property="constViewTableHeight" destination="rKH-pE-dyQ" id="kAm-zb-XhB"/>
                         <outlet property="const_NavbarHeight" destination="xat-ob-mD0" id="ZwT-qw-ayW"/>
                         <outlet property="imgUpArrow" destination="6Ft-gV-3BX" id="keQ-06-Ctt"/>
+                        <outlet property="lblCredit" destination="Zbc-RE-bdd" id="IVb-QF-9A8"/>
                         <outlet property="tblView" destination="m8N-pQ-7bl" id="NsS-hD-zEL"/>
                         <outlet property="viewContainer" destination="MBL-fT-f4H" id="tsQ-U6-jo2"/>
                         <outlet property="viewCredits" destination="VO2-BR-z50" id="5GY-Bi-qeU"/>
@@ -2733,6 +2734,60 @@ palpation. Refer for further examination if</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AJi-1h-yjC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3553" y="-1389"/>
+        </scene>
+        <!--Credit View Controller-->
+        <scene sceneID="xCm-dt-1ix">
+            <objects>
+                <viewController id="ekG-l7-Xvp" customClass="CreditViewController" customModule="CreditViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SkL-qk-8Nb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WzU-L9-7Bn">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="xQq-Yc-WHA"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="khV-d8-McA">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h5f-9V-1cK">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="h5f-9V-1cK" secondAttribute="trailing" id="BER-MX-2vd"/>
+                                    <constraint firstAttribute="bottom" secondItem="h5f-9V-1cK" secondAttribute="bottom" id="IsK-ds-VuV"/>
+                                    <constraint firstItem="h5f-9V-1cK" firstAttribute="leading" secondItem="khV-d8-McA" secondAttribute="leading" id="j9K-ue-S6M"/>
+                                    <constraint firstItem="h5f-9V-1cK" firstAttribute="top" secondItem="khV-d8-McA" secondAttribute="top" id="qOx-p7-iku"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="khV-d8-McA" firstAttribute="trailing" secondItem="cIB-zz-r0g" secondAttribute="trailing" id="051-32-rH0"/>
+                            <constraint firstAttribute="trailing" secondItem="WzU-L9-7Bn" secondAttribute="trailing" id="5lu-9B-q9q"/>
+                            <constraint firstItem="cIB-zz-r0g" firstAttribute="bottom" secondItem="khV-d8-McA" secondAttribute="bottom" id="Cfy-KO-5wG"/>
+                            <constraint firstItem="WzU-L9-7Bn" firstAttribute="top" secondItem="SkL-qk-8Nb" secondAttribute="top" id="EGT-8d-2Uk"/>
+                            <constraint firstItem="khV-d8-McA" firstAttribute="top" secondItem="WzU-L9-7Bn" secondAttribute="bottom" id="QZw-0H-DmL"/>
+                            <constraint firstItem="WzU-L9-7Bn" firstAttribute="leading" secondItem="SkL-qk-8Nb" secondAttribute="leading" id="Sf2-N1-MZL"/>
+                            <constraint firstItem="khV-d8-McA" firstAttribute="leading" secondItem="cIB-zz-r0g" secondAttribute="leading" id="d0S-S8-cFA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cIB-zz-r0g"/>
+                    </view>
+                    <connections>
+                        <outlet property="const_NavbarHeight" destination="xQq-Yc-WHA" id="J53-va-Jab"/>
+                        <outlet property="viewContainer" destination="khV-d8-McA" id="kAe-Hy-4pY"/>
+                        <outlet property="viewNavBar" destination="WzU-L9-7Bn" id="Wub-lN-MGR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kvj-dQ-sDh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4286" y="-1392"/>
         </scene>
         <!--Tag View Controller-->
         <scene sceneID="xL0-N2-0Be">

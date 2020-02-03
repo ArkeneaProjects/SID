@@ -13,6 +13,8 @@ class PurchesViewController: BaseViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var btnCredit: CustomButton!
     @IBOutlet weak var btnReferral: CustomButton!
     
+    @IBOutlet weak var lblCredit: CustomLabel!
+    
     @IBOutlet weak var imgUpArrow: UIImageView!
     
     @IBOutlet weak var viewCredits: UIView!
@@ -21,20 +23,36 @@ class PurchesViewController: BaseViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet weak var tblView: UITableView!
     
+    var isCameFromNotification: Bool = false
+    
+    var creditVM = CreditVM()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addNavBarWithTitle("Credits", withLeftButtonType: .buttonTypeNil, withRightButtonType: .buttonTypeNil)
+        self.addNavBarWithTitle("Credits", withLeftButtonType: (self.isCameFromNotification == false) ?.buttonTypeNil:.buttonTypeBack, withRightButtonType: .buttonTypeNil)
         
-        let referralNumber = AppConstant.shared.loggedUser.referralCode
-        let attributedString = NSMutableAttributedString(string: "Referral Code \(referralNumber) ", attributes: [
-          .font: UIFont(name: "HelveticaNeue-Medium", size: getCalculated(16.75))!,
-          .foregroundColor: UIColor(red: 9.0 / 255.0, green: 133.0 / 255.0, blue: 233.0 / 255.0, alpha: 1.0)
-        ])
-        attributedString.addAttribute(.font, value: UIFont(name: "HelveticaNeue-Medium", size: getCalculated(13.5))!, range: NSRange(location: 14, length: referralNumber.count))
-        self.btnReferral.setAttributedTitle(attributedString, for: .normal)
+        self.creditVM.callAPI(self) { (success) in
+            if success  == true {
+                self.creditPoints("(\(self.creditVM.totalCreditEarn))")
+                self.lblCredit.text = (self.creditVM.totalCreditEarn == 0) ?"\(self.creditVM.totalCreditEarn) Credit":"\(self.creditVM.totalCreditEarn) Credits"
+            }
+        }
         
-        self.creditPoints("(0)")
-        
+        if self.isCameFromNotification == false {
+            let referralNumber = AppConstant.shared.loggedUser.referralCode
+            let attributedString = NSMutableAttributedString(string: "Referral Code \(referralNumber) ", attributes: [
+                .font: UIFont(name: "HelveticaNeue-Medium", size: getCalculated(16.75))!,
+                .foregroundColor: UIColor(red: 9.0 / 255.0, green: 133.0 / 255.0, blue: 233.0 / 255.0, alpha: 1.0)
+            ])
+            attributedString.addAttribute(.font, value: UIFont(name: "HelveticaNeue-Medium", size: getCalculated(13.5))!, range: NSRange(location: 14, length: referralNumber.count))
+            self.btnReferral.setAttributedTitle(attributedString, for: .normal)
+        } else {
+            self.viewCredits.alpha = 0
+            self.constViewTableHeight.constant = getCalculated(471.0)
+            self.imgUpArrow.image = UIImage(named: "droparrow")
+            //self.btnCredit.setTitle("Credit History ($190)", for: .normal)
+            self.btnCredit.isUserInteractionEnabled = false
+        }
         //TableView
         self.tblView.registerNibWithIdentifier([IDENTIFIERS.CreditHistoryTableViewCell])
         self.tblView.rowHeight = UITableView.automaticDimension
@@ -67,7 +85,7 @@ class PurchesViewController: BaseViewController, UITableViewDelegate, UITableVie
                 self.constViewTableHeight.constant = (self.viewCredits.frame.size.height - getCalculated(43.0))
                 self.imgUpArrow.image = UIImage(named: "droparrow")
                 //self.btnCredit.setTitle("Credit History ($190)", for: .normal)
-                self.creditPoints("($190)")
+                self.creditPoints("\(self.creditVM.totalCreditEarn)")
                 self.view.layoutIfNeeded()
             }
         } else {
@@ -76,7 +94,6 @@ class PurchesViewController: BaseViewController, UITableViewDelegate, UITableVie
                 self.constViewTableHeight.constant = getCalculated(0.0)
                 self.imgUpArrow.image = UIImage(named: "upArrow")
                 //self.btnCredit.setTitle("Credit History (0)", for: .normal)
-                self.creditPoints("(0)")
                 self.view.layoutIfNeeded()
             }
         }
@@ -98,26 +115,27 @@ class PurchesViewController: BaseViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return STATICDATA.arrCreditHistory.count
+        return self.creditVM.arrCredit.count
+        //return STATICDATA.arrCreditHistory.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: IDENTIFIERS.CreditHistoryTableViewCell, for: indexPath) as? CreditHistoryTableViewCell {
-            let arr = STATICDATA.arrCreditHistory[indexPath.row]
-            cell.imgReferral.image = UIImage(named: arr["image"] ?? "")
-            cell.lblTitle.text = arr["title"]
-            cell.lblDate.text = arr["date"]
-            cell.lblAmount.text = arr["amount"]
-            cell.lblDiscription.text = arr["description"]
-            cell.lblAmount.textColor = (arr["amount"] == "- $ 120") ?APP_COLOR.color7:APP_COLOR.color6
-            
+            if let obj = self.creditVM.arrCredit[indexPath.row] as? Credit {
+                cell.imgReferral.image = UIImage(named: obj.image)
+                cell.lblTitle.text = obj.title
+                cell.lblDate.text = obj.isApprovedDate
+                cell.lblAmount.text = obj.creditPoints
+                cell.lblDiscription.text = obj.msg
+                cell.lblAmount.textColor = APP_COLOR.color6
+            }
             return cell
         }
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     /*
     // MARK: - Navigation

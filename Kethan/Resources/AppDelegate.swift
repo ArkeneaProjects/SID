@@ -43,8 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
             if let aps = notification["aps"] as? [String: AnyObject] {
                 
             }
-            UIApplication.shared.applicationIconBadgeNumber = 0
         }
+        UIApplication.shared.applicationIconBadgeNumber = 0
 
         registerForPushNotifications()
         
@@ -68,6 +68,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         } else {
             return GIDSignIn.sharedInstance().handle(url)
         }
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
     
     class func delegate() -> AppDelegate? {

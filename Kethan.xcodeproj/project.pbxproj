@@ -31,6 +31,7 @@
 		1809E9F223A3A7D3001A8A77 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1809E9F123A3A7D3001A8A77 /* User.swift */; };
 		180AAB9823DEE89A00080A00 /* AGPushNoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180AAB9623DEE89900080A00 /* AGPushNoteView.xib */; };
 		180AAB9923DEE89A00080A00 /* AGPushNoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 180AAB9723DEE89900080A00 /* AGPushNoteView.m */; };
+		181259DA23E43C3F00070FB4 /* CreditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181259D923E43C3F00070FB4 /* CreditViewController.swift */; };
 		181FFA9E239A26D50078E64D /* DatePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181FFA9D239A26D50078E64D /* DatePopUpViewController.swift */; };
 		181FFAA2239A71170078E64D /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181FFAA1239A71160078E64D /* PreviewViewController.swift */; };
 		1821AF0B237A741B0010B307 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF0A237A741B0010B307 /* HomeViewController.swift */; };
@@ -89,6 +90,8 @@
 		1859402723CC93B80024324E /* NetworkActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859402623CC93B80024324E /* NetworkActivityIndicatorManager.swift */; };
 		18705385238FA2CD006ACA3D /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18705384238FA2CC006ACA3D /* CameraManager.swift */; };
 		18705387238FB000006ACA3D /* GalleryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18705386238FB000006ACA3D /* GalleryManager.swift */; };
+		18729B1023E4564F001A05C5 /* CreditVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18729B0F23E4564F001A05C5 /* CreditVM.swift */; };
+		18729B1223E457A3001A05C5 /* Credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18729B1123E457A3001A05C5 /* Credit.swift */; };
 		1875FBED23A0D55E00B1EA1F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1875FBEC23A0D55E00B1EA1F /* QuartzCore.framework */; };
 		1875FC0B23A0ED7C00B1EA1F /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1875FC0223A0ED7300B1EA1F /* UIView+.swift */; };
 		1875FC0C23A0ED7C00B1EA1F /* CropDimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1875FC0323A0ED7300B1EA1F /* CropDimView.swift */; };
@@ -256,6 +259,7 @@
 		180AAB9523DEE89900080A00 /* AGPushNoteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGPushNoteView.h; sourceTree = "<group>"; };
 		180AAB9623DEE89900080A00 /* AGPushNoteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGPushNoteView.xib; sourceTree = "<group>"; };
 		180AAB9723DEE89900080A00 /* AGPushNoteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGPushNoteView.m; sourceTree = "<group>"; };
+		181259D923E43C3F00070FB4 /* CreditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditViewController.swift; sourceTree = "<group>"; };
 		181FFA9D239A26D50078E64D /* DatePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePopUpViewController.swift; sourceTree = "<group>"; };
 		181FFAA1239A71160078E64D /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		1821AF0A237A741B0010B307 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -316,6 +320,8 @@
 		1859402623CC93B80024324E /* NetworkActivityIndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicatorManager.swift; sourceTree = "<group>"; };
 		18705384238FA2CC006ACA3D /* CameraManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		18705386238FB000006ACA3D /* GalleryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryManager.swift; sourceTree = "<group>"; };
+		18729B0F23E4564F001A05C5 /* CreditVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditVM.swift; sourceTree = "<group>"; };
+		18729B1123E457A3001A05C5 /* Credit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credit.swift; sourceTree = "<group>"; };
 		1875FBEC23A0D55E00B1EA1F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1875FC0223A0ED7300B1EA1F /* UIView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		1875FC0323A0ED7300B1EA1F /* CropDimView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropDimView.swift; sourceTree = "<group>"; };
@@ -574,6 +580,7 @@
 				1892042A23BB13C300C732FB /* ObjectLocation.swift */,
 				18ACDC8723BE222E00780CE1 /* ImplantImage.swift */,
 				18A6D1D723CD8DEE00090030 /* ManufaturesBrands.swift */,
+				18729B1123E457A3001A05C5 /* Credit.swift */,
 			);
 			path = ModelClasses;
 			sourceTree = "<group>";
@@ -792,6 +799,7 @@
 				1897454C238D52B50000FCC4 /* ThankYouViewController.swift */,
 				181FFAA1239A71160078E64D /* PreviewViewController.swift */,
 				1849714F23C60A7D00BFAFF3 /* ImageListViewController.swift */,
+				181259D923E43C3F00070FB4 /* CreditViewController.swift */,
 			);
 			path = TabBarDetailControllers;
 			sourceTree = "<group>";
@@ -856,6 +864,7 @@
 				182E24AD23C73152000EBC54 /* SupportVM.swift */,
 				18BB39E623CD992B00174415 /* SubscriptionVM.swift */,
 				1826332623D6D7A30058AA88 /* AboutUsVM.swift */,
+				18729B0F23E4564F001A05C5 /* CreditVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1436,6 +1445,7 @@
 				18794DAF2398D02000E80457 /* EditProfileViewController.swift in Sources */,
 				18DDC78E23797AA6003FCCE8 /* SearchViewController.swift in Sources */,
 				1892E9DE23968E0800AE6ECC /* SignUpViewController.swift in Sources */,
+				181259DA23E43C3F00070FB4 /* CreditViewController.swift in Sources */,
 				188131B3238E8B66005334BF /* TPKeyboardAvoidingScrollView.m in Sources */,
 				1821AF1E237A7E670010B307 /* CustomTextView.swift in Sources */,
 				18E71D6B237C15690090FC90 /* LoginViewController.swift in Sources */,
@@ -1526,6 +1536,7 @@
 				1801ABB123851DCB00F46223 /* UIImage+KVNImageEffects.m in Sources */,
 				1892E9D82396427800AE6ECC /* SubScriptionViewController.swift in Sources */,
 				184488B823C3363D001178AB /* SKZoomingScrollView.swift in Sources */,
+				18729B1223E457A3001A05C5 /* Credit.swift in Sources */,
 				1892042523BB102800C732FB /* SearchResult.swift in Sources */,
 				18974546238D38920000FCC4 /* AddDetailHeader3Cell.swift in Sources */,
 				1821AF0F237A74450010B307 /* PurchesViewController.swift in Sources */,
@@ -1545,6 +1556,7 @@
 				1804E1712394FABA00210C0F /* GuideCollectionViewCell.swift in Sources */,
 				184488BD23C3363D001178AB /* SKDetectingImageView.swift in Sources */,
 				1805FC6F23BF1C4800391B6C /* EditProfileVM.swift in Sources */,
+				18729B1023E4564F001A05C5 /* CreditVM.swift in Sources */,
 				18C3E6F023A76186000ABA07 /* CountryCell.swift in Sources */,
 				1809E9EF23A39379001A8A77 /* SignUpVM.swift in Sources */,
 				18794DB12398DF2900E80457 /* ProfileViewController.swift in Sources */,
