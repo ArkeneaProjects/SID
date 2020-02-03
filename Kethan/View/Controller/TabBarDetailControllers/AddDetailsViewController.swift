@@ -289,20 +289,8 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
             
             //controller.selectedImage = self.resizeImageWithAspect(image: image!, scaledToMaxWidth: getCalculated(640.0), maxHeight: getCalculated(854.0))
             
-            if let size = image!.getFileSize() {
-                //check image size is not more than 3 MB
-                if size >= 1.0 {
-                    controller.selectedImage = image!.imageWithImage(scaledToWidth: getCalculated(640.0))
-                } else {
-                    if image!.size.width >= getCalculated(640.0) {
-                        controller.selectedImage = image!.imageWithImage(scaledToWidth: getCalculated(640.0))
-                    } else {
-                        controller.selectedImage = image!
-                    }
-                }
-            } else {
-                controller.selectedImage = image!
-            }
+            controller.selectedImage = image!.resizeImage(targetSize: CGSize(width: getCalculated(640.0), height: getCalculated(854.0)))
+
             ProgressManager.dismiss()
             self.navigationController?.pushViewController(controller, animated: true)
         }

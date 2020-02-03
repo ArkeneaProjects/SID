@@ -13,6 +13,7 @@ typealias VoidCompletion = () -> Void
 let screenHeight = UIScreen.main.bounds.height
 let screenWidth = UIScreen.main.bounds.width
 var isLoginViewAnimated: Bool = true
+var device_token: String = ""
 
 enum ValidationState {
     case Valid
@@ -118,8 +119,9 @@ func getTopViewController() -> BaseViewController? {
         if let tabBarViewController = rootViewController as? UITabBarController {
             if let navbarViewController = tabBarViewController.selectedViewController as? UINavigationController {
                 if let topViewController = navbarViewController.topViewController {
-                    if let presentedViewController = topViewController.presentedViewController {
-                        return presentedViewController as? BaseViewController
+                    if topViewController is SWRevealViewController {
+                        let controller = (topViewController as? SWRevealViewController)?.frontViewController as? BaseViewController
+                       return controller
                     } else {
                         return topViewController as? BaseViewController
                     }

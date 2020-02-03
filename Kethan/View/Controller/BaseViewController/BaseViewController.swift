@@ -650,4 +650,9 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
         view.endEditing(true)
         super.touchesBegan(touches, with: event)
     }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+           super.motionEnded(motion, with: event)
+           CustomLogger.sharedInstance.handleMotion(motion, withEvent: event, controller: self)
+       }
 }

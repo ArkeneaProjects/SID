@@ -317,80 +317,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E4CA15BA-57BB-466D-A11A-2BF3FD4A71A5"
+            uuid = "9132E2C8-84CF-490B-93DC-EE09E21C57E8"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Kethan/ViewModel/AddImplantVM.swift"
+            filePath = "Kethan/View/Controller/BaseViewController/BaseViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "uploadImplant(_:)"
+            startingLineNumber = "389"
+            endingLineNumber = "389"
+            landmarkName = "logoutFromApp()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3A1AB321-91E2-445F-B1D4-1C11E7F77EF3"
+            uuid = "3E75161F-5B16-40AA-993B-89AF1FC2C1A2"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Kethan/View/Controller/TabBarDetailControllers/AddDetailsViewController.swift"
+            filePath = "Kethan/Resources/AppDelegate+PushNotifications.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "application(_:didReceiveRemoteNotification:fetchCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "23BDE02A-30DA-4B08-96FF-7E86453F2793"
+            uuid = "49269C6E-1D4D-40D1-ABB2-72ADDADD9CDA"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Kethan/View/Controller/TabBarDetailControllers/AddDetailsViewController.swift"
+            filePath = "Kethan/Resources/AppDelegate+PushNotifications.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
-            landmarkName = "checkAndAddPulsButton()"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "application(_:didReceiveRemoteNotification:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3347BADA-12F3-467C-B2D1-1F004DB751F6"
+            uuid = "7449985C-0B88-478F-9638-B80997579731"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Kethan/View/Controller/TabBarDetailControllers/AddDetailsViewController.swift"
+            filePath = "Kethan/Resources/AppDelegate+PushNotifications.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "180131B2-496B-4A0B-8BA2-74424CC96CFF"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Kethan/View/Controller/TabBarDetailControllers/AddDetailsViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "312"
-            endingLineNumber = "312"
-            landmarkName = "imageWithSize(image:size:)"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "notificationDict(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

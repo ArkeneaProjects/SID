@@ -109,6 +109,7 @@ struct SUFFIX_URL {
     static let CheckEmail = "auth/checkEmail"
     static let SendEmail = "implant/sendDetailMail"
     static let GetCMSPage = "cms/getPages"
+    static let Credit = "user/userCreditList"
 }
 
 struct KEYS {
@@ -118,6 +119,9 @@ struct KEYS {
 
 struct NOTIFICATIONS {
     static let googleUserUpdate = "googleUserUpdate"
+    static let verification = "verification"
+    static let referral = "referral"
+    static let subscription = "subscription"
 }
 
 struct SubscriptionPlans {
@@ -144,6 +148,9 @@ struct STATICDATA {
     static let arrCreditHistory = [["image": "referral", "title": "Referral Rewards", "amount": "+ $ 20", "date": "November 20", "description": "Rewarded for being referred to SID by a friend"], ["image": "upload", "title": "Upload Images Rewards", "amount": "+ $ 10", "date": "November 19", "description": "Rewarded for being uploaded images on Database"], ["image": "referral", "title": "Referral Rewards", "amount": "+ $ 20", "date": "November 12", "description": ""], ["image": "referral", "title": "Referral Rewards", "amount": "+ $ 20", "date": "November 20", "description": "Rewarded for being referred to SID by a friend"]]
     
     static let arrSubscription = [["image": "monthlyBg", "price": "$4.00", "plan": "Monthly Plan", "valid": "- Ability to search for implant via text and images. Add implant information for future references.\n- Auto-renewable. Cancel Anytime.\n- Valid for 30 Days\n\nPayment will be charged to iTunes Account at confirmation of purchase. Subscription automatically renews unless auto-renew is turned off at least 24-hours before the end of the current period. Account will be charged for renewal within 24-hours prior to the end of the current period. You can manage or disable subscription by going to the Account Settings after purchase. Any unused portion of a free trial period, if offered, will be forfeited when the user purchases a subscription to that publication, where applicable.", "type": "month"], ["image": "annualBg", "price": "$50.00", "plan": "Annual Plan", "valid": "- Ability to search for implant via text and images. Add implant information for future references.\n- Earn Credits and redeem during next subscription. Cancel Anytime\n- Valid for 365 Days\n\nPayment will be charged to iTunes Account at confirmation of purchase. Subscription will not automatically renew for annual subscription at the end of the current period. Account will therefore not be charged. You can cancel subscription by going to the Account Settings after purchase. Any unused portion of a free trial period, if offered, will be forfeited when the user purchases a subscription to that publication, where applicable.", "type": "year"]]
+    
+     static let arrProfession = ["Surgeon", "Resident", "Medical Device Representative", "Other"]
+     //static let arrProfession = ["Nurse", "Technical Advisor", "Surgical Advisor", "Doctor/Surgeon"]
 }
 
 struct IDENTIFIERS {
@@ -224,7 +231,7 @@ struct ERRORS {
     //Upload
     static let EmptyManufacturer = "Please enter manufacturer"
     static let EmptyBrandName = "Please enter implant name/brand"
-    static let EmptyRemovalProcess = "Please add removal process"
+    static let EmptyRemovalProcess = "Please add key features process"
     static let EmptyImage = "Please add implant image"
     
 }
@@ -322,4 +329,9 @@ struct ENTITIES {
     
     //Send Mail
     static let implantId = "implantId"
+    
+    //Credit
+    static let creditPoints = "creditPoints"
+    static let isApprovedDate = "isApprovedDate"
+    static let manufactur = "manufactur"
 }

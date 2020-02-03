@@ -20,8 +20,6 @@ class SelectProfessionViewController: BaseViewController, UITableViewDelegate, U
     @IBOutlet weak var btnClose: CustomButton!
     
     var lblProfession = ""
-
-    var arrItem = ["Nurse", "Technical Advisor", "Surgical Advisor", "Doctor/Surgeon"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,13 +80,13 @@ class SelectProfessionViewController: BaseViewController, UITableViewDelegate, U
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.arrItem.count
+        return STATICDATA.arrProfession.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "professionCell") {
-            cell.textLabel?.text = self.arrItem[indexPath.row]
-            cell.accessoryType = (self.arrItem[indexPath.row] == self.lblProfession) ?.checkmark:.none
+            cell.textLabel?.text = STATICDATA.arrProfession[indexPath.row]
+            cell.accessoryType = (STATICDATA.arrProfession[indexPath.row] == self.lblProfession) ?.checkmark:.none
             return cell
         }
         return UITableViewCell()
@@ -97,7 +95,7 @@ class SelectProfessionViewController: BaseViewController, UITableViewDelegate, U
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         self.tblView.reloadData()
-        self.lblProfession = self.arrItem[indexPath.row]
+        self.lblProfession = STATICDATA.arrProfession[indexPath.row]
     }
 
     /*
