@@ -79,6 +79,7 @@ open class CustomLogger: NSObject, UITextFieldDelegate {
             self.textView = UITextView(frame: viewContent.bounds)
             self.textView.attributedText = self.attributedText
             self.textView.isEditable = false
+            self.textView.textColor = UIColor.gray
             
             self.textField = UITextField()
             self.textField.backgroundColor = UIColor.white
@@ -89,6 +90,7 @@ open class CustomLogger: NSObject, UITextFieldDelegate {
             self.textField.borderStyle = UITextField.BorderStyle.roundedRect
             self.textField.delegate = self
             self.textField.tag = 7777
+            self.textField.textColor = UIColor.gray
             
             let btnClose: UIButton = UIButton(type: UIButton.ButtonType.custom)
             btnClose.setTitle("X", for: UIControl.State())

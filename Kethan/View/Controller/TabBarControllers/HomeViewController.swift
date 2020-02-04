@@ -45,9 +45,13 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        self.navBar.btnRight.setTitle("$ \(AppConstant.shared.loggedUser.creditPoint)", for: .normal)
-        
+       
+        DispatchQueue.main.async {
+            let creditVM = CreditVM()
+            creditVM.callAPI(self, isShowLoader: false) { (success) in
+                self.navBar.btnRight.setTitle("\(AppConstant.shared.loggedUser.creditPoint)", for: .normal)
+            }
+        }
         //Display User name
         let userName = AppConstant.shared.loggedUser.name
         let attributedString = NSMutableAttributedString(string: "Hello \(userName),\rLet\'s get you started! ", attributes: [
@@ -183,6 +187,7 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate {
         self.lblPermissions.isUserInteractionEnabled = (isTrue == true) ?false:true
         self.lblPermissions.text = (isTrue == true) ?"Click a picture of the X-Ray to search in our Database":"Tap here to enable camera access and take great pictures"
         self.lblPermissions.textColor = (isTrue == true) ?UIColor.white:UIColor.black
+        self.btnCamera.setImage(UIImage(named: "camera"), for: .normal)
         self.btnCamera.alpha = (isTrue == true) ?1.0:0
         self.btnFlash.alpha = (isTrue == true) ?1.0:0
     }
