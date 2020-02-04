@@ -214,7 +214,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "457"
                   endingLineNumber = "457"
-                  offsetFromSymbolStart = "271">
+                  offsetFromSymbolStart = "272">
                </Location>
                <Location
                   uuid = "D4E9772D-5BC8-4EAA-B0DA-B154CF1DC0FB - 410ce1858a660293"
@@ -229,7 +229,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "457"
                   endingLineNumber = "457"
-                  offsetFromSymbolStart = "35">
+                  offsetFromSymbolStart = "48">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -278,7 +278,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "165"
                   endingLineNumber = "165"
-                  offsetFromSymbolStart = "3568">
+                  offsetFromSymbolStart = "3024">
                </Location>
                <Location
                   uuid = "819F4923-A4AE-4448-878B-640458EF4B9E - c0d4236342dbc3ea"
@@ -293,7 +293,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "166"
                   endingLineNumber = "166"
-                  offsetFromSymbolStart = "29">
+                  offsetFromSymbolStart = "68">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -388,8 +388,8 @@
             filePath = "Kethan/ViewModel/SubscriptionVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "purchase(pName:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -420,8 +420,8 @@
             filePath = "Kethan/ViewModel/SubscriptionVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
             landmarkName = "checkForIdentifire()"
             landmarkType = "7">
          </BreakpointContent>
@@ -436,8 +436,8 @@
             filePath = "Kethan/ViewModel/SubscriptionVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
             landmarkName = "verifyPurchase(pName:tag:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -452,8 +452,8 @@
             filePath = "Kethan/ViewModel/SubscriptionVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "verifyPurchase(pName:tag:)"
             landmarkType = "7">
             <Locations>
@@ -468,9 +468,9 @@
                   urlString = "file:///Users/apple/Desktop/ALL%20APPS/SID/Kethan/ViewModel/SubscriptionVM.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "167"
-                  endingLineNumber = "167"
-                  offsetFromSymbolStart = "604">
+                  startingLineNumber = "168"
+                  endingLineNumber = "168"
+                  offsetFromSymbolStart = "648">
                </Location>
                <Location
                   uuid = "E9320E72-9D9D-414E-9AC2-C7432F4C0AC5 - 6a8d7492cf0218b7"
@@ -483,9 +483,9 @@
                   urlString = "file:///Users/apple/Desktop/ALL%20APPS/SID/Kethan/ViewModel/SubscriptionVM.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "168"
-                  endingLineNumber = "168"
-                  offsetFromSymbolStart = "415">
+                  startingLineNumber = "169"
+                  endingLineNumber = "169"
+                  offsetFromSymbolStart = "336">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -500,8 +500,8 @@
             filePath = "Kethan/ViewModel/SubscriptionVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "verifyPurchase(pName:tag:)"
             landmarkType = "7">
             <Locations>
@@ -516,9 +516,9 @@
                   urlString = "file:///Users/apple/Desktop/ALL%20APPS/SID/Kethan/ViewModel/SubscriptionVM.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "171"
-                  endingLineNumber = "171"
-                  offsetFromSymbolStart = "440">
+                  startingLineNumber = "172"
+                  endingLineNumber = "172"
+                  offsetFromSymbolStart = "376">
                </Location>
                <Location
                   uuid = "DF71613F-E238-4606-836D-2C0AAD32BE19 - 6a8d7492cf0218b7"
@@ -531,9 +531,9 @@
                   urlString = "file:///Users/apple/Desktop/ALL%20APPS/SID/Kethan/ViewModel/SubscriptionVM.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "171"
-                  endingLineNumber = "171"
-                  offsetFromSymbolStart = "492">
+                  startingLineNumber = "172"
+                  endingLineNumber = "172"
+                  offsetFromSymbolStart = "428">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -566,7 +566,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "235"
                   endingLineNumber = "235"
-                  offsetFromSymbolStart = "349">
+                  offsetFromSymbolStart = "312">
                </Location>
                <Location
                   uuid = "82618F9E-F651-4F2C-9C2D-EB2BDC1189B3 - 63b8c8311cbd9e1"
@@ -581,7 +581,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "235"
                   endingLineNumber = "235"
-                  offsetFromSymbolStart = "426">
+                  offsetFromSymbolStart = "368">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -596,8 +596,8 @@
             filePath = "Kethan/ViewModel/SubscriptionVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "verifyReceipt(completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -612,8 +612,8 @@
             filePath = "Kethan/ViewModel/SubscriptionVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
             landmarkName = "restoreSubscription()"
             landmarkType = "7">
          </BreakpointContent>
@@ -628,8 +628,8 @@
             filePath = "Kethan/ViewModel/SubscriptionVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "subscribe()"
             landmarkType = "7">
          </BreakpointContent>
@@ -644,8 +644,8 @@
             filePath = "Kethan/ViewModel/SubscriptionVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "subscribe()"
             landmarkType = "7">
          </BreakpointContent>
@@ -660,8 +660,8 @@
             filePath = "Kethan/ViewModel/SubscriptionVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
             landmarkName = "purchase(pName:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -676,8 +676,8 @@
             filePath = "Kethan/ViewModel/SubscriptionVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
             landmarkName = "restoreSubscription()"
             landmarkType = "7">
          </BreakpointContent>
@@ -692,8 +692,8 @@
             filePath = "Kethan/ViewModel/SubscriptionVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "purchase(pName:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -708,8 +708,8 @@
             filePath = "Kethan/ViewModel/SubscriptionVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "checkForIdentifire()"
             landmarkType = "7">
          </BreakpointContent>
@@ -717,15 +717,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "81F5947C-C469-44DA-AFA4-77694937E4C2"
+            uuid = "084B2F2F-65E5-49F7-8F1C-F88F7052832B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Kethan/ViewModel/SubscriptionVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "retriveProductInfo(pName:)"
             landmarkType = "7">
          </BreakpointContent>

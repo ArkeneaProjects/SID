@@ -23,7 +23,6 @@ class SearchViewCollecction: UIView, UICollectionViewDelegate, UICollectionViewD
     }
     
     func setupWith(superView: UIView, controller: BaseViewController, isview: Bool) {
-        
         viewController = controller
         superView.addSubview(self)
         

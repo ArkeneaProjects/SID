@@ -66,7 +66,7 @@ class SubscriptionVM: NSObject {
                         attributedString.addAttribute(.font, value: APP_FONT.regularFont(withSize: 30.0), range: NSRange(location: 0, length: 1))
                         attributedString.addAttributes([.baselineOffset: 15], range: NSRange(location: 0, length: 1))
                         
-                        if let cell: SubScriptionCollectionViewCell = (self.rootController as? SubScriptionViewController)?.collectionView.cellForItem(at: IndexPath(item: i, section: 0)) as? SubScriptionCollectionViewCell {
+                        if let cell: SubScriptionCollectionViewCell = (self.rootController as? SubScriptionViewController)?.collectionView.cellForItem(at: IndexPath(item: pName == SubscriptionPlans.Monthly ? 0 : 1, section: 0)) as? SubScriptionCollectionViewCell {
                             cell.lblPrice.attributedText = attributedString
                         }
                     }
@@ -91,6 +91,7 @@ class SubscriptionVM: NSObject {
                     self.rootController?.showAlert(alert)
                     switch result {
                     case .success( _):
+                        ProgressManager.dismiss()
                         self.verifyPurchase(pName: pName, tag: self.selectedIndex)
                     case .error:
                         ProgressManager.dismiss()
