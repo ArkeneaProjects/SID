@@ -173,7 +173,7 @@ class AFManager: NSObject {
         DispatchQueue.main.async(execute: {
             let webServiceData = "\n\nRequest -> \n\(strURL)\n\nHeaders -> \n\(headers)\n\nParameters -> \n\(parameters.jsonString())\n\nResponce -> \n\(response ?? "")"
             print(webServiceData)
-            CustomLogger.sharedInstance.logValues("request \n \(parameters) \n\n respones \n\(String(describing: response))")
+            CustomLogger.sharedInstance.logValues("\n request== \n \(parameters) \n\n respones== \n\(String(describing: response))")
             if response != nil {
                 var jsonObject: NSDictionary?
                 if let responseDict = response as? NSDictionary {

@@ -107,10 +107,11 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
             self.searchVM.getSearchByImage(itemArray: [imageDict]) { (error) in
                 self.gradientSkeltonShowHide(isShow: false)
                 if self.searchVM.arrSearchResult.count == 0 {
-                    ProgressManager.showError(withStatus: "No Result found.", on: self.view) {
-                        self.lblResultCount.text = "No Result found."
-                        self.viewError.alpha = 1.0
+                    self.lblResultCount.text = error
+                    self.viewError.alpha = 1.0
+                    ProgressManager.showError(withStatus: error, on: self.view) {
                     }
+                   
                 } else {
                     DispatchQueue.main.async {
                         if self.searchVM.arrSearchResult.count == 1 {
@@ -126,9 +127,10 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
             self.searchVM.getAllSearchByText(manufecture: self.menufeacture, brandname: self.brandname) { (error) in
                 self.gradientSkeltonShowHide(isShow: false)
                 if self.searchVM.arrSearchResult.count == 0 {
+                    self.lblResultCount.text = error
+                    self.viewError.alpha = 1.0
                     ProgressManager.showError(withStatus: error, on: self.view) {
-                        self.lblResultCount.text = error
-                        self.viewError.alpha = 1.0
+                            
                     }
                 } else {
                     DispatchQueue.main.async {

@@ -37,14 +37,6 @@ class PurchesViewController: BaseViewController, UITableViewDelegate, UITableVie
         self.tblView.estimatedRowHeight = getCalculated(80.0)
         self.tblView.tableFooterView = UIView()
         
-        self.creditVM.callAPI(self) { (success) in
-            if success  == true {
-                self.creditPoints("(\(self.creditVM.totalCreditEarn))")
-                self.lblCredit.text = (self.creditVM.totalCreditEarn == 0) ?"\(self.creditVM.totalCreditEarn) Credit":"\(self.creditVM.totalCreditEarn) Credits"
-                self.tblView.reloadData()
-            }
-        }
-        self.isCameFromNotification = true
         //Check the condition, is coming form notification or tab
         if self.isCameFromNotification == false {
             let referralNumber = AppConstant.shared.loggedUser.referralCode
@@ -54,13 +46,24 @@ class PurchesViewController: BaseViewController, UITableViewDelegate, UITableVie
             ])
             attributedString.addAttribute(.font, value: UIFont(name: "HelveticaNeue-Medium", size: getCalculated(13.5))!, range: NSRange(location: 14, length: referralNumber.count))
             self.btnReferral.setAttributedTitle(attributedString, for: .normal)
-            self.btnCredit.isUserInteractionEnabled = (self.creditVM.totalCreditEarn == 0) ?false:true
+            self.btnCredit.isUserInteractionEnabled = (self.creditVM.totalCreditEarn == 0) ?true:false
         } else {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 self.viewCredits.alpha = 0
                 self.constViewTableHeight.constant = (self.viewCredits.frame.size.height - getCalculated(43.0))
                 self.imgUpArrow.image = UIImage(named: "droparrow")
                 self.btnCredit.isUserInteractionEnabled = false
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.creditVM.callAPI(self) { (success) in
+            if success  == true {
+                self.creditPoints("(\(self.creditVM.totalCreditEarn))")
+                self.lblCredit.text = (self.creditVM.totalCreditEarn == 0) ?"\(self.creditVM.totalCreditEarn) Credit":"\(self.creditVM.totalCreditEarn) Credits"
+                self.tblView.reloadData()
             }
         }
     }

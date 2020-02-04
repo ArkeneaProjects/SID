@@ -24,13 +24,13 @@ class SearchVM {
             } else {
                 if let dict = response as? NSDictionary {
                     if let dataarr = dict.value(forKeyPath: "implant") as? [NSDictionary] {
-//                        self.arrSearchResult = dataarr.map({ return SearchResult(dictionary: $0)
-//                        })
+                        //                        self.arrSearchResult = dataarr.map({ return SearchResult(dictionary: $0)
+                        //                        })
                         
                         for item in dataarr {
                             let objItem = SearchResult(dictionary: item)
-                             if objItem.userId == AppConstant.shared.loggedUser.userId || objItem.isApproved == "1" {
-                                    self.arrSearchResult.append(objItem)
+                            if objItem.userId == AppConstant.shared.loggedUser.userId || objItem.isApproved == "1" {
+                                self.arrSearchResult.append(objItem)
                             }
                         }
                         
@@ -66,34 +66,38 @@ class SearchVM {
         
         AFManager.sendMultipartRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.SearchByImage, parameters: dict, multipart: itemArray, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
             if error != nil {
-                ProgressManager.showError(withStatus: error, on: self.rootController?.view)
+                // ProgressManager.showError(withStatus: error, on: self.rootController?.view) {
                 completion(error ?? "")
+                // }
+                
             } else {
                 if let dict = response as? NSDictionary, let implantDict = dict.value(forKeyPath: "implantApi") as? NSDictionary {
-                    if let dataarr = implantDict.value(forKeyPath: "implant") as? [NSDictionary] {
-                        self.arrSearchResult = dataarr.map({
-                            let objSearch = SearchResult(dictionary: $0)
-                            if let dictWatson = dict.value(forKeyPath: "wastson") as? NSDictionary, let arrImages = dictWatson.value(forKeyPath: "images")! as? [NSDictionary] {
-                                if arrImages.count > 0 {
-                                    if let images = arrImages[0] as? NSDictionary, let object = images.value(forKeyPath: "objects")! as? NSDictionary, let arrCollection = object.value(forKeyPath: "collections")! as? [NSDictionary] {
-                                        if let arr = arrCollection.last!["objects"] as? [NSDictionary] {
-                                            if arr.count > 0, let firstObj = arr.last {
-                                                let value = getValueFromDictionary(dictionary: firstObj, forKey: "score")
-                                                let valueInt = value.floatValue()*100
-                                                objSearch.match = String(format: "%.0f%% match", valueInt)
+                    if getValueFromDictionary(dictionary: implantDict, forKey: "status") == "error" {
+                        completion(getValueFromDictionary(dictionary: implantDict, forKey: "message"))
+                    } else {
+                        if let dataarr = implantDict.value(forKeyPath: "implant") as? [NSDictionary] {
+                                self.arrSearchResult = dataarr.map({
+                                    let objSearch = SearchResult(dictionary: $0)
+                                    if let dictWatson = dict.value(forKeyPath: "wastson") as? NSDictionary, let arrImages = dictWatson.value(forKeyPath: "images")! as? [NSDictionary] {
+                                        if arrImages.count > 0 {
+                                            if let images = arrImages[0] as? NSDictionary, let object = images.value(forKeyPath: "objects")! as? NSDictionary, let arrCollection = object.value(forKeyPath: "collections")! as? [NSDictionary] {
+                                                if let arr = arrCollection.last!["objects"] as? [NSDictionary] {
+                                                    if arr.count > 0, let firstObj = arr.last {
+                                                        let value = getValueFromDictionary(dictionary: firstObj, forKey: "score")
+                                                        let valueInt = value.floatValue()*100
+                                                        objSearch.match = String(format: "%.0f%% match", valueInt)
+                                                    }
+                                                }
                                             }
                                         }
                                     }
-                                }
-                            }
-                            return objSearch
-                        })
-                        ProgressManager.dismiss()
-                        completion("")
-                        
-                    } else {
-                        completion(getValueFromDictionary(dictionary: dict, forKey: "message"))
-                        ProgressManager.showError(withStatus: getValueFromDictionary(dictionary: dict, forKey: "message"), on: self.rootController?.view)
+                                    return objSearch
+                                })
+                                ProgressManager.dismiss()
+                                completion("")
+                        } else {
+                            completion(MESSAGES.errorOccured)
+                        }
                     }
                 }
             }
@@ -135,7 +139,7 @@ class SearchVM {
         let dict: NSDictionary = [ENTITIES.implantId: implantId]
         
         AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.SendEmail, parameters: dict, serviceCount: 1) { (response: AnyObject?, error: String?, errorCode: String?) in
-                  
+            
         }
     }
 }
