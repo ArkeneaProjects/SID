@@ -189,48 +189,80 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3E75161F-5B16-40AA-993B-89AF1FC2C1A2"
+            uuid = "CE1377FA-EFC2-428C-A0BD-02AB5B1244B5"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Kethan/Resources/AppDelegate+PushNotifications.swift"
+            filePath = "Kethan/View/Controller/TabBarControllers/PurchesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "application(_:didReceiveRemoteNotification:fetchCompletionHandler:)"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "creditActionClick(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "49269C6E-1D4D-40D1-ABB2-72ADDADD9CDA"
+            uuid = "3371C89B-AD3E-4893-AE9F-70E5F35E62A1"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Kethan/Resources/AppDelegate+PushNotifications.swift"
+            filePath = "Kethan/Model/CustomClasses/CameraManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "application(_:didReceiveRemoteNotification:)"
+            startingLineNumber = "1473"
+            endingLineNumber = "1473"
+            landmarkName = "updateDeviceOrientation(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7449985C-0B88-478F-9638-B80997579731"
+            uuid = "7F4B20B9-238B-49DB-BF9B-1D69046A6612"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Kethan/Resources/AppDelegate+PushNotifications.swift"
+            filePath = "Kethan/Model/CustomClasses/CameraManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "notificationDict(_:)"
+            startingLineNumber = "1434"
+            endingLineNumber = "1434"
+            landmarkName = "_startFollowingDeviceOrientation()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F74C8DF9-F2C8-498C-A76D-BBDBCAA9472C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kethan/Model/CustomClasses/CameraManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1383"
+            endingLineNumber = "1383"
+            landmarkName = "fixOrientation(withImage:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "911F4040-5DBB-4939-9623-3005E62FE705"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kethan/Model/CustomClasses/CameraManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1251"
+            endingLineNumber = "1251"
+            landmarkName = "_orientationChanged()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

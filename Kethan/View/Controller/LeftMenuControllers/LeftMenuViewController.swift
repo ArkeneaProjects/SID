@@ -22,10 +22,10 @@ class LeftMenuViewController: BaseViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         DispatchQueue.main.async {
-//            if AppConstant.shared.loggedUser.isSocialMediaUser != "0" {
-//                STATICDATA.arrLeftItems.remove(at: 1)
-//                STATICDATA.arrLeftItems.remove(at: 1)
-//            }
+            //            if AppConstant.shared.loggedUser.isSocialMediaUser != "0" {
+            //                STATICDATA.arrLeftItems.remove(at: 1)
+            //                STATICDATA.arrLeftItems.remove(at: 1)
+            //            }
             self.tblView.registerNibWithIdentifier([IDENTIFIERS.LeftMenuTableViewCell])
             self.tblView.reloadData()
             
@@ -49,24 +49,24 @@ class LeftMenuViewController: BaseViewController, UITableViewDelegate, UITableVi
     }
     
     func displayData() {
-           self.imgProfile.sd_setImage(with: URL(string: AppConstant.shared.loggedUser.userImage), placeholderImage: UIImage(named: "default-user"), options: .continueInBackground, context: nil)
-           self.lblUserName.text = AppConstant.shared.loggedUser.name
-           self.lblEmail.text = AppConstant.shared.loggedUser.email
-           self.lblPhone.text = "\(AppConstant.shared.loggedUser.country_code) \(AppConstant.shared.loggedUser.contactNumber)"
-       }
+        self.imgProfile.setImageWithPlaceHolderImage(AppConstant.shared.loggedUser.userImage, false, true, PLACEHOLDERS.profile, nil)
+        self.lblUserName.text = AppConstant.shared.loggedUser.name
+        self.lblEmail.text = AppConstant.shared.loggedUser.email
+        self.lblPhone.text = "\(AppConstant.shared.loggedUser.country_code) \(AppConstant.shared.loggedUser.contactNumber)"
+    }
     
     // MARK: - Button Action
     @IBAction func editProfileAction(_ sender: Any) {
-       /* if let tabbarController = AppDelegate.delegate()!.window!.rootViewController as? UITabBarController {
-            if let frontNavigationController = tabbarController.viewControllers![1] as? UINavigationController {
-                let storyBoard = UIStoryboard(name: STORYBOARD.signup, bundle: Bundle.main)
-                let loginVC = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController
-                let frontViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController
-                self.revealViewController()?.setFront(frontViewController!, animated: false)
-                self.revealViewController()?.setFrontViewPosition(.left, animated: false)
-                frontNavigationController.pushViewController(loginVC!, animated: true)
-            }
-        } */
+        /* if let tabbarController = AppDelegate.delegate()!.window!.rootViewController as? UITabBarController {
+         if let frontNavigationController = tabbarController.viewControllers![1] as? UINavigationController {
+         let storyBoard = UIStoryboard(name: STORYBOARD.signup, bundle: Bundle.main)
+         let loginVC = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController
+         let frontViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController
+         self.revealViewController()?.setFront(frontViewController!, animated: false)
+         self.revealViewController()?.setFrontViewPosition(.left, animated: false)
+         frontNavigationController.pushViewController(loginVC!, animated: true)
+         }
+         } */
     }
     
     @objc func profileClickAction(_ sender: Any) {
@@ -119,12 +119,12 @@ class LeftMenuViewController: BaseViewController, UITableViewDelegate, UITableVi
                     baseController = storyBoard.instantiateViewController(withIdentifier: "\(identifier)") as? BaseViewController ?? BaseViewController()
                 }
                 
-//                let navController = self.revealViewController().frontViewController as? UINavigationController
-//                if let topController = navController!.topViewController as? HomeViewController {
-//                    print("sucess")
-//                    self.revealViewController()?.setFrontViewPosition(.left, animated: false)
-//                    frontNavigationController.pushViewController(baseController!, animated: true)
-//                }
+                //                let navController = self.revealViewController().frontViewController as? UINavigationController
+                //                if let topController = navController!.topViewController as? HomeViewController {
+                //                    print("sucess")
+                //                    self.revealViewController()?.setFrontViewPosition(.left, animated: false)
+                //                    frontNavigationController.pushViewController(baseController!, animated: true)
+                //                }
                 
                 if let frontViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
                     //self.revealViewController()?.setFront(frontViewController, animated: false)

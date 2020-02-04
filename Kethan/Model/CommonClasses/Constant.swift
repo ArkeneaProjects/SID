@@ -8,6 +8,13 @@
 
 import UIKit
 
+struct PLACEHOLDERS {
+    static let profile = "default-user"
+    static let medium = "placeholder_medium"
+    static let large = "placeholder_larger"
+    static let small = "placeholder_smaller"
+
+}
 struct UserDefaultsKeys {
     
     static let LoggedUser = "LoggedUser"

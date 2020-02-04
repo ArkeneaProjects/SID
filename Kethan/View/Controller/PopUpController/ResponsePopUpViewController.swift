@@ -8,9 +8,8 @@
 
 import UIKit
 import CoreLocation
-import GooglePlaces
 
-class ResponsePopUpViewController: BaseViewController, GMSAutocompleteViewControllerDelegate {
+class ResponsePopUpViewController: BaseViewController {
     
     @IBOutlet weak var viewBlur: UIView!
     @IBOutlet weak var viewPopup: UIView!
@@ -62,23 +61,6 @@ class ResponsePopUpViewController: BaseViewController, GMSAutocompleteViewContro
         }
     }
     
-    @IBAction func placeBtnClickAction(_ sender: CustomButton) {
-        let autocompleteController = GMSAutocompleteViewController()
-        autocompleteController.delegate = self
-        
-        // Specify the place data types to return.
-        let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
-            UInt(GMSPlaceField.placeID.rawValue))!
-        autocompleteController.placeFields = fields
-        
-        // Specify a filter.
-        let filter = GMSAutocompleteFilter()
-        filter.type = .noFilter
-        autocompleteController.autocompleteFilter = filter
-        
-        self.present(autocompleteController, animated: true, completion: nil)
-    }
-    
     // MARK: - Custom Functions -
     func preparePopup(controller: BaseViewController) {
         if let parent = self.findParentBaseViewController() {
@@ -100,23 +82,6 @@ class ResponsePopUpViewController: BaseViewController, GMSAutocompleteViewContro
             completion()
         }
     }
-    
-    // MARK: - GMSAutocompleteViewControllerDelegate -
-    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        let address = place.name
-        self.btnLocation.setTitle(address, for: .normal)
-        self.locationString = address!
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        print("Error: ", error.localizedDescription)
-    }
-    
-    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-        dismiss(animated: true, completion: nil)
-    }
-    
     /*
      // MARK: - Navigation
      

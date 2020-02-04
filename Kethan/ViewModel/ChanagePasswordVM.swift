@@ -66,10 +66,13 @@ class ChanagePasswordVM: NSObject {
     func changePassword() {
         ProgressManager.show(withStatus: "", on: self.rootController!.view)
         
-        let encryptedPassword = EncDec.aes128Base64Encrypt(self.newPwd)
-        let encryptedOldPassword = EncDec.aes128Base64Encrypt(self.oldPwd)
+        //let encryptedPassword = EncDec.aes128Base64Encrypt(self.newPwd)
+        //let encryptedOldPassword = EncDec.aes128Base64Encrypt(self.oldPwd)
         
-        let dict: NSDictionary = [ENTITIES.password: encryptedPassword!, "oldPassword": encryptedOldPassword!]
+        let encryptedPassword = self.newPwd.encryptAES256(password: self.newPwd)
+        let encryptedOldPassword = self.oldPwd.encryptAES256(password: self.oldPwd)
+        
+        let dict: NSDictionary = [ENTITIES.password: encryptedPassword, "oldPassword": encryptedOldPassword]
         AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.changePassword, parameters: dict, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
             if error != nil {
                 self.error = error ?? ""
@@ -87,8 +90,10 @@ class ChanagePasswordVM: NSObject {
         
         ProgressManager.show(withStatus: "", on: self.rootController!.view)
         
-        let encryptedPassword = EncDec.aes128Base64Encrypt(self.newPwd)
-        let dict: NSDictionary = [ENTITIES.email: self.email, ENTITIES.password: encryptedPassword!]
+       // let encryptedPassword = EncDec.aes128Base64Encrypt(self.newPwd)
+        let encryptedPassword = self.newPwd.encryptAES256(password: self.newPwd)
+
+        let dict: NSDictionary = [ENTITIES.email: self.email, ENTITIES.password: encryptedPassword]
         AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.SetPassword, parameters: dict, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
             if error != nil {
                 self.error = error ?? ""

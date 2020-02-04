@@ -31,7 +31,7 @@ class ProfileViewController: BaseViewController {
     }
     
     func displayData() {
-        self.imgProfile.sd_setImage(with: URL(string: AppConstant.shared.loggedUser.userImage), placeholderImage: UIImage(named: "default-user"), options: .continueInBackground, context: nil)
+        self.imgProfile.setImageWithPlaceHolderImage(AppConstant.shared.loggedUser.userImage, false, true, PLACEHOLDERS.profile, nil)
         self.lblName.text = AppConstant.shared.loggedUser.name
         self.lblEmail.text = AppConstant.shared.loggedUser.email
         self.lblNumber.text = "\(AppConstant.shared.loggedUser.country_code) \(AppConstant.shared.loggedUser.contactNumber)"

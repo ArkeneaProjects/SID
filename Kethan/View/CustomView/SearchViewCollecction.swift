@@ -15,7 +15,7 @@ class SearchViewCollecction: UIView, UICollectionViewDelegate, UICollectionViewD
     @IBOutlet weak var collectionView: UICollectionView!
     
     var viewController: BaseViewController?
-
+    
     var arrAllItems: NSMutableArray = NSMutableArray() {
         didSet {
             self.collectionView.reloadData()
@@ -54,14 +54,14 @@ class SearchViewCollecction: UIView, UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return arrAllItems.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCollectionViewCell", for: indexPath) as? CustomCollectionViewCell {
             print("cell==\(cell.frame.size.width)")
             if let obj = arrAllItems.object(at: indexPath.row) as? ImageData {
                 cell.layoutIfNeeded()
-                cell.imgPhoto.sd_setImage(with: URL(string: obj.imageName), placeholderImage: UIImage(named: "placeholder_larger"), options: .continueInBackground) { (image, error, types, url) in
+                cell.imgPhoto.setImageWithPlaceHolderImage(obj.imageName, true, true, PLACEHOLDERS.large) {
                     if obj.objectLocation.imageWidth.count != 0 || obj.objectLocation.imageHeight.count != 0 {
                         cell.imgPhoto.drawRectangle(frameSize: CGSize(width: cell.imgPhoto.bounds.width, height: cell.imgPhoto.bounds.height), imageWidth: CGFloat(obj.objectLocation.imageWidth.floatValue()), imageHight: CGFloat(obj.objectLocation.imageHeight.floatValue()), drawSize: CGRect(x: CGFloat(obj.objectLocation.left.floatValue()), y: CGFloat(obj.objectLocation.top.floatValue()), width: CGFloat(obj.objectLocation.width.floatValue()), height: CGFloat(obj.objectLocation.height.floatValue())))
                     }

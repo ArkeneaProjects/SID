@@ -37,7 +37,7 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate {
         cameraManager.showAccessPermissionPopupAutomatically = false
         cameraManager.cameraOutputMode = CameraOutputMode.stillImage
         cameraManager.cameraOutputQuality = CameraOutputQuality.high
-        
+        cameraManager.deviceOrientation = .portrait
         //Gallery
         self.imagePicker = GalleryManager(presentationController: self, delegate: self)
         

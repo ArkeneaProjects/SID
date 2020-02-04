@@ -739,10 +739,17 @@ about an implant, upon verifiication  we'll add
                                                     <action selector="rightButtonAction" destination="0Ld-xg-Wf5" eventType="touchUpInside" id="FqU-0l-DCi"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LAl-XZ-DWH">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="100"/>
+                                                <connections>
+                                                    <action selector="rightButtonAction" destination="0Ld-xg-Wf5" eventType="touchUpInside" id="9xZ-Ok-8id"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstItem="YUh-UF-bcV" firstAttribute="leading" secondItem="sLM-nL-3cr" secondAttribute="leading" id="6Vl-3V-QJk"/>
+                                            <constraint firstItem="LAl-XZ-DWH" firstAttribute="top" secondItem="sLM-nL-3cr" secondAttribute="top" id="B9s-l7-Wze"/>
                                             <constraint firstAttribute="trailing" secondItem="YUh-UF-bcV" secondAttribute="trailing" id="DuJ-WY-Xrf"/>
                                             <constraint firstAttribute="height" constant="100" id="Ih6-Hm-prJ" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                 <userDefinedRuntimeAttributes>
@@ -750,13 +757,16 @@ about an implant, upon verifiication  we'll add
                                                 </userDefinedRuntimeAttributes>
                                             </constraint>
                                             <constraint firstItem="QCP-Is-557" firstAttribute="centerX" secondItem="sLM-nL-3cr" secondAttribute="centerX" id="LH0-DY-8VK"/>
+                                            <constraint firstAttribute="bottom" secondItem="LAl-XZ-DWH" secondAttribute="bottom" id="NHz-er-mfW"/>
                                             <constraint firstItem="YUh-UF-bcV" firstAttribute="top" secondItem="sLM-nL-3cr" secondAttribute="top" constant="26" id="cag-Vo-7tm"/>
                                             <constraint firstAttribute="width" constant="200" id="ds1-2j-yUA" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </constraint>
+                                            <constraint firstItem="LAl-XZ-DWH" firstAttribute="leading" secondItem="sLM-nL-3cr" secondAttribute="leading" id="hIW-mh-kqO"/>
                                             <constraint firstItem="QCP-Is-557" firstAttribute="top" secondItem="YUh-UF-bcV" secondAttribute="bottom" constant="13" id="i0i-89-4Ni"/>
+                                            <constraint firstAttribute="trailing" secondItem="LAl-XZ-DWH" secondAttribute="trailing" id="lXD-J1-jWy"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

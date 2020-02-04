@@ -129,8 +129,10 @@ class LoginViewModel: NSObject {
         ProgressManager.show(withStatus: "", on: self.rootController!.view)
         var dict: NSDictionary = [:]
         if self.loginType.count == 0 {
-            let encryptedPassword = EncDec.aes128Base64Encrypt(self.password)
-            dict = [ENTITIES.email: self.email, ENTITIES.password: encryptedPassword!]
+            let encryptedPassword = self.password.encryptAES256(password: self.password)
+
+           //let encryptedPassword = EncDec.aes128Base64Encrypt(self.password)
+            dict = [ENTITIES.email: self.email, ENTITIES.password: encryptedPassword]
         } else {
             dict = [ENTITIES.email: self.email, ENTITIES.socialMediaToken: self.socialMediaID, ENTITIES.socialPlatform: (self.loginType == "facebook") ?"facebook":"google"]
         }
