@@ -26,7 +26,7 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
         //Nav Bar
         self.addNavBarWithTitle("Subscription Plans", withLeftButtonType: (self.isComeFromLogin == false) ?.buttonTypeBack:.buttonTypeSkip, withRightButtonType: .buttonTypeRestore)
         
-        //  self.addNavBarWithTitle("Subscription Plans", withLeftButtonType: (self.isComeFromLogin == true) ?.buttonTypeNil:.buttonTypeBack, withRightButtonType: (self.isComeFromLogin == false) ?.buttonTypeNil:.buttonTypeSkip)
+        //       self.addNavBarWithTitle("Subscription Plans", withLeftButtonType: (self.isComeFromLogin == true) ?.buttonTypeNil:.buttonTypeBack, withRightButtonType: (self.isComeFromLogin == false) ?.buttonTypeNil:.buttonTypeSkip)
         
         //CollectionView
         self.collectionView.register(UINib(nibName: IDENTIFIERS.SubScriptionCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: IDENTIFIERS.SubScriptionCollectionViewCell)
@@ -84,7 +84,6 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
                 }
             }
         }
-        //  self.navigateToHome(false, false)
     }
     
     // MARK: - CollectionView Dalegate and DataSource
@@ -100,15 +99,6 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
             
             cell.lblPlan.text = arr["plan"]?.uppercased()
             cell.lblValid.text = arr["valid"]
-            
-            let attributedString = NSMutableAttributedString(string: arr["price"]!, attributes: [
-                .font: APP_FONT.boldFont(withSize: 45.0),
-                .foregroundColor: UIColor(white: 1.0, alpha: 1.0)
-            ])
-            attributedString.addAttribute(.font, value: APP_FONT.regularFont(withSize: 30.0), range: NSRange(location: 0, length: 1))
-            attributedString.addAttributes([.baselineOffset: 15], range: NSRange(location: 0, length: 1))
-            
-            cell.lblPrice.attributedText = attributedString
             
             cell.btnSubscribe.titleLabel?.font = APP_FONT.mediumFont(withSize: 17.0)
             cell.btnSubscribe.setTitleColor((arr["type"] == "year") ?APP_COLOR.color3:APP_COLOR.color2, for: .normal)

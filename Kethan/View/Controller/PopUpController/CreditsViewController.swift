@@ -36,7 +36,7 @@ class CreditsViewController: BaseViewController, UITableViewDelegate, UITableVie
     }
     
     func getValueForEarned() {
-        var current = "250" //AppConstant.shared.loggedUser.creditPoint //272 points
+        var current = "250"//AppConstant.shared.loggedUser.creditPoint //272 points
         current = current.intValue() > 200 ? "200" : current //to match credits woth max subscription amount.
         self.lblTotalCredits.text = "Total Credits: \(current)"
         let valueForCurrent = current.intValue()/4 // 68 $
