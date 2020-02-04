@@ -50,7 +50,7 @@ class EditProfileViewController: BaseViewController, GalleryManagerDelegate, Cou
     }
     
     func displayData() {
-        self.imgProfile.sd_setImage(with: URL(string: AppConstant.shared.loggedUser.userImage), placeholderImage: UIImage(named: "default-user"), options: .continueInBackground, context: nil)
+        self.imgProfile.setImageWithPlaceHolderImage(AppConstant.shared.loggedUser.userImage, false, true, PLACEHOLDERS.profile, nil)
         self.txtName.text = AppConstant.shared.loggedUser.name
         self.txtMobile.text = AppConstant.shared.loggedUser.contactNumber
         self.txtProfession.text = AppConstant.shared.loggedUser.profession

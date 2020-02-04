@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SpinKit
 
 typealias VoidCompletion = () -> Void
 
@@ -156,4 +157,34 @@ func updateUserDetail(userDetail: NSDictionary) {
     
     let user = User.init(dictionary: userDetail)
     AppConstant.shared.updateProfile(updatedProfile: user)
+}
+
+func addSpinnerWithStyle(spinnerStyle: RTSpinKitViewStyle, withColor color: UIColor, withBackgroundColor backgroundColor: UIColor, withParent parentView: UIView, ofSize size: Float) {
+    let spinner: RTSpinKitView = RTSpinKitView(style: spinnerStyle, color: color, spinnerSize: CGFloat(size))
+    if parentView.viewWithTag(95111111) != nil {
+        parentView.viewWithTag(95111111)!.removeFromSuperview()
+    }
+    let container: UIView = UIView(frame: parentView.bounds)
+    container.tag = 95111111
+    container.alpha = 0
+    container.backgroundColor = backgroundColor
+    spinner.center = CGPoint(x: parentView.bounds.midX, y: parentView.bounds.midY)
+    spinner.startAnimating()
+    container.addSubview(spinner)
+    parentView.addSubview(container)
+    UIView.animate(withDuration: 0.3, animations: {() -> Void in
+        container.alpha = 1.0
+    })
+}
+func removeSpinnerFromView(parentView: UIView) {
+    if parentView.viewWithTag(95111111) != nil {
+        let spinner = parentView.viewWithTag(95111111)!
+        UIView.animate(withDuration: 0.3, animations: {() -> Void in
+            spinner.alpha = 0.0
+        }, completion: {(finished: Bool) -> Void in
+            if finished {
+                spinner.removeFromSuperview()
+            }
+        })
+    }
 }

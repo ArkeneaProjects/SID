@@ -1,10 +1,7 @@
 //
 //  CountryListTableViewController.swift
 //  CountryListExample
-//
-//  Created by Juan Pablo on 9/8/17.
-//  Copyright © 2017 Juan Pablo Fernandez. All rights reserved.
-//
+
 
 import UIKit
 
@@ -47,6 +44,12 @@ public class CountryListViewController: UIViewController, UITableViewDelegate, U
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(handleCancel))
         
         setUpSearchBar()
+        
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     public func updateSearchResults(for searchController: UISearchController) {
@@ -66,14 +69,14 @@ public class CountryListViewController: UIViewController, UITableViewDelegate, U
         }
         
         for country in countryList {
-          let phoneExtension = country.phoneExtension
+            let phoneExtension = country.phoneExtension
             if phoneExtension.lowercased().contains(text) {
                 
                 filteredCountries.append(country)
             }
         }
         if text == "" {
-             filteredCountries = countryList
+            filteredCountries = countryList
         }
         tableView.reloadData()
     }
@@ -83,12 +86,12 @@ public class CountryListViewController: UIViewController, UITableViewDelegate, U
         self.tableView.tableHeaderView = searchController?.searchBar
         self.searchController?.hidesNavigationBarDuringPresentation = false
         
-//        self.searchController?.searchBar.backgroundImage = UIImage()
+        //        self.searchController?.searchBar.backgroundImage = UIImage()
         self.searchController?.dimsBackgroundDuringPresentation = false
-//        self.searchController?.searchBar.barTintColor = UIColor.white
+        //        self.searchController?.searchBar.barTintColor = UIColor.white
         self.searchController?.searchBar.placeholder = "Search"
-//        self.searchController?.searchBar.tintColor = Constants.Colors.mainColor
-//        self.searchController?.searchBar.backgroundColor = UIColor.white
+        //        self.searchController?.searchBar.tintColor = Constants.Colors.mainColor
+        //        self.searchController?.searchBar.backgroundColor = UIColor.white
         self.searchController?.searchResultsUpdater = self
     }
     

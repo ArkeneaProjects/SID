@@ -685,6 +685,28 @@ extension String {
         }
         return Date()
     }
+    
+    func encryptAES256(password: String) -> String {
+        do {
+            let password = password.data(using: .utf8)!
+           // let salt = AES256.randomSalt()
+           // let iv = AES256.randomIv()
+            let ivhexa = "fa68ac88b48a3f019bbb3287d6ae39d5"
+            let hexString = "55e630afc202384a539ed7c9f164812d01d2de935ed1a0ade32f06d52b73c141"
+            let keys = Data(fromHexEncodedString: hexString)!
+            let ivs = Data(fromHexEncodedString: ivhexa)!
+            //let key = try AES256.createKey(password: password.data(using: .utf8)!, salt: salt)
+            let aes = try AES256(key: keys, iv: ivs)
+            let encrypted = try aes.encrypt(password) //Send to Backend
+            let decrypted = try aes.decrypt(encrypted)
+            print("decrypted==\(String(decoding: decrypted, as: UTF8.self))")
+            return encrypted.hexString
+        } catch {
+            print("Failed")
+            print(error)
+        }
+        return ""
+    }
 }
 
 extension Date {
@@ -778,4 +800,44 @@ extension FileManager {
             //catch the error somehow
         }
     }
+}
+
+extension Data {
+     init?(fromHexEncodedString string: String) {
+
+            // Convert 0 ... 9, a ... f, A ...F to their decimal value,
+            // return nil for all other input characters
+            func decodeNibble(u: UInt16) -> UInt8? {
+                switch(u) {
+                case 0x30 ... 0x39:
+                    return UInt8(u - 0x30)
+                case 0x41 ... 0x46:
+                    return UInt8(u - 0x41 + 10)
+                case 0x61 ... 0x66:
+                    return UInt8(u - 0x61 + 10)
+                default:
+                    return nil
+                }
+            }
+
+            self.init(capacity: string.utf16.count/2)
+            var even = true
+            var byte: UInt8 = 0
+            for c in string.utf16 {
+                guard let val = decodeNibble(u: c) else { return nil }
+                if even {
+                    byte = val << 4
+                } else {
+                    byte += val
+                    self.append(byte)
+                }
+                even = !even
+            }
+            guard even else { return nil }
+        }
+    
+    var hexString: String {
+           return map { String(format: "%02hhx", $0) }.joined()
+       }
+    
 }

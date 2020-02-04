@@ -9,7 +9,7 @@
 import UIKit
 
 class PurchesViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet weak var btnCredit: CustomButton!
     @IBOutlet weak var btnReferral: CustomButton!
     
@@ -31,13 +31,21 @@ class PurchesViewController: BaseViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         self.addNavBarWithTitle("Credits", withLeftButtonType: (self.isCameFromNotification == false) ?.buttonTypeNil:.buttonTypeBack, withRightButtonType: .buttonTypeNil)
         
+        //TableView
+        self.tblView.registerNibWithIdentifier([IDENTIFIERS.CreditHistoryTableViewCell])
+        self.tblView.rowHeight = UITableView.automaticDimension
+        self.tblView.estimatedRowHeight = getCalculated(80.0)
+        self.tblView.tableFooterView = UIView()
+        
         self.creditVM.callAPI(self) { (success) in
             if success  == true {
                 self.creditPoints("(\(self.creditVM.totalCreditEarn))")
                 self.lblCredit.text = (self.creditVM.totalCreditEarn == 0) ?"\(self.creditVM.totalCreditEarn) Credit":"\(self.creditVM.totalCreditEarn) Credits"
+                self.tblView.reloadData()
             }
         }
-        
+        self.isCameFromNotification = true
+        //Check the condition, is coming form notification or tab
         if self.isCameFromNotification == false {
             let referralNumber = AppConstant.shared.loggedUser.referralCode
             let attributedString = NSMutableAttributedString(string: "Referral Code \(referralNumber) ", attributes: [
@@ -46,26 +54,23 @@ class PurchesViewController: BaseViewController, UITableViewDelegate, UITableVie
             ])
             attributedString.addAttribute(.font, value: UIFont(name: "HelveticaNeue-Medium", size: getCalculated(13.5))!, range: NSRange(location: 14, length: referralNumber.count))
             self.btnReferral.setAttributedTitle(attributedString, for: .normal)
+            self.btnCredit.isUserInteractionEnabled = (self.creditVM.totalCreditEarn == 0) ?false:true
         } else {
-            self.viewCredits.alpha = 0
-            self.constViewTableHeight.constant = getCalculated(471.0)
-            self.imgUpArrow.image = UIImage(named: "droparrow")
-            //self.btnCredit.setTitle("Credit History ($190)", for: .normal)
-            self.btnCredit.isUserInteractionEnabled = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                self.viewCredits.alpha = 0
+                self.constViewTableHeight.constant = (self.viewCredits.frame.size.height - getCalculated(43.0))
+                self.imgUpArrow.image = UIImage(named: "droparrow")
+                self.btnCredit.isUserInteractionEnabled = false
+            }
         }
-        //TableView
-        self.tblView.registerNibWithIdentifier([IDENTIFIERS.CreditHistoryTableViewCell])
-        self.tblView.rowHeight = UITableView.automaticDimension
-        self.tblView.estimatedRowHeight = getCalculated(80.0)
-        self.tblView.tableFooterView = UIView()
-        
     }
     
+    // MARK: - Button Action
     @IBAction func referralClickAction(_ sender: Any) {
         
         // text to share
         let text = "Hey, your friend \(AppConstant.shared.loggedUser.name) has recommended you to sign-up on Spinal Implant Database application by using code \(AppConstant.shared.loggedUser.referralCode). To download app: https://www.google.com"
-       // let text = "Hey there, please sign-up using the code \(AppConstant.shared.loggedUser.referralCode) to receive credits that can be redeemed against annual subscription. Download app: \("https://www.google.com")"
+        // let text = "Hey there, please sign-up using the code \(AppConstant.shared.loggedUser.referralCode) to receive credits that can be redeemed against annual subscription. Download app: \("https://www.google.com")"
         // set up activity view controller
         let textToShare = [ text ]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
@@ -84,8 +89,6 @@ class PurchesViewController: BaseViewController, UITableViewDelegate, UITableVie
                 self.viewCredits.alpha = 0
                 self.constViewTableHeight.constant = (self.viewCredits.frame.size.height - getCalculated(43.0))
                 self.imgUpArrow.image = UIImage(named: "droparrow")
-                //self.btnCredit.setTitle("Credit History ($190)", for: .normal)
-                self.creditPoints("\(self.creditVM.totalCreditEarn)")
                 self.view.layoutIfNeeded()
             }
         } else {
@@ -93,7 +96,6 @@ class PurchesViewController: BaseViewController, UITableViewDelegate, UITableVie
                 self.viewCredits.alpha = 1.0
                 self.constViewTableHeight.constant = getCalculated(0.0)
                 self.imgUpArrow.image = UIImage(named: "upArrow")
-                //self.btnCredit.setTitle("Credit History (0)", for: .normal)
                 self.view.layoutIfNeeded()
             }
         }
@@ -102,8 +104,8 @@ class PurchesViewController: BaseViewController, UITableViewDelegate, UITableVie
     func creditPoints(_ points: String) {
         //Credit
         let credit_attributedString = NSMutableAttributedString(string: "Credit History \(points)", attributes: [
-          .font: UIFont(name: "HelveticaNeue-Bold", size: getCalculated(13.5))!,
-          .foregroundColor: UIColor(red: 9.0 / 255.0, green: 133.0 / 255.0, blue: 233.0 / 255.0, alpha: 1.0)
+            .font: UIFont(name: "HelveticaNeue-Bold", size: getCalculated(13.5))!,
+            .foregroundColor: UIColor(red: 9.0 / 255.0, green: 133.0 / 255.0, blue: 233.0 / 255.0, alpha: 1.0)
         ])
         credit_attributedString.addAttribute(.font, value: UIFont(name: "HelveticaNeue", size: getCalculated(13.5))!, range: NSRange(location: 15, length: points.count))
         self.btnCredit.setAttributedTitle(credit_attributedString, for: .normal)
@@ -121,14 +123,14 @@ class PurchesViewController: BaseViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: IDENTIFIERS.CreditHistoryTableViewCell, for: indexPath) as? CreditHistoryTableViewCell {
-            if let obj = self.creditVM.arrCredit[indexPath.row] as? Credit {
-                cell.imgReferral.image = UIImage(named: obj.image)
-                cell.lblTitle.text = obj.title
-                cell.lblDate.text = obj.isApprovedDate
-                cell.lblAmount.text = obj.creditPoints
-                cell.lblDiscription.text = obj.msg
-                cell.lblAmount.textColor = APP_COLOR.color6
-            }
+            let obj = self.creditVM.arrCredit[indexPath.row] as? Credit ?? Credit()
+            cell.imgReferral.image = UIImage(named: obj.image)
+            cell.lblTitle.text = obj.title
+            cell.lblDate.text = obj.isApprovedDate
+            cell.lblAmount.text = "+ \(obj.creditPoints)"
+            cell.lblDiscription.text = obj.msg
+            cell.lblAmount.textColor = APP_COLOR.color6
+            
             return cell
         }
         return UITableViewCell()
@@ -138,13 +140,13 @@ class PurchesViewController: BaseViewController, UITableViewDelegate, UITableVie
         tableView.deselectRow(at: indexPath, animated: true)
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

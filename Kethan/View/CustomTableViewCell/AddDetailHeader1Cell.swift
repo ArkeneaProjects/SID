@@ -73,7 +73,7 @@ class AddDetailHeader1Cell: UITableViewCell, UICollectionViewDelegate, UICollect
             if let obj = arrAllItems.object(at: indexPath.item) as? ImageData {
                 cell.btnDelete.alpha = (obj.isApproved == "0" && obj.userId == AppConstant.shared.loggedUser.userId) ?1.0:0
                 cell.layoutIfNeeded()
-                cell.imgSelected.sd_setImage(with: URL(string: obj.imageName), placeholderImage: UIImage(named: "placeholder_smaller"), options: .continueInBackground) { (image, error, types, url) in
+                cell.imgSelected.setImageWithPlaceHolderImage(obj.imageName, true, true, PLACEHOLDERS.small) {
                     if obj.objectLocation.imageWidth.count != 0 || obj.objectLocation.imageHeight.count != 0 {
                         cell.imgSelected.drawRectangle(frameSize: CGSize(width: cell.imgSelected.bounds.width, height: cell.imgSelected.bounds.height), imageWidth: CGFloat(obj.objectLocation.imageWidth.floatValue()), imageHight: CGFloat(obj.objectLocation.imageHeight.floatValue()), drawSize: CGRect(x: CGFloat(obj.objectLocation.left.floatValue()), y: CGFloat(obj.objectLocation.top.floatValue()), width: CGFloat(obj.objectLocation.width.floatValue()), height: CGFloat(obj.objectLocation.height.floatValue())))
                     }

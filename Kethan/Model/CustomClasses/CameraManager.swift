@@ -359,7 +359,7 @@ open class CameraManager: NSObject, AVCaptureFileOutputRecordingDelegate, UIGest
     fileprivate var coreMotionManager: CMMotionManager!
     
     /// Real device orientation from accelerometer
-    fileprivate var deviceOrientation: UIDeviceOrientation = .portrait
+    open var deviceOrientation: UIDeviceOrientation = .portrait
     
     // MARK: - CameraManager
     
@@ -803,7 +803,7 @@ open class CameraManager: NSObject, AVCaptureFileOutputRecordingDelegate, UIGest
      Check if the device rotation is locked
      */
     open func deviceOrientationMatchesInterfaceOrientation() -> Bool {
-        return deviceOrientation == UIDevice.current.orientation
+        return deviceOrientation == .portrait
     }
     
     /**
@@ -1297,7 +1297,7 @@ open class CameraManager: NSObject, AVCaptureFileOutputRecordingDelegate, UIGest
             return .portrait
         }
         
-        return UIDevice.current.orientation
+        return .portrait
     }
     
     fileprivate func _currentPreviewVideoOrientation() -> AVCaptureVideoOrientation {

@@ -26,7 +26,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
                 
                 DispatchQueue.main.async {
                     UIApplication.shared.registerForRemoteNotifications()
-                }            }
+                }
+            }
         } else {
             let settings = UIUserNotificationSettings(types: [.alert, .sound, .badge], categories: nil)
             UIApplication.shared.registerUserNotificationSettings(settings)
@@ -73,11 +74,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        
-        if let dictionary = getUserDefaultsForKey(key: UserDefaultsKeys.LoggedUser) as? NSDictionary {
-            let loggedUser = User(dictionary: dictionary)
-            AppConstant.shared.loggedUser = loggedUser
-        }
         
         let tokenParts = deviceToken.map { data -> String in
             return String(format: "%02.2hhx", data)

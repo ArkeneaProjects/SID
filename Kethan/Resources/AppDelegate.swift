@@ -8,7 +8,6 @@ import UIKit
 import FBSDKCoreKit
 import GoogleSignIn
 import IQKeyboardManagerSwift
-import GooglePlaces
 import UserNotifications
 
 @UIApplicationMain
@@ -32,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         
         // Initialize sign-in
         GIDSignIn.sharedInstance().clientID = KEYS.googleKey
-        GMSPlacesClient.provideAPIKey(KEYS.GooglePlacesAPIKey)
+       // GMSPlacesClient.provideAPIKey(KEYS.GooglePlacesAPIKey)
         
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
 

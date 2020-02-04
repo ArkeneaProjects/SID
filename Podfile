@@ -11,13 +11,13 @@ target 'Kethan' do
   pod 'SkeletonView'
   pod 'IQKeyboardManagerSwift'
   pod 'Alamofire'
-  pod 'SDWebImage'
+  pod 'SDWebImage', "~> 4.4.6"
   pod 'SwiftyStoreKit'
   pod 'SVPinView'
   pod 'CropViewController'
   pod 'Atributika'
-  pod 'GooglePlaces'
-  
+  pod 'SpinKit'
+
   # Pods for Kethan
   
   target 'KethanTests' do

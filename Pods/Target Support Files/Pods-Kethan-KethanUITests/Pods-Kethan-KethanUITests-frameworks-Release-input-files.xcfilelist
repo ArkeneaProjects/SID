@@ -14,4 +14,5 @@ ${BUILT_PRODUCTS_DIR}/LNSideMenu/LNSideMenu.framework
 ${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
 ${BUILT_PRODUCTS_DIR}/SVPinView/SVPinView.framework
 ${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework
+${BUILT_PRODUCTS_DIR}/SpinKit/SpinKit.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyStoreKit/SwiftyStoreKit.framework
