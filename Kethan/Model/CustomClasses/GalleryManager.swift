@@ -107,7 +107,7 @@ class GalleryManager: NSObject {
         }
     }
     
-    func callCoperView(image: UIImage?) {
+    public func callCoperView(image: UIImage?) {
         if let imageSelect = image {
             if self.crop == false {
                 self.delegate?.didSelect(image: imageSelect)

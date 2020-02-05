@@ -17,6 +17,8 @@ class CreditVM: NSObject {
     }
     
     func callAPI(_ rootController: BaseViewController, isShowLoader: Bool = true, _ completion: @escaping (Bool) -> Void) {
+        self.totalCreditEarn = 0
+        self.arrCredit.removeAll()
         if isShowLoader {
             ProgressManager.show(withStatus: "", on: rootController.view)
         }
@@ -32,7 +34,6 @@ class CreditVM: NSObject {
                         self.arrCredit = dataarr.map({ (dict) -> Credit in
                             let credit = getValueFromDictionary(dictionary: dict, forKey: "creditPoints")
                             self.totalCreditEarn +=  Int(credit)!
-                            
                             return Credit(dictionary: dict)
                         })
                         // Update the credit points

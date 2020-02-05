@@ -167,7 +167,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     // MARK: - UITabelVieeDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return (self.imageArray.count > 3) ?getCalculated(240.0):getCalculated(130.0)
+            return (self.imageArray.count > 3) ? getCalculated(240.0) : getCalculated(130.0)
         }
         return UITableView.automaticDimension
     }
@@ -215,9 +215,9 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                 // Image Selection
                 cell.cellSelectionCompletion = { index_Path in
                     self.showActionSheet(headerTitle: "Choose Image From", cameraTitle: "Camera", galleryTitle: "Gallery", galleryCompletion: {
-                        self.imagePicker.present(croppingStyle: .circular, isCrop: false, isCamera: false)
+                        self.imagePicker.present(croppingStyle: .default, isCrop: true, isCamera: false)
                     }) {
-                        self.imagePicker.present(croppingStyle: .circular, isCrop: false, isCamera: true)
+                        self.imagePicker.present(croppingStyle: .default, isCrop: true, isCamera: true)
                     }
                 }
     
@@ -288,7 +288,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
             }
             
            // controller.selectedImage = self.resizeImageWithAspect(image: image!, scaledToMaxWidth: getCalculated(640.0), maxHeight: getCalculated(854.0))
-            controller.selectedImage = image!.resizeImage(targetSize: CGSize(width: getCalculated(640.0), height: getCalculated(854.0)))
+            controller.selectedImage = image!.resizeImage(targetSize: CGSize(width: getCalculated(640.0), height: getCalculated(640.0)))
 
             ProgressManager.dismiss()
             self.navigationController?.pushViewController(controller, animated: true)
