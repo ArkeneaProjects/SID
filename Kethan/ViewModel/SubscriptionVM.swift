@@ -56,9 +56,7 @@ class SubscriptionVM: NSObject {
                         let currencySymbol: String = (locale?.displayName(forKey: .currencySymbol, value: currencyCode))!
                         
                         let currentPrice = currencySymbol + String(describing: self.ProductArr[i].price)
-                        
-                        //                        (self.planArray.object(at: i) as? IAPProduct)?.plan = currentPrice
-                        
+                                               
                         let attributedString = NSMutableAttributedString(string: currentPrice, attributes: [
                             .font: APP_FONT.boldFont(withSize: 45.0),
                             .foregroundColor: UIColor(white: 1.0, alpha: 1.0)
@@ -136,7 +134,6 @@ class SubscriptionVM: NSObject {
                 if purchase.needsFinishTransaction {
                     SwiftyStoreKit.finishTransaction(purchase.transaction)
                 }
-                //self.verifyPurchase(pName: pName)
             }
             completion(result, pName)
         }
@@ -178,13 +175,7 @@ class SubscriptionVM: NSObject {
                     inReceipt: receipt,
                     validUntil: Date()
                 )
-                
-                //                let str = ((self.planArray[self.selectedIndex] as? IAPProduct)!.plan)
-                //                let PatientCountArr: [String] = str.components(separatedBy: " ")
-                //                if let data: IAPProduct = self.planArray.object(at: tag) as? IAPProduct {
-                //                    print(PatientCountArr, data)
-                //                }
-                
+
                 let expiryDate: Date = (tag == 0 ? Date(timeInterval: 3600 * 24 * 30, since: Date()) : Date(timeInterval: 3600 * 24 * 365, since: Date()))
                 let renewalDate: Date = (tag == 0 ? Date(timeInterval: 3600 * 24 * 31, since: Date()) : Date(timeInterval: 3600 * 24 * 366, since: Date()))
                 

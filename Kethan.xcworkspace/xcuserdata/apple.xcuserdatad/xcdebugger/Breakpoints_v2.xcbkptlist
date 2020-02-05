@@ -134,7 +134,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "99"
             endingLineNumber = "99"
-            landmarkName = "seeAllImages(_:)"
+            landmarkName = "seeAllProcesses(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -182,7 +182,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "128"
             endingLineNumber = "128"
-            landmarkName = "reloadTableView(_:)"
+            landmarkName = "seeAllImages(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -318,7 +318,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "3A1AB321-91E2-445F-B1D4-1C11E7F77EF3"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Kethan/View/Controller/TabBarDetailControllers/AddDetailsViewController.swift"
@@ -374,8 +374,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "312"
             endingLineNumber = "312"
-            landmarkName = "imageWithSize(image:size:)"
-            landmarkType = "7">
+            landmarkName = "AddDetailsViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -440,6 +440,38 @@
             endingLineNumber = "165"
             landmarkName = "verifyPurchase(pName:tag:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F3E4D296-A7AD-4A58-9DC2-9628A2D61A1D - fdecfdd8bdba0c35"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SID.SubscriptionVM.verifyPurchase(pName: Swift.String, tag: Swift.Int) -&gt; ()"
+                  moduleName = "SID"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Desktop/ALL%20APPS/SID/Kethan/ViewModel/SubscriptionVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "165"
+                  endingLineNumber = "165"
+                  offsetFromSymbolStart = "648">
+               </Location>
+               <Location
+                  uuid = "F3E4D296-A7AD-4A58-9DC2-9628A2D61A1D - 6a8d7492cf0218b7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (SwiftyStoreKit.VerifyReceiptResult) -&gt; () in SID.SubscriptionVM.verifyPurchase(pName: Swift.String, tag: Swift.Int) -&gt; ()"
+                  moduleName = "SID"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Desktop/ALL%20APPS/SID/Kethan/ViewModel/SubscriptionVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "166"
+                  endingLineNumber = "166"
+                  offsetFromSymbolStart = "336">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -458,19 +490,19 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "E9320E72-9D9D-414E-9AC2-C7432F4C0AC5 - fdecfdd8bdba0c35"
+                  uuid = "E9320E72-9D9D-414E-9AC2-C7432F4C0AC5 - 6a8d7492cf0218b7"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "SID.SubscriptionVM.verifyPurchase(pName: Swift.String, tag: Swift.Int) -&gt; ()"
+                  symbolName = "closure #1 (SwiftyStoreKit.VerifyReceiptResult) -&gt; () in SID.SubscriptionVM.verifyPurchase(pName: Swift.String, tag: Swift.Int) -&gt; ()"
                   moduleName = "SID"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/ALL%20APPS/SID/Kethan/ViewModel/SubscriptionVM.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "168"
-                  endingLineNumber = "168"
-                  offsetFromSymbolStart = "648">
+                  startingLineNumber = "169"
+                  endingLineNumber = "169"
+                  offsetFromSymbolStart = "376">
                </Location>
                <Location
                   uuid = "E9320E72-9D9D-414E-9AC2-C7432F4C0AC5 - 6a8d7492cf0218b7"
@@ -485,7 +517,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "169"
                   endingLineNumber = "169"
-                  offsetFromSymbolStart = "336">
+                  offsetFromSymbolStart = "428">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -504,38 +536,6 @@
             endingLineNumber = "172"
             landmarkName = "verifyPurchase(pName:tag:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "DF71613F-E238-4606-836D-2C0AAD32BE19 - 6a8d7492cf0218b7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (SwiftyStoreKit.VerifyReceiptResult) -&gt; () in SID.SubscriptionVM.verifyPurchase(pName: Swift.String, tag: Swift.Int) -&gt; ()"
-                  moduleName = "SID"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Desktop/ALL%20APPS/SID/Kethan/ViewModel/SubscriptionVM.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "172"
-                  endingLineNumber = "172"
-                  offsetFromSymbolStart = "376">
-               </Location>
-               <Location
-                  uuid = "DF71613F-E238-4606-836D-2C0AAD32BE19 - 6a8d7492cf0218b7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (SwiftyStoreKit.VerifyReceiptResult) -&gt; () in SID.SubscriptionVM.verifyPurchase(pName: Swift.String, tag: Swift.Int) -&gt; ()"
-                  moduleName = "SID"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Desktop/ALL%20APPS/SID/Kethan/ViewModel/SubscriptionVM.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "172"
-                  endingLineNumber = "172"
-                  offsetFromSymbolStart = "428">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -598,8 +598,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "159"
             endingLineNumber = "159"
-            landmarkName = "verifyReceipt(completion:)"
-            landmarkType = "7">
+            landmarkName = "SubscriptionVM"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -653,27 +653,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-<<<<<<< HEAD
-            uuid = "EFD57603-9CAE-4608-BA5D-E4155704A2BE"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Kethan/ViewModel/SubscriptionVM.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
-            landmarkName = "purchase(pName:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "C5073A91-EC83-4D91-8554-900D72870C39"
-=======
-            uuid = "3371C89B-AD3E-4893-AE9F-70E5F35E62A1"
->>>>>>> 5aa13e316e0c4c3293472162a17289da882dfae3
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -682,11 +662,10 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "154"
             endingLineNumber = "154"
-            landmarkName = "restoreSubscription()"
-            landmarkType = "7">
+            landmarkName = "SubscriptionVM"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
-<<<<<<< HEAD
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
@@ -735,7 +714,5 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
-=======
->>>>>>> 5aa13e316e0c4c3293472162a17289da882dfae3
    </Breakpoints>
 </Bucket>

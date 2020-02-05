@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CropViewController
 
-class HomeViewController: BaseViewController, GalleryManagerDelegate {
+class HomeViewController: BaseViewController, GalleryManagerDelegate, CropViewControllerDelegate {
     
     @IBOutlet weak var lblUserName: CustomLabel!
     @IBOutlet weak var lblPermissions: CustomLabel!
@@ -24,6 +25,7 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate {
     @IBOutlet weak var btnCamera: CustomButton!
     @IBOutlet weak var btnFlash: CustomButton!
     @IBOutlet weak var btnGallery: CustomButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +47,7 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-       
+        
         DispatchQueue.main.async {
             let creditVM = CreditVM()
             creditVM.callAPI(self, isShowLoader: false) { (success) in
@@ -155,13 +157,14 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate {
                     self.cameraManager.showErrorBlock("Error occurred", "Cannot save picture.")
                 case .success(let content):
                     if let capturedImage = content.asImage {
-                        print("Sucess")
+                        print("Success")
                         //self.imagePicker.cropImage(image: capturedImage, croppingStyle: .default, isCrop: true)
-                        if let controller = self.instantiate(PreviewViewController.self, storyboard: STORYBOARD.main) as? PreviewViewController {
-                            controller.selectedImage = capturedImage
-                            controller.isCrop = false
-                            self.navigationController?.pushViewController(controller, animated: true)
-                        }
+                        //                        if let controller = self.instantiate(PreviewViewController.self, storyboard: STORYBOARD.main) as? PreviewViewController {
+                        //                            controller.selectedImage = capturedImage
+                        //                            controller.isCrop = true
+                        //                            self.navigationController?.pushViewController(controller, animated: true)
+                        //                        }
+                        self.cropImageToSquare(capturedImage: capturedImage)
                     }
                 }
             })
@@ -182,6 +185,26 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate {
         }
     }
     
+    func cropImageToSquare(capturedImage: UIImage){
+        let cropController = CropViewController(croppingStyle: .default, image: capturedImage)
+        // if self.aspectRatioPickerButtonHidden == true {
+        cropController.aspectRatioPreset = .presetSquare
+        cropController.rotateButtonsHidden = true
+        cropController.aspectRatioPickerButtonHidden = true
+        cropController.resetAspectRatioEnabled = false
+        cropController.cropView.cropBoxResizeEnabled = false
+        //  }
+        
+        cropController.delegate = self
+        cropController.title = "Crop Image"
+        cropController.toolbar.doneTextButton.setTitleColor(UIColor.white, for: .normal)
+        cropController.toolbar.cancelTextButton.setTitleColor(UIColor.white, for: .normal)
+        cropController.isAccessibilityElement = true
+        
+        self.present(cropController, animated: true, completion: nil)
+    }
+    
+    
     func isPermissionGranted(isTrue: Bool) {
         
         self.lblPermissions.isUserInteractionEnabled = (isTrue == true) ?false:true
@@ -194,11 +217,31 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate {
     
     // MARK: - Gallery Delegate
     func didSelect(image: UIImage?) {
-        if let controller = self.instantiate(PreviewViewController.self, storyboard: STORYBOARD.main) as? PreviewViewController {
-            controller.selectedImage = image
-            controller.isCrop = false
+        self.cropImageToSquare(capturedImage: image!)
+        //        if let controller = self.instantiate(PreviewViewController.self, storyboard: STORYBOARD.main) as? PreviewViewController {
+        //            controller.selectedImage = image
+        //            controller.isCrop = true
+        //            self.navigationController?.pushViewController(controller, animated: true)
+        //        }
+    }
+    
+    // MARK: - CropViewControllerDelegate
+    func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+        print(cropRect)
+        cropViewController.dismiss(animated: true, completion: nil)
+        if let controller = self.instantiate(SearchListViewController.self, storyboard: STORYBOARD.main) as? SearchListViewController {
+            controller.searchImage = image
+            controller.isCalledFrom = 1
             self.navigationController?.pushViewController(controller, animated: true)
         }
+    }
+    
+    func cropViewController(_ cropViewController: CropViewController, didCropImageToRect rect: CGRect, angle: Int) {
+        
+    }
+    
+    func cropViewController(_ cropViewController: CropViewController, didFinishCancelled cancelled: Bool) {
+        cropViewController.dismiss(animated: true, completion: nil)
     }
     /*
      // MARK: - Navigation

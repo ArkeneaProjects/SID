@@ -22,7 +22,6 @@ class CreditViewController: BaseViewController {
                self.tblView.rowHeight = UITableView.automaticDimension
                self.tblView.estimatedRowHeight = getCalculated(80.0)
                self.tblView.tableFooterView = UIView()
-        
         // Do any additional setup after loading the view.
     }
     
