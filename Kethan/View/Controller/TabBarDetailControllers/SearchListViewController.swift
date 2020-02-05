@@ -16,7 +16,7 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBOutlet weak var viewError: UIView!
+    @IBOutlet weak var addButton: CustomButton!
 
     var isCalledFrom = 0 //0 coming search by text screen, 1 comming search by Image screen and 2 coming from upload screen
     
@@ -100,7 +100,7 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
         self.searchVM.rootController = self
         
         self.gradientSkeltonShowHide(isShow: true)
-        self.viewError.alpha = 0
+        self.addButton.alpha = 0
         if self.isCalledFrom == 1 {
            
             let imageDict  = saveImageInDocumentDict(image: self.searchImage!, imageName: "photo", key: "implantPicture")
@@ -108,9 +108,9 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
                 self.gradientSkeltonShowHide(isShow: false)
                 if self.searchVM.arrSearchResult.count == 0 {
                     self.lblResultCount.text = error
-                    self.viewError.alpha = 1.0
-                    ProgressManager.showError(withStatus: error, on: self.view) {
-                    }
+                    self.addButton.alpha = 1.0
+//                    ProgressManager.showError(withStatus: error, on: self.view) {
+//                    }
                    
                 } else {
                     DispatchQueue.main.async {
@@ -128,10 +128,9 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
                 self.gradientSkeltonShowHide(isShow: false)
                 if self.searchVM.arrSearchResult.count == 0 {
                     self.lblResultCount.text = error
-                    self.viewError.alpha = 1.0
-                    ProgressManager.showError(withStatus: error, on: self.view) {
-                            
-                    }
+                    self.addButton.alpha = 1.0
+//                    ProgressManager.showError(withStatus: error, on: self.view) {
+//                    }
                 } else {
                     DispatchQueue.main.async {
                        

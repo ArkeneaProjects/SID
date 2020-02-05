@@ -196,7 +196,12 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate, CropViewCo
         //  }
         
         cropController.delegate = self
-        cropController.title = "Crop Image"
+        let instructionLabel = UILabel(frame: CGRect(x: 10, y: 20, width: self.view.frame.size.width-20, height: 70))
+        instructionLabel.numberOfLines = 3
+        instructionLabel.textAlignment = .center
+        instructionLabel.textColor = .white
+        instructionLabel.text = "Try to zoom in to implant for more accurate result"
+        cropController.cropView.addSubview(instructionLabel)
         cropController.toolbar.doneTextButton.setTitleColor(UIColor.white, for: .normal)
         cropController.toolbar.cancelTextButton.setTitleColor(UIColor.white, for: .normal)
         cropController.isAccessibilityElement = true
