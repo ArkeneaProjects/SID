@@ -19,7 +19,7 @@ class PreviewViewController: BaseViewController {
         
         self.addNavBarWithTitle("Preview", withLeftButtonType: .buttonTypeBack, withRightButtonType: (self.isCrop == true) ?.buttonCrop:.buttonTypeNil)
         
-        let image = self.selectedImage!.resizeImage(targetSize: CGSize(width: getCalculated(640.0), height: getCalculated(854.0)))
+        let image = self.selectedImage!.resizeImage(targetSize: CGSize(width: getCalculated(640.0), height: getCalculated(640.0)))
         
         self.cropView.image = image
         self.cropView.isCrop = false
@@ -35,7 +35,7 @@ class PreviewViewController: BaseViewController {
         print("Dimention==\(cropView.getCropViewDimention().frame)")
         
         if let controller = self.instantiate(SearchListViewController.self, storyboard: STORYBOARD.main) as? SearchListViewController {
-            controller.searchImage = self.cropView.image!
+            controller.searchImage = self.cropView.image!.resized(withPercentage: 0.4)
             controller.isCalledFrom = 1
             self.navigationController?.pushViewController(controller, animated: true)
         }

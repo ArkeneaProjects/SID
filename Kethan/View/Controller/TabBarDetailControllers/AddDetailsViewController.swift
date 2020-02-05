@@ -288,7 +288,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
             }
             
            // controller.selectedImage = self.resizeImageWithAspect(image: image!, scaledToMaxWidth: getCalculated(640.0), maxHeight: getCalculated(854.0))
-            controller.selectedImage = image!.resizeImage(targetSize: CGSize(width: getCalculated(640.0), height: getCalculated(854.0)))
+            controller.selectedImage = image!.resizeImage(targetSize: CGSize(width: getCalculated(640.0), height: getCalculated(640.0)))
 
             ProgressManager.dismiss()
             self.navigationController?.pushViewController(controller, animated: true)

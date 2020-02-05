@@ -26,7 +26,6 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate, CropViewCo
     @IBOutlet weak var btnFlash: CustomButton!
     @IBOutlet weak var btnGallery: CustomButton!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBarWithTitle("Home", withLeftButtonType: .buttonTypeMenu, withRightButtonType: .buttonTypeCredit)
@@ -185,14 +184,15 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate, CropViewCo
         }
     }
     
-    func cropImageToSquare(capturedImage: UIImage){
+    func cropImageToSquare(capturedImage: UIImage) {
         let cropController = CropViewController(croppingStyle: .default, image: capturedImage)
         // if self.aspectRatioPickerButtonHidden == true {
         cropController.aspectRatioPreset = .presetSquare
-        cropController.rotateButtonsHidden = true
+        cropController.rotateButtonsHidden = false
         cropController.aspectRatioPickerButtonHidden = true
         cropController.resetAspectRatioEnabled = false
-        cropController.cropView.cropBoxResizeEnabled = false
+        cropController.cropView.cropBoxResizeEnabled = true
+        cropController.aspectRatioLockEnabled = true
         //  }
         
         cropController.delegate = self
@@ -203,7 +203,6 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate, CropViewCo
         
         self.present(cropController, animated: true, completion: nil)
     }
-    
     
     func isPermissionGranted(isTrue: Bool) {
         
@@ -229,11 +228,16 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate, CropViewCo
     func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
         print(cropRect)
         cropViewController.dismiss(animated: true, completion: nil)
-        if let controller = self.instantiate(SearchListViewController.self, storyboard: STORYBOARD.main) as? SearchListViewController {
-            controller.searchImage = image
-            controller.isCalledFrom = 1
+        if let controller = self.instantiate(PreviewViewController.self, storyboard: STORYBOARD.main) as? PreviewViewController {
+            controller.selectedImage = image
+            controller.isCrop = true
             self.navigationController?.pushViewController(controller, animated: true)
         }
+        //        if let controller = self.instantiate(SearchListViewController.self, storyboard: STORYBOARD.main) as? SearchListViewController {
+        //            controller.searchImage = image
+        //            controller.isCalledFrom = 1
+        //            self.navigationController?.pushViewController(controller, animated: true)
+        //        }
     }
     
     func cropViewController(_ cropViewController: CropViewController, didCropImageToRect rect: CGRect, angle: Int) {
