@@ -650,7 +650,7 @@ about an implant, upon verifiication  we'll add
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yf9-Ya-rdn" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
-                                        <rect key="frame" x="13" y="13" width="294" height="15"/>
+                                        <rect key="frame" x="7" y="13" width="300" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="lTT-jc-36h" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                 <userDefinedRuntimeAttributes>
@@ -741,7 +741,7 @@ about an implant, upon verifiication  we'll add
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstItem="yf9-Ya-rdn" firstAttribute="leading" secondItem="I3e-jQ-ksh" secondAttribute="leading" constant="13" id="4tE-o7-jgp" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                    <constraint firstItem="yf9-Ya-rdn" firstAttribute="leading" secondItem="I3e-jQ-ksh" secondAttribute="leading" constant="7" id="4tE-o7-jgp" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                         </userDefinedRuntimeAttributes>

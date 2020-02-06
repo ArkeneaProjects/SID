@@ -78,7 +78,7 @@ struct DEVICES {
     static let iPhoneX: String = "iPhoneX"
     static let iPhoneXR: String = "iPhoneXR"
     //     static let iPhone_XS: String = "iPhone XS"
-    //    static let iPhone_XS_Max: String = "iPhone XS Max"
+    static let iPhone_XS_Max: String = "iPhone XS Max"
 }
 
 struct APP_URLS {

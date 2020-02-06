@@ -46,7 +46,7 @@ class SearchViewCollecction: UIView, UICollectionViewDelegate, UICollectionViewD
         layout.sectionInset = UIEdgeInsets.zero
         layout.scrollDirection = .horizontal
         self.collectionView.collectionViewLayout = layout
-        self.collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+//        self.collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
     }
     
@@ -87,6 +87,7 @@ class SearchViewCollecction: UIView, UICollectionViewDelegate, UICollectionViewD
     // MARK: - ScrollDelegate
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let width = scrollView.frame.size.width
+        print(scrollView.contentOffset.x)
         let page = (scrollView.contentOffset.x + (0.5 * width)) / width
         self.lblImageCount.text = "\(NSInteger(page) + 1)/\(self.arrAllItems.count)"
     }
