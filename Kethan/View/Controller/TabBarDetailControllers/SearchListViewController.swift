@@ -117,7 +117,7 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
                         if self.searchVM.arrSearchResult.count == 1 {
                             self.lblResultCount.text = "1 result match to your search by image"
                         } else {
-                            self.lblResultCount.text = "\(self.searchVM.arrSearchResult.count) results match to your search by images"
+                            self.lblResultCount.text = "\(self.searchVM.arrSearchResult.count) results match to your search by image"
                         }
                         self.collectionView.reloadData()
                     }

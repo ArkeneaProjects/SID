@@ -200,7 +200,7 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate, CropViewCo
         instructionLabel.numberOfLines = 3
         instructionLabel.textAlignment = .center
         instructionLabel.textColor = .white
-        instructionLabel.text = "Try to zoom in to implant for more accurate result"
+        instructionLabel.text = "Ensure that the implant is clearly visible in the image and crop out the background."
         cropController.cropView.addSubview(instructionLabel)
         cropController.toolbar.doneTextButton.setTitleColor(UIColor.white, for: .normal)
         cropController.toolbar.cancelTextButton.setTitleColor(UIColor.white, for: .normal)

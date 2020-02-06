@@ -57,7 +57,7 @@ func getCalculated(_ value: CGFloat) -> CGFloat {
     }
 
 func safeAreaHeight() -> CGFloat {
-    return (isDevice() == DEVICES.iPhoneX) ?667:751
+    return (isDevice() == DEVICES.iPhoneX) ?667:736
 }
 
 func getValueFromDictionary(dictionary: NSDictionary, forKey key: String) -> String {

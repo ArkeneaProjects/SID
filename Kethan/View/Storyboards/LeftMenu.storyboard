@@ -1088,14 +1088,11 @@ as they can</string>
                                             </constraint>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfh-Ep-tqY" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
-                                        <rect key="frame" x="21" y="124.5" width="278" height="196"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfh-Ep-tqY" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
+                                        <rect key="frame" x="21" y="124.5" width="278" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="Py4-48-5Qq"/>
                                         </constraints>
-                                        <string key="text">Lorem ipsum dolor sit amet, sapien etiam,nuncamet dolor ac odio mauris justo.Luctus arcu, urna praesent at id quisque ac.Arcu es massa vestibulum malesuada,integer vivamuselit eumauris eus, cum eros quis aliquam wisi.      
-
-Nulla wisi laoreet suspendisse integer vivamus elit eu mauris hendrerit facilisi, mi attispariatur aliquam pharetra eget. malesuada, integer vivamus elit eu mauris eus, cum eros is aliquam wisi. </string>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1306,7 +1303,7 @@ Nulla wisi laoreet suspendisse integer vivamus elit eu mauris hendrerit facilisi
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="brian.murray@abc.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jly-JA-7B1" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
-                                        <rect key="frame" x="52.5" y="125" width="165.5" height="20"/>
+                                        <rect key="frame" x="76" y="126" width="134.5" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="Guo-jg-STe" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                 <userDefinedRuntimeAttributes>
@@ -1319,18 +1316,18 @@ Nulla wisi laoreet suspendisse integer vivamus elit eu mauris hendrerit facilisi
                                                 </userDefinedRuntimeAttributes>
                                             </constraint>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
                                             <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                <real key="value" value="16"/>
+                                                <real key="value" value="13"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emailWhite" translatesAutoresizingMaskIntoConstraints="NO" id="yjw-CP-uQO">
-                                        <rect key="frame" x="32.5" y="127.5" width="13" height="15"/>
+                                        <rect key="frame" x="56" y="128.5" width="13" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="PGI-pC-ENA" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                 <userDefinedRuntimeAttributes>
@@ -1345,7 +1342,7 @@ Nulla wisi laoreet suspendisse integer vivamus elit eu mauris hendrerit facilisi
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(123) 12345781" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7K-lS-rTP" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
-                                        <rect key="frame" x="79.5" y="146" width="111" height="20"/>
+                                        <rect key="frame" x="98" y="146" width="90" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="rAs-r4-YCi" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                 <userDefinedRuntimeAttributes>
@@ -1353,18 +1350,18 @@ Nulla wisi laoreet suspendisse integer vivamus elit eu mauris hendrerit facilisi
                                                 </userDefinedRuntimeAttributes>
                                             </constraint>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
                                             <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                <real key="value" value="16"/>
+                                                <real key="value" value="13"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="callWhite" translatesAutoresizingMaskIntoConstraints="NO" id="DDt-6I-5EZ">
-                                        <rect key="frame" x="59.5" y="148.5" width="13" height="15"/>
+                                        <rect key="frame" x="78" y="148.5" width="13" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="WDS-Vi-hIj" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                 <userDefinedRuntimeAttributes>
@@ -1433,7 +1430,7 @@ Nulla wisi laoreet suspendisse integer vivamus elit eu mauris hendrerit facilisi
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </constraint>
-                                    <constraint firstItem="F7K-lS-rTP" firstAttribute="top" secondItem="Jly-JA-7B1" secondAttribute="bottom" constant="1" id="Kba-OZ-VIs"/>
+                                    <constraint firstItem="F7K-lS-rTP" firstAttribute="top" secondItem="Jly-JA-7B1" secondAttribute="bottom" id="Kba-OZ-VIs"/>
                                     <constraint firstItem="SeX-MI-gvx" firstAttribute="leading" secondItem="0Qr-FP-Syk" secondAttribute="leading" id="SW4-ZG-IPm"/>
                                     <constraint firstItem="SeX-MI-gvx" firstAttribute="top" secondItem="NbP-k8-phm" secondAttribute="bottom" constant="10" id="U6i-FM-nOx" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                         <userDefinedRuntimeAttributes>
@@ -1443,17 +1440,17 @@ Nulla wisi laoreet suspendisse integer vivamus elit eu mauris hendrerit facilisi
                                     <constraint firstItem="NbP-k8-phm" firstAttribute="centerX" secondItem="0Qr-FP-Syk" secondAttribute="centerX" id="Xfi-PZ-qQc"/>
                                     <constraint firstAttribute="trailing" secondItem="G5N-mK-SjG" secondAttribute="trailing" id="Ypg-ES-m8z"/>
                                     <constraint firstAttribute="bottom" secondItem="G5N-mK-SjG" secondAttribute="bottom" id="cIk-ug-eYf"/>
-                                    <constraint firstItem="Jly-JA-7B1" firstAttribute="centerX" secondItem="0Qr-FP-Syk" secondAttribute="centerX" id="cUV-wV-TQ7"/>
+                                    <constraint firstItem="Jly-JA-7B1" firstAttribute="centerX" secondItem="0Qr-FP-Syk" secondAttribute="centerX" constant="8.25" id="cUV-wV-TQ7"/>
                                     <constraint firstItem="I9K-2K-9Ag" firstAttribute="bottom" secondItem="NbP-k8-phm" secondAttribute="bottom" id="f1n-dy-lfL" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </constraint>
-                                    <constraint firstItem="F7K-lS-rTP" firstAttribute="centerX" secondItem="0Qr-FP-Syk" secondAttribute="centerX" id="fGA-Iq-eXa"/>
+                                    <constraint firstItem="F7K-lS-rTP" firstAttribute="centerX" secondItem="0Qr-FP-Syk" secondAttribute="centerX" constant="8" id="fGA-Iq-eXa"/>
                                     <constraint firstItem="G5N-mK-SjG" firstAttribute="top" secondItem="y2P-lf-O7r" secondAttribute="bottom" id="knf-DS-dit"/>
                                     <constraint firstAttribute="trailing" secondItem="3Ov-kY-FQC" secondAttribute="trailing" id="lCq-ci-kN6"/>
                                     <constraint firstItem="3Ov-kY-FQC" firstAttribute="top" secondItem="0Qr-FP-Syk" secondAttribute="top" id="niG-QJ-p6r"/>
-                                    <constraint firstItem="Jly-JA-7B1" firstAttribute="top" secondItem="SeX-MI-gvx" secondAttribute="bottom" id="vFJ-ne-VB5"/>
+                                    <constraint firstItem="Jly-JA-7B1" firstAttribute="top" secondItem="SeX-MI-gvx" secondAttribute="bottom" constant="1" id="vFJ-ne-VB5"/>
                                     <constraint firstItem="yjw-CP-uQO" firstAttribute="centerY" secondItem="Jly-JA-7B1" secondAttribute="centerY" id="wrN-89-x1M"/>
                                     <constraint firstItem="DDt-6I-5EZ" firstAttribute="centerY" secondItem="F7K-lS-rTP" secondAttribute="centerY" id="wwT-TR-nyI"/>
                                     <constraint firstItem="F7K-lS-rTP" firstAttribute="leading" secondItem="DDt-6I-5EZ" secondAttribute="trailing" constant="7" id="xgM-za-c3I"/>
