@@ -24,7 +24,7 @@ class SearchListCollectionViewCell: UICollectionViewCell {
         self.lblTitle.text = obj.objectName
         self.lblSubTitle.text = obj.implantManufacture
         self.layoutIfNeeded()
-        self.lblMatch.text = obj.match
+        self.lblMatch.text = " " + obj.match + " "
         self.lblMatch.alpha = (obj.match.count == 0) ?0:1.0
         if obj.imageData.count > 0 {
             

@@ -23,13 +23,13 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="mgu-jZ-tfB">
-                        <rect key="frame" x="13" y="12" width="144" height="146.5"/>
+                        <rect key="frame" x="7" y="12" width="146" height="146.5"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skyline a:p lateran" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLT-hP-hPC" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
-                        <rect key="frame" x="13" y="165.5" width="144" height="18"/>
+                        <rect key="frame" x="7" y="165.5" width="146" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="fWC-bb-CPJ" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                 <userDefinedRuntimeAttributes>
@@ -49,7 +49,7 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Depuy Skyline " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00c-p8-V9T" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
-                        <rect key="frame" x="13" y="187.5" width="144" height="18"/>
+                        <rect key="frame" x="7" y="187.5" width="146" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="wXm-jt-4ov"/>
                         </constraints>
@@ -65,8 +65,8 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xri-6u-OOB" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
-                        <rect key="frame" x="152" y="136.5" width="0.0" height="17"/>
-                        <color key="backgroundColor" red="0.79607843140000001" green="0.79607843140000001" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <rect key="frame" x="150" y="136.5" width="0.0" height="17"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.50508912852112675" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" id="QUt-Qj-7Np"/>
                             <constraint firstAttribute="height" constant="17" id="dBc-eb-rlc" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
@@ -100,8 +100,8 @@
                 </constraint>
                 <constraint firstItem="00c-p8-V9T" firstAttribute="leading" secondItem="mgu-jZ-tfB" secondAttribute="leading" id="Jsr-fa-exj"/>
                 <constraint firstItem="cLT-hP-hPC" firstAttribute="trailing" secondItem="mgu-jZ-tfB" secondAttribute="trailing" id="RPv-Cg-TIf"/>
-                <constraint firstItem="Xri-6u-OOB" firstAttribute="trailing" secondItem="mgu-jZ-tfB" secondAttribute="trailing" constant="-5" id="UaQ-Fh-Grp"/>
-                <constraint firstItem="mgu-jZ-tfB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="13" id="fXB-sZ-PjV" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                <constraint firstItem="Xri-6u-OOB" firstAttribute="trailing" secondItem="mgu-jZ-tfB" secondAttribute="trailing" constant="-3" id="UaQ-Fh-Grp"/>
+                <constraint firstItem="mgu-jZ-tfB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="7" id="fXB-sZ-PjV" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                     </userDefinedRuntimeAttributes>
@@ -109,7 +109,7 @@
                 <constraint firstItem="00c-p8-V9T" firstAttribute="trailing" secondItem="mgu-jZ-tfB" secondAttribute="trailing" id="ftq-m7-UnX"/>
                 <constraint firstItem="cLT-hP-hPC" firstAttribute="leading" secondItem="mgu-jZ-tfB" secondAttribute="leading" id="jfT-Gg-ZtP"/>
                 <constraint firstAttribute="bottom" secondItem="00c-p8-V9T" secondAttribute="bottom" constant="7.5" id="lVp-9b-Qg9"/>
-                <constraint firstAttribute="trailing" secondItem="mgu-jZ-tfB" secondAttribute="trailing" constant="3" id="m7I-4q-8Rw" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                <constraint firstAttribute="trailing" secondItem="mgu-jZ-tfB" secondAttribute="trailing" constant="7" id="m7I-4q-8Rw" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                     </userDefinedRuntimeAttributes>

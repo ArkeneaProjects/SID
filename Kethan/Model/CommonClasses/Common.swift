@@ -160,7 +160,7 @@ func updateUserDetail(userDetail: NSDictionary) {
 }
 
 func addSpinnerWithStyle(spinnerStyle: RTSpinKitViewStyle, withColor color: UIColor, withBackgroundColor backgroundColor: UIColor, withParent parentView: UIView, ofSize size: Float) {
-    let spinner: RTSpinKitView = RTSpinKitView(style: spinnerStyle, color: color, spinnerSize: CGFloat(size))
+    let spinner: RTSpinKitView = RTSpinKitView(style: spinnerStyle, color: color.withAlphaComponent(0.5), spinnerSize: CGFloat(size))
     if parentView.viewWithTag(95111111) != nil {
         parentView.viewWithTag(95111111)!.removeFromSuperview()
     }
