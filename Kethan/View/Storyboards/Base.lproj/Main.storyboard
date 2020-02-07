@@ -649,43 +649,8 @@ about an implant, upon verifiication  we'll add
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I3e-jQ-ksh">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yf9-Ya-rdn" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
-                                        <rect key="frame" x="7" y="13" width="300" height="15"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="lTT-jc-36h" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="NO"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                        <color key="textColor" red="0.41176470588235292" green="0.41176470588235292" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                <real key="value" value="13"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="shouldRotate" value="NO"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWq-v7-977">
-                                        <rect key="frame" x="0.0" y="41" width="320" height="1.5"/>
-                                        <color key="backgroundColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="1.5" id="u1V-mC-76t" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Cvf-Bo-jIT">
-                                        <rect key="frame" x="0.0" y="42.5" width="320" height="451.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="494"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="bOM-0t-ayn">
                                             <size key="itemSize" width="50" height="50"/>
@@ -712,7 +677,7 @@ about an implant, upon verifiication  we'll add
                                         </connections>
                                     </collectionView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Len-6D-GVi" customClass="CustomButton" customModule="SID" customModuleProvider="target">
-                                        <rect key="frame" x="13" y="412" width="294" height="40"/>
+                                        <rect key="frame" x="13" y="334.5" width="294" height="40"/>
                                         <color key="backgroundColor" red="0.035294117649999998" green="0.52156862749999999" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="LPO-0e-6t4" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
@@ -722,7 +687,7 @@ about an implant, upon verifiication  we'll add
                                             </constraint>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
-                                        <state key="normal" title=" Add Image" image="add">
+                                        <state key="normal" title=" Add Implant" image="add">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -738,34 +703,53 @@ about an implant, upon verifiication  we'll add
                                             <action selector="rightButtonAction" destination="0Ld-xg-Wf5" eventType="touchUpInside" id="0ar-wD-CXq"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unfortunately, the implant could not be identified. Please click on the 'Add implant' button below if you know the implant." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Hf-C0-rxJ" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="184" width="280" height="50.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                <real key="value" value="14"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_smaller" translatesAutoresizingMaskIntoConstraints="NO" id="niu-EO-uaG">
+                                        <rect key="frame" x="130" y="94.5" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="SmP-rB-dGl" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </constraint>
+                                            <constraint firstAttribute="width" constant="60" id="VhA-6n-qca" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </constraint>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="30"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstItem="yf9-Ya-rdn" firstAttribute="leading" secondItem="I3e-jQ-ksh" secondAttribute="leading" constant="7" id="4tE-o7-jgp" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </constraint>
-                                    <constraint firstAttribute="trailing" secondItem="jWq-v7-977" secondAttribute="trailing" id="8kv-Fy-BjZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="7Hf-C0-rxJ" secondAttribute="trailing" constant="20" id="1fG-3D-GdN"/>
                                     <constraint firstAttribute="bottom" secondItem="Cvf-Bo-jIT" secondAttribute="bottom" constant="10" id="Bz1-Mn-EDK"/>
+                                    <constraint firstItem="7Hf-C0-rxJ" firstAttribute="top" secondItem="niu-EO-uaG" secondAttribute="bottom" constant="29.5" id="DUP-jm-4q5"/>
                                     <constraint firstAttribute="trailing" secondItem="Cvf-Bo-jIT" secondAttribute="trailing" id="FYK-rL-hr5"/>
                                     <constraint firstAttribute="trailing" secondItem="Len-6D-GVi" secondAttribute="trailing" constant="13" id="IVB-qB-l00"/>
-                                    <constraint firstAttribute="bottom" secondItem="Len-6D-GVi" secondAttribute="bottom" constant="52" id="TPb-6Z-GxP"/>
-                                    <constraint firstItem="yf9-Ya-rdn" firstAttribute="top" secondItem="I3e-jQ-ksh" secondAttribute="top" constant="13" id="Ved-Xv-gVR" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </constraint>
+                                    <constraint firstItem="niu-EO-uaG" firstAttribute="centerX" secondItem="I3e-jQ-ksh" secondAttribute="centerX" id="Lus-X7-fzZ"/>
+                                    <constraint firstItem="7Hf-C0-rxJ" firstAttribute="centerY" secondItem="I3e-jQ-ksh" secondAttribute="centerY" constant="-43" id="Yie-X3-frl"/>
                                     <constraint firstItem="Cvf-Bo-jIT" firstAttribute="leading" secondItem="I3e-jQ-ksh" secondAttribute="leading" id="aGp-tI-OIc"/>
-                                    <constraint firstAttribute="trailing" secondItem="yf9-Ya-rdn" secondAttribute="trailing" constant="13" id="buz-1l-fgE"/>
+                                    <constraint firstItem="7Hf-C0-rxJ" firstAttribute="leading" secondItem="I3e-jQ-ksh" secondAttribute="leading" constant="20" id="btA-XB-5lX"/>
                                     <constraint firstItem="Len-6D-GVi" firstAttribute="leading" secondItem="I3e-jQ-ksh" secondAttribute="leading" constant="13" id="eNf-vi-SCT"/>
-                                    <constraint firstItem="jWq-v7-977" firstAttribute="top" secondItem="yf9-Ya-rdn" secondAttribute="bottom" constant="13" id="iyy-tt-AYg" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </constraint>
-                                    <constraint firstItem="jWq-v7-977" firstAttribute="leading" secondItem="I3e-jQ-ksh" secondAttribute="leading" id="r4g-En-xE2"/>
-                                    <constraint firstItem="Cvf-Bo-jIT" firstAttribute="top" secondItem="jWq-v7-977" secondAttribute="bottom" id="yo5-h1-bw2"/>
+                                    <constraint firstItem="Cvf-Bo-jIT" firstAttribute="top" secondItem="I3e-jQ-ksh" secondAttribute="top" id="s04-ax-uCi"/>
+                                    <constraint firstItem="Len-6D-GVi" firstAttribute="top" secondItem="7Hf-C0-rxJ" secondAttribute="bottom" constant="100" id="spn-T4-64G"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
@@ -788,7 +772,8 @@ about an implant, upon verifiication  we'll add
                         <outlet property="addButton" destination="Len-6D-GVi" id="4YG-Bn-9by"/>
                         <outlet property="collectionView" destination="Cvf-Bo-jIT" id="SKv-0d-pqc"/>
                         <outlet property="const_NavbarHeight" destination="get-Og-dtt" id="QbB-1E-RZp"/>
-                        <outlet property="lblResultCount" destination="yf9-Ya-rdn" id="EyX-Zc-fs1"/>
+                        <outlet property="imgWatermark" destination="niu-EO-uaG" id="p91-uN-dwL"/>
+                        <outlet property="lblNoResult" destination="7Hf-C0-rxJ" id="qgv-FR-hLV"/>
                         <outlet property="viewContainer" destination="I3e-jQ-ksh" id="1Za-tt-JVO"/>
                         <outlet property="viewNavBar" destination="zh4-Oa-x19" id="dcd-Ax-6GO"/>
                     </connections>
@@ -1789,51 +1774,34 @@ once it's verified. </string>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fLR-Jg-WjD">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTX-yh-1mR" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
-                                                <rect key="frame" x="13" y="13" width="294" height="37"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ensure that the implant is clearly visible in the image and the image itself isn’t blurred." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oum-rw-afD" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
+                                                <rect key="frame" x="5" y="5" width="310" height="57.5"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                        <real key="value" value="15.5"/>
+                                                        <real key="value" value="14"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.19927376760563381" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="vTX-yh-1mR" firstAttribute="leading" secondItem="fLR-Jg-WjD" secondAttribute="leading" constant="13" id="4PM-AY-p1u"/>
-                                            <constraint firstAttribute="height" constant="63" id="9Rn-EL-fWZ" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                            <constraint firstItem="Oum-rw-afD" firstAttribute="leading" secondItem="fLR-Jg-WjD" secondAttribute="leading" constant="5" id="7Gn-rm-MDV"/>
+                                            <constraint firstAttribute="height" constant="70" id="9Rn-EL-fWZ" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </constraint>
-                                            <constraint firstItem="vTX-yh-1mR" firstAttribute="top" secondItem="fLR-Jg-WjD" secondAttribute="top" constant="13" id="FX8-Uj-iYN"/>
-                                            <constraint firstAttribute="bottom" secondItem="vTX-yh-1mR" secondAttribute="bottom" constant="13" id="NZH-kM-GpO"/>
-                                            <constraint firstAttribute="trailing" secondItem="vTX-yh-1mR" secondAttribute="trailing" constant="13" id="dkb-LC-3RF"/>
+                                            <constraint firstAttribute="bottom" secondItem="Oum-rw-afD" secondAttribute="bottom" constant="7.5" id="ecX-4N-J6M"/>
+                                            <constraint firstAttribute="trailing" secondItem="Oum-rw-afD" secondAttribute="trailing" constant="5" id="krw-Yd-TIe"/>
+                                            <constraint firstItem="Oum-rw-afD" firstAttribute="top" secondItem="fLR-Jg-WjD" secondAttribute="top" constant="5" id="opo-XK-ers"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oum-rw-afD" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="37"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="19" id="57G-Of-epv"/>
-                                        </constraints>
-                                        <string key="text">Click a picture of the X-Ray 
-to search in our Database</string>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15.5"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                <real key="value" value="15.5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lp4-Sj-qHm" customClass="CustomButton" customModule="SID" customModuleProvider="target">
                                         <rect key="frame" x="254" y="445" width="36" height="36"/>
                                         <constraints>
@@ -1911,7 +1879,6 @@ to search in our Database</string>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </constraint>
-                                    <constraint firstAttribute="trailing" secondItem="Oum-rw-afD" secondAttribute="trailing" id="LMf-2S-Ngw"/>
                                     <constraint firstAttribute="trailing" secondItem="fLR-Jg-WjD" secondAttribute="trailing" id="MKR-bP-yTt"/>
                                     <constraint firstItem="KlU-Np-jUl" firstAttribute="leading" secondItem="b0B-4h-qjc" secondAttribute="trailing" constant="25" id="Qfd-fY-Nf5"/>
                                     <constraint firstItem="LeY-pV-ncs" firstAttribute="leading" secondItem="yWy-DW-L4i" secondAttribute="leading" id="SMd-sr-yvF"/>
@@ -1924,12 +1891,6 @@ to search in our Database</string>
                                     </constraint>
                                     <constraint firstItem="KlU-Np-jUl" firstAttribute="bottom" secondItem="Lp4-Sj-qHm" secondAttribute="bottom" id="t7a-P6-P1h"/>
                                     <constraint firstItem="fLR-Jg-WjD" firstAttribute="leading" secondItem="yWy-DW-L4i" secondAttribute="leading" id="uu3-dm-naX"/>
-                                    <constraint firstItem="Oum-rw-afD" firstAttribute="top" secondItem="fLR-Jg-WjD" secondAttribute="bottom" constant="23" id="xZ2-xb-QT6" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </constraint>
-                                    <constraint firstItem="Oum-rw-afD" firstAttribute="leading" secondItem="yWy-DW-L4i" secondAttribute="leading" id="xvt-pg-30o"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7F-Oi-IRh">
@@ -1958,7 +1919,6 @@ to search in our Database</string>
                         <outlet property="btnGallery" destination="Lp4-Sj-qHm" id="dG0-QD-y9Y"/>
                         <outlet property="const_NavbarHeight" destination="Gxg-9h-Y5f" id="1qH-iN-OH2"/>
                         <outlet property="lblPermissions" destination="Oum-rw-afD" id="ViW-Lo-iql"/>
-                        <outlet property="lblUserName" destination="vTX-yh-1mR" id="cqr-MA-vGh"/>
                         <outlet property="viewCamera" destination="LeY-pV-ncs" id="mwQ-QT-yHT"/>
                         <outlet property="viewContainer" destination="yWy-DW-L4i" id="X6S-nE-JBX"/>
                         <outlet property="viewNavBar" destination="e7F-Oi-IRh" id="q55-4f-Abe"/>
@@ -3300,6 +3260,7 @@ palpation. Refer for further examination if</string>
         <image name="implantIcon" width="13.5" height="17"/>
         <image name="landing_bg" width="320" height="568"/>
         <image name="manufacturer" width="13" height="19"/>
+        <image name="placeholder_smaller" width="91.5" height="91.5"/>
         <image name="removal" width="13.5" height="13.5"/>
         <image name="uncheck" width="18" height="18"/>
         <image name="upArrow" width="13.5" height="7.5"/>
