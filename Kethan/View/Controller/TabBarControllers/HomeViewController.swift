@@ -54,12 +54,12 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate, CropViewCo
             }
         }
         //Display User name
-        let userName = AppConstant.shared.loggedUser.name
-        let attributedString = NSMutableAttributedString(string: "Hello \(userName),\rLet\'s get you started! ", attributes: [
-            .font: APP_FONT.regularFont(withSize: 13.5), .foregroundColor: UIColor(white: 1.0, alpha: 1.0)])
-        attributedString.addAttribute(.font, value: APP_FONT.regularFont(withSize: 15.5), range: NSRange(location: 0, length: 5))
-        attributedString.addAttribute(.font, value: APP_FONT.boldFont(withSize: 15.5), range: NSRange(location: 6, length: userName.count))
-        self.lblUserName.attributedText = attributedString
+//        let userName = AppConstant.shared.loggedUser.name
+//        let attributedString = NSMutableAttributedString(string: "Hello \(userName),\rLet\'s get you started! ", attributes: [
+//            .font: APP_FONT.regularFont(withSize: 13.5), .foregroundColor: UIColor(white: 1.0, alpha: 1.0)])
+//        attributedString.addAttribute(.font, value: APP_FONT.regularFont(withSize: 15.5), range: NSRange(location: 0, length: 5))
+//        attributedString.addAttribute(.font, value: APP_FONT.boldFont(withSize: 15.5), range: NSRange(location: 6, length: userName.count))
+//        self.lblUserName.attributedText = attributedString
         
         //Checking Camera Staus
         let currentCameraState = cameraManager.currentCameraStatus()
@@ -200,7 +200,7 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate, CropViewCo
         instructionLabel.numberOfLines = 3
         instructionLabel.textAlignment = .center
         instructionLabel.textColor = .white
-        instructionLabel.text = "Ensure that the implant is clearly visible in the image and crop out the background."
+        instructionLabel.text = "Please crop out the background to focus on the implant "
         cropController.cropView.addSubview(instructionLabel)
         cropController.toolbar.doneTextButton.setTitleColor(UIColor.white, for: .normal)
         cropController.toolbar.cancelTextButton.setTitleColor(UIColor.white, for: .normal)
@@ -212,7 +212,7 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate, CropViewCo
     func isPermissionGranted(isTrue: Bool) {
         
         self.lblPermissions.isUserInteractionEnabled = (isTrue == true) ?false:true
-        self.lblPermissions.text = (isTrue == true) ?"Click a picture of the X-Ray to search in our Database":"Tap here to enable camera access and take great pictures"
+        self.lblPermissions.text = (isTrue == true) ?"Ensure that the implant is clearly visible in the image and the image itself isn’t blurred.":"Tap here to enable camera access and take great pictures"
         self.lblPermissions.textColor = (isTrue == true) ?UIColor.white:UIColor.black
         self.btnCamera.setImage(UIImage(named: "camera"), for: .normal)
         self.btnCamera.alpha = (isTrue == true) ?1.0:0
@@ -232,12 +232,13 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate, CropViewCo
     // MARK: - CropViewControllerDelegate
     func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
         print(cropRect)
-        cropViewController.dismiss(animated: true, completion: nil)
         if let controller = self.instantiate(PreviewViewController.self, storyboard: STORYBOARD.main) as? PreviewViewController {
             controller.selectedImage = image
             controller.isCrop = true
             self.navigationController?.pushViewController(controller, animated: true)
         }
+        cropViewController.dismiss(animated: true, completion: nil)
+
         //        if let controller = self.instantiate(SearchListViewController.self, storyboard: STORYBOARD.main) as? SearchListViewController {
         //            controller.searchImage = image
         //            controller.isCalledFrom = 1

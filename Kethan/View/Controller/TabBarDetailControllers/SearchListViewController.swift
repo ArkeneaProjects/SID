@@ -12,8 +12,9 @@ import SkeletonView
 class SearchListViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SkeletonCollectionViewDelegate, SkeletonCollectionViewDataSource {
     // @IBOutlet weak var searchVM: SearchVM!
     
-    @IBOutlet weak var lblResultCount: CustomLabel!
-    
+    @IBOutlet weak var lblNoResult: CustomLabel!
+    @IBOutlet weak var imgWatermark: UIImageView!
+
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var addButton: CustomButton!
@@ -101,24 +102,30 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
         
         self.gradientSkeltonShowHide(isShow: true)
         self.addButton.alpha = 0
+        self.lblNoResult.alpha = 0
+        self.imgWatermark.alpha = 0
+
         if self.isCalledFrom == 1 {
            
             let imageDict  = saveImageInDocumentDict(image: self.searchImage!, imageName: "photo", key: "implantPicture")
             self.searchVM.getSearchByImage(itemArray: [imageDict]) { (error) in
                 self.gradientSkeltonShowHide(isShow: false)
                 if self.searchVM.arrSearchResult.count == 0 {
-                    self.lblResultCount.text = error
+//                    self.lblResultCount.text = error
                     self.addButton.alpha = 1.0
-//                    ProgressManager.showError(withStatus: error, on: self.view) {
-//                    }
+                    self.lblNoResult.alpha = 1.0
+                    self.imgWatermark.alpha = 1.0
+
+                    ProgressManager.showError(withStatus: error, on: self.view) {
+                    }
                    
                 } else {
                     DispatchQueue.main.async {
-                        if self.searchVM.arrSearchResult.count == 1 {
-                            self.lblResultCount.text = "1 result match to your search by image"
-                        } else {
-                            self.lblResultCount.text = "\(self.searchVM.arrSearchResult.count) results match to your search by image"
-                        }
+//                        if self.searchVM.arrSearchResult.count == 1 {
+//                            self.lblResultCount.text = "1 result match to your search by image"
+//                        } else {
+//                            self.lblResultCount.text = "\(self.searchVM.arrSearchResult.count) results match to your search by image"
+//                        }
                         self.collectionView.reloadData()
                     }
                 }
@@ -127,18 +134,20 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
             self.searchVM.getAllSearchByText(manufecture: self.menufeacture, brandname: self.brandname) { (error) in
                 self.gradientSkeltonShowHide(isShow: false)
                 if self.searchVM.arrSearchResult.count == 0 {
-                    self.lblResultCount.text = error
+//                    self.lblResultCount.text = error
                     self.addButton.alpha = 1.0
-//                    ProgressManager.showError(withStatus: error, on: self.view) {
-//                    }
+                    self.lblNoResult.alpha = 1.0
+                     self.imgWatermark.alpha = 1.0
+                    ProgressManager.showError(withStatus: error, on: self.view) {
+                    }
                 } else {
                     DispatchQueue.main.async {
                        
-                        if self.searchVM.arrSearchResult.count == 1 {
-                            self.lblResultCount.text = "1 result match to your search field"
-                        } else {
-                            self.lblResultCount.text = "\(self.searchVM.arrSearchResult.count) results match to your search field"
-                        }
+//                        if self.searchVM.arrSearchResult.count == 1 {
+//                            self.lblResultCount.text = "1 result match to your search field"
+//                        } else {
+//                            self.lblResultCount.text = "\(self.searchVM.arrSearchResult.count) results match to your search field"
+//                        }
                         self.collectionView.reloadData()
                     }
                 }
