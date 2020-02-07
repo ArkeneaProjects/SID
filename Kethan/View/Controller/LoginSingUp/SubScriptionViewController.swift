@@ -55,11 +55,10 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
     
     override func rightButtonAction() {
         self.subscriptionVmObj.restoreSubscription()
-        self.navigateToHome(false, false)
+//        self.navigateToHome(false, false)
     }
     
-    @IBAction func annualActionClick(_ sender: Any) {
-    }
+    @IBAction func annualActionClick(_ sender: Any) {   }
     
     @IBAction func monthlyActionClick(_ sender: Any) {
         
