@@ -26,7 +26,8 @@ class SignUpViewController: BaseViewController, CountryListDelegate {
     @IBOutlet weak var txtProfession: CustomTextField!
     
     @IBOutlet weak var imgCheckEmail: UIImageView!
-    
+    @IBOutlet weak var imgCheckReferral: UIImageView!
+
     let signUpVM = SignUpViewModel()
     var countryList = CountryListViewController()
     
@@ -49,6 +50,7 @@ class SignUpViewController: BaseViewController, CountryListDelegate {
         
         //TickMark
         self.imgCheckEmail.alpha = 0
+        self.imgCheckReferral.alpha = 0
         
         //Terms and Condition Text
         self.lblTerms.numberOfLines = 0
@@ -196,6 +198,9 @@ class SignUpViewController: BaseViewController, CountryListDelegate {
         }
         if textField == self.txtEmail {
             self.imgCheckEmail.alpha = 0
+        }
+        if textField == self.txtReferral {
+            self.imgCheckReferral.alpha = 0
         }
         if textField == self.txtEmail &&  textField.text!.count >= 50 {
             return false

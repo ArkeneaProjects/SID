@@ -19,7 +19,7 @@ class PreviewViewController: BaseViewController {
         
         self.addNavBarWithTitle("Preview", withLeftButtonType: .buttonTypeBack, withRightButtonType: (self.isCrop == true) ?.buttonCrop:.buttonTypeNil)
         
-        let image = self.selectedImage!.resizeImage(targetSize: CGSize(width: getCalculated(640.0), height: getCalculated(640.0)))
+        let image = self.selectedImage!.resizeImage(targetSize: CGSize(width: getCalculated(640.0), height: getCalculated(836.0)))
         
         self.cropView.image = image
         self.cropView.isCrop = false
