@@ -69,12 +69,16 @@ class UploadViewController: BaseViewController {
     
     // MARK: - Button Action
     @IBAction func addClickAction(_ sender: Any) {
+        self.view.endEditing(true)
+        
         self.implantObj.objectName = self.txtImplant.text!
         self.implantObj.implantManufacture = self.txtManu.text!
         
         //Check Duplicate Manufacture
         let searchVM = SearchVM()
-        searchVM.checkDuplicateManufacture(manufactureName: self.txtManu.text!, brandName: self.txtImplant.text!, rootController: self)
+        searchVM.manufecture = self.txtManu.text!
+        searchVM.brandname = self.txtImplant.text!
+        searchVM.checkDuplicateManufacture(apiCallFrom: 2, rootController: self)
     }
        
     // MARK: - TextField Deleget

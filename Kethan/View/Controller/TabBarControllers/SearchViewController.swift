@@ -31,12 +31,10 @@ class SearchViewController: BaseViewController {
             ProgressManager.showError(withStatus: MESSAGES.emptySearch, on: self.view)
         } else {
             
-            if let controller = self.instantiate(SearchListViewController.self, storyboard: STORYBOARD.main) as? SearchListViewController {
-                controller.menufeacture = self.txtManufacture.text ?? ""
-                controller.brandname = self.txtImplant.text ?? ""
-                controller.isCalledFrom = 0
-                self.navigationController?.pushViewController(controller, animated: true)
-            }
+            let searchVM = SearchVM()
+            searchVM.manufecture = self.txtManufacture.text ?? ""
+            searchVM.brandname = self.txtImplant.text ?? ""
+            searchVM.checkDuplicateManufacture(apiCallFrom: 0, rootController: self)
         }
     }
     

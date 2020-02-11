@@ -13,7 +13,7 @@ class SearchResult: NSObject, NSCopying {
     var isApproved: String = ""
     var isRejected: String = ""
     var _id: String = ""
-    var objectName: String = ""
+    @objc var objectName: String = ""
     var implantManufacture: String = ""
     var removImplant = NSMutableArray()
     var imageData = [ImageData]()

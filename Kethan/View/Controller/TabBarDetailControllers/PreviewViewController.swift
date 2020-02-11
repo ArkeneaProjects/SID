@@ -33,12 +33,11 @@ class PreviewViewController: BaseViewController {
     @IBAction func uploadClickAction(_ sender: Any) {
         
         print("Dimention==\(cropView.getCropViewDimention().frame)")
+        let searchVM = SearchVM()
+        searchVM.searchImage = self.cropView.image!.resized(withPercentage: 0.4)
+        searchVM.checkDuplicateManufacture(apiCallFrom: 1, rootController: self)
         
-        if let controller = self.instantiate(SearchListViewController.self, storyboard: STORYBOARD.main) as? SearchListViewController {
-            controller.searchImage = self.cropView.image!.resized(withPercentage: 0.4)
-            controller.isCalledFrom = 1
-            self.navigationController?.pushViewController(controller, animated: true)
-        }
+        
     }
     /*
      // MARK: - Navigation

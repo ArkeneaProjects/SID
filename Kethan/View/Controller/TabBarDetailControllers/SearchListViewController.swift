@@ -108,7 +108,7 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
         if self.isCalledFrom == 1 {
            
             let imageDict  = saveImageInDocumentDict(image: self.searchImage!, imageName: "photo", key: "implantPicture")
-            self.searchVM.getSearchByImage(itemArray: [imageDict]) { (error) in
+            self.searchVM.getSearchByImage(imageArray: [imageDict]) { (error) in
                 self.gradientSkeltonShowHide(isShow: false)
                 if self.searchVM.arrSearchResult.count == 0 {
 //                    self.lblResultCount.text = error
@@ -131,7 +131,9 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
                 }
             }
         } else {
-            self.searchVM.getAllSearchByText(manufecture: self.menufeacture, brandname: self.brandname) { (error) in
+            self.searchVM.manufecture = self.menufeacture
+            self.searchVM.brandname = self.brandname
+            self.searchVM.getAllSearchByText() { (error) in
                 self.gradientSkeltonShowHide(isShow: false)
                 if self.searchVM.arrSearchResult.count == 0 {
 //                    self.lblResultCount.text = error

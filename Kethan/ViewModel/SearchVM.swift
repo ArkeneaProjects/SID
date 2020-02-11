@@ -8,14 +8,22 @@
 
 import UIKit
 
-class SearchVM {
+class SearchVM: NSObject {
     
+    var manufecture: String = ""
+    var brandname: String = ""
+    var searchImage: UIImage?
+ 
     var arrSearchResult = [SearchResult] ()
     var rootController: BaseViewController?
     
-    func getAllSearchByText(manufecture: String, brandname: String, completion: @escaping (_ error: String) -> Void) {
-        let dict: NSDictionary = ["manufecture": manufecture,
-                                  "brandName": brandname]
+    override init() {
+           
+    }
+    
+    func getAllSearchByText(completion: @escaping (_ error: String) -> Void) {
+        let dict: NSDictionary = ["manufecture": self.manufecture,
+                                  "brandName": self.brandname]
         
         AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.SearchByText, parameters: dict, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
             if error != nil {
@@ -60,11 +68,11 @@ class SearchVM {
         return self.arrSearchResult.count
     }
     
-    func getSearchByImage( itemArray: NSArray, completion: @escaping (_ error: String) -> Void) {
+    func getSearchByImage(imageArray: NSArray ,completion: @escaping (_ error: String) -> Void) {
         
         let dict: NSDictionary = [:]
         
-        AFManager.sendMultipartRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.SearchByImage, parameters: dict, multipart: itemArray, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
+        AFManager.sendMultipartRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.SearchByImage, parameters: dict, multipart: imageArray, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
             if error != nil {
                 // ProgressManager.showError(withStatus: error, on: self.rootController?.view) {
                 completion(error ?? "")
@@ -82,10 +90,14 @@ class SearchVM {
                                         if arrImages.count > 0 {
                                             if let images = arrImages[0] as? NSDictionary, let object = images.value(forKeyPath: "objects")! as? NSDictionary, let arrCollection = object.value(forKeyPath: "collections")! as? [NSDictionary] {
                                                 if let arr = arrCollection.last!["objects"] as? [NSDictionary] {
-                                                    if arr.count > 0, let firstObj = arr.last {
-                                                        let value = getValueFromDictionary(dictionary: firstObj, forKey: "score")
-                                                        let valueInt = value.floatValue()*100
-                                                        objSearch.match = String(format: "%.0f%% match", valueInt)
+                                                    let predicate = NSPredicate(format: "object == %@", argumentArray: [objSearch.objectName.lowercased()])
+                                                    let filtered = arr.filter { predicate.evaluate(with: $0) }
+                                                    if filtered.count > 0 {
+                                                        if let dict = filtered.last {
+                                                            let value = getValueFromDictionary(dictionary: dict, forKey: "score")
+                                                            let valueInt = value.floatValue()*100
+                                                            objSearch.match = String(format: "%.0f%% match", valueInt)
+                                                        }
                                                     }
                                                 }
                                             }
@@ -104,33 +116,63 @@ class SearchVM {
         }
     }
     
-    func checkDuplicateManufacture( manufactureName: String, brandName: String, rootController: BaseViewController) {
+    func checkDuplicateManufacture(apiCallFrom: Int, rootController: BaseViewController) { //apiCallFrom 0 for search by Text, 1 for search by Image, 2 for upload
         
-        if manufactureName.trimmedString().count == 0 {
-            ProgressManager.showError(withStatus: ERRORS.EmptyManufacturer, on: rootController.view)
-            return
-        } else if brandName.trimmedString().count == 0 {
-            ProgressManager.showError(withStatus: ERRORS.EmptyBrandName, on: rootController.view)
-            return
+        if apiCallFrom == 2 {
+            if self.manufecture.trimmedString().count == 0 {
+                       ProgressManager.showError(withStatus: ERRORS.EmptyManufacturer, on: rootController.view)
+                       return
+                   } else if self.brandname.trimmedString().count == 0 {
+                       ProgressManager.showError(withStatus: ERRORS.EmptyBrandName, on: rootController.view)
+                       return
+                   }
         }
+       
         
         ProgressManager.show(withStatus: "", on: rootController.view)
-        let dict: NSDictionary = [ENTITIES.manufacture: manufactureName, ENTITIES
-            .brandName: brandName]
+        let dict: NSDictionary = [ENTITIES.manufacture: self.manufecture, ENTITIES
+            .brandName: self.brandname]
         
         AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.DuplicateManufactureName, parameters: dict, serviceCount: 1) { (response: AnyObject?, error: String?, errorCode: String?) in
             if error == nil {
                 ProgressManager.dismiss()
-                if let controller = rootController.instantiate(AddDetailsViewController.self, storyboard: STORYBOARD.main) as? AddDetailsViewController {
-                    
-                    let implantObj = SearchResult()
-                    implantObj.objectName = brandName
-                    implantObj.implantManufacture = manufactureName
-                    controller.implantObj = implantObj
-                    rootController.navigationController?.pushViewController(controller, animated: true)
+                if apiCallFrom == 0 {
+                    if let controller = rootController.instantiate(SearchListViewController.self, storyboard: STORYBOARD.main) as? SearchListViewController {
+                        controller.menufeacture = self.manufecture
+                        controller.brandname = self.brandname
+                        controller.isCalledFrom = 0
+                        rootController.navigationController?.pushViewController(controller, animated: true)
+                    }
+
+                } else if apiCallFrom == 1 {
+                    if let controller = rootController.instantiate(SearchListViewController.self, storyboard: STORYBOARD.main) as? SearchListViewController {
+                        controller.searchImage = self.searchImage
+                        controller.isCalledFrom = 1
+                        rootController.navigationController?.pushViewController(controller, animated: true)
+                    }
+                } else {
+                    if let controller = rootController.instantiate(AddDetailsViewController.self, storyboard: STORYBOARD.main) as? AddDetailsViewController {
+                        let implantObj = SearchResult()
+                        implantObj.objectName = self.brandname
+                        implantObj.implantManufacture = self.manufecture
+                        controller.implantObj = implantObj
+                        rootController.navigationController?.pushViewController(controller, animated: true)
+                    }
                 }
+                
             } else {
-                ProgressManager.showError(withStatus: error, on: rootController.view, completion: nil)
+                if errorCode == "525" {
+                    ProgressManager.dismiss()
+                    rootController.showAlert(title: "Subscription expired", message: "Hey, looks like your subscription has expired. Or you have not subscribe to the application. \n Click to subscribe and be able to look up implants ", yesTitle: "Subscribe", noTitle: "Cancel", yesCompletion: {
+                            if let controller = rootController.instantiate(SubScriptionViewController.self, storyboard: STORYBOARD.signup) as? SubScriptionViewController {
+                                controller.isComeFromLogin = false
+                                rootController.navigationController?.pushViewController(controller, animated: true)
+                            }
+                    }, noCompletion: nil)
+                } else {
+                    ProgressManager.showError(withStatus: error, on: rootController.view, completion: nil)
+                }
+                
             }
         }
     }
