@@ -1859,6 +1859,91 @@ once it's verified. </string>
                                             <action selector="recordButtonTapped:" destination="8Dq-PU-3ok" eventType="touchUpInside" id="1m2-tw-kCm"/>
                                         </connections>
                                     </button>
+                                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IAI-rG-RCd">
+                                        <rect key="frame" x="0.0" y="102" width="320" height="300"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_smaller" translatesAutoresizingMaskIntoConstraints="NO" id="yd1-vG-QZ1">
+                                                <rect key="frame" x="130" y="20" width="60" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="JVl-oC-173" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </constraint>
+                                                    <constraint firstAttribute="height" constant="60" id="ppj-9T-bpM" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </constraint>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="30"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7F-ib-n2H" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="96" width="287" height="67"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50.5" id="Lqx-56-KHn"/>
+                                                </constraints>
+                                                <string key="text">Unable to access the Camera, To enable access, go to Settings &gt; Privacy &gt; Camera and turn on Camera access for this app and take great pictures</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                        <real key="value" value="14"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eH-fl-FR3" customClass="CustomButton" customModule="SID" customModuleProvider="target">
+                                                <rect key="frame" x="15" y="179" width="290" height="40"/>
+                                                <color key="backgroundColor" red="0.035294117649999998" green="0.52156862749999999" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="Wgl-Cr-U8T" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </constraint>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                                <state key="normal" title="Enable Permission">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                        <real key="value" value="17"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="cameraPermission:" destination="8Dq-PU-3ok" eventType="touchUpInside" id="9zx-ZU-gRo"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Y7F-ib-n2H" secondAttribute="trailing" constant="13" id="1Hf-En-znp"/>
+                                            <constraint firstAttribute="trailing" secondItem="1eH-fl-FR3" secondAttribute="trailing" constant="15" id="7An-bn-oGI"/>
+                                            <constraint firstItem="Y7F-ib-n2H" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IAI-rG-RCd" secondAttribute="leading" constant="20" symbolic="YES" id="TZc-f5-qRY"/>
+                                            <constraint firstAttribute="height" constant="300" id="ZdI-6a-rK1"/>
+                                            <constraint firstItem="yd1-vG-QZ1" firstAttribute="centerX" secondItem="IAI-rG-RCd" secondAttribute="centerX" id="ckr-vh-bJu"/>
+                                            <constraint firstAttribute="width" constant="320" id="gzx-uF-wo4" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </constraint>
+                                            <constraint firstItem="yd1-vG-QZ1" firstAttribute="top" secondItem="IAI-rG-RCd" secondAttribute="top" constant="20" id="jPk-hB-3X1"/>
+                                            <constraint firstItem="1eH-fl-FR3" firstAttribute="leading" secondItem="IAI-rG-RCd" secondAttribute="leading" constant="15" id="pjg-zz-ecT"/>
+                                            <constraint firstItem="1eH-fl-FR3" firstAttribute="top" secondItem="Y7F-ib-n2H" secondAttribute="bottom" constant="16" id="wLm-7U-lDW"/>
+                                            <constraint firstItem="Y7F-ib-n2H" firstAttribute="top" secondItem="yd1-vG-QZ1" secondAttribute="bottom" constant="16" id="xbJ-vQ-Ena"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -1872,6 +1957,7 @@ once it's verified. </string>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </constraint>
+                                    <constraint firstItem="IAI-rG-RCd" firstAttribute="centerX" secondItem="yWy-DW-L4i" secondAttribute="centerX" id="BVu-1D-CZB"/>
                                     <constraint firstItem="LeY-pV-ncs" firstAttribute="top" secondItem="yWy-DW-L4i" secondAttribute="top" id="Bpo-Jx-fb0"/>
                                     <constraint firstAttribute="bottom" secondItem="LeY-pV-ncs" secondAttribute="bottom" id="Dyn-3c-fGb"/>
                                     <constraint firstAttribute="bottom" secondItem="Lp4-Sj-qHm" secondAttribute="bottom" constant="23" id="Iyz-3a-kv9" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
@@ -1884,6 +1970,7 @@ once it's verified. </string>
                                     <constraint firstItem="LeY-pV-ncs" firstAttribute="leading" secondItem="yWy-DW-L4i" secondAttribute="leading" id="SMd-sr-yvF"/>
                                     <constraint firstItem="fLR-Jg-WjD" firstAttribute="top" secondItem="yWy-DW-L4i" secondAttribute="top" id="SiK-Dv-Qwd"/>
                                     <constraint firstAttribute="trailing" secondItem="LeY-pV-ncs" secondAttribute="trailing" id="d6V-6Q-jza"/>
+                                    <constraint firstItem="IAI-rG-RCd" firstAttribute="centerY" secondItem="yWy-DW-L4i" secondAttribute="centerY" id="gGt-db-q2f"/>
                                     <constraint firstAttribute="bottom" secondItem="b0B-4h-qjc" secondAttribute="bottom" constant="14" id="iXN-Fq-2iw" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
@@ -1922,6 +2009,7 @@ once it's verified. </string>
                         <outlet property="viewCamera" destination="LeY-pV-ncs" id="mwQ-QT-yHT"/>
                         <outlet property="viewContainer" destination="yWy-DW-L4i" id="X6S-nE-JBX"/>
                         <outlet property="viewNavBar" destination="e7F-Oi-IRh" id="q55-4f-Abe"/>
+                        <outlet property="viewPermission" destination="IAI-rG-RCd" id="IJh-va-hNM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="apL-Xi-8CH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2736,18 +2824,46 @@ palpation. Refer for further examination if</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZAm-Yv-LR1">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PU5-Pj-Hwy">
+                                        <rect key="frame" x="0.0" y="1" width="320" height="46"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please highlight the implant in the image you want to upload. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46b-lg-i2y" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="46"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                        <real key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="46b-lg-i2y" secondAttribute="trailing" id="9pd-Ik-sip"/>
+                                            <constraint firstAttribute="height" constant="46" id="SJT-HJ-QNg"/>
+                                            <constraint firstItem="46b-lg-i2y" firstAttribute="top" secondItem="PU5-Pj-Hwy" secondAttribute="top" id="ZS1-TT-UET"/>
+                                            <constraint firstAttribute="bottom" secondItem="46b-lg-i2y" secondAttribute="bottom" id="aag-84-O4w"/>
+                                            <constraint firstItem="46b-lg-i2y" firstAttribute="leading" secondItem="PU5-Pj-Hwy" secondAttribute="leading" id="rhh-oY-Or6"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XZF-UW-aWn" customClass="CropPickerView" customModule="SID" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="38.5" width="320" height="427"/>
+                                        <rect key="frame" x="10" y="38.5" width="300" height="427"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="427" id="mQj-w1-97c"/>
-                                            <constraint firstAttribute="width" constant="320" id="w3x-Zj-Qfe"/>
+                                            <constraint firstAttribute="width" constant="300" id="w3x-Zj-Qfe"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="PU5-Pj-Hwy" secondAttribute="trailing" id="Dej-cr-HBc"/>
+                                    <constraint firstItem="PU5-Pj-Hwy" firstAttribute="leading" secondItem="ZAm-Yv-LR1" secondAttribute="leading" id="Ihn-vX-wr8"/>
                                     <constraint firstItem="XZF-UW-aWn" firstAttribute="centerX" secondItem="ZAm-Yv-LR1" secondAttribute="centerX" id="X7g-0u-UqM"/>
+                                    <constraint firstItem="PU5-Pj-Hwy" firstAttribute="top" secondItem="ZAm-Yv-LR1" secondAttribute="top" constant="1" id="xmh-KZ-imw"/>
                                     <constraint firstItem="XZF-UW-aWn" firstAttribute="centerY" secondItem="ZAm-Yv-LR1" secondAttribute="centerY" id="ygf-sw-Xr5"/>
                                 </constraints>
                             </view>
@@ -2775,7 +2891,7 @@ palpation. Refer for further examination if</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o2A-7h-2SV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2858" y="-1387"/>
+            <point key="canvasLocation" x="2857.5" y="-1388.0281690140846"/>
         </scene>
         <!--Credits View Controller-->
         <scene sceneID="GcD-h8-i0m">

@@ -1528,6 +1528,9 @@ change your email address </string>
                                                                                 <color key="value" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <outlet property="delegate" destination="Zqf-Dk-nef" id="crF-35-M2V"/>
+                                                                        </connections>
                                                                     </textField>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -1740,6 +1743,21 @@ change your email address </string>
                                                             </constraint>
                                                         </constraints>
                                                     </imageView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="close" translatesAutoresizingMaskIntoConstraints="NO" id="adc-sJ-rTU">
+                                                        <rect key="frame" x="292" y="573" width="15" height="15"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="15" id="SdG-YJ-bIA" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </constraint>
+                                                            <constraint firstAttribute="height" constant="15" id="X8U-ch-i8o" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </constraint>
+                                                        </constraints>
+                                                    </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -1755,8 +1773,10 @@ change your email address </string>
                                                     <constraint firstAttribute="trailing" secondItem="5rf-Qj-ELe" secondAttribute="trailing" id="TOK-b4-tfc"/>
                                                     <constraint firstItem="WYm-hb-awp" firstAttribute="top" secondItem="5rf-Qj-ELe" secondAttribute="bottom" id="Wl4-Xg-ECl"/>
                                                     <constraint firstItem="kn3-eT-Pf8" firstAttribute="centerY" secondItem="5rf-Qj-ELe" secondAttribute="centerY" id="dPc-ge-OuC"/>
+                                                    <constraint firstItem="adc-sJ-rTU" firstAttribute="leading" secondItem="WYm-hb-awp" secondAttribute="trailing" constant="5" id="imn-8C-K1F"/>
                                                     <constraint firstItem="WYm-hb-awp" firstAttribute="leading" secondItem="pup-Wq-58h" secondAttribute="leading" constant="21" id="jRb-xq-V9S"/>
                                                     <constraint firstItem="5rf-Qj-ELe" firstAttribute="leading" secondItem="pup-Wq-58h" secondAttribute="leading" id="oII-M7-FOO"/>
+                                                    <constraint firstItem="adc-sJ-rTU" firstAttribute="bottom" secondItem="OAp-Me-jjD" secondAttribute="bottom" constant="-15" id="uTf-xT-8Nj"/>
                                                     <constraint firstItem="deL-9M-4Xk" firstAttribute="bottom" secondItem="Xd5-sD-ivX" secondAttribute="bottom" constant="-15" id="vKM-Aq-QA4"/>
                                                 </constraints>
                                             </view>
@@ -1793,6 +1813,7 @@ change your email address </string>
                     </view>
                     <connections>
                         <outlet property="imgCheckEmail" destination="deL-9M-4Xk" id="Chj-5N-IDg"/>
+                        <outlet property="imgCheckReferral" destination="adc-sJ-rTU" id="5F5-Dx-NsR"/>
                         <outlet property="lblSignIn" destination="zNm-jp-KKO" id="sB7-P8-EEg"/>
                         <outlet property="lblTerms" destination="hei-0p-sYQ" id="wfY-u9-fXZ"/>
                         <outlet property="scrollView" destination="mQr-M5-KAK" id="Tb9-Cq-MVE"/>
@@ -1806,7 +1827,7 @@ change your email address </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IRw-7K-bdU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2486.25" y="312.67605633802816"/>
+            <point key="canvasLocation" x="-2484" y="300"/>
         </scene>
         <!--VerifyOTP View Controller-->
         <scene sceneID="1c5-ky-Tol">

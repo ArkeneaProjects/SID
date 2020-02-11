@@ -26,12 +26,15 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate, CropViewCo
     @IBOutlet weak var btnFlash: CustomButton!
     @IBOutlet weak var btnGallery: CustomButton!
     
+    @IBOutlet weak var viewPermission: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBarWithTitle("Home", withLeftButtonType: .buttonTypeMenu, withRightButtonType: .buttonTypeCredit)
         
-        let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(askForCameraPermissions))
-        lblPermissions.addGestureRecognizer(tapGesture)
+        //Camera Permission
+        self.askForCameraPermissions()
+        
         // Camera
         cameraManager.shouldEnableExposure = true
         cameraManager.shouldFlipFrontCameraImage = false
@@ -64,12 +67,15 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate, CropViewCo
         //Checking Camera Staus
         let currentCameraState = cameraManager.currentCameraStatus()
         if currentCameraState == .notDetermined {
-            self.isPermissionGranted(isTrue: false)
+            self.camaraDeneyMsg()
+            //self.isPermissionGranted(isTrue: false)
         } else if currentCameraState == .ready {
+            self.viewPermission.alpha = 0
             self.isPermissionGranted(isTrue: true)
             addCameraToView()
         } else {
-            self.isPermissionGranted(isTrue: false)
+            //self.isPermissionGranted(isTrue: false)
+            self.camaraDeneyMsg()
         }
         
         //Camera Session
@@ -98,10 +104,21 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate, CropViewCo
     }
     
     // MARK: - Button Click Action
+    func camaraDeneyMsg() {
+        self.showAlert(title: "Unable to access the Camera", message: "To enable access, go to Settings > Privacy > Camera and turn on Camera access for this app and take great pictures", yesTitle: "OK", noTitle: "Cancel", yesCompletion: {
+            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+        }, noCompletion: {
+            self.viewPermission.alpha = 1.0
+        })
+    }
+    
+    @IBAction func cameraPermission(_ sender: CustomButton) {
+        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+    }
     override func leftButtonAction() {
         self.revealViewController()?.revealToggle(self.navBar.btnLeft)
-        
     }
+    
     @IBAction func galleryClickAction(_ sender: CustomButton) {
         self.imagePicker.present(croppingStyle: .circular, isCrop: false, isCamera: false)
     }
@@ -126,7 +143,7 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate, CropViewCo
                 self.addCameraToView()
             } else {
                 if #available(iOS 10.0, *) {
-                    UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+                   // UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
                 } else {
                     // Fallback on earlier versions
                 }

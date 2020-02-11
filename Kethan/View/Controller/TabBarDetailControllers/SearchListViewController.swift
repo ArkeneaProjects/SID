@@ -116,7 +116,7 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
                     self.lblNoResult.alpha = 1.0
                     self.imgWatermark.alpha = 1.0
 
-                    ProgressManager.showError(withStatus: error, on: self.view) {
+                    ProgressManager.showError(withStatus: "No data found", on: self.view) {
                     }
                    
                 } else {

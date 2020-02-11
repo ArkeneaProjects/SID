@@ -103,6 +103,14 @@ class SignUpViewModel: NSObject {
                             controller.signupVM.loginVM = self.loginVM
                             self.rootViewController!.navigationController?.pushViewController(controller, animated: true)
                         }
+                    } else if self.statusCodeSignUp == "520" {
+                        (self.rootViewController! as? SignUpViewController)?.imgCheckReferral.alpha = 1.0
+                        (self.rootViewController! as? SignUpViewController)?.imgCheckReferral.image = UIImage(named: "close")
+                    } else {
+                        if self.referral.count > 0 {
+                            (self.rootViewController! as? SignUpViewController)?.imgCheckReferral.alpha = 1.0
+                            (self.rootViewController! as? SignUpViewController)?.imgCheckReferral.image = UIImage(named: "tick")
+                        }
                     }
                 }
             } else {
