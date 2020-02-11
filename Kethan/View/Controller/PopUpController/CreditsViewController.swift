@@ -36,20 +36,26 @@ class CreditsViewController: BaseViewController, UITableViewDelegate, UITableVie
     }
     
     func getValueForEarned() {
-        var current = "250" //AppConstant.shared.loggedUser.creditPoint //272 points
-        current = current.intValue() > 200 ? "200" : current //to match credits woth max subscription amount.
-        self.lblTotalCredits.text = "Total Credits: \(current)"
-        let valueForCurrent = current.intValue()/4 // 68 $
-        
-        let baseUsableValue = valueForCurrent - valueForCurrent % 5 // 65
-        for i in 0..<baseUsableValue/5 {
-            self.creditDivisionArr.append(["value": (i+1)*5, "points": (i+1)*5*4])
+        let creditVM = CreditVM()
+        creditVM.callAPI(self) { (success) in
+            if success  == true {
+                var current = creditVM.totalCreditEarn
+                current = current > 200 ? 200 : current //to match credits woth max subscription amount.
+                self.lblTotalCredits.text = "Total Credits: \(current)"
+                let valueForCurrent = current/4 // 68 $
+                
+                let baseUsableValue = valueForCurrent - valueForCurrent % 5 // 65
+                for i in 0..<baseUsableValue/5 {
+                    self.creditDivisionArr.append(["value": (i+1)*5, "points": (i+1)*5*4])
+                }
+                
+                self.btnSubscribe.setTitle(self.creditDivisionArr.count == 0 ? "Subscribe with $50" : "Subscribe", for: .normal)
+                self.btnDontUse.isHidden = self.creditDivisionArr.count == 0
+                self.creditsUsed = self.creditDivisionArr.count == 0 ? "0" : ""
+                self.creditValue = self.creditDivisionArr.count == 0 ? "0" : ""
+                self.tblView.reloadData()
+            }
         }
-        
-        self.btnSubscribe.setTitle(self.creditDivisionArr.count == 0 ? "Subscribe with $50" : "Subscribe", for: .normal)
-        self.btnDontUse.isHidden = self.creditDivisionArr.count == 0
-        self.creditsUsed = self.creditDivisionArr.count == 0 ? "0" : ""
-        self.creditValue = self.creditDivisionArr.count == 0 ? "0" : ""
     }
     
     // MARK: - Button Action
