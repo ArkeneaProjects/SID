@@ -50,6 +50,7 @@ struct APP_FONT {
 }
 
 struct DATEFORMATTERS {
+    static let YYYYMMDDTHHMMSSZZZZ: String = "yyyy-MM-dd HH:mm:ss.zzzz"
     static let YYYYMMDDTHHMMSSZZZZZZ: String = "yyyy-MM-dd HH:mm:ss.zzzzzz"
     static let YYYYMMDDTHHMMSSZ: String = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
     static let YYYYMMDDTHHMMSS: String = "yyyy-MM-dd HH:mm:ss"
@@ -117,6 +118,7 @@ struct SUFFIX_URL {
     static let SendEmail = "implant/sendDetailMail"
     static let GetCMSPage = "cms/getPages"
     static let Credit = "user/userCreditList"
+    static let CheckSubscription = "implant/checkSubscription"
 }
 
 struct KEYS {

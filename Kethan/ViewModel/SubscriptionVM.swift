@@ -23,24 +23,29 @@ class SubscriptionVM: NSObject {
     func getPlanInfo(_ controller: BaseViewController) {
         self.rootController = controller
         
+        ProgressManager.show(withStatus: "", on: self.rootController!.view)
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.planArray.add(SubscriptionPlans.Monthly)
+                   self.planArray.add(SubscriptionPlans.AnnuallyFull)
+                   for p in self.planArray {
+                       if let productId: String = p as? String {
+                           self.retriveProductInfo(pName: productId)
+                       }
+                   }
+                   
+                   //actual product ids array
+                   self.productIdArr.add(SubscriptionPlans.Monthly)
+                   for i in 0..<10 {
+                       self.productIdArr.add("com.kethan.\((i+1)*5)")
+                   }
+            ProgressManager.dismiss()
+        }
         //used for display purpose(only 2)
-        planArray.add(SubscriptionPlans.Monthly)
-        planArray.add(SubscriptionPlans.AnnuallyFull)
-        for p in planArray {
-            if let productId: String = p as? String {
-                retriveProductInfo(pName: productId)
-            }
-        }
-        
-        //actual product ids array
-        productIdArr.add(SubscriptionPlans.Monthly)
-        for i in 0..<10 {
-            productIdArr.add("com.kethan.\((i+1)*5)")
-        }
+       
     }
     
     func retriveProductInfo(pName: String) {
-        ProgressManager.show(withStatus: "", on: self.rootController!.view)
         NetworkActivityIndicatorManager.networkOperationStarted()
         
         SwiftyStoreKit.retrieveProductsInfo([pName]) { result in
@@ -77,7 +82,7 @@ class SubscriptionVM: NSObject {
                 }
             }
         }
-        ProgressManager.dismiss()
+        //
     }
     
     func subscribe() {
@@ -175,13 +180,21 @@ class SubscriptionVM: NSObject {
                     inReceipt: receipt,
                     validUntil: Date()
                 )
+                
+                if receipt["environment"] as? String ?? "" == "Sandbox" {
+                    let expiryDate = Date().addingTimeInterval(5.0*60)
+                    let renewalDate = Date().addingTimeInterval(6.0*60)
+                    let parameters = ["creditPointRedeem": tag == 0 ? "" : self.creditedPoint, "startDate": Date().convertDateToString(), "endDate": expiryDate.convertDateToString(), "subscriptionType": tag == 0 ? "Monthly" : "Yearly", "subscriptionRenewalDate": tag == 0 ? renewalDate.convertDateToString() : ""]
+                    self.updatePurchaseStatusOnServer(parameters: parameters as NSDictionary)
 
-                let expiryDate: Date = (tag == 0 ? Date(timeInterval: 3600 * 24 * 30, since: Date()) : Date(timeInterval: 3600 * 24 * 365, since: Date()))
-                let renewalDate: Date = (tag == 0 ? Date(timeInterval: 3600 * 24 * 31, since: Date()) : Date(timeInterval: 3600 * 24 * 366, since: Date()))
-                
-                let parameters = ["creditPointRedeem": tag == 0 ? "" : self.creditedPoint, "startDate": Date().convertDateToString(), "endDate": expiryDate.convertDateToString(), "subscriptionType": tag == 0 ? "Monthly" : "Yearly", "subscriptionRenewalDate": tag == 0 ? renewalDate.convertDateToString() : ""]
-                
-                self.updatePurchaseStatusOnServer(parameters: parameters as NSDictionary)
+                } else {
+                    
+                    let expiryDate: Date = (tag == 0 ? Date(timeInterval: 3600 * 24 * 30, since: Date()) : Date(timeInterval: 3600 * 24 * 365, since: Date()))
+                    let renewalDate: Date = (tag == 0 ? Date(timeInterval: 3600 * 24 * 31, since: Date()) : Date(timeInterval: 3600 * 24 * 366, since: Date()))
+                    
+                    let parameters = ["creditPointRedeem": tag == 0 ? "" : self.creditedPoint, "startDate": Date().convertDateToString(), "endDate": expiryDate.convertDateToString(), "subscriptionType": tag == 0 ? "Monthly" : "Yearly", "subscriptionRenewalDate": tag == 0 ? renewalDate.convertDateToString() : ""]
+                    self.updatePurchaseStatusOnServer(parameters: parameters as NSDictionary)
+                }
                 
                 self.setStatus(result: purchaseResult, name: pName)
                 self.rootController?.showAlert((self.rootController?.alertForVerifySubscription(purchaseResult))!)
@@ -196,6 +209,7 @@ class SubscriptionVM: NSObject {
     func updatePurchaseStatusOnServer(parameters: NSDictionary) {
         AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.subscriptionUpdate, parameters: parameters, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
             if error == nil {
+                self.rootController?.navigationController?.popToRootViewController(animated: true)
                 //Delete Below
                 // ProgressManager.dismiss()
                 // ProgressManager.showSuccess(withStatus: "Subscription Successfull", on: self.rootController!.view)
@@ -214,6 +228,44 @@ class SubscriptionVM: NSObject {
             print("SubscriptionPlans is expired since \(expiryDate)")
         case .notPurchased:
             print("SubscriptionPlans has never been purchased")
+        }
+    }
+    
+    func checkSubscription(apiCallFrom: Int, manufecture: String, brandname: String, image: UIImage?, rootController: BaseViewController) { //apiCallFrom 0 for search by Text, 1 for search by Image, 2 for upload
+        ProgressManager.show(withStatus: "", on: rootController.view)
+
+        AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.CheckSubscription, parameters: [:], serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
+            if error == nil {
+                ProgressManager.dismiss()
+                if apiCallFrom == 0 {
+                    if let controller = rootController.instantiate(SearchListViewController.self, storyboard: STORYBOARD.main) as? SearchListViewController {
+                        controller.menufeacture = manufecture
+                        controller.brandname = brandname
+                        controller.isCalledFrom = 0
+                        rootController.navigationController?.pushViewController(controller, animated: true)
+                    }
+
+                } else {
+                    if let controller = rootController.instantiate(SearchListViewController.self, storyboard: STORYBOARD.main) as? SearchListViewController {
+                        controller.searchImage = image
+                        controller.isCalledFrom = 1
+                        rootController.navigationController?.pushViewController(controller, animated: true)
+                    }
+                }
+            } else {
+                if errorCode == "525" {
+                    ProgressManager.dismiss()
+                    rootController.showAlert(title: "Subscription expired", message: "Hey, looks like your subscription has expired. Or you have not subscribe to the application. \n Click to subscribe and be able to look up implants ", yesTitle: "Subscribe", noTitle: "Cancel", yesCompletion: {
+                            if let controller = rootController.instantiate(SubScriptionViewController.self, storyboard: STORYBOARD.signup) as? SubScriptionViewController {
+                                controller.isComeFromLogin = false
+                                rootController.navigationController?.pushViewController(controller, animated: true)
+                            }
+                    }, noCompletion: nil)
+                } else {
+                    ProgressManager.showError(withStatus: error, on: rootController.view, completion: nil)
+                }
+                
+            }
         }
     }
 }

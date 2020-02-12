@@ -33,11 +33,8 @@ class PreviewViewController: BaseViewController {
     @IBAction func uploadClickAction(_ sender: Any) {
         
         print("Dimention==\(cropView.getCropViewDimention().frame)")
-        let searchVM = SearchVM()
-        searchVM.searchImage = self.cropView.image!.resized(withPercentage: 0.4)
-        searchVM.checkDuplicateManufacture(apiCallFrom: 1, rootController: self)
-        
-        
+        let subscription = SubscriptionVM()
+        subscription.checkSubscription(apiCallFrom: 1, manufecture: "", brandname: "", image: self.cropView.image!.resized(withPercentage: 0.4), rootController: self)
     }
     /*
      // MARK: - Navigation

@@ -31,10 +31,8 @@ class SearchViewController: BaseViewController {
             ProgressManager.showError(withStatus: MESSAGES.emptySearch, on: self.view)
         } else {
             
-            let searchVM = SearchVM()
-            searchVM.manufecture = self.txtManufacture.text ?? ""
-            searchVM.brandname = self.txtImplant.text ?? ""
-            searchVM.checkDuplicateManufacture(apiCallFrom: 0, rootController: self)
+            let subscription = SubscriptionVM()
+            subscription.checkSubscription(apiCallFrom: 0, manufecture: self.txtManufacture.text ?? "", brandname: self.txtImplant.text ?? "", image: nil, rootController: self)
         }
     }
     

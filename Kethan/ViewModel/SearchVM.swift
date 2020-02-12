@@ -128,7 +128,6 @@ class SearchVM: NSObject {
                    }
         }
        
-        
         ProgressManager.show(withStatus: "", on: rootController.view)
         let dict: NSDictionary = [ENTITIES.manufacture: self.manufecture, ENTITIES
             .brandName: self.brandname]
@@ -136,21 +135,6 @@ class SearchVM: NSObject {
         AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.DuplicateManufactureName, parameters: dict, serviceCount: 1) { (response: AnyObject?, error: String?, errorCode: String?) in
             if error == nil {
                 ProgressManager.dismiss()
-                if apiCallFrom == 0 {
-                    if let controller = rootController.instantiate(SearchListViewController.self, storyboard: STORYBOARD.main) as? SearchListViewController {
-                        controller.menufeacture = self.manufecture
-                        controller.brandname = self.brandname
-                        controller.isCalledFrom = 0
-                        rootController.navigationController?.pushViewController(controller, animated: true)
-                    }
-
-                } else if apiCallFrom == 1 {
-                    if let controller = rootController.instantiate(SearchListViewController.self, storyboard: STORYBOARD.main) as? SearchListViewController {
-                        controller.searchImage = self.searchImage
-                        controller.isCalledFrom = 1
-                        rootController.navigationController?.pushViewController(controller, animated: true)
-                    }
-                } else {
                     if let controller = rootController.instantiate(AddDetailsViewController.self, storyboard: STORYBOARD.main) as? AddDetailsViewController {
                         let implantObj = SearchResult()
                         implantObj.objectName = self.brandname
@@ -158,7 +142,6 @@ class SearchVM: NSObject {
                         controller.implantObj = implantObj
                         rootController.navigationController?.pushViewController(controller, animated: true)
                     }
-                }
                 
             } else {
                 if errorCode == "525" {
