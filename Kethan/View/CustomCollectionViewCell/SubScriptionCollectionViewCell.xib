@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -44,6 +44,21 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
                                         <real key="value" value="45"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AzO-2F-tLo" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
+                                <rect key="frame" x="246.5" y="23" width="71.5" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="G18-vD-apt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="14"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
@@ -163,10 +178,13 @@
                             </constraint>
                             <constraint firstItem="AFy-vO-8n1" firstAttribute="top" secondItem="b48-uk-8Lc" secondAttribute="top" id="WRf-54-DBD"/>
                             <constraint firstAttribute="trailing" secondItem="AFy-vO-8n1" secondAttribute="trailing" id="amU-Bj-N5s"/>
+                            <constraint firstItem="AzO-2F-tLo" firstAttribute="centerY" secondItem="xtf-kj-DnB" secondAttribute="centerY" id="bVR-wP-wbo"/>
                             <constraint firstItem="cGf-i8-e1J" firstAttribute="centerY" secondItem="b48-uk-8Lc" secondAttribute="centerY" id="bWd-ea-MZr"/>
                             <constraint firstItem="B4k-5S-wwN" firstAttribute="top" secondItem="rKB-wk-Fae" secondAttribute="bottom" constant="12" id="cq5-nM-9er"/>
+                            <constraint firstAttribute="trailing" secondItem="AzO-2F-tLo" secondAttribute="trailing" constant="2" id="fb2-SV-ZcH"/>
                             <constraint firstItem="41j-nM-ZQb" firstAttribute="centerY" secondItem="rKB-wk-Fae" secondAttribute="centerY" id="ggJ-6S-AqM"/>
                             <constraint firstItem="xtf-kj-DnB" firstAttribute="top" secondItem="b48-uk-8Lc" secondAttribute="top" constant="15" id="h5e-yt-YR5"/>
+                            <constraint firstItem="AzO-2F-tLo" firstAttribute="leading" secondItem="xtf-kj-DnB" secondAttribute="trailing" constant="5" id="hxw-Ib-mFZ"/>
                             <constraint firstItem="59L-wa-q4v" firstAttribute="centerX" secondItem="b48-uk-8Lc" secondAttribute="centerX" id="nhc-nQ-Qly"/>
                             <constraint firstItem="59L-wa-q4v" firstAttribute="top" secondItem="xtf-kj-DnB" secondAttribute="bottom" constant="10" id="po2-BP-bdj"/>
                             <constraint firstItem="cGf-i8-e1J" firstAttribute="top" secondItem="59L-wa-q4v" secondAttribute="bottom" constant="10" id="ve3-Dp-VIP"/>
@@ -189,6 +207,7 @@
                 <outlet property="btnSubscribe" destination="B4k-5S-wwN" id="VPA-2h-4aR"/>
                 <outlet property="btnTerms" destination="rKB-wk-Fae" id="sm0-62-aGX"/>
                 <outlet property="imgBG" destination="AFy-vO-8n1" id="CBB-1q-PFc"/>
+                <outlet property="lblActive" destination="AzO-2F-tLo" id="WLi-gf-bVU"/>
                 <outlet property="lblPlan" destination="59L-wa-q4v" id="oah-aM-rzT"/>
                 <outlet property="lblPrice" destination="xtf-kj-DnB" id="vif-Ov-BPb"/>
                 <outlet property="lblValid" destination="cGf-i8-e1J" id="BNd-Nh-x2a"/>

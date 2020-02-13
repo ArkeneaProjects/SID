@@ -548,7 +548,7 @@ open class CameraManager: NSObject, AVCaptureFileOutputRecordingDelegate, UIGest
         
         let image = fixOrientation(withImage: img)
         
-       /* if writeFilesToPhoneLibrary {
+        if writeFilesToPhoneLibrary {
             
             let filePath = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("tempImg\(Int(Date().timeIntervalSince1970)).jpg")
             let newImageData = _imageDataWithEXIF(forImage: image, imageData) as Data
@@ -572,7 +572,7 @@ open class CameraManager: NSObject, AVCaptureFileOutputRecordingDelegate, UIGest
                 imageCompletion(.failure(error))
                 return
             }
-        }*/
+        }
         
         imageCompletion(CaptureResult(image))
     }

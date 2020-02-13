@@ -119,6 +119,7 @@ struct SUFFIX_URL {
     static let GetCMSPage = "cms/getPages"
     static let Credit = "user/userCreditList"
     static let CheckSubscription = "implant/checkSubscription"
+    static let ViewProfile = "user/profile"
 }
 
 struct KEYS {
@@ -328,6 +329,9 @@ struct ENTITIES {
     
     //Edit Profile
     static let contactNumber = "contactNumber"
+    static let subscriptionType = "subscriptionType"
+    static let subscriptionStatus = "subscriptionStatus"
+    static let subscriptionEndDate = "subscriptionEndDate"
     
     //Query
     static let query = "query"

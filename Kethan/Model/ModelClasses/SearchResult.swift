@@ -40,7 +40,8 @@ class SearchResult: NSObject, NSCopying {
             
             for item in dictarr {
                 let objItem = ImageData(dictionary: item)
-                if objItem.userId == AppConstant.shared.loggedUser.userId || objItem.isApproved == "1" {
+                if (objItem.userId == AppConstant.shared.loggedUser.userId && objItem.isRejected == "0") || objItem.isApproved == "1"{
+                    //print(objItem.dictioary())
                     self.imageData.append(objItem)
                 }
             }

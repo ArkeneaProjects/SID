@@ -13,6 +13,8 @@ class ImageData: NSObject, NSCopying {
     var createdDate: String = ""
     @objc var id: String = ""
     var isApproved: String = ""
+    var isRejected: String = ""
+
     var userId: String = ""
     
     var imageName: String = ""
@@ -30,6 +32,7 @@ class ImageData: NSObject, NSCopying {
         self.createdDate = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.createdDate)
         self.id = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.id)
         self.isApproved = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.isApproved)
+        self.isRejected = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.isRejected)
         self.userId = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.userId)
         if let dict = dictionary.value(forKey: ENTITIES.imageObjective) as? NSDictionary {
             self.objectLocation = ObjectLocation(dictionary: dict)
@@ -44,6 +47,7 @@ class ImageData: NSObject, NSCopying {
             ENTITIES.createdDate: self.createdDate,
             ENTITIES.id: self.id,
             ENTITIES.isApproved: (self.isApproved == "" || self.isApproved == "0") ?false:true,
+            ENTITIES.isRejected: (self.isRejected == "" || self.isRejected == "0") ?false:true,
             ENTITIES.userId: self.userId,
             ENTITIES.objectLocation: self.objectLocation.dictioary()
         ]
@@ -57,6 +61,7 @@ class ImageData: NSObject, NSCopying {
         copy.createdDate = self.createdDate
         copy.id = self.id
         copy.isApproved = self.isApproved
+        copy.isRejected = self.isRejected
         copy.userId = self.userId
         copy.objectLocation = self.objectLocation
         return copy

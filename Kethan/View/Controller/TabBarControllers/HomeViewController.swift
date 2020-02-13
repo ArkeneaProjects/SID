@@ -52,7 +52,7 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate, CropViewCo
         
         DispatchQueue.main.async {
             let creditVM = CreditVM()
-            creditVM.callAPI(self, isShowLoader: false) { (success) in
+            creditVM.getCreditPoints { (success) in
                 self.navBar.btnRight.setTitle("\(AppConstant.shared.loggedUser.creditPoint)", for: .normal)
             }
         }
@@ -64,20 +64,6 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate, CropViewCo
 //        attributedString.addAttribute(.font, value: APP_FONT.boldFont(withSize: 15.5), range: NSRange(location: 6, length: userName.count))
 //        self.lblUserName.attributedText = attributedString
         
-        //Checking Camera Staus
-        let currentCameraState = cameraManager.currentCameraStatus()
-        if currentCameraState == .notDetermined {
-            self.camaraDeneyMsg()
-            //self.isPermissionGranted(isTrue: false)
-        } else if currentCameraState == .ready {
-            self.viewPermission.alpha = 0
-            self.isPermissionGranted(isTrue: true)
-            addCameraToView()
-        } else {
-            //self.isPermissionGranted(isTrue: false)
-            self.camaraDeneyMsg()
-        }
-        
         //Camera Session
         cameraManager.resumeCaptureSession()
         
@@ -88,6 +74,23 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate, CropViewCo
             self.btnFlash.setImage(UIImage(named: "flashOn"), for: .normal)
         } else {
             self.btnFlash.setImage(UIImage(named: "flashAuto"), for: .normal)
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //Checking Camera Staus
+        let currentCameraState = cameraManager.currentCameraStatus()
+        if currentCameraState == .notDetermined {
+            self.viewPermission.alpha = 1.0
+            //self.camaraDeneyMsg()
+        } else if currentCameraState == .ready {
+            self.viewPermission.alpha = 0
+            self.isPermissionGranted(isTrue: true)
+            addCameraToView()
+        } else {
+            //self.camaraDeneyMsg()
+            self.viewPermission.alpha = 1.0
         }
     }
     
@@ -139,6 +142,7 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate, CropViewCo
         self.cameraManager.askUserForCameraPermission({ permissionGranted in
             
             if permissionGranted {
+                self.viewPermission.alpha = 0
                 self.isPermissionGranted(isTrue: true)
                 self.addCameraToView()
             } else {

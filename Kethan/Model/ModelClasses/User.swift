@@ -21,6 +21,9 @@ class User: NSObject {
     var creditPoint: String = ""
     var referralCode: String = ""
     var isSocialMediaUser: String = "" //O for SignUp user, 1 for Facebook, 2 for Google
+    var subscriptionEndDate = ""
+    var subscriptionStatus = ""
+    var subscriptionType = ""
     
     override init() {
         
@@ -37,6 +40,9 @@ class User: NSObject {
         self.userImage = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.userImage)
         self.referralCode = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.referralCode)
         self.contactNumber = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.contactNumber)
+        self.subscriptionEndDate = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.subscriptionEndDate)
+        self.subscriptionStatus = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.subscriptionStatus)
+        self.subscriptionType = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.subscriptionType)
         let cre = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.creditPoint)
         self.creditPoint = (cre.trimmedString().count == 0) ?"0":cre
     }
@@ -53,7 +59,10 @@ class User: NSObject {
             ENTITIES.userImage: self.userImage,
             ENTITIES.referralCode: self.referralCode,
             ENTITIES.contactNumber: self.contactNumber,
-            ENTITIES.creditPoint: self.creditPoint
+            ENTITIES.creditPoint: self.creditPoint,
+            ENTITIES.subscriptionEndDate: self.subscriptionEndDate,
+            ENTITIES.subscriptionStatus: self.subscriptionStatus,
+            ENTITIES.subscriptionType: self.subscriptionType
         ]
         return dictionary
     }
