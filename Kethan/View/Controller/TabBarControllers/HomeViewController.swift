@@ -52,7 +52,7 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate, CropViewCo
         
         DispatchQueue.main.async {
             let creditVM = CreditVM()
-            creditVM.getCreditPoints { (success) in
+            creditVM.callAPI(self, isShowLoader: false) { (success) in
                 self.navBar.btnRight.setTitle("\(AppConstant.shared.loggedUser.creditPoint)", for: .normal)
             }
         }

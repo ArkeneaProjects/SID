@@ -182,8 +182,8 @@ class SubscriptionVM: NSObject {
                 )
                 
                 if receipt["environment"] as? String ?? "" == "Sandbox" {
-                    let expiryDate = Date().addingTimeInterval((tag == 0) ?5.0:60*60)
-                    let renewalDate = Date().addingTimeInterval((tag == 0) ?6.0:61*60)
+                    let expiryDate = Date().addingTimeInterval((tag == 0) ?5.0*60:60*60)
+                    let renewalDate = Date().addingTimeInterval((tag == 0) ?6.0*60:61*60)
                     let parameters = ["creditPointRedeem": tag == 0 ? "" : self.creditedPoint, "startDate": Date().convertDateToString(), "endDate": expiryDate.convertDateToString(), "subscriptionType": tag == 0 ? "Monthly" : "Yearly", "subscriptionRenewalDate": tag == 0 ? renewalDate.convertDateToString() : ""]
                     self.updatePurchaseStatusOnServer(parameters: parameters as NSDictionary)
 

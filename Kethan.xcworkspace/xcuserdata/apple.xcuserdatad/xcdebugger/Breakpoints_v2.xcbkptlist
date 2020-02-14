@@ -202,5 +202,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5254CE07-B3B5-411C-BC7F-F12197758650"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kethan/ViewModel/SearchVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "getSearchByImage(imageArray:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5254CE07-B3B5-411C-BC7F-F12197758650 - 5410f7e68bf0dc30"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.AnyObject&gt;, Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;Swift.String&gt;) -&gt; () in SID.SearchVM.getSearchByImage(imageArray: __C.NSArray, completion: (Swift.String) -&gt; ()) -&gt; ()"
+                  moduleName = "SID"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Desktop/Working_Apps/Kethan/SID/Kethan/ViewModel/SearchVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "111"
+                  endingLineNumber = "111"
+                  offsetFromSymbolStart = "2104">
+               </Location>
+               <Location
+                  uuid = "5254CE07-B3B5-411C-BC7F-F12197758650 - a2d328a5f1f488b7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Any, Any) -&gt; Swift.Bool in closure #1 (Swift.Optional&lt;Swift.AnyObject&gt;, Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;Swift.String&gt;) -&gt; () in SID.SearchVM.getSearchByImage(imageArray: __C.NSArray, completion: (Swift.String) -&gt; ()) -&gt; ()"
+                  moduleName = "SID"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Desktop/Working_Apps/Kethan/SID/Kethan/ViewModel/SearchVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "112"
+                  endingLineNumber = "112"
+                  offsetFromSymbolStart = "104">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

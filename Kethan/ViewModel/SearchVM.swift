@@ -96,6 +96,7 @@ class SearchVM: NSObject {
                                                         if let dict = filtered.last {
                                                             let value = getValueFromDictionary(dictionary: dict, forKey: "score")
                                                             let valueInt = value.floatValue()*100
+                                                            objSearch.matchInt = Int(valueInt)
                                                             objSearch.match = String(format: "%.0f%% match", valueInt)
                                                         }
                                                     }
@@ -105,6 +106,14 @@ class SearchVM: NSObject {
                                     }
                                     return objSearch
                                 })
+                            
+                                //Sorted by percenstage
+                                self.arrSearchResult = self.arrSearchResult.sorted(by: { (obj1: Any, obj2: Any) -> Bool in
+                                    let objSearcheData1 = obj1 as? SearchResult ?? SearchResult()
+                                    let objSearcheData2 = obj2 as? SearchResult ?? SearchResult()
+                                    return objSearcheData1.matchInt > objSearcheData2.matchInt
+                                })
+                                                            
                                 ProgressManager.dismiss()
                                 completion("")
                         } else {

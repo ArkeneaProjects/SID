@@ -727,6 +727,9 @@ extension String {
 }
 
 extension Date {
+    func adding(minutes: Int) -> Date {
+           return Calendar.current.date(byAdding: .minute, value: minutes, to: self)!
+    }
     func convertDateToString() -> String {
         let formatter: DateFormatter = DateFormatter()
         formatter.dateFormat = DATEFORMATTERS.YYYYMMDDTHHMMSSZ
