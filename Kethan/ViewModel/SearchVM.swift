@@ -68,7 +68,7 @@ class SearchVM: NSObject {
         return self.arrSearchResult.count
     }
     
-    func getSearchByImage(imageArray: NSArray ,completion: @escaping (_ error: String) -> Void) {
+    func getSearchByImage(imageArray: NSArray, completion: @escaping (_ error: String) -> Void) {
         
         let dict: NSDictionary = [:]
         

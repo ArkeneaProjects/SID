@@ -13,7 +13,7 @@ class AppConstant: NSObject {
     
     var manufactureName: String = ""
     var brandName: String = ""
-        
+    
     static let shared: AppConstant = AppConstant()
     
     func updateProfile(updatedProfile: User) {
@@ -28,8 +28,11 @@ class AppConstant: NSObject {
         AppConstant.shared.loggedUser.country_code = updatedProfile.country_code
         AppConstant.shared.loggedUser.referralCode = updatedProfile.referralCode
         AppConstant.shared.loggedUser.creditPoint = updatedProfile.creditPoint
-
+        AppConstant.shared.loggedUser.subscriptionStatus = updatedProfile.subscriptionStatus
+        AppConstant.shared.loggedUser.subscriptionType = updatedProfile.subscriptionType
+        AppConstant.shared.loggedUser.subscriptionEndDate = updatedProfile.subscriptionEndDate
+        
         setUserDefaults(value: AppConstant.shared.loggedUser.dictioary(), forKey: UserDefaultsKeys.LoggedUser)
     }
-
+    
 }

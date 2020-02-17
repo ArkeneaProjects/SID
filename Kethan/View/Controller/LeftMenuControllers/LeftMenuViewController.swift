@@ -174,7 +174,7 @@ class LeftMenuViewController: BaseViewController, UITableViewDelegate, UITableVi
             self.cellClickAction("ForgotPwdViewController", "Email")
         } else if cellValue == "Change Password " {
             self.cellClickAction("ChangePwdViewController", "Password")
-        } else if cellValue == "Upgrade Subscription" {
+        } else if cellValue == "Switch Plans" {
             self.cellClickAction("SubScriptionViewController", "SubScription")
         } else if cellValue == "User Walkthrough" {
             self.cellClickAction("SignUpUserGuideViewController", "Guide")

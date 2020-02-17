@@ -24,25 +24,25 @@ class SubscriptionVM: NSObject {
         self.rootController = controller
         
         ProgressManager.show(withStatus: "", on: self.rootController!.view)
-
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             self.planArray.add(SubscriptionPlans.Monthly)
-                   self.planArray.add(SubscriptionPlans.AnnuallyFull)
-                   for p in self.planArray {
-                       if let productId: String = p as? String {
-                           self.retriveProductInfo(pName: productId)
-                       }
-                   }
-                   
-                   //actual product ids array
-                   self.productIdArr.add(SubscriptionPlans.Monthly)
-                   for i in 0..<10 {
-                       self.productIdArr.add("com.kethan.\((i+1)*5)")
-                   }
+            self.planArray.add(SubscriptionPlans.AnnuallyFull)
+            for p in self.planArray {
+                if let productId: String = p as? String {
+                    self.retriveProductInfo(pName: productId)
+                }
+            }
+            
+            //actual product ids array
+            self.productIdArr.add(SubscriptionPlans.Monthly)
+            for i in 0..<10 {
+                self.productIdArr.add("com.kethan.\((i+1)*5)")
+            }
             ProgressManager.dismiss()
         }
         //used for display purpose(only 2)
-       
+        
     }
     
     func retriveProductInfo(pName: String) {
@@ -61,7 +61,7 @@ class SubscriptionVM: NSObject {
                         let currencySymbol: String = (locale?.displayName(forKey: .currencySymbol, value: currencyCode))!
                         
                         let currentPrice = currencySymbol + String(describing: self.ProductArr[i].price)
-                                               
+                        
                         let attributedString = NSMutableAttributedString(string: currentPrice, attributes: [
                             .font: APP_FONT.boldFont(withSize: 45.0),
                             .foregroundColor: UIColor(white: 1.0, alpha: 1.0)
@@ -99,6 +99,8 @@ class SubscriptionVM: NSObject {
                     case .error:
                         ProgressManager.dismiss()
                     }
+                } else {
+                    ProgressManager.dismiss()
                 }
             })
         }, noCompletion: nil)
@@ -148,7 +150,7 @@ class SubscriptionVM: NSObject {
         ProgressManager.show(withStatus: "Restoring your subscription..", on: self.rootController!.view)
         NetworkActivityIndicatorManager.networkOperationStarted()
         SwiftyStoreKit.restorePurchases(atomically: true) { results in
-            NetworkActivityIndicatorManager.networkOperationFinished()
+           NetworkActivityIndicatorManager.networkOperationFinished()
             ProgressManager.dismiss()
             for purchase in results.restoredPurchases where purchase.needsFinishTransaction {
                 SwiftyStoreKit.finishTransaction(purchase.transaction)
@@ -185,16 +187,21 @@ class SubscriptionVM: NSObject {
                     let expiryDate = Date().addingTimeInterval((tag == 0) ?5.0*60:60*60)
                     let renewalDate = Date().addingTimeInterval((tag == 0) ?6.0*60:61*60)
                     let parameters = ["creditPointRedeem": tag == 0 ? "" : self.creditedPoint, "startDate": Date().convertDateToString(), "endDate": expiryDate.convertDateToString(), "subscriptionType": tag == 0 ? "Monthly" : "Yearly", "subscriptionRenewalDate": tag == 0 ? renewalDate.convertDateToString() : ""]
-                    self.updatePurchaseStatusOnServer(parameters: parameters as NSDictionary)
+                    AppConstant.shared.loggedUser.subscriptionEndDate = "\(expiryDate)"
 
+                    self.updatePurchaseStatusOnServer(parameters: parameters as NSDictionary)
                 } else {
-                    
                     let expiryDate: Date = (tag == 0 ? Date(timeInterval: 3600 * 24 * 30, since: Date()) : Date(timeInterval: 3600 * 24 * 365, since: Date()))
                     let renewalDate: Date = (tag == 0 ? Date(timeInterval: 3600 * 24 * 31, since: Date()) : Date(timeInterval: 3600 * 24 * 366, since: Date()))
                     
                     let parameters = ["creditPointRedeem": tag == 0 ? "" : self.creditedPoint, "startDate": Date().convertDateToString(), "endDate": expiryDate.convertDateToString(), "subscriptionType": tag == 0 ? "Monthly" : "Yearly", "subscriptionRenewalDate": tag == 0 ? renewalDate.convertDateToString() : ""]
+                    AppConstant.shared.loggedUser.subscriptionEndDate = "\(expiryDate)"
+
                     self.updatePurchaseStatusOnServer(parameters: parameters as NSDictionary)
                 }
+                AppConstant.shared.loggedUser.subscriptionStatus = "1"
+                AppConstant.shared.loggedUser.subscriptionType = tag == 0 ? "Monthly" : "Yearly"
+                AppConstant.shared.updateProfile(updatedProfile: AppConstant.shared.loggedUser)
                 
                 self.setStatus(result: purchaseResult, name: pName)
                 self.rootController?.showAlert((self.rootController?.alertForVerifySubscription(purchaseResult))!)
@@ -233,7 +240,7 @@ class SubscriptionVM: NSObject {
     
     func checkSubscription(apiCallFrom: Int, manufecture: String, brandname: String, image: UIImage?, rootController: BaseViewController) { //apiCallFrom 0 for search by Text, 1 for search by Image, 2 for upload
         ProgressManager.show(withStatus: "", on: rootController.view)
-
+        
         AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.CheckSubscription, parameters: [:], serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
             if error == nil {
                 ProgressManager.dismiss()
@@ -244,7 +251,7 @@ class SubscriptionVM: NSObject {
                         controller.isCalledFrom = 0
                         rootController.navigationController?.pushViewController(controller, animated: true)
                     }
-
+                    
                 } else {
                     if let controller = rootController.instantiate(SearchListViewController.self, storyboard: STORYBOARD.main) as? SearchListViewController {
                         controller.searchImage = image
@@ -256,10 +263,10 @@ class SubscriptionVM: NSObject {
                 if errorCode == "525" {
                     ProgressManager.dismiss()
                     rootController.showAlert(title: "Subscription expired", message: "Hey, looks like your subscription has expired. Or you have not subscribe to the application. \n Click to subscribe and be able to look up implants ", yesTitle: "Subscribe", noTitle: "Cancel", yesCompletion: {
-                            if let controller = rootController.instantiate(SubScriptionViewController.self, storyboard: STORYBOARD.signup) as? SubScriptionViewController {
-                                controller.isComeFromLogin = false
-                                rootController.navigationController?.pushViewController(controller, animated: true)
-                            }
+                        if let controller = rootController.instantiate(SubScriptionViewController.self, storyboard: STORYBOARD.signup) as? SubScriptionViewController {
+                            controller.isComeFromLogin = false
+                            rootController.navigationController?.pushViewController(controller, animated: true)
+                        }
                     }, noCompletion: nil)
                 } else {
                     ProgressManager.showError(withStatus: error, on: rootController.view, completion: nil)

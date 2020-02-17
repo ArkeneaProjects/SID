@@ -55,7 +55,7 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
     
     override func rightButtonAction() {
         self.subscriptionVmObj.restoreSubscription()
-//        self.navigateToHome(false, false)
+        //        self.navigateToHome(false, false)
     }
     
     @IBAction func annualActionClick(_ sender: Any) {   }
@@ -65,30 +65,46 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
     }
     
     @objc func planSelection(_ sender: CustomButton) {
-        if self.isComeFromLogin == true {
-            self.navigateToHome(false, false)
+        //        if self.isComeFromLogin == true {
+        //            self.navigateToHome(false, false)
+        //        } else {
+        if sender.indexPath.item == 0 {
+            self.subscriptionVmObj.selectedIndex = sender.indexPath.item
+            self.subscriptionVmObj.subscribe()
         } else {
-            if sender.indexPath.item == 0 {
-                self.subscriptionVmObj.selectedIndex = sender.indexPath.item
-                self.subscriptionVmObj.subscribe()
+            if AppConstant.shared.loggedUser.creditPoint == "0" {
+                self.subscriptionVmObj.creditedPoint = "0"
+                self.subscriptionVmObj.creditedValue = "0"
+                self.subscriptionVmObj.selectedIndex = 1
+                self.subscriptionVmObj.checkForIdentifire()
             } else {
-                if AppConstant.shared.loggedUser.creditPoint == "0" {
-                    self.subscriptionVmObj.creditedPoint = "0"
-                    self.subscriptionVmObj.creditedValue = "0"
-                    self.subscriptionVmObj.selectedIndex = 1
+                let controller: CreditsViewController = self.instantiate(CreditsViewController.self, storyboard: STORYBOARD.main) as? CreditsViewController ?? CreditsViewController()
+                controller.preparePopup(controller: self)
+                controller.showPopup()
+                controller.addCompletion = { creditValue, creditedPoints in
+                    self.subscriptionVmObj.creditedPoint = creditedPoints
+                    self.subscriptionVmObj.creditedValue = creditValue
+                    self.subscriptionVmObj.selectedIndex = sender.indexPath.item
                     self.subscriptionVmObj.checkForIdentifire()
-                } else {
-                    let controller: CreditsViewController = self.instantiate(CreditsViewController.self, storyboard: STORYBOARD.main) as? CreditsViewController ?? CreditsViewController()
-                    controller.preparePopup(controller: self)
-                    controller.showPopup()
-                    controller.addCompletion = { creditValue, creditedPoints in
-                        self.subscriptionVmObj.creditedPoint = creditedPoints
-                        self.subscriptionVmObj.creditedValue = creditValue
-                        self.subscriptionVmObj.selectedIndex = sender.indexPath.item
-                        self.subscriptionVmObj.checkForIdentifire()
-                    }
                 }
             }
+        }
+        //}
+    }
+    
+    @objc func termsSelection(_ sender: CustomButton) {
+        if let controller = self.instantiate(TermsConditionViewController.self, storyboard: STORYBOARD.leftMenu) as? TermsConditionViewController {
+            controller.isPage = 0
+            controller.urlString = "https://www.google.com/"
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
+    }
+    
+    @objc func privacySelection(_ sender: CustomButton) {
+        if let controller = self.instantiate(TermsConditionViewController.self, storyboard: STORYBOARD.leftMenu) as? TermsConditionViewController {
+            controller.isPage = 1
+            controller.urlString = "https://www.google.com/"
+            self.navigationController?.pushViewController(controller, animated: true)
         }
     }
     
@@ -99,7 +115,7 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: IDENTIFIERS.SubScriptionCollectionViewCell, for: indexPath) as? SubScriptionCollectionViewCell {
-            print(cell.frame.size.height)
+//            print(cell.frame.size.height)
             let arr = STATICDATA.arrSubscription[indexPath.item]
             cell.imgBG.image = UIImage(named: arr["image"] ?? "")
             
@@ -110,7 +126,16 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
             cell.btnSubscribe.setTitleColor((arr["type"] == "year") ?APP_COLOR.color3:APP_COLOR.color2, for: .normal)
             cell.btnSubscribe.indexPath = indexPath
             cell.btnSubscribe.addTarget(self, action: #selector(planSelection(_:)), for: .touchUpInside)
-            
+            cell.btnTerms.addTarget(self, action: #selector(termsSelection(_:)), for: .touchUpInside)
+            cell.btnPrivacy.addTarget(self, action: #selector(privacySelection(_:)), for: .touchUpInside)
+            print(AppConstant.shared.loggedUser.subscriptionStatus)
+            if AppConstant.shared.loggedUser.subscriptionType == "Monthly" && AppConstant.shared.loggedUser.subscriptionStatus == "1" && indexPath.item == 0 {
+                cell.imgActive.isHidden = false
+            } else if AppConstant.shared.loggedUser.subscriptionType == "Yearly" && AppConstant.shared.loggedUser.subscriptionStatus == "1" && indexPath.item == 1 {
+                cell.imgActive.isHidden = false
+            } else {
+                cell.imgActive.isHidden = true
+            }
             return cell
         }
         return UICollectionViewCell()
@@ -258,10 +283,10 @@ extension UIViewController {
         switch result {
         case .purchased(let expiryDate):
             print("Product is valid until \(expiryDate)")
-            return alertWithTitle("Product is purchased", message: "Product is valid until \(expiryDate)")
+            return alertWithTitle("Product is purchased", message: "Product is valid until \(expiryDate.expiryDate)")
         case .expired(let expiryDate):
             print("Product is expired since \(expiryDate)")
-            return alertWithTitle("Product expired", message: "Product is expired since \(expiryDate)")
+            return alertWithTitle("Product expired", message: "Product is expired since \(expiryDate.expiryDate)")
         case .notPurchased:
             print("This product has never been purchased")
             return alertWithTitle("Not purchased", message: "This product has never been purchased")
