@@ -150,7 +150,7 @@ class SubscriptionVM: NSObject {
         ProgressManager.show(withStatus: "Restoring your subscription..", on: self.rootController!.view)
         NetworkActivityIndicatorManager.networkOperationStarted()
         SwiftyStoreKit.restorePurchases(atomically: true) { results in
-           NetworkActivityIndicatorManager.networkOperationFinished()
+            NetworkActivityIndicatorManager.networkOperationFinished()
             ProgressManager.dismiss()
             for purchase in results.restoredPurchases where purchase.needsFinishTransaction {
                 SwiftyStoreKit.finishTransaction(purchase.transaction)
@@ -188,7 +188,7 @@ class SubscriptionVM: NSObject {
                     let renewalDate = Date().addingTimeInterval((tag == 0) ?6.0*60:61*60)
                     let parameters = ["creditPointRedeem": tag == 0 ? "" : self.creditedPoint, "startDate": Date().convertDateToString(), "endDate": expiryDate.convertDateToString(), "subscriptionType": tag == 0 ? "Monthly" : "Yearly", "subscriptionRenewalDate": tag == 0 ? renewalDate.convertDateToString() : ""]
                     AppConstant.shared.loggedUser.subscriptionEndDate = "\(expiryDate)"
-
+                    
                     self.updatePurchaseStatusOnServer(parameters: parameters as NSDictionary)
                 } else {
                     let expiryDate: Date = (tag == 0 ? Date(timeInterval: 3600 * 24 * 30, since: Date()) : Date(timeInterval: 3600 * 24 * 365, since: Date()))
@@ -196,7 +196,7 @@ class SubscriptionVM: NSObject {
                     
                     let parameters = ["creditPointRedeem": tag == 0 ? "" : self.creditedPoint, "startDate": Date().convertDateToString(), "endDate": expiryDate.convertDateToString(), "subscriptionType": tag == 0 ? "Monthly" : "Yearly", "subscriptionRenewalDate": tag == 0 ? renewalDate.convertDateToString() : ""]
                     AppConstant.shared.loggedUser.subscriptionEndDate = "\(expiryDate)"
-
+                    
                     self.updatePurchaseStatusOnServer(parameters: parameters as NSDictionary)
                 }
                 AppConstant.shared.loggedUser.subscriptionStatus = "1"
@@ -216,10 +216,11 @@ class SubscriptionVM: NSObject {
     func updatePurchaseStatusOnServer(parameters: NSDictionary) {
         AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.subscriptionUpdate, parameters: parameters, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
             if error == nil {
-                self.rootController?.navigationController?.popToRootViewController(animated: true)
-                //Delete Below
-                // ProgressManager.dismiss()
-                // ProgressManager.showSuccess(withStatus: "Subscription Successfull", on: self.rootController!.view)
+                if (self.rootController as! SubScriptionViewController).isComeFromLogin == true {
+                    self.rootController?.navigateToHome(false, false)
+                } else {
+                    self.rootController?.navigationController?.popViewController(animated: true)
+                }
             } else {
                 ProgressManager.dismiss()
                 ProgressManager.showError(withStatus: error, on: self.rootController!.view)

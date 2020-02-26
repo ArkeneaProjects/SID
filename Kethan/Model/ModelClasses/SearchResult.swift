@@ -64,7 +64,7 @@ class SearchResult: NSObject, NSCopying {
         let arrImaplant = NSMutableArray()
         for item in dictarr {
             let objItem = Implant(dictionary: item)
-            if objItem.userId == AppConstant.shared.loggedUser.userId || objItem.isApproved == "1" {
+            if (objItem.userId == AppConstant.shared.loggedUser.userId && objItem.isRejected == "0") || objItem.isApproved == "1" {
                 arrImaplant.add(objItem)
             }
         }

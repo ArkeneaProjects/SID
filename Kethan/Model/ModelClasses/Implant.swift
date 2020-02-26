@@ -16,6 +16,7 @@ class Implant: NSObject {
     @objc var createdDate: String = ""
     var id: String = ""
     var isApproved: String = ""
+    var isRejected: String = ""
     var userId: String = ""
     
     override init() {
@@ -29,6 +30,7 @@ class Implant: NSObject {
         self.createdDate = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.createdDate)
         self.id = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.id)
         self.isApproved = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.isApproved)
+        self.isRejected = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.isRejected)
         self.userId = getValueFromDictionary(dictionary: dictionary, forKey: ENTITIES.userId)
     }
     
@@ -40,6 +42,7 @@ class Implant: NSObject {
             ENTITIES.createdDate: self.createdDate,
             ENTITIES.id: self.id,
             ENTITIES.isApproved: (self.isApproved == "" || self.isApproved == "0") ?false:true,
+            ENTITIES.isRejected: (self.isRejected == "" || self.isRejected == "0") ?false:true,
             ENTITIES.userId: self.userId
         ]
         return dictionary

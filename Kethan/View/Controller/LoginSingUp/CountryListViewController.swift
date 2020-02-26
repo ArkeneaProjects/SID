@@ -112,7 +112,6 @@ public class CountryListViewController: UIViewController, UITableViewDelegate, U
         if searchController!.isActive && searchController!.searchBar.text != "" {
             return filteredCountries.count
         }
-        
         return countryList.count
     }
     
@@ -123,7 +122,6 @@ public class CountryListViewController: UIViewController, UITableViewDelegate, U
                 cell.country = filteredCountries[indexPath.row]
                 return cell
             }
-            
             cell.country = countryList[indexPath.row]
             return cell
         }

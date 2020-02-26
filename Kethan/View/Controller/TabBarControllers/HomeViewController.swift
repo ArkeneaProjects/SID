@@ -122,6 +122,10 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate, CropViewCo
         self.revealViewController()?.revealToggle(self.navBar.btnLeft)
     }
     
+    override func rightButtonAction() {
+        self.tabBarController?.selectedIndex = 3
+    }
+    
     @IBAction func galleryClickAction(_ sender: CustomButton) {
         self.imagePicker.present(croppingStyle: .circular, isCrop: false, isCamera: false)
     }

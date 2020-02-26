@@ -24,12 +24,13 @@ class PurchesViewController: BaseViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var tblView: UITableView!
     
     var isCameFromNotification: Bool = false
-    
+    var isShowBackBtn: Bool = false
+
     var creditVM = CreditVM()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addNavBarWithTitle("Credits", withLeftButtonType: (self.isCameFromNotification == false) ?.buttonTypeNil:.buttonTypeBack, withRightButtonType: .buttonTypeNil)
+        self.addNavBarWithTitle("Credits", withLeftButtonType: (self.isCameFromNotification == false && self.isShowBackBtn == false) ?.buttonTypeNil:.buttonTypeBack, withRightButtonType: .buttonTypeNil)
         
         //TableView
         self.tblView.registerNibWithIdentifier([IDENTIFIERS.CreditHistoryTableViewCell])
@@ -38,7 +39,7 @@ class PurchesViewController: BaseViewController, UITableViewDelegate, UITableVie
         self.tblView.tableFooterView = UIView()
         
         //Check the condition, is coming form notification or tab
-        if self.isCameFromNotification == false {
+        if self.isCameFromNotification == false { 
             let referralNumber = AppConstant.shared.loggedUser.referralCode
             let attributedString = NSMutableAttributedString(string: "Referral Code \(referralNumber) ", attributes: [
                 .font: UIFont(name: "HelveticaNeue-Medium", size: getCalculated(16.75))!,

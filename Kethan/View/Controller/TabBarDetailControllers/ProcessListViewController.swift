@@ -15,7 +15,7 @@ class ProcessListViewController: BaseViewController, UITableViewDelegate, UITabl
     var processArray = NSMutableArray()
     var deletedProcessArr = NSMutableArray()
     
-    var saveCompletion: ((_ processArray:NSMutableArray) -> Void)? = nil
+    var saveCompletion: ((_ processArray: NSMutableArray) -> Void)? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
