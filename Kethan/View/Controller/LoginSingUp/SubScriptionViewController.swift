@@ -115,7 +115,7 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: IDENTIFIERS.SubScriptionCollectionViewCell, for: indexPath) as? SubScriptionCollectionViewCell {
-//            print(cell.frame.size.height)
+            //            print(cell.frame.size.height)
             let arr = STATICDATA.arrSubscription[indexPath.item]
             cell.imgBG.image = UIImage(named: arr["image"] ?? "")
             

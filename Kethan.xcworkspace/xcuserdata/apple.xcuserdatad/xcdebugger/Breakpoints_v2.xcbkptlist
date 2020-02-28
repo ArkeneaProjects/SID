@@ -230,7 +230,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "111"
                   endingLineNumber = "111"
-                  offsetFromSymbolStart = "2104">
+                  offsetFromSymbolStart = "2748">
                </Location>
                <Location
                   uuid = "5254CE07-B3B5-411C-BC7F-F12197758650 - 469352351c78486a"
@@ -245,7 +245,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "112"
                   endingLineNumber = "112"
-                  offsetFromSymbolStart = "104">
+                  offsetFromSymbolStart = "111">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -279,6 +279,54 @@
             startingLineNumber = "65"
             endingLineNumber = "65"
             landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8910CC90-CFCB-4965-8AB2-291550815C34"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kethan/ViewModel/SearchVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "checkDuplicateManufacture(apiCallFrom:rootController:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2535FF6F-8FF9-46EA-8FA4-D9E35347A45B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kethan/ViewModel/SearchVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
+            landmarkName = "checkDuplicateManufacture(apiCallFrom:rootController:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F0677A1F-CE02-4974-A2CB-BD0CAEB37BFC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kethan/Model/APIManager/AFManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
+            landmarkName = "renderResponse(method:urlSuffix:type:strURL:headers:parameters:multipart:response:error:serviceCount:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

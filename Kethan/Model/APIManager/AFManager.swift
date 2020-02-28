@@ -205,7 +205,11 @@ class AFManager: NSObject {
                                     let topController = getTopViewController()
                                     topController?.authenticationFailed()
                                 } else {
-                                    completion(nil, message, errorCode)
+                                    if errorCode == "6" {
+                                       completion(responseDict, message, errorCode)
+                                    } else {
+                                        completion(nil, message, errorCode)
+                                    }
                                 }
                             } else {
                                 completion(nil, MESSAGES.errorOccured, "")
