@@ -14,11 +14,11 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
     
     @IBOutlet weak var lblNoResult: CustomLabel!
     @IBOutlet weak var imgWatermark: UIImageView!
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var addButton: CustomButton!
-
+    
     var isCalledFrom = 0 //0 coming search by text screen, 1 comming search by Image screen and 2 coming from upload screen
     
     var searchVM = SearchVM()
@@ -30,7 +30,7 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         self.addNavBarWithTitle("Search Results", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeAdd)
+        self.addNavBarWithTitle("Search Results", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeAdd)
         
         self.collectionView.register(UINib(nibName: IDENTIFIERS.SearchListCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: IDENTIFIERS.SearchListCollectionViewCell)
         
@@ -104,28 +104,28 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
         self.addButton.alpha = 0
         self.lblNoResult.alpha = 0
         self.imgWatermark.alpha = 0
-
+        
         if self.isCalledFrom == 1 {
-           
+            
             let imageDict  = saveImageInDocumentDict(image: self.searchImage!, imageName: "photo", key: "implantPicture")
             self.searchVM.getSearchByImage(imageArray: [imageDict]) { (error) in
                 self.gradientSkeltonShowHide(isShow: false)
                 if self.searchVM.arrSearchResult.count == 0 {
-//                    self.lblResultCount.text = error
+                    //                    self.lblResultCount.text = error
                     self.addButton.alpha = 1.0
                     self.lblNoResult.alpha = 1.0
                     self.imgWatermark.alpha = 1.0
-
+                    
                     ProgressManager.showError(withStatus: "No data found", on: self.view) {
                     }
-                   
+                    
                 } else {
                     DispatchQueue.main.async {
-//                        if self.searchVM.arrSearchResult.count == 1 {
-//                            self.lblResultCount.text = "1 result match to your search by image"
-//                        } else {
-//                            self.lblResultCount.text = "\(self.searchVM.arrSearchResult.count) results match to your search by image"
-//                        }
+                        //                        if self.searchVM.arrSearchResult.count == 1 {
+                        //                            self.lblResultCount.text = "1 result match to your search by image"
+                        //                        } else {
+                        //                            self.lblResultCount.text = "\(self.searchVM.arrSearchResult.count) results match to your search by image"
+                        //                        }
                         self.collectionView.reloadData()
                     }
                 }
@@ -136,20 +136,20 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
             self.searchVM.getAllSearchByText() { (error) in
                 self.gradientSkeltonShowHide(isShow: false)
                 if self.searchVM.arrSearchResult.count == 0 {
-//                    self.lblResultCount.text = error
+                    //                    self.lblResultCount.text = error
                     self.addButton.alpha = 1.0
                     self.lblNoResult.alpha = 1.0
-                     self.imgWatermark.alpha = 1.0
-                    ProgressManager.showError(withStatus: error, on: self.view) {
-                    }
+                    self.imgWatermark.alpha = 1.0
+//                    ProgressManager.showError(withStatus: error, on: self.view) {
+//                    }
                 } else {
                     DispatchQueue.main.async {
-                       
-//                        if self.searchVM.arrSearchResult.count == 1 {
-//                            self.lblResultCount.text = "1 result match to your search field"
-//                        } else {
-//                            self.lblResultCount.text = "\(self.searchVM.arrSearchResult.count) results match to your search field"
-//                        }
+                        
+                        //                        if self.searchVM.arrSearchResult.count == 1 {
+                        //                            self.lblResultCount.text = "1 result match to your search field"
+                        //                        } else {
+                        //                            self.lblResultCount.text = "\(self.searchVM.arrSearchResult.count) results match to your search field"
+                        //                        }
                         self.collectionView.reloadData()
                     }
                 }
@@ -164,14 +164,14 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: IDENTIFIERS.SearchListCollectionViewCell, for: indexPath) as? SearchListCollectionViewCell {
-
+            
             cell.configuration(obj: self.searchVM.arrSearchResult[indexPath.row])
             
             return cell
         }
         return UICollectionViewCell()
     }
-   
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             if let controller = self.instantiate(SearchDetailViewController.self, storyboard: STORYBOARD.main) as? SearchDetailViewController {
@@ -193,7 +193,7 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
             }
         }
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
         UIView.animate(withDuration: 0.5) {
             if let cell = collectionView.cellForItem(at: indexPath) as? SearchListCollectionViewCell {
@@ -209,7 +209,7 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
         }
         
     }
-
+    
     func animateCell(cell: SearchListCollectionViewCell) {
         let animation = CABasicAnimation(keyPath: "cornerRadius")
         animation.fromValue = 200
@@ -218,12 +218,12 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
         animation.duration = 1
         cell.layer.add(animation, forKey: animation.keyPath)
     }
-
+    
     func animateCellAtIndexPath(indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath as IndexPath) else { return }
         animateCell(cell: cell as? SearchListCollectionViewCell ?? SearchListCollectionViewCell())
     }
-
+    
     private func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: IndexPath) {
         animateCellAtIndexPath(indexPath: indexPath)
     }

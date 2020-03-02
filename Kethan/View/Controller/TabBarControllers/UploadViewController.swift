@@ -19,7 +19,7 @@ class UploadViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addNavBarWithTitle("Add Image", withLeftButtonType: .buttonTypeNil, withRightButtonType: .buttonTypeNil)
+        self.addNavBarWithTitle("Add Implant", withLeftButtonType: .buttonTypeNil, withRightButtonType: .buttonTypeNil)
         
         self.txtImplant.font = UIFont(name: self.txtImplant.font!.fontName, size: getCalculated(14.0))
         self.txtManu.font = UIFont(name: self.txtManu.font!.fontName, size: getCalculated(14.0))

@@ -170,7 +170,7 @@ class SearchVM: NSObject {
                             rootController.navigationController?.pushViewController(controller, animated: true)
                         }
                     } else {
-                         ProgressManager.showError(withStatus: error, on: rootController.view, completion: nil)
+                        ProgressManager.showError(withStatus: error, on: rootController.view, completion: nil)
                     }
                 } else {
                     ProgressManager.showError(withStatus: error, on: rootController.view, completion: nil)
