@@ -20,6 +20,7 @@ class ImageData: NSObject, NSCopying {
     var imageName: String = ""
     var watsonImage_id: String = ""
     var objectLocation: ObjectLocation = ObjectLocation()
+    var isReported: Bool = false
     var image: UIImage?
     
     override init() {

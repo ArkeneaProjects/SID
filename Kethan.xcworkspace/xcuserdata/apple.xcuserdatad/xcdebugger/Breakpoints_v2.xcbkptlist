@@ -18,32 +18,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D7D45566-EA54-45F4-8B2C-59342CE6CDD7"
+            uuid = "FDF3F0E9-4AFA-474A-820C-DFDE6DD6F4C7"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Kethan/View/CustomView/SearchViewCollecction.swift"
+            filePath = "Kethan/View/Controller/BaseViewController/BaseViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "collectionView(_:cellForItemAt:)"
+            startingLineNumber = "418"
+            endingLineNumber = "418"
+            landmarkName = "openGalleryList(indexpath:imgNameArr:sourceView:isProfile:isdelete:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BE35C36A-4554-4D98-B098-E559CED90C63"
+            uuid = "1A15F45C-A053-484C-B637-DBBFDDC080DF"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Kethan/View/CustomView/SearchViewCollecction.swift"
+            filePath = "Kethan/View/CustomView/SKPhotoBrowser/SKActionView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "collectionView(_:cellForItemAt:)"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "closeButtonPressed(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2B10EB2B-0F04-43BA-882D-4BB06A61E3C7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kethan/View/CustomView/SKPhotoBrowser/SKPhotoBrowser.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "518"
+            endingLineNumber = "518"
+            landmarkName = "selectButtonPressed(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -120,6 +120,7 @@ struct SUFFIX_URL {
     static let Credit = "user/userCreditList"
     static let CheckSubscription = "implant/checkSubscription"
     static let ViewProfile = "user/profile"
+    static let addReporting = "verificationImplant/addReporting"
 }
 
 struct KEYS {

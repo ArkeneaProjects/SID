@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -20,22 +25,45 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="87z-IC-4kT">
                         <rect key="frame" x="-1" y="0.0" width="322" height="294"/>
                     </imageView>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8s-1W-GKm" customClass="CustomButton" customModule="SID" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="294"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.84926155821917804" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
+                        <state key="normal" title=" See All" image="add">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isAttributed" value="NO"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="underline" value="NO"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                <real key="value" value="22"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoFont" value="YES"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="arrangeTitle" value="NO"/>
+                        </userDefinedRuntimeAttributes>
+                    </button>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="c8s-1W-GKm" secondAttribute="bottom" id="4xg-uO-RdF"/>
                 <constraint firstItem="87z-IC-4kT" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="-1" id="CmF-Fj-euw"/>
+                <constraint firstItem="c8s-1W-GKm" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="JXd-GV-kMm"/>
                 <constraint firstAttribute="bottom" secondItem="87z-IC-4kT" secondAttribute="bottom" id="Lx2-IT-DNw"/>
+                <constraint firstAttribute="trailing" secondItem="c8s-1W-GKm" secondAttribute="trailing" id="POC-TB-7dG"/>
                 <constraint firstAttribute="trailing" secondItem="87z-IC-4kT" secondAttribute="trailing" constant="-1" id="SyP-3s-3zo"/>
                 <constraint firstItem="87z-IC-4kT" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Z4j-XE-Xzt"/>
+                <constraint firstItem="c8s-1W-GKm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="b7q-9w-q2X"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
+                <outlet property="btnSeeAll" destination="c8s-1W-GKm" id="Q70-zf-wtY"/>
                 <outlet property="imgPhoto" destination="87z-IC-4kT" id="3id-5a-iEC"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="100.44642857142857"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="add" width="18.5" height="18.5"/>
         <image name="image1" width="141.5" height="146.5"/>
     </resources>
 </document>

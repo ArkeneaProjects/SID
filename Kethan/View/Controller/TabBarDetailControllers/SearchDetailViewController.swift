@@ -24,10 +24,63 @@ class SearchDetailViewController: BaseViewController, UITableViewDelegate, UITab
         self.tblView.tableFooterView = UIView()
         
         let searchVM = SearchVM()
+        AppConstant.shared.selectedImplant = self.detailObj._id
         //searchVM.sendEmail(implantId: detailObj._id)
         // Do any additional setup after loading the view.
     }
    
+    func openGalleryListReport(indexpath: IndexPath, imgNameArr: NSMutableArray, sourceView: UIImageView, isProfile: Bool = false, isdelete: Bool = false) {
+    
+        var items = [SKPhoto]()
+        var arr = [ObjectLocation]()
+        for item in imgNameArr {
+            if let object = item as? ImageData {
+                arr.append(object.objectLocation)
+                if let image = object.image {
+                    let item = SKPhoto.photoWithImage(image, object: object.objectLocation)
+                    items.append(item)
+                } else {
+                    let item = SKPhoto.photoWithImageURL(object.imageName, object: object.objectLocation, imageData: item as? ImageData)
+                    items.append(item)
+                }
+            } else if let url = item as? String {
+                let item = SKPhoto.profilePhotoURL(url, holder: UIImage(named: "default-user"))
+                items.append(item)
+            }
+        }
+        
+        // 2. create PhotoBrowser Instance, and present.
+        let browser = SKPhotoBrowser(photos: items, imageDataArray: imgNameArr)
+        browser.initializePageIndex(indexpath.row)
+        browser.cordinate = arr
+        browser.addCompletion = { imageArr in
+            print(imageArr)
+            let controller: ReportViewController = self.instantiate(ReportViewController.self, storyboard: STORYBOARD.main) as? ReportViewController ?? ReportViewController()
+            controller.preparePopup(controller: self)
+            controller.showPopup()
+            controller.addCompletion = { str, brand in
+                if str.count > 0 {
+                    let dict = ["implantId": AppConstant.shared.selectedImplant,
+                                "suggestedImplantId": brand,
+                                "comment": str,
+                                "imageData": imageArr.description]
+                    
+                    AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.addReporting, parameters: dict as NSDictionary, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
+                        if error == nil {
+                            
+                        } else {
+                            ProgressManager.showError(withStatus: error, on: self.view)
+                        }
+                    }
+                } else {
+                    
+                }
+            }
+            
+        }
+        present(browser, animated: true, completion: {})
+    }
+    
     // MARK: - Button Action
     @IBAction func edittButtonAction() {
         if let controller = self.instantiate(AddDetailsViewController.self, storyboard: STORYBOARD.main) as? AddDetailsViewController {

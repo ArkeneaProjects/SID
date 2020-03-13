@@ -10,6 +10,7 @@ import UIKit
 
 public let SKPHOTO_LOADING_DID_END_NOTIFICATION = "photoLoadingDidEndNotification"
 
+
 // MARK: - SKPhotoBrowser
 public class SKPhotoBrowser: UIViewController {
     // open function
@@ -19,6 +20,9 @@ public class SKPhotoBrowser: UIViewController {
     open var activityItemProvider: UIActivityItemProvider?
     open var photos: [SKPhotoProtocol] = []
     var cordinate = [ObjectLocation]()
+    var itemsImageData = NSMutableArray()
+    var selectedImageArray = NSMutableArray()
+    
     
     internal lazy var pagingScrollView: SKPagingScrollView = SKPagingScrollView(frame: self.view.frame, browser: self)
     
@@ -31,11 +35,11 @@ public class SKPhotoBrowser: UIViewController {
     fileprivate var actionView: SKActionView!
     fileprivate(set) var paginationView: SKPaginationView!
     var toolbar: SKToolbar!
-
+    
     // actions
     fileprivate var activityViewController: UIActivityViewController!
     fileprivate var panGesture: UIPanGestureRecognizer?
-
+    
     // for status check property
     fileprivate var isEndAnimationByToolBar: Bool = true
     fileprivate var isViewActive: Bool = false
@@ -50,13 +54,15 @@ public class SKPhotoBrowser: UIViewController {
     
     // delegate
     open weak var delegate: SKPhotoBrowserDelegate?
-
+    
     // statusbar initial state
     private var statusbarHidden: Bool = UIApplication.shared.isStatusBarHidden
     
     // strings
     open var cancelTitle = "Cancel"
-
+    
+    var addCompletion:((_ reportedImages: NSMutableArray) -> Void)?
+    
     // MARK: - Initializer
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -68,8 +74,8 @@ public class SKPhotoBrowser: UIViewController {
         setup()
     }
     
-    public convenience init(photos: [SKPhotoProtocol]) {
-        self.init(photos: photos, initialPageIndex: 0)
+    public convenience init(photos: [SKPhotoProtocol], imageDataArray: NSMutableArray) {
+        self.init(photos: photos, initialPageIndex: 0, imageDataArray: imageDataArray)
     }
     
     @available(*, deprecated)
@@ -81,17 +87,18 @@ public class SKPhotoBrowser: UIViewController {
         animator.senderViewForAnimation = animatedFromView
     }
     
-    public convenience init(photos: [SKPhotoProtocol], initialPageIndex: Int) {
+    public convenience init(photos: [SKPhotoProtocol], initialPageIndex: Int, imageDataArray: NSMutableArray) {
         self.init(nibName: nil, bundle: nil)
         self.photos = photos
         self.photos.forEach { $0.checkCache() }
         self.currentPageIndex = min(initialPageIndex, photos.count - 1)
         self.initPageIndex = self.currentPageIndex
         self.currentPage = currentPageIndex
+        self.itemsImageData = imageDataArray
         animator.senderOriginImage = photos[currentPageIndex].underlyingImage
         animator.senderViewForAnimation = photos[currentPageIndex] as? UIView
     }
-
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
@@ -115,7 +122,7 @@ public class SKPhotoBrowser: UIViewController {
         configureActionView()
         configurePaginationView()
         configureToolbar()
-
+        
         animator.willPresent(self)
     }
     
@@ -135,13 +142,13 @@ public class SKPhotoBrowser: UIViewController {
         isPerformingLayout = true
         // where did start
         delegate?.didShowPhotoAtIndex?(self, index: currentPageIndex)
-
+        
         // toolbar
         toolbar.frame = frameForToolbarAtOrientation()
         
         // action
         actionView.updateFrame(frame: view.frame)
-
+        
         // paging
         switch SKCaptionOptions.captionLocation {
         case .basic:
@@ -150,7 +157,7 @@ public class SKPhotoBrowser: UIViewController {
             paginationView.frame = frameForPaginationAtOrientation()
         }
         pagingScrollView.updateFrame(view.bounds, currentPageIndex: currentPageIndex)
-
+        
         isPerformingLayout = false
     }
     
@@ -195,7 +202,7 @@ public class SKPhotoBrowser: UIViewController {
     
     open func performLayout() {
         isPerformingLayout = true
-
+        
         // reset local cache
         pagingScrollView.reload()
         pagingScrollView.updateContentOffset(currentPageIndex)
@@ -232,7 +239,7 @@ public class SKPhotoBrowser: UIViewController {
     
     open func popupShare(includeCaption: Bool = true) {
         let photo = photos[currentPageIndex]
-       
+        
         guard var underlyingImage = photo.underlyingImage else {
             return
         }
@@ -309,7 +316,7 @@ public extension SKPhotoBrowser {
                 return
             }
             isEndAnimationByToolBar = false
-
+            
             let pageFrame = frameForPageAtIndex(index)
             pagingScrollView.jumpToPageAtIndex(pageFrame)
         }
@@ -337,24 +344,24 @@ public extension SKPhotoBrowser {
     
     func hideControlsAfterDelay() {
         // reset
-        cancelControlHiding()
+        // cancelControlHiding()
         // start
-        controlVisibilityTimer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(SKPhotoBrowser.hideControls(_:)), userInfo: nil, repeats: false)
+        //  controlVisibilityTimer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(SKPhotoBrowser.hideControls(_:)), userInfo: nil, repeats: false)
     }
     
     func hideControls() {
-        setControlsHidden(true, animated: true, permanent: false)
+        //  setControlsHidden(true, animated: true, permanent: false)
     }
     
     @objc func hideControls(_ timer: Timer) {
-        hideControls()
-        delegate?.controlsVisibilityToggled?(self, hidden: true)
+        //        hideControls()
+        //        delegate?.controlsVisibilityToggled?(self, hidden: true)
     }
     
     func toggleControls() {
-        let hidden = !areControlsHidden()
-        setControlsHidden(hidden, animated: true, permanent: false)
-        delegate?.controlsVisibilityToggled?(self, hidden: areControlsHidden())
+        //        let hidden = !areControlsHidden()
+        //        setControlsHidden(hidden, animated: true, permanent: false)
+        //        delegate?.controlsVisibilityToggled?(self, hidden: areControlsHidden())
     }
     
     func areControlsHidden() -> Bool {
@@ -474,7 +481,7 @@ internal extension SKPhotoBrowser {
                 // Continue Showing View
                 setNeedsStatusBarAppearanceUpdate()
                 view.backgroundColor = bgColor
-
+                
                 let velocityY: CGFloat = CGFloat(0.35) * sender.velocity(in: self.view).y
                 let finalX: CGFloat = firstX
                 let finalY: CGFloat = viewHalfHeight
@@ -489,7 +496,37 @@ internal extension SKPhotoBrowser {
             }
         }
     }
-   
+    
+    @objc func selectButtonPressed(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        // actionView.deleteButton.alpha = actionView.deleteButton.alpha == 1.0 ? 0.0 : 1.0
+        let imageObj: ImageData = self.itemsImageData[currentPageIndex] as! ImageData
+        let imageData: NSDictionary = ["id": imageObj.id ,
+                                       "imageName": imageObj.imageName,
+                                       "objectLocation": [
+                                        "height": imageObj.objectLocation.height,
+                                        "left": imageObj.objectLocation.left,
+                                        "top": imageObj.objectLocation.top,
+                                        "width": imageObj.objectLocation.width],
+                                       "userId": imageObj.userId,
+                                       "watsonImage_id": imageObj.watsonImage_id]
+//        for i in 0..<self.selectedImageArray.count {
+//            if (self.selectedImageArray[i] as! NSDictionary).value(forKey: "id") == imageObj.id {
+//                self.selectedImageArray.removeObject(at: i)
+//            }
+//        }
+        if self.selectedImageArray.contains(imageData) == false {
+            self.selectedImageArray.add(imageData)
+        } else {
+            self.selectedImageArray.remove(imageData)
+        }
+    }
+    
+    @objc func reportButtonPressed() {
+        dismissPhotoBrowser(animated: true)
+        self.addCompletion!(self.selectedImageArray)
+    }
+    
     @objc func actionButtonPressed(ignoreAndShare: Bool) {
         delegate?.willShowActionSheet?(currentPageIndex)
         
@@ -530,7 +567,6 @@ internal extension SKPhotoBrowser {
         defer {
             reloadData()
         }
-        
         if photos.count > 1 {
             pagingScrollView.deleteImage()
             
@@ -562,14 +598,14 @@ private extension SKPhotoBrowser {
         pagingScrollView.delegate = self
         view.addSubview(pagingScrollView)
     }
-
+    
     func configureGestureControl() {
         guard !SKPhotoBrowserOptions.disableVerticalSwipe else { return }
         
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(SKPhotoBrowser.panGestureRecognized(_:)))
         panGesture?.minimumNumberOfTouches = 1
         panGesture?.maximumNumberOfTouches = 1
-
+        
         if let panGesture = panGesture {
             view.addGestureRecognizer(panGesture)
         }
@@ -579,7 +615,7 @@ private extension SKPhotoBrowser {
         actionView = SKActionView(frame: view.frame, browser: self)
         view.addSubview(actionView)
     }
-
+    
     func configurePaginationView() {
         paginationView = SKPaginationView(frame: view.frame, browser: self)
         view.addSubview(paginationView)
@@ -589,24 +625,24 @@ private extension SKPhotoBrowser {
         toolbar = SKToolbar(frame: frameForToolbarAtOrientation(), browser: self)
         view.addSubview(toolbar)
     }
-
+    
     func setControlsHidden(_ hidden: Bool, animated: Bool, permanent: Bool) {
-        // timer update
-        cancelControlHiding()
-        
-        // scroll animation
-        pagingScrollView.setControlsHidden(hidden: hidden)
-
-        // paging animation
-        paginationView.setControlsHidden(hidden: hidden)
-        
-        // action view animation
-        actionView.animate(hidden: hidden)
-        
-        if !hidden && !permanent {
-            hideControlsAfterDelay()
-        }
-        setNeedsStatusBarAppearanceUpdate()
+        //        // timer update
+        //        cancelControlHiding()
+        //
+        //        // scroll animation
+        //        pagingScrollView.setControlsHidden(hidden: hidden)
+        //
+        //        // paging animation
+        //        paginationView.setControlsHidden(hidden: hidden)
+        //
+        //        // action view animation
+        //        actionView.animate(hidden: hidden)
+        //
+        //        if !hidden && !permanent {
+        //            hideControlsAfterDelay()
+        //        }
+        //        setNeedsStatusBarAppearanceUpdate()
     }
 }
 

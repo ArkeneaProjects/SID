@@ -201,7 +201,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
             if let cell = tableView.dequeueReusableCell(withIdentifier: IDENTIFIERS.AddDetailHeader1Cell, for: indexPath) as? AddDetailHeader1Cell {
                 cell.layoutIfNeeded()
                 cell.arrAllItems = self.imageArray
-                cell.btnSeeAll.isHidden = (self.imageArray.count > 5) ?false:true
+                cell.btnSeeAll.isHidden = (self.imageArray.count > 5) ? false : true
                 cell.btnSeeAll.indexPath = indexPath
                 cell.btnSeeAll.addTarget(self, action: #selector(seeAllImages(_:)), for: .touchUpInside)
                 

@@ -51,7 +51,7 @@ class SearchViewCollecction: UIView, UICollectionViewDelegate, UICollectionViewD
     
     // MARK: - CollectionView Dalegate and DataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return arrAllItems.count
+        return arrAllItems.count <= 5 ? arrAllItems.count : 6
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -65,6 +65,8 @@ class SearchViewCollecction: UIView, UICollectionViewDelegate, UICollectionViewD
                         cell.imgPhoto.drawRectangle(frameSize: CGSize(width: cell.imgPhoto.bounds.width, height: cell.imgPhoto.bounds.height), imageWidth: CGFloat(obj.objectLocation.imageWidth.floatValue()), imageHight: CGFloat(obj.objectLocation.imageHeight.floatValue()), drawSize: CGRect(x: CGFloat(obj.objectLocation.left.floatValue()), y: CGFloat(obj.objectLocation.top.floatValue()), width: CGFloat(obj.objectLocation.width.floatValue()), height: CGFloat(obj.objectLocation.height.floatValue())))
                     }
                 }
+                cell.btnSeeAll.isHidden = indexPath.row <= 4 ? true : false
+                cell.btnSeeAll.setTitle(" \(arrAllItems.count-5)", for: .normal)
             }
             return cell
         }
@@ -75,7 +77,7 @@ class SearchViewCollecction: UIView, UICollectionViewDelegate, UICollectionViewD
         print("Collection view at row \(collectionView.tag) selected index path \(indexPath)")
         if let collectionCell = self.collectionView.cellForItem(at: indexPath) as? CustomCollectionViewCell {
             
-            self.viewController?.openGalleryList(indexpath: indexPath, imgNameArr: self.arrAllItems, sourceView: collectionCell.imgPhoto)
+            (self.viewController as! SearchDetailViewController).openGalleryListReport(indexpath: indexPath, imgNameArr: self.arrAllItems, sourceView: collectionCell.imgPhoto)
         }
     }
     

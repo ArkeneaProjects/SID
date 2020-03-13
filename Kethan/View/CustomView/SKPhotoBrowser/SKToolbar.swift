@@ -13,6 +13,8 @@ private let bundle = Bundle(for: SKPhotoBrowser.self)
 
 class SKToolbar: UIToolbar {
     var toolActionButton: UIBarButtonItem!
+//    var toolActionButtonReport: UIBarButtonItem!
+//    var toolActionButtonSelect: UIBarButtonItem!
     fileprivate weak var browser: SKPhotoBrowser?
     
     required init?(coder aDecoder: NSCoder) {
@@ -46,22 +48,38 @@ private extension SKToolbar {
         backgroundColor = .clear
         clipsToBounds = true
         isTranslucent = true
-        setBackgroundImage(UIImage(), forToolbarPosition: .any, barMetrics: .default)
+        setBackgroundImage(UIImage(), forToolbarPosition: .bottom, barMetrics: .default)
     }
     
     func setupToolbar() {
-        toolActionButton = UIBarButtonItem(barButtonSystemItem: .action, target: browser, action: #selector(SKPhotoBrowser.actionButtonPressed))
-        toolActionButton.tintColor = UIColor.white
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: SKMesurement.screenWidth, height: 50))
+        view.backgroundColor = .clear
+        let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        btn.setTitle("Report", for: .normal)
+        btn.addTarget(browser, action: #selector(SKPhotoBrowser.actionButtonPressed), for: .touchUpInside)
+        view.addSubview(btn)
         
-        var items = [UIBarButtonItem]()
-        items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
-        if SKPhotoBrowserOptions.displayAction {
-            items.append(toolActionButton)
-        }
-        setItems(items, animated: false)
+//        toolActionButton = UIBarButtonItem(barButtonSystemItem: .action, target: browser, action: #selector(SKPhotoBrowser.actionButtonPressed))
+//        toolActionButton.tintColor = UIColor.white
+//
+//        toolActionButtonSelect = UIBarButtonItem(customView: view)
+//        toolActionButtonSelect.setBackgroundImage(UIImage(named: "check"), for: .selected, barMetrics: .default)
+//        toolActionButtonSelect.setBackgroundImage(UIImage(named: "unCheck"), for: .normal, barMetrics: .default)
+//        toolActionButtonSelect.tintColor = UIColor.white
+        
+//        var items = [UIBarButtonItem]()
+        
+//        if SKPhotoBrowserOptions.displayAction {
+//            items.append(toolActionButtonSelect)
+//        }
+//        items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
+//        items.append(toolActionButton)
+//        items.append(toolActionButtonSelect)
+        
+       // setItems(items, animated: false)
+        
     }
     
     func setupActionButton() {
     }
 }
-

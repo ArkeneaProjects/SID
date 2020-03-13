@@ -14,6 +14,7 @@ class AddDetailHeader1Cell: UITableViewCell, UICollectionViewDelegate, UICollect
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var btnSeeAll: CustomButton!
+    
     var isNewUpload: Bool = false
     
     var arrAllItems: NSMutableArray = NSMutableArray() {

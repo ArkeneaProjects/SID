@@ -379,10 +379,10 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
     
     // MARK: - Logout
     func authenticationFailed() {
-        
-        self.showAlert(title: "", message: "Authentication failed try to re login", yesTitle: nil, noTitle: "OK", yesCompletion: nil) {
-            self.logoutFromApp()
-        }
+        self.logoutFromApp()
+//        self.showAlert(title: "", message: "Authentication failed try to re login", yesTitle: nil, noTitle: "OK", yesCompletion: nil) {
+//            
+//        }
     }
     
     func logoutFromApp() {
@@ -405,7 +405,7 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
                     let item = SKPhoto.photoWithImage(image, object: object.objectLocation)
                     items.append(item)
                 } else {
-                    let item = SKPhoto.photoWithImageURL(object.imageName, object: object.objectLocation)
+                    let item = SKPhoto.photoWithImageURL(object.imageName, object: object.objectLocation, imageData: item as? ImageData)
                     items.append(item)
                 }
             } else if let url = item as? String {
@@ -415,7 +415,7 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
         }
         
         // 2. create PhotoBrowser Instance, and present.
-        let browser = SKPhotoBrowser(photos: items)
+        let browser = SKPhotoBrowser(photos: items, imageDataArray: imgNameArr)
         
         browser.initializePageIndex(indexpath.row)
         browser.cordinate = arr

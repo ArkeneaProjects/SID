@@ -32,6 +32,7 @@
 		180AAB9823DEE89A00080A00 /* AGPushNoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180AAB9623DEE89900080A00 /* AGPushNoteView.xib */; };
 		180AAB9923DEE89A00080A00 /* AGPushNoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 180AAB9723DEE89900080A00 /* AGPushNoteView.m */; };
 		181259DA23E43C3F00070FB4 /* CreditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181259D923E43C3F00070FB4 /* CreditViewController.swift */; };
+		1816CEF4241BCC7E0031E60A /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1816CEF3241BCC7E0031E60A /* ReportViewController.swift */; };
 		181FFA9E239A26D50078E64D /* DatePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181FFA9D239A26D50078E64D /* DatePopUpViewController.swift */; };
 		181FFAA2239A71170078E64D /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181FFAA1239A71160078E64D /* PreviewViewController.swift */; };
 		1821AF0B237A741B0010B307 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821AF0A237A741B0010B307 /* HomeViewController.swift */; };
@@ -262,6 +263,7 @@
 		180AAB9623DEE89900080A00 /* AGPushNoteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGPushNoteView.xib; sourceTree = "<group>"; };
 		180AAB9723DEE89900080A00 /* AGPushNoteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGPushNoteView.m; sourceTree = "<group>"; };
 		181259D923E43C3F00070FB4 /* CreditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditViewController.swift; sourceTree = "<group>"; };
+		1816CEF3241BCC7E0031E60A /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		181FFA9D239A26D50078E64D /* DatePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePopUpViewController.swift; sourceTree = "<group>"; };
 		181FFAA1239A71160078E64D /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		1821AF0A237A741B0010B307 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -812,6 +814,7 @@
 				181FFAA1239A71160078E64D /* PreviewViewController.swift */,
 				1849714F23C60A7D00BFAFF3 /* ImageListViewController.swift */,
 				181259D923E43C3F00070FB4 /* CreditViewController.swift */,
+				1816CEF3241BCC7E0031E60A /* ReportViewController.swift */,
 			);
 			path = TabBarDetailControllers;
 			sourceTree = "<group>";
@@ -1540,6 +1543,7 @@
 				1879F573238BB2DA00ABBBC0 /* SearchDetailViewController.swift in Sources */,
 				1875FC0C23A0ED7C00B1EA1F /* CropDimView.swift in Sources */,
 				184488BF23C3363D001178AB /* SKPagingScrollView.swift in Sources */,
+				1816CEF4241BCC7E0031E60A /* ReportViewController.swift in Sources */,
 				18956D1D2387C7BB00BD8F63 /* Categories.swift in Sources */,
 				1859402723CC93B80024324E /* NetworkActivityIndicatorManager.swift in Sources */,
 				1801ABAE23851DCB00F46223 /* KVNRotationViewController.m in Sources */,

@@ -26,6 +26,7 @@ class SKPhoto: NSObject, SKPhotoProtocol {
     var shouldCachePhotoURLImage: Bool = false
     var photoURL: String!
     var objectLocation: ObjectLocation?
+    var imageData: ImageData?
     
     override init() {
         super.init()
@@ -39,14 +40,15 @@ class SKPhoto: NSObject, SKPhotoProtocol {
     
     convenience init(image: UIImage, object: ObjectLocation?) {
         self.init()
-       underlyingImage = image
+        underlyingImage = image
         objectLocation = object
     }
     
-    convenience init(url: String, object: ObjectLocation?) {
+    convenience init(url: String, object: ObjectLocation?, imageData: ImageData?) {
         self.init()
         photoURL = url
         objectLocation = object
+        self.imageData = imageData
     }
     
     convenience init(url: String, holder: UIImage?, object: ObjectLocation?) {
@@ -128,8 +130,8 @@ extension SKPhoto {
         return SKPhoto(image: image, object: object)
     }
     
-    public static func photoWithImageURL(_ url: String, object: ObjectLocation?) -> SKPhoto {
-        return SKPhoto(url: url, object: object)
+    public static func photoWithImageURL(_ url: String, object: ObjectLocation?, imageData: ImageData?) -> SKPhoto {
+        return SKPhoto(url: url, object: object, imageData: imageData)
     }
     
     public static func photoWithImageURL(_ url: String, holder: UIImage?, object: ObjectLocation?) -> SKPhoto {

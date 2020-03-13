@@ -14,6 +14,7 @@ class AppConstant: NSObject {
     var manufactureName: String = ""
     var brandName: String = ""
     var implantImage: UIImage?
+    var selectedImplant: String = ""
     
     static let shared: AppConstant = AppConstant()
     

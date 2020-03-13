@@ -92,7 +92,7 @@ class SKCloseButton: SKImageButton {
 }
 
 class SKDeleteButton: SKImageButton {
-    override var imageName: String { return "btn_common_delete_wh" }
+//    override var imageName: String { return "btn_common_delete_wh" }
     override var marginX: CGFloat {
         get {
             return SKPhotoBrowserOptions.swapCloseAndDeleteButtons
@@ -112,7 +112,7 @@ class SKDeleteButton: SKImageButton {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setup(imageName)
+       // setup(imageName)
         showFrame = CGRect(x: marginX, y: marginY, width: size.width, height: size.height)
         hideFrame = CGRect(x: marginX, y: -marginY, width: size.width, height: size.height)
     }

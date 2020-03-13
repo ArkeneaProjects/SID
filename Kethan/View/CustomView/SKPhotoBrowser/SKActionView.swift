@@ -15,6 +15,7 @@ class SKActionView: UIView {
     
     // Action
     fileprivate var cancelTitle = "Cancel"
+    var reportedImaegeArray = NSMutableArray()
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -48,11 +49,11 @@ class SKActionView: UIView {
     }
 
     func updateCloseButton(image: UIImage, size: CGSize? = nil) {
-        configureCloseButton(image: image, size: size)
+        configureCloseButton(image: UIImage(named: "closeX"), size: CGSize(width: 44, height: 44))
     }
     
     func updateDeleteButton(image: UIImage, size: CGSize? = nil) {
-        configureDeleteButton(image: image, size: size)
+        configureDeleteButton(image: image, size: CGSize(width: 74, height: 44))
     }
     
     func animate(hidden: Bool) {
@@ -66,10 +67,10 @@ class SKActionView: UIView {
                             self.closeButton.alpha = alpha
                             self.closeButton.frame = closeFrame
                         }
-                        if SKPhotoBrowserOptions.displayDeleteButton {
-                            self.deleteButton.alpha = alpha
-                            self.deleteButton.frame = deleteFrame
-                        }
+                         if SKPhotoBrowserOptions.displayDeleteButton {
+                        self.deleteButton.alpha = alpha
+                        self.deleteButton.frame = deleteFrame
+                         }
         }, completion: nil)
     }
     
@@ -80,9 +81,9 @@ class SKActionView: UIView {
     @objc func deleteButtonPressed(_ sender: UIButton) {
         guard let browser = self.browser else { return }
         
-        browser.delegate?.removePhoto?(browser, index: browser.currentPageIndex) { [weak self] in
-            self?.browser?.deleteImage()
-        }
+                browser.delegate?.removePhoto?(browser, index: browser.currentPageIndex) { [weak self] in
+                    self?.browser?.deleteImage()
+                }
     }
 }
 
@@ -108,6 +109,7 @@ extension SKActionView {
         if deleteButton == nil {
             deleteButton = SKDeleteButton(frame: .zero)
             deleteButton.addTarget(self, action: #selector(deleteButtonPressed(_:)), for: .touchUpInside)
+            deleteButton.setTitle("Report", for: .normal)
             deleteButton.isHidden = !SKPhotoBrowserOptions.displayDeleteButton
             addSubview(deleteButton)
         }
@@ -116,8 +118,8 @@ extension SKActionView {
             deleteButton.setFrameSize(size)
         }
         
-        if let image = image {
-            deleteButton.setImage(image, for: .normal)
-        }
+//        if let image = image {
+//            deleteButton.setImage(image, for: .normal)
+//        }
     }
 }
