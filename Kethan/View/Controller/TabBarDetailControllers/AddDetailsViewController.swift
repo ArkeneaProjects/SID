@@ -30,11 +30,11 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         // Do any additional setup after loading the view.
         
         self.implantVM.implantObj = self.implantObj
-       // if isCameFromImageScreen == false {
-            self.imageArray = NSMutableArray(array: self.implantVM.implantObj.imageData)
-            self.arrUpoading = NSMutableArray(array: self.implantVM.implantObj.imageData)
-     //   }
-
+        // if isCameFromImageScreen == false {
+        self.imageArray = NSMutableArray(array: self.implantVM.implantObj.imageData)
+        self.arrUpoading = NSMutableArray(array: self.implantVM.implantObj.imageData)
+        //   }
+        
         self.checkAndAddPulsButton()
         
         self.btnUpload.setTitle((self.implantObj._id.count == 0) ?"Upload for verification":"Update for verification", for: .normal)
@@ -47,6 +47,26 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         
         //Gallery
         self.imagePicker = GalleryManager(presentationController: self, delegate: self)
+        if let image = AppConstant.shared.implantImage {
+            if let controller = self.instantiate(TagViewController.self, storyboard: STORYBOARD.main) as? TagViewController {
+                //Get cordinate value from Tagview controller
+                controller.continueCompletion = { implantImageObj in
+                    print(implantImageObj.dictioary())
+                    self.imageArray.removeLastObject()
+                    self.imageArray.add(implantImageObj)
+                    self.arrUpoading.add(implantImageObj)
+                    self.implantVM.implantObj.implantImage = implantImageObj
+                    self.tblView.reloadData()
+                    AppConstant.shared.implantImage = nil
+                }
+                
+                // controller.selectedImage = self.resizeImageWithAspect(image: image!, scaledToMaxWidth: getCalculated(640.0), maxHeight: getCalculated(854.0))
+                controller.selectedImage = image.resizeImage(targetSize: CGSize(width: getCalculated(620.0), height: getCalculated(620.0)))
+                
+                ProgressManager.dismiss()
+                self.navigationController?.pushViewController(controller, animated: true)
+            }
+        }
     }
     
     // MARK: - Button Click Action
@@ -56,7 +76,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-          self.reloadTableView(IndexPath(item: 0, section: 0))
+        self.reloadTableView(IndexPath(item: 0, section: 0))
     }
     
     @objc func addProcess(_ sender: CustomButton) {
@@ -144,25 +164,25 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
     }
     
     func checkAndAddPulsButton() {
-            if self.arrUpoading.count >= 4 {
-                let arr = NSMutableArray()
-                for i in 0..<self.arrUpoading.count where i <= 4 {
-                    arr.add(self.arrUpoading[i])
-                }
-                if let imageObj = self.arrUpoading.lastObject as? ImplantImage {
-                    arr.add(imageObj)
-                } else {
-                    arr.add(["lineImage"])
-                }
-                self.imageArray = NSMutableArray(array: arr)
+        if self.arrUpoading.count >= 4 {
+            let arr = NSMutableArray()
+            for i in 0..<self.arrUpoading.count where i <= 4 {
+                arr.add(self.arrUpoading[i])
+            }
+            if let imageObj = self.arrUpoading.lastObject as? ImplantImage {
+                arr.add(imageObj)
             } else {
-               if (self.imageArray.lastObject as? ImplantImage) != nil || (self.imageArray.lastObject as? NSArray) != nil {
-                    
-                } else {
-                    self.imageArray.add(["lineImage"])
-                }
+                arr.add(["lineImage"])
+            }
+            self.imageArray = NSMutableArray(array: arr)
+        } else {
+            if (self.imageArray.lastObject as? ImplantImage) != nil || (self.imageArray.lastObject as? NSArray) != nil {
+                
+            } else {
+                self.imageArray.add(["lineImage"])
             }
         }
+    }
     
     // MARK: - UITabelVieeDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -201,7 +221,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                             self.implantVM.implantObj.implantImage = ImplantImage()
                             self.arrUpoading.removeLastObject()
                         }
-                       
+                        
                         self.checkAndAddPulsButton()
                         cell.arrAllItems = self.imageArray
                         
@@ -220,7 +240,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                         self.imagePicker.present(croppingStyle: .default, isCrop: true, isCamera: true)
                     }
                 }
-    
+                
                 return cell
             }
         } else if indexPath.row == 1 {
@@ -257,7 +277,7 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                             self.implantVM.arrDeletedProcess.add(objImplant.id)
                             self.implantVM.implantObj.removImplant.removeObject(at: tableCell)
                         }
-                      
+                        
                         self.reloadTableView(indexPath)
                         
                     }, noCompletion: nil)
@@ -287,9 +307,9 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                 self.tblView.reloadData()
             }
             
-           // controller.selectedImage = self.resizeImageWithAspect(image: image!, scaledToMaxWidth: getCalculated(640.0), maxHeight: getCalculated(854.0))
+            // controller.selectedImage = self.resizeImageWithAspect(image: image!, scaledToMaxWidth: getCalculated(640.0), maxHeight: getCalculated(854.0))
             controller.selectedImage = image!.resizeImage(targetSize: CGSize(width: getCalculated(620.0), height: getCalculated(620.0)))
-
+            
             ProgressManager.dismiss()
             self.navigationController?.pushViewController(controller, animated: true)
         }
@@ -299,28 +319,28 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
         if UIScreen.main.responds(to: #selector(NSDecimalNumberBehaviors.scale)) {
             UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
         } else {
-             UIGraphicsBeginImageContext(size)
+            UIGraphicsBeginImageContext(size)
         }
         image.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
         //image.draw(in: CGRectMake(0, 0, size.width, size.height));
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-
+        
         return newImage!
     }
-
+    
     //Summon this function VVV
     func resizeImageWithAspect(image: UIImage, scaledToMaxWidth width: CGFloat, maxHeight height :CGFloat) -> UIImage {
         let oldWidth = image.size.width
         let oldHeight = image.size.height
-
+        
         let scaleFactor = (oldWidth > oldHeight) ? width / oldWidth : height / oldHeight
-
+        
         let newHeight = oldHeight * scaleFactor
         let newWidth = oldWidth * scaleFactor
         let newSize = CGSize(width: newWidth, height: newHeight)
-       // let newSize = CGSizeMake(newWidth, newHeight);
-
+        // let newSize = CGSizeMake(newWidth, newHeight);
+        
         return imageWithSize(image: image, size: newSize)
     }
     /*

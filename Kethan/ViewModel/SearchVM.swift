@@ -154,6 +154,10 @@ class SearchVM: NSObject {
                 
             } else {
                 if errorCode == "525" {
+                    AppConstant.shared.loggedUser.subscriptionStatus = "0"
+                    AppConstant.shared.loggedUser.subscriptionType = ""
+                    AppConstant.shared.updateProfile(updatedProfile: AppConstant.shared.loggedUser)
+                    
                     ProgressManager.dismiss()
                     rootController.showAlert(title: "Subscription expired", message: "Hey, looks like your subscription has expired. Or you have not subscribe to the application. \n Click to subscribe and be able to look up implants ", yesTitle: "Subscribe", noTitle: "Cancel", yesCompletion: {
                         if let controller = rootController.instantiate(SubScriptionViewController.self, storyboard: STORYBOARD.signup) as? SubScriptionViewController {

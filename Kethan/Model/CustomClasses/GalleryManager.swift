@@ -114,16 +114,21 @@ class GalleryManager: NSObject {
             } else {
                 let cropController = CropViewController(croppingStyle: self.croppingStyle, image: imageSelect)
                 // if self.aspectRatioPickerButtonHidden == true {
-                cropController.aspectRatioPreset = .presetSquare
+                cropController.aspectRatioPreset = .presetCustom
                 cropController.rotateButtonsHidden = true
                 cropController.aspectRatioPickerButtonHidden = true
                 cropController.resetAspectRatioEnabled = false
-                cropController.cropView.cropBoxResizeEnabled = false
+                cropController.cropView.cropBoxResizeEnabled = true
                 cropController.cropView.alwaysShowCroppingGrid = true
                 //  }
                 
                 cropController.delegate = self
-                cropController.title = "Crop Image"
+                let instructionLabel = UILabel(frame: CGRect(x: 10, y: 20, width: cropController.cropView.frame.size.width-20, height: 70))
+                instructionLabel.numberOfLines = 3
+                instructionLabel.textAlignment = .center
+                instructionLabel.textColor = .white
+                instructionLabel.text = "Please crop out the background to focus on the implant "
+                cropController.cropView.addSubview(instructionLabel)
                 cropController.toolbar.doneTextButton.setTitleColor(UIColor.white, for: .normal)
                 cropController.toolbar.cancelTextButton.setTitleColor(UIColor.white, for: .normal)
                 cropController.isAccessibilityElement = true

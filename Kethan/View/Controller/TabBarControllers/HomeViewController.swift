@@ -212,12 +212,12 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate, CropViewCo
     func cropImageToSquare(capturedImage: UIImage) {
         let cropController = CropViewController(croppingStyle: .default, image: capturedImage)
         // if self.aspectRatioPickerButtonHidden == true {
-        cropController.aspectRatioPreset = .presetSquare
+        cropController.aspectRatioPreset = .presetCustom
         cropController.rotateButtonsHidden = false
         cropController.aspectRatioPickerButtonHidden = true
         cropController.resetAspectRatioEnabled = false
         cropController.cropView.cropBoxResizeEnabled = true
-        cropController.aspectRatioLockEnabled = true
+        cropController.aspectRatioLockEnabled = false
         //  }
         
         cropController.delegate = self

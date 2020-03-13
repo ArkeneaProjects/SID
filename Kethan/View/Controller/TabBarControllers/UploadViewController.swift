@@ -29,17 +29,21 @@ class UploadViewController: BaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-           super.viewWillAppear(animated)
-           if AppConstant.shared.manufactureName.count != 0 {
-               self.txtManu.text = AppConstant.shared.manufactureName
-               AppConstant.shared.manufactureName = ""
-           }
-           
-           if AppConstant.shared.brandName.count != 0 {
-               self.txtImplant.text = AppConstant.shared.brandName
-               AppConstant.shared.brandName = ""
-           }
-       }
+        super.viewWillAppear(animated)
+        if AppConstant.shared.manufactureName.count != 0 {
+            self.txtManu.text = AppConstant.shared.manufactureName
+            AppConstant.shared.manufactureName = ""
+        } else {
+            self.txtManu.text = ""
+        }
+        
+        if AppConstant.shared.brandName.count != 0 {
+            self.txtImplant.text = AppConstant.shared.brandName
+            AppConstant.shared.brandName = ""
+        } else {
+            self.txtImplant.text = ""
+        }
+    }
     
     func getManufatureName() -> [String] {
         //Manufacture
@@ -80,7 +84,7 @@ class UploadViewController: BaseViewController {
         searchVM.brandname = self.txtImplant.text!
         searchVM.checkDuplicateManufacture(apiCallFrom: 2, rootController: self)
     }
-       
+    
     // MARK: - TextField Deleget
     override func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if textField == self.txtManu {
@@ -92,18 +96,18 @@ class UploadViewController: BaseViewController {
                 }
             }
         } else {
-           return true
+            return true
         }
         return false
     }
-        /*
-         // MARK: - Navigation
-         
-         // In a storyboard-based application, you will often want to do a little preparation before navigation
-         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destination.
-         // Pass the selected object to the new view controller.
-         }
-         */
-        
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
