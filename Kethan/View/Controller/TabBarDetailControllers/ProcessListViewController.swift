@@ -20,7 +20,7 @@ class ProcessListViewController: BaseViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.addNavBarWithTitle("Key features Process", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeNil)
+        self.addNavBarWithTitle("Key Features", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeNil)
         
         self.processTblView.rowHeight = UITableView.automaticDimension
         self.processTblView.estimatedRowHeight = getCalculated(50.0)
@@ -67,7 +67,7 @@ class ProcessListViewController: BaseViewController, UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
-            self.showAlert(title: "Delete Key features Process?", message: "", yesTitle: "Delete", noTitle: "Cancel", yesCompletion: {
+            self.showAlert(title: "Delete Key feature?", message: "", yesTitle: "Delete", noTitle: "Cancel", yesCompletion: {
                 self.processArray.removeObject(at: index.row)
                 self.processTblView.reloadData()
                 

@@ -43,7 +43,14 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
         
         self.subscriptionVmObj.rootController = self
         self.subscriptionVmObj.getPlanInfo(self)
-        self.checkExpiryDate()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        if AppConstant.shared.loggedUser.subscriptionEndDate.count > 0 {
+            self.checkExpiryDate()
+        }
     }
     
     // MARK: - Button Action
@@ -122,16 +129,14 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
     
     func checkExpiryDate() {
         let dateFormatter = DateFormatter()
-       // dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        let endDate = dateFormatter.date(from: AppConstant.shared.loggedUser.subscriptionEndDate)!
-        
-//        let endDate: Date = AppConstant.shared.loggedUser.subscriptionEndDate.convertStringToDate(actualFormat: "yyyy-MM-dd HH:mm:ss", expectedFormat: "yyyy-MM-dd HH:mm:ss")!
-        let currentDate = Date()
-        if endDate < currentDate {
-            self.isPlanExpired = true
-        } else {
-            self.isPlanExpired = false
+        if let endDate: Date = dateFormatter.date(from: AppConstant.shared.loggedUser.subscriptionEndDate)! {
+            let currentDate = Date()
+            if endDate < currentDate {
+                self.isPlanExpired = true
+            } else {
+                self.isPlanExpired = false
+            }
         }
     }
     

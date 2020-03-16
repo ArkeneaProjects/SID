@@ -116,7 +116,7 @@ private extension SKPaginationView {
     func setupCounterLabel() {
         guard SKPhotoBrowserOptions.displayCounterLabel else { return }
         
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 90, height: 50))
         label.center = CGPoint(x: frame.width / 2, y: frame.height / 2)
         label.textAlignment = .center
         label.backgroundColor = .clear
@@ -138,7 +138,8 @@ private extension SKPaginationView {
         guard browser?.photos.count ?? 0 > 1 else { return }
         
         let button = SKPrevButton(frame: frame)
-        button.center = CGPoint(x: frame.width / 2 - 100, y: frame.height / 2)
+        button.center = CGPoint(x: frame.width / 2 - 70, y: frame.height / 2)
+        button.backgroundColor = .clear
         button.addTarget(browser, action: #selector(SKPhotoBrowser.gotoPreviousPage), for: .touchUpInside)
         addSubview(button)
         prevButton = button
@@ -149,7 +150,8 @@ private extension SKPaginationView {
         guard browser?.photos.count ?? 0 > 1 else { return }
         
         let button = SKNextButton(frame: frame)
-        button.center = CGPoint(x: frame.width / 2 + 100, y: frame.height / 2)
+        button.center = CGPoint(x: frame.width / 2 + 70, y: frame.height / 2)
+        button.backgroundColor = .clear
         button.addTarget(browser, action: #selector(SKPhotoBrowser.gotoNextPage), for: .touchUpInside)
         addSubview(button)
         nextButton = button
@@ -160,8 +162,9 @@ private extension SKPaginationView {
         guard browser?.photos.count ?? 0 > 1 else { return }
         
         let button = SKReportButton(frame: frame)
-        button.center = CGPoint(x: frame.width / 2 - 150, y: frame.height / 2)
+        button.center = CGPoint(x: frame.width / 2 - 125, y: frame.height / 2)
         button.setTitle("Report", for: .normal)
+        button.backgroundColor = .clear
         button.addTarget(browser, action: #selector(SKPhotoBrowser.reportButtonPressed), for: .touchUpInside)
         addSubview(button)
         reportButton = button
@@ -172,7 +175,8 @@ private extension SKPaginationView {
         guard browser?.photos.count ?? 0 > 1 else { return }
         
         let button = SKSelectButton(frame: frame)
-        button.center = CGPoint(x: frame.width / 2 + 150, y: frame.height / 2)
+        button.center = CGPoint(x: frame.width / 2 + 125, y: frame.height / 2)
+        button.backgroundColor = .clear
         button.addTarget(browser, action: #selector(SKPhotoBrowser.selectButtonPressed(_:)), for: .touchUpInside)
         addSubview(button)
         selectButton = button
@@ -200,11 +204,11 @@ class SKPaginationButton: UIButton {
     func setupcustom(_ imageName: String, _ selectedImageName: String) {
         backgroundColor = .clear
         //          imageEdgeInsets = insets
-        translatesAutoresizingMaskIntoConstraints = true
-        autoresizingMask = [.flexibleBottomMargin,
-                            .flexibleLeftMargin,
-                            .flexibleRightMargin,
-                            .flexibleTopMargin]
+//        translatesAutoresizingMaskIntoConstraints = true
+//        autoresizingMask = [.flexibleBottomMargin,
+//                            .flexibleLeftMargin,
+//                            .flexibleRightMargin,
+//                            .flexibleTopMargin]
         contentMode = .center
         
         let image = UIImage(named: imageName,
@@ -255,7 +259,7 @@ class SKReportButton: SKPaginationButton {
 
 class SKSelectButton: SKPaginationButton {
     let imageName = "unchecked"
-    let imageNameSelected = "checkedBlue"
+    let imageNameSelected = "checked"
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }

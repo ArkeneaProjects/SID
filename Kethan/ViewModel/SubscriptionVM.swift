@@ -112,17 +112,22 @@ class SubscriptionVM: NSObject {
             ProgressManager.show(withStatus: "Subscribing..", on: self.rootController?.view)
             self.purchase(pName: finalIdentifire, completion: { result, pName in
                 if let alert = self.rootController?.alertForPurchaseResult(result as PurchaseResult) {
+                     ProgressManager.dismiss()
                     self.rootController?.showAlert(alert)
                     switch result {
                     case .success(let purchase):
-                        ProgressManager.dismiss()
+                         ProgressManager.dismiss()
                         self.verifyPurchase(pName: pName, tag: self.selectedIndex)
                     case .error:
-                        ProgressManager.dismiss()
+                         ProgressManager.dismiss()
                     }
+                } else {
+                    ProgressManager.dismiss()
                 }
             })
-        }, noCompletion: nil)
+        }, noCompletion: {
+             ProgressManager.dismiss()
+        })
     }
     
     func getIdentifire() -> String {
@@ -186,16 +191,27 @@ class SubscriptionVM: NSObject {
                 if receipt["environment"] as? String ?? "" == "Sandbox" {
                     let expiryDate = Date().addingTimeInterval((tag == 0) ?5.0*60:60*60)
                     let renewalDate = Date().addingTimeInterval((tag == 0) ?6.0*60:61*60)
-                    let parameters = ["creditPointRedeem": tag == 0 ? "" : self.creditedPoint, "startDate": Date().convertDateToString(), "endDate": expiryDate.convertDateToString(), "subscriptionType": tag == 0 ? "Monthly" : "Yearly", "subscriptionRenewalDate": tag == 0 ? renewalDate.convertDateToString() : ""]
-                    AppConstant.shared.loggedUser.subscriptionEndDate = "\(expiryDate)"
+                    
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                    let eDate = dateFormatter.string(from: expiryDate)
+                    let rDate = dateFormatter.string(from: renewalDate)
+                    
+                    let parameters = ["creditPointRedeem": tag == 0 ? "" : self.creditedPoint, "startDate": Date().convertDateToString(), "endDate": eDate, "subscriptionType": tag == 0 ? "Monthly" : "Yearly", "subscriptionRenewalDate": tag == 0 ? rDate : ""]
+                    AppConstant.shared.loggedUser.subscriptionEndDate = eDate
                     
                     self.updatePurchaseStatusOnServer(parameters: parameters as NSDictionary)
                 } else {
                     let expiryDate: Date = (tag == 0 ? Date(timeInterval: 3600 * 24 * 30, since: Date()) : Date(timeInterval: 3600 * 24 * 365, since: Date()))
                     let renewalDate: Date = (tag == 0 ? Date(timeInterval: 3600 * 24 * 31, since: Date()) : Date(timeInterval: 3600 * 24 * 366, since: Date()))
                     
-                    let parameters = ["creditPointRedeem": tag == 0 ? "" : self.creditedPoint, "startDate": Date().convertDateToString(), "endDate": expiryDate.convertDateToString(), "subscriptionType": tag == 0 ? "Monthly" : "Yearly", "subscriptionRenewalDate": tag == 0 ? renewalDate.convertDateToString() : ""]
-                    AppConstant.shared.loggedUser.subscriptionEndDate = "\(expiryDate)"
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                    let eDate = dateFormatter.string(from: expiryDate)
+                    let rDate = dateFormatter.string(from: renewalDate)
+                    
+                    let parameters = ["creditPointRedeem": tag == 0 ? "" : self.creditedPoint, "startDate": Date().convertDateToString(), "endDate": eDate, "subscriptionType": tag == 0 ? "Monthly" : "Yearly", "subscriptionRenewalDate": tag == 0 ? rDate : ""]
+                    AppConstant.shared.loggedUser.subscriptionEndDate = eDate
                     
                     self.updatePurchaseStatusOnServer(parameters: parameters as NSDictionary)
                 }

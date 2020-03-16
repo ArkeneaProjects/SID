@@ -615,6 +615,7 @@ private extension SKPhotoBrowser {
     
     func configurePaginationView() {
         paginationView = SKPaginationView(frame: view.frame, browser: self)
+        paginationView.backgroundColor = .clear
         view.addSubview(paginationView)
     }
     

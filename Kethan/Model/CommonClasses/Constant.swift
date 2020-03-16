@@ -207,7 +207,7 @@ struct ERRORS {
     static let CameraError = "Your device dose not support this feature!"
     static let emilId = "The Email ID must not be left blank"
     static let invalidEmail: String = "Enter valid email id"
-    static let validMobileNumber: String = "It seems you have entered an incorrcect phone number"
+    static let validMobileNumber: String = "It seems you have entered an incorrect phone number"
     static let MobileNumberError: String = "Entered mobile number is invalid with selected country code"
     static let socialMediaError: String = "Something went to wrong try after some time"
     
@@ -242,9 +242,8 @@ struct ERRORS {
     //Upload
     static let EmptyManufacturer = "Please enter manufacturer"
     static let EmptyBrandName = "Please enter implant name/brand"
-    static let EmptyRemovalProcess = "Please add key features process"
+    static let EmptyRemovalProcess = "Please add key features"
     static let EmptyImage = "Please add implant image"
-    
 }
 
 struct CONSTANT {
