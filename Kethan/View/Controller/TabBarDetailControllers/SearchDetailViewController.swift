@@ -9,28 +9,31 @@
 import UIKit
 
 class SearchDetailViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet weak var tblView: UITableView!
     var detailObj = SearchResult()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addNavBarWithTitle("Details", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeNil)
+        self.addNavBarWithTitle("Details", withLeftButtonType: .buttonTypeBack, withRightButtonType: .buttonTypeReport)
         self.navBar.btnRightEdit.contentHorizontalAlignment = .right
-
+        
         self.tblView.registerNibWithIdentifier([IDENTIFIERS.DetailRow1TableViewCell, IDENTIFIERS.DetailRow2TableViewCell])
         self.tblView.rowHeight = UITableView.automaticDimension
         self.tblView.estimatedRowHeight = getCalculated(35.0)
         self.tblView.tableFooterView = UIView()
         
         let searchVM = SearchVM()
-        AppConstant.shared.selectedImplant = self.detailObj._id
         //searchVM.sendEmail(implantId: detailObj._id)
         // Do any additional setup after loading the view.
     }
-   
-    func openGalleryListReport(indexpath: IndexPath, imgNameArr: NSMutableArray, sourceView: UIImageView, isProfile: Bool = false, isdelete: Bool = false) {
     
+    override func rightButtonAction() {
+        self.report(imageData: "")
+    }
+    
+    func openGalleryListReport(indexpath: IndexPath, imgNameArr: NSMutableArray, sourceView: UIImageView, isProfile: Bool = false, isdelete: Bool = false) {
+        
         var items = [SKPhoto]()
         var arr = [ObjectLocation]()
         for item in imgNameArr {
@@ -50,35 +53,38 @@ class SearchDetailViewController: BaseViewController, UITableViewDelegate, UITab
         }
         
         // 2. create PhotoBrowser Instance, and present.
-        let browser = SKPhotoBrowser(photos: items, imageDataArray: imgNameArr)
+        let browser = SKPhotoBrowser(photos: items, imageDataArray: imgNameArr, showReportButtons : true)
         browser.initializePageIndex(indexpath.row)
         browser.cordinate = arr
         browser.addCompletion = { imageArr in
             print(imageArr)
-            let controller: ReportViewController = self.instantiate(ReportViewController.self, storyboard: STORYBOARD.main) as? ReportViewController ?? ReportViewController()
-            controller.preparePopup(controller: self)
-            controller.showPopup()
-            controller.addCompletion = { str, brand in
-                if str.count > 0 {
-                    let dict = ["implantId": AppConstant.shared.selectedImplant,
-                                "suggestedImplantId": brand,
-                                "comment": str,
-                                "imageData": imageArr.description]
-                    
-                    AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.addReporting, parameters: dict as NSDictionary, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
-                        if error == nil {
-                            
-                        } else {
-                            ProgressManager.showError(withStatus: error, on: self.view)
-                        }
-                    }
-                } else {
-                    
-                }
-            }
-            
+            self.report(imageData: imageArr.jsonString())
         }
         present(browser, animated: true, completion: {})
+    }
+    
+    func report(imageData: String) {
+        let controller: ReportViewController = self.instantiate(ReportViewController.self, storyboard: STORYBOARD.main) as? ReportViewController ?? ReportViewController()
+        controller.preparePopup(controller: self)
+        controller.showPopup()
+        controller.addCompletion = { str, brand in
+            if str.count > 0 {
+                let dict = ["implantId": self.detailObj._id,
+                            "suggestedImplantId": brand,
+                            "comment": str,
+                            "imageData": imageData]
+                
+                AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.addReporting, parameters: dict as NSDictionary, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
+                    if error == nil {
+                        ProgressManager.showSuccess(withStatus: "Your concern has been raised successfully", on: self.view) {
+                            
+                        }
+                    } else {
+                        ProgressManager.showError(withStatus: error, on: self.view)
+                    }
+                }
+            }
+        }
     }
     
     // MARK: - Button Action
@@ -127,13 +133,13 @@ class SearchDetailViewController: BaseViewController, UITableViewDelegate, UITab
         tableView.deselectRow(at: indexPath, animated: true)
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

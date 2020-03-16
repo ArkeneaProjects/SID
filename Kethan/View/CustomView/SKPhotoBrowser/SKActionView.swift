@@ -28,7 +28,7 @@ class SKActionView: UIView {
     convenience init(frame: CGRect, browser: SKPhotoBrowser) {
         self.init(frame: frame)
         self.browser = browser
-
+        
         configureCloseButton()
         configureDeleteButton()
     }
@@ -47,7 +47,7 @@ class SKActionView: UIView {
         self.frame = frame
         setNeedsDisplay()
     }
-
+    
     func updateCloseButton(image: UIImage, size: CGSize? = nil) {
         configureCloseButton(image: UIImage(named: "closeX"), size: CGSize(width: 44, height: 44))
     }
@@ -62,15 +62,15 @@ class SKActionView: UIView {
         UIView.animate(withDuration: 0.35,
                        animations: { () -> Void in
                         let alpha: CGFloat = hidden ? 0.0 : 1.0
-
+                        
                         if SKPhotoBrowserOptions.displayCloseButton {
                             self.closeButton.alpha = alpha
                             self.closeButton.frame = closeFrame
                         }
-                         if SKPhotoBrowserOptions.displayDeleteButton {
-                        self.deleteButton.alpha = alpha
-                        self.deleteButton.frame = deleteFrame
-                         }
+                        if SKPhotoBrowserOptions.displayDeleteButton {
+                            self.deleteButton.alpha = alpha
+                            self.deleteButton.frame = deleteFrame
+                        }
         }, completion: nil)
     }
     
@@ -81,9 +81,9 @@ class SKActionView: UIView {
     @objc func deleteButtonPressed(_ sender: UIButton) {
         guard let browser = self.browser else { return }
         
-                browser.delegate?.removePhoto?(browser, index: browser.currentPageIndex) { [weak self] in
-                    self?.browser?.deleteImage()
-                }
+        browser.delegate?.removePhoto?(browser, index: browser.currentPageIndex) { [weak self] in
+            self?.browser?.deleteImage()
+        }
     }
 }
 
@@ -95,7 +95,7 @@ extension SKActionView {
             closeButton.isHidden = !SKPhotoBrowserOptions.displayCloseButton
             addSubview(closeButton)
         }
-
+        
         if let size = size {
             closeButton.setFrameSize(size)
         }
@@ -118,8 +118,8 @@ extension SKActionView {
             deleteButton.setFrameSize(size)
         }
         
-//        if let image = image {
-//            deleteButton.setImage(image, for: .normal)
-//        }
+        //        if let image = image {
+        //            deleteButton.setImage(image, for: .normal)
+        //        }
     }
 }

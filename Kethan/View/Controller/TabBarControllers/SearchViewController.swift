@@ -17,10 +17,17 @@ class SearchViewController: BaseViewController {
         super.viewDidLoad()
         
         self.addNavBarWithTitle("Search by text", withLeftButtonType: .buttonTypeNil, withRightButtonType: .buttonTypeNil)
-       
+        
         self.txtImplant.font = UIFont(name: self.txtImplant.font!.fontName, size: getCalculated(14.0))
         self.txtManufacture.font = UIFont(name: self.txtManufacture.font!.fontName, size: getCalculated(14.0))
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let loginVM = LoginViewModel()
+        loginVM.callManutactureAPI()
     }
     
     // MARK: - Button Action
@@ -38,7 +45,7 @@ class SearchViewController: BaseViewController {
     
     func getValueFromUserDefault(key: String) -> [NSString] {
         if let arr = getUserDefaultsForKey(key: key) as? [NSString] {
-           return arr
+            return arr
         }
         return []
     }

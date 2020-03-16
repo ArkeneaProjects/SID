@@ -60,7 +60,7 @@ public class SKPhotoBrowser: UIViewController {
     
     // strings
     open var cancelTitle = "Cancel"
-    
+    var showReportButtons: Bool = false
     var addCompletion:((_ reportedImages: NSMutableArray) -> Void)?
     
     // MARK: - Initializer
@@ -74,8 +74,8 @@ public class SKPhotoBrowser: UIViewController {
         setup()
     }
     
-    public convenience init(photos: [SKPhotoProtocol], imageDataArray: NSMutableArray) {
-        self.init(photos: photos, initialPageIndex: 0, imageDataArray: imageDataArray)
+    public convenience init(photos: [SKPhotoProtocol], imageDataArray: NSMutableArray, showReportButtons: Bool) {
+        self.init(photos: photos, initialPageIndex: 0, imageDataArray: imageDataArray, showReportButtons : showReportButtons)
     }
     
     @available(*, deprecated)
@@ -87,7 +87,7 @@ public class SKPhotoBrowser: UIViewController {
         animator.senderViewForAnimation = animatedFromView
     }
     
-    public convenience init(photos: [SKPhotoProtocol], initialPageIndex: Int, imageDataArray: NSMutableArray) {
+    public convenience init(photos: [SKPhotoProtocol], initialPageIndex: Int, imageDataArray: NSMutableArray, showReportButtons: Bool) {
         self.init(nibName: nil, bundle: nil)
         self.photos = photos
         self.photos.forEach { $0.checkCache() }
@@ -95,6 +95,7 @@ public class SKPhotoBrowser: UIViewController {
         self.initPageIndex = self.currentPageIndex
         self.currentPage = currentPageIndex
         self.itemsImageData = imageDataArray
+        self.showReportButtons = showReportButtons
         animator.senderOriginImage = photos[currentPageIndex].underlyingImage
         animator.senderViewForAnimation = photos[currentPageIndex] as? UIView
     }
@@ -499,7 +500,6 @@ internal extension SKPhotoBrowser {
     
     @objc func selectButtonPressed(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
-        // actionView.deleteButton.alpha = actionView.deleteButton.alpha == 1.0 ? 0.0 : 1.0
         let imageObj: ImageData = self.itemsImageData[currentPageIndex] as! ImageData
         let imageData: NSDictionary = ["id": imageObj.id ,
                                        "imageName": imageObj.imageName,
@@ -510,16 +510,13 @@ internal extension SKPhotoBrowser {
                                         "width": imageObj.objectLocation.width],
                                        "userId": imageObj.userId,
                                        "watsonImage_id": imageObj.watsonImage_id]
-//        for i in 0..<self.selectedImageArray.count {
-//            if (self.selectedImageArray[i] as! NSDictionary).value(forKey: "id") == imageObj.id {
-//                self.selectedImageArray.removeObject(at: i)
-//            }
-//        }
+
         if self.selectedImageArray.contains(imageData) == false {
             self.selectedImageArray.add(imageData)
         } else {
             self.selectedImageArray.remove(imageData)
         }
+        paginationView.updatedReportButton()
     }
     
     @objc func reportButtonPressed() {

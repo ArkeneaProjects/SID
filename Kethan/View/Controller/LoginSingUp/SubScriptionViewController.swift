@@ -19,6 +19,7 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
     
     var isComeFromLogin: Bool = false
     var subscriptionVmObj = SubscriptionVM()
+    var isPlanExpired: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,7 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
         
         self.subscriptionVmObj.rootController = self
         self.subscriptionVmObj.getPlanInfo(self)
+        self.checkExpiryDate()
     }
     
     // MARK: - Button Action
@@ -58,10 +60,20 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
         //        self.navigateToHome(false, false)
     }
     
-    @IBAction func annualActionClick(_ sender: Any) {   }
+    @IBAction func annualActionClick(_ sender: CustomButton) {
+        if !btnAnnual.isSelected {
+            self.collectionView.scrollToItem(at: IndexPath(item: 1, section: 0), at: .left, animated: true)
+            btnAnnual.isSelected = true
+            btnMonthly.isSelected = false
+        }
+    }
     
-    @IBAction func monthlyActionClick(_ sender: Any) {
-        
+    @IBAction func monthlyActionClick(_ sender: CustomButton) {
+        if !btnMonthly.isSelected {
+            self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .right, animated: true)
+            btnAnnual.isSelected = false
+            btnMonthly.isSelected = true
+        }
     }
     
     @objc func planSelection(_ sender: CustomButton) {
@@ -108,6 +120,21 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
         }
     }
     
+    func checkExpiryDate() {
+        let dateFormatter = DateFormatter()
+       // dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        let endDate = dateFormatter.date(from: AppConstant.shared.loggedUser.subscriptionEndDate)!
+        
+//        let endDate: Date = AppConstant.shared.loggedUser.subscriptionEndDate.convertStringToDate(actualFormat: "yyyy-MM-dd HH:mm:ss", expectedFormat: "yyyy-MM-dd HH:mm:ss")!
+        let currentDate = Date()
+        if endDate < currentDate {
+            self.isPlanExpired = true
+        } else {
+            self.isPlanExpired = false
+        }
+    }
+    
     // MARK: - CollectionView Dalegate and DataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return STATICDATA.arrSubscription.count
@@ -129,12 +156,15 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
             cell.btnTerms.addTarget(self, action: #selector(termsSelection(_:)), for: .touchUpInside)
             cell.btnPrivacy.addTarget(self, action: #selector(privacySelection(_:)), for: .touchUpInside)
             print(AppConstant.shared.loggedUser.subscriptionStatus)
-            if AppConstant.shared.loggedUser.subscriptionType == "Monthly" && AppConstant.shared.loggedUser.subscriptionStatus == "1" && indexPath.item == 0 {
+            if AppConstant.shared.loggedUser.subscriptionType == "Monthly" && AppConstant.shared.loggedUser.subscriptionStatus == "1" && indexPath.item == 0 && self.isPlanExpired == false {
                 cell.imgActive.isHidden = false
-            } else if AppConstant.shared.loggedUser.subscriptionType == "Yearly" && AppConstant.shared.loggedUser.subscriptionStatus == "1" && indexPath.item == 1 {
+                cell.btnSubscribe.isEnabled = false
+            } else if AppConstant.shared.loggedUser.subscriptionType == "Yearly" && AppConstant.shared.loggedUser.subscriptionStatus == "1" && indexPath.item == 1 && self.isPlanExpired == false {
                 cell.imgActive.isHidden = false
+                cell.btnSubscribe.isEnabled = false
             } else {
                 cell.imgActive.isHidden = true
+                cell.btnSubscribe.isEnabled = true
             }
             return cell
         }
@@ -155,11 +185,11 @@ class SubScriptionViewController: BaseViewController, UICollectionViewDelegate, 
         let width = scrollView.frame.size.width
         let page = (scrollView.contentOffset.x + (0.5 * width)) / width
         if NSInteger(page) == 0 {
-            self.btnAnnual.setTitleColor(APP_COLOR.color5, for: .normal)
-            self.btnMonthly.setTitleColor(APP_COLOR.color4, for: .normal)
+            self.btnAnnual.isSelected = false
+            self.btnMonthly.isSelected = true
         } else {
-            self.btnAnnual.setTitleColor(APP_COLOR.color4, for: .normal)
-            self.btnMonthly.setTitleColor(APP_COLOR.color5, for: .normal)
+            self.btnAnnual.isSelected = true
+            self.btnMonthly.isSelected = false
         }
     }
     /*

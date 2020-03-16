@@ -415,7 +415,7 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
         }
         
         // 2. create PhotoBrowser Instance, and present.
-        let browser = SKPhotoBrowser(photos: items, imageDataArray: imgNameArr)
+        let browser = SKPhotoBrowser(photos: items, imageDataArray: imgNameArr, showReportButtons: false)
         
         browser.initializePageIndex(indexpath.row)
         browser.cordinate = arr

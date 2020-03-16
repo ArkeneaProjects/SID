@@ -15,7 +15,7 @@ class SKPaginationView: UIView {
     var prevButton: UIButton?
     var nextButton: UIButton?
     var selectButton: UIButton?
-       var reportButton: UIButton?
+    var reportButton: UIButton?
     
     var currentPage = 0
     private var margin: CGFloat = 100
@@ -35,14 +35,16 @@ class SKPaginationView: UIView {
         self.init(frame: frame)
         self.frame = CGRect(x: 0, y: frame.height - margin - extraMargin, width: frame.width, height: 100)
         self.browser = browser
-
+        
         setupApperance()
         setupCounterLabel()
         setupPrevButton()
         setupNextButton()
         
-    setupSelectButton()
-    setupReportButton()
+        if browser?.showReportButtons == true {
+            setupSelectButton()
+            setupReportButton()
+        }
         
         update(browser?.currentPageIndex ?? 0)
     }
@@ -69,6 +71,11 @@ class SKPaginationView: UIView {
         self.frame = CGRect(x: 0, y: frame.height - margin, width: frame.width, height: 100)
     }
     
+    func updatedReportButton() {
+        guard let browser = browser else { return }
+        reportButton?.isHidden = browser.selectedImageArray.count < 1
+    }
+    
     func update(_ currentPageIndex: Int) {
         guard let browser = browser else { return }
         self.currentPage = currentPageIndex
@@ -81,9 +88,14 @@ class SKPaginationView: UIView {
         guard let prevButton = prevButton, let nextButton = nextButton else { return }
         prevButton.isEnabled = (currentPageIndex > 0)
         nextButton.isEnabled = (currentPageIndex < browser.photos.count - 1)
-        if selectButton?.isSelected == true {
-            selectButton?.isSelected = false
+        var contains: Bool = false
+        for i in 0..<browser.selectedImageArray.count {
+            if (browser.selectedImageArray[i] as! NSDictionary).value(forKey: "id") as! String == (browser.itemsImageData[currentPageIndex] as! ImageData).id {
+                contains = true
+            }
         }
+        selectButton?.isSelected = contains
+        reportButton?.isHidden = browser.selectedImageArray.count < 1
     }
     
     func setControlsHidden(hidden: Bool) {
@@ -131,7 +143,7 @@ private extension SKPaginationView {
         addSubview(button)
         prevButton = button
     }
-  
+    
     func setupNextButton() {
         guard SKPhotoBrowserOptions.displayBackAndForwardButton else { return }
         guard browser?.photos.count ?? 0 > 1 else { return }
@@ -144,27 +156,27 @@ private extension SKPaginationView {
     }
     
     func setupReportButton() {
-             guard SKPhotoBrowserOptions.displayBackAndForwardButton else { return }
-             guard browser?.photos.count ?? 0 > 1 else { return }
-             
-             let button = SKReportButton(frame: frame)
-             button.center = CGPoint(x: frame.width / 2 - 150, y: frame.height / 2)
-                button.setTitle("Report", for: .normal)
-             button.addTarget(browser, action: #selector(SKPhotoBrowser.reportButtonPressed), for: .touchUpInside)
-             addSubview(button)
-             reportButton = button
-         }
+        guard SKPhotoBrowserOptions.displayBackAndForwardButton else { return }
+        guard browser?.photos.count ?? 0 > 1 else { return }
+        
+        let button = SKReportButton(frame: frame)
+        button.center = CGPoint(x: frame.width / 2 - 150, y: frame.height / 2)
+        button.setTitle("Report", for: .normal)
+        button.addTarget(browser, action: #selector(SKPhotoBrowser.reportButtonPressed), for: .touchUpInside)
+        addSubview(button)
+        reportButton = button
+    }
     
     func setupSelectButton() {
-           guard SKPhotoBrowserOptions.displayBackAndForwardButton else { return }
-           guard browser?.photos.count ?? 0 > 1 else { return }
-           
-           let button = SKSelectButton(frame: frame)
-           button.center = CGPoint(x: frame.width / 2 + 150, y: frame.height / 2)
-           button.addTarget(browser, action: #selector(SKPhotoBrowser.selectButtonPressed(_:)), for: .touchUpInside)
-           addSubview(button)
-           selectButton = button
-       }
+        guard SKPhotoBrowserOptions.displayBackAndForwardButton else { return }
+        guard browser?.photos.count ?? 0 > 1 else { return }
+        
+        let button = SKSelectButton(frame: frame)
+        button.center = CGPoint(x: frame.width / 2 + 150, y: frame.height / 2)
+        button.addTarget(browser, action: #selector(SKPhotoBrowser.selectButtonPressed(_:)), for: .touchUpInside)
+        addSubview(button)
+        selectButton = button
+    }
 }
 
 class SKPaginationButton: UIButton {
@@ -186,23 +198,23 @@ class SKPaginationButton: UIButton {
     }
     
     func setupcustom(_ imageName: String, _ selectedImageName: String) {
-          backgroundColor = .clear
-//          imageEdgeInsets = insets
-          translatesAutoresizingMaskIntoConstraints = true
-          autoresizingMask = [.flexibleBottomMargin,
-                              .flexibleLeftMargin,
-                              .flexibleRightMargin,
-                              .flexibleTopMargin]
-          contentMode = .center
-          
-          let image = UIImage(named: imageName,
-              in: bundle, compatibleWith: nil) ?? UIImage()
-          setImage(image, for: .normal)
+        backgroundColor = .clear
+        //          imageEdgeInsets = insets
+        translatesAutoresizingMaskIntoConstraints = true
+        autoresizingMask = [.flexibleBottomMargin,
+                            .flexibleLeftMargin,
+                            .flexibleRightMargin,
+                            .flexibleTopMargin]
+        contentMode = .center
+        
+        let image = UIImage(named: imageName,
+                            in: bundle, compatibleWith: nil) ?? UIImage()
+        setImage(image, for: .normal)
         
         let imageSelected = UIImage(named: selectedImageName,
-            in: bundle, compatibleWith: nil) ?? UIImage()
+                                    in: bundle, compatibleWith: nil) ?? UIImage()
         setImage(imageSelected, for: .selected)
-      }
+    }
 }
 
 class SKPrevButton: SKPaginationButton {
@@ -230,26 +242,26 @@ class SKNextButton: SKPaginationButton {
 }
 
 class SKReportButton: SKPaginationButton {
-    let imageName = "about"
+    let imageName = "report"
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
     override init(frame: CGRect) {
         super.init(frame: CGRect(x: 0, y: 0, width: 64, height: 44))
-//        setupcustom(imageName)
+       // setupcustom(imageName, imageName)
     }
 }
 
 class SKSelectButton: SKPaginationButton {
-    let imageName = "uncheck"
-     let imageNameSelected = "check"
+    let imageName = "unchecked"
+    let imageNameSelected = "checkedBlue"
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
     override init(frame: CGRect) {
-        super.init(frame: CGRect(x: 0, y: -100, width: 44, height: 44))
+        super.init(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
         setupcustom(imageName, imageNameSelected)
     }
 }

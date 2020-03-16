@@ -27,8 +27,6 @@ class ThankYouViewController: BaseViewController {
         self.lblThankYou.text = (self.isComeFrom == 2) ?"Done":"Thank you!"
         self.lblMsg.text = (self.isComeFrom == 0) ?"Your support query has been submitted" :(self.isComeFrom == 1) ?"Your details have been sent for verification. We'll let you know once it's verified.":"The changes made have been saved against your profile."
         // Do any additional setup after loading the view.
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
