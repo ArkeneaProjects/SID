@@ -12,6 +12,7 @@ class SearchDetailViewController: BaseViewController, UITableViewDelegate, UITab
     
     @IBOutlet weak var tblView: UITableView!
     var detailObj = SearchResult()
+    var selectedImages = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,7 @@ class SearchDetailViewController: BaseViewController, UITableViewDelegate, UITab
     }
     
     override func rightButtonAction() {
-        self.report(imageData: "")
+        self.report()
     }
     
     func openGalleryListReport(indexpath: IndexPath, imgNameArr: NSMutableArray, sourceView: UIImageView, isProfile: Bool = false, isdelete: Bool = false) {
@@ -53,26 +54,28 @@ class SearchDetailViewController: BaseViewController, UITableViewDelegate, UITab
         }
         
         // 2. create PhotoBrowser Instance, and present.
-        let browser = SKPhotoBrowser(photos: items, imageDataArray: imgNameArr, showReportButtons : true)
+        let browser = SKPhotoBrowser(photos: items, imageDataArray: imgNameArr, showReportButtons: true)
         browser.initializePageIndex(indexpath.row)
         browser.cordinate = arr
         browser.addCompletion = { imageArr in
             print(imageArr)
-            self.report(imageData: imageArr.jsonString())
+            self.selectedImages = NSMutableArray(array: imageArr)
+            self.report()
         }
         present(browser, animated: true, completion: {})
     }
     
-    func report(imageData: String) {
+    func report() {
         let controller: ReportViewController = self.instantiate(ReportViewController.self, storyboard: STORYBOARD.main) as? ReportViewController ?? ReportViewController()
+        controller.arrAllItems = self.selectedImages
         controller.preparePopup(controller: self)
         controller.showPopup()
-        controller.addCompletion = { str, brand in
+        controller.addCompletion = { str, brand, imageArray in
             if str.count > 0 {
                 let dict = ["implantId": self.detailObj._id,
                             "suggestedImplantId": brand,
                             "comment": str,
-                            "imageData": imageData]
+                            "imageData": imageArray.jsonString() ]
                 
                 AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.addReporting, parameters: dict as NSDictionary, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
                     if error == nil {

@@ -51,8 +51,6 @@ class ImageListViewController: BaseViewController, UICollectionViewDelegate, UIC
         }, noCompletion: nil)
     }
     
-    
-    
     // MARK: - CollectionView Dalegate and DataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return arrAllItems.count

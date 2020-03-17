@@ -469,7 +469,7 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
         
         viewPopup.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
         
-        viewBlur.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        viewBlur.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8)
         viewContainer.backgroundColor = UIColor.clear
         
         viewBlur.alpha = 0

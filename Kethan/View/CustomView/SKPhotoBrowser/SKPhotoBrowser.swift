@@ -503,14 +503,16 @@ internal extension SKPhotoBrowser {
         let imageObj: ImageData = self.itemsImageData[currentPageIndex] as! ImageData
         let imageData: NSDictionary = ["id": imageObj.id ,
                                        "imageName": imageObj.imageName,
-                                       "objectLocation": [
+                                       "imageObjective": [
                                         "height": imageObj.objectLocation.height,
                                         "left": imageObj.objectLocation.left,
                                         "top": imageObj.objectLocation.top,
-                                        "width": imageObj.objectLocation.width],
+                                        "width": imageObj.objectLocation.width,
+                                        "imageHeight": imageObj.objectLocation.imageHeight,
+                                        "imageWidth": imageObj.objectLocation.imageWidth],
                                        "userId": imageObj.userId,
                                        "watsonImage_id": imageObj.watsonImage_id]
-
+        
         if self.selectedImageArray.contains(imageData) == false {
             self.selectedImageArray.add(imageData)
         } else {

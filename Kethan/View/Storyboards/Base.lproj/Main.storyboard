@@ -1163,7 +1163,7 @@ once it's verified. </string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DNJ-hY-Wk2">
                                                 <rect key="frame" x="14" y="153" width="292" height="262"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Key Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8I-oT-Dsr" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Key Features" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8I-oT-Dsr" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
                                                         <rect key="frame" x="17" y="12" width="225" height="17"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3378,7 +3378,7 @@ palpation. Refer for further examination if</string>
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HfE-iz-oKr">
-                                                <rect key="frame" x="14" y="124" width="292" height="320.5"/>
+                                                <rect key="frame" x="14" y="44" width="292" height="320.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPI-Y0-fK2" customClass="CustomLabel" customModule="SID" customModuleProvider="target">
                                                         <rect key="frame" x="17" y="12" width="225" height="0.0"/>
@@ -3641,7 +3641,7 @@ palpation. Refer for further examination if</string>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tHf-PM-qrK" customClass="CustomButton" customModule="SID" customModuleProvider="target">
-                                                <rect key="frame" x="288" y="109" width="35" height="35"/>
+                                                <rect key="frame" x="288" y="29" width="35" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" identifier="18" id="6yV-MW-RaJ" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                         <userDefinedRuntimeAttributes>
@@ -3659,23 +3659,51 @@ palpation. Refer for further examination if</string>
                                                     <action selector="cancelClickAction:" destination="T6C-l8-f9D" eventType="touchUpInside" id="YSg-4H-Wl3"/>
                                                 </connections>
                                             </button>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AI9-qD-ypm">
+                                                <rect key="frame" x="14" y="374.5" width="292" height="172.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PSf-4b-cV3">
+                                                    <size key="itemSize" width="50" height="50"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fvA-YU-hTb">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="B5B-HA-EP9">
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        </collectionViewCellContentView>
+                                                    </collectionViewCell>
+                                                </cells>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="T6C-l8-f9D" id="bwn-Wr-W4N"/>
+                                                    <outlet property="delegate" destination="T6C-l8-f9D" id="B3K-mF-OFg"/>
+                                                </connections>
+                                            </collectionView>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.39747431509999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.73555222602739723" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="AI9-qD-ypm" firstAttribute="top" secondItem="HfE-iz-oKr" secondAttribute="bottom" constant="10" id="1YA-Hp-tW6"/>
                                             <constraint firstItem="HfE-iz-oKr" firstAttribute="centerX" secondItem="pce-4w-pRk" secondAttribute="centerX" identifier="15" id="1dZ-yR-cyY"/>
                                             <constraint firstItem="HfE-iz-oKr" firstAttribute="leading" secondItem="pce-4w-pRk" secondAttribute="leading" constant="14" identifier="13" id="2ig-BU-wi7" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </constraint>
+                                            <constraint firstAttribute="bottom" secondItem="AI9-qD-ypm" secondAttribute="bottom" constant="21" id="A6s-F1-Dvr"/>
+                                            <constraint firstItem="AI9-qD-ypm" firstAttribute="leading" secondItem="HfE-iz-oKr" secondAttribute="leading" id="Q6M-eY-jX0"/>
                                             <constraint firstItem="tHf-PM-qrK" firstAttribute="top" secondItem="HfE-iz-oKr" secondAttribute="top" constant="-15" identifier="11" id="htw-g9-3Jg"/>
-                                            <constraint firstItem="HfE-iz-oKr" firstAttribute="centerY" secondItem="pce-4w-pRk" secondAttribute="centerY" identifier="16" id="iei-Zh-PQS"/>
+                                            <constraint firstItem="HfE-iz-oKr" firstAttribute="centerY" secondItem="pce-4w-pRk" secondAttribute="centerY" constant="-80" identifier="16" id="iei-Zh-PQS"/>
                                             <constraint firstAttribute="trailing" secondItem="HfE-iz-oKr" secondAttribute="trailing" constant="14" identifier="14" id="jgc-Q1-Ju9" customClass="CustomConstraint" customModule="SID" customModuleProvider="target">
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </constraint>
                                             <constraint firstItem="tHf-PM-qrK" firstAttribute="trailing" secondItem="HfE-iz-oKr" secondAttribute="trailing" constant="17" identifier="12" id="l9u-bd-vzc"/>
+                                            <constraint firstItem="AI9-qD-ypm" firstAttribute="trailing" secondItem="HfE-iz-oKr" secondAttribute="trailing" id="zhH-kY-hQg"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -3701,6 +3729,7 @@ palpation. Refer for further examination if</string>
                     </view>
                     <connections>
                         <outlet property="btnClose" destination="tHf-PM-qrK" id="N5r-Z9-Gdi"/>
+                        <outlet property="collectionView" destination="AI9-qD-ypm" id="nN1-07-9fI"/>
                         <outlet property="txtImplant" destination="3dG-T0-jqX" id="rcf-pn-DDz"/>
                         <outlet property="txtView" destination="Yvx-1D-AqC" id="6rC-r8-eY0"/>
                         <outlet property="viewBlur" destination="pce-4w-pRk" id="gO0-8X-QLA"/>
@@ -3709,7 +3738,7 @@ palpation. Refer for further examination if</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eO3-WM-siM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1513" y="-2126"/>
+            <point key="canvasLocation" x="-1513.125" y="-2126.4084507042253"/>
         </scene>
     </scenes>
     <resources>
