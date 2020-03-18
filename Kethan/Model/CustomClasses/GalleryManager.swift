@@ -21,7 +21,8 @@ class GalleryManager: NSObject {
     
     var croppingStyle = CropViewCroppingStyle.circular
     var crop: Bool = false
-    
+    var showLabel: Bool = false
+
     public init(presentationController: BaseViewController, delegate: GalleryManagerDelegate) {
         self.pickerController = UIImagePickerController()
         super.init()
@@ -39,8 +40,9 @@ class GalleryManager: NSObject {
         
     }
     
-    public func present(croppingStyle: CropViewCroppingStyle, isCrop: Bool, isCamera: Bool) {
+    public func present(croppingStyle: CropViewCroppingStyle, isCrop: Bool, isCamera: Bool, showLabel: Bool) {
         self.crop = isCrop
+        self.showLabel = showLabel
         self.croppingStyle = croppingStyle
         if isCamera == true {
             self.checkPermission()
@@ -123,12 +125,16 @@ class GalleryManager: NSObject {
                 //  }
                 
                 cropController.delegate = self
-                let instructionLabel = UILabel(frame: CGRect(x: 10, y: 20, width: cropController.cropView.frame.size.width-20, height: 70))
-                instructionLabel.numberOfLines = 3
-                instructionLabel.textAlignment = .center
-                instructionLabel.textColor = .white
-                instructionLabel.text = "Please crop out the background to focus on the implant "
-                cropController.cropView.addSubview(instructionLabel)
+                
+                if self.showLabel == true {
+                    let instructionLabel = UILabel(frame: CGRect(x: 10, y: 25, width: cropController.cropView.frame.size.width-20, height: 50))
+                    instructionLabel.numberOfLines = 2
+                    instructionLabel.textAlignment = .center
+                    instructionLabel.textColor = .white
+                    instructionLabel.text = "Please crop out the background to focus on the implant"
+                    cropController.cropView.addSubview(instructionLabel)
+                }
+                
                 cropController.toolbar.doneTextButton.setTitleColor(UIColor.white, for: .normal)
                 cropController.toolbar.cancelTextButton.setTitleColor(UIColor.white, for: .normal)
                 cropController.isAccessibilityElement = true

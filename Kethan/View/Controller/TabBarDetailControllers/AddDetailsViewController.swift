@@ -235,9 +235,9 @@ class AddDetailsViewController: BaseViewController, UITableViewDelegate, UITable
                 // Image Selection
                 cell.cellSelectionCompletion = { index_Path in
                     self.showActionSheet(headerTitle: "Choose Image From", cameraTitle: "Camera", galleryTitle: "Gallery", galleryCompletion: {
-                        self.imagePicker.present(croppingStyle: .default, isCrop: true, isCamera: false)
+                        self.imagePicker.present(croppingStyle: .default, isCrop: true, isCamera: false, showLabel: true)
                     }) {
-                        self.imagePicker.present(croppingStyle: .default, isCrop: true, isCamera: true)
+                        self.imagePicker.present(croppingStyle: .default, isCrop: true, isCamera: true, showLabel: true)
                     }
                 }
                 

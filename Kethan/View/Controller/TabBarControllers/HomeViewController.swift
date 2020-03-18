@@ -127,7 +127,7 @@ class HomeViewController: BaseViewController, GalleryManagerDelegate, CropViewCo
     }
     
     @IBAction func galleryClickAction(_ sender: CustomButton) {
-        self.imagePicker.present(croppingStyle: .circular, isCrop: false, isCamera: false)
+        self.imagePicker.present(croppingStyle: .circular, isCrop: false, isCamera: false, showLabel: false)
     }
     
     @IBAction func flashClickAction(_ sender: CustomButton) {

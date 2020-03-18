@@ -420,7 +420,6 @@ class BaseViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
         browser.initializePageIndex(indexpath.row)
         browser.cordinate = arr
         present(browser, animated: true, completion: {})
-        
     }
     
     // MARK: - Popup Functions -
