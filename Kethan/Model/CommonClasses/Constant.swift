@@ -83,11 +83,11 @@ struct DEVICES {
 }
 
 struct APP_URLS {
-    static let Live = "http://3.135.146.133:3000/api/"
+    static let Live = "https://asksid.com/api/"
     static let Development = "http://3.135.146.133:3000/api/"
     static var Domain: String {
         get {
-            return Development
+            return Live
         }
     }
 }

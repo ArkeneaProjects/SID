@@ -42,7 +42,6 @@ class SubscriptionVM: NSObject {
             ProgressManager.dismiss()
         }
         //used for display purpose(only 2)
-        
     }
     
     func retriveProductInfo(pName: String) {
