@@ -13,7 +13,7 @@ struct PLACEHOLDERS {
     static let medium = "placeholder_medium"
     static let large = "placeholder_larger"
     static let small = "placeholder_smaller"
-
+    
 }
 struct UserDefaultsKeys {
     
@@ -142,7 +142,7 @@ struct SubscriptionPlans {
 
 struct STATICDATA {
     static var arrLeftItems = [["image": "profile", "text": "Profile"], ["image": "changeEmail", "text": "Change Email "], ["image": "changePassword", "text": "Change Password "], ["image": "upgradeSubscription", "text": "Switch Plans"], ["image": "userWalkthrough", "text": "User Walkthrough"], ["image": "faqs", "text": "FAQs"], ["image": "termsOfService", "text": "Terms of Service"], ["image": "privacyPolicy", "text": "Privacy Policy"], ["image": "about", "text": "About the App"], ["image": "support", "text": "Support"]]
-     static var arrLeftItemsWithoutEmail = [["image": "profile", "text": "Profile"], ["image": "upgradeSubscription", "text": "Switch Plans"], ["image": "userWalkthrough", "text": "User Walkthrough"], ["image": "faqs", "text": "FAQs"], ["image": "termsOfService", "text": "Terms of Service"], ["image": "privacyPolicy", "text": "Privacy Policy"], ["image": "about", "text": "About the App"], ["image": "support", "text": "Support"]]
+    static var arrLeftItemsWithoutEmail = [["image": "profile", "text": "Profile"], ["image": "upgradeSubscription", "text": "Switch Plans"], ["image": "userWalkthrough", "text": "User Walkthrough"], ["image": "faqs", "text": "FAQs"], ["image": "termsOfService", "text": "Terms of Service"], ["image": "privacyPolicy", "text": "Privacy Policy"], ["image": "about", "text": "About the App"], ["image": "support", "text": "Support"]]
     static let implantDropDown = ["Skyline lateran Skyline lateran Skyline lateran Skyline lateran.", "Skyline x-ray", "Skyline lateran x-ray", "Skyline a:p lateran", "Skyline a:p lateran x-ray"]
     static let manufacturerDropDown = ["Depuy Skyline", "Depuy ab sky", "Depuy a: lateran ", "Depuy a: lateran x-ray "]
     static let arrSearch = [["image": "image1", "percent": "90 % match", "title": "Skyline a:p lateran ", "subTitle": "Depuy Skyline "], ["image": "image2", "percent": "70 % match", "title": "Spine clips Implant...", "subTitle": "Ruby Healthcare, Pune"], ["image": "image3", "percent": "50 % match", "title": "Lumbar Spine X-ra...", "subTitle": "SGS Healthcare Center."], ["image": "image4", "percent": "65 % match", "title": "Spine x-ray", "subTitle": "GE Healthcare, Pune"], ["image": "image1", "percent": "90 % match", "title": "Skyline a:p lateran", "subTitle": "Depuy Skyline "], ["image": "image2", "percent": "70 % match", "title": "Spine clips Implant...", "subTitle": "Ruby Healthcare, Pune"], ["image": "image1", "percent": "90 % match", "title": "Skyline a:p lateran ", "subTitle": "Depuy Skyline "], ["image": "image2", "percent": "70 % match", "title": "Spine clips Implant...", "subTitle": "Ruby Healthcare, Pune"], ["image": "image3", "percent": "50 % match", "title": "Lumbar Spine X-ra...", "subTitle": "SGS Healthcare Center."], ["image": "image4", "percent": "65 % match", "title": "Spine x-ray", "subTitle": "GE Healthcare, Pune"], ["image": "image1", "percent": "90 % match", "title": "Skyline a:p lateran", "subTitle": "Depuy Skyline "], ["image": "image2", "percent": "70 % match", "title": "Spine clips Implant...", "subTitle": "Ruby Healthcare, Pune"]]
@@ -151,17 +151,17 @@ struct STATICDATA {
     static let arrProcess = ["Locate presence of 1 or 2 rod implant by palpation. Refer for further examination if ", "Anesthetise at the incision site and under the end of the capsule with upto 1ml of 1% ", "Locate presence of 1 or 2 rod implant by palpation. Refer for further examination if ", "Anesthetise at the incision site and under the end of the capsule with upto 1ml of 1% "]
     static let arrResponse = ["Locate presence of 1 or 2 rod implant by palpation. Refer for further examination if not located.", "Clean the sit with antiseptic solution", "Anesthetise at the incision site and under the end of the capsule with upto 1ml of 1% lignocaine (without epinephrine)", "Locate presence of 1 or 2 rod implant by palpation. Refer for further examination if not located.", "Anesthetise at the incision site and under the end of the capsule with upto 1ml of 1% lignocaine (without epinephrine)"]
     
-    static let arrUserGuide = [["image": "step1", "title": "Leverage Artificial Intelligence", "subtitle": "Simply click a picture of the spinal implant or upload one, our system will find the implant’s details and present them to you."],
-                               ["image": "step2", "title": "Search by names", "subtitle": "Don’t have a picture?\nNot to worry for details on any implant just enter the brand and/or the manufacturer and we’ll fetch the implant for you."],
-                               ["image": "step3", "title": "Add Information", "subtitle": "Have something useful for our system to learn? Hit the upload button and add implants and their information to win credits "],
-                               ["image": "step4", "title": "Refer & Earn", "subtitle": "Uploading implant information isn’t the only thing to fetch you credits. Refer a friend to the application and you’ll earn credits when they subscribe."]]
+    static let arrUserGuide = [["image": "step1", "title": "Leverage Artificial Intelligence", "subtitle": "Simply click a picture of the spinal implant, or upload one from your gallery. Our system will then reveal what it believes to be the implant in question."],
+                               ["image": "step2", "title": "Search by names", "subtitle": "Don’t have a picture to send or it is of poor quality? Not to worry! Just enter what you believe to be the manufacturer and brand name, and we will fetch an image for you to review"],
+                               ["image": "step3", "title": "Add Information", "subtitle": "Have something useful for our system to learn? Hit the upload button with your image, and required information (Manufacture and brand),to win credits."],
+                               ["image": "step4", "title": "Refer & Earn", "subtitle": "Uploading implant information is not the only way to fetch you credits. Refer a friend to the application and you will earn credits when they subscribe."]]
     
     static let arrCreditHistory = [["image": "referral", "title": "Referral Rewards", "amount": "+ $ 20", "date": "November 20", "description": "Rewarded for being referred to SID by a friend"], ["image": "upload", "title": "Upload Images Rewards", "amount": "+ $ 10", "date": "November 19", "description": "Rewarded for being uploaded images on Database"], ["image": "referral", "title": "Referral Rewards", "amount": "+ $ 20", "date": "November 12", "description": ""], ["image": "referral", "title": "Referral Rewards", "amount": "+ $ 20", "date": "November 20", "description": "Rewarded for being referred to SID by a friend"]]
     
     static let arrSubscription = [["image": "monthlyBg", "price": "", "plan": "Monthly Plan", "valid": "- Ability to search for implant via text and images. Add implant information for future references.\n- Auto-renewable. Cancel Anytime.\n- Valid for 30 Days\n\nPayment will be charged to iTunes Account at confirmation of purchase. Subscription automatically renews unless auto-renew is turned off at least 24-hours before the end of the current period. Account will be charged for renewal within 24-hours prior to the end of the current period. You can manage or disable subscription by going to the Account Settings after purchase. Any unused portion of a free trial period, if offered, will be forfeited when the user purchases a subscription to that publication, where applicable.", "type": "month"], ["image": "annualBg", "price": "", "plan": "Annual Plan", "valid": "- Ability to search for implant via text and images. Add implant information for future references.\n- Earn Credits and redeem during next subscription. Cancel Anytime\n- Valid for 365 Days\n\nPayment will be charged to iTunes Account at confirmation of purchase. Subscription will not automatically renew for annual subscription at the end of the current period. Account will therefore not be charged. You can cancel subscription by going to the Account Settings after purchase. Any unused portion of a free trial period, if offered, will be forfeited when the user purchases a subscription to that publication, where applicable.", "type": "year"]]
     
-     static let arrProfession = ["Surgeon", "Resident", "Medical Device Representative", "Other"]
-     //static let arrProfession = ["Nurse", "Technical Advisor", "Surgical Advisor", "Doctor/Surgeon"]
+    static let arrProfession = ["Surgeon", "Resident", "Medical Device Representative", "Other"]
+    //static let arrProfession = ["Nurse", "Technical Advisor", "Surgical Advisor", "Doctor/Surgeon"]
 }
 
 struct IDENTIFIERS {
@@ -200,7 +200,7 @@ struct MESSAGES {
     static let errorInLocation = "We got an error while detecting your location. Please try again."
     static let emptySearch = "Enter either manufacture or either brand/name"
     static let selectManufacture = "First select manufacturer name"
-
+    
 }
 
 struct ERRORS {
@@ -287,7 +287,7 @@ struct ENTITIES {
     static let socialPlatform = "socialPlatform"
     static let creditPoint = "creditPoint"
     static let match = "match"
-
+    
     //SearchResult
     static let id = "id"
     static let createdDate = "createdDate"
@@ -310,7 +310,7 @@ struct ENTITIES {
     static let labelOffsetX = "labelOffsetX"
     static let labelOffsetY = "labelOffsetY"
     static let selectedImage = "selectedImage"
-
+    
     //Implant
     static let removalProcess = "removalProcess"
     static let surgeryDate = "surgeryDate"
@@ -320,7 +320,7 @@ struct ENTITIES {
     static let imageName = "imageName"
     static let objectLocation = "objectLocation"
     static let imageObjective = "imageObjective"
-
+    
     //ObjectLocation
     static let top = "top"
     static let left = "left"

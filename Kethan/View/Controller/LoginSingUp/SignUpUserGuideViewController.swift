@@ -30,7 +30,7 @@ class SignUpUserGuideViewController: BaseViewController, UICollectionViewDelegat
         self.collectionView.register(UINib(nibName: IDENTIFIERS.GuideCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: IDENTIFIERS.GuideCollectionViewCell)
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: collectionView.frame.size.width, height: getCalculated(360.0))
+        layout.itemSize = CGSize(width: self.view.frame.size.width, height: getCalculated(360.0))
         layout.minimumLineSpacing = getCalculated(0.0)
         layout.minimumInteritemSpacing = 0
         layout.sectionInset = UIEdgeInsets.zero
@@ -89,7 +89,7 @@ class SignUpUserGuideViewController: BaseViewController, UICollectionViewDelegat
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width, height: getCalculated(360.0))
+        return CGSize(width: self.view.frame.size.width, height: getCalculated(360.0))
     }
     
     // MARK: - ScrollDelegate

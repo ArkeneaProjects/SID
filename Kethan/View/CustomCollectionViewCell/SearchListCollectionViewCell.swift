@@ -13,7 +13,8 @@ class SearchListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lblSubTitle: CustomLabel!
     @IBOutlet weak var lblTitle: CustomLabel!
     @IBOutlet weak var lblMatch: CustomLabel!
-    
+    @IBOutlet weak var btnReport: CustomButton!
+
     @IBOutlet weak var imgPhoto: UIImageView!
     
     override func awakeFromNib() {
@@ -26,6 +27,7 @@ class SearchListCollectionViewCell: UICollectionViewCell {
         self.layoutIfNeeded()
         self.lblMatch.text = " " + obj.match + " "
         self.lblMatch.alpha = (obj.match.count == 0) ?0:1.0
+        self.btnReport.alpha = 1.0
         if obj.imageData.count > 0 {
             
             self.imgPhoto.setImageWithPlaceHolderImage(obj.imageData[0].imageName, true, true, PLACEHOLDERS.medium) {

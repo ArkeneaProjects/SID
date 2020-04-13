@@ -96,6 +96,31 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
         }
     }
     
+    @objc func reportImplant(_ sender: CustomButton) {
+        let controller: ReportViewController = self.instantiate(ReportViewController.self, storyboard: STORYBOARD.main) as? ReportViewController ?? ReportViewController()
+        //controller.arrAllItems = self.selectedImages
+        controller.preparePopup(controller: self)
+        controller.showPopup()
+        controller.addCompletion = { str, brand, imageArray in
+            if str.count > 0 {
+                let dict = ["implantId": (self.searchVM.arrSearchResult[sender.indexPath.row] as SearchResult)._id ,
+                            "suggestedImplantId": brand,
+                            "comment": str,
+                            "imageData": imageArray.jsonString() ]
+                
+                AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.addReporting, parameters: dict as NSDictionary, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
+                    if error == nil {
+                        ProgressManager.showSuccess(withStatus: "Your concern has been raised successfully", on: self.view) {
+                            
+                        }
+                    } else {
+                        ProgressManager.showError(withStatus: error, on: self.view)
+                    }
+                }
+            }
+        }
+    }
+    
     // MARK: - Action
     func apiCall() {
         self.searchVM.rootController = self
@@ -140,8 +165,8 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
                     self.addButton.alpha = 1.0
                     self.lblNoResult.alpha = 1.0
                     self.imgWatermark.alpha = 1.0
-//                    ProgressManager.showError(withStatus: error, on: self.view) {
-//                    }
+                    //                    ProgressManager.showError(withStatus: error, on: self.view) {
+                    //                    }
                 } else {
                     DispatchQueue.main.async {
                         
@@ -166,6 +191,8 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: IDENTIFIERS.SearchListCollectionViewCell, for: indexPath) as? SearchListCollectionViewCell {
             
             cell.configuration(obj: self.searchVM.arrSearchResult[indexPath.row])
+            cell.btnReport.indexPath = indexPath
+            cell.btnReport.addTarget(self, action: #selector(reportImplant(_:)), for: .touchUpInside)
             
             return cell
         }

@@ -53,7 +53,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
             base.navigateToHome((AppConstant.shared.loggedUser.accesstoken.trimmedString().count > 0) ?false:true, true)
         } else {
             base.navigateToHome(true, true)
-            
         }
         return true
     }
