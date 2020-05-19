@@ -49,7 +49,7 @@ class CreditsViewController: BaseViewController, UITableViewDelegate, UITableVie
                     self.creditDivisionArr.append(["value": (i+1)*5, "points": (i+1)*5*4])
                 }
                 
-                self.btnSubscribe.setTitle(self.creditDivisionArr.count == 0 ? "Subscribe with $50" : "Subscribe", for: .normal)
+                self.btnSubscribe.setTitle(self.creditDivisionArr.count == 0 ? "Subscribe with $49.99" : "Subscribe", for: .normal)
                 self.btnDontUse.isHidden = self.creditDivisionArr.count == 0
                 self.creditsUsed = self.creditDivisionArr.count == 0 ? "0" : ""
                 self.creditValue = self.creditDivisionArr.count == 0 ? "0" : ""
@@ -83,7 +83,7 @@ class CreditsViewController: BaseViewController, UITableViewDelegate, UITableVie
         self.btnDontUse.isSelected = !self.btnDontUse.isSelected
         self.creditsUsed = self.btnDontUse.isSelected ? "0" : ""
         self.creditValue = self.btnDontUse.isSelected ? "0" : ""
-        self.btnSubscribe.setTitle(self.btnDontUse.isSelected ? "Subscribe with $50" : "Subscribe", for: .normal)
+        self.btnSubscribe.setTitle(self.btnDontUse.isSelected ? "Subscribe with $49.99" : "Subscribe", for: .normal)
         self.tblView.reloadData()
         self.selectedIndex = nil
     }

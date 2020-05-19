@@ -84,6 +84,7 @@ struct DEVICES {
 
 struct APP_URLS {
     static let Live = "https://asksid.com/api/"
+    static let SelfSignCert = "asksid.com"
     static let Development = "http://3.135.146.133:3000/api/"
     static var Domain: String {
         get {

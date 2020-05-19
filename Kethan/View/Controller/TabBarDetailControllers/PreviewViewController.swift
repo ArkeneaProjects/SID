@@ -34,7 +34,7 @@ class PreviewViewController: BaseViewController {
         
         print("Dimention==\(cropView.getCropViewDimention().frame)")
         let subscription = SubscriptionVM()
-        subscription.checkSubscription(apiCallFrom: 1, manufecture: "", brandname: "", image: self.cropView.image!.resized(withPercentage: 0.4), rootController: self)
+        subscription.checkSubscription(apiCallFrom: 1, manufecture: "", brandname: "", image: self.cropView.image!.resized(withPercentage: 0.5), rootController: self)
     }
     /*
      // MARK: - Navigation

@@ -74,9 +74,10 @@ class SearchVM: NSObject {
         
         AFManager.sendMultipartRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.SearchByImage, parameters: dict, multipart: imageArray, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
             if error != nil {
-                // ProgressManager.showError(withStatus: error, on: self.rootController?.view) {
+//                 ProgressManager.showError(withStatus: error, on: self.rootController?.view) {
+
                 completion(error ?? "")
-                // }
+         //        }
                 
             } else {
                 if let dict = response as? NSDictionary, let implantDict = dict.value(forKeyPath: "implantApi") as? NSDictionary {

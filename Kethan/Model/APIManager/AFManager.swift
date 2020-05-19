@@ -23,10 +23,10 @@ class AFManager: NSObject {
     static var AlamofireManager: Alamofire.SessionManager = {
         let configuration = URLSessionConfiguration.default
         configuration.httpAdditionalHeaders = Alamofire.SessionManager.defaultHTTPHeaders
-        configuration.timeoutIntervalForRequest = 10
-        configuration.timeoutIntervalForResource = 10
+        configuration.timeoutIntervalForRequest = 30
+        configuration.timeoutIntervalForResource = 30
         
-        let serverTrustPolicies: [String: ServerTrustPolicy] = [APP_URLS.Domain: .disableEvaluation]
+        let serverTrustPolicies: [String: ServerTrustPolicy] = [APP_URLS.SelfSignCert: .disableEvaluation]
         let manager = Alamofire.SessionManager(configuration: URLSessionConfiguration.default, serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies))
         return manager
     }()
@@ -36,8 +36,8 @@ class AFManager: NSObject {
         let configuration = URLSessionConfiguration.background(withIdentifier: "abc.background")
         
         //Default timeout
-        configuration.timeoutIntervalForRequest = 10
-        configuration.timeoutIntervalForResource = 10
+        configuration.timeoutIntervalForRequest = 30
+        configuration.timeoutIntervalForResource = 30
 
         var manager = Alamofire.SessionManager(configuration: configuration)
         
@@ -224,7 +224,7 @@ class AFManager: NSObject {
                 }
             } else if error != nil {
                 // completion(nil, error!.localizedDescription, error!.code)
-                if error?.localizedDescription == "The network connection was lost." {
+                if error?.localizedDescription == "The network connection was lost." || error?.localizedDescription == "Could not connect to the server." {
                     if 3 > serviceCount {
                         var reqCount: NSInteger = 2
                         if serviceCount == 0 {
@@ -232,7 +232,11 @@ class AFManager: NSObject {
                         } else if serviceCount == 1 {
                             reqCount = 2
                         }
+                        if urlSuffix == "implant/analyzeImage" {
+                            sendMultipartRequestWithParameters(method: method, urlSuffix: urlSuffix, parameters: parameters, multipart: multipart, serviceCount: reqCount, completion: completion)
+                        } else {
                         sendPostRequestWithParameters(method: method, urlSuffix: urlSuffix, parameters: parameters, serviceCount: reqCount, completion: completion)
+                        }
                     } else {
                         completion(nil, error?.localizedDescription, "")
                     }
