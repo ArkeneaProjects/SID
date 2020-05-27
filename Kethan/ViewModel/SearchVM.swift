@@ -67,12 +67,20 @@ class SearchVM: NSObject {
     func numberofItems(section: Int) -> Int {
         return self.arrSearchResult.count
     }
-    
-    func getSearchByImage(imageArray: NSArray, completion: @escaping (_ error: String) -> Void) {
+    func convertImageToBase64String (img: UIImage) -> String {
+        let imageData: NSData = img.jpegData(compressionQuality: 0)! as NSData
+        let imgString = "data:image/png;base64," + imageData.base64EncodedString()
+      //  let imgString = "data:image/png;base64," + (img.sd_imageData()?.base64EncodedString())
+        return imgString
+    }
+    func getSearchByImage(image: UIImage, imageArray: NSArray, completion: @escaping (_ error: String) -> Void) {
         
-        let dict: NSDictionary = [:]
-        
-        AFManager.sendMultipartRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.SearchByImage, parameters: dict, multipart: imageArray, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
+        let dict: NSDictionary = ["implantPicture": self.convertImageToBase64String(img: image)]
+
+//        AFManager.sendMultipartRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.SearchByImage, parameters: dict, multipart: imageArray, serviceCount: 0) { (response: AnyObject?, error: String?, errorCode: String?) in
+            
+            AFManager.sendPostRequestWithParameters(method: .post, urlSuffix: SUFFIX_URL.SearchByImage, parameters: dict, serviceCount: 1) { (response: AnyObject?, error: String?, errorCode: String?) in
+
             if error != nil {
 //                 ProgressManager.showError(withStatus: error, on: self.rootController?.view) {
 

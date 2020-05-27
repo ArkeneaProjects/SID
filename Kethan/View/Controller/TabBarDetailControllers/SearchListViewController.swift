@@ -133,7 +133,7 @@ class SearchListViewController: BaseViewController, UICollectionViewDelegate, UI
         if self.isCalledFrom == 1 {
             
             let imageDict  = saveImageInDocumentDict(image: self.searchImage!, imageName: "photo", key: "implantPicture")
-            self.searchVM.getSearchByImage(imageArray: [imageDict]) { (error) in
+            self.searchVM.getSearchByImage(image: self.searchImage!, imageArray: [imageDict]) { (error) in
                 self.gradientSkeltonShowHide(isShow: false)
                 if self.searchVM.arrSearchResult.count == 0 {
                     //                    self.lblResultCount.text = error
